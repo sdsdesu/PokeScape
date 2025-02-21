@@ -1875,6 +1875,22 @@ const u8 gText_GranitePouch[] =_("Granite Pouch");
 const u8 gText_AncientPouch[] =_("Ancient Pouch");
 const u8 gText_ElementalPouch[] =_("Elemental Pouch");
 
+//List Mahjarrats
+const u8 gText_Akthanakos[] = _("Akthanakos");
+const u8 gText_Azzanadra[] = _("Azzanadra");
+const u8 gText_Bilrach[] = _("Bilrach");
+const u8 gText_Enakhra[] = _("Enakhra");
+const u8 gText_Hazeel[] = _("Hazeel");
+const u8 gText_Jhallan[] = _("Jhallan");
+const u8 gText_Khazard[] = _("Khazard");
+const u8 gText_Kharshai[] =_("Kharshai");
+const u8 gText_Lucien[] =_("Lucien");
+const u8 gText_Sliske[] =_("Sliske");
+const u8 gText_Trindine[] =_("Trindine");
+const u8 gText_Wahisietel[] =_("Wahisietel");
+const u8 gText_Zemouregal[] =_("Zemouregal");
+
+
 //cheat menu
 const u8 gText_CheatEvolutionShop[] =_("Evolution Items");
 const u8 gText_CheatPouchShop[] = _("Pouch Items");

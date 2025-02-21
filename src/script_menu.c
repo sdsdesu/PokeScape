@@ -790,6 +790,31 @@ static const struct ListMenuItem sPouchCraftingList[] =
 	{gText_Exit, 16},
 };
 
+//Zemouregals list of Mahjarrat 
+//not sure this works
+static const struct ListMenuItem sMahjarratList[] =
+{
+	{gText_Akthanakos, 0},
+	{gText_Azzanadra, 1},
+    {gText_Bilrach, 2},
+	{gText_Enakhra, 3},
+	{gText_Hazeel, 4},
+	{gText_Jhallan, 5},
+	{gText_Khazard, 6},
+	{gText_Kharshai, 7},
+	{gText_Lucien, 8},
+	{gText_Sliske, 9},
+	{gText_Trindine, 10},
+	{gText_Wahisietel, 11},
+    {gText_Zemouregal, 12},
+	{gText_Exit, 13},
+};
+
+
+
+
+
+
 struct
 {
 	const struct ListMenuItem *set;
@@ -797,6 +822,7 @@ struct
 } static const sScrollingSets[] = 
 {
 	{sPouchCraftingList, ARRAY_COUNT(sPouchCraftingList)},
+    {sMahjarratList, ARRAY_COUNT(sMahjarratList)},
 	
 };
 

@@ -8800,6 +8800,36 @@
       "secondary_tileset": "gTileset_IndoorTowns2",
       "border_filepath": "data/layouts/Varrock_House_10/border.bin",
       "blockdata_filepath": "data/layouts/Varrock_House_10/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZEMOUREGALSBASE_BF1",
+      "name": "Zemouregalsbase_BF1_Layout",
+      "width": 60,
+      "height": 50,
+      "primary_tileset": "gTileset_PokeScapeOutdoors",
+      "secondary_tileset": "gTileset_Lumbridge_Swamp_Caves",
+      "border_filepath": "data/layouts/Zemouregalsbase_BF1/border.bin",
+      "blockdata_filepath": "data/layouts/Zemouregalsbase_BF1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZEMOUREGALSBASE_BF2",
+      "name": "Zemouregalsbase_BF2_Layout",
+      "width": 50,
+      "height": 18,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_PokeScape_Sewers",
+      "border_filepath": "data/layouts/Zemouregalsbase_BF2/border.bin",
+      "blockdata_filepath": "data/layouts/Zemouregalsbase_BF2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ZEMOUREGALSBASE_BF3",
+      "name": "Zemouregalsbase_BF3_Layout",
+      "width": 28,
+      "height": 24,
+      "primary_tileset": "gTileset_PokeScapeOutdoors",
+      "secondary_tileset": "gTileset_PokeScape_Sewers",
+      "border_filepath": "data/layouts/Zemouregalsbase_BF3/border.bin",
+      "blockdata_filepath": "data/layouts/Zemouregalsbase_BF3/map.bin"
     }
   ]
 }

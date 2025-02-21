@@ -3084,6 +3084,26 @@ extern const u8 gText_GranitePouch[];
 extern const u8 gText_AncientPouch[];
 extern const u8 gText_ElementalPouch[];
 
+//pokescape list of Mahjarrats
+
+extern const u8 gText_Akthanakos[];
+extern const u8 gText_Azzanadra[];
+extern const u8 gText_Bilrach[];
+extern const u8 gText_Enakhra[];
+extern const u8 gText_Hazeel[];
+extern const u8 gText_Jhallan[];
+extern const u8 gText_Khazard[];
+extern const u8 gText_Kharshai[];
+extern const u8 gText_Lucien[];
+extern const u8 gText_Sliske[];
+extern const u8 gText_Trindine[];
+extern const u8 gText_Wahisietel[];
+extern const u8 gText_Zemouregal[];
+
+
+
+
+
 //pokescape starter menu
 
 extern const u8 gText_GuthlingStarter[];

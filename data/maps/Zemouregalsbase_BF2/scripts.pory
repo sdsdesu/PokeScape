@@ -1,0 +1,389 @@
+
+
+
+
+mapscripts Zemouregalsbase_BF2_MapScripts{
+}
+
+
+script BATTLE_ZEMOUREGALBASE_ZOMBIECHEF{
+	trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_ZOMBIECHEF, format("Hey, don't enter my Bedroom"),format("I cant stop you I gess."))
+    namebox("Zon Beh")
+	faceplayer
+    msgbox(format("Don't mess with my bed. Who do you think you are?"))
+   	closemessage
+}
+
+
+script ITEM_ZEMOUREGALBASE_ITEM_3
+{
+    finditem(ITEM_CABBAGE)
+    end
+}
+
+
+
+//wizards
+ script zemouregal_wizard_1 {
+	lockall
+	//Zestro
+	faceplayer
+	random(3)
+	switch (var(VAR_RESULT)) {
+            case 0: 
+                namebox("Dark Wizard")
+    			msgbox(format("So you beat master Zemouregal? You don't look so tough"))
+				closemessage
+			end
+            case 1: 
+			    namebox("Dark Wizard")
+                msgbox(format("I have hope that one day Our Lord Zamorak will return and liberate us from this gods forsaken world."))
+				closemessage
+			end
+			case 2: 
+			    namebox("Dark Wizard")
+                msgbox(format("I for one, welcome our Zemouregal overlord."))
+				closemessage
+			end
+			case 3: 
+			    namebox("Dark Wizard")
+                msgbox(format("Don't snif up grinded up miasma runes. Worst idea I ever had."))
+				closemessage
+			end
+	}
+	releaseall
+ }
+
+script zemouregal_wizard_2 {
+	lockall
+	faceplayer
+	namebox("Lovand")
+    msgbox(format("You know the appantice of the anchient necormancer Oreb? He has been collecting lots of monsters is moving them to a strange island. He seems to hang around Ferox Enclave to try an reacruit peaple for something he calls a soul war."))
+	closemessage
+	releaseall
+ }
+
+script zemouregal_wizard_3 {
+	lockall
+	faceplayer
+	 namebox("Shender")
+    msgbox(format("Where is Zemouregal? I need to se him immediately. The archaeologists in the digsite found The location of the Infernal Source. We need to act quickly, if we want any of the second age treasures and achient demonic artafacts from the place. The black knights might take everything if we're not fast enough. We where able to intercept a Kinshra spies that tried to notify Lord Daquarius but we can't hold them of for to long.")) 
+	closemessage
+	releaseall
+}
+
+
+script zemouregal_wizard_4 {
+	lockall
+	faceplayer
+	namebox("Ricex")
+    msgbox(format("Lord Zemouregal send Ghundar to Zeah to investigate some Dark Altar. We haven't heared of him in months since than. I hope i'm not the next one Zemouregal sends.")) 
+	closemessage
+	releaseall
+}
+
+
+script zemouregal_wizard_5 {
+	lockall
+	faceplayer
+	namebox("Skarannen")
+    msgbox(format("Their is a dragonkin necromancer somewhere within the eastern oceans. Within the shadow reef he dwells, as his servants fight the endless hordes of bots.")) 
+	closemessage
+	releaseall
+}
+
+
+script zemouregal_wizard_6 {
+	lockall
+	faceplayer
+	namebox("Necro Tutor")
+    msgbox(format("I can teach your monsters powerfull necromaner spells. Do you want to learn any of these spells?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+    { 	
+		namebox("Necro Tutor")
+    	msgbox(format("Great! What move do you wish to learn your monsters?"))
+		msgbox(format("Move tutor and new moves are not implemented jet")) 
+	}
+	else
+	{
+		namebox("Necro Tutor")
+    	msgbox(format("Coward."))
+	}
+	closemessage
+	releaseall
+}
+
+
+//statue
+script Zemouregal_statue {
+	lockall
+	msgbox(format("A small statue of Zemouregal putting both of his tumbs up.\nYou feel like your being watched.")) 
+	closemessage
+	releaseall
+}
+
+
+
+
+
+
+
+script Zemouregal_Book_InfernalSource {
+	lockall
+	msgbox(format("A book named the history of The Infernal Source.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+    { 
+		msgbox(format("When Zaros discovered Gielinor, young gods like Saradomin and Tumeken ruled vast and unrivaled empires with massive armies."))
+		msgbox(format("Zaros didn't want to move his demon hordes trough The Abbys, out of fear of losing to many troops. This is why he only brought the Chthonian demon Duke Nemesis and his First Legion of Avernic slaves to Gilinor, to build a permanent solution to this problem."))
+		msgbox(format("continue ?"),MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+    	{ 
+			msgbox(format("Zaros and his demon servants captured the ancient colossus Loarnab, an ancient hydra born from Gielinors Anima Mundi. Zaros used the body of the Hydra to create a permanent portal that would connect Gielinor and Infernus, so his legions of demons could freely flow into Gielinor."))
+			msgbox(format("The infernal source became the center of Senntisten, the capital of the Zarosian empire."))
+			msgbox(format("continue ?"),MSGBOX_YESNO)
+			if (var(VAR_RESULT))
+    		{ 
+				msgbox(format("This infernal source was destroyed by Saradomin after the death of Zaros. Saradomin banished Zamorak to Infernus for killing his ally Zaros and destroyed the infernal source to ensure he couldn't return to Gielinor."))
+				msgbox(format("continue ?"),MSGBOX_YESNO)
+				if (var(VAR_RESULT))
+    			{
+					msgbox(format("During the second half of the second age, Zamorak liberated the Avernic slaves from their Chthonian overlords and became the Ruler of Infernus."))
+					msgbox(format("During the Zamoraks conquest of the Infernus, the Saradominists started their own conquest. The Saradominists turned against their Zarosian allies the moment the Infernal Source was destroyed, as the remaining Zarosian loyalists where stranded and isolated from the great demonic Legions in Infernus."))
+					msgbox(format("continue ?"),MSGBOX_YESNO)
+					if (var(VAR_RESULT))
+					{
+						msgbox(format("The southern parts of the Zarosian Empire where easily absorbed by the Saradominsts. And this powerlessness fueled Zamorakian cults within the former Zarosian empire."))
+
+						msgbox(format("On of these secret cults was the Order of Dis. A group that gathered parts of the old infernal source to reassemble it. They would build and restore the Infernal Source with human sacrifices."))
+					}	
+				}
+			}
+		}
+	}
+	
+	releaseall
+}
+
+script Zemouregal_Book_IsleOfSouls {
+	lockall
+	msgbox(format("A book named the island Of Souls.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+    { 
+		msgbox(format("The island of souls is a big island located in in the west of the Feldip Hills. It was famously uninhabitable throughout the forth age, as to many restless Tirth age Revenants roamed the land."))
+		msgbox(format("Ghosts of ogres, orcs, goblins, demons and aviansies roamed this island over the ages and attacked lost sailors that strand on this island. These hostile revenants are the reason why many avoided this land and why it was named the Isle of Souls."))
+
+		msgbox(format("continue ?"),MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+    	{ 
+			msgbox(format("The island was once a battlefield where millions Armadyleans and Bandosians soldiers died. This happened during a minor conflict during the God Wars. The unburied souls of soldiers that died in this conflict are the main reason why this land was always haunted."))
+			msgbox(format("The island was home to an artifact and followers of the gods Bandos and Armadyl, two gods aligned with Saradomin, had to protect it. The Saradominist and their allies didn't want to give this ancient and powerful artifact to Zamorak and his allies. This is why both gods send their armies to the island to defend the artifact from hordes of fire fiends."))
+			msgbox(format("continue ?"),MSGBOX_YESNO)
+			if (var(VAR_RESULT))
+    		{
+				msgbox(format("Bandos believed the war was ending. He personally pacified Karamja defeating all Zamoraks allies on the continent. He crushed 'The Champion of the Elder Kiln' and locked him back in the volcano that forged him. He butchered Zur-Gar in front of his children who scattered back into the jungles. Zamorak was quickly losing all of his divine allies. It was also obvious who the Saradominsit alliance would turn against once Zamorak was gone. This is why Bandos chose to turn against his Armadylean allies and collect the artifact as a bargaining chip."))
+				msgbox(format("The Bandosians won a bloody conflict with the Armadyleans as Bandos collected the artifact. His armies abandoned the island as the war raged on the mainland. Goblin scavengers would periodically scavenge the battlefields for weapons. But the Isle Of Souls was picked clean at the start of the Forth age."))
+				msgbox(format("continue ?"),MSGBOX_YESNO)
+				if (var(VAR_RESULT))
+				{
+					msgbox(format("The Isle of Souls would stay uninhabited until recently. A necromancer named Nomad started to collect the broken souls of the island to make it more inhabitable land. The necromancer has built a great MvM arena on the island and is challenging trainers all over Gielinor."))
+					msgbox(format("It's currently unknown what Nomad is planning with all the revenant souls he collected and with his MvM arena on the abandoned island he claimed for himself. Lucien seems to keep a close eye on the strange character, believing the man is a potation treat."))
+				}
+			}
+		}
+	}
+	releaseall
+}
+
+
+
+script Zemouregal_Book_DarkAltar {
+	lockall
+	msgbox(format("A book named the Dark Altar of Arceuus.\pWARNING: This is a long book, do you realy want to read it?"),MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+    { 
+		msgbox(format("within the north of the kingdom of Kourend, north of the city of Arceuus, lays an ancient altar holding great and ancient magics, possibly predating guthix' arrival on gielinor. The blackstone altar created rifts in the surrounding areas. These strange rifts are connected to the true death, soul and blood altars of geilinor, making it possible to craft runes on them. The altar also has other properties. The Altar can both be used for summoning and necromancy. The altar is able to summon monsters seemingly out of nowhere. The altar also makes resurrecting ensouled bodies easier as the altar seems to irradiate an ominous atmosphere."))
+		msgbox(format("continue ?"),MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+   		{ 
+			msgbox(format("This Dark Altar wasn't always located on the north of Kourend. It used to be located in an ancient temple in the Kharazi jungle on the Karamjan continent. It was first discovered by Pontifex Bilrach during one of his expeditions."))
+			msgbox(format("The Dark Altar would be moved a by the Avernic demon Skotizo during Zamoraks rebellion in the second age. Zamorak didn't want the altar to fall into the hands of Duke Orcus and other loyalists. But Skotizo betrayed Zamorak, trying to use the power of the altar for himself."))
+			msgbox(format("Fleeing from both sides of the civil war, Skotizo used the power of the dark altar to summon dangerous creatures to distract his pursuers. The demon first fled to Tirannwn and then sailed the ocean to reach the continent of Zeah. There he placed the altar on its current location."))
+			msgbox(format("continue ?"),MSGBOX_YESNO)
+			if (var(VAR_RESULT))
+   			{ 
+				msgbox(format("Refugees of the god wars during the middle of the third age started to colonize the newly discovered land and build the city of Arceuus around it. It influenced the development of the city and the rest of the Great Kourend."))
+				msgbox(format("King Shayzien the Seventh would use the Dark Altar to become an immortal godking and create armies of lizardmen that worship him to this day as their god Xeric. With his new found powers and his mindless lizardmen foot soldiers, King Xeric killed the other rulers of the cities within the lands that now are the Great Kourend."))
+			}
+		}
+	}
+	releaseall
+}
+
+
+script Zemouregal_Book_BlackStone {
+	lockall
+	msgbox(format("A book named The Mwanu of The Cursed Archipeligo.\pWARNING: This is a long book, do you realy want to read it?"),MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+    { 
+		msgbox(format("There is an Island in the Cursed Archipelago in the eastern sea inhabited by strange tall apes called the Mwanu. These mysterious aggressive apes are cannibalistic and practice necromancy. These beasts have terrorized sailors that visited the Cursed Archipelago for millennials. This is why sailors gave them the name 'horrors'."))
+		msgbox(format("The Mwanu worship a deity called Tezcasathla also known as The Hundred-Handed One. A deity with many Blackstone hands grasping and consuming all living things it can. The Mwanu associate this god with death, the ocean and the Blackstone Pillars found in the Cursed Archipelago. The Mwanu covet Blackstone viewing it as a part of their great deity. They made Blackstone ritual masks for ritualistic sacrifices to oppose their god."))
+		msgbox(format("continue ?"),MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+    	{
+			msgbox(format("These apes where first discovered in the second age by the crew of the exploration vassal with the lamest name: 'The Glory of Zaros'. The crew had to return to the mainland as the captain was driven insane by the necromantic powers of the Mwanu. The captain landed in the Senntisten Asylum. Under the care of the Mahjarrat Nabor."))
+			msgbox(format("The Praefectus Praetorio Sliske, head of the inquisition of the Empire, visited the Asylum and heard the ramblings of the captain and was immediately interested by it. The captain called Siliske Bob and rambled about how he couldn't save them from something he called Xau-Tak."))
+			msgbox(format("Sliske would search the crewmembers of The Glory of Zaros that survived their encounter with the Mwanu. The crew was never cooperating with the head of the inquisition. Every crewmember would become hysterical when Sliske mentioned Xau-Tak. Every crewmember had a different outbursts when hearing the name and would die shortly after these outbursts. This death would either be self-inflicted or done by onlookers."))
+			msgbox(format("The information Siliske got was not entirely useless however. He was able to roughly recreate the voyage the Glory of Zaros took to the Cursed Archipelago. He also learned of ancient cities of Blackstone hidden in the abyssal depths were The Ambassador sings in his Silent Choir."))
+			msgbox(format("continue ?"),MSGBOX_YESNO)
+			if (var(VAR_RESULT))
+    		{
+				msgbox(format("Sliske send exploratory vessels to where he believed the Cursed Archipelago was located. One of these crews discovered the masked apes worshiping totems of Blackstone described by Siliske. The crew had orders from Siliske to bring everything they could back to the empire for his study. This is why the crew captured several Mwanu, took several of the blackstone tools and masks and lastly one of the Blackstone pillars the apes worshiped."))
+				msgbox(format("The ship was struck with bad luck and insanity. A grand storm struck the ship, killing most of the members of the ship. During the storm the Mwanu managed to escape and caused mayhem on the ship. The ship would shipwreck near the City of Uzer with no living Mwanu onboard and most of the crew either death or lost at sea."))
+				msgbox(format("continue ?"),MSGBOX_YESNO)
+				if (var(VAR_RESULT))
+				{
+					msgbox(format("Siliske would hear of the nightmarish conditions of the journey. A decapitated ape head of that would taunt the crew even in death. The crew members that where compelled to jump into the ocean to 'join Kranon'. Siliske would also discover the crews adverse reactions to the name Xau-Tak. Confirming the same madness that took the original crew also struck the crew of his own expedition."))
+					msgbox(format("The Mahjarrat was able to recover the Ancient Blackstone pillar, several Blackstone masks, one of the corpses of the Mwanu. He would attempt to resurrect the Mwanu and was surprised how easy it was to manipulate it as a Thrall. He later send the Ancient Blackstone pillar to Lassar to study it in an isolated dungeon."))
+				}
+			}
+		}
+	}
+	releaseall
+}
+
+script Zemouregal_Plans {
+	lockall
+	msgbox(format("Zemouregal plans."))
+	msgbox(format("1) Liberate the peaple of Avarrocka from their stupidity. It has to be done.\p2) Rebuild the city of Sentisten and became the lord of the city again. The Zarozian loyalists will no longer make fun of me for my short rule.\p3) Rebuild the inqusion and the church. The inquision will arrest Zarozian loyalists and the church will worship my gratness. Not sure who will be the Pontifex Maximus but Sharathteerk seems to be a decent candidate for the Praefectus Praetorio.\p3) Use the new inquisition to round up all the Zarozian loyalist. Their as backwards as that stupid lapdog Temekel was.\p4) Collect an elder artafact and acend to godhood. Mah told the Mahjarat I was destined for greatness and I shall proof it to them."))
+			
+	closemessage
+	releaseall
+}
+
+
+script Zemouregal_Books {
+	lockall
+	msgbox(format("Filled with zamorakian lorebooks writen by a dyslexic fool."))
+	releaseall
+}
+
+
+
+
+script Zemouregal_ListMahjarrats {
+	lockall
+	message(format("Zemouregals list of Mahjarrats, these are ones aren't scratched out."))
+	scrollingmultichoice (1, 1, 1, 5, TRUE)
+	switch (var(VAR_RESULT))
+	{
+		case 0://Akthanakos
+		msgbox(format("Name: Akthanakos\pAliance: Zarosian\pLocation: Somewhere in the Kharidian Desert"))
+		
+		msgbox(format("This is an individual who has not been seen since the God Wars, but his presence is still felt on Gielinor. He's presumably still loyal to Zaros."))
+		msgbox(format("Addition"))
+		msgbox(format("Akthanakos has re-emerged. Apparently, he and Enakhra were engaged in a continual struggle for thousands of years. He still lives those outdated Zarosian ideals. I just don't get it. I know Zaros freed us, but he'll never understand the path of chaos. If Akthanakos can be caught, he could be a good choice for a sacrifice soon."))
+		case 1://Azzanadra
+		msgbox(format("Name: Azzanadra\pAliance: Zarosian\pLocation: Last spotted in the Varrock Dig Site"))
+		
+		msgbox(format("A powerful adversary and Zaros's champion. Has been contained since the God Wars. We have not dared free him for a ritual yet. We should do so soon, while Zamorakian numbers are still high enough to handle him."))
+		msgbox(format("Addition"))
+		msgbox(format("Reports indicate that Zaros's champion is free. This is bad news - he is a real danger. We should be vigilant. The next ritual could be a real test."))
+
+		case 2://Bilrach
+		msgbox(format("Name: Bilrach\pAliance: Zamorakian\pLocation: Somewhere in Forinthry?"))
+
+		msgbox(format("Bilrach is of average power for our kind. He seems willing to go along with what I suggest, so he will be useful for now."))
+		msgbox(format("Addition"))
+		msgbox(format("The next ritual approaches and unusually, Bilrach is yet to have appeared. I wonder what he's up to."))
+
+
+		case 3://Enakhra
+		msgbox(format("Name: Enakhra\pAliance: Zamorakian\pLocation: Somewhere in the Kharidian Desert"))
+
+
+		msgbox(format("Another who has not been seen since the God Wars, but whose presence is still felt."))
+		msgbox(format("Addition"))
+		msgbox(format("Well, Enakhra has re-emerged at last. She reported to us that she had been in a continual struggle with Akthanakos all this time. I'd hoped her return might have meant an opportunity to sire more of our race, but she spurned my offer. Pah!"))
+
+
+		case 4://Hazeel
+		msgbox(format("Name: Hazeel\pAliance: Zamorakian\pLocation: The Ardougne sewers"))
+
+
+		msgbox(format("One of the Zamorak-aligned faction. A worthy warrior. Generally, I'd consider Hazeel an ally.\pHazeel seems to be gaining in power. He has gained many followers and much territory.\pDisaster has struck for Hazeel: Saradomin-worshipping human filth have conquered his teritory and put him into a state of torpor. The question is, will his followers be able to revive him before the next ritual?"))
+		msgbox(format("Addition"))
+		msgbox(format("Well, his followers may have left things rather last- minute, but they've managed it - Hazeel is back in play!"))
+
+
+
+		case 5://Jhallan
+		msgbox(format("Name: Jhallan\pAliance: Zarosian\pLocation: Cowering in fear"))
+
+
+		msgbox(format("One of the weakest of our race. He did not even dare attend the last ritual, so he will be even weaker now. I'm ashamed to even call him a Mahjarrat."))
+		
+
+		case 6://Khazard
+		msgbox(format("Name: Hazeel\pAliance: Zamorakian\pLocation: His areana south of Ardougne"))
+
+		msgbox(format("Khazard is the youngest of our race on Gielinor. He was born towards the end of the God Wars, shortly before the death of his mother, Palkeera. Under Hazeel's tutelage, he is becoming a force to be reckoned with."))
+		msgbox(format("Addition"))
+		msgbox(format("This young Mahjarrat is proving adept at manipulating weak-minded humans. As such, he has built up a sizeable territory and following. He is cunrently a trusted general of one of King Lathas of Ardougne armies."))
+
+
+		case 7://Kharshai
+		msgbox(format("Name: Kharshai\pAliance: Both Zamorakian and Zarosian\pLocation: No idea"))
+
+		msgbox(format("A Mahjarrat of merely average power. Generally has kept himself out of trouble by going along with the majority, but with no specific close allies he could be in danger at some point."))
+		msgbox(format("Addition"))
+		msgbox(format("Strangely, Kharshai has disappeared. I did not think him so weak that he would be one of the Mahjarrat who chose to miss the last ritual. Maybe I overestimated him."))
+
+		case 8://Lucien
+		msgbox(format("Name: Lucien\pAliance: Zamorakian\pLocation: His camp on the border of the North and Forinthry"))
+
+		msgbox(format("Lucien is a powerful mage and my cousin. I trust him at least as much as any of the others - which still isn't very much."))
+		msgbox(format("Addition"))
+		msgbox(format("Lucien seems to have been getting very powerful of late."))
+		
+		case 9://Sliske
+		msgbox(format("Name: Sliske\pAliance: Zarosian\pLocation: Last spotted in the Kharidian Desert"))
+					
+		msgbox(format("One of the more powerful of our number. Sliske has particularly strong shapeshifting capabilities and powers over shadows. Lurking in those shadows seems to be his preference, as he only shows his face around the rituals. I would love to catch this guy, but he's a slippery fellow."))
+		msgbox(format("Addition"))
+		msgbox(format("Word from Hazeel is that Sliske has reappeared in a dramatic fashion, even by his standards. He's managed to dig up Zaros' old horn and claims the upcoming ritual will be 'the final Ritual of the Mahjarrat'. Sounds like things are going to get interesting."))
+		
+
+
+		case 10://Trindine
+		msgbox(format("Name: Trindine\pAliance: Zarosian\pLocation: Not seen since the Second age"))
+					
+		msgbox(format("A elusive Mahjarrat. This Mahjarrat has not been seen since the siege of Kharid-et. She has ever showed up to any Ritual since the fall of the Zarosian Empire. This is the main reason why the others assume she is death. But we where never able to confirm this fact. Trindine is an addapt shapeshifer like her old mentor Sliske. She used this power to in the day to spy on enemies of The Empire. It's always a posibility that she could have had impersonated one of the Mahjarrat or one of their servants during one of the rituals."))
+		
+
+		case 11://Wahisietel
+		msgbox(format("Name: Wahisietel\pAliance: Zarosian\pLocation: No idea"))
+		
+		msgbox(format("A Mahjarrat of average power. Keeps himself to himself mostly. He doesn't seem to like me much. Rumours are that he may have Zarosian sympathies. He'd be a good candidate for sacrifice."))
+		msgbox(format("Addition"))
+		msgbox(format("The coward manipulated some fool to rob me. I will not rest until I find him and reclaim what rightfully mine. I won't spare him for this rituals sacrifice."))
+		
+
+
+		case 12://Zemouregal
+		msgbox(format("Name: Zemouregal\pAliance: myself\pLocation: right here"))
+		
+		msgbox(format("This is me. I'm amazing."))
+		default:
+		closemessage
+
+	}
+
+
+
+
+
+	releaseall
+}
+
+
+

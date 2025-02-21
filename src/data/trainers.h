@@ -5442,6 +5442,149 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_SIR_OWEN_1),
     },
 
+
+ [TRAINER_ZEMOUREGAL_BASE_SKULLY_1] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags =AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_1),
+    },
+
+ [TRAINER_ZEMOUREGAL_BASE_SKULLY_2] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party =TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_2),
+    },
+
+ [TRAINER_ZEMOUREGAL_BASE_SKULLY_3] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_3),
+    },
+ [TRAINER_ZEMOUREGAL_BASE_SKULLY_4] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_4),
+    },
+     [TRAINER_ZEMOUREGAL_BASE_SKULLY_5] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_5),
+    },
+     [TRAINER_ZEMOUREGAL_BASE_SKULLY_6] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_6),
+    },
+     [TRAINER_ZEMOUREGAL_BASE_SKULLY_7] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_7),
+    },
+     [TRAINER_ZEMOUREGAL_BASE_SKULLY_8] =
+    {
+        .trainerClass = TRAINER_CLASS_SKELETON,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_skeleton,
+        .trainerName = _("Boneguard"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_SKELLETON_8),
+    },
+    [TRAINER_ZEMOUREGAL_BASE_ZOMBIECHEF] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_cook,
+        .trainerName = _("Zon Beh"),
+        .items = {ITEM_CHOCOLATE_CAKE,ITEM_CHOCOLATE_CAKE,ITEM_CHOCOLATE_CAKE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_ZemouregalsBase_ZOMBIECHEF),
+    },
+    [TRAINER_ZEMOUREGAL_BASE_SHARATH] =
+    {
+        .trainerClass = TRAINER_CLASS_NECROMANCER,//Minion or servant would fitt better 
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_guthan_osrs,
+        .trainerName = _("Sharathteerk"),
+       .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags =  AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HELP_PARTNER | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_SHARATHTEERK_1),
+    },
+     [TRAINER_ZEMOUREGAL_BASE_ARRAV] =
+    {
+        .trainerClass = TRAINER_CLASS_LEGEND, 
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_guthan_osrs,
+        .trainerName = _("Arrav"),
+        .items = {},
+        .doubleBattle = TRUE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE |AI_FLAG_SETUP_FIRST_TURN,
+        .party = TRAINER_PARTY( sParty_ARRAV_1),
+    },
+    [TRAINER_ZEMOUREGAL_BASE_ZEMOUREGAL] =
+    {
+        .trainerClass = TRAINER_CLASS_NECROMANCER,//TRAINER_CLASS_MAHJARRAT, if there are plans for future Mahjarrat
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_count_draynor,
+        .trainerName = _("Zemouregal"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_SETUP_FIRST_TURN | AI_FLAG_PREFER_STRONGEST_MOVE,
+        .party = TRAINER_PARTY(sParty_ZEMOUREGAL_1),
+    },
+
+
+
+
+
+
+
+
 /*
     #define TRAINER_HELLWIND                                445
 #define TRAINER_HYPER_STAN                              446
@@ -5565,7 +5708,8 @@ const struct TrainerFightCaves gTrainersFightCaves[] = {
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_1_GymChallenge), //There should always be more than 6 mons in the pool.
         .poolSize = 38, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
-    },
+    }
+
 
 
 

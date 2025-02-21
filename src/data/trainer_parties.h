@@ -8307,3 +8307,318 @@ static const struct TrainerMon sParty_SIR_OWEN_1[] = {
     .species = SPECIES_SHADOW_HOUND,
     }
 };
+
+
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_1[] = {
+    {
+    .lvl = 41,
+    .species = SPECIES_ZOMBIE_RAT
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_ANIMOUR
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SKELETALOX_MALE_FORM
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_EXORAXE
+    }
+};
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_2[] = {
+    {
+    .lvl = 40,
+    .species = SPECIES_CHICKEN_UNDEAD_FORM
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_VULTURE_RS3_FORM,
+    .heldItem = ITEM_NONE
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_COW_UNDEAD_FORM
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_EXORAXE
+    }
+};
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_3[] = {
+    {
+    .lvl = 40,
+    .species = SPECIES_CHICKEN_UNDEAD_FORM
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_VAMPYREBAT,
+    .heldItem = ITEM_NONE
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_COW_UNDEAD_FORM
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_EXORAXE
+    }
+};
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_4[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_YAK_UNDEAD_FORM,
+    .heldItem = ITEM_NONE
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_VULTURE_RS3_FORM,
+    .heldItem = ITEM_NONE
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_VAMPYREBAT,
+    .heldItem = ITEM_NONE
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_EXORAXE
+    }
+};
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_5[] = {
+    {
+    .lvl = 44,
+    .species = SPECIES_COW_UNDEAD_FORM
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_EEK
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_EXORAXE
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SOURHOG
+    }
+
+};
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_6[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SKELETALOX_FEMALE_FORM
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_COW_UNDEAD_FORM
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_RAVEN_SPOOKY_FORM
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EXORAXE
+    }
+};
+
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_7[] = {
+{
+   
+    .lvl = 44,
+    .species = SPECIES_MUNCHER
+    },
+    {
+  
+    .lvl = 43,
+    .species = SPECIES_YAK_UNDEAD_FORM,
+    .heldItem = ITEM_NONE
+    }, 
+    {
+   
+    .lvl = 41,
+    .species = SPECIES_ANIMOUR
+    },
+    {
+   
+    .lvl = 45,
+    .species = SPECIES_HAND_DUNGEONEERING_FORM,
+    .heldItem = ITEM_NONE
+    }
+
+};
+
+
+static const struct TrainerMon sParty_ZemouregalsBase_SKELLETON_8[] = {
+{
+   
+    .lvl = 44,
+    .species = SPECIES_REVENANT_IMP
+    },
+    {
+   
+    .lvl = 43,
+    .species = SPECIES_SPOOKAXE
+    },
+    {
+    
+    .lvl = 42,
+    .species = SPECIES_EXORAXE
+    },
+    {
+   
+    .lvl = 42,
+    .species = SPECIES_RAVEN_SPOOKY_FORM
+    }
+
+};
+
+static const struct TrainerMon sParty_ZemouregalsBase_ZOMBIECHEF[] = {
+{
+    .lvl = 44,
+    .species = SPECIES_ANCHOVY_PIZZA_FORM
+    },
+    {
+    
+    .lvl = 45,
+    .species = SPECIES_FURY_SHARK,
+    },
+    {
+    
+    .lvl = 44,
+    .species = SPECIES_SWORDFISH,
+    },
+    {
+    
+    .lvl = 43,
+    .species = SPECIES_CHICKEN_VARROCK_FORM,
+    },
+    {
+    
+    .lvl = 44,
+    .species = SPECIES_GIANT_RAT_HELL_FORM,
+    }
+
+
+};
+
+static const struct TrainerMon sParty_SHARATHTEERK_1[] = { 
+    {
+    .ev = TRAINER_PARTY_EVS(252, 0, 8, 0, 252, 0),
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 47,
+    .species = SPECIES_COW_UNDEAD_FORM,
+    .ability  = ABILITY_THICK_FAT,
+    .moves = {MOVE_MUDDY_WATER, MOVE_SNARL, MOVE_MEMENTO,MOVE_HELPING_HAND }
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(252, 0, 8, 0, 252, 0),    
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 47,
+    .species = SPECIES_ZAMATRICE,
+    .ability =  ABILITY_PETRIFY,
+    .moves = {MOVE_ZAMORAK_FLAMES, MOVE_REVELATION_DANCE, MOVE_FEATHER_DANCE, MOVE_HELPING_HAND}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(252, 0, 8, 252,0 , 0),    
+    .iv = TRAINER_PARTY_IVS(25, 16, 25, 16, 25, 16),
+    .lvl = 48,
+    .species = SPECIES_DEMON_ICE_RS3_FORM,
+    .ability =  ABILITY_AVERNIC,
+    .moves = {MOVE_GLACIATE, MOVE_SNARL, MOVE_PSYSHOCK , MOVE_HELPING_HAND}
+    }
+
+};
+    static const struct TrainerMon sParty_ARRAV_1[] = { 
+    {
+    .ev = TRAINER_PARTY_EVS(8, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(16, 16, 16, 16, 16, 16),
+    .lvl = 47,
+    .species = SPECIES_MUNCHER,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_U_TURN, MOVE_FLARE_BLITZ, MOVE_SHADOW_CLAW, MOVE_SHADOW_SNEAK}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(8, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(20, 16, 16, 16, 16, 16),
+    .lvl = 48,
+    .species = SPECIES_DRAGON_BLACK_FORM,
+    .ability =  ABILITY_INTIMIDATE,
+    .moves = {MOVE_CRUNCH, MOVE_SLICE_DICE, MOVE_DRAGON_DANCE, MOVE_WING_ATTACK}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(252, 126, 0, 126, 0, 0),
+    .iv = TRAINER_PARTY_IVS(16, 25, 16, 25, 16, 25),
+    .lvl = 47,
+    .species = SPECIES_HEADLESS_BEAST,
+    .ability = ABILITY_CURSED_BODY,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_SHADOW_BARRAGE, MOVE_SACRED_SWORD, MOVE_SLICE_DICE}
+    }
+};
+
+
+
+
+static const struct TrainerMon sParty_ZEMOUREGAL_1[] = { 
+    {
+    .ev = TRAINER_PARTY_EVS(8, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 47,
+    .species = SPECIES_COW_UNDEAD_FORM,
+    .ability = ABILITY_THICK_FAT,
+    .heldItem = ITEM_GHOSTSPEAK_AMULET,
+    .moves = {MOVE_EXPLOSION, MOVE_EARTHQUAKE, MOVE_PHANTOM_FORCE, MOVE_PLAY_ROUGH}
+    
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(8, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 48,
+    .species = SPECIES_HAND_DUNGEONEERING_FORM,
+    .ability = ABILITY_IRON_FIST,
+    .heldItem = ITEM_GHOSTSPEAK_AMULET,
+    .moves = {MOVE_SHADOW_PUNCH, MOVE_DRAIN_PUNCH, MOVE_BULK_UP, MOVE_KNOCK_OFF}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 8, 0, 0),
+    .iv = TRAINER_PARTY_IVS(25, 3, 26, 18, 26, 3),
+    .lvl = 47,
+    .species = SPECIES_SIEGE_BEAST,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability = ABILITY_STAMINA,
+    .moves = {MOVE_KINGS_SHIELD, MOVE_SLACK_OFF, MOVE_BODY_PRESS, MOVE_LAVA_PLUME}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(8, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 47,
+    .species = SPECIES_BROAV_ZOMBIE_FORM,
+    .ability =  ABILITY_STENCH,
+    .heldItem = ITEM_GHOSTSPEAK_AMULET,
+    .moves = {MOVE_STOMPING_TANTRUM, MOVE_STONE_EDGE, MOVE_PHANTOM_FORCE, MOVE_PLAY_ROUGH}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 8),
+    .iv = TRAINER_PARTY_IVS(18, 18, 18, 18, 18, 18),
+    .lvl = 47,
+    .species = SPECIES_NIGHT_GAZER,
+    .heldItem = ITEM_LEFTOVERS,
+    .ability =  ABILITY_SEEKER,
+    .moves = {MOVE_SLACK_OFF, MOVE_DARK_PULSE, MOVE_PSYSHOCK, MOVE_TRICK_OR_TREAT}
+    },
+    {
+    .ev = TRAINER_PARTY_EVS(6, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 5, 31, 31, 31, 31),
+    .lvl = 47,
+    .species = SPECIES_REVENANT_DRAGON,
+    .heldItem = ITEM_GHOSTSPEAK_AMULET,
+    .ability= ABILITY_SHADOW_TAG,
+    .nickname = COMPOUND_STRING("Vorki"),
+    .moves = {MOVE_SHADOW_BARRAGE, MOVE_DRACO_METEOR, MOVE_ICE_BARRAGE, MOVE_BLOOD_BARRAGE}
+    },
+
+
+};
+   

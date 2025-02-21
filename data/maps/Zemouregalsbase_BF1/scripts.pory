@@ -1,0 +1,931 @@
+//Add these to the VAR file.
+//VAR_POKESCAPE_EVENT_ZEMOUREGAL
+//VAR_ZEMOUREGAL_GATES - TEMP_VAR_1
+
+//Changed 
+//FLAG_ZEMOUREGAL - OBJ_EVENT_ID_ZEMOUREGAL - //Set the flag on the object in porymap.
+//FLAG_SHARATH - OBJ_EVENT_ID_SHARATH - //Set the flag on the object in porymap.
+
+//ZEMOUREGAL1 - OBJ_EVENT_ID_ZEMOUREGAL
+//SHARATH1 - OBJ_EVENT_ID_SHARATH
+//ARRAV - OBJ_EVENT_ID_ARRAV
+
+//You can also use 1 object for OBJ_EVENT_ID_ZEMOUREGAL and just warp it around the map with:
+//setobjectxy(OBJ_EVENT_ID_ZEMOUREGAL, x, y)
+//setobjectxyperm(OBJ_EVENT_ID_ZEMOUREGAL, x, y)
+
+//I have also noticed you seem to be using objects for the RedMist and the Gates.
+//You can actually use tilesets and animations by using:
+//setmetatile(x, y, metatileID, collision)
+
+const OBJ_EVENT_ID_ZEMOUREGAL = 1
+const OBJ_EVENT_ID_SHARATH = 2
+const OBJ_EVENT_ID_ARRAV = 3
+
+
+
+mapscripts Zemouregalsbase_BF1_MapScripts{
+    MAP_SCRIPT_ON_TRANSITION {
+        call(ZEMOUREGAL_STATE)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        call(checkGatesZemouregal)
+    }
+    
+   
+    
+}
+//I have changed it to hide all the objects as soon as the map is loaded. And choosing to show them when you need them for a specific event / variable.
+script ZEMOUREGAL_STATE{
+    setflag (OBJ_EVENT_ID_ZEMOUREGAL) //Hide ZEMOUREGAL
+    setflag (OBJ_EVENT_ID_SHARATH) //Hide SHARATH
+    setflag (OBJ_EVENT_ID_ARRAV) //Hide ARRAV
+
+    removeobject(OBJ_EVENT_ID_ZEMOUREGAL)
+    removeobject(OBJ_EVENT_ID_SHARATH)
+    removeobject(OBJ_EVENT_ID_ARRAV)
+    
+    call(moveZemouregalBaseNPCs)
+    
+}
+
+
+
+script moveZemouregalBaseNPCs{
+switch (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)) { 
+ 
+ 
+        case 0: //haven't visited yet
+        case 1: //Seen the intro
+        case 2: //you found the first key
+        case 3: //oppened the first gate
+        case 4: //you found the second key
+        case 5: //oppened the second gate
+        case 6: //you found the last key
+        case 7: //oppened the last gate
+            clearflag (OBJ_EVENT_ID_ZEMOUREGAL) //Show ZEMOUREGAL
+            addobject(OBJ_EVENT_ID_ZEMOUREGAL)
+            setobjectxy(OBJ_EVENT_ID_ZEMOUREGAL, 31, 36)
+            setobjectxyperm(OBJ_EVENT_ID_ZEMOUREGAL, 31, 36)
+
+            clearflag (OBJ_EVENT_ID_SHARATH) //Show SHARATH
+            addobject(OBJ_EVENT_ID_SHARATH)
+            setobjectxy(OBJ_EVENT_ID_SHARATH, 33, 36)
+            setobjectxyperm(OBJ_EVENT_ID_SHARATH, 33, 36)
+
+        //they move afther case 8 
+        case 8: //exit the sewer
+        case 9: //encountered and lost to SHARATH and ARRAV  
+        case 10: //encountered and lost to ZEMOUREGAL
+            //Their near the sewer exit
+            clearflag(OBJ_EVENT_ID_ZEMOUREGAL) //Show ZEMOUREGAL
+            addobject(OBJ_EVENT_ID_ZEMOUREGAL)
+            setobjectxy(OBJ_EVENT_ID_ZEMOUREGAL, 43, 27)
+            setobjectxyperm(OBJ_EVENT_ID_ZEMOUREGAL, 43, 27)
+            applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookup)
+            
+          
+
+            
+            clearflag(OBJ_EVENT_ID_SHARATH) //Show SHARATH
+            addobject(OBJ_EVENT_ID_SHARATH)
+            setobjectxy(OBJ_EVENT_ID_SHARATH, 44, 27)
+            setobjectxyperm(OBJ_EVENT_ID_SHARATH, 44, 27)
+            applymovement(OBJ_EVENT_ID_SHARATH, movement_lookup)
+
+
+            clearflag(OBJ_EVENT_ID_ARRAV) //Show ARRAV
+            addobject(OBJ_EVENT_ID_ARRAV)
+            setobjectxy(OBJ_EVENT_ID_ARRAV, 42, 26)
+            setobjectxyperm(OBJ_EVENT_ID_ARRAV, 42, 26)
+            
+        default://won your battle with Zemouregal and he is off to his fort
+        return
+    }
+    releaseall
+}
+
+
+script checkGatesZemouregal{
+     switch (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)) {
+        case 0: //haven't visited yet
+        case 1: //Seen the intro
+        setmetatile(26, 33, 1014, 0)//show key1
+        setmetatile(3, 19, 1014, 0)//show key2
+        setmetatile(27, 9, 1014, 0)//show key3
+
+        setmetatile(9, 36, 1019, 1)//lock gate1
+        setmetatile(8, 20, 1018, 1)//lock gate2
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        case 2: //you found the first key
+        setmetatile(3, 19, 1014, 0)//show key2
+        setmetatile(27, 9, 1014, 0)//show key3
+
+        setmetatile(9, 36, 1019, 1)//lock gate1
+        setmetatile(8, 20, 1018, 1)//lock gate2
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        case 3: //oppened the first gate
+        setmetatile(3, 19, 1014, 0)//show key2
+        setmetatile(27, 9, 1014, 0)//show key3
+
+        setmetatile(8, 20, 1018, 1)//lock gate2
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        case 4: //you found the second key
+        setmetatile(27, 9, 1014, 0)//show key3
+
+        setmetatile(8, 20, 1018, 1)//lock gate2
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        case 5: //oppened the second gate
+        setmetatile(27, 9, 1014, 0)//show key3
+
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        case 6: //you found the last key
+        setmetatile(33, 6, 1018, 1)//lock gate3
+        default: //unlock gate3
+        return
+     }
+
+    special(DrawWholeMapView) 
+    
+    releaseall
+}
+
+
+script checkMist_1 {
+if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)>=2)
+    {
+        setmetatile(26, 33, 513, 0)//hide key1
+    }
+    else
+    {
+        setmetatile(26, 33, 1014, 0)//show key1
+    }
+}
+
+
+script checkMist_2 {
+if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)>=4)
+    {
+        setmetatile(3, 19, 513, 0)//hide key2
+    }
+    else
+    {
+        setmetatile(3, 19, 1014, 0)//show key2
+    }
+
+}
+script checkMist_3 {
+if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)>=6)
+    {
+        setmetatile(27, 9, 513, 0)//hide key3
+    }
+    else
+    {
+        setmetatile(27, 9, 1014, 0)//show key3
+    }
+
+}
+
+script checkGate_1 {
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<3)
+    {
+        setmetatile(9, 36, 1018, 1)//lock gate1
+    }
+    else
+    {
+        setmetatile(9, 36, 1011, 0)//unlock gate1
+    }
+}
+
+script checkGate_2 {
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<5)
+    {
+        setmetatile(9, 36, 1019, 1)//lock gate2
+    }
+    else
+    {   
+        setmetatile(8, 20, 1010, 0)//unlock gate2
+    }
+}
+script checkGate_3 {
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<7)
+    {
+        setmetatile(33, 6, 1019, 1)//lock gate3
+    }
+    else
+    {
+        setmetatile(33, 6, 1010, 0)//unlock gate3
+    }
+}
+
+
+
+
+//EVENTS
+    
+    
+    
+//When entering the dungeon for the first time
+script entranceBase{
+    lock
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)== 0)
+        {
+        special(SpawnCameraObject)
+        applymovement(OBJ_EVENT_ID_CAMERA, movement_toIntroductionMove)
+        waitmovement(0)
+        namebox ("???")
+        msgbox(format("How could this have happend? \pHow did Wahisietel get his hands on the hearth of arrav?"))
+        namebox ("Gargoyle")
+        msgbox(format("No idea, maybe the red mist wan't a good idea after all."))
+        namebox ("???")
+        msgbox(format("The red mist was fine.\pSomeone needs to be imbued with it to go through the doors"))
+        namebox ("Gargoyle")
+        msgbox(format("It didn't stop the thief my lord."))
+        namebox ("???")
+        msgbox(format("You know that also didn't stop the thief, Sharathteerk?\pThe life detection wards and the sewer trap."))
+        namebox ("Sharathteerk")
+        msgbox(format("Why did we give this base a sewer anyway?\pAlmost everyone in this base is undeath."))
+        namebox ("???")
+        msgbox(format("The wizards would complain and not do their jobs if we didn't."))
+        namebox ("???")
+        msgbox(format("And dicides the killerwatt makes the sewer imposible to travirse."))
+        closemessage
+
+        applymovement(OBJ_EVENT_ID_CAMERA, movement_fromIntroductionMove)
+        waitmovement(0)
+        special(RemoveCameraObject)
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 1)
+        releaseall
+    }
+    else
+    {   
+        call(ZEMOUREGAL_STATE)
+        call(checkGatesZemouregal)
+
+        releaseall
+    }
+    
+}
+
+//life detection spell
+script detectLife{
+    lockall
+    msgbox(format("These seem to be the life detection wards.\pThat necromancer was talking about.\pThere might be a safer way trough."))
+        
+    applymovement(OBJ_EVENT_ID_PLAYER, movement_avoidWard)
+    waitmovement(0)
+    closemessage
+    lockall
+}
+
+script detectLifeDoor{
+    lockall
+    msgbox(format("The giant seems to be fixing machinery on the cieling of the cave.\pBetter not distirb it."))
+    waitmovement(0)
+    closemessage
+    lockall
+}
+
+
+//Exit the sewer
+script exitsewerZemouregal{
+
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)==7)
+    {
+       setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 8) 
+    }
+    // setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 8) //place them near the sewer if their not there
+    //   setobjectxy(OBJ_EVENT_ID_ZEMOUREGAL, 43, 27)
+    //   setobjectxyperm(OBJ_EVENT_ID_ZEMOUREGAL, 43, 27)
+    //   applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookup)
+
+    //  setobjectxy(OBJ_EVENT_ID_SHARATH, 44, 27)
+    //  setobjectxyperm(OBJ_EVENT_ID_SHARATH, 44, 27)
+    //  applymovement(OBJ_EVENT_ID_SHARATH, movement_lookup)
+
+    //   clearflag (OBJ_EVENT_ID_ARRAV) //Show ARRAV
+    //   addobject(OBJ_EVENT_ID_ARRAV)
+        
+    call(ZEMOUREGAL_STATE) 
+    call(checkGatesZemouregal)
+
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<11)
+    {           //start thet bossrush
+        call(zemouregalBossRush)
+    }
+    releaseall
+}
+ 
+
+
+
+
+//bossrush 
+script zemouregalBossRush{
+    
+    lock
+    switch (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)){ 
+        
+        case 8: 
+            special(SpawnCameraObject)
+            applymovement(OBJ_EVENT_ID_CAMERA, movement_moveStartZemouregalEncounter)
+            waitmovement(0)
+            applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookup)
+            applymovement(OBJ_EVENT_ID_SHARATH, movement_lookup)
+
+            namebox ("???")
+            msgbox(format("Who are you and why are you in my base?"))
+            namebox ("???")
+            msgbox(format("How did you avoid my hole security system?"))    
+            closemessage
+            applymovement(OBJ_EVENT_ID_PLAYER, movement_movePlayerToZemouregalEncounter)
+            applymovement(OBJ_EVENT_ID_SHARATH, movement_lookleft)
+            waitmovement(0)
+            namebox ("Sharathteerk")
+            msgbox(format("They seem to be wearing isolated boots."))
+
+            applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookright)
+            namebox ("???")
+            msgbox(format("It doesn't matter."))
+            applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookup)
+            waitmovement(0)
+            namebox ("???")
+            msgbox(format("you gone far mortal. But this is as far as you go."))
+            //emote     
+            applymovement(OBJ_EVENT_ID_CAMERA, movement_returnCameraforZemouregalEncounter)
+            waitmovement(0)
+            namebox ("???")
+            msgbox(format("Arrav! Sharathteerk! Obliterate this trasspasser!"))  
+            applymovement(OBJ_EVENT_ID_SHARATH, movement_MoveSharathteerkTo)
+            applymovement(OBJ_EVENT_ID_ARRAV, movement_MoveArravTo)
+            special(RemoveCameraObject)
+            waitmovement(0)
+            
+            closemessage
+
+            setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 9)
+            
+            trainerbattle_two_trainers(TRAINER_ZEMOUREGAL_BASE_SHARATH, msgbox(format("Sharathteerk: Just crush the traspasser Arrav!")), TRAINER_ZEMOUREGAL_BASE_ARRAV, msgbox(format("Arrav: ...")))
+           	if (var(VAR_RESULT) == B_OUTCOME_WON) 
+            {
+                call(battleZemouregal)
+            }
+            else
+            {msgbox(format("You don't have enough pokemon for this battle.")) }
+
+            releaseall
+            
+        case 9: //you lost your encounter with Sharathteerk and Arrav and you challenge them again
+            applymovement(OBJ_EVENT_ID_PLAYER, movement_movePlayerToZemouregalEncounter)
+            namebox ("???")
+            msgbox(format("Back for more? Didn't you learn your lesson?"))
+            namebox ("???")
+            msgbox(format("Arrav! Sharathteerk! Obliterate this trasspasser!"))  
+            closemessage
+            applymovement(TRAINER_ZEMOUREGAL_BASE_SHARATH, movement_MoveSharathteerkTo)
+            applymovement(TRAINER_ZEMOUREGAL_BASE_ARRAV, movement_MoveArravTo)
+            trainerbattle_two_trainers(TRAINER_ZEMOUREGAL_BASE_SHARATH, msgbox(format("Sharathteerk: Just crush the traspasser Arrav!")), TRAINER_ZEMOUREGAL_BASE_ARRAV, msgbox(format("Arrav: ...")))
+            if (var(VAR_RESULT) == B_OUTCOME_WON) 
+            {
+                releaseall
+                call(battleZemouregal)
+            }
+            else
+            {msgbox(format("You don't have enough pokemon for this battle.")) } 
+            
+            releaseall
+            
+        case 10: //you lost your encounter with Zemouregal and challenge him again
+            setweather(WEATHER_SHADE)
+            doweather
+            applymovement(OBJ_EVENT_ID_PLAYER, movement_movePlayerToZemouregalEncounter)
+            namebox ("Zemouregal")
+            msgbox(format("Back for more? Didn't you learn your lesson?"))
+            applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_MoveSharathteerkTo)
+
+            msgbox(format("Fine. Withness my greatness!"))
+            trainerbattle_no_intro(TRAINER_ZEMOUREGAL_BASE_ZEMOUREGAL,format("Zemouregal: Now could i have lost?"))    
+
+            call(bossrushFininshed)
+            releaseall
+
+        default:
+        releaseall
+    }
+    releaseall
+    
+}
+        
+// first battle Zemouregal
+script battleZemouregal{
+    lock
+    
+    setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 10)
+    namebox ("Sharathteerk")
+    msgbox(format("My lord, the intrudor is to strong."))
+    namebox ("???")    
+    msgbox(format("Enough! Out of my way!"))
+    call(castLivingDeath)
+    closemessage
+    applymovement(OBJ_EVENT_ID_SHARATH, movement_MoveSharathteerkBack)
+    applymovement(OBJ_EVENT_ID_ARRAV, movement_MoveArravBack)
+    waitmovement(0)
+
+    applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_MoveSharathteerkTo)
+    waitmovement(0)
+    namebox ("Zemouregal")    
+    msgbox(format("Now you'll face the power of a Mahjarrat!"))
+    trainerbattle_no_intro(TRAINER_ZEMOUREGAL_BASE_ZEMOUREGAL,format("Zemouregal: Now could i have lost?"))    
+
+    call(bossrushFininshed)
+    release
+}
+//Zemouregal uses Living death in his rage
+script castLivingDeath {
+	delay(30)
+	setvar(VAR_0x8004, 2)  //@ vertical pan
+	setvar(VAR_0x8005, 6)  //@ horizontal pan
+	setvar(VAR_0x8006, 4)  //@ num shakes
+	setvar(VAR_0x8007, 4)  //@ shake delay
+	special(ShakeCamera)
+    delay(30)
+
+    setweather(WEATHER_SHADE)
+    doweather
+}
+
+//Talk to Arrav and Sharathteerk when you only have one pokemon
+script NPC_Arrav_Battle_Fail
+{
+	lockall
+    namebox ("Arrav")
+	msgbox(format("You must leave. It's too...urgh...arrgh...\n...dangerous for the likes of you here."))    
+    waitmessage
+    hidenamebox
+	releaseall
+}
+script NPC_SHARATH_Battle_Fail
+{
+	lockall
+    namebox ("Sharathteerk")
+	msgbox(format("Get out om my sight!"))    
+    waitmessage
+    hidenamebox
+	releaseall
+}
+
+
+
+script bossrushFininshed{
+    lockall
+    resetweather
+    doweather
+    special(SpawnCameraObject)
+    applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_MoveSharathteerkBack)
+    applymovement(OBJ_EVENT_ID_CAMERA, movement_Zemouregal_to_outro)
+    namebox ("Zemouregal")
+    msgbox(format("Looks like you're stronger than I tought."))
+    applymovement(OBJ_EVENT_ID_SHARATH, movement_lookleft)
+    namebox ("Sharathteerk")
+    msgbox(format("What should we do, My Lord?"))
+    applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_lookright)
+    namebox ("Zemouregal")
+    msgbox(format("Let it be. We have what we need here.\pWe'll return to my fortress immediately."))
+    namebox ("Sharathteerk")
+    msgbox(format("What about the reports of your servants,\pmy Lord?\pDidn't they find the location of\pThe Infernal Source?"))
+    namebox ("Zemouregal")
+    msgbox(format("That was probaly a false positive.\pThere is no way that portal to Infernus survived the end of the Third Age."))
+    
+	closemessage
+    fadescreen(FADE_TO_BLACK)
+    setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 11)
+    applymovement(OBJ_EVENT_ID_CAMERA, movement_Zemouregal_from_outro)
+    waitmovement(0)
+    special(RemoveCameraObject)
+
+    call(ZEMOUREGAL_STATE)
+    
+    fadescreen(FADE_FROM_BLACK)
+    
+    releaseall
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//Event movements
+movement movement_lookup
+{
+face_up
+}
+movement movement_lookdown
+{
+face_down
+}
+movement movement_lookleft
+{
+face_left
+}
+movement movement_lookright
+{
+face_right
+}
+
+
+
+
+movement movement_toIntroductionMove
+{
+    walk_up * 10
+    walk_right * 9
+}
+
+movement movement_fromIntroductionMove
+{
+    walk_left * 9
+    walk_down * 10
+}
+
+movement movement_avoidWard 
+{
+    walk_up * 1
+}
+
+movement movement_moveStartZemouregalEncounter
+{
+    walk_right * 2
+    walk_down * 10
+    step_end
+}
+
+movement movement_movePlayerToZemouregalEncounter
+{
+    walk_down * 5
+    walk_right * 2
+    face_down
+}
+
+movement movement_MoveArravTo
+{
+    walk_right 
+    walk_up 
+}
+
+movement movement_MoveSharathteerkTo
+{
+    walk_up * 2
+}
+
+movement movement_returnCameraforZemouregalEncounter
+{
+    walk_up * 5
+}
+
+movement movement_MoveArravBack
+{
+    walk_down 
+    walk_left 
+    face_up
+}
+
+movement movement_MoveSharathteerkBack
+{
+    walk_down * 2
+    face_up
+}
+
+movement movement_Zemouregal_to_outro
+{
+    walk_down * 4
+}
+movement movement_Zemouregal_from_outro
+{
+    walk_up * 4
+}
+
+
+
+//ITEMS
+
+script ITEM_ZEMOUREGALBASE_ITEM_1
+{
+    finditem(ITEM_SPIRIT_SHARD)
+    end
+}
+
+script ITEM_ZEMOUREGALBASE_ITEM_2
+{
+    finditem(ITEM_CHAOS_RUNE)
+    end
+}
+
+script ITEM_ZEMOUREGALBASE_ITEM_4
+{
+    finditem(ITEM_SPIRIT_SHARD)
+    end
+}
+
+script ITEM_ZEMOUREGALBASE_ITEM_5
+{
+    finditem(ITEM_SPIRIT_SHARD)
+    end
+}
+
+script ITEM_ZEMOUREGALBASE_ITEM_6
+{
+    finditem(ITEM_SPIRIT_SHARD)
+    end
+}
+
+
+//NPCS
+
+//GATEINTERACTIONS
+   //script OBJ_EVENT_ID_REDMIST_1()
+script pickupMist1{
+    lockall
+
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<2)  //you haven't found the first key
+    {
+        msgbox(format("You picked up the red mist"))    
+        msgbox(format("You can now oppen one of the gates"))  
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,2)
+        setmetatile(26, 33, 513, 0)
+        special(DrawWholeMapView) 
+    }
+    else
+    {
+        msgbox(format("The red mist is gone"))
+        call(checkGatesZemouregal)
+    }
+	
+
+    closemessage
+    releaseall
+}  
+
+script zemouregalGate1{
+    
+    call(checkGatesZemouregal)
+
+    if (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<2)
+    {//you haven't found the first key
+        lock
+        msgbox(format("You need to find red mist to open this gate"))
+        closemessage
+        release
+
+    }
+    elif (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)==2)//you found the first key
+    {
+        lock
+        msgbox(format("The red mist oppens the gate"))
+        setmetatile(9, 36, 1011, 0)
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,3)
+        special(DrawWholeMapView) 
+        closemessage
+        release
+    }
+    else//The gate is open
+    {
+        lock
+        msgbox(format("The gate is already oppen"))
+        call(checkGatesZemouregal)
+        closemessage
+        release
+    }   
+
+    
+
+
+}
+
+script pickupMist2
+{
+    lockall
+
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<4)  //you haven't found the first key
+    {
+        msgbox(format("You picked up the red mist"))    
+        msgbox(format("You can now oppen one of the gates"))  
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,4)
+        setmetatile(3, 19, 513, 0)
+        special(DrawWholeMapView) 
+    }
+    else
+    {
+        msgbox(format("The red mist is gone"))
+        call(checkGatesZemouregal)
+    }
+    closemessage
+    releaseall
+}  
+
+script zemouregalGate2
+{
+    if (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<4)//you haven't found the second key
+    {
+        lock
+        msgbox(format("You need to find red mist to open this gate"))
+        closemessage
+        release
+    }
+    elif (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)==4)//you found the second key
+    {
+        lock
+        msgbox(format("The red mist oppens the gate"))
+        setmetatile(8, 20, 1010, 0)
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,5)
+        special(DrawWholeMapView) 
+        closemessage
+        release
+    }
+    else//The gate is open
+    {
+        lock
+        msgbox(format("The gate is already oppen"))
+        call(checkGatesZemouregal)
+        closemessage
+        release
+    }
+
+
+}
+
+script pickupMist3{
+lockall
+
+    if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<6)  //you haven't found the first key
+    {
+        msgbox(format("You picked up the red mist"))    
+        msgbox(format("You can now oppen one of the gates"))  
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,6)
+        setmetatile(27, 9, 513, 0)
+        special(DrawWholeMapView) 
+
+    }
+    else
+    {
+        msgbox(format("The red mist is gone"))
+        call(checkGatesZemouregal)
+    }
+	
+
+    closemessage
+    releaseall
+}  
+
+script zemouregalGate3{
+    lock
+     if (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<6)//you haven't found the last key
+     {
+        lock
+        msgbox(format("You need to find red mist to open this gate"))
+        closemessage
+        release
+
+    }
+    elif (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)==6)//you found the last key
+    {
+        lock
+        msgbox(format("The red mist oppens the gate"))
+        setmetatile(33, 6, 1010, 0)
+        setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL,7)    
+        special(DrawWholeMapView) 
+        closemessage
+        release
+    }
+    else//The gate is open
+    {
+        lock
+        msgbox(format("The gate is already oppen"))
+        call(checkGatesZemouregal)
+        closemessage
+        release
+    }
+
+    call(checkGatesZemouregal)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//BATTLES
+script BATTLE_ZEMOUREGALBASE_GUARD_1{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_1, format("Who goes there?"),format("Who?"))
+    msgbox(format("The skeleton is guarding something."))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_2{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_2, format("I have to ask you to leave."),format("This will anger the master."))
+    msgbox(format("Why are you still here?."))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_3{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_3, format("LIFEFORM DETECTED!"),format("BATTLE LOST."))
+    msgbox(format("RECOVERY PROGRESS."))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_4{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_4, format("Halt! This is a private area. Please exit the cave"),format("I couldn't stop you."))
+    msgbox(format("Why did we move this base here? Wasn't it safer in the wilderness?"))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_5{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_5, format("Do you really think you can save them, Bob?"),format("..."))
+    msgbox(format("Who is Bob?"))
+    releaseall
+}
+script BATTLE_ZEMOUREGALBASE_GUARD_6{
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_6, format("Who invided you?"),format("Who?"))
+    msgbox(format("Why won't you awnser the question?"))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_7{
+    
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_7, format("You have any Miasma runes?"),format("How sad."))
+    msgbox(format("I just want some Miasma rune dust. I'm not addicted, I can totaly quit."))
+    releaseall
+}
+
+script BATTLE_ZEMOUREGALBASE_GUARD_8{
+    
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_8, format("Halt thief! you won't rob the master's vaults!"),format("How?"))
+    msgbox(format("Oh wait the masters saves are in his castle."))
+    releaseall
+}
+
+
+
+
+
+
+
+
+//npcs
+
+script NPC_Zemouregal_Base_ironMan
+{
+	lock
+    namebox ("Iron man")
+	msgbox(format("Don't crash on me!\pI need that broken zombie axe drop."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+
+script NPC_Zemouregal_Base_hearthGuardian
+{
+	lock
+    faceplayer
+    namebox ("Guardian")
+	msgbox(format("The hearth of Arrav is curently stolen.\pPlease wait until we retrived it before trying to\nsteal it again."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+
+script NPC_Undeath_Giant
+{
+	lock
+	msgbox(format("The giant seems to be fixing machinery on the cieling of the cave."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Undeath_Soldier
+{
+	lock
+	msgbox(format("..."))
+    waitmessage
+    closemessage
+	release
+	end
+}

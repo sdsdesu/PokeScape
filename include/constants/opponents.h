@@ -500,7 +500,18 @@
 #define TRAINER_ZANIK_HAM                               494
 #define TRAINER_ARIANE_1                                495
 #define TRAINER_SIR_OWEN_1                              496
-
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_1                497
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_2                498
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_3                499
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_4                500
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_5                501
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_6                502
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_7                503
+#define TRAINER_ZEMOUREGAL_BASE_SKULLY_8                504
+#define TRAINER_ZEMOUREGAL_BASE_ZOMBIECHEF              505
+#define TRAINER_ZEMOUREGAL_BASE_SHARATH                 506
+#define TRAINER_ZEMOUREGAL_BASE_ARRAV                   507
+#define TRAINER_ZEMOUREGAL_BASE_ZEMOUREGAL              508
 
 
 
@@ -509,7 +520,7 @@
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_SIR_OWEN_1 + 1)
+#define TRAINERS_COUNT                      (TRAINER_ZEMOUREGAL_BASE_ZEMOUREGAL + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
