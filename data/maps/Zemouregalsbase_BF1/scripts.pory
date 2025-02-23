@@ -234,21 +234,21 @@ script entranceBase{
         applymovement(OBJ_EVENT_ID_CAMERA, movement_toIntroductionMove)
         waitmovement(0)
         namebox ("???")
-        msgbox(format("How could this have happend? \pHow did Wahisietel get his hands on the hearth of arrav?"))
+        msgbox(format("How could this have happened? \pHow did Wahisietel get his hands on The Hearth Of Arrav?"))
         namebox ("Gargoyle")
-        msgbox(format("No idea, maybe the red mist wan't a good idea after all."))
+        msgbox(format("No idea, maybe the red mist wasn't a good idea after all."))
         namebox ("???")
         msgbox(format("The red mist was fine.\pSomeone needs to be imbued with it to go through the doors"))
         namebox ("Gargoyle")
         msgbox(format("It didn't stop the thief my lord."))
         namebox ("???")
-        msgbox(format("You know that also didn't stop the thief, Sharathteerk?\pThe life detection wards and the sewer trap."))
+        msgbox(format("You know what also didn't stop the thief, Sharathteerk?\pThe life detection wards and the sewer trap."))
         namebox ("Sharathteerk")
         msgbox(format("Why did we give this base a sewer anyway?\pAlmost everyone in this base is undeath."))
         namebox ("???")
-        msgbox(format("The wizards would complain and not do their jobs if we didn't."))
+        msgbox(format("The wizards complains would give me a headache. With toilets, the wizards can do their research without bothering me."))
         namebox ("???")
-        msgbox(format("And dicides the killerwatt makes the sewer imposible to travirse."))
+        msgbox(format("And decides, the killerwatt makes the sewer impossible to traverse."))
         closemessage
 
         applymovement(OBJ_EVENT_ID_CAMERA, movement_fromIntroductionMove)
@@ -270,8 +270,8 @@ script entranceBase{
 //life detection spell
 script detectLife{
     lockall
-    msgbox(format("These seem to be the life detection wards.\pThat necromancer was talking about.\pThere might be a safer way trough."))
-        
+    msgbox(format("These seem to be the life detection wards.\pThat necromancer was talking about.\pThere might be a safer way through."))    
+    
     applymovement(OBJ_EVENT_ID_PLAYER, movement_avoidWard)
     waitmovement(0)
     closemessage
@@ -280,7 +280,7 @@ script detectLife{
 
 script detectLifeDoor{
     lockall
-    msgbox(format("The giant seems to be fixing machinery on the cieling of the cave.\pBetter not distirb it."))
+    msgbox(format("The giant seems to be fixing machinery on the ceiling of the cave.\pBetter not disturb it."))  
     waitmovement(0)
     closemessage
     lockall
@@ -484,7 +484,7 @@ script bossrushFininshed{
     applymovement(OBJ_EVENT_ID_ZEMOUREGAL, movement_MoveSharathteerkBack)
     applymovement(OBJ_EVENT_ID_CAMERA, movement_Zemouregal_to_outro)
     namebox ("Zemouregal")
-    msgbox(format("Looks like you're stronger than I tought."))
+    msgbox(format("Looks like you're stronger than I thought."))
     applymovement(OBJ_EVENT_ID_SHARATH, movement_lookleft)
     namebox ("Sharathteerk")
     msgbox(format("What should we do, My Lord?"))
@@ -494,8 +494,8 @@ script bossrushFininshed{
     namebox ("Sharathteerk")
     msgbox(format("What about the reports of your servants,\pmy Lord?\pDidn't they find the location of\pThe Infernal Source?"))
     namebox ("Zemouregal")
-    msgbox(format("That was probaly a false positive.\pThere is no way that portal to Infernus survived the end of the Third Age."))
-    
+    msgbox(format("That was probably a false positive.\pThere is no way that portal to Infernus survived the end of the Third Age."))
+
 	closemessage
     fadescreen(FADE_TO_BLACK)
     setvar(VAR_POKESCAPE_EVENT_ZEMOUREGAL, 11)
@@ -829,49 +829,57 @@ script zemouregalGate3{
 //BATTLES
 script BATTLE_ZEMOUREGALBASE_GUARD_1{
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_1, format("Who goes there?"),format("Who?"))
-    msgbox(format("The skeleton is guarding something."))
+    namebox("Boneguard")
+    msgbox(format("Be gone."))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_2{
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_2, format("I have to ask you to leave."),format("This will anger the master."))
-    msgbox(format("Why are you still here?."))
+    namebox("Boneguard")
+    msgbox(format("Why are you still here?"))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_3{
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_3, format("LIFEFORM DETECTED!"),format("BATTLE LOST."))
-    msgbox(format("RECOVERY PROGRESS."))
+    namebox("Boneguard")
+    msgbox(format("RECOVERY IN PROGRESS."))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_4{
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_4, format("Halt! This is a private area. Please exit the cave"),format("I couldn't stop you."))
+    namebox("Boneguard")    
     msgbox(format("Why did we move this base here? Wasn't it safer in the wilderness?"))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_5{
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_5, format("Do you really think you can save them, Bob?"),format("..."))
+    namebox("Boneguard")    
     msgbox(format("Who is Bob?"))
     releaseall
 }
 script BATTLE_ZEMOUREGALBASE_GUARD_6{
-    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_6, format("Who invided you?"),format("Who?"))
-    msgbox(format("Why won't you awnser the question?"))
+    trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_6, format("Who invited you?"),format("Who?"))
+    namebox("Boneguard")    
+    msgbox(format("Why won't you answer the question?"))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_7{
     
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_7, format("You have any Miasma runes?"),format("How sad."))
-    msgbox(format("I just want some Miasma rune dust. I'm not addicted, I can totaly quit."))
+    namebox("Boneguard")    
+    msgbox(format("I just want some Miasma rune dust. I'm not addicted, I can totally quit."))
     releaseall
 }
 
 script BATTLE_ZEMOUREGALBASE_GUARD_8{
     
     trainerbattle_single(TRAINER_ZEMOUREGAL_BASE_SKULLY_8, format("Halt thief! you won't rob the master's vaults!"),format("How?"))
+    namebox("Boneguard")    
     msgbox(format("Oh wait the masters saves are in his castle."))
     releaseall
 }
@@ -888,7 +896,7 @@ script BATTLE_ZEMOUREGALBASE_GUARD_8{
 script NPC_Zemouregal_Base_ironMan
 {
 	lock
-    namebox ("Iron man")
+    namebox("Iron man")
 	msgbox(format("Don't crash on me!\pI need that broken zombie axe drop."))
     waitmessage
     hidenamebox

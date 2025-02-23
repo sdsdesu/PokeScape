@@ -165,6 +165,7 @@ Zemouregal_Book_InfernalSource_8:
 Zemouregal_Book_InfernalSource_10:
 	msgbox Zemouregal_Book_InfernalSource_Text_9
 	msgbox Zemouregal_Book_InfernalSource_Text_10
+	msgbox Zemouregal_Book_InfernalSource_Text_11
 	goto Zemouregal_Book_InfernalSource_1
 
 
@@ -441,30 +442,29 @@ zemouregal_wizard_2_Text_0:
 	.string "Lovand$"
 
 zemouregal_wizard_2_Text_1:
-	.string "You know the appantice of the anchient\n"
+	.string "You know the apprentice of the ancient\n"
 	.string "necormancer Oreb? He has been\l"
-	.string "collecting lots of monsters is moving\l"
+	.string "collecting lots of monsters to move\l"
 	.string "them to a strange island. He seems to\l"
 	.string "hang around Ferox Enclave to try an\l"
-	.string "reacruit peaple for something he calls\l"
-	.string "a soul war.$"
+	.string "recruit people for something he calls a\l"
+	.string "soul war.$"
 
 zemouregal_wizard_3_Text_0:
 	.string "Shender$"
 
 zemouregal_wizard_3_Text_1:
-	.string "Where is Zemouregal? I need to se him\n"
-	.string "immediately. The archaeologists in the\l"
-	.string "digsite found The location of the\l"
-	.string "Infernal Source. We need to act quickly,\l"
-	.string "if we want any of the second age\l"
-	.string "treasures and achient demonic\l"
-	.string "artafacts from the place. The black\l"
-	.string "knights might take everything if we're\l"
-	.string "not fast enough. We where able to\l"
-	.string "intercept a Kinshra spies that tried to\l"
-	.string "notify Lord Daquarius but we can't hold\l"
-	.string "them of for to long.$"
+	.string "Where is Zemouregal? I need to see him\n"
+	.string "immediately. The archaeologists of the\l"
+	.string "Varrock digsite found The location of\l"
+	.string "the Infernal Source. We need to act\l"
+	.string "quickly, if we want any of the second\l"
+	.string "age treasures and ancient demonic\l"
+	.string "artifacts. The black knights might take\l"
+	.string "everything if we're not fast enough. We\l"
+	.string "were able to intercept a Kinshra spy\l"
+	.string "that tried to notify Lord Daquarius but\l"
+	.string "we can't hold them off for too long.$"
 
 zemouregal_wizard_4_Text_0:
 	.string "Ricex$"
@@ -472,15 +472,15 @@ zemouregal_wizard_4_Text_0:
 zemouregal_wizard_4_Text_1:
 	.string "Lord Zemouregal send Ghundar to Zeah\n"
 	.string "to investigate some Dark Altar. We\l"
-	.string "haven't heared of him in months since\l"
-	.string "than. I hope i'm not the next one\l"
+	.string "haven't heard of him in months since\l"
+	.string "then. I hope I’m not the next one\l"
 	.string "Zemouregal sends.$"
 
 zemouregal_wizard_5_Text_0:
 	.string "Skarannen$"
 
 zemouregal_wizard_5_Text_1:
-	.string "Their is a dragonkin necromancer\n"
+	.string "There is a dragonkin necromancer\n"
 	.string "somewhere within the eastern oceans.\l"
 	.string "Within the shadow reef he dwells, as his\l"
 	.string "servants fight the endless hordes of\l"
@@ -524,12 +524,11 @@ Zemouregal_Book_InfernalSource_Text_1:
 
 Zemouregal_Book_InfernalSource_Text_2:
 	.string "Zaros didn't want to move his demon\n"
-	.string "hordes trough The Abbys, out of fear of\l"
-	.string "losing to many troops. This is why he\l"
+	.string "hordes through The Abbys, out of fear\l"
+	.string "of losing to many troops. This is why he\l"
 	.string "only brought the Chthonian demon Duke\l"
 	.string "Nemesis and his First Legion of Avernic\l"
-	.string "slaves to Gilinor, to build a permanent\l"
-	.string "solution to this problem.$"
+	.string "slaves when he arrived at Gielinor.$"
 
 Zemouregal_Book_InfernalSource_Text_3:
 	.string "continue ?$"
@@ -539,9 +538,8 @@ Zemouregal_Book_InfernalSource_Text_4:
 	.string "the ancient colossus Loarnab, an\l"
 	.string "ancient hydra born from Gielinors Anima\l"
 	.string "Mundi. Zaros used the body of the Hydra\l"
-	.string "to create a permanent portal that\l"
-	.string "would connect Gielinor and Infernus, so\l"
-	.string "his legions of demons could freely flow\l"
+	.string "to create a permanent portal, so his\l"
+	.string "legions of demons could freely flow\l"
 	.string "into Gielinor.$"
 
 Zemouregal_Book_InfernalSource_Text_5:
@@ -564,7 +562,7 @@ Zemouregal_Book_InfernalSource_Text_7:
 	.string "and became the Ruler of Infernus.$"
 
 Zemouregal_Book_InfernalSource_Text_8:
-	.string "During the Zamoraks conquest of the\n"
+	.string "During Zamoraks conquest of the\n"
 	.string "Infernus, the Saradominists started\l"
 	.string "their own conquest. The Saradominists\l"
 	.string "turned against their Zarosian allies\l"
@@ -588,6 +586,15 @@ Zemouregal_Book_InfernalSource_Text_10:
 	.string "it. They would build and restore the\l"
 	.string "Infernal Source with human sacrifices.$"
 
+Zemouregal_Book_InfernalSource_Text_11:
+	.string "The restoration of the Infernal Source\n"
+	.string "gave Zamorak the opportunity to invade\l"
+	.string "Gielinor with his legions of liberated\l"
+	.string "Avernic demons. In his conquest to\l"
+	.string "liberate the people of Gielinor, Zamorak\l"
+	.string "started the Third Age, the great god\l"
+	.string "war.$"
+
 Zemouregal_Book_IsleOfSouls_Text_0:
 	.string "A book named the island Of Souls.\p"
 	.string "WARNING: This is a long book, do you\n"
@@ -595,41 +602,45 @@ Zemouregal_Book_IsleOfSouls_Text_0:
 
 Zemouregal_Book_IsleOfSouls_Text_1:
 	.string "The island of souls is a big island\n"
-	.string "located in in the west of the Feldip\l"
+	.string "located the ocean, west of the Feldip\l"
 	.string "Hills. It was famously uninhabitable\l"
-	.string "throughout the forth age, as to many\l"
-	.string "restless Tirth age Revenants roamed\l"
+	.string "throughout the forth age, as too many\l"
+	.string "restless Third age Revenants roamed\l"
 	.string "the land.$"
 
 Zemouregal_Book_IsleOfSouls_Text_2:
 	.string "Ghosts of ogres, orcs, goblins, demons\n"
-	.string "and aviansies roamed this island over\l"
-	.string "the ages and attacked lost sailors\l"
-	.string "that strand on this island. These\l"
-	.string "hostile revenants are the reason why\l"
-	.string "many avoided this land and why it was\l"
-	.string "named the Isle of Souls.$"
+	.string "and aviansies roamed free, attacking\l"
+	.string "lost sailors that dared to explore this\l"
+	.string "island. These hostile revenants where\l"
+	.string "the main reason why many avoided this\l"
+	.string "land and why it was named the Isle of\l"
+	.string "Souls.$"
 
 Zemouregal_Book_IsleOfSouls_Text_3:
 	.string "The island was once a battlefield where\n"
-	.string "millions Armadyleans and Bandosians\l"
-	.string "soldiers died. This happened during a\l"
-	.string "minor conflict during the God Wars. The\l"
-	.string "unburied souls of soldiers that died in\l"
-	.string "this conflict are the main reason why\l"
-	.string "this land was always haunted.$"
+	.string "many Armadylean soldiers and Bandosian\l"
+	.string "mercenaries died. This happened during\l"
+	.string "a minor conflict during the God Wars.\l"
+	.string "The buried souls of soldiers were\l"
+	.string "unable to move on to their afterlife\l"
+	.string "and became hostile to all living things,\l"
+	.string "similar to the revenants that still roam\l"
+	.string "Forinthry.$"
 
 Zemouregal_Book_IsleOfSouls_Text_4:
-	.string "The island was home to an artifact and\n"
-	.string "followers of the gods Bandos and\l"
-	.string "Armadyl, two gods aligned with\l"
-	.string "Saradomin, had to protect it. The\l"
-	.string "Saradominist and their allies didn't\l"
-	.string "want to give this ancient and powerful\l"
-	.string "artifact to Zamorak and his allies. This\l"
-	.string "is why both gods send their armies to\l"
-	.string "the island to defend the artifact from\l"
-	.string "hordes of fire fiends.$"
+	.string "The island was once home to an\n"
+	.string "artifact. It is not obvious what this\l"
+	.string "artifact was, but many assume this\l"
+	.string "artifact was connected to the\l"
+	.string "ascended Demonic Revenant known as\l"
+	.string "Maledictus. The Saradominist and their\l"
+	.string "allies didn't want to give this ancient\l"
+	.string "and powerful artifact to Zamorak and\l"
+	.string "his allies. This is why Bandos and\l"
+	.string "Armadyl send their armies to the island,\l"
+	.string "to defend the artifact from hordes of\l"
+	.string "fire fiends.$"
 
 Zemouregal_Book_IsleOfSouls_Text_5:
 	.string "Bandos believed the war was ending. He\n"
@@ -663,7 +674,7 @@ Zemouregal_Book_IsleOfSouls_Text_7:
 	.string "The Isle of Souls would stay\n"
 	.string "uninhabited until recently. A\l"
 	.string "necromancer named Nomad started to\l"
-	.string "collect the broken souls of the island\l"
+	.string "collect the broken souls on the island\l"
 	.string "to make it more inhabitable land. The\l"
 	.string "necromancer has built a great MvM arena\l"
 	.string "on the island and is challenging\l"
@@ -672,11 +683,10 @@ Zemouregal_Book_IsleOfSouls_Text_7:
 Zemouregal_Book_IsleOfSouls_Text_8:
 	.string "It's currently unknown what Nomad is\n"
 	.string "planning with all the revenant souls he\l"
-	.string "collected and with his MvM arena on the\l"
-	.string "abandoned island he claimed for\l"
-	.string "himself. Lucien seems to keep a close\l"
-	.string "eye on the strange character, believing\l"
-	.string "the man is a potation treat.$"
+	.string "collected and what he wants to do with\l"
+	.string "his MvM arena. Lucien seems to keep a\l"
+	.string "close eye on the strange character, as\l"
+	.string "he views the man is a potential threat.$"
 
 Zemouregal_Book_DarkAltar_Text_0:
 	.string "A book named the Dark Altar of Arceuus.\p"

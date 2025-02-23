@@ -771,13 +771,15 @@ BATTLE_ZEMOUREGALBASE_GUARD_1::
 
 BATTLE_ZEMOUREGALBASE_GUARD_2::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_2, BATTLE_ZEMOUREGALBASE_GUARD_2_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_2_Text_1
-	msgbox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
+	msgbox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_3
 	releaseall
 	return
 
 
 BATTLE_ZEMOUREGALBASE_GUARD_3::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_3, BATTLE_ZEMOUREGALBASE_GUARD_3_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_3_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_3_Text_2
 	releaseall
 	return
@@ -785,6 +787,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_3::
 
 BATTLE_ZEMOUREGALBASE_GUARD_4::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_4, BATTLE_ZEMOUREGALBASE_GUARD_4_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_4_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_4_Text_2
 	releaseall
 	return
@@ -792,6 +795,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_4::
 
 BATTLE_ZEMOUREGALBASE_GUARD_5::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_5, BATTLE_ZEMOUREGALBASE_GUARD_5_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_5_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_5_Text_2
 	releaseall
 	return
@@ -799,6 +803,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_5::
 
 BATTLE_ZEMOUREGALBASE_GUARD_6::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_6, BATTLE_ZEMOUREGALBASE_GUARD_6_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_1_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_6_Text_1
 	releaseall
 	return
@@ -806,6 +811,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_6::
 
 BATTLE_ZEMOUREGALBASE_GUARD_7::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_7, BATTLE_ZEMOUREGALBASE_GUARD_7_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_7_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_7_Text_2
 	releaseall
 	return
@@ -813,6 +819,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_7::
 
 BATTLE_ZEMOUREGALBASE_GUARD_8::
 	trainerbattle_single TRAINER_ZEMOUREGAL_BASE_SKULLY_8, BATTLE_ZEMOUREGALBASE_GUARD_8_Text_0, BATTLE_ZEMOUREGALBASE_GUARD_8_Text_1
+	namebox BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2
 	msgbox BATTLE_ZEMOUREGALBASE_GUARD_8_Text_2
 	releaseall
 	return
@@ -861,16 +868,16 @@ entranceBase_Text_0:
 	.string "???$"
 
 entranceBase_Text_1:
-	.string "How could this have happend?\p"
-	.string "How did Wahisietel get his hands on the\n"
-	.string "hearth of arrav?$"
+	.string "How could this have happened?\p"
+	.string "How did Wahisietel get his hands on The\n"
+	.string "Hearth Of Arrav?$"
 
 entranceBase_Text_2:
 	.string "Gargoyle$"
 
 entranceBase_Text_3:
-	.string "No idea, maybe the red mist wan't a good\n"
-	.string "idea after all.$"
+	.string "No idea, maybe the red mist wasn't a\n"
+	.string "good idea after all.$"
 
 entranceBase_Text_4:
 	.string "The red mist was fine.\p"
@@ -881,7 +888,7 @@ entranceBase_Text_5:
 	.string "It didn't stop the thief my lord.$"
 
 entranceBase_Text_6:
-	.string "You know that also didn't stop the\n"
+	.string "You know what also didn't stop the\n"
 	.string "thief, Sharathteerk?\p"
 	.string "The life detection wards and the sewer\n"
 	.string "trap.$"
@@ -896,23 +903,24 @@ entranceBase_Text_8:
 	.string "undeath.$"
 
 entranceBase_Text_9:
-	.string "The wizards would complain and not do\n"
-	.string "their jobs if we didn't.$"
+	.string "The wizards complains would give me a\n"
+	.string "headache. With toilets, the wizards can\l"
+	.string "do their research without bothering me.$"
 
 entranceBase_Text_10:
-	.string "And dicides the killerwatt makes the\n"
-	.string "sewer imposible to travirse.$"
+	.string "And decides, the killerwatt makes the\n"
+	.string "sewer impossible to traverse.$"
 
 detectLife_Text_0:
 	.string "These seem to be the life detection\n"
 	.string "wards.\p"
 	.string "That necromancer was talking about.\p"
-	.string "There might be a safer way trough.$"
+	.string "There might be a safer way through.$"
 
 detectLifeDoor_Text_0:
 	.string "The giant seems to be fixing machinery\n"
-	.string "on the cieling of the cave.\p"
-	.string "Better not distirb it.$"
+	.string "on the ceiling of the cave.\p"
+	.string "Better not disturb it.$"
 
 zemouregalBossRush_Text_0:
 	.string "Who are you and why are you in my base?$"
@@ -981,7 +989,7 @@ NPC_SHARATH_Battle_Fail_Text_0:
 
 bossrushFininshed_Text_0:
 	.string "Looks like you're stronger than I\n"
-	.string "tought.$"
+	.string "thought.$"
 
 bossrushFininshed_Text_1:
 	.string "What should we do, My Lord?$"
@@ -998,7 +1006,7 @@ bossrushFininshed_Text_3:
 	.string "The Infernal Source?$"
 
 bossrushFininshed_Text_4:
-	.string "That was probaly a false positive.\p"
+	.string "That was probably a false positive.\p"
 	.string "There is no way that portal to Infernus\n"
 	.string "survived the end of the Third Age.$"
 
@@ -1028,7 +1036,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_1_Text_1:
 	.string "Who?$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_1_Text_2:
-	.string "The skeleton is guarding something.$"
+	.string "The skeleton is defending something.$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_2_Text_0:
 	.string "I have to ask you to leave.$"
@@ -1037,7 +1045,10 @@ BATTLE_ZEMOUREGALBASE_GUARD_2_Text_1:
 	.string "This will anger the master.$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_2_Text_2:
-	.string "Why are you still here?.$"
+	.string "Boneguard$"
+
+BATTLE_ZEMOUREGALBASE_GUARD_2_Text_3:
+	.string "Why are you still here?$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_3_Text_0:
 	.string "LIFEFORM DETECTED!$"
@@ -1046,7 +1057,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_3_Text_1:
 	.string "BATTLE LOST.$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_3_Text_2:
-	.string "RECOVERY PROGRESS.$"
+	.string "RECOVERY IN PROGRESS.$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_4_Text_0:
 	.string "Halt! This is a private area. Please exit\n"
@@ -1070,10 +1081,10 @@ BATTLE_ZEMOUREGALBASE_GUARD_5_Text_2:
 	.string "Who is Bob?$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_6_Text_0:
-	.string "Who invided you?$"
+	.string "Who invited you?$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_6_Text_1:
-	.string "Why won't you awnser the question?$"
+	.string "Why won't you answer the question?$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_7_Text_0:
 	.string "You have any Miasma runes?$"
@@ -1083,7 +1094,7 @@ BATTLE_ZEMOUREGALBASE_GUARD_7_Text_1:
 
 BATTLE_ZEMOUREGALBASE_GUARD_7_Text_2:
 	.string "I just want some Miasma rune dust. I'm\n"
-	.string "not addicted, I can totaly quit.$"
+	.string "not addicted, I can totally quit.$"
 
 BATTLE_ZEMOUREGALBASE_GUARD_8_Text_0:
 	.string "Halt thief! you won't rob the master's\n"

@@ -58,7 +58,7 @@ script zemouregal_wizard_2 {
 	lockall
 	faceplayer
 	namebox("Lovand")
-    msgbox(format("You know the appantice of the anchient necormancer Oreb? He has been collecting lots of monsters is moving them to a strange island. He seems to hang around Ferox Enclave to try an reacruit peaple for something he calls a soul war."))
+    msgbox(format("You know the apprentice of the ancient necormancer Oreb? He has been collecting lots of monsters to move them to a strange island. He seems to hang around Ferox Enclave to try an recruit people for something he calls a soul war.")) 
 	closemessage
 	releaseall
  }
@@ -67,7 +67,7 @@ script zemouregal_wizard_3 {
 	lockall
 	faceplayer
 	 namebox("Shender")
-    msgbox(format("Where is Zemouregal? I need to se him immediately. The archaeologists in the digsite found The location of the Infernal Source. We need to act quickly, if we want any of the second age treasures and achient demonic artafacts from the place. The black knights might take everything if we're not fast enough. We where able to intercept a Kinshra spies that tried to notify Lord Daquarius but we can't hold them of for to long.")) 
+    msgbox(format("Where is Zemouregal? I need to see him immediately. The archaeologists of the Varrock digsite found The location of the Infernal Source. We need to act quickly, if we want any of the second age treasures and ancient demonic artifacts. The black knights might take everything if we're not fast enough. We were able to intercept a Kinshra spy that tried to notify Lord Daquarius but we can't hold them off for too long.")) 
 	closemessage
 	releaseall
 }
@@ -77,7 +77,7 @@ script zemouregal_wizard_4 {
 	lockall
 	faceplayer
 	namebox("Ricex")
-    msgbox(format("Lord Zemouregal send Ghundar to Zeah to investigate some Dark Altar. We haven't heared of him in months since than. I hope i'm not the next one Zemouregal sends.")) 
+    msgbox(format("Lord Zemouregal send Ghundar to Zeah to investigate some Dark Altar. We haven't heard of him in months since then. I hope I’m not the next one Zemouregal sends.")) 
 	closemessage
 	releaseall
 }
@@ -87,7 +87,7 @@ script zemouregal_wizard_5 {
 	lockall
 	faceplayer
 	namebox("Skarannen")
-    msgbox(format("Their is a dragonkin necromancer somewhere within the eastern oceans. Within the shadow reef he dwells, as his servants fight the endless hordes of bots.")) 
+    msgbox(format("There is a dragonkin necromancer somewhere within the eastern oceans. Within the shadow reef he dwells, as his servants fight the endless hordes of bots.")) 
 	closemessage
 	releaseall
 }
