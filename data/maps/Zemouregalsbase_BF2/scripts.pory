@@ -127,75 +127,77 @@ script Zemouregal_statue {
 
 
 
-
+//his is the writen in the Zamorkian perspective. Saradomin was probably never an ally of Zaros.  
 script Zemouregal_Book_InfernalSource {
-	lockall
-	msgbox(format("A book named the history of The Infernal Source.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
-	if (var(VAR_RESULT))
+    lockall
+    msgbox(format("A book named the history of The Infernal Source.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
     { 
-		msgbox(format("When Zaros discovered Gielinor, young gods like Saradomin and Tumeken ruled vast and unrivaled empires with massive armies."))
-		msgbox(format("Zaros didn't want to move his demon hordes trough The Abbys, out of fear of losing to many troops. This is why he only brought the Chthonian demon Duke Nemesis and his First Legion of Avernic slaves to Gilinor, to build a permanent solution to this problem."))
-		msgbox(format("continue ?"),MSGBOX_YESNO)
-		if (var(VAR_RESULT))
-    	{ 
-			msgbox(format("Zaros and his demon servants captured the ancient colossus Loarnab, an ancient hydra born from Gielinors Anima Mundi. Zaros used the body of the Hydra to create a permanent portal that would connect Gielinor and Infernus, so his legions of demons could freely flow into Gielinor."))
-			msgbox(format("The infernal source became the center of Senntisten, the capital of the Zarosian empire."))
-			msgbox(format("continue ?"),MSGBOX_YESNO)
-			if (var(VAR_RESULT))
-    		{ 
-				msgbox(format("This infernal source was destroyed by Saradomin after the death of Zaros. Saradomin banished Zamorak to Infernus for killing his ally Zaros and destroyed the infernal source to ensure he couldn't return to Gielinor."))
-				msgbox(format("continue ?"),MSGBOX_YESNO)
-				if (var(VAR_RESULT))
-    			{
-					msgbox(format("During the second half of the second age, Zamorak liberated the Avernic slaves from their Chthonian overlords and became the Ruler of Infernus."))
-					msgbox(format("During the Zamoraks conquest of the Infernus, the Saradominists started their own conquest. The Saradominists turned against their Zarosian allies the moment the Infernal Source was destroyed, as the remaining Zarosian loyalists where stranded and isolated from the great demonic Legions in Infernus."))
-					msgbox(format("continue ?"),MSGBOX_YESNO)
-					if (var(VAR_RESULT))
-					{
-						msgbox(format("The southern parts of the Zarosian Empire where easily absorbed by the Saradominsts. And this powerlessness fueled Zamorakian cults within the former Zarosian empire."))
-
-						msgbox(format("On of these secret cults was the Order of Dis. A group that gathered parts of the old infernal source to reassemble it. They would build and restore the Infernal Source with human sacrifices."))
-					}	
-				}
-			}
-		}
-	}
-	
-	releaseall
+        msgbox(format("When Zaros discovered Gielinor, young gods like Saradomin and Tumeken ruled vast and unrivaled empires with massive armies."))
+        msgbox(format("Zaros didn't want to move his demon hordes through The Abbys, out of fear of losing to many troops. This is why he only brought the Chthonian demon Duke Nemesis and his First Legion of Avernic slaves when he arrived at Gielinor."))
+        msgbox(format("continue ?"),MSGBOX_YESNO)
+        if (var(VAR_RESULT))
+        { 
+            msgbox(format("Zaros and his demon servants captured the ancient colossus Loarnab, an ancient hydra born from Gielinors Anima Mundi. Zaros used the body of the Hydra to create a permanent portal, so his legions of demons could freely flow into Gielinor."))
+            msgbox(format("The infernal source became the center of Senntisten, the capital of the Zarosian empire."))
+            msgbox(format("continue ?"),MSGBOX_YESNO)
+            if (var(VAR_RESULT))
+            { 
+                msgbox(format("This infernal source was destroyed by Saradomin after the death of Zaros. Saradomin banished Zamorak to Infernus for killing his ally Zaros and destroyed the infernal source to ensure he couldn't return to Gielinor."))
+                msgbox(format("continue ?"),MSGBOX_YESNO)
+                if (var(VAR_RESULT))
+                {
+                    msgbox(format("During the second half of the second age, Zamorak liberated the Avernic slaves from their Chthonian overlords and became the Ruler of Infernus."))
+                    msgbox(format("During Zamoraks conquest of the Infernus, the Saradominists started their own conquest. The Saradominists turned against their Zarosian allies the moment the Infernal Source was destroyed, as the remaining Zarosian loyalists where stranded and isolated from the great demonic Legions in Infernus."))
+                    msgbox(format("continue ?"),MSGBOX_YESNO)
+                    if (var(VAR_RESULT))
+                    {
+                        msgbox(format("The southern parts of the Zarosian Empire where easily absorbed by the Saradominsts. And this powerlessness fueled Zamorakian cults within the former Zarosian empire."))
+                        msgbox(format("On of these secret cults was the Order of Dis. A group that gathered parts of the old infernal source to reassemble it. They would build and restore the Infernal Source with human sacrifices."))
+ 						msgbox(format("The restoration of the Infernal Source gave Zamorak the opportunity to invade Gielinor with his legions of liberated Avernic demons. In his conquest to liberate the people of Gielinor, Zamorak started the Third  Age, the great god war."))
+                    }   
+                }
+            }
+        }
+    }
+    
+    releaseall
 }
 
+//this is also writen in the Zamorkian perspective. It's true that Aramdyl, Bandos and saradomin where sometimes allies of each other, but painting the god wars in a war between saradomin and his allies against Zamorak and his allies is oversimplefying the conflict.
 script Zemouregal_Book_IsleOfSouls {
-	lockall
-	msgbox(format("A book named the island Of Souls.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
-	if (var(VAR_RESULT))
+    lockall
+    msgbox(format("A book named the island Of Souls.\pWARNING: This is a long book, do you realy want to read it?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
     { 
-		msgbox(format("The island of souls is a big island located in in the west of the Feldip Hills. It was famously uninhabitable throughout the forth age, as to many restless Tirth age Revenants roamed the land."))
-		msgbox(format("Ghosts of ogres, orcs, goblins, demons and aviansies roamed this island over the ages and attacked lost sailors that strand on this island. These hostile revenants are the reason why many avoided this land and why it was named the Isle of Souls."))
+        msgbox(format("The island of souls is a big island located the ocean, west of the Feldip Hills. It was famously uninhabitable throughout the forth age, as too many restless Third age Revenants roamed the land."))
+        msgbox(format("Ghosts of ogres, orcs, goblins, demons and aviansies roamed free, attacking lost sailors that dared to explore this island. These hostile revenants where the main reason why many avoided this land and why it was named the Isle of Souls."))
 
-		msgbox(format("continue ?"),MSGBOX_YESNO)
-		if (var(VAR_RESULT))
-    	{ 
-			msgbox(format("The island was once a battlefield where millions Armadyleans and Bandosians soldiers died. This happened during a minor conflict during the God Wars. The unburied souls of soldiers that died in this conflict are the main reason why this land was always haunted."))
-			msgbox(format("The island was home to an artifact and followers of the gods Bandos and Armadyl, two gods aligned with Saradomin, had to protect it. The Saradominist and their allies didn't want to give this ancient and powerful artifact to Zamorak and his allies. This is why both gods send their armies to the island to defend the artifact from hordes of fire fiends."))
-			msgbox(format("continue ?"),MSGBOX_YESNO)
-			if (var(VAR_RESULT))
-    		{
-				msgbox(format("Bandos believed the war was ending. He personally pacified Karamja defeating all Zamoraks allies on the continent. He crushed 'The Champion of the Elder Kiln' and locked him back in the volcano that forged him. He butchered Zur-Gar in front of his children who scattered back into the jungles. Zamorak was quickly losing all of his divine allies. It was also obvious who the Saradominsit alliance would turn against once Zamorak was gone. This is why Bandos chose to turn against his Armadylean allies and collect the artifact as a bargaining chip."))
-				msgbox(format("The Bandosians won a bloody conflict with the Armadyleans as Bandos collected the artifact. His armies abandoned the island as the war raged on the mainland. Goblin scavengers would periodically scavenge the battlefields for weapons. But the Isle Of Souls was picked clean at the start of the Forth age."))
-				msgbox(format("continue ?"),MSGBOX_YESNO)
-				if (var(VAR_RESULT))
-				{
-					msgbox(format("The Isle of Souls would stay uninhabited until recently. A necromancer named Nomad started to collect the broken souls of the island to make it more inhabitable land. The necromancer has built a great MvM arena on the island and is challenging trainers all over Gielinor."))
-					msgbox(format("It's currently unknown what Nomad is planning with all the revenant souls he collected and with his MvM arena on the abandoned island he claimed for himself. Lucien seems to keep a close eye on the strange character, believing the man is a potation treat."))
-				}
-			}
-		}
-	}
-	releaseall
+        msgbox(format("continue ?"),MSGBOX_YESNO)
+        if (var(VAR_RESULT))
+        { 
+            msgbox(format("The island was once a battlefield where many Armadylean soldiers and Bandosian mercenaries died. This happened during a minor conflict during the God Wars. The buried souls of soldiers were unable to move on to their afterlife and became hostile to all living things, similar to the revenants that still roam Forinthry."))
+            msgbox(format("The island was once home to an artifact. It is not obvious what this artifact was, but many assume this artifact was connected to the ascended Demonic Revenant known as Maledictus. The Saradominist and their allies didn't want to give this ancient and powerful artifact to Zamorak and his allies. This is why Bandos and Armadyl send their armies to the island, to defend the artifact from hordes of fire fiends."))
+            msgbox(format("continue ?"),MSGBOX_YESNO)
+            if (var(VAR_RESULT))
+            {
+                msgbox(format("Bandos believed the war was ending. He personally pacified Karamja defeating all Zamoraks allies on the continent. He crushed 'The Champion of the Elder Kiln' and locked him back in the volcano that forged him. He butchered Zur-Gar in front of his children who scattered back into the jungles. Zamorak was quickly losing all of his divine allies. It was also obvious who the Saradominsit alliance would turn against once Zamorak was gone. This is why Bandos chose to turn against his Armadylean allies and collect the artifact as a bargaining chip."))
+                msgbox(format("The Bandosians won a bloody conflict with the Armadyleans as Bandos collected the artifact. His armies abandoned the island as the war raged on the mainland. Goblin scavengers would periodically scavenge the battlefields for weapons. But the Isle Of Souls was picked clean at the start of the Forth age."))
+                msgbox(format("continue ?"),MSGBOX_YESNO)
+                if (var(VAR_RESULT))
+                {
+                    msgbox(format("The Isle of Souls would stay uninhabited until recently. A necromancer named Nomad started to collect the broken souls on the island to make it more inhabitable land. The necromancer has built a great MvM arena on the island and is challenging trainers all over Gielinor."))
+                    msgbox(format("It's currently unknown what Nomad is planning with all the revenant souls he collected and what he wants to do with his MvM arena. Lucien seems to keep a close eye on the strange character, as he views the man is a potential threat."))
+                }
+            }
+        }
+    }
+    releaseall
 }
 
 
 
+//The main inconsitancy with the astablished lore is the moment of Skotizos betrayal. I think the dark altar should have been on Zeah before the third age.    
 script Zemouregal_Book_DarkAltar {
 	lockall
 	msgbox(format("A book named the Dark Altar of Arceuus.\pWARNING: This is a long book, do you realy want to read it?"),MSGBOX_YESNO)
@@ -219,7 +221,7 @@ script Zemouregal_Book_DarkAltar {
 	releaseall
 }
 
-
+//It's not confirmed that Silike send anyone to the Cursed Archipeligo, but he had the power and the motive to do something like it. 
 script Zemouregal_Book_BlackStone {
 	lockall
 	msgbox(format("A book named The Mwanu of The Cursed Archipeligo.\pWARNING: This is a long book, do you realy want to read it?"),MSGBOX_YESNO)
