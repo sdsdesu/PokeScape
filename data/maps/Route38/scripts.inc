@@ -2,6 +2,94 @@ Route38_MapScripts::
 	.byte 0
 
 
+twoStapsRight:
+	walk_right
+	walk_right
+	step_end
+
+twoStapsLeft:
+	walk_left
+	walk_left
+	step_end
+
+surprisedAlert:
+	emote_exclamation_mark
+	step_end
+
+lookbackleft:
+	face_left
+	step_end
+
+skelletonsWarning::
+	lock
+	compare VAR_POKESCAPE_EVENT_ZEMOUREGAL, 1
+	goto_if_lt skelletonsWarning_2
+skelletonsWarning_1:
+	release
+	return
+
+skelletonsWarning_2:
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, twoStapsRight
+	waitmovement 0
+	applymovement 11, surprisedAlert
+	namebox skelletonsWarning_Text_0
+	msgbox skelletonsWarning_Text_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_CAMERA, twoStapsLeft
+	waitmovement 0
+	special RemoveCameraObject
+	goto skelletonsWarning_1
+
+
+skelletontalks::
+	lock
+	faceplayer
+	switch VAR_POKESCAPE_EVENT_ZEMOUREGAL
+	case 0, skelletontalks_3
+	case 1, skelletontalks_4
+	case 2, skelletontalks_4
+	case 3, skelletontalks_4
+	case 4, skelletontalks_4
+	case 5, skelletontalks_4
+	case 6, skelletontalks_4
+	case 7, skelletontalks_5
+	case 8, skelletontalks_6
+	case 9, skelletontalks_6
+	case 10, skelletontalks_7
+	namebox skelletonsWarning_Text_0
+	msgbox skelletontalks_Text_4
+skelletontalks_1:
+	applymovement 11, lookbackleft
+	release
+	return
+
+skelletontalks_3:
+	namebox skelletonsWarning_Text_0
+	msgbox skelletonsWarning_Text_1
+	goto skelletontalks_1
+
+skelletontalks_4:
+	namebox skelletonsWarning_Text_0
+	msgbox skelletontalks_Text_0
+	goto skelletontalks_1
+
+skelletontalks_5:
+	namebox skelletonsWarning_Text_0
+	msgbox skelletontalks_Text_1
+	goto skelletontalks_1
+
+skelletontalks_6:
+	namebox skelletonsWarning_Text_0
+	msgbox skelletontalks_Text_2
+	goto skelletontalks_1
+
+skelletontalks_7:
+	namebox skelletonsWarning_Text_0
+	msgbox skelletontalks_Text_3
+	goto skelletontalks_1
+
+
 BATTLE_ROUTE_38_TRAINER_1::
 	trainerbattle_single TRAINER_ROUTE_38_TRAINER_1, BATTLE_ROUTE_38_TRAINER_1_Text_0, BATTLE_ROUTE_38_TRAINER_1_Text_1
 	namebox BATTLE_ROUTE_38_TRAINER_1_Text_2
@@ -121,6 +209,34 @@ LOCKED_DOOR_RAG_AND_BONE::
 	release
 	end
 
+
+skelletonsWarning_Text_0:
+	.string "skelly guard$"
+
+skelletonsWarning_Text_1:
+	.string "There is no secret base here turn away$"
+
+skelletontalks_Text_0:
+	.string "Don't collect the red mist and open the\n"
+	.string "gates. The master will be very annoyed\l"
+	.string "with you.$"
+
+skelletontalks_Text_1:
+	.string "The gates are open? Good luck getting\n"
+	.string "past the life detection wards.$"
+
+skelletontalks_Text_2:
+	.string "Did Sharathteerk and Arrav beat you?\n"
+	.string "You honestly asked for it.$"
+
+skelletontalks_Text_3:
+	.string "Why are you still bothering us? Can't\n"
+	.string "you see your not welcome here?$"
+
+skelletontalks_Text_4:
+	.string "The master is back to his fortress in\n"
+	.string "The North. Lets hope you won't bother\l"
+	.string "us there.$"
 
 BATTLE_ROUTE_38_TRAINER_1_Text_0:
 	.string "Hey noob you're on the wrong side of\n"

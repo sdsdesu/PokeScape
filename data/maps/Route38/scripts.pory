@@ -1,6 +1,83 @@
 mapscripts Route38_MapScripts {
 
 }
+//Zemouregal event
+const skellyguardId= 11
+movement twoStapsRight
+{
+walk_right * 2
+}
+movement twoStapsLeft
+{
+walk_left *2
+}
+movement surprisedAlert
+{
+emote_exclamation_mark
+}
+movement lookbackleft
+{
+face_left
+}
+
+
+script skelletonsWarning
+{	
+	lock
+	if(var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)<1)
+	{	
+		special(SpawnCameraObject)
+        applymovement(OBJ_EVENT_ID_CAMERA, twoStapsRight)
+		waitmovement(0)
+		applymovement(skellyguardId, surprisedAlert)
+
+		namebox ("skelly guard")
+    	msgbox(format("There is no secret base here turn away"))
+		waitmovement(0)
+		applymovement(OBJ_EVENT_ID_CAMERA, twoStapsLeft)
+		waitmovement(0)
+		special(RemoveCameraObject)
+		
+	}
+	release
+}
+
+script skelletontalks
+{
+	lock
+	faceplayer
+	switch (var(VAR_POKESCAPE_EVENT_ZEMOUREGAL)) {
+        case 0: //haven't visited yet
+		namebox ("skelly guard")
+    	msgbox(format("There is no secret base here turn away"))
+        case 1: //Seen the intro
+        case 2: //you found the first key
+        case 3: //oppened the first gate
+        case 4: //you found the second key
+        case 5: //oppened the second gate
+        case 6: //you found the last key
+        namebox ("skelly guard")
+    	msgbox(format("Don't collect the red mist and open the gates. The master will be very annoyed with you."))
+		case 7:  //unlock gate3
+		namebox ("skelly guard")
+    	msgbox(format("The gates are open? Good luck getting past the life detection wards."))
+		case 8: //exit the sewer
+        case 9: //encountered and lost to SHARATH and ARRAV 
+		namebox ("skelly guard")
+    	msgbox(format("Did Sharathteerk and Arrav beat you? You honestly asked for it."))
+		case 10: //encountered and lost to ZEMOUREGAL
+		namebox ("skelly guard")
+    	msgbox(format("Why are you still bothering us? Can't you see your not welcome here?"))
+        default://won your battle with Zemouregal and he is off to his fort
+		namebox ("skelly guard")
+    	msgbox(format("The master is back to his fortress in The North. Lets hope you won't bother us there."))
+		}
+	applymovement(skellyguardId, lookbackleft)
+
+	release
+}
+
+
 
 //Battles
 script BATTLE_ROUTE_38_TRAINER_1
