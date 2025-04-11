@@ -1391,29 +1391,54 @@ SetFollower_SirOwen_2:
 FOLLOWING_SirOwen::
 	namebox multipartnerBattle_SirOwen_Text_0
 	facefollower
+	switch VAR_POKESCAPE_STORYMODE_PROGRESS
+	case 181, FOLLOWING_SirOwen_3
+	case 186, FOLLOWING_SirOwen_4
+	case 187, FOLLOWING_SirOwen_5
 	random 5
 	switch VAR_RESULT
-	case 0, FOLLOWING_SirOwen_2
-	case 1, FOLLOWING_SirOwen_2
-	case 2, FOLLOWING_SirOwen_2
-	case 3, FOLLOWING_SirOwen_2
+	case 0, FOLLOWING_SirOwen_7
+	case 1, FOLLOWING_SirOwen_7
+	case 2, FOLLOWING_SirOwen_7
+	case 3, FOLLOWING_SirOwen_7
 	goto SIR_OWEN_DIALOGUE_COMMON
 	return
 
-FOLLOWING_SirOwen_2:
-	specialvar VAR_RESULT, GetCurrentMap
-	compare VAR_RESULT, MAP_ICE_MOUNTAIN
-	goto_if_eq FOLLOWING_SirOwen_4
-	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_1
-	goto_if_eq FOLLOWING_SirOwen_5
-	goto SIR_OWEN_DIALOGUE_COMMON
-	return
+FOLLOWING_SirOwen_3:
+	msgbox FOLLOWING_SirOwen_Text_0
+	hidenamebox
+	closemessage
+	release
+	end
 
 FOLLOWING_SirOwen_4:
+	msgbox FOLLOWING_SirOwen_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+FOLLOWING_SirOwen_5:
+	msgbox FOLLOWING_SirOwen_Text_2
+	hidenamebox
+	closemessage
+	release
+	end
+
+FOLLOWING_SirOwen_7:
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_ICE_MOUNTAIN
+	goto_if_eq FOLLOWING_SirOwen_9
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_1
+	goto_if_eq FOLLOWING_SirOwen_10
+	goto SIR_OWEN_DIALOGUE_COMMON
+	return
+
+FOLLOWING_SirOwen_9:
 	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN
 	return
 
-FOLLOWING_SirOwen_5:
+FOLLOWING_SirOwen_10:
 	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS
 	return
 
@@ -2241,6 +2266,18 @@ SetFollower_SirOwen_Text_3:
 	.string "That's a bit disappointing.\p"
 	.string "Thought we had a heroic thing going\n"
 	.string "here…$"
+
+FOLLOWING_SirOwen_Text_0:
+	.string "Is that a Black Knight Fortress?!$"
+
+FOLLOWING_SirOwen_Text_1:
+	.string "We should go say hello to those guards\n"
+	.string "up on the mountain.$"
+
+FOLLOWING_SirOwen_Text_2:
+	.string "I cannot believe we just did that…\p"
+	.string "I guess we should try to enter the\n"
+	.string "fortress, now that we look the part.$"
 
 SIR_OWEN_DIALOGUE_COMMON_Text_0:
 	.string "So you saw a Black Knight run out of the\n"

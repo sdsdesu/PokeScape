@@ -16,6 +16,15 @@ CAUGHT_BY_BLACK_KNIGHTS::
 	return
 
 
+POST_CAUGHT_BLACK_KNIGHTS::
+	facefollower
+	namebox CAUGHT_BY_BLACK_KNIGHTS_Text_0
+	msgbox POST_CAUGHT_BLACK_KNIGHTS_Text_0
+	closemessage
+	hidenamebox
+	return
+
+
 TRIGGER_BLACK_KNIGHT_QUIZ_1::
 	lockall
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
@@ -29,15 +38,12 @@ BLACK_KNIGHT_QUIZ_1::
 	applymovement 11, Movement_InteractFACEPLAYER
 	waitmovement 0
 	namebox BLACK_KNIGHT_QUIZ_1_Text_0
-	goto_if_set FLAG_BKF_QUIZ_1, BLACK_KNIGHT_QUIZ_1_2
-	msgbox BLACK_KNIGHT_QUIZ_1_Text_2
-	msgbox BLACK_KNIGHT_QUIZ_1_Text_3, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq BLACK_KNIGHT_QUIZ_1_5
-	msgbox BLACK_KNIGHT_QUIZ_1_Text_6
-	closemessage
-	hidenamebox
-	setflag FLAG_BKF_QUIZ_1
+	compare VAR_BKF_QUIZ_1, 0
+	goto_if_eq BLACK_KNIGHT_QUIZ_1_2
+	compare VAR_BKF_QUIZ_1, 1
+	goto_if_eq BLACK_KNIGHT_QUIZ_1_3
+	compare VAR_BKF_QUIZ_1, 2
+	goto_if_eq BLACK_KNIGHT_QUIZ_1_4
 BLACK_KNIGHT_QUIZ_1_1:
 	setvar VAR_TEMP_1, 1
 	releaseall
@@ -45,18 +51,53 @@ BLACK_KNIGHT_QUIZ_1_1:
 
 BLACK_KNIGHT_QUIZ_1_2:
 	msgbox BLACK_KNIGHT_QUIZ_1_Text_1
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq BLACK_KNIGHT_QUIZ_1_8
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_6
+	closemessage
+	hidenamebox
+	setvar VAR_BKF_QUIZ_1, 1
+	goto BLACK_KNIGHT_QUIZ_1_1
+
+BLACK_KNIGHT_QUIZ_1_3:
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_7
 	closemessage
 	hidenamebox
 	goto BLACK_KNIGHT_QUIZ_1_1
 
-BLACK_KNIGHT_QUIZ_1_5:
-	msgbox BLACK_KNIGHT_QUIZ_1_Text_4
+BLACK_KNIGHT_QUIZ_1_4:
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_8
+	closemessage
+	hidenamebox
+	goto BLACK_KNIGHT_QUIZ_1_1
+
+BLACK_KNIGHT_QUIZ_1_8:
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_3
 	closemessage
 	hidenamebox
 	call CAUGHT_BY_BLACK_KNIGHTS
 	playbgm MUS_PS_ENCOUNTER_KNIGHTS, FALSE
-	trainerbattle_no_intro TRAINER_BLACKKNIGHT_LAIMP, BLACK_KNIGHT_QUIZ_1_Text_5
+	trainerbattle_no_intro TRAINER_BLACKKNIGHT_LAIMP, BLACK_KNIGHT_QUIZ_1_Text_4
+	namebox BLACK_KNIGHT_QUIZ_1_Text_0
+	msgbox BLACK_KNIGHT_QUIZ_1_Text_5
+	closemessage
+	hidenamebox
+	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_BKF_QUIZ_1, 2
+	setflag FLAG_TEMP_1
+	removeobject 11
+	fadescreenswapbuffers FADE_FROM_BLACK
+	call POST_CAUGHT_BLACK_KNIGHTS
 	goto BLACK_KNIGHT_QUIZ_1_1
+
+
+NPC_BLACK_KNIGHT_QUIZ_2::
+	msgbox NPC_BLACK_KNIGHT_QUIZ_2_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
 
 
 TRIGGER_BLACK_KNIGHT_QUIZ_2::
@@ -73,19 +114,12 @@ BLACK_KNIGHT_QUIZ_2::
 	applymovement 7, Movement_InteractFACEPLAYER
 	waitmovement 0
 	namebox BLACK_KNIGHT_QUIZ_1_Text_0
-	goto_if_set FLAG_BKF_QUIZ_2, BLACK_KNIGHT_QUIZ_2_2
-	msgbox BLACK_KNIGHT_QUIZ_2_Text_1
-	msgbox BLACK_KNIGHT_QUIZ_2_Text_2, MSGBOX_YESNO
-	compare VAR_RESULT, FALSE
-	goto_if_eq BLACK_KNIGHT_QUIZ_2_5
-	msgbox BLACK_KNIGHT_QUIZ_2_Text_4
-	closemessage
-	hidenamebox
-	namebox CAUGHT_BY_BLACK_KNIGHTS_Text_0
-	msgbox BLACK_KNIGHT_QUIZ_2_Text_5
-	closemessage
-	hidenamebox
-	setflag FLAG_BKF_QUIZ_2
+	compare VAR_BKF_QUIZ_2, 0
+	goto_if_eq BLACK_KNIGHT_QUIZ_2_2
+	compare VAR_BKF_QUIZ_2, 1
+	goto_if_eq BLACK_KNIGHT_QUIZ_2_3
+	compare VAR_BKF_QUIZ_2, 2
+	goto_if_eq BLACK_KNIGHT_QUIZ_2_4
 BLACK_KNIGHT_QUIZ_2_1:
 	setvar VAR_TEMP_2, 1
 	releaseall
@@ -93,19 +127,57 @@ BLACK_KNIGHT_QUIZ_2_1:
 
 BLACK_KNIGHT_QUIZ_2_2:
 	msgbox BLACK_KNIGHT_QUIZ_2_Text_0
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, FALSE
+	goto_if_eq BLACK_KNIGHT_QUIZ_2_8
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_6
+	closemessage
+	hidenamebox
+	facefollower
+	namebox CAUGHT_BY_BLACK_KNIGHTS_Text_0
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_7
+	closemessage
+	hidenamebox
+	setvar VAR_BKF_QUIZ_2, 1
+	goto BLACK_KNIGHT_QUIZ_2_1
+
+BLACK_KNIGHT_QUIZ_2_3:
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_8
 	closemessage
 	hidenamebox
 	goto BLACK_KNIGHT_QUIZ_2_1
 
-BLACK_KNIGHT_QUIZ_2_5:
+BLACK_KNIGHT_QUIZ_2_4:
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_9
+	closemessage
 	hidenamebox
+	goto BLACK_KNIGHT_QUIZ_2_1
+
+BLACK_KNIGHT_QUIZ_2_8:
+	hidenamebox
+	facefollower
 	namebox CAUGHT_BY_BLACK_KNIGHTS_Text_0
-	msgbox BLACK_KNIGHT_QUIZ_2_Text_3
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_2
 	closemessage
 	hidenamebox
 	call CAUGHT_BY_BLACK_KNIGHTS
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	waitmovement 0
 	playbgm MUS_PS_ENCOUNTER_KNIGHTS, FALSE
-	trainerbattle_no_intro TRAINER_BLACKKNIGHT_MARE, BLACK_KNIGHT_QUIZ_1_Text_5
+	trainerbattle_two_trainers TRAINER_BLACKKNIGHT_MARE, BLACK_KNIGHT_QUIZ_2_Text_3, TRAINER_BLACKKNIGHT_TEE, BLACK_KNIGHT_QUIZ_2_Text_4
+	namebox BLACK_KNIGHT_QUIZ_1_Text_0
+	msgbox BLACK_KNIGHT_QUIZ_2_Text_5
+	closemessage
+	hidenamebox
+	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_BKF_QUIZ_2, 2
+	setflag FLAG_TEMP_2
+	removeobject 6
+	removeobject 7
+	removeobject 13
+	removeobject 14
+	fadescreenswapbuffers FADE_FROM_BLACK
+	call POST_CAUGHT_BLACK_KNIGHTS
 	goto BLACK_KNIGHT_QUIZ_2_1
 
 
@@ -276,12 +348,12 @@ BKFORT_1F_BOOK::
 
 
 ITEM_BKFORT_1F_ITEM1::
-	finditem ITEM_PARTY_HAT
+	finditem ITEM_POTION_DEF
 	end
 
 
 ITEM_BKFORT_1F_ITEM2::
-	finditem ITEM_STAT_BEER
+	finditem ITEM_EARTH_RUNE
 	end
 
 
@@ -341,14 +413,16 @@ CAUGHT_BY_BLACK_KNIGHTS_Text_1:
 	.string "Our cover is blown {PLAYER}!\n"
 	.string "Quick prepare for battle!$"
 
+POST_CAUGHT_BLACK_KNIGHTS_Text_0:
+	.string "Remember {PLAYER} we need to keep a\n"
+	.string "low profile.\p"
+	.string "So think and act like a guard for the\n"
+	.string "Black Knights.$"
+
 BLACK_KNIGHT_QUIZ_1_Text_0:
 	.string "Black Knight$"
 
 BLACK_KNIGHT_QUIZ_1_Text_1:
-	.string "Stop right there!\p"
-	.string "Oh, it is you two again, carry on.$"
-
-BLACK_KNIGHT_QUIZ_1_Text_2:
 	.string "Stop right there!\p"
 	.string "We have important guests and due to\n"
 	.string "this we have increased security.\p"
@@ -356,45 +430,77 @@ BLACK_KNIGHT_QUIZ_1_Text_2:
 	.string "so we know you are truly loyal to our\l"
 	.string "cause!!$"
 
-BLACK_KNIGHT_QUIZ_1_Text_3:
-	.string "Black Knights are better than White\n"
+BLACK_KNIGHT_QUIZ_1_Text_2:
+	.string "Are Black Knights are better than White\n"
 	.string "Knights?$"
 
-BLACK_KNIGHT_QUIZ_1_Text_4:
+BLACK_KNIGHT_QUIZ_1_Text_3:
 	.string "That is Faladorian talk.\p"
 	.string "Prepare for battle scum!$"
 
-BLACK_KNIGHT_QUIZ_1_Text_5:
+BLACK_KNIGHT_QUIZ_1_Text_4:
 	.string "…$"
 
+BLACK_KNIGHT_QUIZ_1_Text_5:
+	.string "I must inform my superiors of this at\n"
+	.string "once!$"
+
 BLACK_KNIGHT_QUIZ_1_Text_6:
-	.string "Correct. We are way better than those\n"
-	.string "pansies.$"
+	.string "Correct.\n"
+	.string "We are way better than those pansies.$"
+
+BLACK_KNIGHT_QUIZ_1_Text_7:
+	.string "Stop right there!\p"
+	.string "Oh, it is you two again, carry on.$"
+
+BLACK_KNIGHT_QUIZ_1_Text_8:
+	.string "Stop right there!\p"
+	.string "We are on high alert, I spotted some\n"
+	.string "intruders recently.\p"
+	.string "Have you seen any?$"
+
+NPC_BLACK_KNIGHT_QUIZ_2_Text_0:
+	.string "The Knight doesn't want to be bothered\n"
+	.string "while working.$"
 
 BLACK_KNIGHT_QUIZ_2_Text_0:
-	.string "Make sure to stab the prisoners if they\n"
-	.string "get too close to the bars.$"
-
-BLACK_KNIGHT_QUIZ_2_Text_1:
 	.string "Only true Black Knights could ever be\n"
 	.string "allowed to speak to the prisoners.\p"
 	.string "Prove your loyalty and you may descend!$"
 
-BLACK_KNIGHT_QUIZ_2_Text_2:
+BLACK_KNIGHT_QUIZ_2_Text_1:
 	.string "Sir Owen Sonde and Sir Tiffy Cashien\n"
 	.string "smells.$"
 
+BLACK_KNIGHT_QUIZ_2_Text_2:
+	.string "Damn right we don't smell!$"
+
 BLACK_KNIGHT_QUIZ_2_Text_3:
-	.string "Damn right, prepare to battle Black\n"
-	.string "Knight!$"
+	.string "Mare: This is a nightmare!$"
 
 BLACK_KNIGHT_QUIZ_2_Text_4:
-	.string "Haha, yeah, they really do. Heh.$"
+	.string "Tee: I want to go to bed…$"
 
 BLACK_KNIGHT_QUIZ_2_Text_5:
+	.string "We must inform our superiors of this!\p"
+	.string "Stay here until we return!$"
+
+BLACK_KNIGHT_QUIZ_2_Text_6:
+	.string "Haha, yeah, they really do. Heh.$"
+
+BLACK_KNIGHT_QUIZ_2_Text_7:
 	.string ".....\p"
 	.string "{PLAYER}, something within me felt\n"
 	.string "like we should have taken a loss here....$"
+
+BLACK_KNIGHT_QUIZ_2_Text_8:
+	.string "Make sure to stab the prisoners if they\n"
+	.string "get too close to the bars.$"
+
+BLACK_KNIGHT_QUIZ_2_Text_9:
+	.string "Have you spotted any intruders\n"
+	.string "recently?\p"
+	.string "If you have be sure to stab em!$"
 
 BKFORT_DOG_Text_0:
 	.string "The dog looks at you and starts to\n"

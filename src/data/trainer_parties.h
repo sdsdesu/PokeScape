@@ -7612,15 +7612,21 @@ static const struct TrainerMon sParty_ModestSamuel[] = {
 static const struct TrainerMon sParty_BlackKnight_Mare[] = {
     {
     .lvl = 43,
-    .species = SPECIES_UNICORN_BLACK_FORM,
+    .species = SPECIES_GUARD_DOG,
     },
     {
     .lvl = 43,
     .species = SPECIES_GIANT_RAT_DUNGEON_FORM,
+    }
+};
+static const struct TrainerMon sParty_BlackKnight_Tee[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_BULLDOG,
     },
     {
-    .lvl = 44,
-    .species = SPECIES_ALBINO_BAT,
+    .lvl = 43,
+    .species = SPECIES_WARPED_BAT,
     }
 };
 
@@ -7631,7 +7637,7 @@ static const struct TrainerMon sParty_BlackKnight_Laimp[] = {
     },
     {
     .lvl = 43,
-    .species = SPECIES_WOLF_FENRIS_FORM,
+    .species = SPECIES_ABYSSAL_LURKER_FORM,
     },
     {
     .lvl = 44,
@@ -7654,7 +7660,7 @@ static const struct TrainerMon sParty_BlackKnight_Taim[] = {
     },
     {
     .lvl = 44,
-    .species = SPECIES_SHEEP_BLACK_FORM,
+    .species = SPECIES_SPIDER_DEADLYRED_FORM,
     }
 };
 
@@ -7669,7 +7675,7 @@ static const struct TrainerMon sParty_BlackKnight_Laif[] = {
     },
     {
     .lvl = 44,
-    .species = SPECIES_DEMON_GREATER_RS3_FORM,
+    .species = SPECIES_DEMON_LESSER_RS3_FORM,
     }
 };
 
@@ -7680,14 +7686,14 @@ static const struct TrainerMon sParty_BlackKnight_Fall[] = {
     },
     {
     .lvl = 44,
-    .species = SPECIES_DEMON_ICE_OSRS_FORM,
+    .species = SPECIES_DEMON_GREATER_BLACK_FORM,
     }
 };
 
 static const struct TrainerMon sParty_BlackKnight_Skool[] = { 
     {
     .lvl = 44,
-    .species = SPECIES_DEMON_LESSER_RS3_FORM,
+    .species = SPECIES_DEMON_GREATER_TONGUE_FORM,
     },
     {
     .lvl = 45,
@@ -7695,14 +7701,14 @@ static const struct TrainerMon sParty_BlackKnight_Skool[] = {
     },
     {
     .lvl = 45,
-    .species = SPECIES_GIANT_RAT_BLESSED_FORM,
+    .species = SPECIES_RAT_HELL_FORM,
     }
 };
 
 static const struct TrainerMon sParty_BlackKnight_Sift[] = { 
     {
     .lvl = 44,
-    .species = SPECIES_BABY_MOLE,
+    .species = SPECIES_ALBINO_RAT,
     },
     {
     .lvl = 45,
@@ -7717,15 +7723,15 @@ static const struct TrainerMon sParty_BlackKnight_Sift[] = {
 static const struct TrainerMon sParty_BlackKnight_Necro1[] = {
     {
     .lvl = 43,
-    .species = SPECIES_CROW,
+    .species = SPECIES_YAK_UNDEAD_FORM,
     },
     {
     .lvl = 43,
-    .species = SPECIES_RAVEN_NORMAL_FORM,
+    .species = SPECIES_CHICKEN_DEATH_FORM,
     },
     {
     .lvl = 45,
-    .species = SPECIES_RAVEN_NEVERMORE_FORM,
+    .species = SPECIES_BROAV_ZOMBIE_FORM,
     }
 };
 
@@ -7736,7 +7742,7 @@ static const struct TrainerMon sParty_BlackKnight_Necro2[] = {
     },
     {
     .lvl = 43,
-    .species = SPECIES_IMPLING_GHOST_FORM,
+    .species = SPECIES_CHICKEN_UNDEAD_FORM,
     },
     {
     .lvl = 44,
@@ -7744,7 +7750,7 @@ static const struct TrainerMon sParty_BlackKnight_Necro2[] = {
     },
     {
     .lvl = 44,
-    .species = SPECIES_IMPLING_NINJA_FORM,
+    .species = SPECIES_HAND_BROKENFINGERS_FORM,
     }
 };
 

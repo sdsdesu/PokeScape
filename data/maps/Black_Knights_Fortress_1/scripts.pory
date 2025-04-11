@@ -19,6 +19,16 @@ script CAUGHT_BY_BLACK_KNIGHTS
     return
 }
 
+script POST_CAUGHT_BLACK_KNIGHTS
+{
+    facefollower
+    namebox("Sir Owen")
+    msgbox(format("Remember {PLAYER} we need to keep a low profile.\pSo think and act like a guard for the Black Knights."))
+    closemessage
+    hidenamebox
+    return
+}
+
 script TRIGGER_BLACK_KNIGHT_QUIZ_1 {
     lockall
     applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
@@ -32,16 +42,9 @@ script BLACK_KNIGHT_QUIZ_1 //Laimp
     applymovement(11, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Black Knight")
-    if (flag(FLAG_BKF_QUIZ_1) == TRUE)
-    {
-        msgbox(format("Stop right there!\pOh, it is you two again, carry on."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_1) == 0) { // Guarding
         msgbox(format("Stop right there!\pWe have important guests and due to this we have increased security.\pYou will have to answer some questions so we know you are truly loyal to our cause!!"))
-        msgbox(format("Black Knights are better than White Knights?"), MSGBOX_YESNO)
+        msgbox(format("Are Black Knights are better than White Knights?"), MSGBOX_YESNO)
         if (var(VAR_RESULT) == FALSE)
         {
             msgbox(format("That is Faladorian talk.\pPrepare for battle scum!"))
@@ -50,64 +53,112 @@ script BLACK_KNIGHT_QUIZ_1 //Laimp
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_LAIMP, msgbox(format("…")))
-        }
-        else {
-            msgbox(format("Correct. We are way better than those pansies."))
+            namebox("Black Knight")
+            msgbox(format("I must inform my superiors of this at once!"))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_1)
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_1, 2) // Caught
+            setflag(FLAG_TEMP_1)
+            removeobject(11)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
+        else {
+            msgbox(format("Correct.\nWe are way better than those pansies."))
+            closemessage
+            hidenamebox
+            setvar(VAR_BKF_QUIZ_1, 1) // Not Caught
+        }
+    }
+    elif (var(VAR_BKF_QUIZ_1) == 1) {  // Not Caught
+        msgbox(format("Stop right there!\pOh, it is you two again, carry on."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_1) == 2) { // Caught
+        msgbox(format("Stop right there!\pWe are on high alert, I spotted some intruders recently.\pHave you seen any?"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_1, 1)
     releaseall
     end
 }
 
-
+script NPC_BLACK_KNIGHT_QUIZ_2 {
+    msgbox(format("The Knight doesn't want to be bothered while working."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
 script TRIGGER_BLACK_KNIGHT_QUIZ_2 {
     lockall
     applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
     waitmovement(0)
     goto(BLACK_KNIGHT_QUIZ_2)
 }
-script BLACK_KNIGHT_QUIZ_2 //Mare
+script BLACK_KNIGHT_QUIZ_2 //Mare //Double Battle
 {
     lockall
     applymovement(6, Movement_InteractFACEPLAYER)
     applymovement(7, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Black Knight")
-    if (flag(FLAG_BKF_QUIZ_2) == TRUE)
-    {
-        msgbox(format("Make sure to stab the prisoners if they get too close to the bars."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    
+    if (var(VAR_BKF_QUIZ_2) == 0) { // Guarding
         msgbox(format("Only true Black Knights could ever be allowed to speak to the prisoners.\pProve your loyalty and you may descend!"))
         msgbox(format("Sir Owen Sonde and Sir Tiffy Cashien smells."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == FALSE)
         {
             hidenamebox
+            facefollower
             namebox("Sir Owen")
-            msgbox(format("Damn right, prepare to battle Black Knight!"))
+            msgbox(format("Damn right we don't smell!"))
             closemessage
             hidenamebox
             call(CAUGHT_BY_BLACK_KNIGHTS)
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+            waitmovement(0)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
-            trainerbattle_no_intro(TRAINER_BLACKKNIGHT_MARE, msgbox(format("…")))
+            trainerbattle_two_trainers(TRAINER_BLACKKNIGHT_MARE, msgbox(format("Mare: This is a nightmare!")), TRAINER_BLACKKNIGHT_TEE, msgbox(format("Tee: I want to go to bed…")))
+            // Give them (mean) dogs on their team.
+            namebox("Black Knight")
+            msgbox(format("We must inform our superiors of this!\pStay here until we return!"))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_2, 2) // Caught
+            setflag(FLAG_TEMP_2)
+            removeobject(6)
+            removeobject(7)
+            removeobject(13)
+            removeobject(14)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("Haha, yeah, they really do. Heh."))
             closemessage
             hidenamebox
+            facefollower
             namebox("Sir Owen")
             msgbox(format(".....\p{PLAYER}, something within me felt like we should have taken a loss here...."))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_2)
+            setvar(VAR_BKF_QUIZ_2, 1) // Not Caught
         }
+    }
+    elif (var(VAR_BKF_QUIZ_2) == 1) {  // Not Caught
+        msgbox(format("Make sure to stab the prisoners if they get too close to the bars."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_2) == 2) { // Caught
+        msgbox(format("Have you spotted any intruders recently?\pIf you have be sure to stab em!"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_2, 1)
     releaseall
@@ -291,13 +342,13 @@ script BKFORT_1F_BOOK
 
 script ITEM_BKFORT_1F_ITEM1
 {
-    finditem(ITEM_PARTY_HAT)
+    finditem(ITEM_POTION_DEF)
     end
 }
 
 script ITEM_BKFORT_1F_ITEM2
 {
-    finditem(ITEM_STAT_BEER)
+    finditem(ITEM_EARTH_RUNE)
     end
 }
 

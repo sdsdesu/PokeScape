@@ -5481,7 +5481,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_MARE] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Mare"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5489,11 +5489,29 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_BlackKnight_Mare),
     },
+    [TRAINER_BLACKKNIGHT_TEE] =
+    {
+        .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_black_knight_f,
+        .trainerName = _("Tee"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_BlackKnight_Tee),
+    },
+
+    //nitecore 
+    //night mare nightmare
+    //NightTee
+    // Night school
+    //night shift
+    //nite nite
 
     [TRAINER_BLACKKNIGHT_LAIMP] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Laimp"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5505,7 +5523,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_TAIM] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Taim"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5517,8 +5535,8 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_LAIF] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_black_knight_m,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_black_knight_f,
         .trainerName = _("Laif"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -5529,7 +5547,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_FALL] = 
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Fall"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5541,7 +5559,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_SKOOL] = 
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Skool"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5553,7 +5571,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_SIFT] =
     {
         .trainerClass = TRAINER_CLASS_BLACK_KNIGHT,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_black_knight_m,
         .trainerName = _("Sift"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5565,7 +5583,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_NECRO_1] =
     {
         .trainerClass = TRAINER_CLASS_NECROMANCER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_necromancer,
         .trainerName = _("Ravenna"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
@@ -5577,7 +5595,7 @@ const struct Trainer gTrainers[] = {
     [TRAINER_BLACKKNIGHT_NECRO_2] =
     {
         .trainerClass = TRAINER_CLASS_NECROMANCER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_necromancer,
         .trainerName = _("Seraphina"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},

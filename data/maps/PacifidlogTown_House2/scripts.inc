@@ -18,9 +18,6 @@ PacifidlogTown_House2_EventScript_FanClubYoungerBrother::
 	end
 
 PacifidlogTown_House2_EventScript_UpdateFanClubTMFlag::
-	goto_if_unset FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK, Common_EventScript_NopReturn
-	specialvar VAR_RESULT, GetDaysUntilPacifidlogTMAvailable
-	call_if_eq VAR_RESULT, 0, PacifidlogTown_House2_EventScript_ClearReceivedFanClubTM
 	return
 
 PacifidlogTown_House2_EventScript_MonAssessment::
@@ -37,13 +34,7 @@ PacifidlogTown_House2_EventScript_ClearReceivedFanClubTM::
 	return
 
 PacifidlogTown_House2_EventScript_GiveReturn::
-	msgbox PacifidlogTown_House2_Text_AdoringPokemonTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM27
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
-	special SetPacifidlogTMReceivedDay
-	msgbox PacifidlogTown_House2_Text_ExplainReturnFrustration, MSGBOX_DEFAULT
-	release
+
 	end
 
 PacifidlogTown_House2_EventScript_PutInEffort::
@@ -52,19 +43,10 @@ PacifidlogTown_House2_EventScript_PutInEffort::
 	end
 
 PacifidlogTown_House2_EventScript_GiveFrustration::
-	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM21
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
-	special SetPacifidlogTMReceivedDay
-	msgbox PacifidlogTown_House2_Text_ExplainReturnFrustration, MSGBOX_DEFAULT
-	release
+
 	end
 
 PacifidlogTown_House2_EventScript_ComeBackInXDays::
-	specialvar VAR_RESULT, GetDaysUntilPacifidlogTMAvailable
-	buffernumberstring STR_VAR_1, VAR_RESULT
-	msgbox PacifidlogTown_House2_Text_GetGoodTMInXDays, MSGBOX_DEFAULT
 	release
 	end
 
