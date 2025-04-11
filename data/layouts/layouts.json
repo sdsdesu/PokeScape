@@ -8364,8 +8364,8 @@
     {
       "id": "LAYOUT_DAEMONHEIM_GYM",
       "name": "Daemonheim_Gym_Layout",
-      "width": 60,
-      "height": 60,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_PokeScapeIndoors",
       "secondary_tileset": "gTileset_Dungeoneering",
       "border_filepath": "data/layouts/Daemonheim_Gym/border.bin",
@@ -8840,6 +8840,136 @@
       "secondary_tileset": "gTileset_IndoorTowns3",
       "border_filepath": "data/layouts/Black_Knights_Fortress_4/border.bin",
       "blockdata_filepath": "data/layouts/Black_Knights_Fortress_4/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_1",
+      "name": "Dung_Gym_1_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_1/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_2",
+      "name": "Dung_Gym_2_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_2/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_3",
+      "name": "Dung_Gym_3_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_3/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_4",
+      "name": "Dung_Gym_4_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_4/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_4/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_5",
+      "name": "Dung_Gym_5_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_5/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_5/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_6",
+      "name": "Dung_Gym_6_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_6/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_6/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_7",
+      "name": "Dung_Gym_7_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_7/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_7/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_8",
+      "name": "Dung_Gym_8_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_8/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_8/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_9",
+      "name": "Dung_Gym_9_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_9/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_9/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_10",
+      "name": "Dung_Gym_10_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_10/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_10/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_11",
+      "name": "Dung_Gym_11_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_11/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_11/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_12",
+      "name": "Dung_Gym_12_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_12/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_12/map.bin"
+    },
+    {
+      "id": "LAYOUT_DUNG_GYM_13",
+      "name": "Dung_Gym_13_Layout",
+      "width": 15,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Dungeoneering",
+      "border_filepath": "data/layouts/Dung_Gym_13/border.bin",
+      "blockdata_filepath": "data/layouts/Dung_Gym_13/map.bin"
     }
   ]
 }

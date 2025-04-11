@@ -1540,3 +1540,29 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Black_Knights_Fortress_3/scripts.inc"
 
 	.include "data/maps/Black_Knights_Fortress_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_1/scripts.inc"
+
+	.include "data/maps/Dung_Gym_2/scripts.inc"
+
+	.include "data/maps/Dung_Gym_3/scripts.inc"
+
+	.include "data/maps/Dung_Gym_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_5/scripts.inc"
+
+	.include "data/maps/Dung_Gym_6/scripts.inc"
+
+	.include "data/maps/Dung_Gym_7/scripts.inc"
+
+	.include "data/maps/Dung_Gym_8/scripts.inc"
+
+	.include "data/maps/Dung_Gym_9/scripts.inc"
+
+	.include "data/maps/Dung_Gym_10/scripts.inc"
+
+	.include "data/maps/Dung_Gym_11/scripts.inc"
+
+	.include "data/maps/Dung_Gym_12/scripts.inc"
+
+	.include "data/maps/Dung_Gym_13/scripts.inc"

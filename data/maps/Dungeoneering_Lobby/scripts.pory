@@ -84,6 +84,12 @@ script Randomise_Puzzles {
 
 
 script Start_Dungeoneering {
+    //CHECK IF GYM CHALLENGE
+    if (var(VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST) == 15) {
+        warp(MAP_DUNG_GYM_1, 0, 0, 0)
+        waitstate
+        end
+    }
     call(RandomiseSeed_ForDoors)
     call(Randomise_Dungeon)
     call(Randomise_Puzzles)
