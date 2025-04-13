@@ -291,7 +291,7 @@
       "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "TRIGGER_BLACK_KNIGHT_4F_1"
     },
     {
@@ -300,7 +300,7 @@
       "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "TRIGGER_BLACK_KNIGHT_4F_1"
     },
     {
@@ -309,13 +309,13 @@
       "y": 25,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "TRIGGER_BLACK_KNIGHT_4F_1"
     },
     {
       "type": "trigger",
       "x": 16,
-      "y": 11,
+      "y": 10,
       "elevation": 0,
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "195",
@@ -394,15 +394,7 @@
     },
     {
       "type": "sign",
-      "x": 20,
-      "y": 13,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "BKFORT_4F_BOOK_2"
-    },
-    {
-      "type": "sign",
-      "x": 21,
+      "x": 19,
       "y": 13,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

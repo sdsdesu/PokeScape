@@ -9,11 +9,64 @@ mapscripts Route26_MapScripts{
         call(ROUTE26_STATE)
         call(PENGUIN_EVENT)
 	}
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_POKESCAPE_STORYMODE_PROGRESS, 200: POST_WARP_BKF_EVENT
+    ]
+}
+
+script POST_WARP_BKF_EVENT {
+    //knights movement
+    applymovement (16, Movement_InteractFACEUP)
+    applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+    waitmovement(0)
+    delay(90)
+    applymovement (14, movement_BlackKnights_POST_WARP_BKF_EVENT)
+    applymovement (15, movement_BlackKnights_POST_WARP_BKF_EVENT)
+    applymovement (16, Movement_InteractFACERIGHT)
+    applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+    waitmovement(0)
+    namebox("Sir Owen")
+    msgbox(format("This is not good, hopefully its a big ball of nothing.\pEither way I should probably report our findings back to Sir Tiffy Cashien.\p{PLAYER}, thank you for your help we couldn't have done this without you.\pOn behalf of the Temple Knights, please accept this as a token of our thanks."))
+    closemessage
+    hidenamebox
+    giveitem(ITEM_STRENGTH_TOOL)
+    msgbox(format("Hopefully you will find a use for it on your adventures.\pCUPHOLDER!"))
+    closemessage
+    hidenamebox
+    waitmovement(0)
+    //movement
+    applymovement (16, movement_SirOwen_POST_WARP_BKF_EVENT)
+    waitmovement(0)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 205)
+    removeobject(16)
+    removeobject(14)
+    removeobject(15)
+    setflag(FLAG_TEMP_1D)
+}
+
+movement movement_BlackKnights_POST_WARP_BKF_EVENT {
+    walk_up * 3
+    walk_left * 5
+    walk_down * 12
+}
+movement movement_SirOwen_POST_WARP_BKF_EVENT {
+    walk_down
+    walk_right * 5
+    walk_down * 6
 }
 
 script ROUTE26_STATE {
-
-     if (!flag(FLAG_PARTNER_BATTLE)) {
+    removeobject(14)
+    removeobject(15)
+    setflag(FLAG_TEMP_1D)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 200)
+    {
+        addobject(14)
+        addobject(15)
+        addobject(16)
+        clearflag(FLAG_TEMP_1D)
+    }
+    if (!flag(FLAG_PARTNER_BATTLE)) {
         setflag(FLAG_TEMP_1E)
         removeobject(13)
     }
@@ -101,6 +154,7 @@ script TRIGGER_STORYMODE_EVENT_ROUTE26 {
         case 186: 
         case 187: 
         case 190: 
+        case 195: 
             goto(CHECK_FOLLOWER_SIROWEN)
     }
     setvar(VAR_TEMP_0, 1)

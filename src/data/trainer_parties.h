@@ -7533,15 +7533,15 @@ static const struct TrainerMon sParty_ARIANE_1[] = {
 
 static const struct TrainerMon sParty_SIR_OWEN_1[] = {
     {
-    .lvl = 40,
+    .lvl = 45,
     .species = SPECIES_SPIRIT_WARRIOR,
     },
     {
-    .lvl = 40,
+    .lvl = 45,
     .species = SPECIES_UNICORN_REANIMATED_FORM,
     },
     {
-    .lvl = 40,
+    .lvl = 45,
     .species = SPECIES_SHADOW_HOUND,
     }
 };

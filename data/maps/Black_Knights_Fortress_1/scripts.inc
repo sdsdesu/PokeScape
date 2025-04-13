@@ -301,7 +301,7 @@ BKFORT_1F_LENSIG_1:
 	end
 
 BKFORT_1F_LENSIG_2:
-	setvar VAR_0x8008, INGAME_TRADE_CABBAGE
+	setvar VAR_0x8008, INGAME_TRADE_GRIFOLAPINE
 	copyvar VAR_0x8004, VAR_0x8008
 	specialvar VAR_RESULT, GetInGameTradeSpeciesInfo
 	copyvar VAR_0x8009, VAR_RESULT
@@ -577,9 +577,10 @@ BKFORT_1F_LENSIG_Text_0:
 BKFORT_1F_LENSIG_Text_1:
 	.string "That snivelling goblin is useless.\p"
 	.string "If I don't get a Cabbage soon, I'll never\n"
-	.string "be able to finish...\p"
+	.string "be able to finish…\p"
 	.string "Say, do you happen to have a Cabbage?\p"
-	.string "Would you like to trade one for my cat?$"
+	.string "Would you like to trade one for my baby\n"
+	.string "Dawn?$"
 
 BKFORT_1F_LENSIG_Text_2:
 	.string "AHAHAHAHAH!\p"
@@ -587,14 +588,16 @@ BKFORT_1F_LENSIG_Text_2:
 	.string "Finally, I can complete the ritual!$"
 
 BKFORT_1F_LENSIG_Text_3:
-	.string "Sorry, only a Cabbage can complete the ritual.$"
+	.string "Sorry, only a Cabbage can complete the\n"
+	.string "ritual.$"
 
 BKFORT_1F_LENSIG_Text_4:
 	.string "Well, please come back if you change\n"
 	.string "your mind.$"
 
 BKFORT_1F_LENSIG_Text_5:
-	.string "I really need that Cabbage.\pCome back if you change your mind.$"
+	.string "I really need that Cabbage.\p"
+	.string "Come back if you change your mind.$"
 
 BKFORT_1F_BOOK_Text_0:
 	.string "The book tells a story of a romance\n"

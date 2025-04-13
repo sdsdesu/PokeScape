@@ -1313,6 +1313,7 @@ SECTIONS {
         sound/songs/midi/MUS_PS_GODSLAYER.o(.rodata);
         sound/songs/midi/MUS_PS_LUMBRIDGE_CASTLE.o(.rodata);
         sound/songs/midi/MUS_PS_TZHAAR.o(.rodata);
+        sound/songs/midi/mus_ps_ice_mountain.o(.rodata);
     } > ROM =0
 
 

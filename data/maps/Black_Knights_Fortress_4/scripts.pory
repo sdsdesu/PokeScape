@@ -9,12 +9,12 @@ mapscripts Black_Knights_Fortress_4_MapScripts {
 script STORYMODE_STATE_BKFORT_4F {
     removeobject(18)
     setflag(FLAG_TEMP_F)
-    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195) {
-        removeobject(9)
-        setflag(FLAG_TEMP_1)
-        //setobjectmovementtype(9, MOVEMENT_TYPE_FACE_DOWN)
-        //setobjectxy(9, 6, 11)
-        //setobjectxyperm(9, 6, 11)
+    removeobject(9)
+    setflag(FLAG_TEMP_1)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190) {
+        addobject(9)
+        clearflag(FLAG_TEMP_1)
+        setvar(VAR_TEMP_0, 1)
     }
 }
 
@@ -293,6 +293,7 @@ script TRIGGER_BLACK_KNIGHT_4F_1 {
         closemessage
         hidenamebox
 		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 195)
+        setvar(VAR_TEMP_0, 0)
         releaseall
         end
         }
@@ -469,17 +470,24 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         closemessage
         hidenamebox 
         waitmovement(0)
+        //setobjectxy(3, 16,10)
+        //setobjectxyperm(3, 16,10)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_BKF_BossEvent_1)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_BKF_BossEvent_1)
+        //applymovement(3, Movement_BKF_BossEvent_1)
         namebox("Sigmund")
-        msgbox(format("You will get what you deserve in due time.\pNow…\pI will take my leave, and you will deal with this pest problem right here."))
+        msgbox(format("You will get what you deserve in due time."))
+        waitmovement(0)
+        applymovement(2, Movement_InteractFACELEFT)
+        msgbox(format("Now…"))
+        waitmovement(0)
+        applymovement(2, Movement_InteractFACEUP)
+        waitmovement(0)
+        msgbox(format("I will take my leave, and you will deal with this pest problem right here."))
         closemessage
         hidenamebox 
 
-        setobjectxy(3, 16,10)
-        setobjectxyperm(3, 16,10)
-        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_BKF_BossEvent_1)
-        applymovement(OBJ_EVENT_ID_PLAYER, Movement_BKF_BossEvent_1)
-        applymovement(3, Movement_BKF_BossEvent_1)
-        waitmovement(0)
+        
         
 
         //player walks with black knight guards
@@ -499,6 +507,7 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         closemessage
         hidenamebox 
         //attempts to walk away, sir owen steps up.
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)
         applymovement(2, movement_WALK_DOWN_1_STEP)
         waitmovement(0)
         namebox("Sir Owen")
@@ -509,6 +518,7 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         playse(SE_WALL_HIT)
         applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_DraynorManorCrypt_HAM_3)
         waitmovement(OBJ_EVENT_ID_FOLLOWER)
+        
         //pushes sir owen like vampire quest
         namebox("Sigmund")
         msgbox(format("You White Knights made your choice when you used monsters to defend yourself.\pTo call you Saradomists is a folly.\pNow leave me be and let the Zamorakian wannabe paladin up there deal with you like a nice goody two shoes."))
@@ -524,12 +534,17 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         //walks off
         applymovement(1, Movement_BKF_BossEvent_3)
         applymovement(2, Movement_BKF_BossEvent_2)
+        applymovement(4, Movement_BKF_BossEvent_5)
         waitmovement(0)
         //daquirus walks over.
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_BKF_BossEvent_4)
         namebox("Daquarius")
         msgbox(format("That guy is hard to deal with."))
         closemessage
         hidenamebox 
+        waitmovement(0)
+        applymovement(17, Movement_BKF_BossEvent_6)
         //faces owen
         namebox("Daquarius")
         msgbox(format("Sir Owen Sonde…{PAUSE 15}\nand a sidekick?\pOr are you his paige?\pAh but it matters not, lovely of you to join me."))
@@ -554,7 +569,10 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         hidenamebox 
         
         setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
+        call(FOLLOWER_REMOVE)
         //warp outside.
+        warp(MAP_ROUTE26, 24, 17)
+        waitstate
         releaseall
         end
 }
@@ -565,12 +583,14 @@ movement movement_WALK_DOWN_1_STEP {
     step_end
 }
 movement Movement_BKF_BossEvent_1 {
-    walk_up * 7
+    walk_up * 6
     face_right
     step_end
 }
 movement Movement_BKF_BossEvent_2 {
-    walk_down * 7
+    walk_down
+    walk_left
+    walk_down * 6
     step_end
 }
 movement Movement_BKF_BossEvent_3 {
@@ -578,7 +598,27 @@ movement Movement_BKF_BossEvent_3 {
     walk_slow_down * 1
     step_end
 }
-
+movement Movement_BKF_BossEvent_4 {
+    walk_slow_right
+    walk_slow_up
+    step_end
+}
+movement Movement_BKF_BossEvent_5 {
+    walk_slow_down * 2
+    walk_slow_left * 3
+    step_end
+}
+movement Movement_BKF_BossEvent_6 {
+    jump_in_place_left
+    delay_4
+    jump_in_place_left
+    delay_16
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 4
+    face_up
+    step_end
+}
 
 movement Movement_BKF_DeliverStone_1 {
     walk_left * 3
@@ -593,7 +633,7 @@ movement Movement_BKF_DeliverStone_2 {
 }
 
 movement movement_BK_Fort_camera_1 {
-    walk_up * 7
+    walk_up * 6
     walk_right * 2
     delay_16
     step_end

@@ -680,6 +680,8 @@ gSongTable::
 	song MUS_PS_GODSLAYER, 0, 0
 	song MUS_PS_LUMBRIDGE_CASTLE, 0, 0
 	song MUS_PS_TZHAAR, 0, 0
+	song mus_ps_ice_mountain, 0, 0
+	
 
 	
     

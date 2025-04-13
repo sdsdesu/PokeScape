@@ -4128,7 +4128,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
 	X(MUS_PS_GODSLAYER) \
 	X(MUS_PS_LUMBRIDGE_CASTLE) \
     X(MUS_PS_TZHAAR) \
-
+    X(MUS_PS_ICE_MOUNTAIN) \
+    
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

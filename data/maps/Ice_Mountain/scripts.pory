@@ -229,7 +229,7 @@ script SIGN_ICE_MOUNTAIN_DOOR
 script TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY {
 	lockall
 	//check for outfit.
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 186) {
+	if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181) || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)) {
 		playse(SE_PIN)
 		applymovement (BKGUARD_1_ID,movement_BK_FORT_GUARD_right)
 		applymovement (BKGUARD_2_ID,movement_BK_FORT_GUARD_left)
@@ -267,7 +267,7 @@ script TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY {
 		hidenamebox
 		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 185)
 	}
-	elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187) {
+	elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187) { //and check outfit.
 		applymovement (BKGUARD_1_ID,movement_BK_FORT_GUARD_right)
 		applymovement (BKGUARD_2_ID,movement_BK_FORT_GUARD_left)
 		applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
