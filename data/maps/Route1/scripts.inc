@@ -255,6 +255,42 @@ NPC_CHICKEN::
 	end
 
 
+NPC_CHINCHOMPA::
+	lock
+	faceplayer
+	namebox NPC_CHINCHOMPA_Text_0
+	playmoncry SPECIES_CHINCHOMPA_GREY_FORM, 0
+	msgbox NPC_CHINCHOMPA_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_ESSENCE::
+	lock
+	faceplayer
+	namebox NPC_ESSENCE_Text_0
+	playmoncry SPECIES_PURE, 0
+	msgbox NPC_ESSENCE_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_BEAR::
+	lock
+	faceplayer
+	namebox NPC_BEAR_Text_0
+	playmoncry SPECIES_BEAR_NORMAL_FORM, 0
+	msgbox NPC_BEAR_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
 SIGN_ROUTE1_1::
 	lock
 	msgbox SIGN_ROUTE1_1_Text_0
@@ -976,6 +1012,24 @@ NPC_CHICKEN_Text_0:
 
 NPC_CHICKEN_Text_1:
 	.string "Bwak Bwak!$"
+
+NPC_CHINCHOMPA_Text_0:
+	.string "Chinchompa$"
+
+NPC_CHINCHOMPA_Text_1:
+	.string "Squeep!$"
+
+NPC_ESSENCE_Text_0:
+	.string "Essence$"
+
+NPC_ESSENCE_Text_1:
+	.string "Whhiiirll!$"
+
+NPC_BEAR_Text_0:
+	.string "Bear$"
+
+NPC_BEAR_Text_1:
+	.string "Grraugh!$"
 
 SIGN_ROUTE1_1_Text_0:
 	.string "Fred's Farm.$"

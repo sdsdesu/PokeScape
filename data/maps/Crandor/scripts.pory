@@ -1,10 +1,24 @@
 mapscripts Crandor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         call(CRANDOR_STATE)
+        call(RANDOM_EVENT_SPAWNS_CRANDOR)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_POKESCAPE_STORYMODE_PROGRESS, 135: CRANDOR_CRASHED
     ]
+}
+
+script RANDOM_EVENT_SPAWNS_CRANDOR {
+	random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_A)
+		addobject(36)
+	}
+	else {
+		setflag(FLAG_TEMP_A)
+		removeobject(36)
+	}
+	return
 }
 
 

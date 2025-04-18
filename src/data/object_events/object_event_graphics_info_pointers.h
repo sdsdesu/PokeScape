@@ -592,6 +592,26 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sailing_4;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sailing_5;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_sailing_6;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Guard_Nude;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_baby_dragon_black;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_baby_dragon_red;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_baby_dragon_green;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_baby_dragon_blue;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bat_grey;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bear_black;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bear_brown;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchompa_grey;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchompa_red;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchompa_yellow;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchompa_blue;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_chinchompa_green;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_dagannoth;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_crab_red;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spider_green;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spider_brown;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spider_red;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spider_blue;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_fleshcrawler;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_essence;
 
 //ORES
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CopperOre;
@@ -1196,6 +1216,26 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SAILING_5] =                     &gObjectEventGraphicsInfo_sailing_5,
     [OBJ_EVENT_GFX_SAILING_6] =                     &gObjectEventGraphicsInfo_sailing_6,
     [OBJ_EVENT_GFX_GUARD_NUDE] =                    &gObjectEventGraphicsInfo_Guard_Nude,
+    [OBJ_EVENT_GFX_BABY_DRAGON_BLACK] =             &gObjectEventGraphicsInfo_baby_dragon_black,
+    [OBJ_EVENT_GFX_BABY_DRAGON_RED] =               &gObjectEventGraphicsInfo_baby_dragon_red,
+    [OBJ_EVENT_GFX_BABY_DRAGON_GREEN] =             &gObjectEventGraphicsInfo_baby_dragon_green,
+    [OBJ_EVENT_GFX_BABY_DRAGON_BLUE] =              &gObjectEventGraphicsInfo_baby_dragon_blue,
+    [OBJ_EVENT_GFX_BAT_GREY] =                      &gObjectEventGraphicsInfo_bat_grey,
+    [OBJ_EVENT_GFX_BEAR_BLACK] =                    &gObjectEventGraphicsInfo_bear_black,
+    [OBJ_EVENT_GFX_BEAR_BROWN] =                    &gObjectEventGraphicsInfo_bear_brown,
+    [OBJ_EVENT_GFX_CHINCHOMPA_GREY] =               &gObjectEventGraphicsInfo_chinchompa_grey,
+    [OBJ_EVENT_GFX_CHINCHOMPA_RED] =                &gObjectEventGraphicsInfo_chinchompa_red,
+    [OBJ_EVENT_GFX_CHINCHOMPA_YELLOW] =             &gObjectEventGraphicsInfo_chinchompa_yellow,
+    [OBJ_EVENT_GFX_CHINCHOMPA_BLUE] =               &gObjectEventGraphicsInfo_chinchompa_blue,
+    [OBJ_EVENT_GFX_CHINCHOMPA_GREEN] =              &gObjectEventGraphicsInfo_chinchompa_green,
+    [OBJ_EVENT_GFX_DAGANNOTH] =                     &gObjectEventGraphicsInfo_dagannoth,
+    [OBJ_EVENT_GFX_CRAB_RED] =                      &gObjectEventGraphicsInfo_crab_red,
+    [OBJ_EVENT_GFX_SPIDER_GREEN] =                  &gObjectEventGraphicsInfo_spider_green,
+    [OBJ_EVENT_GFX_SPIDER_BROWN] =                  &gObjectEventGraphicsInfo_spider_brown,
+    [OBJ_EVENT_GFX_SPIDER_RED] =                    &gObjectEventGraphicsInfo_spider_red,
+    [OBJ_EVENT_GFX_SPIDER_BLUE] =                   &gObjectEventGraphicsInfo_spider_blue,
+    [OBJ_EVENT_GFX_FLESHCRAWLER] =                  &gObjectEventGraphicsInfo_fleshcrawler,
+    [OBJ_EVENT_GFX_ESSENCE] =                       &gObjectEventGraphicsInfo_essence,
 
 //ORES 
 	[OBJ_EVENT_GFX_COPPER_ORE] =          		    &gObjectEventGraphicsInfo_CopperOre,

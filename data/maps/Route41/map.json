@@ -146,6 +146,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE_41_HILL_GIANTS",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BABY_DRAGON_GREEN",
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_DRAGON_GREEN",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BABY_DRAGON_GREEN",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_DRAGON_GREEN",
+      "flag": "FLAG_TEMP_3"
     }
   ],
   "warp_events": [

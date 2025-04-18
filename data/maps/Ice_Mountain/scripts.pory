@@ -6,6 +6,7 @@ mapscripts Ice_Mountain_MapScripts{
         setvar(VAR_EVOLUTION_MAP_STATE, 3) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
         call(WEATHER_CHANGE_AREA_ICE_MOUNTAIN)
 		call(ICEMOUNTAIN_STATE)
+		call(RANDOM_EVENT_SPAWNS_ICEMOUNTAIN)
 	}
 	MAP_SCRIPT_ON_LOAD 
     {
@@ -13,6 +14,19 @@ mapscripts Ice_Mountain_MapScripts{
     }
 
 	
+}
+
+script RANDOM_EVENT_SPAWNS_ICEMOUNTAIN {
+	random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_2)
+		addobject(12)
+	}
+	else {
+		setflag(FLAG_TEMP_2)
+		removeobject(12)
+	}
+	return
 }
 
 script ICEMOUNTAIN_STATE {

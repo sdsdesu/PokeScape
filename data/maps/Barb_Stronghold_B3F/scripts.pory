@@ -1,6 +1,47 @@
-mapscripts Barb_Stronghold_B3F_MapScripts {
+const OBJ_EVENT_ID_SPIDER_BROWN_1 = 13
+const OBJ_EVENT_ID_SPIDER_BROWN_2 = 15
+const OBJ_EVENT_ID_SPIDER_BROWN_3 = 16
+const OBJ_EVENT_ID_SPIDER_GREEN = 14
 
+mapscripts Barb_Stronghold_B3F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        call(RANDOM_EVENT_STRONGHOLD_B3F_SPAWNS)
+    }
 }
+
+
+
+
+script RANDOM_EVENT_STRONGHOLD_B3F_SPAWNS {
+//GIANT SPIDER
+	random(10)
+	if ((var(VAR_RESULT) == 1) || (var(VAR_RESULT) == 2) || (var(VAR_RESULT) == 3)) {
+		clearflag(FLAG_TEMP_9)
+		addobject(OBJ_EVENT_ID_SPIDER_BROWN_3)
+	}
+	else {
+		setflag(FLAG_TEMP_9)
+		removeobject(OBJ_EVENT_ID_SPIDER_BROWN_3)
+	}
+//JUNGLE SPIDER
+    random(15)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_7)
+		addobject(OBJ_EVENT_ID_SPIDER_GREEN)
+	}
+	else {
+		setflag(FLAG_TEMP_7)
+		removeobject(OBJ_EVENT_ID_SPIDER_GREEN)
+	}
+	return
+}
+
+
+
+
+
+
+
 
 //NPCs
 

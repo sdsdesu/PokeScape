@@ -5,7 +5,30 @@ mapscripts MudskipperPoint_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         call(MUDSKIPPER_POINT_STATE)
         call(PENGUIN_EVENT)
+        call(RANDOM_EVENT_SPAWNS_MUDSKIPPER_POINT)
     }
+}
+
+script RANDOM_EVENT_SPAWNS_MUDSKIPPER_POINT {
+	random(8)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_5)
+		addobject(14)
+	}
+	else {
+		setflag(FLAG_TEMP_5)
+		removeobject(14)
+	}
+    random(8)
+	if ((var(VAR_RESULT) == 0)) {
+		clearflag(FLAG_TEMP_4)
+		addobject(13)
+	}
+	else {
+		setflag(FLAG_TEMP_4)
+		removeobject(13)
+	}
+	return
 }
 
 script MUDSKIPPER_POINT_STATE {

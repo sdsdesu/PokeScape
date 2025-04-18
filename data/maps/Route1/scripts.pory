@@ -303,6 +303,42 @@ script NPC_CHICKEN
 	end
 }
 
+script NPC_CHINCHOMPA
+{
+	lock
+	faceplayer
+    namebox ("Chinchompa")
+    playmoncry(SPECIES_CHINCHOMPA_GREY_FORM, 0)
+	msgbox(format("Squeep!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
+script NPC_ESSENCE
+{
+	lock
+	faceplayer
+    namebox ("Essence")
+    playmoncry(SPECIES_PURE, 0)
+	msgbox(format("Whhiiirll!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
+script NPC_BEAR
+{
+	lock
+	faceplayer
+    namebox ("Bear")
+    playmoncry(SPECIES_BEAR_NORMAL_FORM, 0)
+	msgbox(format("Grraugh!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
 
 script SIGN_ROUTE1_1
 {

@@ -8204,10 +8204,10 @@
     {
       "id": "LAYOUT_DWARVEN_MINES_HOUSE_1",
       "name": "Dwarven_Mines_House_1_Layout",
-      "width": 12,
-      "height": 12,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_PokeScapeIndoors",
-      "secondary_tileset": "gTileset_IndoorTowns1",
+      "secondary_tileset": "gTileset_IndoorTowns2",
       "border_filepath": "data/layouts/Dwarven_Mines_House_1/border.bin",
       "blockdata_filepath": "data/layouts/Dwarven_Mines_House_1/map.bin"
     },

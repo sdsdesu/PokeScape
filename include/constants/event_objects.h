@@ -602,9 +602,29 @@
 #define OBJ_EVENT_GFX_SAILING_5                 585
 #define OBJ_EVENT_GFX_SAILING_6                 586
 #define OBJ_EVENT_GFX_GUARD_NUDE		        587
+#define OBJ_EVENT_GFX_BABY_DRAGON_BLACK			588
+#define OBJ_EVENT_GFX_BABY_DRAGON_RED			589
+#define OBJ_EVENT_GFX_BABY_DRAGON_GREEN			590
+#define OBJ_EVENT_GFX_BABY_DRAGON_BLUE			591
+#define OBJ_EVENT_GFX_BAT_GREY			        592
+#define OBJ_EVENT_GFX_BEAR_BLACK			    593
+#define OBJ_EVENT_GFX_BEAR_BROWN			    594
+#define OBJ_EVENT_GFX_CHINCHOMPA_GREY			595
+#define OBJ_EVENT_GFX_CHINCHOMPA_RED			596
+#define OBJ_EVENT_GFX_CHINCHOMPA_YELLOW			597
+#define OBJ_EVENT_GFX_CHINCHOMPA_BLUE			598
+#define OBJ_EVENT_GFX_CHINCHOMPA_GREEN			599
+#define OBJ_EVENT_GFX_DAGANNOTH			        600
+#define OBJ_EVENT_GFX_CRAB_RED			        601
+#define OBJ_EVENT_GFX_SPIDER_GREEN			    602
+#define OBJ_EVENT_GFX_SPIDER_BROWN			    603
+#define OBJ_EVENT_GFX_SPIDER_RED			    604
+#define OBJ_EVENT_GFX_SPIDER_BLUE			    605
+#define OBJ_EVENT_GFX_FLESHCRAWLER			    606
+#define OBJ_EVENT_GFX_ESSENCE			        607
 
 
-#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_GUARD_NUDE + 1)
+#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_ESSENCE + 1)
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
 // Object event graphics ids are 1 byte in size (max value of 255), and the dynamic
