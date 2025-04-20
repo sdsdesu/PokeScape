@@ -1566,3 +1566,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Dung_Gym_12/scripts.inc"
 
 	.include "data/maps/Dung_Gym_13/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_1/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_2/scripts.inc"

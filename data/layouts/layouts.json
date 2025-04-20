@@ -4997,7 +4997,7 @@
       "width": 26,
       "height": 22,
       "primary_tileset": "gTileset_PokeScapeOutdoors",
-      "secondary_tileset": "gTileset_Windmill",
+      "secondary_tileset": "gTileset_DwarvenMines",
       "border_filepath": "data/layouts/DwarvenMines/border.bin",
       "blockdata_filepath": "data/layouts/DwarvenMines/map.bin"
     },
@@ -8970,6 +8970,26 @@
       "secondary_tileset": "gTileset_Dungeoneering",
       "border_filepath": "data/layouts/Dung_Gym_13/border.bin",
       "blockdata_filepath": "data/layouts/Dung_Gym_13/map.bin"
+    },
+    {
+      "id": "LAYOUT_DWARVEN_MINES_POWER_STATION_1",
+      "name": "DwarvenMines_PowerStation_1_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_DwarvenMines",
+      "border_filepath": "data/layouts/DwarvenMines_PowerStation_1/border.bin",
+      "blockdata_filepath": "data/layouts/DwarvenMines_PowerStation_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DWARVEN_MINES_POWER_STATION_2",
+      "name": "DwarvenMines_PowerStation_2_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_DwarvenMines",
+      "border_filepath": "data/layouts/DwarvenMines_PowerStation_2/border.bin",
+      "blockdata_filepath": "data/layouts/DwarvenMines_PowerStation_2/map.bin"
     }
   ]
 }
