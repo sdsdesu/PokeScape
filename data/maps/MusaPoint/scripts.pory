@@ -1339,7 +1339,16 @@ script FOLLOWING_SirOwen {
 				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
 			}
 			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS)
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
 			}
 			else {
 				goto(SIR_OWEN_DIALOGUE_COMMON)
@@ -1404,7 +1413,7 @@ script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
 	release
 	end
 }
-script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1 {
 	random(8)
 	switch (var(VAR_RESULT)) {
 	case 0:
@@ -1423,6 +1432,68 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
 		msgbox(format("These Black knights dont know when to quit."))
 	case 7:
 		msgbox(format("We know of another hideout for the Black Knights, it is actually deep underground.\pThis is just an outpost compared to that."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2 {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These Kinshra seem obsessed with their history."))
+	case 1:
+		msgbox(format("I cannot believe that they are having a feast in here while people in nearby towns are starving..."))
+	case 2:
+		msgbox(format("Sir Tiffy is not going to be pleased when he hears how many Black Knights are here."))
+	case 3:
+		msgbox(format("How big is this place?\pIf I was in charge, I'd probably want to be right at the very top."))
+	case 4:
+		msgbox(format("I can hear the chanting of hymns.\pI cannot believe that there are still people openly worshipping Zamorak in Gielinor."))
+	case 5:
+		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
+	case 6:
+		msgbox(format("Did you know Kinshra means 'the ones that spark the fire'?\pAll these people know are death and destruction."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3 {
+	random(4)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These dungeons are full of prisoners.\pI wish we could free them all."))
+	case 1:
+		msgbox(format("The Kinshra often fill up their armies with slaves.\pI bet these poor people are some of them, ready for whatever war they start next."))
+	case 2:
+		msgbox(format("Can you hear that sound?\pThey've got more than just humans down here..."))
+	case 3:
+		msgbox(format("That sound!\pThey're training!\p{PAUSE 15}We need to find out what they're up to and stop them quickly!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4 {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I can feel it {PLAYER}, we're getting close now."))
+	case 1:
+		msgbox(format("Can you hear the whispering?\pThere's an important meeting going on up here.\pIt cost me dearly, but if I could go back I would do it all over again."))
+	case 2:
+		msgbox(format("The Kinshra despise me for what I did to Iban."))
+	case 3:
+		msgbox(format("Whilst some may not approve of the tactics I use, I know without a doubt that Saradomin himself guides my hand."))
+	case 4:
+		msgbox(format("When we find Lord Daquarius, we may need to be prepared for a fierce battle."))
 	}
 	hidenamebox
 	closemessage

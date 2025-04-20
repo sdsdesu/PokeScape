@@ -318,11 +318,11 @@ script BKFORT_1F_LENSIG {
 				}
             }
 			else{
-				msgbox(format("Well, please come back if you change your mind."))
+				msgbox(format("I really need that Cabbage.\pCome back if you change your mind."))
 			}
 		}
 		else {
-		msgbox(format("I really need that Cabbage.\pCome back if you change your mind."))
+		msgbox(format("The ritual?\pOh, the Kinshra needed it for some silly spell.\pAfter Lord Daquarius ordered the sybil to be cooked in her own cauldron, I try and stay on their good side so I don't suffer the same fate."))
 		}
 		hidenamebox
 	release

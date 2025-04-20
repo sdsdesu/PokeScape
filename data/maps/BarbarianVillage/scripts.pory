@@ -349,7 +349,7 @@ script NPC_BARBARIANVILLAGE_DUNGEONGIRL
     if (flag(FLAG_BADGE04_GET)) 
     {
         if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 165) {
-            msgbox(format("This is not good, somehow an outsider got access to our dungeon.\pDid you find out where they went?"))
+            msgbox(format("This is not good, somehow an outsider got access to our stronghold!\pDid you find out where they went?"))
         }
         else {
             msgbox(format("You have proved yourself a barbarian in name and spirit!\pI grant you access to use our stronghold for training.\pThe monsters found within are very strong, so have fun training!"))
@@ -357,7 +357,7 @@ script NPC_BARBARIANVILLAGE_DUNGEONGIRL
     }
     else
     {
-        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our dungeon for training."))
+        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our stronghold for training."))
     }
     closemessage
     hidenamebox

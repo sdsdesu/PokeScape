@@ -229,7 +229,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ROUTE20_BLOCKADE",
+      "script": "ROUTE20_BLOCKADE_SOUTH",
       "flag": "0"
     },
     {
@@ -281,7 +281,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ROUTE20_BLOCKADE",
+      "script": "ROUTE20_BLOCKADE_NORTH",
       "flag": "0"
     },
     {
@@ -315,7 +315,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
+      "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
       "type": "trigger",
@@ -324,7 +324,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
+      "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
       "type": "trigger",
@@ -333,16 +333,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
-    },
-    {
-      "type": "trigger",
-      "x": 14,
-      "y": 2,
-      "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
+      "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
       "type": "trigger",
@@ -351,7 +342,16 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
+      "script": "ROUTE20_BLOCKADE_NORTH"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "ROUTE20_BLOCKADE_NORTH"
     },
     {
       "type": "trigger",
@@ -360,7 +360,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "ROUTE20_BLOCKADE"
+      "script": "ROUTE20_BLOCKADE_NORTH"
     }
   ],
   "bg_events": [

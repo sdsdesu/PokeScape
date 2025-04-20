@@ -328,6 +328,24 @@
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "165",
       "script": "TRIGGER_STORYMODE_EVENT_ROUTE23"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "165",
+      "script": "TRIGGER_STORYMODE_EVENT_ROUTE23_WEST"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "165",
+      "script": "TRIGGER_STORYMODE_EVENT_ROUTE23_WEST"
     }
   ],
   "bg_events": [

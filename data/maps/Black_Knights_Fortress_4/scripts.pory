@@ -59,10 +59,13 @@ script BKFORT_4F_NPC_3 //Left middle Black Knight
 script BKFORT_4F_NPC_4 //Right middle Black Knight
 {
     lock
+    faceplayer
     namebox ("Black Knight")
     msgbox(format("Please don't look at me.\pI don't want any trouble.\pI am just going to look in these boxes, and if anybody asks you snuck past me..."))
     closemessage
     hidenamebox
+    applymovement(19, MOVEMENT_FACE_RIGHT)
+    waitmovement(0)
     release
     end
 }
@@ -289,7 +292,7 @@ script TRIGGER_BLACK_KNIGHT_4F_1 {
         //setobjectxyperm(9, 6, 11)
         facefollower
         namebox("Sir Owen")
-        msgbox(format("Well so much for going icnognito.\pGuess we are going all out then?"))
+        msgbox(format("Well so much for going incognito.\pGuess we are going all out then?"))
         closemessage
         hidenamebox
 		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 195)
@@ -343,14 +346,14 @@ script CAUGHT_BY_BLACK_KNIGHTS_FINAL
 }
 
 script TRIGGER_BLACK_KNIGHT_4F_2 {
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190) {                        //check storymode var, if just after previous fight then enable otherwise skip 
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195) {                        //check storymode var, if just after previous fight then enable otherwise skip 
         lockall
         applymovement(7, MOVEMENT_EXCLAMATIONMARK_JUMP_UP)                     //right Black Knight
         applymovement(8, MOVEMENT_EXCLAMATIONMARK_JUMP_UP)                     //left Black Knight
         applymovement(7, Movement_STORY_BKFORT_4F_2_right)                     //right Black Knight
         applymovement(8, Movement_STORY_BKFORT_4F_2_left)                      //left Black Knight
         waitmovement(0)
-		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 191)
+		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 196)
         releaseall
         end
         }
@@ -375,49 +378,27 @@ movement Movement_STORY_BKFORT_4F_2_right {
 	walk_fast_right * 2
 }
 
-script TRIGGER_BLACK_KNIGHT_4F_TREASURE {
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 191) {                        //should only trigger if done during the Fortress event, no Knights if post event?
-        lockall
-        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)                                    //check where player is so Sir Owen walks to the correct place
-        if (var(VAR_TEMP_1) == 1) {
-		applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_right) //move Sir Owen to be beside the player
-	    }
-        if (var(VAR_TEMP_1) == 2) {
-		applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_left)  //move Sir Owen to be beside the player
-	    }
-	    elif (var(VAR_TEMP_1) == 3) {
-		applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_left)  //move Sir Owen to be beside the player
-	    }
-        applymovement(5, MOVEMENT_FACE_DOWN)
-        applymovement(6, MOVEMENT_FACE_DOWN)
-        waitmovement(0)
-        namebox("Black Knight")
-        msgbox(format("You aren't welcome here.\pWe can't let you through.\pIf you insist on trying to get past us, we'll have to battle you.\pIs that really what you want?"), MSGBOX_YESNO)
-        if (var(VAR_RESULT) == TRUE)
-        {
-            msgbox(format("You have chosen... poorly."))
-            closemessage
-            hidenamebox
-            playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
-            trainerbattle_two_trainers(TRAINER_BLACKKNIGHT_SKOOL, msgbox(format("Skool: Maybe we were the ones who chose poorly...")), TRAINER_BLACKKNIGHT_SIFT, msgbox(format("Sift: Oh, I am definitely getting fired for this!")))
-            setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 192)
-            releaseall
-            end    
-        }
-        else {
-            msgbox(format("Good answer.\pNow leave us alone."))
-            closemessage
-            hidenamebox
-            applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
-            applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_DOWN)
-            waitmovement(0)
-            releaseall
-            end
-        }
-        releaseall //try to make sure it doesn't trigger after the fight has been done
-		end
-    }   
+script BATTLE_BLACKKNIGHT_SKOOL
+{
+    trainerbattle_single(TRAINER_BLACKKNIGHT_SKOOL, format("None shall pass."),format("Tis but a scratch."))
+    namebox ("Black Knight")
+    msgbox(format("Oohh, had enough, eh?\pCome back here and take what's coming to you!\pNext time my monsters will bite your legs off!"))
+	hidenamebox
+    release
+	end
 }
+
+script BATTLE_BLACKKNIGHT_SIFT
+{
+    trainerbattle_single(TRAINER_BLACKKNIGHT_SIFT, format("I have a dream.\pTo chop down every single tree in Gielinor."),format("Oh, I am definitely getting fired for this!"))
+    namebox ("Black Knight")
+    msgbox(format("Maybe I should take some of this loot for myself and blame it on you..."))
+	hidenamebox
+    release
+	end
+}
+
+
 
 script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         lockall
@@ -496,7 +477,7 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
 
         //faceplayer
         namebox("Sigmund")
-        msgbox(format("Running with your life barely intact from a volcano, then struggling your way here.\pI would call you remarkeable if you werent a monster sympathiser."))
+        msgbox(format("Running with your life barely intact from a volcano, then struggling your way here.\pI would call you remarkable if you weren't a monster sympathiser."))
         closemessage
         hidenamebox 
         applymovement(2, MOVEMENT_WALKLEFT)

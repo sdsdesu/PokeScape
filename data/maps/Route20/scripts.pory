@@ -66,13 +66,28 @@ script BATTLE_ROUTE20_TRAINER_3
 
 //NPCS
 
-script ROUTE20_BLOCKADE
+script ROUTE20_BLOCKADE_NORTH
 {
     faceplayer
     namebox ("Sailor")
     msgbox(format("Woah sorry, I lost my contact lens in the water.\pMove along and I will let you pass once I find it."))
     closemessage
     hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+    waitmovement(0)
+    release
+    end
+}
+
+script ROUTE20_BLOCKADE_SOUTH
+{
+    faceplayer
+    namebox ("Sailor")
+    msgbox(format("Blasted fish leapt out the water and stole me leg!\pI can't let you past until I've caught it...\p{PAUSE 15}I'm comin' for ye Peggy!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+    waitmovement(0)
     release
     end
 }

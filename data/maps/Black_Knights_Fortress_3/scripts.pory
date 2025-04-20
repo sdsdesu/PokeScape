@@ -113,7 +113,7 @@ script BKFORT_3F_NPC_10
 {
     lock
     faceplayer
-    namebox ("Forgotten War.")
+    namebox ("Forgotten W.")
     msgbox(format("This place is even more bleak than the dungeons back home."))
     closemessage
     hidenamebox

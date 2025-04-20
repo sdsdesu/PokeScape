@@ -328,6 +328,9 @@ script TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY {
 		hidenamebox
 		setvar(VAR_TEMP_0, 1)
 	}
+	applymovement (BKGUARD_1_ID,MOVEMENT_FACE_DOWN)
+	applymovement (BKGUARD_2_ID,MOVEMENT_FACE_DOWN)
+	waitmovement(0)	
 	releaseall
 	end
 }
