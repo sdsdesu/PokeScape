@@ -8974,8 +8974,8 @@
     {
       "id": "LAYOUT_DWARVEN_MINES_POWER_STATION_1",
       "name": "DwarvenMines_PowerStation_1_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 38,
+      "height": 32,
       "primary_tileset": "gTileset_PokeScapeCaves",
       "secondary_tileset": "gTileset_DwarvenMines",
       "border_filepath": "data/layouts/DwarvenMines_PowerStation_1/border.bin",
@@ -8984,8 +8984,8 @@
     {
       "id": "LAYOUT_DWARVEN_MINES_POWER_STATION_2",
       "name": "DwarvenMines_PowerStation_2_Layout",
-      "width": 40,
-      "height": 40,
+      "width": 34,
+      "height": 34,
       "primary_tileset": "gTileset_PokeScapeCaves",
       "secondary_tileset": "gTileset_DwarvenMines",
       "border_filepath": "data/layouts/DwarvenMines_PowerStation_2/border.bin",

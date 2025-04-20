@@ -511,14 +511,14 @@
   ],
   "warp_events": [
     {
-      "x": 18,
+      "x": 20,
       "y": 29,
       "elevation": 0,
       "dest_map": "MAP_DWARVEN_MINES",
       "dest_warp_id": "2"
     },
     {
-      "x": 17,
+      "x": 18,
       "y": 29,
       "elevation": 0,
       "dest_map": "MAP_DWARVEN_MINES",

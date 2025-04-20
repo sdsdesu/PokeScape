@@ -7530,19 +7530,32 @@ static const struct TrainerMon sParty_ARIANE_1[] = {
     }
 };
 
-
 static const struct TrainerMon sParty_SIR_OWEN_1[] = {
     {
     .lvl = 45,
     .species = SPECIES_SPIRIT_WARRIOR,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_SHARPNESS,
+    .moves = {MOVE_SACRED_SWORD, MOVE_SWORD_STRIKE, MOVE_BITTER_BLADE, MOVE_SARADOMIN_STRIKE}
     },
     {
     .lvl = 45,
     .species = SPECIES_UNICORN_REANIMATED_FORM,
+    .ev = TRAINER_PARTY_EVS(4, 0, 252, 0, 252, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_GRIM_NEIGH,
+    .gender = TRAINER_MON_FEMALE,
+    .moves = {MOVE_DAZZLING_GLEAM, MOVE_SHADOW_BALL, MOVE_DESTINY_BOND, MOVE_MEGAHORN}
     },
     {
     .lvl = 45,
     .species = SPECIES_SHADOW_HOUND,
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_GUARD_DOG,
+    .gender = TRAINER_MON_MALE,
+    .moves = {MOVE_THRASH, MOVE_SHADOW_FORCE, MOVE_DIG, MOVE_DOUBLE_EDGE}
     }
 };
 
