@@ -57,13 +57,10 @@ TRIGGER_STORYMODE_EVENT_ROUTE27_1:
 	namebox TRIGGER_STORYMODE_EVENT_ROUTE27_Text_0
 	msgbox TRIGGER_STORYMODE_EVENT_ROUTE27_Text_3
 	closemessage
-	hidenamebox
-	applymovement 7, movement_SIR_OWEN_3
-	waitmovement 0
-	namebox TRIGGER_STORYMODE_EVENT_ROUTE27_Text_0
 	msgbox TRIGGER_STORYMODE_EVENT_ROUTE27_Text_4
 	closemessage
-	applymovement 7, movement_SIR_OWEN_4
+	hidenamebox
+	applymovement 7, movement_SIR_OWEN_3
 	waitmovement 0
 	setflag FLAG_TEMP_1E
 	removeobject 7
@@ -94,10 +91,6 @@ movement_SIR_OWEN_2_down:
 	step_end
 
 movement_SIR_OWEN_3:
-	face_up
-	step_end
-
-movement_SIR_OWEN_4:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up

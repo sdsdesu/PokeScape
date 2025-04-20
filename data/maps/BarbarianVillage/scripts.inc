@@ -586,7 +586,7 @@ NPC_BARB_BLOCKADE_1_Text_7:
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0:
 	.string "This is not good, somehow an outsider\n"
-	.string "got access to our dungeon.\p"
+	.string "got access to our stronghold!\p"
 	.string "Did you find out where they went?$"
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
@@ -600,7 +600,7 @@ NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_2:
 	.string "Only once you have proved yourself a\n"
 	.string "barbarian are you allowed to use our\l"
-	.string "dungeon for training.$"
+	.string "stronghold for training.$"
 
 NPC_BARBARIANVILLAGE_SIGNPOST_Text_0:
 	.string "Barbarian Village.\p"

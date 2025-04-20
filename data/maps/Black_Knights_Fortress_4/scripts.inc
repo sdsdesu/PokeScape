@@ -58,10 +58,13 @@ BKFORT_4F_NPC_3::
 
 BKFORT_4F_NPC_4::
 	lock
+	faceplayer
 	namebox BKFORT_4F_NPC_1_Text_0
 	msgbox BKFORT_4F_NPC_4_Text_0
 	closemessage
 	hidenamebox
+	applymovement 19, MOVEMENT_FACE_RIGHT
+	waitmovement 0
 	release
 	end
 
@@ -340,7 +343,7 @@ CAUGHT_BY_BLACK_KNIGHTS_FINAL::
 
 
 TRIGGER_BLACK_KNIGHT_4F_2::
-	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 190
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 195
 	goto_if_eq TRIGGER_BLACK_KNIGHT_4F_2_1
 	end
 
@@ -351,7 +354,7 @@ TRIGGER_BLACK_KNIGHT_4F_2_1:
 	applymovement 7, Movement_STORY_BKFORT_4F_2_right
 	applymovement 8, Movement_STORY_BKFORT_4F_2_left
 	waitmovement 0
-	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 191
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 196
 	releaseall
 	end
 
@@ -375,61 +378,21 @@ Movement_STORY_BKFORT_4F_2_right:
 	walk_fast_right
 	step_end
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE::
-	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 191
-	goto_if_le TRIGGER_BLACK_KNIGHT_4F_TREASURE_1
-	return
-
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_1:
-	lockall
-	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 1
-	goto_if_eq TRIGGER_BLACK_KNIGHT_4F_TREASURE_4
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_3:
-	compare VAR_TEMP_1, 2
-	goto_if_eq TRIGGER_BLACK_KNIGHT_4F_TREASURE_7
-	compare VAR_TEMP_1, 3
-	goto_if_eq TRIGGER_BLACK_KNIGHT_4F_TREASURE_8
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_6:
-	applymovement 5, MOVEMENT_FACE_DOWN
-	applymovement 6, MOVEMENT_FACE_DOWN
-	waitmovement 0
+BATTLE_BLACKKNIGHT_SKOOL::
+	trainerbattle_single TRAINER_BLACKKNIGHT_SKOOL, BATTLE_BLACKKNIGHT_SKOOL_Text_0, BATTLE_BLACKKNIGHT_SKOOL_Text_1
 	namebox BKFORT_4F_NPC_1_Text_0
-	msgbox TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_0, MSGBOX_YESNO
-	compare VAR_RESULT, TRUE
-	goto_if_eq TRIGGER_BLACK_KNIGHT_4F_TREASURE_12
-	msgbox TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_4
-	closemessage
+	msgbox BATTLE_BLACKKNIGHT_SKOOL_Text_2
 	hidenamebox
-	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
-	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_DOWN
-	waitmovement 0
-	releaseall
+	release
 	end
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_4:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_right
-	goto TRIGGER_BLACK_KNIGHT_4F_TREASURE_3
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_7:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_left
-	goto TRIGGER_BLACK_KNIGHT_4F_TREASURE_6
-
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_8:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_STORY_BKFORT_4F_1_left
-	goto TRIGGER_BLACK_KNIGHT_4F_TREASURE_6
-
-	releaseall
-	end
-
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_12:
-	msgbox TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_1
-	closemessage
+BATTLE_BLACKKNIGHT_SIFT::
+	trainerbattle_single TRAINER_BLACKKNIGHT_SIFT, BATTLE_BLACKKNIGHT_SIFT_Text_0, BATTLE_BLACKKNIGHT_SIFT_Text_1
+	namebox BKFORT_4F_NPC_1_Text_0
+	msgbox BATTLE_BLACKKNIGHT_SIFT_Text_2
 	hidenamebox
-	playbgm MUS_PS_ENCOUNTER_KNIGHTS, FALSE
-	trainerbattle_two_trainers TRAINER_BLACKKNIGHT_SKOOL, TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_2, TRAINER_BLACKKNIGHT_SIFT, TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_3
-	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 192
-	releaseall
+	release
 	end
 
 
@@ -899,34 +862,38 @@ TRIGGER_BLACK_KNIGHT_4F_1_Text_5:
 	.string "mangy sidekick too!$"
 
 TRIGGER_BLACK_KNIGHT_4F_1_Text_6:
-	.string "Well so much for going icnognito.\p"
+	.string "Well so much for going incognito.\p"
 	.string "Guess we are going all out then?$"
 
 CAUGHT_BY_BLACK_KNIGHTS_FINAL_Text_0:
 	.string "No talking our way out of this one\n"
 	.string "{PLAYER}!$"
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_0:
-	.string "You aren't welcome here.\p"
-	.string "We can't let you through.\p"
-	.string "If you insist on trying to get past us,\n"
-	.string "we'll have to battle you.\p"
-	.string "Is that really what you want?$"
+BATTLE_BLACKKNIGHT_SKOOL_Text_0:
+	.string "None shall pass.$"
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_1:
-	.string "You have chosen... poorly.$"
+BATTLE_BLACKKNIGHT_SKOOL_Text_1:
+	.string "Tis but a scratch.$"
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_2:
-	.string "Skool: Maybe we were the ones who\n"
-	.string "chose poorly...$"
+BATTLE_BLACKKNIGHT_SKOOL_Text_2:
+	.string "Oohh, had enough, eh?\p"
+	.string "Come back here and take what's coming\n"
+	.string "to you!\p"
+	.string "Next time my monsters will bite your\n"
+	.string "legs off!$"
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_3:
-	.string "Sift: Oh, I am definitely getting fired\n"
-	.string "for this!$"
+BATTLE_BLACKKNIGHT_SIFT_Text_0:
+	.string "I have a dream.\p"
+	.string "To chop down every single tree in\n"
+	.string "Gielinor.$"
 
-TRIGGER_BLACK_KNIGHT_4F_TREASURE_Text_4:
-	.string "Good answer.\p"
-	.string "Now leave us alone.$"
+BATTLE_BLACKKNIGHT_SIFT_Text_1:
+	.string "Oh, I am definitely getting fired for\n"
+	.string "this!$"
+
+BATTLE_BLACKKNIGHT_SIFT_Text_2:
+	.string "Maybe I should take some of this loot\n"
+	.string "for myself and blame it on you...$"
 
 TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_0:
 	.string "{PLAYER}, I can hear voices inside.\p"
@@ -970,8 +937,8 @@ TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_9:
 	.string "Running with your life barely intact\n"
 	.string "from a volcano, then struggling your\l"
 	.string "way here.\p"
-	.string "I would call you remarkeable if you\n"
-	.string "werent a monster sympathiser.$"
+	.string "I would call you remarkable if you\n"
+	.string "weren't a monster sympathiser.$"
 
 TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_10:
 	.string "These Zamorakian scum have their\n"

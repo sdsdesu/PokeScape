@@ -353,7 +353,7 @@ NPC_BARBGYM_BARBARIAN_2::
 	namebox NPC_BARBGYM_BARBARIAN_2_Text_19
 	msgbox NPC_BARBGYM_BARBARIAN_2_Text_23
 	hidenamebox
-	giveitem ITEM_TM60_BULK_UP
+	giveitem ITEM_TM73_BERSERK
 	namebox NPC_BARBGYM_BARBARIAN_2_Text_19
 	msgbox NPC_BARBGYM_BARBARIAN_2_Text_24
 	hidenamebox

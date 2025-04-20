@@ -293,6 +293,9 @@ TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY::
 	hidenamebox
 	setvar VAR_TEMP_0, 1
 TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_1:
+	applymovement 4, MOVEMENT_FACE_DOWN
+	applymovement 5, MOVEMENT_FACE_DOWN
+	waitmovement 0
 	releaseall
 	end
 

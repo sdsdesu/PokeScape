@@ -66,12 +66,26 @@ BATTLE_ROUTE20_TRAINER_3::
 	end
 
 
-ROUTE20_BLOCKADE::
+ROUTE20_BLOCKADE_NORTH::
 	faceplayer
-	namebox ROUTE20_BLOCKADE_Text_0
-	msgbox ROUTE20_BLOCKADE_Text_1
+	namebox ROUTE20_BLOCKADE_NORTH_Text_0
+	msgbox ROUTE20_BLOCKADE_NORTH_Text_1
 	closemessage
 	hidenamebox
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
+	waitmovement 0
+	release
+	end
+
+
+ROUTE20_BLOCKADE_SOUTH::
+	faceplayer
+	namebox ROUTE20_BLOCKADE_NORTH_Text_0
+	msgbox ROUTE20_BLOCKADE_SOUTH_Text_0
+	closemessage
+	hidenamebox
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP
+	waitmovement 0
 	release
 	end
 
@@ -148,14 +162,21 @@ BATTLE_ROUTE20_TRAINER_3_Text_3:
 	.string "How do I summon this canoe to shore?\p"
 	.string "Please dont leave me, I am dying!$"
 
-ROUTE20_BLOCKADE_Text_0:
+ROUTE20_BLOCKADE_NORTH_Text_0:
 	.string "Sailor$"
 
-ROUTE20_BLOCKADE_Text_1:
+ROUTE20_BLOCKADE_NORTH_Text_1:
 	.string "Woah sorry, I lost my contact lens in\n"
 	.string "the water.\p"
 	.string "Move along and I will let you pass once\n"
 	.string "I find it.$"
+
+ROUTE20_BLOCKADE_SOUTH_Text_0:
+	.string "Blasted fish leapt out the water and\n"
+	.string "stole me leg!\p"
+	.string "I can't let you past until I've caught\n"
+	.string "it...\p"
+	.string "{PAUSE 15}I'm comin' for ye Peggy!$"
 
 ROUTE20_FISHERMAN_Text_0:
 	.string "Fisherman$"

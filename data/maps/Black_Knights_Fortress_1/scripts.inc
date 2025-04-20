@@ -592,12 +592,17 @@ BKFORT_1F_LENSIG_Text_3:
 	.string "ritual.$"
 
 BKFORT_1F_LENSIG_Text_4:
-	.string "Well, please come back if you change\n"
-	.string "your mind.$"
-
-BKFORT_1F_LENSIG_Text_5:
 	.string "I really need that Cabbage.\p"
 	.string "Come back if you change your mind.$"
+
+BKFORT_1F_LENSIG_Text_5:
+	.string "The ritual?\p"
+	.string "Oh, the Kinshra needed it for some silly\n"
+	.string "spell.\p"
+	.string "After Lord Daquarius ordered the sybil\n"
+	.string "to be cooked in her own cauldron, I try\l"
+	.string "and stay on their good side so I don't\l"
+	.string "suffer the same fate.$"
 
 BKFORT_1F_BOOK_Text_0:
 	.string "The book tells a story of a romance\n"

@@ -355,7 +355,7 @@ BKFORT_3F_NPC_9_Text_1:
 	.string "Alnaasdzoh klesh yetsan.$"
 
 BKFORT_3F_NPC_10_Text_0:
-	.string "Forgotten War.$"
+	.string "Forgotten W.$"
 
 BKFORT_3F_NPC_10_Text_1:
 	.string "This place is even more bleak than the\n"
