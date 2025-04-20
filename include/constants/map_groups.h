@@ -937,6 +937,8 @@
 #define MAP_DWARVEN_MINES_HOUSE_2         (9 | (47 << 8))
 #define MAP_DWARVEN_MINES_HOUSE_3         (10 | (47 << 8))
 #define MAP_EDGEVILLE_ROUTE19_BRASS_HOUSE (11 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_1 (12 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_2 (13 | (47 << 8))
 
 // gMapGroup_PokescapeOutdoorMembers
 #define MAP_YANILLE       (0 | (48 << 8))

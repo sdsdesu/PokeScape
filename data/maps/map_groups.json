@@ -983,7 +983,9 @@
     "Dwarven_Mines_House_1",
     "Dwarven_Mines_House_2",
     "Dwarven_Mines_House_3",
-    "Edgeville_Route19_Brass_House"
+    "Edgeville_Route19_Brass_House",
+    "DwarvenMines_PowerStation_1",
+    "DwarvenMines_PowerStation_2"
   ],
   "gMapGroup_PokescapeOutdoorMembers": [
     "Yanille",
