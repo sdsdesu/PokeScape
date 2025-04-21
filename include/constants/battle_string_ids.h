@@ -714,11 +714,31 @@
 #define STRINGID_COUNTDRAYNOR_MESSAGE_1               712
 #define STRINGID_COUNTDRAYNOR_MESSAGE_2               713
 #define STRINGID_COUNTDRAYNOR_MESSAGE_3               714
+#define STRINGID_SANDWICHLADY_MESSAGE_1               715
+#define STRINGID_SANDWICHLADY_MESSAGE_2               716
+#define STRINGID_SANDWICHLADY_MESSAGE_3               717
+#define STRINGID_SANDWICHLADY_MESSAGE_4               718
+#define STRINGID_ANTIDRAGONSHIELDREDUCEDAMAGE         719
+#define STRINGID_SPIRITSHIELDREDUCEDAMAGE             720
+#define STRINGID_EATINGSANDWICH                       721
+#define STRINGID_MAGGIE_MESSAGE_1                     722
+#define STRINGID_MAGGIE_MESSAGE_2                     723
+#define STRINGID_MAGGIE_MESSAGE_3                     724
+#define STRINGID_MELZAR_MESSAGE_1                     725
+#define STRINGID_MELZAR_MESSAGE_2                     726
+#define STRINGID_MELZAR_MESSAGE_3                     727
+#define STRINGID_MELZAR_MESSAGE_4                     728
+#define STRINGID_MELZAR_MESSAGE_5                     729
+#define STRINGID_REMOVEWEATHERBOOK                    730
+#define STRINGID_TZHAAR_WEATHER_1                     731
+#define STRINGID_TZHAAR_WEATHER_2                     732
+#define STRINGID_PLAYERGOTTOKKUL                      733
+#define STRINGID_CUTHPINCREASEDSTATS                  734
 
 
 
 
-#define BATTLESTRINGS_VANILLA_END                     714
+#define BATTLESTRINGS_VANILLA_END                     734
 
 
 

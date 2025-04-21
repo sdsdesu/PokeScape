@@ -8,7 +8,7 @@ GoblinVillage_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 
 
 ITEM_GOBLIN_VILLAGE_1::
-	finditem ITEM_LAMP_ATT
+	finditem ITEM_BOOK_OF_BANDOS
 	end
 
 
@@ -28,7 +28,7 @@ ITEM_GOBLIN_VILLAGE_4::
 
 
 ITEM_ROUTE24_1::
-	finditem ITEM_STEEL_POUCH, 5
+	finditem ITEM_POUCH_MITHRIL, 5
 	end
 
 
@@ -43,7 +43,7 @@ ITEM_ROUTE24_3::
 
 
 ITEM_ROUTE24_4::
-	finditem ITEM_TALISMAN_MIND
+	finditem ITEM_MIND_RUNE
 	end
 
 
@@ -147,6 +147,16 @@ NPC_GOBLINVILLAGE_GOBLIN_COOK::
 	end
 
 
+NPC_GOBLINVILLAGE_RAT::
+	lock
+	faceplayer
+	namebox NPC_GOBLINVILLAGE_RAT_Text_0
+	msgbox NPC_GOBLINVILLAGE_RAT_Text_1
+	hidenamebox
+	release
+	end
+
+
 BATTLE_DEMONHEADGE::
 	faceplayer
 	namebox BATTLE_DEMONHEADGE_Text_0
@@ -170,6 +180,69 @@ BATTLE_DEMONHEADGE2::
 	trainerbattle_no_intro TRAINER_DEMONHEADGE, BATTLE_DEMONHEADGE_Text_2
 	namebox BATTLE_DEMONHEADGE2_Text_0
 	msgbox BATTLE_DEMONHEADGE2_Text_2
+	hidenamebox
+	release
+	end
+
+
+BATTLE_LOPENDEBANK::
+	lock
+	delay 30
+	playse SE_PIN
+	applymovement 1, MOVEMENT_EXCLAMATIONMARK_FACEPLAYER
+	waitmovement 0
+	namebox BATTLE_LOPENDEBANK_Text_0
+	msgbox BATTLE_LOPENDEBANK_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne BATTLE_LOPENDEBANK_2
+	msgbox BATTLE_LOPENDEBANK_Text_4
+BATTLE_LOPENDEBANK_1:
+	hidenamebox
+	closemessage
+	applymovement 1, Movement_InteractFACEUP
+	waitmovement 0
+	release
+	end
+
+BATTLE_LOPENDEBANK_2:
+	trainerbattle_no_intro TRAINER_LOPENDEBANK, BATTLE_LOPENDEBANK_Text_2
+	namebox BATTLE_LOPENDEBANK_Text_0
+	msgbox BATTLE_LOPENDEBANK_Text_3
+	goto BATTLE_LOPENDEBANK_1
+
+
+BATTLE_ATWISTEDSMILE::
+	lock
+	playse SE_PIN
+	applymovement 1, MOVEMENT_EXCLAMATIONMARK_FACEPLAYER
+	waitmovement 0
+	namebox BATTLE_ATWISTEDSMILE_Text_0
+	msgbox BATTLE_ATWISTEDSMILE_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne BATTLE_ATWISTEDSMILE_2
+	msgbox BATTLE_ATWISTEDSMILE_Text_4
+BATTLE_ATWISTEDSMILE_1:
+	hidenamebox
+	closemessage
+	applymovement 1, Movement_InteractFACERIGHT
+	waitmovement 0
+	release
+	end
+
+BATTLE_ATWISTEDSMILE_2:
+	trainerbattle_no_intro TRAINER_A_TWISTED_SMILE, BATTLE_ATWISTEDSMILE_Text_2
+	namebox BATTLE_ATWISTEDSMILE_Text_0
+	msgbox BATTLE_ATWISTEDSMILE_Text_3
+	goto BATTLE_ATWISTEDSMILE_1
+
+
+NPC_AMBER::
+	lock
+	faceplayer
+	namebox NPC_AMBER_Text_0
+	playmoncry SPECIES_POMAPOO, 0
+	msgbox NPC_AMBER_Text_1
+	waitmoncry
 	hidenamebox
 	release
 	end
@@ -247,6 +320,14 @@ NPC_GOBLINVILLAGE_GOBLIN_COOK_Text_1:
 	.string "goblins.\p"
 	.string "Goblins saying me food is best.$"
 
+NPC_GOBLINVILLAGE_RAT_Text_0:
+	.string "Goblin$"
+
+NPC_GOBLINVILLAGE_RAT_Text_1:
+	.string "Me live here with me rats.\p"
+	.string "They best except when they steal me\n"
+	.string "food.$"
+
 BATTLE_DEMONHEADGE_Text_0:
 	.string "DEMONHEADGE$"
 
@@ -280,3 +361,57 @@ BATTLE_DEMONHEADGE2_Text_1:
 
 BATTLE_DEMONHEADGE2_Text_2:
 	.string "What do you think about dem apples!$"
+
+BATTLE_LOPENDEBANK_Text_0:
+	.string "Lopendebank$"
+
+BATTLE_LOPENDEBANK_Text_1:
+	.string "Aeeyyye!\p"
+	.string "Please don't ban me!\p"
+	.string "Oh, are you looking for a battle?$"
+
+BATTLE_LOPENDEBANK_Text_2:
+	.string "OMG pls don't ban me pl0x!$"
+
+BATTLE_LOPENDEBANK_Text_3:
+	.string "I am apart of team PokeScaper.\p"
+	.string "Keep your eyes out as we are\n"
+	.string "everywhere.\p"
+	.string "Now if you will excuse me I have got a\n"
+	.string "lot of things to not read.$"
+
+BATTLE_LOPENDEBANK_Text_4:
+	.string "Oh, okay. If you'll excuse me I have got\n"
+	.string "a lot of things to not read.$"
+
+BATTLE_ATWISTEDSMILE_Text_0:
+	.string "Twisted Smile$"
+
+BATTLE_ATWISTEDSMILE_Text_1:
+	.string "Oh hello there, Amber and I were about\n"
+	.string "to go for a walk around the park.\p"
+	.string "But I suppose I could fit in a quick\n"
+	.string "battle.\p"
+	.string "If that is what you are after?$"
+
+BATTLE_ATWISTEDSMILE_Text_2:
+	.string "Haha that was a fun warm-up before our\n"
+	.string "walk!$"
+
+BATTLE_ATWISTEDSMILE_Text_3:
+	.string "I am apart of team PokeScaper.\p"
+	.string "Keep your eyes out as we are\n"
+	.string "everywhere.\p"
+	.string "Now if you will excuse me Amber and I\n"
+	.string "have to get ready to go out.$"
+
+BATTLE_ATWISTEDSMILE_Text_4:
+	.string "Oh, okay. Amber and I will continue\n"
+	.string "getting ready to go out to Falador\l"
+	.string "Park.$"
+
+NPC_AMBER_Text_0:
+	.string "Amber$"
+
+NPC_AMBER_Text_1:
+	.string "Yip, Yiip!$"

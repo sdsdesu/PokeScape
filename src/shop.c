@@ -38,6 +38,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "event_data.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 9110
@@ -68,6 +69,7 @@ enum {
     MART_TYPE_NORMAL,
     MART_TYPE_DECOR,
     MART_TYPE_DECOR2,
+    MART_TYPE_TOKKUL,
 };
 
 // shop view window NPC info enum
@@ -351,6 +353,14 @@ static u8 CreateShopMenu(u8 martType)
         sMartInfo.menuActions = sShopMenuActions_BuySellQuit;
         numMenuItems = ARRAY_COUNT(sShopMenuActions_BuySellQuit);
     }
+    else if (martType == MART_TYPE_TOKKUL)
+    {
+        struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_SELL_QUIT];
+        winTemplate.width = GetMaxWidthInMenuTable(sShopMenuActions_BuySellQuit, ARRAY_COUNT(sShopMenuActions_BuySellQuit));
+        sMartInfo.windowId = AddWindow(&winTemplate);
+        sMartInfo.menuActions = sShopMenuActions_BuySellQuit;
+        numMenuItems = ARRAY_COUNT(sShopMenuActions_BuySellQuit);
+    }
     else
     {
         struct WindowTemplate winTemplate = sShopMenuWindowTemplates[WIN_BUY_QUIT];
@@ -580,6 +590,8 @@ static void BuyMenuSetListEntry(struct ListMenuItem *menuItem, u16 item, u8 *nam
 {
     if (sMartInfo.martType == MART_TYPE_NORMAL)
         CopyItemName(item, name);
+    else if (sMartInfo.martType == MART_TYPE_TOKKUL)
+        CopyItemName(item, name);
     else
         StringCopy(name, gDecorations[item].name);
 
@@ -603,6 +615,8 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
     if (item != LIST_CANCEL)
     {
         if (sMartInfo.martType == MART_TYPE_NORMAL)
+            description = ItemId_GetDescription(item);
+        else if (sMartInfo.martType == MART_TYPE_TOKKUL)
             description = ItemId_GetDescription(item);
         else
             description = gDecorations[item].description;
@@ -630,6 +644,14 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
                 STR_CONV_MODE_LEFT_ALIGN,
                 5);
         }
+        else if (sMartInfo.martType == MART_TYPE_TOKKUL)
+        {
+            ConvertIntToDecimalStringN(
+                gStringVar1,
+                ItemId_GetPriceTokkul(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT),
+                STR_CONV_MODE_LEFT_ALIGN,
+                5);
+        }
         else
         {
             ConvertIntToDecimalStringN(
@@ -642,7 +664,15 @@ static void BuyMenuPrintPriceInList(u8 windowId, u32 itemId, u8 y)
         if (ItemId_GetImportance(itemId) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
             StringCopy(gStringVar4, gText_SoldOut);
         else
-            StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
+            if (sMartInfo.martType == MART_TYPE_TOKKUL)
+            {
+                StringExpandPlaceholders(gStringVar4, gText_Tokkul);
+            }
+            else {
+                StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
+            }
+            
+
         x = GetStringRightAlignXOffset(FONT_NARROW, gStringVar4, 120);
         AddTextPrinterParameterized4(windowId, FONT_NARROW, x, y, 0, 0, sShopBuyMenuTextColors[COLORID_ITEM_LIST], TEXT_SKIP_DRAW, gStringVar4);
     }
@@ -687,6 +717,16 @@ static void BuyMenuAddItemIcon(u16 item, u8 iconSlot)
         return;
 
     if (sMartInfo.martType == MART_TYPE_NORMAL || item == ITEM_LIST_END)
+    {
+        spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, item);
+        if (spriteId != MAX_SPRITES)
+        {
+            *spriteIdPtr = spriteId;
+            gSprites[spriteId].x2 = 24;
+            gSprites[spriteId].y2 = 88;
+        }
+    }
+    else if (sMartInfo.martType == MART_TYPE_TOKKUL || item == ITEM_LIST_END)
     {
         spriteId = AddItemIconSprite(iconSlot + TAG_ITEM_ICON_BASE, iconSlot + TAG_ITEM_ICON_BASE, item);
         if (spriteId != MAX_SPRITES)
@@ -772,8 +812,13 @@ static void BuyMenuDrawGraphics(void)
 {
     BuyMenuDrawMapGraphics();
     BuyMenuCopyMenuBgToBg1TilemapBuffer();
-    AddMoneyLabelObject(19, 11);
-    PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
+    if (sMartInfo.martType == MART_TYPE_TOKKUL) {
+        PrintTokkulAmountInTokkulBoxWithBorder(WIN_MONEY, 1, 13, gSaveBlock1Ptr->tokkul);
+    }
+    else {
+        AddMoneyLabelObject(19, 11);
+        PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
+    }
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
@@ -993,12 +1038,14 @@ static void Task_BuyMenu(u8 taskId)
 
             if (sMartInfo.martType == MART_TYPE_NORMAL)
                 sShopData->totalCost = (ItemId_GetPrice(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT));
+            else if (sMartInfo.martType == MART_TYPE_TOKKUL)
+                sShopData->totalCost = (ItemId_GetPriceTokkul(itemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT));
             else
                 sShopData->totalCost = gDecorations[itemId].price;
 
             if (ItemId_GetImportance(itemId) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
                 BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, BuyMenuReturnToItemList);
-            else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
+            else if ((!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_NORMAL) || (!IsEnoughTokkul(gSaveBlock1Ptr->tokkul, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_TOKKUL))
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
             }
@@ -1013,6 +1060,27 @@ static void Task_BuyMenu(u8 taskId)
                         StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
                         tItemCount = 1;
                         sShopData->totalCost = (ItemId_GetPrice(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
+                        BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
+                    }
+                    else if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
+                    {
+                        StringCopy(gStringVar2, gMoveNames[ItemIdToBattleMoveId(itemId)]);
+                        BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany2, Task_BuyHowManyDialogueInit);
+                    }
+                    else
+                    {
+                        BuyMenuDisplayMessage(taskId, gText_Var1CertainlyHowMany, Task_BuyHowManyDialogueInit);
+                    }
+                }
+                else if (sMartInfo.martType == MART_TYPE_TOKKUL)
+                {
+                    CopyItemName(itemId, gStringVar1);
+                    if (ItemId_GetImportance(itemId))
+                    {
+                        ConvertIntToDecimalStringN(gStringVar2, sShopData->totalCost, STR_CONV_MODE_LEFT_ALIGN, 6);
+                        StringExpandPlaceholders(gStringVar4, gText_YouWantedVar1ThatllBeVar2);
+                        tItemCount = 1;
+                        sShopData->totalCost = (ItemId_GetPriceTokkul(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
                         BuyMenuDisplayMessage(taskId, gStringVar4, BuyMenuConfirmPurchase);
                     }
                     else if (ItemId_GetPocket(itemId) == POCKET_TM_HM)
@@ -1059,7 +1127,14 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     BuyMenuPrintItemQuantityAndPrice(taskId);
     ScheduleBgCopyTilemapToVram(0);
 
-    maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
+    if (sMartInfo.martType == MART_TYPE_TOKKUL) {
+        maxQuantity = gSaveBlock1Ptr->tokkul / sShopData->totalCost;
+    }
+    else {
+        maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
+    }
+
+    
 
     if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
         sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY;
@@ -1075,8 +1150,16 @@ static void Task_BuyHowManyDialogueHandleInput(u8 taskId)
 
     if (AdjustQuantityAccordingToDPadInput(&tItemCount, sShopData->maxQuantity) == TRUE)
     {
-        sShopData->totalCost = (ItemId_GetPrice(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
-        BuyMenuPrintItemQuantityAndPrice(taskId);
+        if (sMartInfo.martType == MART_TYPE_TOKKUL)
+        {
+            sShopData->totalCost = (ItemId_GetPriceTokkul(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
+            BuyMenuPrintItemQuantityAndPrice(taskId);
+        }
+        else
+        {
+            sShopData->totalCost = (ItemId_GetPrice(tItemId) >> IsPokeNewsActive(POKENEWS_SLATEPORT)) * tItemCount;
+            BuyMenuPrintItemQuantityAndPrice(taskId);
+        }
     }
     else
     {
@@ -1128,6 +1211,18 @@ static void BuyMenuTryMakePurchase(u8 taskId)
             BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
         }
     }
+    else if (sMartInfo.martType == MART_TYPE_TOKKUL)
+    {
+        if (AddBagItem(tItemId, tItemCount) == TRUE)
+        {
+            RecordItemPurchase(taskId);
+            BuyMenuDisplayMessage(taskId, gText_HereYouGoThankYou, BuyMenuSubtractMoney);
+        }
+        else
+        {
+            BuyMenuDisplayMessage(taskId, gText_NoMoreRoomForThis, BuyMenuReturnToItemList);
+        }
+    }
     else
     {
         if (DecorationAdd(tItemId))
@@ -1147,11 +1242,23 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 static void BuyMenuSubtractMoney(u8 taskId)
 {
     IncrementGameStat(GAME_STAT_SHOPPED);
-    RemoveMoney(&gSaveBlock1Ptr->money, sShopData->totalCost);
-    PlaySE(SE_SHOP);
-    PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
 
+    if (sMartInfo.martType == MART_TYPE_TOKKUL) {
+        RemoveTokkul(&gSaveBlock1Ptr->tokkul, sShopData->totalCost);
+    }
+    else {
+        RemoveMoney(&gSaveBlock1Ptr->money, sShopData->totalCost);
+    }
+    PlaySE(SE_SHOP);
+    if (sMartInfo.martType == MART_TYPE_TOKKUL) {
+        PrintTokkulAmountInTokkulBox(WIN_MONEY, gSaveBlock1Ptr->tokkul, 0);
+    }
+    else {
+        PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
+    }
     if (sMartInfo.martType == MART_TYPE_NORMAL)
+        gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
+    else if (sMartInfo.martType == MART_TYPE_TOKKUL)
         gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;
     else
         gTasks[taskId].func = Task_ReturnToItemListAfterDecorationPurchase;
@@ -1166,7 +1273,7 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
         PlaySE(SE_SELECT);
 
         // Purchasing 10+ Poke Balls gets the player a Premier Ball
-        if (tItemId == ITEM_NORMAL_POUCH && tItemCount >= 10 && AddBagItem(ITEM_PREMIER_BALL, 1) == TRUE)
+        if ((tItemId == ITEM_POUCH_BRONZE || tItemId == ITEM_POUCH_STEEL || tItemId == ITEM_POUCH_RUNE) && tItemCount >= 10 && AddBagItem(ITEM_POUCH, 1) == TRUE)
             BuyMenuDisplayMessage(taskId, gText_ThrowInPremierBall, BuyMenuReturnToItemList);
         else
             BuyMenuReturnToItemList(taskId);
@@ -1201,7 +1308,9 @@ static void BuyMenuPrintItemQuantityAndPrice(u8 taskId)
     s16 *data = gTasks[taskId].data;
 
     FillWindowPixelBuffer(WIN_QUANTITY_PRICE, PIXEL_FILL(1));
-    PrintMoneyAmount(WIN_QUANTITY_PRICE, 38, 1, sShopData->totalCost, TEXT_SKIP_DRAW);
+    if (sMartInfo.martType == MART_TYPE_TOKKUL)
+        PrintTokkulAmount(WIN_QUANTITY_PRICE, 24, 1, sShopData->totalCost, TEXT_SKIP_DRAW);
+    else PrintMoneyAmount(WIN_QUANTITY_PRICE, 30, 1, sShopData->totalCost, TEXT_SKIP_DRAW);
     ConvertIntToDecimalStringN(gStringVar1, tItemCount, STR_CONV_MODE_LEADING_ZEROS, BAG_ITEM_CAPACITY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     BuyMenuPrint(WIN_QUANTITY_PRICE, gStringVar4, 0, 1, 0, COLORID_NORMAL);
@@ -1282,5 +1391,13 @@ void CreateDecorationShop2Menu(const u16 *itemsForSale)
 {
     CreateShopMenu(MART_TYPE_DECOR2);
     SetShopItemsForSale(itemsForSale);
+    SetShopMenuCallback(ScriptContext_Enable);
+}
+
+void CreateTokkulShopMenu(const u16 *itemsForSale)
+{
+    CreateShopMenu(MART_TYPE_TOKKUL);
+    SetShopItemsForSale(itemsForSale);
+    ClearItemPurchases();
     SetShopMenuCallback(ScriptContext_Enable);
 }

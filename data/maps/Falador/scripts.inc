@@ -65,7 +65,7 @@ MODTIMBO_STATE_3:
 
 
 ITEM_FALADOR_1::
-	finditem ITEM_ADAMANT_POUCH
+	finditem ITEM_POUCH_ADAMANT
 	end
 
 
@@ -234,7 +234,6 @@ NPC_FALADOR_GUARD_6::
 NPC_FALADOR_GUARD_7::
 	lock
 	faceplayer
-	namebox NPC_FALADOR_GUARD_1_Text_0
 	msgbox NPC_FALADOR_GUARD_7_Text_0
 	waitmessage
 	hidenamebox
@@ -630,11 +629,11 @@ NPC_FALADOR_MYSTERIOUS_OLD_MAN::
 	end
 
 
-NPC_FALADOR_SirTiffyCachien::
+NPC_FALADOR_SirTiffyCashien::
 	lock
 	faceplayer
-	namebox NPC_FALADOR_SirTiffyCachien_Text_0
-	msgbox NPC_FALADOR_SirTiffyCachien_Text_1
+	namebox NPC_FALADOR_SirTiffyCashien_Text_0
+	msgbox NPC_FALADOR_SirTiffyCashien_Text_1
 	waitmessage
 	hidenamebox
 	release
@@ -666,8 +665,8 @@ NPC_FALADOR_NPC_5::
 NPC_FALADOR_NPC_6::
 	lock
 	faceplayer
-	namebox NPC_FALADOR_NPC_6_Text_0
-	msgbox NPC_FALADOR_NPC_6_Text_1
+	namebox NPC_FALADOR_NPC_5_Text_0
+	msgbox NPC_FALADOR_NPC_6_Text_0
 	waitmessage
 	hidenamebox
 	release
@@ -781,7 +780,8 @@ NPC_FALADOR_BANK_NPC_1::
 NPC_FALADOR_GEMSTORE_NPC_1::
 	lock
 	faceplayer
-	msgbox NPC_FALADOR_GEMSTORE_NPC_1_Text_0
+	namebox NPC_FALADOR_GEMSTORE_NPC_1_Text_0
+	msgbox NPC_FALADOR_GEMSTORE_NPC_1_Text_1
 	waitmessage
 	hidenamebox
 	release
@@ -808,7 +808,8 @@ NPC_FALADOR_GEMSTORE_OWNER::
 NPC_FALADOR_BANK_NPC_2::
 	lock
 	faceplayer
-	msgbox NPC_FALADOR_BANK_NPC_2_Text_0
+	namebox NPC_FALADOR_BANK_NPC_2_Text_0
+	msgbox NPC_FALADOR_BANK_NPC_2_Text_1
 	waitmessage
 	hidenamebox
 	release
@@ -829,7 +830,8 @@ NPC_FALADOR_BANK_NPC_3::
 NPC_FALADOR_HOUSE_NPC_1::
 	lock
 	faceplayer
-	msgbox NPC_FALADOR_HOUSE_NPC_1_Text_0
+	namebox NPC_FALADOR_HOUSE_NPC_1_Text_0
+	msgbox NPC_FALADOR_HOUSE_NPC_1_Text_1
 	waitmessage
 	hidenamebox
 	release
@@ -839,6 +841,7 @@ NPC_FALADOR_HOUSE_NPC_1::
 NPC_FALADOR_HOUSE_NPC_2::
 	lock
 	faceplayer
+	namebox NPC_FALADOR_NPC_10_Text_0
 	msgbox NPC_FALADOR_HOUSE_NPC_2_Text_0
 	waitmessage
 	hidenamebox
@@ -858,7 +861,10 @@ NPC_FALADOR_NPC_9::
 
 
 FALADOR_QUEST_STATE::
-	goto_if_unset FLAG_BADGE02_GET, FALADOR_QUEST_STATE_2
+	setflag FLAG_TEMP_1C
+	removeobject 23
+	compare VAR_MITHRILMAN_STATE, 5
+	goto_if_eq FALADOR_QUEST_STATE_2
 FALADOR_QUEST_STATE_1:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 114
 	goto_if_lt FALADOR_QUEST_STATE_5
@@ -875,18 +881,22 @@ FALADOR_QUEST_STATE_4:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 111
 	goto_if_eq FALADOR_QUEST_STATE_11
 FALADOR_QUEST_STATE_10:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 160
+	goto_if_ge FALADOR_QUEST_STATE_14
+FALADOR_QUEST_STATE_13:
 	switch VAR_POKESCAPE_FALADOR_STATE
-	case 0, FALADOR_QUEST_STATE_14
-	case 1, FALADOR_QUEST_STATE_14
-	case 2, FALADOR_QUEST_STATE_15
-	case 3, FALADOR_QUEST_STATE_15
-	case 4, FALADOR_QUEST_STATE_15
-	case 5, FALADOR_QUEST_STATE_15
-	case 6, FALADOR_QUEST_STATE_16
+	case 0, FALADOR_QUEST_STATE_17
+	case 1, FALADOR_QUEST_STATE_17
+	case 2, FALADOR_QUEST_STATE_18
+	case 3, FALADOR_QUEST_STATE_18
+	case 4, FALADOR_QUEST_STATE_18
+	case 5, FALADOR_QUEST_STATE_18
+	case 6, FALADOR_QUEST_STATE_19
 	return
 
 FALADOR_QUEST_STATE_2:
-	setflag FLAG_MITHRILMAN2
+	clearflag FLAG_TEMP_1C
+	addobject 23
 	goto FALADOR_QUEST_STATE_1
 
 FALADOR_QUEST_STATE_5:
@@ -915,15 +925,30 @@ FALADOR_QUEST_STATE_11:
 	goto FALADOR_QUEST_STATE_10
 
 FALADOR_QUEST_STATE_14:
+	setflag FLAG_TEMP_2
+	setmetatile 24, 6, 609, 0
+	setmetatile 24, 7, 617, 0
+	setmetatile 25, 6, 609, 0
+	special DrawWholeMapView
+	removeobject 40
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_1F
+	removeobject 37
+	removeobject 38
+	removeobject 39
+	removeobject 27
+	goto FALADOR_QUEST_STATE_13
+
+FALADOR_QUEST_STATE_17:
 	return
 
-FALADOR_QUEST_STATE_15:
+FALADOR_QUEST_STATE_18:
 	removeobject 40
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_1F
 	return
 
-FALADOR_QUEST_STATE_16:
+FALADOR_QUEST_STATE_19:
 	setflag FLAG_TEMP_2
 	setmetatile 24, 6, 609, 0
 	setmetatile 24, 7, 617, 0
@@ -1200,7 +1225,7 @@ NPC_FALADOR_STORY_WHITE_KNIGHT_4::
 	lock
 	faceplayer
 	namebox NPC_FALADOR_WHITEKNIGHT_1_Text_0
-	msgbox NPC_FALADOR_NPC_8_Text_0
+	msgbox NPC_FALADOR_STORY_WHITE_KNIGHT_4_Text_0
 	waitmessage
 	hidenamebox
 	release
@@ -1263,6 +1288,78 @@ NPC_FALADOR_PARTYROOM_PETE::
 	msgbox NPC_FALADOR_PARTYROOM_PETE_Text_6
 	waitmessage
 	hidenamebox
+	release
+	end
+
+
+TRIGGER_Mithrilman_FALADOR::
+	lockall
+	playse SE_PIN
+	applymovement 23, Movement_Falador_Mithrilman_1
+	waitmovement 0
+	waitse
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 41
+	goto_if_eq TRIGGER_Mithrilman_FALADOR_2
+	compare VAR_TEMP_1, 42
+	goto_if_eq TRIGGER_Mithrilman_FALADOR_3
+TRIGGER_Mithrilman_FALADOR_1:
+	waitmovement 0
+	goto Mithrilman_FALADOR1
+	end
+
+TRIGGER_Mithrilman_FALADOR_2:
+	applymovement 23, Movement_Falador_Mithrilman_2
+	goto TRIGGER_Mithrilman_FALADOR_1
+
+TRIGGER_Mithrilman_FALADOR_3:
+	applymovement 23, Movement_Falador_Mithrilman_3
+	goto TRIGGER_Mithrilman_FALADOR_1
+
+
+Movement_Falador_Mithrilman_1:
+	emote_exclamation_mark
+	face_down
+	step_end
+
+Movement_Falador_Mithrilman_2:
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+Movement_Falador_Mithrilman_3:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	step_end
+
+Mithrilman_FALADOR1::
+	playbgm MUS_ENCOUNTER_MAY, 1
+	namebox Mithrilman_FALADOR1_Text_0
+	msgbox Mithrilman_FALADOR1_Text_1
+	hidenamebox
+	trainerbattle_no_intro TRAINER_MITHRILMAN2, Mithrilman_FALADOR1_Text_2
+	namebox Mithrilman_FALADOR1_Text_0
+	msgbox Mithrilman_FALADOR1_Text_3
+	waitmessage
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject 23
+	fadescreenswapbuffers FADE_FROM_BLACK
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	waitmovement 0
+	waitse
+	msgbox Mithrilman_FALADOR1_Text_4
+	finditem ITEM_LAW_RUNE, 1
+	setvar VAR_MITHRILMAN_STATE, 10
+	setflag FLAG_TEMP_1C
+	removeobject 23
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 1
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	release
 	end
 
@@ -1344,8 +1441,8 @@ NPC_FALADOR_NPC_4_Text_1:
 	.string "They cure monsters' status effects.$"
 
 NPC_FALADOR_GUARD_4_Text_0:
-	.string "Falador is a nice city, the white\n"
-	.string "knights keeps us safe.\p"
+	.string "Falador is a nice city, the White\n"
+	.string "Knights keeps us safe.\p"
 	.string "Stay vigilant adventurer.$"
 
 NPC_FALADOR_GUARD_5_Text_0:
@@ -1387,7 +1484,7 @@ NPC_FALADOR_WHITEKNIGHT_2_Text_0:
 	.string "the mines.$"
 
 NPC_FALADOR_WHITEKNIGHT_2_Text_1:
-	.string "Welcome to the Faldor Gym!\p"
+	.string "Welcome to the Falador Gym!\p"
 	.string "Now that the disturbance at the mines\n"
 	.string "have been dealt with we can reopen.$"
 
@@ -1505,7 +1602,7 @@ NPC_FALADOR_APPRENTICE_Text_2:
 	.string "Thank you so much!\p"
 	.string "Let me just calculate the\n"
 	.string "total…{PAUSE 15}…{PAUSE 15}…{PAUSE 15}Alright!\p"
-	.string "So that comes to 5000gp.\p"
+	.string "So that comes to 5,000gp.\p"
 	.string "Is this okay with you?$"
 
 NPC_FALADOR_APPRENTICE_Text_3:
@@ -1571,7 +1668,7 @@ NPC_FALADOR_HAIRDRESSER_NPC_Text_0:
 	.string "RSMVer$"
 
 NPC_FALADOR_HAIRDRESSER_NPC_Text_1:
-	.string "Today im really feeling the dragoon\n"
+	.string "Today I'm really feeling the dragoon\n"
 	.string "hairstyle.\p"
 	.string "It will fix my love life for sure.$"
 
@@ -1620,20 +1717,21 @@ NPC_FALADOR_MYSTERIOUS_OLD_MAN_Text_2:
 	.string "If you figure out how to open it please\n"
 	.string "get in contact with me again.$"
 
-NPC_FALADOR_SirTiffyCachien_Text_0:
-	.string "Sir Tiffy Cachien$"
+NPC_FALADOR_SirTiffyCashien_Text_0:
+	.string "Tiffy Cashien$"
 
-NPC_FALADOR_SirTiffyCachien_Text_1:
+NPC_FALADOR_SirTiffyCashien_Text_1:
 	.string "I enjoy spending my time here at the\n"
-	.string "park sitting on this bench.$"
+	.string "park sitting on this bench and feeding\l"
+	.string "the ducks.$"
 
 NPC_FALADOR_HESKEL_Text_0:
 	.string "Heskel$"
 
 NPC_FALADOR_HESKEL_Text_1:
-	.string "I wish someone would take over for me,\n"
-	.string "it has been days since I had my last\l"
-	.string "break.$"
+	.string "Gardening is actually my full time job.\p"
+	.string "I am here every day and night tending\n"
+	.string "to this lovely park.$"
 
 NPC_FALADOR_NPC_5_Text_0:
 	.string "Gardener$"
@@ -1644,9 +1742,6 @@ NPC_FALADOR_NPC_5_Text_1:
 	.string "My farming level is way too low.$"
 
 NPC_FALADOR_NPC_6_Text_0:
-	.string "Garden Supplier$"
-
-NPC_FALADOR_NPC_6_Text_1:
 	.string "If you are here to buy bagged trees to\n"
 	.string "sell them for a higher price, I regret to\l"
 	.string "inform you that I have increased the\l"
@@ -1656,11 +1751,11 @@ NPC_FALADOR_Wyson_Text_0:
 	.string "Wyson$"
 
 NPC_FALADOR_Wyson_Text_1:
-	.string "I heard some rumours about a giant mole\n"
-	.string "living somewhere in this area, and that\l"
-	.string "interacting with an object would get\l"
-	.string "you to it.\p"
-	.string "I am too scared to find out how though.$"
+	.string "Those pesky moles are so annoying!\p"
+	.string "They keep digging holes in the park and\n"
+	.string "eating the flowers!\p"
+	.string "It would be great if someone got rid of\n"
+	.string "them…$"
 
 Falador_TREE_Text_0:
 	.string "Mod Timbo$"
@@ -1702,8 +1797,11 @@ NPC_FALADOR_BANK_NPC_1_Text_0:
 	.string "those six.$"
 
 NPC_FALADOR_GEMSTORE_NPC_1_Text_0:
-	.string "They say the gems from this store\n"
-	.string "comes all the way from Shilo Village.\p"
+	.string "Druidess$"
+
+NPC_FALADOR_GEMSTORE_NPC_1_Text_1:
+	.string "They say the gems from this store come\n"
+	.string "all the way from Shilo Village.\p"
 	.string "That's all the way over in Karamja!$"
 
 HERQUIN_DIARY_Text_0:
@@ -1727,6 +1825,9 @@ NPC_FALADOR_GEMSTORE_OWNER_Text_1:
 	.string "Please come again another time.$"
 
 NPC_FALADOR_BANK_NPC_2_Text_0:
+	.string "AxMeAnythin$"
+
+NPC_FALADOR_BANK_NPC_2_Text_1:
 	.string "I got wiped out by Sir Amik.\p"
 	.string "Guess my monsters just weren't strong\n"
 	.string "enough.$"
@@ -1739,6 +1840,9 @@ NPC_FALADOR_BANK_NPC_3_Text_0:
 	.string "I really miss it.$"
 
 NPC_FALADOR_HOUSE_NPC_1_Text_0:
+	.string "Woman$"
+
+NPC_FALADOR_HOUSE_NPC_1_Text_1:
 	.string "Dinner will be ready soon, will you be\n"
 	.string "joining us?$"
 
@@ -1756,7 +1860,7 @@ NPC_FALADOR_NPC_9_Text_0:
 
 NPC_FALADOR_BLOCK_GUARD_1_Text_0:
 	.string "We've been informed that this shipment\n"
-	.string "may contain Karmajan Rum.\p"
+	.string "may contain Karamjan Rum.\p"
 	.string "You should inform Sir Amik Varze right\n"
 	.string "away!$"
 
@@ -1764,7 +1868,7 @@ NPC_FALADOR_BLOCK_GUARD_2_Text_0:
 	.string "Please stand back while we search\n"
 	.string "these wares.\p"
 	.string "While waiting you should visit the White\n"
-	.string "Knights Castle.$"
+	.string "Knights' Castle.$"
 
 NPC_FALADOR_BLOCK_MERCHANT_Text_0:
 	.string "Merchant$"
@@ -1825,6 +1929,12 @@ NPC_FALADOR_STORY_WHITE_KNIGHT_3_Text_0:
 	.string "The MvM gym is located in Falador castle\n"
 	.string "south of the main square.$"
 
+NPC_FALADOR_STORY_WHITE_KNIGHT_4_Text_0:
+	.string "Have you visited any battle pubs?\p"
+	.string "Did you know you can challenge people\n"
+	.string "to battles once per day for some cool\l"
+	.string "rewards?$"
+
 NPC_FALADOR_STORY_WHITE_KNIGHT_5_Text_0:
 	.string "I have been assigned to this position.\p"
 	.string "Please do not get in my way.$"
@@ -1880,3 +1990,44 @@ NPC_FALADOR_PARTYROOM_PETE_Text_6:
 	.string "You can only dream to have an afro like\n"
 	.string "mine.\p"
 	.string "Party hard enough you might get one.$"
+
+Mithrilman_FALADOR1_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_FALADOR1_Text_1:
+	.string "West meet again knave, howst fares\n"
+	.string "thoughst adventure?\p"
+	.string "Thine has already beaten the whitest\n"
+	.string "of knights, and provenst that\l"
+	.string "Mithrilmen are superior to those of the\l"
+	.string "whitest armour.\p"
+	.string "Do thoust wonder why thine am in the\n"
+	.string "park?\p"
+	.string "Thine am contemplating catching a duck\n"
+	.string "for thine arsenal.\p"
+	.string "Word sayst the pen is mightiest than\n"
+	.string "the sword and pens be made from\l"
+	.string "feathers.\p"
+	.string "So who else than the duck wouldst be\n"
+	.string "mightyer than the sword?\p"
+	.string "Why donst thine show ye, knave, the\n"
+	.string "power of onst without a sword?$"
+
+Mithrilman_FALADOR1_Text_2:
+	.string "…$"
+
+Mithrilman_FALADOR1_Text_3:
+	.string "I see troughst thoust clever trick\n"
+	.string "knave, that duck in thest pond were\l"
+	.string "mightyest than the sword.\p"
+	.string "And thine not posessing sword or\n"
+	.string "feather lost becaust of that?\p"
+	.string "Clever knave, very clever.\p"
+	.string "Thine am a Mithrilman and seest trough\n"
+	.string "thee clever tricks, but as a Mithrilman,\l"
+	.string "thine will accept this outcome.\p"
+	.string "Forst know.$"
+
+Mithrilman_FALADOR1_Text_4:
+	.string "It appears Mithrilman dropped\n"
+	.string "something while rushing off.$"

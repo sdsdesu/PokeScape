@@ -46,16 +46,14 @@ SetClock::
 
 Explorer_Jack_2::
 	namebox Explorer_Jack_1_Text_0
-	gettime
-	compare VAR_0x8000, 7
-	goto_if_lt Explorer_Jack_2_2
-	compare VAR_0x8000, 21
-	goto_if_ge Explorer_Jack_2_2
-	compare VAR_0x8000, 12
-	goto_if_lt Explorer_Jack_2_3
-	msgbox Explorer_Jack_2_Text_2
+	special GetTimeOfDaySpecial
+	switch VAR_RESULT
+	case 0, Explorer_Jack_2_3
+	case 1, Explorer_Jack_2_4
+	case 2, Explorer_Jack_2_5
+	case 3, Explorer_Jack_2_6
 Explorer_Jack_2_1:
-	msgbox Explorer_Jack_2_Text_3
+	msgbox Explorer_Jack_2_Text_4
 	closemessage
 	hidenamebox
 	applymovement 1, Movement_Explorer_Jack_2
@@ -65,15 +63,24 @@ Explorer_Jack_2_1:
 	setflag FLAG_SYS_QUEST_MENU_GET
 	additem ITEM_ROTTEN_POTATO
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 1
+	startquest QUEST_MAIN_STORY
 	release
 	end
 
-Explorer_Jack_2_2:
+Explorer_Jack_2_3:
 	msgbox Explorer_Jack_2_Text_0
 	goto Explorer_Jack_2_1
 
-Explorer_Jack_2_3:
+Explorer_Jack_2_4:
 	msgbox Explorer_Jack_2_Text_1
+	goto Explorer_Jack_2_1
+
+Explorer_Jack_2_5:
+	msgbox Explorer_Jack_2_Text_2
+	goto Explorer_Jack_2_1
+
+Explorer_Jack_2_6:
+	msgbox Explorer_Jack_2_Text_3
 	goto Explorer_Jack_2_1
 
 
@@ -123,8 +130,30 @@ Explorer_Jack_3_4:
 
 
 CHEAT_ITEM_PULSE_CORE::
+	checkitem ITEM_PULSE_CORE, 1
+	compare VAR_RESULT, 0
+	goto_if_ne CHEAT_ITEM_PULSE_CORE_2
 	finditem ITEM_PULSE_CORE
+	applymovement 1, Movement_InteractFACEDOWN
+	waitmovement 0
+	namebox Explorer_Jack_1_Text_0
+	msgbox CHEAT_ITEM_PULSE_CORE_Text_1
+	closemessage
+	hidenamebox
+CHEAT_ITEM_PULSE_CORE_1:
+	applymovement 1, Movement_InteractFACEUP
+	waitmovement 0
 	end
+
+CHEAT_ITEM_PULSE_CORE_2:
+	finditem ITEM_PRISMATIC_STAR
+	applymovement 1, Movement_InteractFACEDOWN
+	waitmovement 0
+	namebox Explorer_Jack_1_Text_0
+	msgbox CHEAT_ITEM_PULSE_CORE_Text_0
+	closemessage
+	hidenamebox
+	goto CHEAT_ITEM_PULSE_CORE_1
 
 
 ITEM_LUMBRIDGE_BREAD_1::
@@ -133,7 +162,7 @@ ITEM_LUMBRIDGE_BREAD_1::
 
 
 ITEM_LUMBRIDGE_STEEL_POUCH::
-	finditem ITEM_STEEL_POUCH
+	finditem ITEM_POUCH_MITHRIL
 	end
 
 
@@ -162,8 +191,13 @@ ITEM_LUMBRIDGE_PRISMATIC_STAR::
 	end
 
 
-ITEM_ROUTE1_DEATH_RUNE::
+ITEM_ROUTE1_WATER_RUNE::
 	finditem ITEM_EARTH_RUNE
+	end
+
+
+ITEM_LUMBRIDGE_FIRE_RUNE::
+	finditem ITEM_FIRE_RUNE
 	end
 
 
@@ -178,7 +212,7 @@ ITEM_ROUTE1_BREAD::
 
 
 ITEM_ROUTE1_CHOCOLATE_SUNDAY::
-	finditem ITEM_CHOCOLATE_SUNDAY
+	finditem ITEM_DONUT_SANDWICH
 	end
 
 
@@ -188,7 +222,7 @@ ITEM_MILLLANEMILL_TM05::
 
 
 ITEM_MILLLANEMILL_MITHRIL_POUCH::
-	finditem ITEM_MITHRIL_POUCH
+	finditem ITEM_POUCH_MITHRIL
 	end
 
 
@@ -223,7 +257,7 @@ ITEM_ROUTE2_MAGIC_POTION::
 
 
 ITEM_ROUTE2_RUNE_POUCH::
-	finditem ITEM_RUNE_POUCH
+	finditem ITEM_POUCH_RUNE
 	end
 
 
@@ -258,7 +292,7 @@ ITEM_ROUTE12_BREAD::
 
 
 ITEM_ROUTE12_WIZARDS_BLIZZARD::
-	finditem ITEM_WIZARDS_BLIZZARD
+	finditem ITEM_CHOCOLATE_SUNDAY
 	end
 
 
@@ -282,13 +316,23 @@ ITEM_ROUTE12_PRAYER_POTION::
 	end
 
 
-ITEM_DRAYNORMANOR_TM43_PSYCHO_CUT::
-	finditem ITEM_TM43_PSYCHO_CUT
+ITEM_DRAYNORMANOR_TM55_HEX::
+	finditem ITEM_TM55_HEX
+	end
+
+
+ITEM_DRAYNORMANOR_TEA_2::
+	finditem ITEM_REPEL_TEA_1
 	end
 
 
 ITEM_WIZARDSTOWER_AIR_RUNE_2::
-	finditem ITEM_AIR_RUNE
+	finditem ITEM_MIND_RUNE
+	end
+
+
+ITEM_WIZARDSTOWER_RUNE_3::
+	finditem ITEM_BODY_RUNE
 	end
 
 
@@ -328,7 +372,7 @@ ITEM_DRAYNORMANOR_TEA::
 
 
 ITEM_DRAYNORMANOR_POUCHES::
-	finditem ITEM_NORMAL_POUCH, 5
+	finditem ITEM_POUCH, 5
 	end
 
 
@@ -337,9 +381,10 @@ Explorer_Jack_1_Text_0:
 
 Explorer_Jack_1_Text_1:
 	.string "You're awake!\p"
-	.string "Do you know what time it is?$"
+	.string "Do you know what time it is?!$"
 
 Explorer_Jack_2_Text_0:
+	.string "It's quite late.\p"
 	.string "Are you sure you don't want to go back\n"
 	.string "to bed?$"
 
@@ -348,9 +393,13 @@ Explorer_Jack_2_Text_1:
 	.string "usually oversleep.$"
 
 Explorer_Jack_2_Text_2:
-	.string "It's about time you got up.$"
+	.string "That's right it's time to start the day.$"
 
 Explorer_Jack_2_Text_3:
+	.string "It's about time you got up, you've been\n"
+	.string "sleeping all day.$"
+
+Explorer_Jack_2_Text_4:
 	.string "Anyhow, I've got some news for you.\p"
 	.string "Apparently a famous researcher is\n"
 	.string "currently visiting the Duke in\l"
@@ -377,3 +426,15 @@ Explorer_Jack_3_Text_2:
 	.string "MvM Championships battle is held.\p"
 	.string "The current Leader of our town is Duke\n"
 	.string "Horacio.$"
+
+CHEAT_ITEM_PULSE_CORE_Text_0:
+	.string "A Prismatic Star will gain a little bit of\n"
+	.string "boosted experience to the monster\l"
+	.string "holding it during battles.\p"
+	.string "Give it to a monster to hold.$"
+
+CHEAT_ITEM_PULSE_CORE_Text_1:
+	.string "A Pulse Core will help your monsters\n"
+	.string "share a little bit of extra experience\l"
+	.string "after battles.\p"
+	.string "Toggle it on in the key items.$"

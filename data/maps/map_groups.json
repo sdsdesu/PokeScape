@@ -771,7 +771,10 @@
     "Abyssal_Realm_3",
     "Ice_Mountain",
     "AsgarnianDungeon_B4F",
-    "Lumbridge_Swamp_Caves_WGS_5"
+    "Lumbridge_Swamp_Caves_WGS_5",
+    "Puro_Puro1",
+    "Puro_Puro2",
+    "Puro_Puro3"
   ],
   "gMapGroup_PokescapeIndoorTutorialIsland": [
     "Tutorial_Island_Lab_Up",
@@ -800,7 +803,8 @@
     "Potterington_Farm_Interior",
     "Lumbridge_House_3_2F",
     "Lumbridge_Church",
-    "Lumbridge_Castle_Basement"
+    "Lumbridge_Castle_Basement",
+    "Lumbridge_House_5"
   ],
   "gMapGroup_PokescapeIndoorDraynor": [
     "Draynor_House_Morgan_1F",
@@ -848,7 +852,8 @@
     "Melzars_Maze_1F",
     "Melzars_Maze_2F",
     "Melzars_Maze_3F",
-    "Melzars_Maze_B1F"
+    "Melzars_Maze_B1F",
+    "Route8_MakeoverMage_2F"
   ],
   "gMapGroup_PokescapeIndoorFalador": [
     "Falador_Hairdressers",
@@ -872,7 +877,8 @@
     "Falador_PartyRoom",
     "Falador_Castle_1F_R2",
     "Falador_Castle_1F_R3",
-    "Falador_Castle_3F_R2"
+    "Falador_Castle_3F_R2",
+    "Falador_House_1"
   ],
   "gMapGroup_PokescapeIndoorVarrock": [
     "Varrock_Thessalia_Shop",
@@ -907,12 +913,14 @@
     "Varrock_House_6",
     "Varrock_House_7",
     "Varrock_House_8",
-    "Varrock_House_9"
+    "Varrock_House_9",
+    "Varrock_House_10"
   ],
   "gMapGroup_PokescapeIndoorBarbarianVillage": [
     "BarbarianVillage_GymHall",
     "BarbarianVillage_House_1",
-    "BarbarianVillage_House_2"
+    "BarbarianVillage_House_2",
+    "BarbarianVillage_House_3"
   ],
   "gMapGroup_PokescapeIndoorAlkharid": [
     "Alkharid_Gym_1F_R1",
@@ -948,7 +956,20 @@
     "Dungeoneering_16",
     "Dungeoneering_Lobby",
     "Daemonheim_Gym",
-    "Daemonheim_Bank"
+    "Daemonheim_Bank",
+    "Dung_Gym_1",
+    "Dung_Gym_2",
+    "Dung_Gym_3",
+    "Dung_Gym_4",
+    "Dung_Gym_5",
+    "Dung_Gym_6",
+    "Dung_Gym_7",
+    "Dung_Gym_8",
+    "Dung_Gym_9",
+    "Dung_Gym_10",
+    "Dung_Gym_11",
+    "Dung_Gym_12",
+    "Dung_Gym_13"
   ],
   "gMapGroup47": [
     "Edgeville_Gym",
@@ -962,7 +983,9 @@
     "Dwarven_Mines_House_1",
     "Dwarven_Mines_House_2",
     "Dwarven_Mines_House_3",
-    "Edgeville_Route19_Brass_House"
+    "Edgeville_Route19_Brass_House",
+    "DwarvenMines_PowerStation_1",
+    "DwarvenMines_PowerStation_2"
   ],
   "gMapGroup_PokescapeOutdoorMembers": [
     "Yanille",
@@ -998,15 +1021,16 @@
     "Route63"
   ],
   "gMapGroup_PokescapeIndoorTzhaar": [
-    "Tzhaar_1F",
-    "Tzhaar_FightCaves",
+    "Mor_Ul_Rek",
+    "Tzhaar_Gym_Room",
     "Tzhaar_Caves_1",
     "Tzhaar_Caves_2",
     "Tzhaar_Caves_3",
     "Tzhaar_Caves_4",
     "Tzhaar_Caves_5",
     "Tzhaar_Gym_Challenge",
-    "Tzhaar_HarAken"
+    "Tzhaar_HarAken",
+    "Tzhaar_Fight_Caves"
   ],
   "gMapGroup_PokescapeIndoorVarious": [
     "Route1_House_Fred",
@@ -1098,6 +1122,12 @@
     "Crandor_SeaRoute",
     "Ungael",
     "Varlamore",
-    "Barb_Stronghold_B4F_Mural"
+    "Barb_Stronghold_B4F_Mural",
+    "GoblinVillage_House_4",
+    "Cooking_Guild",
+    "Black_Knights_Fortress_1",
+    "Black_Knights_Fortress_2",
+    "Black_Knights_Fortress_3",
+    "Black_Knights_Fortress_4"
   ]
 }

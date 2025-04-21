@@ -580,7 +580,7 @@ static void Cmd_setuserstatus3(void);
 static void Cmd_assistattackselect(void);
 static void Cmd_trysetmagiccoat(void);
 static void Cmd_trysetsnatch(void);
-static void Cmd_unused2(void);
+static void Cmd_gettokkul(void);
 static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
 static void Cmd_getsecretpowereffect(void);
@@ -678,7 +678,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_end,                                     //0x3D
     Cmd_end2,                                    //0x3E
     Cmd_end3,                                    //0x3F
-    Cmd_unused5,                 //0x40
+    Cmd_unused5,                 //0x40 
     Cmd_call,                                    //0x41
     Cmd_setroost,                                //0x42
     Cmd_jumpifabilitypresent,                    //0x43
@@ -839,7 +839,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_assistattackselect,                      //0xDE
     Cmd_trysetmagiccoat,                         //0xDF
     Cmd_trysetsnatch,                            //0xE0
-    Cmd_unused2,                                 //0xE1
+    Cmd_gettokkul,                               //0xE1
     Cmd_switchoutabilities,                      //0xE2
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
@@ -1090,7 +1090,7 @@ static const struct PickupItem sPickupTable[] =
     { ITEM_MINT_CAKE,           {   _,   _,   1,   4,   4,   4,   4,   5,   4,   5, } },
     { ITEM_MINT_CAKE,           {   _,   _,   _,   4,   4,   4,   4,   7,   9,   9, } },
     { ITEM_MINT_CAKE,           {   _,   _,   _,   _,   1,   1,   4,   5,   4,   5, } },
-    { ITEM_CRYSTAL_POUCH,       {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
+    { ITEM_POUCH_CRYSTAL,       {   _,   _,   _,   _,   _,   _,   1,   1,   4,   5, } },
     { ITEM_LIFE_RUNE,           {   _,   _,   _,   _,   _,   _,   _,   1,   1,   1, } },
 };
 
@@ -1101,12 +1101,12 @@ static const u16 sPickupItems[] =
     ITEM_BREAD,
     ITEM_CHOCOLATE_SUNDAY,
     ITEM_CAKE,
-    ITEM_MITHRIL_POUCH,
+    ITEM_POUCH_MITHRIL,
     ITEM_BODY_RUNE,
     ITEM_FLAX,
     ITEM_WIZARDS_BLIZZARD,
     ITEM_CABBAGE,
-    ITEM_RUNE_POUCH,
+    ITEM_POUCH_RUNE,
     ITEM_CHOCOLATE_CAKE,
     ITEM_PURPLE_SWEETS,
     ITEM_LAMP_ATT,
@@ -1127,7 +1127,7 @@ static const u16 sRarePickupItems[] =
     ITEM_MINT_CAKE,
     ITEM_SOUL_RUNE,
     ITEM_HWEEN_MASK,
-    ITEM_CRYSTAL_POUCH,
+    ITEM_POUCH_CRYSTAL,
     ITEM_SANTA_HAT,
     ITEM_SARADOMIN_BREW,
     ITEM_PARTY_HAT,
@@ -1893,13 +1893,25 @@ static void Cmd_ppreduce(void)
         {
             if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && IsBattlerAlive(i))
                 ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
+            if (GetBattlerSide(i) != GetBattlerSide(gBattlerAttacker) && GetBattlerHoldEffect(i, TRUE) == HOLD_EFFECT_PRESSURE)
+                    ppToDeduct ++;
         }
     }
     else if (moveTarget != MOVE_TARGET_OPPONENTS_FIELD)
     {
         if (gBattlerAttacker != gBattlerTarget && GetBattlerAbility(gBattlerTarget) == ABILITY_PRESSURE)
              ppToDeduct++;
+        if (gBattlerAttacker != gBattlerTarget && GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_PRESSURE)
+        {
+            ppToDeduct++;
+        }
     }
+    /*
+    //Reduces the Holders PP by an extra amount.
+    if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GODSWORD){
+        ppToDeduct ++;
+    }
+    */
 
     if (!(gHitMarker & (HITMARKER_NO_PPDEDUCT | HITMARKER_NO_ATTACKSTRING)) && gBattleMons[gBattlerAttacker].pp[gCurrMovePos])
     {
@@ -1922,6 +1934,8 @@ static void Cmd_ppreduce(void)
             MarkBattlerForControllerExec(gBattlerAttacker);
         }
     }
+
+    
 
     gHitMarker &= ~HITMARKER_NO_PPDEDUCT;
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -2363,7 +2377,13 @@ static void Cmd_datahpupdate(void)
             u32 side = GetBattlerSide(battler);
             if (gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] == SPECIES_NONE)
                 gBattleStruct->changedSpecies[side][gBattlerPartyIndexes[battler]] = gBattleMons[battler].species;
-            gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            /*if (gBattleMons[battler].species == SPECIES_MIMIKYU_DISGUISED) {
+                gBattleMons[battler].species = SPECIES_MIMIKYU_BUSTED;
+            }
+            else if (gBattleMons[battler].species == SPECIES_CREATURE_CUTE_FORM) {
+                gBattleMons[battler].species = SPECIES_CREATURE_EVIL_FORM;
+            }*/
+            gBattleMons[battler].species = SPECIES_CREATURE_EVIL_FORM;
             BattleScriptPush(cmd->nextInstr);
             gBattlescriptCurrInstr = BattleScript_TargetFormChange;
             return;
@@ -3738,6 +3758,27 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gBattlescriptCurrInstr = BattleScript_SyrupBombActivates;
                 }
                 break;
+            case MOVE_EFFECT_RANDOM_STAT_DOWN:
+            i = Random() % 6;
+            if (i == 0) {
+                gBattlescriptCurrInstr = BattleScript_EffectAttackDown;
+            }
+            else if (i == 1) {
+                gBattlescriptCurrInstr = BattleScript_EffectDefenseDown;
+            }
+            else if (i == 2) {
+                gBattlescriptCurrInstr = BattleScript_EffectAccuracyDown;
+            }
+            else if (i == 3) {
+                gBattlescriptCurrInstr = BattleScript_EffectSpecialAttackDown;
+            }
+            else if (i == 4) {
+                gBattlescriptCurrInstr = BattleScript_EffectSpecialDefenseDown;
+            }
+            else if (i == 5) {
+                gBattlescriptCurrInstr = BattleScript_EffectSpeedDown;
+            }
+            break;
             }
         }
     }
@@ -4251,7 +4292,13 @@ static void Cmd_getexp(void)
                     && !gBattleStruct->wildVictorySong)
                 {
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    
+                    if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+                        PlayBGM(MUS_PS_TRAINER_VICTORY);
+                    }
+                    else {
+                        PlayBGM(MUS_VICTORY_WILD); //  MUS_PS_TRAINER_VICTORY
+                    }
                     gBattleStruct->wildVictorySong++;
                 }
 
@@ -4422,7 +4469,7 @@ bool32 NoAliveMonsForPlayer(void)
     u32 maxI = PARTY_SIZE;
     u32 HP_count = 0;
 
-    if (B_MULTI_BATTLE_WHITEOUT < GEN_4 && gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
+    if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
         maxI = MULTI_PARTY_SIZE;
 
     // Get total HP for the player's party to determine if the player has lost
@@ -5444,6 +5491,11 @@ static void Cmd_moveend(void)
                 effect = TRUE;
             gBattleScripting.moveendState++;
             break;
+        case MOVEEND_KARIL:
+            if (ItemBattleEffects(ITEMEFFECT_KARIL, 0, FALSE))
+                effect = TRUE;
+            gBattleScripting.moveendState++;
+            break;
         case MOVEEND_OPPORTUNIST:
             if (AbilityBattleEffects(ABILITYEFFECT_OPPORTUNIST, 0, 0, 0, 0))
                 effect = TRUE; // it loops through all battlers, so we increment after its done with all battlers
@@ -6185,7 +6237,13 @@ static void Cmd_sethealblock(void)
 
     if (gStatuses3[gBattlerTarget] & STATUS3_HEAL_BLOCK)
     {
-        gBattlescriptCurrInstr = cmd->failInstr;
+        if (gCurrentMove == MOVE_ZAROS_BECKON) { //skips failed and prevented from healing string.
+            gBattlescriptCurrInstr++;
+            BattleScriptPush(cmd->nextInstr);
+        }
+        else {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
     }
     else
     {
@@ -6295,8 +6353,11 @@ static void Cmd_switchinanim(void)
                                  | BATTLE_TYPE_EREADER_TRAINER
                                  | BATTLE_TYPE_RECORDED_LINK
                                  | BATTLE_TYPE_TRAINER_HILL
-                                 | BATTLE_TYPE_FRONTIER)))
-        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+                                 | BATTLE_TYPE_FRONTIER))) {
+        DebugPrintf("Setting seen flag for species: %d", gBattleMons[battler].species);                            
+        if (gBattleMons[battler].species != 0)
+            HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+                                 }
 
     gAbsentBattlerFlags &= ~(gBitTable[battler]);
 
@@ -13394,7 +13455,8 @@ static void Cmd_setsunny(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-// Belly Drum
+// Belly Drum 
+// Overload
 static void Cmd_maxattackhalvehp(void)
 {
     CMD_ARGS(const u8 *failInstr);
@@ -13404,20 +13466,43 @@ static void Cmd_maxattackhalvehp(void)
     if (!(GetNonDynamaxMaxHP(gBattlerAttacker) / 2))
         halfHp = 1;
 
-    // Belly Drum fails if the user's current HP is less than half its maximum, or if the user's Attack is already at +6 (even if the user has Contrary).
-    if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] < MAX_STAT_STAGE
-        && gBattleMons[gBattlerAttacker].hp > halfHp)
-    {
-        gBattleMons[gBattlerAttacker].statStages[STAT_ATK] = MAX_STAT_STAGE;
-        gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
-        if (gBattleMoveDamage == 0)
-            gBattleMoveDamage = 1;
+    if (gCurrentMove == MOVE_OVERLOAD) {
+        // If HP is less than half it fails.
+        if (gBattleMons[gBattlerAttacker].hp > halfHp)
+        {
+            SET_STATCHANGER(STAT_ATK, 2, FALSE);
+            SET_STATCHANGER(STAT_DEF, 2, FALSE);
+            SET_STATCHANGER(STAT_SPATK, 2, FALSE);
+            SET_STATCHANGER(STAT_SPDEF, 2, FALSE);
+            SET_STATCHANGER(STAT_SPEED, 2, FALSE);
+            gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
 
-        gBattlescriptCurrInstr = cmd->nextInstr;
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
     }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->failInstr;
+
+    if (gCurrentMove == MOVE_BELLY_DRUM) {
+        // Belly Drum fails if the user's current HP is less than half its maximum, or if the user's Attack is already at +6 (even if the user has Contrary).
+        if (gBattleMons[gBattlerAttacker].statStages[STAT_ATK] < MAX_STAT_STAGE
+            && gBattleMons[gBattlerAttacker].hp > halfHp)
+        {
+            gBattleMons[gBattlerAttacker].statStages[STAT_ATK] = MAX_STAT_STAGE;
+            gBattleMoveDamage = GetNonDynamaxMaxHP(gBattlerAttacker) / 2;
+            if (gBattleMoveDamage == 0)
+                gBattleMoveDamage = 1;
+
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = cmd->failInstr;
+        }
     }
 }
 
@@ -14386,10 +14471,6 @@ static void Cmd_trysetsnatch(void)
     }
 }
 
-static void Cmd_unused2(void)
-{
-}
-
 static void Cmd_switchoutabilities(void)
 {
     CMD_ARGS(u8 battler);
@@ -14708,14 +14789,19 @@ bool32 DoesSubstituteBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 
 bool32 DoesDisguiseBlockMove(u32 battlerAtk, u32 battlerDef, u32 move)
 {
-    if (gBattleMons[battlerDef].species != SPECIES_MIMIKYU_DISGUISED
+    if (//gBattleMons[battlerDef].species != SPECIES_MIMIKYU_DISGUISED
+        gBattleMons[battlerDef].species != SPECIES_CREATURE_CUTE_FORM
         || gBattleMons[battlerDef].status2 & STATUS2_TRANSFORMED
         || IS_MOVE_STATUS(move)
         || gHitMarker & HITMARKER_IGNORE_DISGUISE
-        || GetBattlerAbility(battlerDef) != ABILITY_DISGUISE)
-        return FALSE;
-    else
+        || GetBattlerAbility(battlerDef) != ABILITY_DISGUISE) {
+            DebugPrintf("Disguise is false!");
+            return FALSE;
+        }
+    else {
+        DebugPrintf("Disguise is true!");
         return TRUE;
+    }
 }
 
 static void Cmd_jumpifsubstituteblocks(void)
@@ -14923,135 +15009,212 @@ static void Cmd_handleballthrow(void)
 
         if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].isUltraBeast)
         {
-            if (gLastUsedItem == ITEM_FISHBOWL_POUCH)
+            /*if (gLastUsedItem == ITEM_FISHBOWL_POUCH)
                 ballMultiplier = 500;
             else
-                ballMultiplier = 10;
+                ballMultiplier = 10;*/
         }
         else
         {
             switch (gLastUsedItem)
             {
-            case ITEM_BRONZE_POUCH:
-                ballMultiplier = 150;
-                break;
-            case ITEM_IRON_POUCH:
-                ballMultiplier = 200;
-                break;
-            case ITEM_LEATHER_POUCH:
+                ////////////////////////////
+            
+                case ITEM_POUCH:
+                    ballMultiplier = 100;
+                    break;
+
+                case ITEM_POUCH_BRONZE:
+                    ballMultiplier = 100;
+                    break;
+
+                case ITEM_POUCH_IRON:
+                    if (GetCurrentMapType() == MAP_TYPE_UNDERWATER
+                        || (B_DIVE_BALL_MODIFIER >= GEN_4 && (gIsFishingEncounter || gIsSurfingEncounter))) {
+                        ballMultiplier = 400;
+                        }
+                        else {
+                            ballMultiplier = 100;
+                        }
+                    break;
+
+                case ITEM_POUCH_STEEL:
+                    ballMultiplier = 150;
+                    break;
+
+                case ITEM_POUCH_MITHRIL:
+                    if (gBattleResults.battleTurnCounter == 0) {
+                        ballMultiplier = 400;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_ADAMANT:
+                    ballMultiplier = 100 + (gBattleResults.battleTurnCounter * (B_TIMER_BALL_MODIFIER >= GEN_5 ? 30 : 10));
+                    if (ballMultiplier > 400)
+                        ballMultiplier = 400;
+                    break;
+
+                case ITEM_POUCH_RUNE:
+                    ballMultiplier = 200;
+                    break;
+
+                case ITEM_POUCH_CRYSTAL:
+                    if (IsMonShiny(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]]))
+                    ballMultiplier = 800;
+                    break;
+
+                case ITEM_POUCH_BLACK:
+                    i = UpdateTimeOfDay();
+                    if (i == TIME_OF_DAY_EVENING || i == TIME_OF_DAY_NIGHT || gMapHeader.cave || gMapHeader.mapType == MAP_TYPE_UNDERGROUND || gMapHeader.mapType == MAP_TYPE_WILDERNESS) {
+                        ballMultiplier = 300;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_WHITE:
+                    i = UpdateTimeOfDay();
+                    if (i == TIME_OF_DAY_MORNING || i == TIME_OF_DAY_DAY || gMapHeader.mapType == MAP_TYPE_INDOOR) {
+                        ballMultiplier = 300;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_ELEMENTAL:
+                    if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == 
+                    (TYPE_WATER | TYPE_FIRE | TYPE_GRASS | TYPE_ROCK | TYPE_GROUND | TYPE_FLYING) ||
+                    gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == 
+                    (TYPE_WATER | TYPE_FIRE | TYPE_GRASS | TYPE_ROCK | TYPE_GROUND | TYPE_FLYING)) {
+                        ballMultiplier = 400;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_CATALYTIC:
+                    if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == 
+                    (TYPE_GHOST | TYPE_POISON | TYPE_BUG | TYPE_FIGHTING | TYPE_ELECTRIC | TYPE_ICE) ||
+                    gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == 
+                    (TYPE_GHOST | TYPE_POISON | TYPE_BUG | TYPE_FIGHTING | TYPE_ELECTRIC | TYPE_ICE)) {
+                        ballMultiplier = 400;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_BANE:
+                    if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == 
+                    (TYPE_DRAGON | TYPE_FAIRY | TYPE_DARK | TYPE_NORMAL | TYPE_STEEL | TYPE_PSYCHIC) ||
+                    gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == 
+                    (TYPE_DRAGON | TYPE_FAIRY | TYPE_DARK | TYPE_NORMAL | TYPE_STEEL | TYPE_PSYCHIC)) {
+                        ballMultiplier = 400;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_AUGMENTED:
+                    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), FLAG_GET_CAUGHT)) {
+                        ballMultiplier = 300;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_ANCIENT:
+                    ballMultiplier = 100;
+                    break;
+
+                case ITEM_POUCH_BARROWS:
+                    if (gBattleMons[gBattlerAttacker].level >= 4 * gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 800;
+                    else if (gBattleMons[gBattlerAttacker].level > 2 * gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 400;
+                    else if (gBattleMons[gBattlerAttacker].level > gBattleMons[gBattlerTarget].level)
+                        ballMultiplier = 200;
+                    break;
+
+                case ITEM_POUCH_GRANITE:
+                    i = GetSpeciesWeight(gBattleMons[gBattlerTarget].species);
+                    if (B_HEAVY_BALL_MODIFIER >= GEN_7)
+                    {
+                        if (i < 1000)
+                            ballAddition = -20;
+                        else if (i < 2000)
+                            ballAddition = 0;
+                        else if (i < 3000)
+                            ballAddition = 20;
+                        else
+                            ballAddition = 30;
+                    }
+                    else if (B_HEAVY_BALL_MODIFIER >= GEN_4)
+                    {
+                        if (i < 2048)
+                            ballAddition = -20;
+                        else if (i < 3072)
+                            ballAddition = 20;
+                        else if (i < 4096)
+                            ballAddition = 30;
+                        else
+                            ballAddition = 40;
+                    }
+                    else
+                    {
+                        if (i < 1024)
+                            ballAddition = -20;
+                        else if (i < 2048)
+                            ballAddition = 0;
+                        else if (i < 3072)
+                            ballAddition = 20;
+                        else if (i < 4096)
+                            ballAddition = 30;
+                        else
+                            ballAddition = 40;
+                    }
+                    break;
+
+                case ITEM_POUCH_SPLITBARK:
+                    if (gBattleMons[gBattlerTarget].status1 & 
+                    (STATUS1_SLEEP | STATUS1_FREEZE | STATUS1_POISON | STATUS1_BURN | 
+                    STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE)) {
+                        ballMultiplier = 400;
+                    }
+                    else {
+                        ballMultiplier = 100;
+                    }
+                    break;
+
+                case ITEM_POUCH_MYSTIC:
+                    ballMultiplier = 100;
+                    break;
+                
+
+
+
+
+                ////////////////////////////
+            /*case ITEM_LEATHER_POUCH:
                 if (IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_WATER) || IS_BATTLER_OF_TYPE(gBattlerTarget, TYPE_BUG))
                     ballMultiplier = B_NET_BALL_MODIFIER >= GEN_7 ? 350 : 300;
                 break;
-            case ITEM_ADAMANT_POUCH:
-                ballMultiplier = 100 + (gBattleResults.battleTurnCounter * (B_TIMER_BALL_MODIFIER >= GEN_5 ? 30 : 10));
-                if (ballMultiplier > 400)
-                    ballMultiplier = 400;
-                break;
-            case ITEM_BARROWS_POUCH:
-                if (gBattleMons[gBattlerAttacker].level >= 4 * gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 800;
-                else if (gBattleMons[gBattlerAttacker].level > 2 * gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 400;
-                else if (gBattleMons[gBattlerAttacker].level > gBattleMons[gBattlerTarget].level)
-                    ballMultiplier = 200;
-                break;
-            case ITEM_SPIDERSILK_POUCH:
-                if (gIsFishingEncounter)
-                    ballMultiplier = (B_LURE_BALL_MODIFIER >= GEN_7 ? 500 : 300);
-                break;
-            case ITEM_GRANITE_POUCH:
-                i = GetSpeciesWeight(gBattleMons[gBattlerTarget].species);
-                if (B_HEAVY_BALL_MODIFIER >= GEN_7)
-                {
-                    if (i < 1000)
-                        ballAddition = -20;
-                    else if (i < 2000)
-                        ballAddition = 0;
-                    else if (i < 3000)
-                        ballAddition = 20;
-                    else
-                        ballAddition = 30;
-                }
-                else if (B_HEAVY_BALL_MODIFIER >= GEN_4)
-                {
-                    if (i < 2048)
-                        ballAddition = -20;
-                    else if (i < 3072)
-                        ballAddition = 20;
-                    else if (i < 4096)
-                        ballAddition = 30;
-                    else
-                        ballAddition = 40;
-                }
-                else
-                {
-                    if (i < 1024)
-                        ballAddition = -20;
-                    else if (i < 2048)
-                        ballAddition = 0;
-                    else if (i < 3072)
-                        ballAddition = 20;
-                    else if (i < 4096)
-                        ballAddition = 30;
-                    else
-                        ballAddition = 40;
-                }
-                break;
-            case ITEM_GEM_POUCH:
-                if (IsMonShiny(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]]))
-                ballMultiplier = 600;
-                break;
-            case ITEM_CRYSTAL_POUCH:
+            case ITEM_POUCH_CRYSTAL:
                 if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].isLegendary)
-                ballMultiplier = 400;
-                break;
-            case ITEM_SPLITBARK_POUCH:
-                if (gBattleMons[gBattlerTarget].status1 & 
-                (STATUS1_SLEEP | STATUS1_FREEZE | STATUS1_POISON | STATUS1_BURN | 
-                STATUS1_PARALYSIS | STATUS1_TOXIC_POISON | STATUS1_FROSTBITE))
                 ballMultiplier = 400;
                 break;
             case ITEM_IMPHIDE_POUCH:
                 if (gBattleMons[gBattlerTarget].item)
                 ballMultiplier = 600;
-                break;
-            case ITEM_CATALYTIC_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == 
-                (TYPE_GHOST | TYPE_POISON | TYPE_BUG | TYPE_FIGHTING | TYPE_ELECTRIC | TYPE_ICE) ||
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == 
-                (TYPE_GHOST | TYPE_POISON | TYPE_BUG | TYPE_FIGHTING | TYPE_ELECTRIC | TYPE_ICE))
-                ballMultiplier = 400;
-                break;
-            case ITEM_ELEMENTAL_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == 
-                (TYPE_WATER | TYPE_FIRE | TYPE_GRASS | TYPE_ROCK | TYPE_GROUND | TYPE_FLYING) ||
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == 
-                (TYPE_WATER | TYPE_FIRE | TYPE_GRASS | TYPE_ROCK | TYPE_GROUND | TYPE_FLYING))
-                ballMultiplier = 400;
-                break;
-            case ITEM_AUGMENTED_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == TYPE_STEEL || 
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == TYPE_STEEL)
-                ballMultiplier = 400;
-                break;
-            case ITEM_ANCIENT_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == TYPE_DARK || 
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == TYPE_DARK)
-                ballMultiplier = 400;
-                break;
-            case ITEM_MYSTIC_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == TYPE_FAIRY || 
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == TYPE_FAIRY)
-                ballMultiplier = 400;
-                break;
-            case ITEM_DRAGONBANE_POUCH:
-                if (gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[0] == TYPE_DRAGON || 
-                gSpeciesInfo[gBattleMons[gBattlerTarget].species].types[1] == TYPE_DRAGON)
-                ballMultiplier = 400;
-                break;
-            case ITEM_FISHBOWL_POUCH:
-                ballMultiplier = 10;
-                break;
+                break;*/
             }
         }
 
@@ -15086,7 +15249,7 @@ static void Cmd_handleballthrow(void)
             else
                 gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
-            if (gLastUsedItem == ITEM_BLESSED_POUCH)
+            if (gLastUsedItem == ITEM_POUCH_MYSTIC)
             {
                 MonRestorePP(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]]);
                 HealStatusConditions(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], STATUS1_ANY, gBattlerTarget);
@@ -15112,7 +15275,7 @@ static void Cmd_handleballthrow(void)
                 maxShakes = BALL_3_SHAKES_SUCCESS;
             }
 
-            if (gLastUsedItem == ITEM_DRAGON_POUCH)
+            if (gLastUsedItem == ITEM_POUCH_DRAGON)
             {
                 shakes = maxShakes;
             }
@@ -15140,7 +15303,7 @@ static void Cmd_handleballthrow(void)
                 else
                     gBattleCommunication[MULTISTRING_CHOOSER] = 1;
 
-                if (gLastUsedItem == ITEM_BLESSED_POUCH)
+                if (gLastUsedItem == ITEM_POUCH_MYSTIC)
                 {
                     MonRestorePP(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]]);
                     HealStatusConditions(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], STATUS1_ANY, gBattlerTarget);
@@ -16658,3 +16821,24 @@ void BS_SetPhotonGeyserCategory(void)
     gBattleStruct->swapDamageCategory = (GetSplitBasedOnStats(gBattlerAttacker) == SPLIT_PHYSICAL);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+static void Cmd_gettokkul(void)
+{
+    CMD_ARGS();
+
+    u32 tokkul;
+    u8 trainerPartySize = VarGet(VAR_POKESCAPE_TZHAAR_PARTY_SIZE);
+
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
+    {
+        tokkul = (trainerPartySize * 10);
+    }
+    else {
+        tokkul = 10;
+    }
+    VarSet(VAR_POKESCAPE_TOKKUL_CURRENCY, (VAR_POKESCAPE_TOKKUL_CURRENCY + tokkul));
+    
+    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, tokkul);
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+

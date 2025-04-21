@@ -425,13 +425,14 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
 {
     s8 elevation;
 
-
     if (MetatileBehavior_IsBananaTree(metatileBehavior) == TRUE)
         return EventScript_BananaTree;
     if (MetatileBehavior_IsRestBed(metatileBehavior) == TRUE)
         return EventScript_RestBed;
     if (MetatileBehavior_IsLockedDoor(metatileBehavior) == TRUE)
         return EventScript_Locked_Door;
+    if (MetatileBehavior_IsWallClock(metatileBehavior) == TRUE)
+        return EventScript_CheckClock;
     if (MetatileBehavior_IsPlayerFacingTVScreen(metatileBehavior, direction) == TRUE)
         return EventScript_TV;
     if (MetatileBehavior_IsPC(metatileBehavior) == TRUE)
@@ -791,6 +792,11 @@ static bool8 TryStartWarpEventScript(struct MapPosition *position, u16 metatileB
 {
     s8 warpEventId = GetWarpEventAtMapPosition(&gMapHeader, position);
 
+    if (MetatileBehavior_IsWhirlpool(metatileBehavior) == TRUE)
+    {
+        ScriptContext_SetupScript(EventScript_Whirlpool);
+    }
+
     if (warpEventId != WARP_ID_NONE && IsWarpMetatileBehavior(metatileBehavior) == TRUE)
     {
         StoreInitialPlayerAvatarState();
@@ -830,6 +836,7 @@ static bool8 TryStartWarpEventScript(struct MapPosition *position, u16 metatileB
             DoMossdeepGymWarp();
             return TRUE;
         }
+        
         DoWarp();
         return TRUE;
     }

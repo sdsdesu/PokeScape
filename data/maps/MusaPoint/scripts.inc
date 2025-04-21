@@ -114,6 +114,7 @@ NPC_MUSAPOINT_SAILOR_2:
 NPC_MUSAPOINT_SAILOR_5:
 	msgbox NPC_MUSAPOINT_SAILOR_Text_3
 	warp MAP_PORT_SARIM, 8, 0, 0
+	waitstate
 	goto NPC_MUSAPOINT_SAILOR_1
 
 
@@ -218,8 +219,8 @@ NPC_MUSA_POINT_6::
 NPC_MUSA_POINT_7::
 	lock
 	faceplayer
-	namebox NPC_MUSA_POINT_7_Text_0
-	msgbox NPC_MUSA_POINT_7_Text_1
+	namebox NPC_MUSA_POINT_6_Text_0
+	msgbox NPC_MUSA_POINT_7_Text_0
 	closemessage
 	hidenamebox
 	release
@@ -292,6 +293,7 @@ NPC_MONKEY_BLOCK::
 
 BATTLE_MUSA_POINT_TRAINER_1::
 	trainerbattle_single TRAINER_MUSA_POINT_TRAINER_1, BATTLE_MUSA_POINT_TRAINER_1_Text_0, BATTLE_MUSA_POINT_TRAINER_1_Text_1
+	namebox BATTLE_MUSA_POINT_TRAINER_1_Text_2
 	msgbox BATTLE_MUSA_POINT_TRAINER_1_Text_1
 	hidenamebox
 	release
@@ -300,6 +302,7 @@ BATTLE_MUSA_POINT_TRAINER_1::
 
 BATTLE_MUSA_POINT_TRAINER_2::
 	trainerbattle_single TRAINER_MUSA_POINT_TRAINER_2, BATTLE_MUSA_POINT_TRAINER_2_Text_0, BATTLE_MUSA_POINT_TRAINER_2_Text_1
+	namebox BATTLE_MUSA_POINT_TRAINER_2_Text_2
 	msgbox BATTLE_MUSA_POINT_TRAINER_2_Text_1
 	hidenamebox
 	release
@@ -308,6 +311,7 @@ BATTLE_MUSA_POINT_TRAINER_2::
 
 BATTLE_MUSA_POINT_TRAINER_3::
 	trainerbattle_single TRAINER_MUSA_POINT_TRAINER_3, BATTLE_MUSA_POINT_TRAINER_3_Text_0, BATTLE_MUSA_POINT_TRAINER_3_Text_1
+	namebox BATTLE_MUSA_POINT_TRAINER_3_Text_2
 	msgbox BATTLE_MUSA_POINT_TRAINER_3_Text_1
 	hidenamebox
 	release
@@ -316,7 +320,8 @@ BATTLE_MUSA_POINT_TRAINER_3::
 
 BATTLE_MUSA_POINT_TRAINER_4::
 	trainerbattle_single TRAINER_MUSA_POINT_TRAINER_4, BATTLE_MUSA_POINT_TRAINER_4_Text_0, BATTLE_MUSA_POINT_TRAINER_4_Text_1
-	msgbox BATTLE_MUSA_POINT_TRAINER_4_Text_2
+	namebox BATTLE_MUSA_POINT_TRAINER_4_Text_2
+	msgbox BATTLE_MUSA_POINT_TRAINER_4_Text_3
 	hidenamebox
 	release
 	end
@@ -495,54 +500,50 @@ NEWSLETTER_13_2:
 
 EventScript_BananaTree::
 	msgbox EventScript_BananaTree_Text_0
-	random 2
+	random 3
 	compare VAR_RESULT, 0
 	goto_if_eq EventScript_BananaTree_2
 	msgbox EventScript_BananaTree_Text_2
+	giveitem ITEM_BANANA, 1
 EventScript_BananaTree_1:
 	closemessage
 	end
 
 EventScript_BananaTree_2:
 	msgbox EventScript_BananaTree_Text_1
-	giveitem ITEM_BANANA, 1
 	goto EventScript_BananaTree_1
 
 
 EventScript_BananaGround::
-	random 6
+	random 8
 	switch VAR_RESULT
-	case 0, EventScript_BananaGround_3
-	case 1, EventScript_BananaGround_4
-	case 2, EventScript_BananaGround_5
-	case 3, EventScript_BananaGround_6
-	case 4, EventScript_BananaGround_7
-	case 5, EventScript_BananaGround_8
+	case 1, EventScript_BananaGround_3
+	case 2, EventScript_BananaGround_4
+	case 3, EventScript_BananaGround_5
+	case 4, EventScript_BananaGround_6
+	case 5, EventScript_BananaGround_7
+	giveitem ITEM_BANANA, 1
 EventScript_BananaGround_1:
 	closemessage
 	end
 
 EventScript_BananaGround_3:
-	giveitem ITEM_BANANA, 1
-	goto EventScript_BananaGround_1
-
-EventScript_BananaGround_4:
 	msgbox EventScript_BananaGround_Text_0
 	goto EventScript_BananaGround_1
 
-EventScript_BananaGround_5:
+EventScript_BananaGround_4:
 	msgbox EventScript_BananaGround_Text_1
 	goto EventScript_BananaGround_1
 
-EventScript_BananaGround_6:
+EventScript_BananaGround_5:
 	msgbox EventScript_BananaGround_Text_2
 	goto EventScript_BananaGround_1
 
-EventScript_BananaGround_7:
+EventScript_BananaGround_6:
 	msgbox EventScript_BananaGround_Text_3
 	goto EventScript_BananaGround_1
 
-EventScript_BananaGround_8:
+EventScript_BananaGround_7:
 	msgbox EventScript_BananaGround_Text_4
 	goto EventScript_BananaGround_1
 
@@ -614,6 +615,9 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12:
 	removeobject 20
 	setflag FLAG_TEMP_1F
 	closedoor 18, 32
+	compare VAR_WISE_OLD_MAN_RIVAL, 10
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19:
 	setvar VAR_WISE_OLD_MAN_RIVAL, 20
 	setvar VAR_TEMP_F, 0
 	savebgm MUS_DUMMY
@@ -654,6 +658,10 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_14:
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_15:
 	applymovement 20, movement_wom_musapoint_06
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20:
+	addvar VAR_GAMEMODE_LEVEL_CAP, 2
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
 
 
 movement_wom_musapoint_noticeplayer:
@@ -989,6 +997,7 @@ LUTHAS_QUEST_PART_5_7:
 	msgbox LUTHAS_QUEST_PART_5_Text_2
 	closemessage
 	hidenamebox
+	call EventScript_GiftMonster_Banana
 	msgbox LUTHAS_QUEST_PART_5_Text_3
 	setvar VAR_BANANA_BOAT_QUEST, 25
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_BANANA_BOAT, 3
@@ -1056,6 +1065,670 @@ BATTLE_scorp::
 	end
 
 
+QUEST_TESTER::
+	msgbox QUEST_TESTER_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne QUEST_TESTER_2
+QUEST_TESTER_1:
+	msgbox QUEST_TESTER_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne QUEST_TESTER_5
+QUEST_TESTER_4:
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 2
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 3
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 4
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 5
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 6
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 7
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 8
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 9
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 10
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 11
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 12
+	startquest QUEST_MAIN_STORY
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 0
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 2
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 3
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 4
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 5
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 6
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 7
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 9
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10
+	startquest QUEST_MITHRILMAN_QUEST
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 0
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 2
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3
+	closemessage
+	end
+
+QUEST_TESTER_2:
+	startquest QUEST_MVM_CHAMPIONSHIPS
+	goto QUEST_TESTER_1
+
+QUEST_TESTER_5:
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 0
+	goto QUEST_TESTER_4
+
+
+EventScript_GiftMonster_Banana::
+	setvar VAR_TEMP_1, SPECIES_AGRITHNANA
+	givemon SPECIES_AGRITHNANA, 30, ITEM_NONE
+	goto EventScript_GiftMonster_Start
+	return
+
+
+EventScript_GiftMonster_Start::
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_GiftMonster_SendParty
+	compare VAR_RESULT, 1
+	goto_if_eq EventScript_GiftMonster_SendPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+
+EventScript_GiftMonster_SendParty::
+	call EventScript_GiftMonster_ReceivedFanfare
+	msgbox EventScript_GiftMonster_SendParty_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_GiftMonster_Received
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto EventScript_GiftMonster_Received
+	end
+
+
+EventScript_GiftMonster_SendPC::
+	call EventScript_GiftMonster_ReceivedFanfare
+	msgbox EventScript_GiftMonster_SendParty_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq EventScript_GiftMonster_TransferredToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto EventScript_GiftMonster_TransferredToPC
+	end
+
+
+EventScript_GiftMonster_TransferredToPC::
+	call Common_EventScript_TransferredToPC
+	goto EventScript_GiftMonster_Received
+	end
+
+
+EventScript_GiftMonster_ReceivedFanfare::
+	bufferspeciesname 1, VAR_TEMP_1
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox EventScript_GiftMonster_ReceivedFanfare_Text_0
+	waitmessage
+	waitfanfare
+	bufferspeciesname 0, VAR_TEMP_1
+	return
+
+
+EventScript_GiftMonster_Received::
+	releaseall
+	return
+
+
+multipartnerBattle_Zanik::
+	lock
+	faceplayer
+	namebox multipartnerBattle_Zanik_Text_0
+	msgbox multipartnerBattle_Zanik_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne multipartnerBattle_Zanik_2
+	msgbox multipartnerBattle_Zanik_Text_3
+	hidenamebox
+	closemessage
+	release
+	end
+
+multipartnerBattle_Zanik_2:
+	loadword 0, Following_Zanik
+	setfollower 37, 0x100
+	closemessage
+	hidenamebox
+	playfanfare MUS_OBTAIN_SYMBOL
+	msgbox multipartnerBattle_Zanik_Text_2
+	waitfanfare
+	closemessage
+	hidenamebox
+	setflag FLAG_PARTNER_BATTLE
+	setvar VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM
+	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK
+	release
+	end
+
+
+Following_Zanik::
+	lock
+	facefollower
+	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ARIANE
+	goto_if_eq Following_Zanik_2
+	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK
+	goto_if_eq Following_Zanik_3
+	namebox Following_Zanik_Text_0
+Following_Zanik_1:
+	msgbox Following_Zanik_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne Following_Zanik_8
+	msgbox Following_Zanik_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne Following_Zanik_11
+Following_Zanik_10:
+	hidenamebox
+	closemessage
+	release
+	end
+
+Following_Zanik_2:
+	namebox multipartnerBattle_Zanik_Text_0
+	goto Following_Zanik_1
+
+Following_Zanik_3:
+	namebox multipartnerBattle_Zanik_Text_0
+	goto Following_Zanik_1
+
+Following_Zanik_8:
+	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
+	hidenamebox
+	closemessage
+	release
+	end
+
+Following_Zanik_11:
+	msgbox Following_Zanik_Text_3
+	clearflag FLAG_PARTNER_BATTLE
+	clearflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
+	destroyfollower
+	goto Following_Zanik_10
+
+
+multipartnerBattle_Ariane::
+	lock
+	faceplayer
+	namebox multipartnerBattle_Ariane_Text_0
+	msgbox multipartnerBattle_Zanik_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne multipartnerBattle_Ariane_2
+	msgbox multipartnerBattle_Zanik_Text_3
+	hidenamebox
+	closemessage
+	release
+	end
+
+multipartnerBattle_Ariane_2:
+	loadword 0, Following_Zanik
+	setfollower 38, 0x100
+	closemessage
+	hidenamebox
+	playfanfare MUS_OBTAIN_SYMBOL
+	msgbox multipartnerBattle_Ariane_Text_1
+	waitfanfare
+	closemessage
+	hidenamebox
+	setflag FLAG_PARTNER_BATTLE
+	setvar VAR_PARTNER_TRAINER, TRAINER_ARIANE_1
+	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ARIANE
+	release
+	end
+
+
+multipartnerBattle_SirOwen::
+	lock
+	faceplayer
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox multipartnerBattle_Zanik_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne multipartnerBattle_SirOwen_2
+	msgbox multipartnerBattle_Zanik_Text_3
+	hidenamebox
+	closemessage
+	release
+	end
+
+multipartnerBattle_SirOwen_2:
+	loadword 0, Following_Zanik
+	setfollower 36, 0x100
+	closemessage
+	hidenamebox
+	playfanfare MUS_OBTAIN_SYMBOL
+	msgbox multipartnerBattle_SirOwen_Text_1
+	waitfanfare
+	closemessage
+	hidenamebox
+	setflag FLAG_PARTNER_BATTLE
+	setvar VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1
+	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN
+	release
+	end
+
+
+FOLLOWER_REMOVE::
+	clearflag FLAG_PARTNER_BATTLE
+	clearflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
+	destroyfollower
+	return
+
+
+CHECK_FOLLOWER_SIROWEN::
+	checkfollower
+	compare VAR_RESULT, 0
+	goto_if_ne CHECK_FOLLOWER_SIROWEN_2
+	applymovement 13, Movement_InteractFACEDOWN
+	waitmovement 0
+	goto SetFollower_SirOwen
+CHECK_FOLLOWER_SIROWEN_1:
+	return
+
+CHECK_FOLLOWER_SIROWEN_2:
+	lockall
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox CHECK_FOLLOWER_SIROWEN_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne CHECK_FOLLOWER_SIROWEN_6
+	closemessage
+	hidenamebox
+	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP
+	waitmovement 0
+CHECK_FOLLOWER_SIROWEN_5:
+	releaseall
+	goto CHECK_FOLLOWER_SIROWEN_1
+
+CHECK_FOLLOWER_SIROWEN_6:
+	msgbox CHECK_FOLLOWER_SIROWEN_Text_1
+	closemessage
+	hidenamebox
+	call FOLLOWER_REMOVE
+	clearflag FLAG_TEMP_1E
+	addobject 13
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
+	waitmovement 0
+	goto CHECK_FOLLOWER_SIROWEN_5
+
+
+SetFollower_SirOwen::
+	lockall
+	faceplayer
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox SetFollower_SirOwen_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne SetFollower_SirOwen_2
+	msgbox SetFollower_SirOwen_Text_3
+	hidenamebox
+	closemessage
+	releaseall
+	end
+
+SetFollower_SirOwen_2:
+	hidenamebox
+	playfanfare MUS_OBTAIN_SYMBOL
+	msgbox SetFollower_SirOwen_Text_1
+	waitfanfare
+	closemessage
+	hidenamebox
+	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
+	setflag FLAG_PARTNER_BATTLE
+	setvar VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1
+	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN
+	loadword 0, FOLLOWING_SirOwen
+	setfollower 13, 0x80
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox SetFollower_SirOwen_Text_2
+	closemessage
+	hidenamebox
+	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP
+	waitmovement 0
+	releaseall
+	end
+
+
+FOLLOWING_SirOwen::
+	namebox multipartnerBattle_SirOwen_Text_0
+	facefollower
+	switch VAR_POKESCAPE_STORYMODE_PROGRESS
+	case 181, FOLLOWING_SirOwen_3
+	case 186, FOLLOWING_SirOwen_4
+	case 187, FOLLOWING_SirOwen_5
+	random 5
+	switch VAR_RESULT
+	case 0, FOLLOWING_SirOwen_7
+	case 1, FOLLOWING_SirOwen_7
+	case 2, FOLLOWING_SirOwen_7
+	case 3, FOLLOWING_SirOwen_7
+	goto SIR_OWEN_DIALOGUE_COMMON
+	return
+
+FOLLOWING_SirOwen_3:
+	msgbox FOLLOWING_SirOwen_Text_0
+	hidenamebox
+	closemessage
+	release
+	end
+
+FOLLOWING_SirOwen_4:
+	msgbox FOLLOWING_SirOwen_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+FOLLOWING_SirOwen_5:
+	msgbox FOLLOWING_SirOwen_Text_2
+	hidenamebox
+	closemessage
+	release
+	end
+
+FOLLOWING_SirOwen_7:
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_ICE_MOUNTAIN
+	goto_if_eq FOLLOWING_SirOwen_9
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_1
+	goto_if_eq FOLLOWING_SirOwen_10
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_2
+	goto_if_eq FOLLOWING_SirOwen_11
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_3
+	goto_if_eq FOLLOWING_SirOwen_12
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_4
+	goto_if_eq FOLLOWING_SirOwen_13
+	goto SIR_OWEN_DIALOGUE_COMMON
+	return
+
+FOLLOWING_SirOwen_9:
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN
+	return
+
+FOLLOWING_SirOwen_10:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1
+	return
+
+FOLLOWING_SirOwen_11:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2
+	return
+
+FOLLOWING_SirOwen_12:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3
+	return
+
+FOLLOWING_SirOwen_13:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4
+	return
+
+
+SIR_OWEN_DIALOGUE_COMMON::
+	random 11
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_COMMON_3
+	case 1, SIR_OWEN_DIALOGUE_COMMON_4
+	case 2, SIR_OWEN_DIALOGUE_COMMON_5
+	case 3, SIR_OWEN_DIALOGUE_COMMON_6
+	case 4, SIR_OWEN_DIALOGUE_COMMON_7
+	case 5, SIR_OWEN_DIALOGUE_COMMON_8
+	case 6, SIR_OWEN_DIALOGUE_COMMON_9
+	case 7, SIR_OWEN_DIALOGUE_COMMON_10
+	case 8, SIR_OWEN_DIALOGUE_COMMON_11
+	case 9, SIR_OWEN_DIALOGUE_COMMON_12
+	case 10, SIR_OWEN_DIALOGUE_COMMON_13
+SIR_OWEN_DIALOGUE_COMMON_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_COMMON_3:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_0
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_4:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_1
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_5:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_2
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_6:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_3
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_7:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_4
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_8:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_5
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_9:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_6
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_10:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_7
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_11:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_8
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_12:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_9
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+SIR_OWEN_DIALOGUE_COMMON_13:
+	msgbox SIR_OWEN_DIALOGUE_COMMON_Text_10
+	goto SIR_OWEN_DIALOGUE_COMMON_1
+
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN::
+	random 6
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_3
+	case 1, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_4
+	case 2, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_5
+	case 3, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_6
+	case 4, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_7
+	case 5, SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_8
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_3:
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_0
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_4:
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_1
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_5:
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_2
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_6:
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_3
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_7:
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_4
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_8:
+	playse SE_LEDGE
+	applymovement 17, MOVEMENT_EXCLAMATIONMARK_JUMP_UP
+	waitmovement 0
+	msgbox SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_5
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_1
+
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1::
+	random 8
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_3
+	case 1, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_4
+	case 2, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_5
+	case 3, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_6
+	case 4, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_7
+	case 5, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_8
+	case 6, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_9
+	case 7, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_10
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_3:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_0
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_4:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_1
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_5:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_2
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_6:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_3
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_7:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_4
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_8:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_5
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_9:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_6
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_10:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_7
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_1
+
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2::
+	random 7
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_3
+	case 1, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_4
+	case 2, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_5
+	case 3, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_6
+	case 4, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_7
+	case 5, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_8
+	case 6, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_9
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_3:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_0
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_4:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_1
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_5:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_2
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_6:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_3
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_7:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_4
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_8:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_5
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_9:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_5
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_1
+
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3::
+	random 4
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_3
+	case 1, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_4
+	case 2, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_5
+	case 3, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_6
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_3:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_0
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_4:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_1
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_5:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_2
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_6:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_3
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_1
+
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4::
+	random 5
+	switch VAR_RESULT
+	case 0, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_3
+	case 1, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_4
+	case 2, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_5
+	case 3, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_6
+	case 4, SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_7
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_3:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_0
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_4:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_1
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_5:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_2
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_6:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_3
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_7:
+	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
+
+
 NPC_MUSAPOINT_SAILOR_Text_0:
 	.string "Officer$"
 
@@ -1082,8 +1755,8 @@ NPC_LegendArts_Text_1:
 	.string "How did I get here?$"
 
 SIGNPOST_MUSA_POINT_Text_0:
-	.string "Musa Point - The best bannanas in all of\n"
-	.string "Karamaja!$"
+	.string "Musa Point - The best bananas in all of\n"
+	.string "Karamja!$"
 
 SIGNPOST_BOAT_FOR_SALE_Text_0:
 	.string "Boat for Sale!\p"
@@ -1110,10 +1783,10 @@ NPC_MUSA_POINT_2_Text_1:
 NPC_MUSA_POINT_3_Text_0:
 	.string "The Customs Officers constantly keep\n"
 	.string "us under supervision, apparently they\l"
-	.string "don't want Karamja Rum to reach the\l"
+	.string "don't want Karamjan Rum to reach the\l"
 	.string "mainland.\p"
-	.string "Its all a conspiracy to keep the White\n"
-	.string "knights in power I tell you!$"
+	.string "It's all a conspiracy to keep the White\n"
+	.string "Knights in power I tell you!$"
 
 NPC_MUSA_POINT_4_Text_0:
 	.string "Hunter$"
@@ -1131,7 +1804,7 @@ NPC_MUSA_POINT_5_Text_0:
 	.string "… Or was I…$"
 
 NPC_MUSA_POINT_6_Text_0:
-	.string "Woman$"
+	.string "Man$"
 
 NPC_MUSA_POINT_6_Text_1:
 	.string "The banana farm is the pride and joy of\n"
@@ -1140,9 +1813,6 @@ NPC_MUSA_POINT_6_Text_1:
 	.string "keeping us a landmark really.$"
 
 NPC_MUSA_POINT_7_Text_0:
-	.string "Man$"
-
-NPC_MUSA_POINT_7_Text_1:
 	.string "Welcome to Karamja.\p"
 	.string "Make sure to prepare some anti-poisons\n"
 	.string "and some choc-sunday's for your\l"
@@ -1195,6 +1865,9 @@ BATTLE_MUSA_POINT_TRAINER_1_Text_0:
 BATTLE_MUSA_POINT_TRAINER_1_Text_1:
 	.string "I can only use quick chat.$"
 
+BATTLE_MUSA_POINT_TRAINER_1_Text_2:
+	.string "HelpImMuted$"
+
 BATTLE_MUSA_POINT_TRAINER_2_Text_0:
 	.string "Why am I here?\p"
 	.string "Fight me to find out!$"
@@ -1204,6 +1877,9 @@ BATTLE_MUSA_POINT_TRAINER_2_Text_1:
 	.string "membership.\p"
 	.string "That is why I am here.$"
 
+BATTLE_MUSA_POINT_TRAINER_2_Text_2:
+	.string "Fishin4Bond$"
+
 BATTLE_MUSA_POINT_TRAINER_3_Text_0:
 	.string "Noob fishing spot tells me I need a\n"
 	.string "higher fishing level to be here.\p"
@@ -1211,6 +1887,9 @@ BATTLE_MUSA_POINT_TRAINER_3_Text_0:
 
 BATTLE_MUSA_POINT_TRAINER_3_Text_1:
 	.string "My fishing level is 14.$"
+
+BATTLE_MUSA_POINT_TRAINER_3_Text_2:
+	.string "New2this$"
 
 BATTLE_MUSA_POINT_TRAINER_4_Text_0:
 	.string "Life is like a fishing spot, you never\n"
@@ -1221,6 +1900,9 @@ BATTLE_MUSA_POINT_TRAINER_4_Text_1:
 	.string "get lobsters like this.$"
 
 BATTLE_MUSA_POINT_TRAINER_4_Text_2:
+	.string "Lobs4Sale$"
+
+BATTLE_MUSA_POINT_TRAINER_4_Text_3:
 	.string "Life is like a fishing spot, you never\n"
 	.string "know what you are going to get.\p"
 	.string "Unless you fish for lobsters, you only\n"
@@ -1290,7 +1972,7 @@ NEWSLETTER_4_Text_1:
 	.string "Be careful as Wyrms are buried deep\n"
 	.string "within the sands!\p"
 	.string "They change type depending on their\n"
-	.string "enviorment.\p"
+	.string "environment.\p"
 	.string "Some say you can force these changes\n"
 	.string "to happen with magic.\p"
 	.string "I shall continue to track them.\n"
@@ -1309,7 +1991,7 @@ NEWSLETTER_5_Text_1:
 	.string "{PAUSE 15}Well be exhausted no more!\p"
 	.string "My Terrorbird can fix that in a jiffy!\n"
 	.string "Come see them in Rimmington.\p"
-	.string "- Gnome boy Kevin$"
+	.string "- Gnome boi Kevin$"
 
 NEWSLETTER_6_Text_0:
 	.string "Newsletter Volume 6.\n"
@@ -1367,12 +2049,21 @@ NEWSLETTER_8_Text_1:
 
 NEWSLETTER_9_Text_0:
 	.string "Newsletter Volume 9.\n"
-	.string "???.\p"
+	.string "Mysterious Strangers.\p"
 	.string "Would you like to read it?$"
 
 NEWSLETTER_9_Text_1:
-	.string "?\p"
-	.string "- ???$"
+	.string "Mysterious figures have been spotted\n"
+	.string "in and around Potterington Farm!\p"
+	.string "There are rumours circulating that they\n"
+	.string "possess some kind of magical ability\l"
+	.string "and only make themselves visible to\l"
+	.string "adventurers with specific monsters in\l"
+	.string "their parties.\p"
+	.string "What are these monsters?\p"
+	.string "Nobody knows for certain, but\n"
+	.string "apparently one of the mysterious\l"
+	.string "visitors really, really likes hats...$"
 
 NEWSLETTER_13_Text_0:
 	.string "Newsletter Volume 13.\p"
@@ -1391,10 +2082,10 @@ EventScript_BananaTree_Text_0:
 	.string "tree!$"
 
 EventScript_BananaTree_Text_1:
-	.string "You picked a Banana!$"
+	.string "You failed to pick a Banana…$"
 
 EventScript_BananaTree_Text_2:
-	.string "You failed to pick a Banana…$"
+	.string "You picked a Banana!$"
 
 EventScript_BananaGround_Text_0:
 	.string "This banana smells.$"
@@ -1431,7 +2122,7 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_1:
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_2:
 	.string "It was a shame you didn't take me up on\n"
-	.string "the offer to meet within Asganria\l"
+	.string "the offer to meet within Asgarnia\l"
 	.string "Dungeon.\p"
 	.string "It cannot be helped I suppose.\p"
 	.string "How about we check just how much you\n"
@@ -1443,9 +2134,9 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_3:
 	.string "How did that go, did he put up a good\n"
 	.string "fight?\p"
 	.string "That man loves his cabbages.\p"
-	.string "Enough, chit chat, this old man wants to\n"
+	.string "Enough chit chat, this old man wants to\n"
 	.string "see how much you've grown since our\l"
-	.string "last enocunter!$"
+	.string "last encounter!$"
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_4:
 	.string "You are really getting this old man riled\n"
@@ -1453,7 +2144,7 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_4:
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_5:
 	.string "So you got stranded on Crandor, passed\n"
-	.string "through volcano passage undereath\l"
+	.string "through a volcano passage underneath\l"
 	.string "Karamja Volcano, met with the Tzhaar\l"
 	.string "and now you are here?\p"
 	.string "You certainly have been busy haven't\n"
@@ -1465,7 +2156,7 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_5:
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_6:
 	.string "Although that might have to be put on\n"
 	.string "hold for a bit as it seems someone was\l"
-	.string "caught smuggling Karmaja Rum.\p"
+	.string "caught smuggling Karmajan Rum.\p"
 	.string "All of the boats are in lockdown until\n"
 	.string "the matter is resolved.\p"
 	.string "If you don't want to wait around with\n"
@@ -1473,7 +2164,7 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_6:
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_7:
 	.string "He lives in that shack just over there.\p"
-	.string "Go give him a visit if your interested.$"
+	.string "Go give him a visit if you're interested.$"
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_8:
 	.string "Me?\p"
@@ -1623,3 +2314,283 @@ SIGN_BANANA_COUNT_Text_0:
 
 TOGGLE_INVERSE_BATTLE_Text_0:
 	.string "Inverse battle - ENABLED$"
+
+QUEST_TESTER_Text_0:
+	.string "Start MVM CHAMPIONSHIPS quest?$"
+
+QUEST_TESTER_Text_1:
+	.string "Obtain Lumbridge Badge?$"
+
+EventScript_GiftMonster_SendParty_Text_0:
+	.string "Would you like to give your monster a\n"
+	.string "nickname?$"
+
+EventScript_GiftMonster_ReceivedFanfare_Text_0:
+	.string "{PLAYER} obtained {STR_VAR_2}.$"
+
+multipartnerBattle_Zanik_Text_0:
+	.string "Zanik$"
+
+multipartnerBattle_Zanik_Text_1:
+	.string "May we adventure together?$"
+
+multipartnerBattle_Zanik_Text_2:
+	.string "ZANIK JOINS THE PARTY!$"
+
+multipartnerBattle_Zanik_Text_3:
+	.string "Maybe some other time then…$"
+
+Following_Zanik_Text_0:
+	.string "???$"
+
+Following_Zanik_Text_1:
+	.string "Did you want to encounter two wild\n"
+	.string "monsters at once?$"
+
+Following_Zanik_Text_2:
+	.string "What's wrong {PLAYER}?\p"
+	.string "Did you want to stop our adventure?$"
+
+Following_Zanik_Text_3:
+	.string "Oh, that's a shame I was having so much\n"
+	.string "fun…\p"
+	.string "See you around…$"
+
+multipartnerBattle_Ariane_Text_0:
+	.string "Ariane$"
+
+multipartnerBattle_Ariane_Text_1:
+	.string "ARIANE JOINS THE PARTY!$"
+
+multipartnerBattle_SirOwen_Text_0:
+	.string "Sir Owen$"
+
+multipartnerBattle_SirOwen_Text_1:
+	.string "SIR OWEN JOINS THE PARTY!$"
+
+CHECK_FOLLOWER_SIROWEN_Text_0:
+	.string "{PLAYER} our investigation is on Ice\n"
+	.string "Mountain.\p"
+	.string "Or do you wish to part ways?$"
+
+CHECK_FOLLOWER_SIROWEN_Text_1:
+	.string "Very well, you take a quick retreat and\n"
+	.string "I will stand guard here.$"
+
+SetFollower_SirOwen_Text_0:
+	.string "What do you say me and you team up and\n"
+	.string "show these Black Knights just what we\l"
+	.string "are made of?$"
+
+SetFollower_SirOwen_Text_1:
+	.string "Lead the charge!\n"
+	.string "Sir Owen Sonde is on your side!$"
+
+SetFollower_SirOwen_Text_2:
+	.string "May Saradomin guide us!$"
+
+SetFollower_SirOwen_Text_3:
+	.string "Oh… I see.\n"
+	.string "That's a bit disappointing.\p"
+	.string "Thought we had a heroic thing going\n"
+	.string "here…$"
+
+FOLLOWING_SirOwen_Text_0:
+	.string "Is that a Black Knight Fortress?!$"
+
+FOLLOWING_SirOwen_Text_1:
+	.string "We should go say hello to those guards\n"
+	.string "up on the mountain.$"
+
+FOLLOWING_SirOwen_Text_2:
+	.string "I cannot believe we just did that…\p"
+	.string "I guess we should try to enter the\n"
+	.string "fortress, now that we look the part.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_0:
+	.string "So you saw a Black Knight run out of the\n"
+	.string "barbarian's stronghold?\p"
+	.string "How Strange…$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_1:
+	.string "Oh by the way, we had a team resuce Ned.\p"
+	.string "We still cannot believe you just left\n"
+	.string "him there though.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_2:
+	.string "I wonder what happened to the Cabin\n"
+	.string "Boy that went to Crandor with you and\l"
+	.string "Ned.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_3:
+	.string "The Black Knights have been a pain in\n"
+	.string "our side for as long as I can remember.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_4:
+	.string "May Saradomin's light guide us.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_5:
+	.string "{PLAYER} are you a believer in\n"
+	.string "Saradomin?$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_6:
+	.string "Oh you met Ariane?\n"
+	.string "She got into trouble?\p"
+	.string "That sounds like her.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_7:
+	.string "I used to be a White knight, but I shot\n"
+	.string "someone with a bow.\p"
+	.string "Sir Amik threw me out…\p"
+	.string "Luckily Sir Tiffy Cashien took me in to\n"
+	.string "the Temple knights.\p"
+	.string "It is a minor difference, but it matters.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_8:
+	.string "My arm? It is a long story.\p"
+	.string "Maybe someday we will have time.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_9:
+	.string "My arm?\n"
+	.string "No I dont know a troll like that.$"
+
+SIR_OWEN_DIALOGUE_COMMON_Text_10:
+	.string "Stand with me {PLAYER}.\p"
+	.string "We will prevail!$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_0:
+	.string "Brrr… It's quite cold.$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_1:
+	.string "We are looking for any suspicious\n"
+	.string "behavour keep your eyes peeled!$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_2:
+	.string "I think there is something atop of that\n"
+	.string "mountain.$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_3:
+	.string "They say the Orcale is located\n"
+	.string "somewhere on this mountain.$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_4:
+	.string "Watch out, we don't want to fall down\n"
+	.string "these cliffs.$"
+
+SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_5:
+	.string "Aaaah!\p"
+	.string "…{PAUSE 15}… Don't mind me, I just slipped on some\n"
+	.string "ice…$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_0:
+	.string "Careful {PLAYER} we don't want them\n"
+	.string "to suspect us.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_1:
+	.string "I cannot believe this hideout was just\n"
+	.string "located on the other side of Ice\l"
+	.string "Mountain this entire time!$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_2:
+	.string "We should send a mission update to the\n"
+	.string "other Temple Knights.\p"
+	.string "We might need backup…$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_3:
+	.string "I wonder what their plan is.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_4:
+	.string "We should find whoever is in charge of\n"
+	.string "this place.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_5:
+	.string "Surely we just continue going up.\p"
+	.string "We'll find some information eventually.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_6:
+	.string "These Black knights dont know when to\n"
+	.string "quit.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_7:
+	.string "We know of another hideout for the\n"
+	.string "Black Knights, it is actually deep\l"
+	.string "underground.\p"
+	.string "This is just an outpost compared to\n"
+	.string "that.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_0:
+	.string "These Kinshra seem obsessed with their\n"
+	.string "history.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_1:
+	.string "I cannot believe that they are having a\n"
+	.string "feast in here while people in nearby\l"
+	.string "towns are starving...$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_2:
+	.string "Sir Tiffy is not going to be pleased\n"
+	.string "when he hears how many Black Knights\l"
+	.string "are here.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_3:
+	.string "How big is this place?\p"
+	.string "If I was in charge, I'd probably want to\n"
+	.string "be right at the very top.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_4:
+	.string "I can hear the chanting of hymns.\p"
+	.string "I cannot believe that there are still\n"
+	.string "people openly worshipping Zamorak in\l"
+	.string "Gielinor.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2_Text_5:
+	.string "Did you know Kinshra means 'the ones\n"
+	.string "that spark the fire'?\p"
+	.string "All these people know are death and\n"
+	.string "destruction.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_0:
+	.string "These dungeons are full of prisoners.\p"
+	.string "I wish we could free them all.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_1:
+	.string "The Kinshra often fill up their armies\n"
+	.string "with slaves.\p"
+	.string "I bet these poor people are some of\n"
+	.string "them, ready for whatever war they start\l"
+	.string "next.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_2:
+	.string "Can you hear that sound?\p"
+	.string "They've got more than just humans down\n"
+	.string "here...$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3_Text_3:
+	.string "That sound!\p"
+	.string "They're training!\p"
+	.string "{PAUSE 15}We need to find out what they're up to\n"
+	.string "and stop them quickly!$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_0:
+	.string "I can feel it {PLAYER}, we're getting\n"
+	.string "close now.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_1:
+	.string "Can you hear the whispering?\p"
+	.string "There's an important meeting going on\n"
+	.string "up here.\p"
+	.string "It cost me dearly, but if I could go\n"
+	.string "back I would do it all over again.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_2:
+	.string "The Kinshra despise me for what I did to\n"
+	.string "Iban.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_3:
+	.string "Whilst some may not approve of the\n"
+	.string "tactics I use, I know without a doubt\l"
+	.string "that Saradomin himself guides my hand.$"
+
+SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4:
+	.string "When we find Lord Daquarius, we may\n"
+	.string "need to be prepared for a fierce battle.$"

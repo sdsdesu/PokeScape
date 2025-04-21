@@ -12,18 +12,28 @@ KaramjaVolcano_B3F_MapScripts_MAP_SCRIPT_ON_LOAD:
 	return
 
 
+CHAOS_ELEMENTAL_MURAL_CRANDOR::
+	lock
+	msgbox CHAOS_ELEMENTAL_MURAL_CRANDOR_Text_0
+	closemessage
+	release
+	end
+
+
 KaramjaVolcano_B3F_STATE::
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 140
-	goto_if_eq KaramjaVolcano_B3F_STATE_1
+	goto_if_eq KaramjaVolcano_B3F_STATE_2
 	setflag FLAG_TEMP_1F
 	setflag FLAG_TEMP_1E
 	setflag FLAG_TEMP_1D
 	setflag FLAG_TEMP_1C
+KaramjaVolcano_B3F_STATE_1:
+	goto_if_set FLAG_ELVARG, KaramjaVolcano_B3F_STATE_5
 	return
 
-KaramjaVolcano_B3F_STATE_1:
+KaramjaVolcano_B3F_STATE_2:
 	setvar VAR_TEMP_F, 1
-	setflag FLAG_ELVARG
+	setflag FLAG_TEMP_8
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3
@@ -40,7 +50,20 @@ KaramjaVolcano_B3F_STATE_1:
 	setflag FLAG_TEMP_C
 	setflag FLAG_TEMP_1D
 	setflag FLAG_TEMP_1B
+	checktrainerflag TRAINER_KARAMJAVOLCANO_HAM_GRUNT_6
+	compare VAR_RESULT, TRUE
+	goto_if_eq KaramjaVolcano_B3F_STATE_7
+	goto KaramjaVolcano_B3F_STATE_1
+
+KaramjaVolcano_B3F_STATE_5:
+	removeobject 17
+	setflag FLAG_TEMP_8
 	return
+
+KaramjaVolcano_B3F_STATE_7:
+	removeobject 36
+	setflag FLAG_TEMP_1C
+	goto KaramjaVolcano_B3F_STATE_1
 
 
 KaramjaVolcano_STATE3::
@@ -57,7 +80,7 @@ KaramjaVolcano_STATE3::
 	return
 
 KaramjaVolcano_STATE3_2:
-	setflag FLAG_ELVARG
+	setflag FLAG_TEMP_8
 	setflag FLAG_TEMP_4
 	setflag FLAG_TEMP_5
 	removeobject 15
@@ -304,7 +327,7 @@ NPC_KaramjaVolcano_HAM_EVENT1::
 	removeobject 16
 	hidenamebox
 	closemessage
-	clearflag FLAG_ELVARG
+	clearflag FLAG_TEMP_8
 	addobject 17
 	fadescreenswapbuffers FADE_FROM_BLACK
 	delay 20
@@ -505,57 +528,74 @@ NPC_KaramjaVolcano_HAM_EVENT2::
 	return
 
 
-ELVARG_KaramjaVolcano::
+ENCOUNTER_ELVARG::
 	lock
-	setvar VAR_0x8004, 0
-	setvar VAR_0x8005, 3
-	setvar VAR_0x8006, 8
-	setvar VAR_0x8007, 2
+	delay 32
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
 	special ShakeCamera
-	delay 20
-	setvar VAR_0x8004, 0
-	setvar VAR_0x8005, 3
-	setvar VAR_0x8006, 8
-	setvar VAR_0x8007, 2
+	delay 60
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
 	special ShakeCamera
-	delay 20
-	setvar VAR_0x8004, 0
-	setvar VAR_0x8005, 3
-	setvar VAR_0x8006, 8
-	setvar VAR_0x8007, 2
+	delay 60
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
 	special ShakeCamera
-	delay 20
-	playmoncry SPECIES_LUGIA, 2
+	delay 60
 	namebox NPC_KaramjaVolcano_HAM_EVENT1_Text_18
+	playmoncry SPECIES_ELVARG, 0
 	msgbox NPC_KaramjaVolcano_HAM_EVENT1_Text_19
 	waitmoncry
 	hidenamebox
 	closemessage
-	delay 20
-	setvar VAR_0x8004, SPECIES_ELVARG
-	setvar VAR_0x8005, 40 @ level
-	setvar VAR_0x8006, ITEM_NONE
-	special CreateEnemyEventMon
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	delay 32
+	setwildbattle SPECIES_ELVARG, 40, ITEM_NONE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
-	setflag FLAG_ELVARG
-	removeobject 17
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq ENCOUNTER_ELVARG_2
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq ENCOUNTER_ELVARG_3
+ENCOUNTER_ELVARG_1:
 	release
 	end
+
+ENCOUNTER_ELVARG_2:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_ELVARG_Text_0
+	closemessage
+	goto ENCOUNTER_ELVARG_1
+
+ENCOUNTER_ELVARG_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_ELVARG
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_ELVARG_Text_1
+	closemessage
+	goto ENCOUNTER_ELVARG_1
 
 
 ENCOUNTER_LESSERDEMON_KARAMJA_1::
 	lock
 	faceplayer
 	namebox ENCOUNTER_LESSERDEMON_KARAMJA_1_Text_0
-	playmoncry SPECIES_EKANS, 0
+	playmoncry SPECIES_DEMON_LESSER_OSRS_FORM, 0
 	msgbox ENCOUNTER_LESSERDEMON_KARAMJA_1_Text_1
 	waitmoncry
 	hidenamebox
 	closemessage
 	delay 1
-	setwildbattle SPECIES_DEMON_LESSER_OSRS_FORM, 15, ITEM_NONE
+	setwildbattle SPECIES_DEMON_LESSER_OSRS_FORM, 30, ITEM_NONE
 	dowildbattle
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq ENCOUNTER_LESSERDEMON_KARAMJA_1_2
@@ -584,13 +624,13 @@ ENCOUNTER_LESSERDEMON_KARAMJA_2::
 	lock
 	faceplayer
 	namebox ENCOUNTER_LESSERDEMON_KARAMJA_1_Text_0
-	playmoncry SPECIES_EKANS, 0
+	playmoncry SPECIES_DEMON_LESSER_OSRS_FORM, 0
 	msgbox ENCOUNTER_LESSERDEMON_KARAMJA_1_Text_1
 	waitmoncry
 	hidenamebox
 	closemessage
 	delay 1
-	setwildbattle SPECIES_DEMON_LESSER_OSRS_FORM, 15, ITEM_NONE
+	setwildbattle SPECIES_DEMON_LESSER_OSRS_FORM, 30, ITEM_NONE
 	dowildbattle
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq ENCOUNTER_LESSERDEMON_KARAMJA_2_2
@@ -853,7 +893,7 @@ Crandor_Event_Volcano_1:
 	setvar VAR_0x8007, 2
 	special ShakeCamera
 	delay 40
-	clearflag FLAG_ELVARG
+	clearflag FLAG_TEMP_8
 	addobject 17
 	fadescreen FADE_FROM_BLACK
 	playmoncry SPECIES_ELVARG, 2
@@ -1365,6 +1405,7 @@ CRANDOR_VOLCANO_EARTHQUAKE_4::
 	setvar VAR_0x8007, 2
 	special ShakeCamera
 	delay 60
+	addvar VAR_GAMEMODE_LEVEL_CAP, 3
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 150
 	setvar VAR_TEMP_E, 5
 	applymovement 32, HAM_EVENT_CRANDOR_VOLCANO_25
@@ -1383,7 +1424,7 @@ CRANDOR_VOLCANO_EARTHQUAKE_4::
 	applymovement OBJ_EVENT_ID_PLAYER, HAM_EVENT_CRANDOR_VOLCANO_27
 	delay 60
 	clearflag FLAG_SYS_ENCOUNTER
-	warp MAP_TZHAAR_1F, 0
+	warp MAP_MOR_UL_REK, 0
 	waitstate
 	release
 	end
@@ -1408,6 +1449,7 @@ HAM_EVENT_CRANDOR_VOLCANO_26:
 	walk_fast_left
 	walk_fast_left
 	walk_fast_down
+	walk_fast_down
 	step_end
 
 HAM_EVENT_CRANDOR_VOLCANO_27:
@@ -1418,6 +1460,7 @@ HAM_EVENT_CRANDOR_VOLCANO_27:
 	walk_fast_left
 	walk_fast_left
 	walk_fast_left
+	walk_fast_down
 	walk_fast_down
 	step_end
 
@@ -1527,6 +1570,13 @@ BATTLE_CrandorVolcano_FireGiant_2::
 	end
 
 
+CHAOS_ELEMENTAL_MURAL_CRANDOR_Text_0:
+	.string "It is a mural depicting some sort of\n"
+	.string "creature.\p"
+	.string "It seems to have the power to open\n"
+	.string "something but the mural is too damaged\l"
+	.string "to make out.$"
+
 NPC_KaramjaVolcano_HAM_EVENT1_Text_0:
 	.string "H.A.M Grunt$"
 
@@ -1625,6 +1675,13 @@ NPC_KaramjaVolcano_HAM_EVENT1_Text_19:
 NPC_KaramjaVolcano_HAM_EVENT1_Text_20:
 	.string "The cave starts to collapse around you.\p"
 	.string "You escape to safety.$"
+
+ENCOUNTER_ELVARG_Text_0:
+	.string "Elvarg seems to have flown off.$"
+
+ENCOUNTER_ELVARG_Text_1:
+	.string "After capturing Elvarg the cavern goes\n"
+	.string "quiet…$"
 
 ENCOUNTER_LESSERDEMON_KARAMJA_1_Text_0:
 	.string "Lesser Demon$"

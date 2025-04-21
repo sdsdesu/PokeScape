@@ -1,6 +1,7 @@
 BarbarianVillage_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, BarbarianVillage_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	map_script MAP_SCRIPT_ON_LOAD, BarbarianVillage_MapScripts_MAP_SCRIPT_ON_LOAD
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, BarbarianVillage_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 BarbarianVillage_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -22,33 +23,231 @@ BarbarianVillage_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 	call OPENWORLDMODE_STATE_BARBARIAN_VILLAGE
 	return
 
+BarbarianVillage_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_B, 1, BARBARIANVILLAGE_STORYMODE_EVENT
+	.2byte 0
+
+
+BARBARIANVILLAGE_STORYMODE_EVENT::
+	lock
+	removeobject 2
+	removeobject 16
+	delay 30
+	playse SE_DOOR
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 12
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_2
+	compare VAR_TEMP_1, 11
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_3
+BARBARIANVILLAGE_STORYMODE_EVENT_1:
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_1
+	hidenamebox
+	closemessage
+	applymovement 2, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2
+	waitmovement 0
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 12
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_7
+	compare VAR_TEMP_1, 11
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_8
+BARBARIANVILLAGE_STORYMODE_EVENT_6:
+	waitmovement 0
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_2
+	hidenamebox
+	closemessage
+	playse SE_PIN
+	applymovement 2, MOVEMENT_EXCLAMATIONMARK_FACE_DOWN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_DOWN
+	waitmovement 0
+	waitse
+	addobject 16
+	setobjectxyperm 16, 12, 29
+	setobjectxy 16, 12, 29
+	applymovement 16, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3
+	delay 60
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 12
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_12
+	compare VAR_TEMP_1, 11
+	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_13
+BARBARIANVILLAGE_STORYMODE_EVENT_11:
+	waitmovement 16
+	waitmovement 0
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_3
+	hidenamebox
+	closemessage
+	applymovement 2, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
+	waitmovement 0
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_4
+	hidenamebox
+	closemessage
+	setvar VAR_TEMP_B, 0
+	setflag FLAG_TEMP_1F
+	removeobject 16
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 165
+	release
+	end
+
+BARBARIANVILLAGE_STORYMODE_EVENT_2:
+	opendoor 11, 17
+	delay 20
+	setobjectxyperm 2, 11, 17
+	setobjectxy 2, 11, 17
+	addobject 2
+	showobjectat 2, MAP_BARBARIAN_VILLAGE
+	applymovement 2, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	waitmovement 0
+	closedoor 11, 17
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_1
+
+BARBARIANVILLAGE_STORYMODE_EVENT_3:
+	opendoor 12, 17
+	delay 20
+	setobjectxyperm 2, 12, 17
+	setobjectxy 2, 12, 17
+	addobject 2
+	showobjectat 2, MAP_BARBARIAN_VILLAGE
+	applymovement 2, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	waitmovement 0
+	closedoor 12, 17
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_1
+
+BARBARIANVILLAGE_STORYMODE_EVENT_7:
+	applymovement 2, Movement_InteractFACERIGHT
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_6
+
+BARBARIANVILLAGE_STORYMODE_EVENT_8:
+	applymovement 2, Movement_InteractFACELEFT
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_6
+
+BARBARIANVILLAGE_STORYMODE_EVENT_12:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_5
+	applymovement 2, Movement_Barbmovement_4
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_11
+
+BARBARIANVILLAGE_STORYMODE_EVENT_13:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_2
+	applymovement 2, Movement_Barbmovement_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_3
+	goto BARBARIANVILLAGE_STORYMODE_EVENT_11
+
+
+Movement_Barbmovement_1:
+	face_left
+	delay_4
+	walk_fast_left
+	walk_fast_down
+	face_left
+	step_end
+
+Movement_Barbmovement_2:
+	lock_facing_direction
+	walk_up
+	unlock_facing_direction
+	face_left
+	step_end
+
+Movement_Barbmovement_3:
+	walk_down
+	step_end
+
+Movement_Barbmovement_4:
+	walk_fast_down
+	face_left
+	step_end
+
+Movement_Barbmovement_5:
+	walk_left
+	step_end
+
+MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1:
+	face_down
+	set_visible
+	walk_down
+	face_player
+	step_end
+
+MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3:
+	face_up
+	set_visible
+	walk_fast_up
+	walk_fast_left
+	walk_fast_up
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
 
 STORYMODE_STATE_BARBARIAN_VILLAGE::
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 160
+	goto_if_eq STORYMODE_STATE_BARBARIAN_VILLAGE_3
+STORYMODE_STATE_BARBARIAN_VILLAGE_1:
 	switch VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE
-	case 0, STORYMODE_STATE_BARBARIAN_VILLAGE_2
-	case 1, STORYMODE_STATE_BARBARIAN_VILLAGE_3
-	case 2, STORYMODE_STATE_BARBARIAN_VILLAGE_3
-	case 3, STORYMODE_STATE_BARBARIAN_VILLAGE_4
+	case 0, STORYMODE_STATE_BARBARIAN_VILLAGE_7
+	case 5, STORYMODE_STATE_BARBARIAN_VILLAGE_8
+	case 1, STORYMODE_STATE_BARBARIAN_VILLAGE_8
+	case 2, STORYMODE_STATE_BARBARIAN_VILLAGE_8
+	case 3, STORYMODE_STATE_BARBARIAN_VILLAGE_9
 	return
 
 STORYMODE_STATE_BARBARIAN_VILLAGE_2:
+	setvar VAR_TEMP_B, 1
+	goto STORYMODE_STATE_BARBARIAN_VILLAGE_1
+
+STORYMODE_STATE_BARBARIAN_VILLAGE_3:
+	goto_if_set FLAG_BADGE04_GET, STORYMODE_STATE_BARBARIAN_VILLAGE_2
+	goto STORYMODE_STATE_BARBARIAN_VILLAGE_1
+
+STORYMODE_STATE_BARBARIAN_VILLAGE_7:
 	setobjectxyperm 6, 11, 19
 	setobjectmovementtype 6, MOVEMENT_TYPE_FACE_DOWN
 	setobjectxyperm 7, 12, 19
 	setobjectmovementtype 7, MOVEMENT_TYPE_FACE_DOWN
 	return
 
-STORYMODE_STATE_BARBARIAN_VILLAGE_3:
+STORYMODE_STATE_BARBARIAN_VILLAGE_8:
 	return
 
-STORYMODE_STATE_BARBARIAN_VILLAGE_4:
+STORYMODE_STATE_BARBARIAN_VILLAGE_9:
 	setobjectxyperm 2, 13, 27
 	setobjectmovementtype 2, MOVEMENT_TYPE_FACE_UP
 	return
 
 
 OPENWORLDMODE_STATE_BARBARIAN_VILLAGE::
-	goto_if_set FLAG_BADGE06_GET, OPENWORLDMODE_STATE_BARBARIAN_VILLAGE_1
+	goto_if_set FLAG_BADGE04_GET, OPENWORLDMODE_STATE_BARBARIAN_VILLAGE_1
 	return
 
 OPENWORLDMODE_STATE_BARBARIAN_VILLAGE_1:
@@ -69,11 +268,13 @@ NPC_BARB_BLOCKADE_1::
 	goto_if_eq NPC_BARB_BLOCKADE_1_8
 NPC_BARB_BLOCKADE_1_7:
 	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 2
-	goto_if_eq NPC_BARB_BLOCKADE_1_23
-NPC_BARB_BLOCKADE_1_22:
+	goto_if_eq NPC_BARB_BLOCKADE_1_15
+	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 5
+	goto_if_eq NPC_BARB_BLOCKADE_1_15
+NPC_BARB_BLOCKADE_1_14:
 	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3
-	goto_if_eq NPC_BARB_BLOCKADE_1_29
-NPC_BARB_BLOCKADE_1_28:
+	goto_if_eq NPC_BARB_BLOCKADE_1_20
+NPC_BARB_BLOCKADE_1_19:
 	hidenamebox
 	closemessage
 	release
@@ -86,23 +287,18 @@ NPC_BARB_BLOCKADE_1_2:
 	end
 
 NPC_BARB_BLOCKADE_1_5:
-	msgbox NPC_BARB_BLOCKADE_1_Text_2
-	goto_if_set FLAG_BADGE01_GET, NPC_BARB_BLOCKADE_1_14
-NPC_BARB_BLOCKADE_1_12:
-	hidenamebox
-	closemessage
-	msgbox NPC_BARB_BLOCKADE_1_Text_4, MSGBOX_YESNO
+	msgbox NPC_BARB_BLOCKADE_1_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne NPC_BARB_BLOCKADE_1_25
+	goto_if_ne NPC_BARB_BLOCKADE_1_11
 	namebox NPC_BARB_BLOCKADE_1_Text_0
-	msgbox NPC_BARB_BLOCKADE_1_Text_6
+	msgbox NPC_BARB_BLOCKADE_1_Text_4
 	hidenamebox
 	closemessage
 	release
 	end
 
 NPC_BARB_BLOCKADE_1_8:
-	msgbox NPC_BARB_BLOCKADE_1_Text_7
+	msgbox NPC_BARB_BLOCKADE_1_Text_5
 	goto NPC_BARB_BLOCKADE_1_7
 
 NPC_BARB_BLOCKADE_1_10:
@@ -116,39 +312,17 @@ NPC_BARB_BLOCKADE_1_10:
 	end
 
 NPC_BARB_BLOCKADE_1_11:
-	msgbox NPC_BARB_BLOCKADE_1_Text_3
-	hidenamebox
-	closemessage
-	goto NPC_BARB_BLOCKADE_1_10
-
-NPC_BARB_BLOCKADE_1_13:
-	goto_if_set FLAG_BADGE03_GET, NPC_BARB_BLOCKADE_1_18
-	goto NPC_BARB_BLOCKADE_1_12
-
-NPC_BARB_BLOCKADE_1_14:
-	goto_if_set FLAG_BADGE02_GET, NPC_BARB_BLOCKADE_1_13
-	goto NPC_BARB_BLOCKADE_1_12
-
-NPC_BARB_BLOCKADE_1_17:
-	goto_if_set FLAG_BADGE05_GET, NPC_BARB_BLOCKADE_1_11
-	goto NPC_BARB_BLOCKADE_1_12
-
-NPC_BARB_BLOCKADE_1_18:
-	goto_if_set FLAG_BADGE04_GET, NPC_BARB_BLOCKADE_1_17
-	goto NPC_BARB_BLOCKADE_1_12
-
-NPC_BARB_BLOCKADE_1_23:
-	msgbox NPC_BARB_BLOCKADE_1_Text_8
-	goto NPC_BARB_BLOCKADE_1_22
-
-NPC_BARB_BLOCKADE_1_25:
 	namebox NPC_BARB_BLOCKADE_1_Text_0
-	msgbox NPC_BARB_BLOCKADE_1_Text_5
+	msgbox NPC_BARB_BLOCKADE_1_Text_3
 	goto NPC_BARB_BLOCKADE_1_10
 
-NPC_BARB_BLOCKADE_1_29:
-	msgbox NPC_BARB_BLOCKADE_1_Text_9
-	goto NPC_BARB_BLOCKADE_1_28
+NPC_BARB_BLOCKADE_1_15:
+	msgbox NPC_BARB_BLOCKADE_1_Text_6
+	goto NPC_BARB_BLOCKADE_1_14
+
+NPC_BARB_BLOCKADE_1_20:
+	msgbox NPC_BARB_BLOCKADE_1_Text_7
+	goto NPC_BARB_BLOCKADE_1_19
 
 
 BARBARIANVILLAGE_BLOCK_1:
@@ -164,16 +338,23 @@ BARBARIANVILLAGE_BLOCK_2:
 NPC_BARBARIANVILLAGE_DUNGEONGIRL::
 	lock
 	faceplayer
-	namebox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0
-	goto_if_set FLAG_BADGE06_GET, NPC_BARBARIANVILLAGE_DUNGEONGIRL_2
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	goto_if_set FLAG_BADGE04_GET, NPC_BARBARIANVILLAGE_DUNGEONGIRL_2
 	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_2
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_1:
+	closemessage
 	hidenamebox
 	release
 	end
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_2:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 165
+	goto_if_eq NPC_BARBARIANVILLAGE_DUNGEONGIRL_5
 	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1
+	goto NPC_BARBARIANVILLAGE_DUNGEONGIRL_1
+
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_5:
+	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0
 	goto NPC_BARBARIANVILLAGE_DUNGEONGIRL_1
 
 
@@ -246,6 +427,7 @@ NPC_ROUTE20_NPC1::
 
 BATTLE_ROUTE20_FISHERMAN_1::
 	trainerbattle_single TRAINER_ROUTE20_TRAINER_1, BATTLE_ROUTE20_FISHERMAN_1_Text_0, BATTLE_ROUTE20_FISHERMAN_1_Text_1
+	namebox BATTLE_ROUTE20_FISHERMAN_1_Text_2
 	msgbox BATTLE_ROUTE20_FISHERMAN_1_Text_1
 	hidenamebox
 	release
@@ -254,7 +436,8 @@ BATTLE_ROUTE20_FISHERMAN_1::
 
 BATTLE_ROUTE20_FISHERMAN_2::
 	trainerbattle_single TRAINER_ROUTE20_TRAINER_2, BATTLE_ROUTE20_FISHERMAN_2_Text_0, BATTLE_ROUTE20_FISHERMAN_2_Text_1
-	msgbox BATTLE_ROUTE20_FISHERMAN_2_Text_2
+	namebox BATTLE_ROUTE20_FISHERMAN_2_Text_2
+	msgbox BATTLE_ROUTE20_FISHERMAN_2_Text_3
 	hidenamebox
 	release
 	end
@@ -262,7 +445,8 @@ BATTLE_ROUTE20_FISHERMAN_2::
 
 BATTLE_ROUTE20_FISHERMAN_3::
 	trainerbattle_single TRAINER_ROUTE20_TRAINER_3, BATTLE_ROUTE20_FISHERMAN_3_Text_0, BATTLE_ROUTE20_FISHERMAN_3_Text_1
-	msgbox BATTLE_ROUTE20_FISHERMAN_3_Text_2
+	namebox BATTLE_ROUTE20_FISHERMAN_3_Text_2
+	msgbox BATTLE_ROUTE20_FISHERMAN_3_Text_3
 	hidenamebox
 	release
 	end
@@ -270,7 +454,8 @@ BATTLE_ROUTE20_FISHERMAN_3::
 
 BATTLE_ROUTE20_SKILLER::
 	trainerbattle_single TRAINER_ROUTE20_TRAINER_4, BATTLE_ROUTE20_SKILLER_Text_0, BATTLE_ROUTE20_SKILLER_Text_1
-	msgbox BATTLE_ROUTE20_SKILLER_Text_2
+	namebox BATTLE_ROUTE20_SKILLER_Text_2
+	msgbox BATTLE_ROUTE20_SKILLER_Text_3
 	hidenamebox
 	release
 	end
@@ -317,6 +502,50 @@ SHOP_HELMET_BARBARIANVILLAGE::
 	end
 
 
+NPC_BARBARIANVILLAGE_NPC8::
+	lock
+	faceplayer
+	namebox NPC_BARBARIANVILLAGE_NPC8_Text_0
+	goto_if_unset FLAG_RECEIVED_TM47, NPC_BARBARIANVILLAGE_NPC8_2
+	msgbox NPC_BARBARIANVILLAGE_NPC8_Text_4
+	hidenamebox
+	release
+	end
+
+NPC_BARBARIANVILLAGE_NPC8_2:
+	msgbox NPC_BARBARIANVILLAGE_NPC8_Text_1
+	msgbox NPC_BARBARIANVILLAGE_NPC8_Text_2
+	hidenamebox
+	giveitem ITEM_TM47, 1
+	namebox NPC_BARBARIANVILLAGE_NPC8_Text_0
+	msgbox NPC_BARBARIANVILLAGE_NPC8_Text_3
+	setflag FLAG_RECEIVED_TM47
+	hidenamebox
+	release
+	end
+
+
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_0:
+	.string "Litara$"
+
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_1:
+	.string "Wait {PLAYER}, before you leave allow\n"
+	.string "me to show you our stronghold.$"
+
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_2:
+	.string "Our stronghold is located down this\n"
+	.string "ladder.$"
+
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_3:
+	.string "Who was that, they weren't allowed in\n"
+	.string "there!$"
+
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_4:
+	.string "Sorry, I know you're itching to give our\n"
+	.string "stronghold a shot, but could you chase\l"
+	.string "that knight and find out what he was\l"
+	.string "doing down here.$"
+
 NPC_BARB_BLOCKADE_1_Text_0:
 	.string "Barbarian$"
 
@@ -327,22 +556,12 @@ NPC_BARB_BLOCKADE_1_Text_1:
 NPC_BARB_BLOCKADE_1_Text_2:
 	.string "Only the strong may enter our longhall!\p"
 	.string "You should probably leave if you know\n"
-	.string "what is good for you.$"
+	.string "what is good for you.\p"
+	.string "What?\p"
+	.string "Are you sure you would like to challenge\n"
+	.string "our Gym?$"
 
 NPC_BARB_BLOCKADE_1_Text_3:
-	.string "Ohhoho!!\p"
-	.string "Impressive you have at least four\n"
-	.string "Badges.\p"
-	.string "You may pass, we shall watch your\n"
-	.string "battle and cheer for your victory!$"
-
-NPC_BARB_BLOCKADE_1_Text_4:
-	.string "It is recommended that you have at\n"
-	.string "least 4 Gym Badges attempting our Gym.\p"
-	.string "Are you sure you would like to challenge\n"
-	.string "the Gym?$"
-
-NPC_BARB_BLOCKADE_1_Text_5:
 	.string "Ohho, so this challenger thinks they\n"
 	.string "have what it takes to beat our\l"
 	.string "Chieftain?\p"
@@ -350,22 +569,25 @@ NPC_BARB_BLOCKADE_1_Text_5:
 	.string "well.\p"
 	.string "You may pass.$"
 
-NPC_BARB_BLOCKADE_1_Text_6:
-	.string "Come back when you are stronger!$"
+NPC_BARB_BLOCKADE_1_Text_4:
+	.string "That's what we thought come back when\n"
+	.string "you are stronger!$"
 
-NPC_BARB_BLOCKADE_1_Text_7:
+NPC_BARB_BLOCKADE_1_Text_5:
 	.string "Good luck on your gym challenge.$"
 
-NPC_BARB_BLOCKADE_1_Text_8:
+NPC_BARB_BLOCKADE_1_Text_6:
 	.string "We knew you would be struggling but\n"
 	.string "good luck on your gym challenge.$"
 
-NPC_BARB_BLOCKADE_1_Text_9:
+NPC_BARB_BLOCKADE_1_Text_7:
 	.string "You defeated our Chieftain!\p"
 	.string "We are impressed, well done!$"
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0:
-	.string "Litara$"
+	.string "This is not good, somehow an outsider\n"
+	.string "got access to our stronghold!\p"
+	.string "Did you find out where they went?$"
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
 	.string "You have proved yourself a barbarian in\n"
@@ -378,7 +600,7 @@ NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_2:
 	.string "Only once you have proved yourself a\n"
 	.string "barbarian are you allowed to use our\l"
-	.string "dungeon for training.$"
+	.string "stronghold for training.$"
 
 NPC_BARBARIANVILLAGE_SIGNPOST_Text_0:
 	.string "Barbarian Village.\p"
@@ -398,7 +620,9 @@ NPC_BARBARIANVILLAGE_NPC2_Text_0:
 NPC_BARBARIANVILLAGE_NPC3_Text_0:
 	.string "We don't need no Banks to heal our\n"
 	.string "Monsters in our Village.\p"
-	.string "That is the path of a weakling.$"
+	.string "That is the path of a weakling!\p"
+	.string "Although if you are tired I suppose you\n"
+	.string "could rest in our visitors hall.$"
 
 NPC_BARBARIANVILLAGE_NPC4_Text_0:
 	.string "My father is the Chieftain of this\n"
@@ -428,6 +652,9 @@ BATTLE_ROUTE20_FISHERMAN_1_Text_1:
 	.string "So these Rainbow Fish are why you can\n"
 	.string "see a rainbow in the river.$"
 
+BATTLE_ROUTE20_FISHERMAN_1_Text_2:
+	.string "TrawlerSux$"
+
 BATTLE_ROUTE20_FISHERMAN_2_Text_0:
 	.string "You just scared away my catch!$"
 
@@ -435,6 +662,9 @@ BATTLE_ROUTE20_FISHERMAN_2_Text_1:
 	.string "I just ran out of feathers…$"
 
 BATTLE_ROUTE20_FISHERMAN_2_Text_2:
+	.string "MastrBaitr$"
+
+BATTLE_ROUTE20_FISHERMAN_2_Text_3:
 	.string "Fly fishing is great!\p"
 	.string "Much better than regular net fishing.$"
 
@@ -448,6 +678,9 @@ BATTLE_ROUTE20_FISHERMAN_3_Text_1:
 	.string "the strength of these little guys.$"
 
 BATTLE_ROUTE20_FISHERMAN_3_Text_2:
+	.string "Hurley$"
+
+BATTLE_ROUTE20_FISHERMAN_3_Text_3:
 	.string "If you are interested where I got these\n"
 	.string "from you should take a visit to the\l"
 	.string "cavern by Mudskipper point.$"
@@ -459,6 +692,9 @@ BATTLE_ROUTE20_SKILLER_Text_1:
 	.string "You should do some fishing too.$"
 
 BATTLE_ROUTE20_SKILLER_Text_2:
+	.string "Lvl3Foreva$"
+
+BATTLE_ROUTE20_SKILLER_Text_3:
 	.string "You should do some fishing too.\p"
 	.string "You would never know what rare fish you\n"
 	.string "could find until you try.$"
@@ -506,3 +742,39 @@ SHOP_HELMET_BARBARIANVILLAGE_Text_1:
 
 SHOP_HELMET_BARBARIANVILLAGE_Text_2:
 	.string "Thank you, come again!$"
+
+NPC_BARBARIANVILLAGE_NPC8_Text_0:
+	.string "Fremennik$"
+
+NPC_BARBARIANVILLAGE_NPC8_Text_1:
+	.string "I've travelled all the way here from\n"
+	.string "Rellekka.\p"
+	.string "My goal is to make friendly relations\n"
+	.string "with our barbarian brothers in Gunnar's\l"
+	.string "Ground.$"
+
+NPC_BARBARIANVILLAGE_NPC8_Text_2:
+	.string "You may not be a barbarian, but as the\n"
+	.string "first person to talk to me since I got\l"
+	.string "here let me share with you something\l"
+	.string "from my homeland.$"
+
+NPC_BARBARIANVILLAGE_NPC8_Text_3:
+	.string "Any monster that uses that move will\n"
+	.string "faint instantly, but whatever monster\l"
+	.string "you send in next will have all of their\l"
+	.string "health restored and they will be cured\l"
+	.string "of any status condition.\p"
+	.string "It is a reminder that sometimes in\n"
+	.string "battle, sacrifices need to be made..$"
+
+NPC_BARBARIANVILLAGE_NPC8_Text_4:
+	.string "I've travelled all the way here from\n"
+	.string "Rellekka.\p"
+	.string "My goal is to make friendly relations\n"
+	.string "with our barbarian brothers in Gunnar's\l"
+	.string "Ground.\p"
+	.string "Where is Rellekka?\p"
+	.string "It's far, far north-west of here in the\n"
+	.string "Fremennik Province.\p"
+	.string "Maybe one day you can visit it.$"

@@ -3,7 +3,7 @@
   "name": "Daemonheim",
   "layout": "LAYOUT_DAEMONHEIM",
   "music": "MUS_PS_ROUTE_WILDERNESS",
-  "region_map_section": "MAPSEC_WILDERNESS",
+  "region_map_section": "MAPSEC_DAEMONHEIM",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -149,6 +149,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_DAEMONHEIM_3",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SANDWICH_LADY",
+      "x": 22,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_SANDWICH_LADY",
+      "flag": "FLAG_SANDWICH_LADY"
     }
   ],
   "warp_events": [

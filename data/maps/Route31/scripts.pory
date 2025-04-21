@@ -262,20 +262,29 @@ script RandomiseSeed_Weather { // VAR_SEED % VAR_TEMP_9.
 	random(128)
     copyvar(VAR_SEED, VAR_RESULT)
 	setvar(VAR_TEMP_9, 10)
-    specialvar (VAR_STORE_SEED_RESULT, GetSeededResult)
+    specialvar (VAR_STORE_SEED_RESULT, GetSeededResultLessRandom)
 
 
-	buffernumberstring(STR_VAR_3, VAR_SEED) 
-    msgbox(format("VAR SEED is {STR_VAR_3} ."))
-    closemessage
+	//buffernumberstring(STR_VAR_3, VAR_SEED) 
+    //msgbox(format("VAR SEED is {STR_VAR_3} ."))
+    //closemessage
     buffernumberstring(STR_VAR_3, VAR_STORE_SEED_RESULT) 
     msgbox(format("VAR SEEDEDRESULT is {STR_VAR_3} ."))
     closemessage
 }
+script Check_RandomiseSeed_Weather { 
+    buffernumberstring(STR_VAR_3, VAR_STORE_WEATHER_SEED_RESULT) 
+    msgbox(format("VAR VAR_STORE_WEATHER_SEED_RESULT is {STR_VAR_3} ."))
+    closemessage
+	buffernumberstring(STR_VAR_3, VAR_SEED) 
+    msgbox(format("VAR SEED is {STR_VAR_3} ."))
+    closemessage
+}
+
 
 script WEATHER_CHANGE_AREA_MUSAPOINT
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 0: 
 		case 1: 
 		case 2: 
@@ -294,7 +303,7 @@ script WEATHER_CHANGE_AREA_MUSAPOINT
 
 script WEATHER_CHANGE_SEA_ROUTES_CALM
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 0: 
 		case 3: 
 			setweather (WEATHER_RAIN)
@@ -314,7 +323,7 @@ script WEATHER_CHANGE_SEA_ROUTES_CALM
 }
 script WEATHER_CHANGE_SEA_ROUTES_ROUGH
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 0: 
 		case 1: 
 		case 2: 
@@ -333,7 +342,7 @@ script WEATHER_CHANGE_SEA_ROUTES_ROUGH
 
 script WEATHER_CHANGE_AREA_DESERT_CALM
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 0: 
 		case 1: 
 		case 5: 
@@ -352,7 +361,7 @@ script WEATHER_CHANGE_AREA_DESERT_CALM
 }
 script WEATHER_CHANGE_AREA_DESERT_ROUGH
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 1: 
 		case 2: 
 		case 4: 
@@ -372,7 +381,7 @@ script WEATHER_CHANGE_AREA_DESERT_ROUGH
 
 script WEATHER_CHANGE_AREA_DAEMONHEIM
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 4: 
 		case 7: 
 		case 3: 
@@ -390,7 +399,7 @@ script WEATHER_CHANGE_AREA_DAEMONHEIM
 
 script WEATHER_CHANGE_AREA_WILDERNESS
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 1: 
 		case 3: 
 		case 9: 
@@ -405,7 +414,7 @@ script WEATHER_CHANGE_AREA_WILDERNESS
 
 script WEATHER_CHANGE_AREA_ICE_MOUNTAIN
 {
-	switch (var(VAR_STORE_SEED_RESULT)) { 
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
 		case 4:
 			setweather (WEATHER_SUNNY)
 			doweather
@@ -416,18 +425,46 @@ script WEATHER_CHANGE_AREA_ICE_MOUNTAIN
 	return
 }
 
-
-
-script GET_TIME_OF_DAY
+script WEATHER_CHANGE_ASGARNIA_SOUTH
 {
+	switch (var(VAR_STORE_WEATHER_SEED_RESULT)) { 
+		case 2: 
+		case 3: 
+			setweather (WEATHER_RAIN)
+			doweather
+		case 4:
+			setweather (WEATHER_DOWNPOUR)
+			doweather
+		case 7:
+		case 8:
+			setweather (WEATHER_SUNNY)
+			doweather
+		default:
+			setweather (WEATHER_NONE)
+			doweather
+	}
+	return
+}
 
-	special(GetTimeOfDaySpecial)
+script WEATHER_GETCURRENTMAP {
+	specialvar (VAR_RESULT, GetCurrentMap)
+	if (var(VAR_RESULT) == MAP_ICE_MOUNTAIN) {
+		call(WEATHER_CHANGE_AREA_ICE_MOUNTAIN)
+	}
+	elif ((var(VAR_RESULT) == MAP_MUSA_POINT) || (var(VAR_RESULT) == MAP_ABYSSAL_REALM_1)) {
+		call(WEATHER_CHANGE_AREA_MUSAPOINT)
+	}
+}
+
+
+
+script GET_TIME_OF_DAY_old
+{
+	//special(GetTimeOfDaySpecial_OLD)
 	buffernumberstring(STR_VAR_3, VAR_RESULT) 
     msgbox(format("Time of day is {STR_VAR_3} ."))
     closemessage
-
-
-	special(GetTimeOfDaySpecial)
+	//special(GetTimeOfDaySpecial_OLD)
 	switch (var(VAR_RESULT)) {
 		case 0:
 			msgbox(format("It is TIME_MORNING."))
@@ -441,24 +478,53 @@ script GET_TIME_OF_DAY
 		default:
 			msgbox(format("I have no clue what the time is."))
 	}
+	closemessage
+	release
+	end
 }
+script GET_TIME_OF_DAY
+{
 
+	special(GetTimeOfDaySpecial)
+	buffernumberstring(STR_VAR_3, VAR_RESULT) 
+    msgbox(format("Time of day is {STR_VAR_3} ."))
+    closemessage
+
+
+	special(GetTimeOfDaySpecial)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("It is TIME_OF_DAY_NIGHT."))
+		case 1:
+			msgbox(format("It is TIME_OF_DAY_MORNING."))
+		case 2:
+			msgbox(format("It is TIME_OF_DAY_DAY."))
+		case 3:
+			msgbox(format("It is TIME_OF_DAY_EVENING."))
+		
+		default:
+			msgbox(format("I have no clue what the time is."))
+	}
+	closemessage
+	release
+	end
+}
 
 script WEATHER_CHANGE_AREA_DRAYNOR
 {
 	special(GetTimeOfDaySpecial)
 	switch (var(VAR_RESULT)) {
-		case 0:
-			setweather (WEATHER_SHADE)
-			doweather
-		case 1:
-			setweather (WEATHER_SHADE)
-			doweather
-		case 2:
+		case 0: //night
 			setweather (WEATHER_NONE)
 			doweather
-		case 3:
+		case 1: //morning
 			setweather (WEATHER_NONE)
+			doweather
+		case 2: //day
+			setweather (WEATHER_SHADE)
+			doweather
+		case 3: //evening
+			setweather (WEATHER_SHADE)
 			doweather
 		
 		default:
@@ -467,4 +533,38 @@ script WEATHER_CHANGE_AREA_DRAYNOR
 	}
 	
 	return
+}
+
+
+
+script CHECK_TIME_OF_DAY_EVENT_TRIGGERED {
+    if (flag(FLAG_POKESCAPE_TIME_RESET_MORNING) == TRUE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_MORNING is: TRUE."))
+    }
+    elif (flag(FLAG_POKESCAPE_TIME_RESET_MORNING) == FALSE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_MORNING is: FALSE."))
+    }
+    if (flag(FLAG_POKESCAPE_TIME_RESET_NIGHT) == TRUE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_NIGHT is: TRUE."))
+    }
+    elif (flag(FLAG_POKESCAPE_TIME_RESET_NIGHT) == FALSE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_NIGHT is: FALSE."))
+    }
+    if (flag(FLAG_POKESCAPE_TIME_RESET_EVENING) == TRUE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_EVENING is: TRUE."))
+    }
+    elif (flag(FLAG_POKESCAPE_TIME_RESET_EVENING) == FALSE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_EVENING is: FALSE."))
+    }
+    if (flag(FLAG_POKESCAPE_TIME_RESET_DAY) == TRUE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_DAY is: TRUE."))
+    }
+    elif (flag(FLAG_POKESCAPE_TIME_RESET_DAY) == FALSE) {
+        msgbox(format("FLAG_POKESCAPE_TIME_RESET_DAY is: FALSE."))
+    }
+    
+    setvar(VAR_TEMP_B, 1)
+    closemessage
+    release
+    end
 }

@@ -10,6 +10,7 @@ Draynor_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 Draynor_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call PURO_PURO_EVENT
 	call WizardsTower_Draynor_STATE
 	call DRAYNOR_GUARD_STATE
 	return
@@ -157,10 +158,11 @@ Draynor_Diango_2:
 	compare VAR_RESULT, 0
 	goto_if_eq Draynor_Diango_6
 Draynor_Diango_5:
-	goto_if_unset FLAG_DIANGO_GIFT_DRAGONKITE, Draynor_Diango_8
-	goto_if_unset FLAG_DIANGO_GIFT_FROGEELBURGER, Draynor_Diango_9
+	goto_if_unset FLAG_DIANGO_GIFT_SPARKLES24, Draynor_Diango_8
+	goto_if_unset FLAG_DIANGO_GIFT_DRAGONKITE, Draynor_Diango_9
+	goto_if_unset FLAG_DIANGO_GIFT_FROGEELBURGER, Draynor_Diango_10
 	compare VAR_POKESCAPE_GOLDENGNOMES, 0
-	goto_if_eq Draynor_Diango_10
+	goto_if_eq Draynor_Diango_11
 	msgbox Draynor_Diango_Text_5
 	goto Draynor_Diango_1
 
@@ -169,14 +171,18 @@ Draynor_Diango_6:
 	goto Draynor_Diango_5
 
 Draynor_Diango_8:
-	call GIFT_DRAGONKITE
+	call GIFT_SPARKLES24
 	goto Draynor_Diango_1
 
 Draynor_Diango_9:
-	call GIFT_FROGEELBURGER
+	call GIFT_DRAGONKITE
 	goto Draynor_Diango_1
 
 Draynor_Diango_10:
+	call GIFT_FROGEELBURGER
+	goto Draynor_Diango_1
+
+Draynor_Diango_11:
 	msgbox Draynor_Diango_Text_4
 	call GOLDENGNOME_EVENT_START
 	goto Draynor_Diango_1
@@ -201,6 +207,15 @@ GIFT_FROGEELBURGER::
 	setflag FLAG_DIANGO_GIFT_FROGEELBURGER
 	msgbox GIFT_DRAGONKITE_Text_1
 	msgbox GIFT_FROGEELBURGER_Text_1
+	return
+
+
+GIFT_SPARKLES24::
+	msgbox GIFT_DRAGONKITE_Text_0
+	call EventScript_GiftMonster_SPARKLES24
+	setflag FLAG_DIANGO_GIFT_SPARKLES24
+	msgbox GIFT_DRAGONKITE_Text_1
+	msgbox GIFT_SPARKLES24_Text_0
 	return
 
 
@@ -253,6 +268,13 @@ EventScript_GiveMon_ReceivedFanfare_Dragonkite::
 
 
 EventScript_GiveMon_Received_Dragonkite::
+	return
+
+
+EventScript_GiftMonster_SPARKLES24::
+	setvar VAR_TEMP_1, SPECIES_SPARKLES
+	giveshinymon SPECIES_SPARKLES, 5, ITEM_DONUT_SANDWICH, 0
+	goto EventScript_GiftMonster_Start
 	return
 
 
@@ -398,6 +420,26 @@ Movement_DraynorGuardTree_3:
 	face_down
 	step_end
 
+NPC_Falador_Skiller::
+	lock
+	faceplayer
+	namebox NPC_Falador_Skiller_Text_0
+	msgbox NPC_Falador_Skiller_Text_1
+	hidenamebox
+	release
+	end
+
+
+NPC_Draynor_Skiller::
+	lock
+	faceplayer
+	namebox NPC_Draynor_Skiller_Text_0
+	msgbox NPC_Draynor_Skiller_Text_1
+	hidenamebox
+	release
+	end
+
+
 NPC_Draynor_Woman_1::
 	lock
 	faceplayer
@@ -416,6 +458,44 @@ NPC_Draynor_Noob_WillowTree::
 	hidenamebox
 	release
 	end
+
+
+NPC_Draynor_Woodcutter_WillowTree::
+	lock
+	faceplayer
+	namebox NPC_Draynor_Woodcutter_WillowTree_Text_0
+	goto_if_unset FLAG_GIFT_BIRDS_NEST, NPC_Draynor_Woodcutter_WillowTree_2
+NPC_Draynor_Woodcutter_WillowTree_1:
+	msgbox NPC_Draynor_Woodcutter_WillowTree_Text_3
+	closemessage
+	hidenamebox
+	release
+	end
+
+NPC_Draynor_Woodcutter_WillowTree_2:
+	msgbox NPC_Draynor_Woodcutter_WillowTree_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_Draynor_Woodcutter_WillowTree_4
+	msgbox NPC_Draynor_Woodcutter_WillowTree_Text_2
+	closemessage
+	hidenamebox
+	release
+	end
+
+NPC_Draynor_Woodcutter_WillowTree_4:
+	hidenamebox
+	closemessage
+	call EventScript_GiftMonster_BirdNest
+	setflag FLAG_GIFT_BIRDS_NEST
+	namebox NPC_Draynor_Woodcutter_WillowTree_Text_0
+	goto NPC_Draynor_Woodcutter_WillowTree_1
+
+
+EventScript_GiftMonster_BirdNest::
+	setvar VAR_TEMP_1, SPECIES_BIRD_NEST
+	givemon SPECIES_BIRD_NEST, 5, ITEM_LUCKYRABBITFOOT
+	goto EventScript_GiftMonster_Start
+	return
 
 
 Draynor_Morgan::
@@ -483,6 +563,22 @@ NPC_Draynor_WiseOldMan::
 	end
 
 
+PURO_PURO_EVENT_DRAYNOR::
+	setmetatile 48, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 5, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 5, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 4, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0
+	setmetatile 47, 5, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0
+	setmetatile 47, 6, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
+	return
+
+
 HAM_EVENT_Draynor_Text_0:
 	.string "Ariane$"
 
@@ -539,6 +635,10 @@ GIFT_FROGEELBURGER_Text_1:
 	.string "Thank you for playing PokeScape.\p"
 	.string "Check out our website and discord\n"
 	.string "server for the latest updates.$"
+
+GIFT_SPARKLES24_Text_0:
+	.string "Happy Holidays 2024.\n"
+	.string "- PokeScape$"
 
 EventScript_GiveMon_SendParty_Dragonkite_Text_0:
 	.string "Would you like to give your monster a\n"
@@ -608,7 +708,7 @@ Draynor_AGGIE_Text_1:
 	.string "Would you be interested in any dyes?$"
 
 Draynor_AGGIE_Text_2:
-	.string "Oh! You are one of those adventuers\n"
+	.string "Oh! You are one of those adventurers\n"
 	.string "that fight with Monsters.\p"
 	.string "Here I might have something to help\n"
 	.string "with that.$"
@@ -644,6 +744,21 @@ Draynor_TREE_Text_3:
 	.string "Oh well, I guess I should better get\n"
 	.string "back to work…$"
 
+NPC_Falador_Skiller_Text_0:
+	.string "Sk1llchawmpa$"
+
+NPC_Falador_Skiller_Text_1:
+	.string "My chinchompa is a skiller like me!\p"
+	.string "No fighting for us, just skilling!$"
+
+NPC_Draynor_Skiller_Text_0:
+	.string "Ch1nchawmpa$"
+
+NPC_Draynor_Skiller_Text_1:
+	.string "Chinchompa's are really hard to train,\n"
+	.string "but if you put the effort in they are a\l"
+	.string "force to be reckoned with!$"
+
 NPC_Draynor_Woman_1_Text_0:
 	.string "Loreman42$"
 
@@ -661,6 +776,23 @@ NPC_Draynor_Noob_WillowTree_Text_1:
 	.string "thrown out of the Wizards' Tower for\l"
 	.string "being Zamorakians and now I cannot\l"
 	.string "play by the willow trees.$"
+
+NPC_Draynor_Woodcutter_WillowTree_Text_0:
+	.string "Woodcutter$"
+
+NPC_Draynor_Woodcutter_WillowTree_Text_1:
+	.string "I found this Bird Nest but my inventory\n"
+	.string "is full of Willow logs.\p"
+	.string "Do you want it?$"
+
+NPC_Draynor_Woodcutter_WillowTree_Text_2:
+	.string "Hmm…\p"
+	.string "I guess I'll just leave it on the ground\n"
+	.string "then.$"
+
+NPC_Draynor_Woodcutter_WillowTree_Text_3:
+	.string "Birds Nests are so interesting, you\n"
+	.string "never know what will hatch from them.$"
 
 Draynor_Morgan_Text_0:
 	.string "Morgan$"

@@ -59,7 +59,7 @@
 #define BAG_ITEMS_COUNT 100
 #define BAG_KEYITEMS_COUNT 50
 #define BAG_POKEBALLS_COUNT 24
-#define BAG_TMHM_COUNT 74
+#define BAG_TMHM_COUNT 74 //Change to 100. (will need to start a new savefile.)
 #define BAG_BERRIES_COUNT 46
 #define OBJECT_EVENT_TEMPLATES_COUNT 64
 #define DECOR_MAX_SECRET_BASE 16
@@ -149,6 +149,13 @@
 
 #define OPTIONS_BATTLE_STYLE_SHIFT 0
 #define OPTIONS_BATTLE_STYLE_SET 1
+
+#define OPTIONS_BATTLE_SCENE_1X         0
+#define OPTIONS_BATTLE_SCENE_2X         1
+#define OPTIONS_BATTLE_SCENE_3X         2
+#define OPTIONS_BATTLE_SCENE_4X         3
+#define OPTIONS_BATTLE_SCENE_DISABLED   4
+#define OPTIONS_BATTLE_SCENE_COUNT      5
 
 #define DIR_NONE        0
 #define DIR_SOUTH       1

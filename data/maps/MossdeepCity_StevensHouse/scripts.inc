@@ -16,7 +16,6 @@ MossdeepCity_StevensHouse_EventScript_HideStevensNote::
 	return
 
 MossdeepCity_StevensHouse_OnTransition:
-	call_if_eq VAR_STEVENS_HOUSE_STATE, 2, MossdeepCity_StevensHouse_EventScript_SetStevenPos
 	end
 
 MossdeepCity_StevensHouse_EventScript_SetStevenPos::
@@ -25,7 +24,6 @@ MossdeepCity_StevensHouse_EventScript_SetStevenPos::
 	return
 
 MossdeepCity_StevensHouse_OnFrame:
-	map_script_2 VAR_STEVENS_HOUSE_STATE, 1, MossdeepCity_StevensHouse_EventScript_StevenGivesDive
 	.2byte 0
 
 MossdeepCity_StevensHouse_EventScript_StevenGivesDive::
@@ -48,9 +46,7 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive::
 	delay 20
 	applymovement LOCALID_STEVEN, MossdeepCity_StevensHouse_Movement_StevenReturn
 	waitmovement 0
-	setflag FLAG_HIDE_MOSSDEEP_CITY_SCOTT
-	setflag FLAG_HIDE_SEAFLOOR_CAVERN_ENTRANCE_AQUA_GRUNT
-	setvar VAR_STEVENS_HOUSE_STATE, 2
+
 	releaseall
 	end
 

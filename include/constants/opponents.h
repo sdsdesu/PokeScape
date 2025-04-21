@@ -448,9 +448,103 @@
 #define TRAINER_TZHAAR_FIGHTCAVES_LOW_KET_3             443
 
 #define TRAINER_ROUTE3_TRAINER_2                        444
-
-
-
+#define TRAINER_HELLWIND                                445
+#define TRAINER_HYPER_STAN                              446
+#define TRAINER_LOPENDEBANK                             447
+#define TRAINER_CHASE                                   448
+#define TRAINER_ORCHY                                   449
+#define TRAINER_MRKALIUS                                450
+#define TRAINER_RYU_SAINT                               451
+#define TRAINER_IMCANDOBRETT                            452
+#define TRAINER_GENTLESHEN                              453
+#define TRAINER_PIPPINSMITH                             454
+#define TRAINER_SUDO_BASH                               455
+#define TRAINER_JITTERBUG                               456
+#define TRAINER_LUKEINLIGHT                             457
+#define TRAINER_A_TWISTED_SMILE                         458
+#define TRAINER_SANDWICH_LADY_1                         459
+#define TRAINER_JMOD_FOWL                               460
+#define TRAINER_PUB_FALADOR_1                           461
+#define TRAINER_PUB_FALADOR_2                           462
+#define TRAINER_PUB_FALADOR_3                           463
+#define TRAINER_ROUTE33_RUNECRAFTER                     464
+#define TRAINER_ROUTE33_ZAMORAK2					    465
+#define TRAINER_ROUTE33_ZAMORAK3					    466
+#define TRAINER_ROUTE33_ZAMORAK4					    467
+#define TRAINER_ROUTE2_TRAINER_8					    468
+#define TRAINER_TZHAAR_CAVES_TRAINER_1					469
+#define TRAINER_TZHAAR_CAVES_TRAINER_2					470
+#define TRAINER_TZHAAR_CAVES_TRAINER_3					471
+#define TRAINER_FIGHT_CAVES_POOL_1_TRAINER_1			472
+#define TRAINER_TZHAAR_GYMCHALLENGE_KET_HD			    473
+#define TRAINER_FIGHTCAVES_LOW_KET_HD			        474
+#define TRAINER_FIGHTCAVES_MED_KET_HD			        475
+#define TRAINER_FIGHTCAVES_HIGH_KET_HD			        476
+#define TRAINER_TZHAAR_GYMCHALLENGE_KET_OSRS			477
+#define TRAINER_TZHAAR_GYMCHALLENGE_GAAL			    478
+#define TRAINER_PUB_MUSA_1              			    479
+#define TRAINER_ICE_MOUNTAIN_HUNTER                     480
+#define TRAINER_ICE_MOUNTAIN_BLACK_KNIGHT_1             481
+#define TRAINER_SARIM_BAY_PIRATE_1                      482
+#define TRAINER_SARIM_BAY_PIRATE_2                      483
+#define TRAINER_SARIM_BAY_PIRATE_3                      484
+#define TRAINER_SARIM_BAY_PIRATE_4                      485
+#define TRAINER_SARIM_BAY_PIRATE_5                      486
+#define TRAINER_SARIM_BAY_PIRATE_6                      487
+#define TRAINER_SARIM_BAY_PIRATE_7                      488
+#define TRAINER_SARIM_BAY_SAILOR_1                      489
+#define TRAINER_SARIM_BAY_SAILOR_2                      490
+#define TRAINER_MUDSKIPPERSOUND2_TRAINER_1              491
+#define TRAINER_MUDSKIPPERSOUND2_TRAINER_2              492
+#define TRAINER_MUDSKIPPERSOUND2_TRAINER_3              493
+#define TRAINER_ZANIK_HAM                               494
+#define TRAINER_ARIANE_1                                495
+#define TRAINER_SIR_OWEN_1                              496
+#define TRAINER_DRAYNORMANOR_HAM                        497
+#define TRAINER_ROUTE9_ITSWILL                          498 
+#define TRAINER_MODESTSAMUEL                            499
+#define TRAINER_BLACKKNIGHT_MARE                        500
+#define TRAINER_BLACKKNIGHT_LAIMP                       501
+#define TRAINER_BLACKKNIGHT_TAIM                        502
+#define TRAINER_BLACKKNIGHT_LAIF                        503
+#define TRAINER_BLACKKNIGHT_FALL                        504
+#define TRAINER_BLACKKNIGHT_SKOOL                       505
+#define TRAINER_BLACKKNIGHT_SIFT                        506
+#define TRAINER_BLACKKNIGHT_NECRO_1                     507
+#define TRAINER_BLACKKNIGHT_NECRO_2                     508
+#define TRAINER_BLACKKNIGHT_ELITE_1                     509
+#define TRAINER_LORD_DAQUARIUS                          510
+#define TRAINER_ROUTE21_TRAINER_1                       511
+#define TRAINER_ROUTE21_TRAINER_2                       512
+#define TRAINER_ROUTE22_TRAINER_1                       513
+#define TRAINER_ROUTE20_TRAINER_5                       514
+#define TRAINER_ROUTE20_TRAINER_6                       515
+#define TRAINER_ROUTE20_TRAINER_7                       516
+#define TRAINER_ROUTE26_BLACK_KNIGHT                    517
+#define TRAINER_ICE_MOUNTAIN_GUARD_1                    518
+#define TRAINER_ICE_MOUNTAIN_GUARD_2                    519
+#define TRAINER_ROUTE21_TRAINER_3                       520
+#define TRAINER_ROUTE22_TRAINER_2                       521
+#define TRAINER_BLACKKNIGHT_ELITE_2                     522
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_1           523
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_2           524
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_3           525
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_1           526
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_2           527
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_3           528
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_1           529
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_2           530
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_3           531
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_4           532
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_5           533
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_1           534
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_2           535
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_3           536
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_4           537
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_1               538
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_2               539
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_3               540
+#define TRAINER_BLACKKNIGHT_TEE                         541
 
 
 
@@ -458,7 +552,7 @@
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_ROUTE3_TRAINER_2 + 1)
+#define TRAINERS_COUNT                      (TRAINER_BLACKKNIGHT_TEE + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

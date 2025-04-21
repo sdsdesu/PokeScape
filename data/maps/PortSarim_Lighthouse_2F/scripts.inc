@@ -29,6 +29,7 @@ LIGHTHOUSE_2F_STATE_2:
 	setobjectmovementtype 6, MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT
 	setobjectmovementtype 1, MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT
 	setobjectxyperm 1, 13, 2
+	playbgm MUS_PS_ENCOUNTER_HAM, TRUE
 	special Overworld_PlaySpecialMapMusic
 	goto LIGHTHOUSE_2F_STATE_1
 
@@ -186,7 +187,7 @@ LIGHTHOUSE_2F_NPC_3_Text_0:
 
 LIGHTHOUSE_2F_NPC_3_Text_1:
 	.string "You should go visit Rimmington to the\n"
-	.string "east.\p"
+	.string "west.\p"
 	.string "They throw the best house parties!$"
 
 LIGHTHOUSE_2F_NPC_3_Text_2:
@@ -203,7 +204,7 @@ LIGHTHOUSE_2F_NPC_4_Text_0:
 	.string "That's probably not a good sign.$"
 
 LIGHTHOUSE_2F_NPC_5_Text_0:
-	.string "Security Guard$"
+	.string "SecurityGuard$"
 
 LIGHTHOUSE_2F_NPC_5_Text_1:
 	.string "Oh god! I only came here to give people\n"

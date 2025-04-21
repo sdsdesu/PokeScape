@@ -72,6 +72,8 @@ Randomise_Puzzles::
 
 
 Start_Dungeoneering::
+	compare VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST, 15
+	goto_if_eq Start_Dungeoneering_2
 	call RandomiseSeed_ForDoors
 	call Randomise_Dungeon
 	call Randomise_Puzzles
@@ -80,115 +82,120 @@ Start_Dungeoneering::
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_JumpIntoPortal
 	waitmovement 0
 	compare VAR_DUNGEONEERING_STARTER_ROOM, 1
-	goto_if_eq Start_Dungeoneering_1
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 2
-	goto_if_eq Start_Dungeoneering_2
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 3
-	goto_if_eq Start_Dungeoneering_3
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 4
 	goto_if_eq Start_Dungeoneering_4
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 5
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 2
 	goto_if_eq Start_Dungeoneering_5
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 6
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 3
 	goto_if_eq Start_Dungeoneering_6
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 7
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 4
 	goto_if_eq Start_Dungeoneering_7
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 8
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 5
 	goto_if_eq Start_Dungeoneering_8
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 9
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 6
 	goto_if_eq Start_Dungeoneering_9
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 10
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 7
 	goto_if_eq Start_Dungeoneering_10
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 11
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 8
 	goto_if_eq Start_Dungeoneering_11
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 12
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 9
 	goto_if_eq Start_Dungeoneering_12
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 13
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 10
 	goto_if_eq Start_Dungeoneering_13
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 14
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 11
 	goto_if_eq Start_Dungeoneering_14
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 15
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 12
 	goto_if_eq Start_Dungeoneering_15
-	compare VAR_DUNGEONEERING_STARTER_ROOM, 16
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 13
 	goto_if_eq Start_Dungeoneering_16
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 14
+	goto_if_eq Start_Dungeoneering_17
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 15
+	goto_if_eq Start_Dungeoneering_18
+	compare VAR_DUNGEONEERING_STARTER_ROOM, 16
+	goto_if_eq Start_Dungeoneering_19
 	return
 
-Start_Dungeoneering_1:
+Start_Dungeoneering_2:
+	warp MAP_DUNG_GYM_1, 0, 0, 0
+	waitstate
+	end
+
+Start_Dungeoneering_4:
 	warp MAP_DUNGEONEERING_1, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_2:
+Start_Dungeoneering_5:
 	warp MAP_DUNGEONEERING_2, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_3:
+Start_Dungeoneering_6:
 	warp MAP_DUNGEONEERING_3, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_4:
+Start_Dungeoneering_7:
 	warp MAP_DUNGEONEERING_4, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_5:
+Start_Dungeoneering_8:
 	warp MAP_DUNGEONEERING_5, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_6:
+Start_Dungeoneering_9:
 	warp MAP_DUNGEONEERING_6, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_7:
+Start_Dungeoneering_10:
 	warp MAP_DUNGEONEERING_7, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_8:
+Start_Dungeoneering_11:
 	warp MAP_DUNGEONEERING_8, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_9:
+Start_Dungeoneering_12:
 	warp MAP_DUNGEONEERING_9, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_10:
+Start_Dungeoneering_13:
 	warp MAP_DUNGEONEERING_10, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_11:
+Start_Dungeoneering_14:
 	warp MAP_DUNGEONEERING_11, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_12:
+Start_Dungeoneering_15:
 	warp MAP_DUNGEONEERING_12, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_13:
+Start_Dungeoneering_16:
 	warp MAP_DUNGEONEERING_13, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_14:
+Start_Dungeoneering_17:
 	warp MAP_DUNGEONEERING_14, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_15:
+Start_Dungeoneering_18:
 	warp MAP_DUNGEONEERING_15, 0, 0, 0
 	waitstate
 	return
 
-Start_Dungeoneering_16:
+Start_Dungeoneering_19:
 	warp MAP_DUNGEONEERING_16, 0, 0, 0
 	waitstate
 	return

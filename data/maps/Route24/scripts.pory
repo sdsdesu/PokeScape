@@ -1,8 +1,16 @@
+const OBJ_EVENT_ID_LUCKY_IMPLING = 20
+
 mapscripts Route24_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 3) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
+        call(RANDOM_EVENT_IMPLING)
+    }
+    MAP_SCRIPT_ON_LOAD {
+        call(PURO_PURO_EVENT)
     }
 }
+
+
 
 //SIGNPOST
 script ROUTE24_SIGNPOST
@@ -24,7 +32,8 @@ script NPC_ROUTE24_BLOCKADE_1
     lock
     faceplayer
     namebox("White Knight")
-    msgbox(format("Sorry you need to be a member to access past here.\pWhat is a member?\pA member is someone who has obtained all of the badges in F2P."))
+    msgbox(format("Beyond here is too dangerous due to the Trolls invading Burthorpe.\pOnly members of the White Knights may pass."))
+    //msgbox(format("Sorry you need to be a Member to access past here.\pWhat is a member?\pA member is someone who has obtained all of the badges in F2P."))
     hidenamebox
     release
     end
@@ -34,7 +43,8 @@ script BLOCK_ROUTE24_BLOCKADE_WHITEKNIGHT
 {
         lock
         namebox("White Knight")
-        msgbox(format("Sorry you need to be a member to access past here.\pWhat is a member?\pA member is someone who has obtained all of the badges in F2P."))
+        msgbox(format("Beyond here is too dangerous due to the Trolls invading Burthorpe.\pOnly members of the White Knights may pass."))
+        //msgbox(format("Sorry you need to be a member to access past here.\pWhat is a member?\pA member is someone who has obtained all of the badges in F2P."))
 		closemessage
         hidenamebox
         applymovement(OBJ_EVENT_ID_PLAYER, Blockmovement_WhiteKnight)
@@ -70,7 +80,7 @@ movement Blockmovement_WhiteKnight{
 //TRAINERS
 script BATTLE_ROUTE24_MUGGER{
     trainerbattle_single(TRAINER_ROUTE24_MUGGER, format("Deliver and stand!"),format("Sorry I mixed that up, could you please be robbed again?\pNo?\pOk then…"))
-    namebox ("RSN")
+    namebox ("Mugger")
     msgbox(format("Sorry I mixed that up, could you please be robbed again?\pNo?\pOk then…"))
     hidenamebox
     release
@@ -88,7 +98,7 @@ script BATTLE_ROUTE24_WOODCUTTER_1{
 
 script BATTLE_ROUTE24_WOODCUTTER_2{
     trainerbattle_single(TRAINER_ROUTE24_WOODCUTTER_2, format("To chop down trees you need a hatchet like mine."),format("I bet you don't even have over 20 Woodcutting."))
-    namebox ("RSN")
+    namebox ("L0ggerh3ad")
     msgbox(format("I bet you don't even have over 20 Woodcutting."))
     hidenamebox
     release
@@ -97,7 +107,7 @@ script BATTLE_ROUTE24_WOODCUTTER_2{
 
 script BATTLE_ROUTE24_GOBLIN_1{
     trainerbattle_single(TRAINER_ROUTE24_GOBLIN_1, format("Prepare for battle human!"),format("Human prepare well."))
-    //namebox ("")
+    namebox ("Cleansbane")
     msgbox(format("Human prepare well."))
     hidenamebox
     release
@@ -159,9 +169,37 @@ script NPC_ROUTE24_NPC_2{
 //ROUTE 40
 script BATTLE_ROUTE40_DIVINER {
     trainerbattle_single(TRAINER_ROUTE40_DIVINER, format("I feel a strange power emanating from these rock formations."),format("I feel it!\nIt makes me feel all tingly!"))
-    namebox ("DIVINER")
+    namebox ("Nyx")
     msgbox(format("You feel it too don't you?\pThe strange power emanating from these rocks."))
     hidenamebox
     release
     end
+}
+
+
+
+
+
+
+
+
+
+
+
+
+script PURO_PURO_EVENT_ROUTE24 {
+    setmetatile(15, 27, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(14, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(15, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(17, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(14, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(15, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(17, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(15, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(17, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(18, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0)
+    setmetatile(16, 28, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0)
+    setmetatile(16, 29, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0)
+    setmetatile(16, 30, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0)
+	return
 }

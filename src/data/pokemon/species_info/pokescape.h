@@ -7,6 +7,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 
 
+
 [SPECIES_GUTHLING] =
 	{
 		.baseHP = 65,
@@ -54,7 +55,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 16, SPECIES_GUTHBIRD}
+			{EVO_LEVEL, 16, SPECIES_GUTHBIRD},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_GUTHATRICE}
 		),
 	},
 
@@ -204,7 +206,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 16, SPECIES_ZAMBIRD}
+			{EVO_LEVEL, 16, SPECIES_ZAMBIRD},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_ZAMATRICE}
 		),
 	},
 
@@ -354,7 +357,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 10,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 16, SPECIES_SARABIRD}
+			{EVO_LEVEL, 16, SPECIES_SARABIRD},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_SARATRICE}
 		),
 	},
 
@@ -439,7 +443,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A herald of Saradomin. These owls align\n"
 			"themselves to wise individuals who\n"
-			"respects law and order above all else."),
+			"respect law and order above all else."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -460,12 +464,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHICK] =
 	{
-		.baseHP = 55,
+		.baseHP = 58,
 		.baseAttack = 37,
-		.baseDefense = 40,
-		.baseSpeed = 45,
+		.baseDefense = 67,
+		.baseSpeed = 37,
 		.baseSpAttack = 37,
-		.baseSpDefense = 37,
+		.baseSpDefense = 64,
 		.types = { TYPE_NORMAL, TYPE_FLYING },
 		.catchRate = 255,
 		.expYield = 45,
@@ -521,6 +525,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_MAP_DESERT, 17, SPECIES_CHICKEN_LIZARD_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_GECKO, SPECIES_NEWTROOST},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SWORDFISH, SPECIES_SWORDCHICK},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COBRA_SPIRIT_FORM, SPECIES_MINITRICE},
 			{EVO_ITEM, ITEM_BAD_EGG, SPECIES_EVILCHICKEN}
 		),
 	},
@@ -608,8 +613,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 28.2,
 		.description = COMPOUND_STRING(
 			"While it is unclear how it is connected\n"
-			"to the evil chicken. They do share a\n"
-			"dreadfull magic attack."),
+			"to the Evil Chicken, they do share a\n"
+			"dreadful magic attack."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -621,7 +626,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dreadfowl),
-		ICON(Dreadfowl, 0),
+		ICON(Dreadfowl, 2),
 		.footprint = gMonFootprint_Dreadfowl,
 		LEARNSETS(Dreadfowl),
 		.frontPicYOffset = 0,
@@ -656,7 +661,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.4,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Hardened from the streets of Varrock,\n"
+			"this chicken can often be seen fighting\n"
+			"a Stray Dog for scraps of food."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -708,8 +715,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 28.2,
 		.description = COMPOUND_STRING(
 			"This chicken adapted to underwater life\n"
-			"after its home was sunken to the bottom\n"
-			"of the ocean."),
+			"after its home was sunk to the bottom of\n"
+			"the ocean."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -721,7 +728,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chicken_Diving_Form),
-		ICON(Chicken_Diving_Form, 0),
+		ICON(Chicken_Diving_Form, 2),
 		.footprint = gMonFootprint_Chicken_Diving_Form,
 		LEARNSETS(Chicken_Diving_Form),
 		.frontPicYOffset = 0,
@@ -756,7 +763,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.4,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"This chicken stowed away on a ship, and\n"
+			"has now adapted to the warmer Karamjan\n"
+			"climate."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -800,7 +809,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_CURSED_BODY, ABILITY_SHADOW_TAG, ABILITY_MUMMY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Chicken"),
+		.speciesName = _("Horses"),
 		.cryId = CRY_CHICKEN_DEATH_FORM,
 		.natDexNum = NATIONAL_DEX_CHICKEN_DEATH_FORM,
 		.categoryName = _("Death"),
@@ -821,7 +830,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chicken_Death_Form),
-		ICON(Chicken_Death_Form, 0),
+		ICON(Chicken_Death_Form, 1),
 		.footprint = gMonFootprint_Chicken_Death_Form,
 		LEARNSETS(Chicken_Death_Form),
 		.frontPicYOffset = 5,
@@ -856,7 +865,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.4,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Initially stolen by goblins for food,\n"
+			"this chicken is now a devout follower of\n"
+			"the Big High War God."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -868,7 +879,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chicken_Bandosian_Form),
-		ICON(Chicken_Bandosian_Form, 0),
+		ICON(Chicken_Bandosian_Form, 2),
 		.footprint = gMonFootprint_Chicken_Bandosian_Form,
 		LEARNSETS(Chicken_Bandosian_Form),
 		.frontPicYOffset = 0,
@@ -900,7 +911,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_TANGLED_FEET, ABILITY_TOUGH_CLAWS, ABILITY_TANGLED_FEET },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Chicken"),
+		.speciesName = _("Horses"),
 		.cryId = CRY_CHICKEN_WAR_FORM,
 		.natDexNum = NATIONAL_DEX_CHICKEN_WAR_FORM,
 		.categoryName = _("War"),
@@ -1008,7 +1019,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 21.0,
 		.description = COMPOUND_STRING(
-			"A coward went inside draynor manor as a\n"
+			"A coward went inside Draynor Manor as a\n"
 			"dare. Now his shape reflects his spirit."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -1056,7 +1067,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"As the inhabitants of Karamja are up\n"
+			"before sunrise to hunt, this rooster has\n"
+			"nothing to do. Due to this he's lost the\n"
+			"ability to crow at all."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1106,8 +1120,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 17.5,
 		.weight = 113.2,
 		.description = COMPOUND_STRING(
-			"Strictly found inside the kharazi\n"
-			"jungle, their meat is used in the\n"
+			"Strictly found inside the Kharazi\n"
+			"Jungle, their meat is used in the\n"
 			"renowned 'oomlie wrap'."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -1120,7 +1134,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Oomlie),
-		ICON(Oomlie, 0),
+		ICON(Oomlie, 2),
 		.footprint = gMonFootprint_Oomlie,
 		LEARNSETS(Oomlie),
 		.frontPicYOffset = 0,
@@ -1155,7 +1169,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Instead of signalling the start of the\n"
+			"day, these roosters have been trained to\n"
+			"crow as a war cry for the Big High War\n"
+			"God Bandos."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1167,7 +1184,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rooster_Bandosian_Form),
-		ICON(Rooster_Bandosian_Form, 0),
+		ICON(Rooster_Bandosian_Form, 2),
 		.footprint = gMonFootprint_Rooster_Bandosian_Form,
 		LEARNSETS(Rooster_Bandosian_Form),
 		.frontPicYOffset = 2,
@@ -1198,7 +1215,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_ADAPTABILITY, ABILITY_PICKPOCKET, ABILITY_PICKPOCKET },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Chicken"),
+		.speciesName = _("Horses"),
 		.cryId = CRY_CHICKEN_FAMINE_FORM,
 		.natDexNum = NATIONAL_DEX_CHICKEN_FAMINE_FORM,
 		.categoryName = _("Famine"),
@@ -1254,7 +1271,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 22.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"The sounds of this rooster crowing are\n"
+			"drowned out by the constant drone of\n"
+			"adventurers coming and going from the\n"
+			"Grand Exchange."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1266,7 +1286,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rooster_Varrock_Form),
-		ICON(Rooster_Varrock_Form, 0),
+		ICON(Rooster_Varrock_Form, 1),
 		.footprint = gMonFootprint_Rooster_Varrock_Form,
 		LEARNSETS(Rooster_Varrock_Form),
 		.frontPicYOffset = 1,
@@ -1297,7 +1317,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_STENCH, ABILITY_CORROSION, ABILITY_STENCH },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Chicken"),
+		.speciesName = _("Horses"),
 		.cryId = CRY_CHICKEN_PESTILENCE_FORM,
 		.natDexNum = NATIONAL_DEX_CHICKEN_PESTILENCE_FORM,
 		.categoryName = _("Pestilence"),
@@ -1318,7 +1338,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chicken_Pestilence_Form),
-		ICON(Chicken_Pestilence_Form, 0),
+		ICON(Chicken_Pestilence_Form, 1),
 		.footprint = gMonFootprint_Chicken_Pestilence_Form,
 		LEARNSETS(Chicken_Pestilence_Form),
 		.frontPicYOffset = 8,
@@ -1353,9 +1373,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.1,
 		.weight = 13.5,
 		.description = COMPOUND_STRING(
-			"It is unclear wether it is a lizard or a\n"
-			"chicken. Nor what came first, the egg or\n"
-			"the lizard."),
+			"It is unclear whether it is a lizard or\n"
+			"a chicken. Nor what came first, the egg\n"
+			"or the lizard."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1403,8 +1423,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 11.2,
 		.description = COMPOUND_STRING(
 			"Chickens who died, but became\n"
-			"reanimated. They mainly hail\n"
-			"fromMorytania."),
+			"reanimated. They mainly hail from\n"
+			"Morytania."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1478,10 +1498,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseAttack = 125,
 		.baseDefense = 85,
 		.baseSpeed = 95,
-		.baseSpAttack = 100,
+		.baseSpAttack = 120,
 		.baseSpDefense = 85,
 		.types = { TYPE_DARK, TYPE_FLYING },
-		.catchRate = 50,
+		.catchRate = 3,
 		.expYield = 152,
 		.evYield_Speed = 1,
 		.evYield_SpAttack = 2,
@@ -1492,9 +1512,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_PRESSURE, ABILITY_COMPETITIVE },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_INTIMIDATE, ABILITY_COMPETITIVE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("E. Chicken"),
+		.speciesName = _("Chicken"),
 		.cryId = CRY_EVILCHICKEN,
 		.natDexNum = NATIONAL_DEX_EVILCHICKEN,
 		.categoryName = _("EvilChicken"),
@@ -1515,7 +1535,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(EvilChicken),
-		ICON(EvilChicken, 1),
+		ICON(EvilChicken, 2),
 		.footprint = gMonFootprint_EvilChicken,
 		LEARNSETS(EvilChicken),
 		.frontPicYOffset = 0,
@@ -1541,7 +1561,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_HUSTLE, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+		.abilities = { ABILITY_HUSTLE, ABILITY_INTREPID_SWORD, ABILITY_NO_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Swordchick"),
 		.cryId = CRY_SWORDCHICK,
@@ -1552,7 +1572,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"With a beak mightier than any others, it\n"
 			"faces any opponents on land or sea. One\n"
-			"of the homunculus's greatest creations."),
+			"of the Homunculus's greatest creations."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1564,7 +1584,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Swordchick),
-		ICON(Swordchick, 0),
+		ICON(Swordchick, 2),
 		.footprint = gMonFootprint_Swordchick,
 		LEARNSETS(Swordchick),
 		.frontPicYOffset = 0,
@@ -1623,12 +1643,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CALF] =
 	{
-		.baseHP = 65,
+		.baseHP = 75,
 		.baseAttack = 50,
-		.baseDefense = 55,
+		.baseDefense = 64,
 		.baseSpeed = 35,
 		.baseSpAttack = 25,
-		.baseSpDefense = 21,
+		.baseSpDefense = 51,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 255,
 		.expYield = 42,
@@ -1674,7 +1694,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_VANILLA_MILK, SPECIES_COW_VANILLA_FORM},
 			{EVO_ITEM, ITEM_STRAWBERRY_MILK, SPECIES_COW_STRAWBERRY_FORM},
 			{EVO_ITEM, ITEM_CHOCOLATE_MILK, SPECIES_COW_CHOCOLATE_FORM},
-			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_MINOTAUR_NORMAL_FORM},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_MINOTAUR_NORMAL_FORM},
 			{EVO_LEVEL_MAP_MORYTANIA, 19, SPECIES_COW_UNDEAD_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_RAM_GOLDEN_FORM, SPECIES_TROJAN_COW},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_UNICORN_WHITE_FORM, SPECIES_UNICOW}
@@ -1723,7 +1743,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow),
-		ICON(Cow, 0),
+		ICON(Cow, 2),
 		.footprint = gMonFootprint_Cow,
 		LEARNSETS(Cow),
 		.frontPicYOffset = 1,
@@ -1757,7 +1777,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_BATTLE_ARMOR, ABILITY_THICK_FAT },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Super"),
+		.speciesName = _("Super Cow"),
 		.cryId = CRY_SUPER_COW,
 		.natDexNum = NATIONAL_DEX_SUPER_COW,
 		.categoryName = _("Super Cow"),
@@ -1778,7 +1798,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Super_Cow),
-		ICON(Super_Cow, 0),
+		ICON(Super_Cow, 2),
 		.footprint = gMonFootprint_Super_Cow,
 		LEARNSETS(Super_Cow),
 		.frontPicYOffset = 1,
@@ -1827,7 +1847,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Dairy_Form),
-		ICON(Cow_Dairy_Form, 0),
+		ICON(Cow_Dairy_Form, 2),
 		.footprint = gMonFootprint_Cow_Dairy_Form,
 		LEARNSETS(Cow_Dairy_Form),
 		.frontPicYOffset = 2,
@@ -1864,7 +1884,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 5157.4,
 		.description = COMPOUND_STRING(
 			"A cow who died in the ghastly lands of\n"
-			"Morytania. Do not drink it's milk."),
+			"Morytania. Do not drink its milk."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -1876,7 +1896,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Undead_Form),
-		ICON(Cow_Undead_Form, 0),
+		ICON(Cow_Undead_Form, 2),
 		.footprint = gMonFootprint_Cow_Undead_Form,
 		LEARNSETS(Cow_Undead_Form),
 		.frontPicYOffset = 0,
@@ -1887,7 +1907,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_RSHD_FORM, SPECIES_SKELETALOX_FEMALE_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_OSRS_FORM, SPECIES_SKELETALOX_FEMALE_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_RS3_FORM, SPECIES_SKELETALOX_FEMALE_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_PINK_FORM, SPECIES_SKELETALOX_FEMALE_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_PINK_FORM, SPECIES_SKELETALOX_FEMALE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULATRICE, SPECIES_SKELETALOX_FEMALE_FORM}
 		),
 	},
 
@@ -1910,7 +1931,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWEET_VEIL, ABILITY_THICK_FAT, ABILITY_WEAK_ARMOR },
+		.abilities = { ABILITY_SWEET_VEIL, ABILITY_SAP_SIPPER, ABILITY_WEAK_ARMOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Cow"),
 		.cryId = CRY_COW_CHOCOLATE_FORM,
@@ -1933,7 +1954,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Chocolate_Form),
-		ICON(Cow_Chocolate_Form, 0),
+		ICON(Cow_Chocolate_Form, 2),
 		.footprint = gMonFootprint_Cow_Chocolate_Form,
 		LEARNSETS(Cow_Chocolate_Form),
 		.frontPicYOffset = 3,
@@ -2014,7 +2035,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWEET_VEIL, ABILITY_GRASS_PELT, ABILITY_GRASS_PELT },
+		.abilities = { ABILITY_SWEET_VEIL, ABILITY_SAP_SIPPER, ABILITY_GRASS_PELT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Cow"),
 		.cryId = CRY_COW_VANILLA_FORM,
@@ -2037,7 +2058,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Vanilla_Form),
-		ICON(Cow_Vanilla_Form, 0),
+		ICON(Cow_Vanilla_Form, 2),
 		.footprint = gMonFootprint_Cow_Vanilla_Form,
 		LEARNSETS(Cow_Vanilla_Form),
 		.frontPicYOffset = 3,
@@ -2066,7 +2087,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWEET_VEIL, ABILITY_TRIAGE, ABILITY_THICK_FAT },
+		.abilities = { ABILITY_SWEET_VEIL, ABILITY_SAP_SIPPER, ABILITY_THICK_FAT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Cow"),
 		.cryId = CRY_COW_HARLEQUIN_FORM,
@@ -2089,7 +2110,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Harlequin_Form),
-		ICON(Cow_Harlequin_Form, 0),
+		ICON(Cow_Harlequin_Form, 2),
 		.footprint = gMonFootprint_Cow_Harlequin_Form,
 		LEARNSETS(Cow_Harlequin_Form),
 		.frontPicYOffset = 4,
@@ -2116,7 +2137,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_ANGER_POINT, ABILITY_ANGER_POINT },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_PERISH_BODY, ABILITY_ANGER_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("SkeletalOx"),
 		.cryId = CRY_SKELETALOX_FEMALE_FORM,
@@ -2125,7 +2146,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 13.5,
 		.weight = 6984.9,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"An undead bovine who has lost its skin.\n"
+			"For some reason, this one is prone to\n"
+			"sneezing. How can something sneeze\n"
+			"without any lungs..?"),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -2193,6 +2217,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_CATABLEPON},
 			{EVO_LEVEL, 32, SPECIES_BULL_ELDER_FORM},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_MINOTAUR_NORMAL_FORM},
 			{EVO_LEVEL_MALE_DEATH, 32, SPECIES_SKELETALOX_MALE_FORM},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_SKELETALOX_MALE_FORM}
 		),
@@ -2240,7 +2265,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bull_Elder_Form),
-		ICON(Bull_Elder_Form, 0),
+		ICON(Bull_Elder_Form, 2),
 		.footprint = gMonFootprint_Bull_Elder_Form,
 		LEARNSETS(Bull_Elder_Form),
 		.frontPicYOffset = 2,
@@ -2267,7 +2292,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_ANGER_POINT, ABILITY_ANGER_POINT },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_PERISH_BODY, ABILITY_ANGER_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("SkeletalOx"),
 		.cryId = CRY_SKELETALOX_MALE_FORM,
@@ -2316,7 +2341,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_FLUFFY, ABILITY_WEAK_ARMOR, ABILITY_WEAK_ARMOR },
+		.abilities = { ABILITY_FLUFFY, ABILITY_COTTON_DOWN, ABILITY_WEAK_ARMOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Trojan Cow"),
 		.cryId = CRY_TROJAN_COW,
@@ -2339,7 +2364,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Trojan_Cow),
-		ICON(Trojan_Cow, 0),
+		ICON(Trojan_Cow, 2),
 		.footprint = gMonFootprint_Trojan_Cow,
 		LEARNSETS(Trojan_Cow),
 		.frontPicYOffset = 3,
@@ -2375,7 +2400,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 7406.4,
 		.description = COMPOUND_STRING(
 			"The cows of Sophanem and Menaphos were\n"
-			"cursed by the devourer, and are thus\n"
+			"cursed by the Devourer, and are thus\n"
 			"slowly awaiting death."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -2388,7 +2413,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cow_Plague_Form),
-		ICON(Cow_Plague_Form, 0),
+		ICON(Cow_Plague_Form, 1),
 		.footprint = gMonFootprint_Cow_Plague_Form,
 		LEARNSETS(Cow_Plague_Form),
 		.frontPicYOffset = 10,
@@ -2528,7 +2553,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 2607.6,
 		.description = COMPOUND_STRING(
 			"An experiment crossing the purity of a\n"
-			"unicorn, with the shape of a cow. It's\n"
+			"unicorn, with the shape of a cow. Its\n"
 			"purity it still in question."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -2541,7 +2566,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicow),
-		ICON(Unicow, 0),
+		ICON(Unicow, 2),
 		.footprint = gMonFootprint_Unicow,
 		LEARNSETS(Unicow),
 		.frontPicYOffset = 0,
@@ -2551,11 +2576,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_RAT_NORMAL_FORM] =
 	{
 		.baseHP = 35,
-		.baseAttack = 45,
-		.baseDefense = 35,
-		.baseSpeed = 66,
-		.baseSpAttack = 35,
-		.baseSpDefense = 35,
+		.baseAttack = 55,
+		.baseDefense = 50,
+		.baseSpeed = 70,
+		.baseSpAttack = 45,
+		.baseSpDefense = 45,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 255,
 		.expYield = 42,
@@ -2642,7 +2667,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Rat_Normal_Form),
-		ICON(Giant_Rat_Normal_Form, 0),
+		ICON(Giant_Rat_Normal_Form, 2),
 		.footprint = gMonFootprint_Giant_Rat_Normal_Form,
 		LEARNSETS(Giant_Rat_Normal_Form),
 		.frontPicYOffset = 0,
@@ -2650,7 +2675,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_GIANT_RAT_BLESSED_FORM},
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_BRINE_RAT},
-			{EVO_LEVEL, 28, SPECIES_ALBINO_RAT},
+			{EVO_LEVEL, 29, SPECIES_ALBINO_RAT},
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_RAT_FUNGAL_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGE_FORM, SPECIES_EXPERIMENT_2_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGER_FORM, SPECIES_EXPERIMENT_2_FORM},
@@ -2661,12 +2686,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_BRINE_RAT] =
 	{
-		.baseHP = 80,
-		.baseAttack = 80,
+		.baseHP = 100,
+		.baseAttack = 105,
 		.baseDefense = 70,
-		.baseSpeed = 60,
+		.baseSpeed = 50,
 		.baseSpAttack = 80,
-		.baseSpDefense = 70,
+		.baseSpDefense = 75,
 		.types = { TYPE_DARK, TYPE_WATER },
 		.catchRate = 90,
 		.expYield = 130,
@@ -2712,9 +2737,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseHP = 70,
 		.baseAttack = 60,
 		.baseDefense = 60,
-		.baseSpeed = 65,
-		.baseSpAttack = 100,
-		.baseSpDefense = 85,
+		.baseSpeed = 75,
+		.baseSpAttack = 110,
+		.baseSpDefense = 105,
 		.types = { TYPE_DARK, TYPE_ELECTRIC },
 		.catchRate = 90,
 		.expYield = 130,
@@ -2726,7 +2751,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_LIGHTNING_ROD, ABILITY_STRONG_JAW, ABILITY_VOLT_ABSORB },
+		.abilities = { ABILITY_SURGE_SURFER, ABILITY_STRONG_JAW, ABILITY_VOLT_ABSORB },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Giant Rat"),
 		.cryId = CRY_GIANT_RAT_BLESSED_FORM,
@@ -2735,9 +2760,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 7.4,
 		.weight = 102.5,
 		.description = COMPOUND_STRING(
-			"Iban, son of zamorak blessed these\n"
-			"beings. Making them stronger than\n"
-			"regular rats."),
+			"Iban, son of Zamorak, blessed these\n"
+			"beings making them stronger than regular\n"
+			"rats."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -2749,7 +2774,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Rat_Blessed_Form),
-		ICON(Giant_Rat_Blessed_Form, 0),
+		ICON(Giant_Rat_Blessed_Form, 1),
 		.footprint = gMonFootprint_Giant_Rat_Blessed_Form,
 		LEARNSETS(Giant_Rat_Blessed_Form),
 		.frontPicYOffset = 0,
@@ -2758,12 +2783,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RAT_HELL_FORM] =
 	{
-		.baseHP = 40,
+		.baseHP = 60,
 		.baseAttack = 45,
-		.baseDefense = 40,
+		.baseDefense = 50,
 		.baseSpeed = 45,
 		.baseSpAttack = 45,
-		.baseSpDefense = 35,
+		.baseSpDefense = 55,
 		.types = { TYPE_DARK, TYPE_FIRE },
 		.catchRate = 120,
 		.expYield = 117,
@@ -2810,11 +2835,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_GIANT_RAT_HELL_FORM] =
 	{
-		.baseHP = 80,
-		.baseAttack = 85,
+		.baseHP = 75,
+		.baseAttack = 95,
 		.baseDefense = 65,
-		.baseSpeed = 60,
-		.baseSpAttack = 90,
+		.baseSpeed = 80,
+		.baseSpAttack = 105,
 		.baseSpDefense = 60,
 		.types = { TYPE_DARK, TYPE_FIRE },
 		.catchRate = 90,
@@ -2849,7 +2874,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Rat_Hell_Form),
-		ICON(Giant_Rat_Hell_Form, 2),
+		ICON(Giant_Rat_Hell_Form, 0),
 		.footprint = gMonFootprint_Giant_Rat_Hell_Form,
 		LEARNSETS(Giant_Rat_Hell_Form),
 		.frontPicYOffset = 5,
@@ -2858,12 +2883,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SHELL_RAT] =
 	{
-		.baseHP = 85,
-		.baseAttack = 50,
-		.baseDefense = 95,
-		.baseSpeed = 40,
-		.baseSpAttack = 45,
-		.baseSpDefense = 95,
+		.baseHP = 95,
+		.baseAttack = 65,
+		.baseDefense = 105,
+		.baseSpeed = 35,
+		.baseSpAttack = 70,
+		.baseSpDefense = 110,
 		.types = { TYPE_DARK, TYPE_FIRE },
 		.catchRate = 90,
 		.expYield = 120,
@@ -2908,12 +2933,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RAT_CRYPT_FORM] =
 	{
-		.baseHP = 40,
-		.baseAttack = 30,
-		.baseDefense = 40,
-		.baseSpeed = 30,
-		.baseSpAttack = 35,
-		.baseSpDefense = 35,
+		.baseHP = 70,
+		.baseAttack = 35,
+		.baseDefense = 65,
+		.baseSpeed = 40,
+		.baseSpAttack = 32,
+		.baseSpDefense = 58,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 120,
 		.expYield = 120,
@@ -2934,7 +2959,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 1.0,
 		.weight = 4.1,
 		.description = COMPOUND_STRING(
-			"The crypts of morytania warped these\n"
+			"The crypts of Morytania warped these\n"
 			"small rats, hardening their skills and\n"
 			"aggresion."),
 		.pokemonScale = 256,
@@ -2954,19 +2979,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 23, SPECIES_GIANT_RAT_CRYPT_FORM},
+			{EVO_LEVEL, 17, SPECIES_GIANT_RAT_CRYPT_FORM},
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_RAT_HELL_FORM}
 		),
 	},
 
 [SPECIES_GIANT_RAT_CRYPT_FORM] =
 	{
-		.baseHP = 70,
+		.baseHP = 75,
 		.baseAttack = 60,
 		.baseDefense = 60,
 		.baseSpeed = 50,
 		.baseSpAttack = 60,
-		.baseSpDefense = 70,
+		.baseSpDefense = 65,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 90,
 		.expYield = 130,
@@ -3007,8 +3032,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 32, SPECIES_GIANT_RAT_DUNGEON_FORM},
-			{EVO_LEVEL_NIGHT, 32, SPECIES_ZOMBIE_RAT},
+			{EVO_LEVEL_DAY, 29, SPECIES_GIANT_RAT_DUNGEON_FORM},
+			{EVO_LEVEL_NIGHT, 29, SPECIES_ZOMBIE_RAT},
 			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_RAT_GAUNTLET_CRYSTALLINE_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGE_FORM, SPECIES_EXPERIMENT_2_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGER_FORM, SPECIES_EXPERIMENT_2_FORM},
@@ -3020,10 +3045,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_WARPED_RAT] =
 	{
 		.baseHP = 80,
-		.baseAttack = 50,
+		.baseAttack = 70,
 		.baseDefense = 65,
-		.baseSpeed = 60,
-		.baseSpAttack = 85,
+		.baseSpeed = 70,
+		.baseSpAttack = 95,
 		.baseSpDefense = 100,
 		.types = { TYPE_DARK, TYPE_PSYCHIC },
 		.catchRate = 90,
@@ -3059,7 +3084,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Warped_Rat),
-		ICON(Warped_Rat, 0),
+		ICON(Warped_Rat, 2),
 		.footprint = gMonFootprint_Warped_Rat,
 		LEARNSETS(Warped_Rat),
 		.frontPicYOffset = 1,
@@ -3068,12 +3093,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ZOMBIE_RAT] =
 	{
-		.baseHP = 60,
+		.baseHP = 90,
 		.baseAttack = 70,
-		.baseDefense = 100,
-		.baseSpeed = 70,
+		.baseDefense = 120,
+		.baseSpeed = 80,
 		.baseSpAttack = 75,
-		.baseSpDefense = 65,
+		.baseSpDefense = 45,
 		.types = { TYPE_DARK, TYPE_GHOST },
 		.catchRate = 90,
 		.expYield = 132,
@@ -3108,7 +3133,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zombie_Rat),
-		ICON(Zombie_Rat, 0),
+		ICON(Zombie_Rat, 1),
 		.footprint = gMonFootprint_Zombie_Rat,
 		LEARNSETS(Zombie_Rat),
 		.frontPicYOffset = 0,
@@ -3118,11 +3143,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_GIANT_RAT_DUNGEON_FORM] =
 	{
 		.baseHP = 70,
-		.baseAttack = 85,
+		.baseAttack = 95,
 		.baseDefense = 65,
-		.baseSpeed = 85,
+		.baseSpeed = 105,
 		.baseSpAttack = 70,
-		.baseSpDefense = 65,
+		.baseSpDefense = 75,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 90,
 		.expYield = 132,
@@ -3168,10 +3193,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 35,
 		.baseAttack = 55,
-		.baseDefense = 40,
+		.baseDefense = 52,
 		.baseSpeed = 50,
 		.baseSpAttack = 40,
-		.baseSpDefense = 30,
+		.baseSpDefense = 68,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 120,
 		.expYield = 132,
@@ -3183,9 +3208,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_RUN_AWAY, ABILITY_PRESSURE },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_WIMP_OUT, ABILITY_PRESSURE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Rat"),
+		.speciesName = _("King Rat"),
 		.cryId = CRY_RAT_KING_FORM,
 		.natDexNum = NATIONAL_DEX_RAT_KING_FORM,
 		.categoryName = _("Rat Master"),
@@ -3206,25 +3231,25 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rat_King_Form),
-		ICON(Rat_King_Form, 0),
+		ICON(Rat_King_Form, 2),
 		.footprint = gMonFootprint_Rat_King_Form,
 		LEARNSETS(Rat_King_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 23, SPECIES_GIANT_RAT_KING_FORM},
+			{EVO_LEVEL, 17, SPECIES_GIANT_RAT_KING_FORM},
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_RAT_HELL_FORM}
 		),
 	},
 
 [SPECIES_GIANT_RAT_KING_FORM] =
 	{
-		.baseHP = 63,
-		.baseAttack = 75,
+		.baseHP = 73,
+		.baseAttack = 85,
 		.baseDefense = 73,
 		.baseSpeed = 76,
-		.baseSpAttack = 83,
-		.baseSpDefense = 70,
+		.baseSpAttack = 93,
+		.baseSpDefense = 80,
 		.types = { TYPE_DARK, TYPE_FAIRY },
 		.catchRate = 90,
 		.expYield = 132,
@@ -3238,7 +3263,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_EMERGENCY_EXIT, ABILITY_PRESSURE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Giant Rat"),
+		.speciesName = _("King Rat"),
 		.cryId = CRY_GIANT_RAT_KING_FORM,
 		.natDexNum = NATIONAL_DEX_GIANT_RAT_KING_FORM,
 		.categoryName = _("Majestic"),
@@ -3259,14 +3284,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Rat_King_Form),
-		ICON(Giant_Rat_King_Form, 0),
+		ICON(Giant_Rat_King_Form, 2),
 		.footprint = gMonFootprint_Giant_Rat_King_Form,
 		LEARNSETS(Giant_Rat_King_Form),
 		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 32, SPECIES_WARPED_RAT},
-			{EVO_LEVEL_NIGHT, 32, SPECIES_ANGRY_RAT},
+			{EVO_LEVEL_DAY, 29, SPECIES_WARPED_RAT},
+			{EVO_LEVEL_NIGHT, 29, SPECIES_ANGRY_RAT},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_RAT_GAUNTLET_CORRUPTED_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGE_FORM, SPECIES_EXPERIMENT_2_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PLANT_STRANGER_FORM, SPECIES_EXPERIMENT_2_FORM},
@@ -3277,12 +3302,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ALBINO_RAT] =
 	{
-		.baseHP = 70,
-		.baseAttack = 85,
+		.baseHP = 80,
+		.baseAttack = 95,
 		.baseDefense = 70,
-		.baseSpeed = 80,
+		.baseSpeed = 90,
 		.baseSpAttack = 60,
-		.baseSpDefense = 75,
+		.baseSpDefense = 85,
 		.types = { TYPE_DARK, TYPE_NORMAL },
 		.catchRate = 90,
 		.expYield = 132,
@@ -3318,7 +3343,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Albino_Rat),
-		ICON(Albino_Rat, 0),
+		ICON(Albino_Rat, 2),
 		.footprint = gMonFootprint_Albino_Rat,
 		LEARNSETS(Albino_Rat),
 		.frontPicYOffset = 2,
@@ -3328,11 +3353,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_ANGRY_RAT] =
 	{
 		.baseHP = 60,
-		.baseAttack = 100,
+		.baseAttack = 130,
 		.baseDefense = 70,
-		.baseSpeed = 60,
-		.baseSpAttack = 80,
-		.baseSpDefense = 70,
+		.baseSpeed = 90,
+		.baseSpAttack = 70,
+		.baseSpDefense = 60,
 		.types = { TYPE_DARK, TYPE_FIGHTING },
 		.catchRate = 90,
 		.expYield = 132,
@@ -3375,11 +3400,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_EXPERIMENT_2_FORM] =
 	{
-		.baseHP = 80,
-		.baseAttack = 95,
+		.baseHP = 100,
+		.baseAttack = 105,
 		.baseDefense = 70,
 		.baseSpeed = 70,
-		.baseSpAttack = 65,
+		.baseSpAttack = 75,
 		.baseSpDefense = 60,
 		.types = { TYPE_DARK, TYPE_GRASS },
 		.catchRate = 90,
@@ -3414,7 +3439,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Experiment_2_Form),
-		ICON(Experiment_2_Form, 0),
+		ICON(Experiment_2_Form, 2),
 		.footprint = gMonFootprint_Experiment_2_Form,
 		LEARNSETS(Experiment_2_Form),
 		.frontPicYOffset = 0,
@@ -3423,12 +3448,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_LAMB] =
 	{
-		.baseHP = 65,
+		.baseHP = 67,
 		.baseAttack = 34,
-		.baseDefense = 50,
+		.baseDefense = 67,
 		.baseSpeed = 40,
 		.baseSpAttack = 34,
-		.baseSpDefense = 28,
+		.baseSpDefense = 58,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 250,
 		.expYield = 31,
@@ -3514,7 +3539,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sheep_White_Form),
-		ICON(Sheep_White_Form, 0),
+		ICON(Sheep_White_Form, 2),
 		.footprint = gMonFootprint_Sheep_White_Form,
 		LEARNSETS(Sheep_White_Form),
 		.frontPicYOffset = 0,
@@ -3523,7 +3548,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_DAY, 30, SPECIES_SHEEP_PLAGUE_FORM},
 			{EVO_LEVEL_NIGHT, 30, SPECIES_SHEEP_BLACK_FORM},
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_SHEEP_PIRATE_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_WOLF_JUVENILE_FORM, SPECIES_EXPERIMENT_3_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_WOLF_JUVENILE_FORM, SPECIES_EXPERIMENT_3_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_PIRATE_FORM, SPECIES_SHEEP_PIRATE_FORM}
 		),
 	},
 
@@ -3546,7 +3572,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_FLUFFY, ABILITY_NORMALIZE, ABILITY_NORMALIZE },
+		.abilities = { ABILITY_NORMALIZE, ABILITY_FLUFFY, ABILITY_NORMALIZE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Sheep"),
 		.cryId = CRY_SHEEP_PLAGUE_FORM,
@@ -3569,7 +3595,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sheep_Plague_Form),
-		ICON(Sheep_Plague_Form, 0),
+		ICON(Sheep_Plague_Form, 1),
 		.footprint = gMonFootprint_Sheep_Plague_Form,
 		LEARNSETS(Sheep_Plague_Form),
 		.frontPicYOffset = 8,
@@ -3596,9 +3622,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SCRAPPY, ABILITY_INTIMIDATE, ABILITY_SCRAPPY },
+		.abilities = { ABILITY_SCRAPPY, ABILITY_MOXIE, ABILITY_SCRAPPY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Sheep"),
+		.speciesName = _("BlackSheep"),
 		.cryId = CRY_SHEEP_BLACK_FORM,
 		.natDexNum = NATIONAL_DEX_SHEEP_BLACK_FORM,
 		.categoryName = _("Black Sheep"),
@@ -3638,14 +3664,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 90,
 		.expYield = 109,
 		.evYield_Defense = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SOUNDPROOF, ABILITY_FLUFFY, ABILITY_FLUFFY },
+		.abilities = { ABILITY_FUR_COAT, ABILITY_FLUFFY, ABILITY_FLUFFY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Ram"),
 		.cryId = CRY_RAM_FLUFFY_FORM,
@@ -3654,7 +3680,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Its horns signals its ready to fight\n"
+			"Its horns signals it's ready to fight\n"
 			"other males for dominance."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -3667,7 +3693,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ram_Fluffy_Form),
-		ICON(Ram_Fluffy_Form, 0),
+		ICON(Ram_Fluffy_Form, 2),
 		.footprint = gMonFootprint_Ram_Fluffy_Form,
 		LEARNSETS(Ram_Fluffy_Form),
 		.frontPicYOffset = 0,
@@ -3676,7 +3702,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_DAY, 30, SPECIES_RAM_SHAGGY_FORM},
 			{EVO_LEVEL_NIGHT, 30, SPECIES_RAM_GOLDEN_FORM},
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_SHEEP_PIRATE_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_WOLF_JUVENILE_FORM, SPECIES_EXPERIMENT_3_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_WOLF_JUVENILE_FORM, SPECIES_EXPERIMENT_3_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_PIRATE_FORM, SPECIES_SHEEP_PIRATE_FORM}
 		),
 	},
 
@@ -3689,17 +3716,17 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 70,
 		.baseSpDefense = 75,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
-		.catchRate = 45,
+		.catchRate = 90,
 		.expYield = 124,
 		.evYield_Defense = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SOUNDPROOF, ABILITY_FLUFFY, ABILITY_FLUFFY },
+		.abilities = { ABILITY_FUR_COAT, ABILITY_FLUFFY, ABILITY_FLUFFY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Ram"),
 		.cryId = CRY_RAM_SHAGGY_FORM,
@@ -3709,7 +3736,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 625.1,
 		.description = COMPOUND_STRING(
 			"Not as easily sheared as sheep, these\n"
-			"monsters enjoy to strike back at\n"
+			"monsters enjoy striking back at\n"
 			"unprepared adventurers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -3722,7 +3749,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ram_Shaggy_Form),
-		ICON(Ram_Shaggy_Form, 0),
+		ICON(Ram_Shaggy_Form, 2),
 		.footprint = gMonFootprint_Ram_Shaggy_Form,
 		LEARNSETS(Ram_Shaggy_Form),
 		.frontPicYOffset = 7,
@@ -3748,9 +3775,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_FLUFFY, ABILITY_INTIMIDATE, ABILITY_FLUFFY },
+		.abilities = { ABILITY_COTTON_DOWN, ABILITY_GOOD_AS_GOLD, ABILITY_FLUFFY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Ram"),
+		.speciesName = _("Golden Ram"),
 		.cryId = CRY_RAM_GOLDEN_FORM,
 		.natDexNum = NATIONAL_DEX_RAM_GOLDEN_FORM,
 		.categoryName = _("Gold Ram"),
@@ -3771,7 +3798,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ram_Golden_Form),
-		ICON(Ram_Golden_Form, 0),
+		ICON(Ram_Golden_Form, 2),
 		.footprint = gMonFootprint_Ram_Golden_Form,
 		LEARNSETS(Ram_Golden_Form),
 		.frontPicYOffset = 1,
@@ -3831,14 +3858,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_GOAT_BILLY_FORM] =
 	{
-		.baseHP = 40,
+		.baseHP = 50,
 		.baseAttack = 60,
-		.baseDefense = 40,
-		.baseSpeed = 60,
+		.baseDefense = 55,
+		.baseSpeed = 65,
 		.baseSpAttack = 20,
-		.baseSpDefense = 45,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
-		.catchRate = 90,
+		.catchRate = 120,
 		.expYield = 105,
 		.evYield_Defense = 1,
 		.evYield_Speed = 1,
@@ -3858,7 +3885,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 10.2,
 		.weight = 499.0,
 		.description = COMPOUND_STRING(
-			"Known for eating mostly anything, these\n"
+			"Known for eating almost anything, these\n"
 			"goats are great for controlling\n"
 			"grasslands on the mountain."),
 		.pokemonScale = 256,
@@ -3892,7 +3919,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 60,
 		.baseSpDefense = 40,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
-		.catchRate = 45,
+		.catchRate = 90,
 		.expYield = 120,
 		.evYield_Defense = 1,
 		.evYield_Speed = 2,
@@ -3926,7 +3953,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Goat_Desert_Form),
-		ICON(Goat_Desert_Form, 0),
+		ICON(Goat_Desert_Form, 2),
 		.footprint = gMonFootprint_Goat_Desert_Form,
 		LEARNSETS(Goat_Desert_Form),
 		.frontPicYOffset = 1,
@@ -3969,7 +3996,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 499.0,
 		.description = COMPOUND_STRING(
 			"Their hooves are so expertly crafted,\n"
-			"they can climb even the steepes\n"
+			"they can climb even the steepest\n"
 			"mountain. Despite this, they are often\n"
 			"used for soup."),
 		.pokemonScale = 256,
@@ -3983,7 +4010,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Goat_Mountain_Form),
-		ICON(Goat_Mountain_Form, 0),
+		ICON(Goat_Mountain_Form, 2),
 		.footprint = gMonFootprint_Goat_Mountain_Form,
 		LEARNSETS(Goat_Mountain_Form),
 		.frontPicYOffset = 0,
@@ -4042,12 +4069,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SARDINE] =
 	{
-		.baseHP = 35,
-		.baseAttack = 35,
-		.baseDefense = 40,
-		.baseSpeed = 45,
-		.baseSpAttack = 55,
-		.baseSpDefense = 45,
+		.baseHP = 50,
+		.baseAttack = 45,
+		.baseDefense = 48,
+		.baseSpeed = 50,
+		.baseSpAttack = 57,
+		.baseSpDefense = 50,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 255,
 		.expYield = 34,
@@ -4081,7 +4108,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sardine),
-		ICON(Sardine, 0),
+		ICON(Sardine, 1),
 		.footprint = gMonFootprint_Sardine,
 		LEARNSETS(Sardine),
 		.frontPicYOffset = 0,
@@ -4218,7 +4245,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
-		.abilities = { ABILITY_SWIFT_SWIM, ABILITY_OWN_TEMPO, ABILITY_DEFIANT },
+		.abilities = { ABILITY_SWIFT_SWIM, ABILITY_SHARPNESS, ABILITY_DEFIANT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Swordfish"),
 		.cryId = CRY_SWORDFISH,
@@ -4275,7 +4302,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.5,
 		.weight = 73.9,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"As they are much more agile than regular\n"
+			"Trout, these fish are often only caught\n"
+			"by those who have received Barbarian\n"
+			"training."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -4374,7 +4404,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.5,
 		.weight = 73.9,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Accustomed to a warmer climate, these\n"
+			"fish usually appear in rock pools by the\n"
+			"beach during the height of summer."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -4496,6 +4528,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Thallasus),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
+		.isMegaEvolution = TRUE,
+		.formSpeciesIdTable = sSailfishFormSpeciesIdTable,
+		.formChangeTable = sSailfishFormChangeTable,
 	},
 
 [SPECIES_BASS] =
@@ -4528,7 +4563,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Often dropped on the ground by\n"
 			"adventurers. These fish often feel\n"
-			"lonely and alone."),
+			"lonely and neglected."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -4581,7 +4616,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 39.0,
 		.description = COMPOUND_STRING(
 			"When it is time to mate, these fish will\n"
-			"climb the baxtorian falls, avoiding the\n"
+			"climb the Baxtorian Falls, avoiding the\n"
 			"whirlpools, to find a mate."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -4732,7 +4767,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.5,
 		.weight = 39.0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Scaling the Baxtorian Falls has left\n"
+			"these fish significantly more agile and\n"
+			"much more difficult to bait."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -4825,7 +4862,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_ROUGH_SKIN, ABILITY_RECKLESS },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Shark"),
+		.speciesName = _("TigerShark"),
 		.cryId = CRY_SHARK_TIGER_FORM,
 		.natDexNum = NATIONAL_DEX_SHARK_TIGER_FORM,
 		.categoryName = _("Prowling"),
@@ -4856,12 +4893,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MACKEREL] =
 	{
-		.baseHP = 50,
-		.baseAttack = 30,
-		.baseDefense = 35,
-		.baseSpeed = 40,
+		.baseHP = 65,
+		.baseAttack = 40,
+		.baseDefense = 45,
+		.baseSpeed = 43,
 		.baseSpAttack = 55,
-		.baseSpDefense = 40,
+		.baseSpDefense = 55,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 130,
 		.expYield = 94,
@@ -4883,8 +4920,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 1.5,
 		.weight = 145.2,
 		.description = COMPOUND_STRING(
-			"During the reign of Captain Rabid Jack.\n"
-			"A man was filled to the brim with\n"
+			"During the reign of Captain Rabid Jack,\n"
+			"a man was filled to the brim with\n"
 			"mackerels as punishment."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -4897,7 +4934,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Mackerel),
-		ICON(Mackerel, 0),
+		ICON(Mackerel, 2),
 		.footprint = gMonFootprint_Mackerel,
 		LEARNSETS(Mackerel),
 		.frontPicYOffset = 0,
@@ -4936,7 +4973,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.0,
 		.weight = 204.1,
 		.description = COMPOUND_STRING(
-			"Despite it's name, it is not a cat. But\n"
+			"Despite its name, it is not a cat but\n"
 			"rather a fish. The whiskers threw marine\n"
 			"biologists off."),
 		.pokemonScale = 256,
@@ -4982,7 +5019,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
 		.abilities = { ABILITY_ROUGH_SKIN, ABILITY_DAZZLING, ABILITY_DEFIANT },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Shark"),
+		.speciesName = _("BaronShark"),
 		.cryId = CRY_SHARK_BARON_FORM,
 		.natDexNum = NATIONAL_DEX_SHARK_BARON_FORM,
 		.categoryName = _("Sparkling"),
@@ -5155,7 +5192,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(DesertSole),
-		ICON(DesertSole, 0),
+		ICON(DesertSole, 2),
 		.footprint = gMonFootprint_DesertSole,
 		LEARNSETS(DesertSole),
 		.frontPicYOffset = 17,
@@ -5191,7 +5228,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 1.5,
 		.weight = 36.3,
 		.description = COMPOUND_STRING(
-			"A rare fish from the arc. It scours the\n"
+			"A rare fish from the Arc. It scours the\n"
 			"reef hiding from predators and looking\n"
 			"for food."),
 		.pokemonScale = 256,
@@ -5205,7 +5242,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sillago),
-		ICON(Sillago, 0),
+		ICON(Sillago, 2),
 		.footprint = gMonFootprint_Sillago,
 		LEARNSETS(Sillago),
 		.frontPicYOffset = 10,
@@ -5244,9 +5281,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 3.6,
 		.weight = 118.0,
 		.description = COMPOUND_STRING(
-			"Despite its ferocious look, it is\n"
-			"actully not a dangereous shark to humans\n"
-			"and prefer to hunt small fish."),
+			"Despite its ferocious look it is\n"
+			"actually not dangerous to humans,\n"
+			"preferring to hunt small fish."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -5267,9 +5304,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KARAMBWANJ] =
 	{
-		.baseHP = 50,
+		.baseHP = 60,
 		.baseAttack = 50,
-		.baseDefense = 50,
+		.baseDefense = 60,
 		.baseSpeed = 35,
 		.baseSpAttack = 45,
 		.baseSpDefense = 50,
@@ -5308,7 +5345,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Karambwanj),
-		ICON(Karambwanj, 0),
+		ICON(Karambwanj, 1),
 		.footprint = gMonFootprint_Karambwanj,
 		LEARNSETS(Karambwanj),
 		.frontPicYOffset = 10,
@@ -5362,7 +5399,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Karambwan),
-		ICON(Karambwan, 0),
+		ICON(Karambwan, 1),
 		.footprint = gMonFootprint_Karambwan,
 		LEARNSETS(Karambwan),
 		.frontPicYOffset = 3,
@@ -5376,10 +5413,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 70,
 		.baseAttack = 35,
-		.baseDefense = 35,
+		.baseDefense = 55,
 		.baseSpeed = 60,
 		.baseSpAttack = 35,
-		.baseSpDefense = 40,
+		.baseSpDefense = 45,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 110,
 		.expYield = 108,
@@ -5453,7 +5490,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 122.5,
 		.description = COMPOUND_STRING(
 			"A fish so long it could be used as a\n"
-			"belt. Apparently this is how it got it's\n"
+			"belt. Apparently this is how it got its\n"
 			"name."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -5527,11 +5564,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_COD] =
 	{
-		.baseHP = 60,
-		.baseAttack = 40,
-		.baseDefense = 30,
-		.baseSpeed = 20,
-		.baseSpAttack = 40,
+		.baseHP = 68,
+		.baseAttack = 42,
+		.baseDefense = 55,
+		.baseSpeed = 30,
+		.baseSpAttack = 45,
 		.baseSpDefense = 60,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 200,
@@ -5648,7 +5685,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
-		.abilities = { ABILITY_ROUGH_SKIN, ABILITY_QUEENLY_MAJESTY, ABILITY_DEFIANT },
+		.abilities = { ABILITY_GOOD_AS_GOLD, ABILITY_QUEENLY_MAJESTY, ABILITY_DEFIANT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Shark"),
 		.cryId = CRY_SHARK_GOLDEN_FORM,
@@ -5680,12 +5717,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PIKE] =
 	{
-		.baseHP = 50,
+		.baseHP = 65,
 		.baseAttack = 50,
-		.baseDefense = 30,
-		.baseSpeed = 30,
-		.baseSpAttack = 40,
-		.baseSpDefense = 30,
+		.baseDefense = 55,
+		.baseSpeed = 35,
+		.baseSpAttack = 43,
+		.baseSpDefense = 55,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 180,
 		.expYield = 53,
@@ -5720,7 +5757,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pike),
-		ICON(Pike, 0),
+		ICON(Pike, 1),
 		.footprint = gMonFootprint_Pike,
 		LEARNSETS(Pike),
 		.frontPicYOffset = 0,
@@ -5772,7 +5809,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkfish_Normal_Form),
-		ICON(Monkfish_Normal_Form, 0),
+		ICON(Monkfish_Normal_Form, 2),
 		.footprint = gMonFootprint_Monkfish_Normal_Form,
 		LEARNSETS(Monkfish_Normal_Form),
 		.frontPicYOffset = 10,
@@ -5924,7 +5961,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkfish_Fresh_Form),
-		ICON(Monkfish_Fresh_Form, 0),
+		ICON(Monkfish_Fresh_Form, 2),
 		.footprint = gMonFootprint_Monkfish_Fresh_Form,
 		LEARNSETS(Monkfish_Fresh_Form),
 		.frontPicYOffset = 2,
@@ -6074,7 +6111,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pet_Fish),
-		ICON(Pet_Fish, 0),
+		ICON(Pet_Fish, 2),
 		.footprint = gMonFootprint_Pet_Fish,
 		LEARNSETS(Pet_Fish),
 		.frontPicYOffset = 10,
@@ -6126,7 +6163,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Gilbert),
-		ICON(Gilbert, 0),
+		ICON(Gilbert, 2),
 		.footprint = gMonFootprint_Gilbert,
 		LEARNSETS(Gilbert),
 		.frontPicYOffset = 1,
@@ -6135,12 +6172,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CAVEFISH] =
 	{
-		.baseHP = 50,
-		.baseAttack = 50,
-		.baseDefense = 50,
-		.baseSpeed = 50,
-		.baseSpAttack = 35,
-		.baseSpDefense = 35,
+		.baseHP = 65,
+		.baseAttack = 70,
+		.baseDefense = 100,
+		.baseSpeed = 30,
+		.baseSpAttack = 67,
+		.baseSpDefense = 75,
 		.types = { TYPE_WATER, TYPE_ROCK },
 		.catchRate = 100,
 		.expYield = 123,
@@ -6238,10 +6275,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 60,
 		.baseAttack = 40,
-		.baseDefense = 45,
-		.baseSpeed = 30,
+		.baseDefense = 50,
+		.baseSpeed = 35,
 		.baseSpAttack = 55,
-		.baseSpDefense = 50,
+		.baseSpDefense = 65,
 		.types = { TYPE_ELECTRIC, TYPE_ELECTRIC },
 		.catchRate = 250,
 		.expYield = 52,
@@ -6255,7 +6292,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_STICKY_HOLD, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Slimy Eel"),
 		.cryId = CRY_EEL_SLIMY_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_SLIMY_FORM,
 		.categoryName = _("Slimy Eel"),
@@ -6276,7 +6313,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Slimy_Form),
-		ICON(Eel_Slimy_Form, 0),
+		ICON(Eel_Slimy_Form, 1),
 		.footprint = gMonFootprint_Eel_Slimy_Form,
 		LEARNSETS(Eel_Slimy_Form),
 		.frontPicYOffset = 0,
@@ -6284,9 +6321,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_EEL_CAVE_FORM},
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_EEL_LAVA_FORM},
-			{EVO_LEVEL, 26, SPECIES_EEL_MOTTLED_FORM},
-			{EVO_LEVEL_UNDERGROUND, 33, SPECIES_VILE_FISH},
-			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_EEL_SHORT_FINNED_FORM}
+			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_EEL_MOTTLED_FORM},
+			{EVO_LEVEL_NIGHT, 26, SPECIES_VILE_FISH},
+			{EVO_LEVEL_DAY, 26, SPECIES_EEL_SHORT_FINNED_FORM}
 		),
 	},
 
@@ -6311,7 +6348,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_STICKY_HOLD, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Cave Eel"),
 		.cryId = CRY_EEL_CAVE_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_CAVE_FORM,
 		.categoryName = _("Icky Eel"),
@@ -6319,7 +6356,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 44.9,
 		.description = COMPOUND_STRING(
 			"It prefers the water in caves. It had\n"
-			"peace and solitude until the dorgeshuun\n"
+			"peace and solitude until the Dorgeshuun\n"
 			"realized their existence."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -6332,7 +6369,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Cave_Form),
-		ICON(Eel_Cave_Form, 0),
+		ICON(Eel_Cave_Form, 1),
 		.footprint = gMonFootprint_Eel_Cave_Form,
 		LEARNSETS(Eel_Cave_Form),
 		.frontPicYOffset = 1,
@@ -6345,11 +6382,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_EEL_SACRED_FORM] =
 	{
 		.baseHP = 80,
-		.baseAttack = 72,
-		.baseDefense = 80,
-		.baseSpeed = 63,
-		.baseSpAttack = 125,
-		.baseSpDefense = 100,
+		.baseAttack = 70,
+		.baseDefense = 75,
+		.baseSpeed = 68,
+		.baseSpAttack = 130,
+		.baseSpDefense = 102,
 		.types = { TYPE_ELECTRIC, TYPE_GHOST },
 		.catchRate = 45,
 		.expYield = 131,
@@ -6364,7 +6401,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_PERISH_BODY, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Sacred Eel"),
 		.cryId = CRY_EEL_SACRED_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_SACRED_FORM,
 		.categoryName = _("Sacred"),
@@ -6385,7 +6422,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Sacred_Form),
-		ICON(Eel_Sacred_Form, 0),
+		ICON(Eel_Sacred_Form, 2),
 		.footprint = gMonFootprint_Eel_Sacred_Form,
 		LEARNSETS(Eel_Sacred_Form),
 		.frontPicYOffset = 0,
@@ -6413,7 +6450,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_FLAME_BODY, ABILITY_MAGMA_ARMOR, ABILITY_LIGHTNING_ROD },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Lava Eel"),
 		.cryId = CRY_EEL_LAVA_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_LAVA_FORM,
 		.categoryName = _("Lava Eel"),
@@ -6422,7 +6459,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"This fish can only survive in lava and\n"
 			"requires special methods to be caught.\n"
-			"One is needed to enter the heroes guild."),
+			"One is needed to enter the Heroes'\n"
+			"Guild."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -6451,7 +6489,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseDefense = 81,
 		.baseSpeed = 80,
 		.baseSpAttack = 125,
-		.baseSpDefense = 74,
+		.baseSpDefense = 79,
 		.types = { TYPE_ELECTRIC, TYPE_FIRE },
 		.catchRate = 45,
 		.expYield = 141,
@@ -6475,8 +6513,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"An eel once feared as an eel from\n"
 			"Infernus, dimension of demons. No one\n"
-			"knows, or care for that since it tastes\n"
-			"delicious."),
+			"knows, or cares, if that's true since it\n"
+			"tastes delicious."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -6517,7 +6555,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_STICKY_HOLD, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("MottledEel"),
 		.cryId = CRY_EEL_MOTTLED_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_MOTTLED_FORM,
 		.categoryName = _("Mottled"),
@@ -6538,7 +6576,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Mottled_Form),
-		ICON(Eel_Mottled_Form, 0),
+		ICON(Eel_Mottled_Form, 1),
 		.footprint = gMonFootprint_Eel_Mottled_Form,
 		LEARNSETS(Eel_Mottled_Form),
 		.frontPicYOffset = 1,
@@ -6586,14 +6624,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Short_Finned_Form),
-		ICON(Eel_Short_Finned_Form, 0),
+		ICON(Eel_Short_Finned_Form, 2),
 		.footprint = gMonFootprint_Eel_Short_Finned_Form,
 		LEARNSETS(Eel_Short_Finned_Form),
 		.frontPicYOffset = 1,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 37, SPECIES_EEL_DUSK_FORM},
-			{EVO_LEVEL, 37, SPECIES_EEL_SALVE_FORM}
+			{EVO_LEVEL_DAY, 37, SPECIES_EEL_SALVE_FORM},
+			{EVO_LEVEL_NIGHT, 37, SPECIES_EEL_DUSK_FORM}
 		),
 	},
 
@@ -6619,7 +6657,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_SERENE_GRACE, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Salve Eel"),
 		.cryId = CRY_EEL_SALVE_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_SALVE_FORM,
 		.categoryName = _("Salve Eel"),
@@ -6668,7 +6706,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
 		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_GOOEY, ABILITY_GOOEY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Eel"),
+		.speciesName = _("Dusk Eel"),
 		.cryId = CRY_EEL_DUSK_FORM,
 		.natDexNum = NATIONAL_DEX_EEL_DUSK_FORM,
 		.categoryName = _("Dusk Eel"),
@@ -6689,7 +6727,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Eel_Dusk_Form),
-		ICON(Eel_Dusk_Form, 0),
+		ICON(Eel_Dusk_Form, 2),
 		.footprint = gMonFootprint_Eel_Dusk_Form,
 		LEARNSETS(Eel_Dusk_Form),
 		.frontPicYOffset = 4,
@@ -6738,7 +6776,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cave_Moray),
-		ICON(Cave_Moray, 0),
+		ICON(Cave_Moray, 2),
 		.footprint = gMonFootprint_Cave_Moray,
 		LEARNSETS(Cave_Moray),
 		.frontPicYOffset = 0,
@@ -6786,7 +6824,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vile_Fish),
-		ICON(Vile_Fish, 0),
+		ICON(Vile_Fish, 2),
 		.footprint = gMonFootprint_Vile_Fish,
 		LEARNSETS(Vile_Fish),
 		.frontPicYOffset = 6,
@@ -6798,12 +6836,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PIGLET] =
 	{
-		.baseHP = 80,
+		.baseHP = 90,
 		.baseAttack = 55,
-		.baseDefense = 30,
+		.baseDefense = 35,
 		.baseSpeed = 40,
 		.baseSpAttack = 46,
-		.baseSpDefense = 30,
+		.baseSpDefense = 35,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 250,
 		.expYield = 151,
@@ -6825,7 +6863,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 95.3,
 		.description = COMPOUND_STRING(
 			"These small things serve no real purpose\n"
-			"to farmer but to grow into mud\n"
+			"to farmers but to grow into mud\n"
 			"wrestlers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -6845,8 +6883,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_DAY, 21, SPECIES_PIG},
-			{EVO_FRIENDSHIP, 220, SPECIES_PIGZILLA},
-			{EVO_LEVEL_NIGHT, 32, SPECIES_BROAV}
+			{EVO_LEVEL_NIGHT, 21, SPECIES_BROAV}
 		),
 	},
 
@@ -6878,10 +6915,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 13.7,
 		.weight = 816.5,
 		.description = COMPOUND_STRING(
-			"Rumours has it that pigs have a purpose\n"
-			"beyond merely mud wrestling. But the\n"
-			"farmer who spread the rumour refused to\n"
-			"tell."),
+			"Rumour has it that pigs do have a\n"
+			"purpose beyond merely mud wrestling. But\n"
+			"the farmer who spread the rumour refused\n"
+			"to tell."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -6893,7 +6930,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pig),
-		ICON(Pig, 2),
+		ICON(Pig, 0),
 		.footprint = gMonFootprint_Pig,
 		LEARNSETS(Pig),
 		.frontPicYOffset = 0,
@@ -6935,8 +6972,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The apex of all pigs. Its said no pig\n"
-			"has ever grown bigger than the pigzilla."),
+			"The apex of all pigs. It's said no pig\n"
+			"has ever grown bigger than the Pigzilla."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -6948,7 +6985,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pigzilla),
-		ICON(Pigzilla, 2),
+		ICON(Pigzilla, 0),
 		.footprint = gMonFootprint_Pigzilla,
 		LEARNSETS(Pigzilla),
 		.frontPicYOffset = 5,
@@ -6957,12 +6994,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PUPPY_PUP_FORM] =
 	{
-		.baseHP = 45,
+		.baseHP = 55,
 		.baseAttack = 45,
-		.baseDefense = 45,
+		.baseDefense = 60,
 		.baseSpeed = 45,
 		.baseSpAttack = 45,
-		.baseSpDefense = 45,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 220,
 		.expYield = 43,
@@ -6974,7 +7011,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CUTE_CHARM, ABILITY_CUTE_CHARM, ABILITY_MAGICIAN },
+		.abilities = { ABILITY_CUTE_CHARM, ABILITY_BALL_FETCH, ABILITY_MAGICIAN },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Puppy"),
 		.cryId = CRY_PUPPY_PUP_FORM,
@@ -6997,7 +7034,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Puppy_Pup_Form),
-		ICON(Puppy_Pup_Form, 0),
+		ICON(Puppy_Pup_Form, 2),
 		.footprint = gMonFootprint_Puppy_Pup_Form,
 		LEARNSETS(Puppy_Pup_Form),
 		.frontPicYOffset = 0,
@@ -7005,7 +7042,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_HELLPUPPY},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_MUNCHER},
-			{EVO_LEVEL_DEATH, 1, SPECIES_MUNCHER},
+			{EVO_LEVEL_DEATH, 18, SPECIES_MUNCHER},
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_DALMATIAN},
 			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_LABRADOR},
 			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_TERRIER},
@@ -7014,18 +7051,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_WEATHER_HOT, 18, SPECIES_PUG},
 			{EVO_LEVEL_WEATHER_COLD, 18, SPECIES_SHIBA},
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_BORDER_COLLIE},
-			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_GUARD_DOG}
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_GUARD_DOG},
+			{EVO_LEVEL_WEATHER_WET, 18, SPECIES_POMAPOO}
 		),
 	},
 
 [SPECIES_PUPPY_MUTT_FORM] =
 	{
-		.baseHP = 45,
+		.baseHP = 55,
 		.baseAttack = 45,
-		.baseDefense = 45,
+		.baseDefense = 50,
 		.baseSpeed = 45,
 		.baseSpAttack = 45,
-		.baseSpDefense = 45,
+		.baseSpDefense = 60,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 220,
 		.expYield = 38,
@@ -7037,7 +7075,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_INTIMIDATE, ABILITY_PICKPOCKET },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_BALL_FETCH, ABILITY_PICKPOCKET },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Puppy"),
 		.cryId = CRY_PUPPY_MUTT_FORM,
@@ -7046,7 +7084,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 4.1,
 		.weight = 158.8,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Slightly less adorable than its\n"
+			"counterpart, this puppy spends all its\n"
+			"free time chewing anything in sight."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -7058,7 +7098,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Puppy_Mutt_Form),
-		ICON(Puppy_Mutt_Form, 0),
+		ICON(Puppy_Mutt_Form, 2),
 		.footprint = gMonFootprint_Puppy_Mutt_Form,
 		LEARNSETS(Puppy_Mutt_Form),
 		.frontPicYOffset = 0,
@@ -7066,12 +7106,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_HELLPUPPY},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_MUNCHER},
-			{EVO_LEVEL_DEATH, 1, SPECIES_MUNCHER},
+			{EVO_LEVEL_DEATH, 18, SPECIES_MUNCHER},
 			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_GREYHOUND},
 			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_BULLDOG},
 			{EVO_FRIENDSHIP, 220, SPECIES_SHEEPDOG},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_TERROR_DOG},
-			{EVO_LEVEL_RAIN, 1, SPECIES_STRAY_DOG},
+			{EVO_LEVEL_WEATHER_WET, 18, SPECIES_STRAY_DOG},
 			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_BLOODHOUND},
 			{EVO_LEVEL_WEATHER_HOT, 18, SPECIES_BEAGLE},
 			{EVO_LEVEL_WEATHER_COLD, 18, SPECIES_HUSKIE},
@@ -7120,7 +7160,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Terrier),
-		ICON(Terrier, 0),
+		ICON(Terrier, 2),
 		.footprint = gMonFootprint_Terrier,
 		LEARNSETS(Terrier),
 		.frontPicYOffset = 0,
@@ -7146,7 +7186,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_UNBURDEN, ABILITY_OWN_TEMPO, ABILITY_UNBURDEN },
+		.abilities = { ABILITY_UNBURDEN, ABILITY_GUARD_DOG, ABILITY_UNBURDEN },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Sheepdog"),
 		.cryId = CRY_SHEEPDOG,
@@ -7266,7 +7306,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Greyhound),
-		ICON(Greyhound, 0),
+		ICON(Greyhound, 2),
 		.footprint = gMonFootprint_Greyhound,
 		LEARNSETS(Greyhound),
 		.frontPicYOffset = 7,
@@ -7293,7 +7333,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_HUSTLE, ABILITY_OWN_TEMPO, ABILITY_RECKLESS },
+		.abilities = { ABILITY_HUSTLE, ABILITY_GUARD_DOG, ABILITY_RECKLESS },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Bulldog"),
 		.cryId = CRY_BULLDOG,
@@ -7315,7 +7355,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bulldog),
-		ICON(Bulldog, 0),
+		ICON(Bulldog, 2),
 		.footprint = gMonFootprint_Bulldog,
 		LEARNSETS(Bulldog),
 		.frontPicYOffset = 0,
@@ -7413,7 +7453,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Corgi),
-		ICON(Corgi, 0),
+		ICON(Corgi, 2),
 		.footprint = gMonFootprint_Corgi,
 		LEARNSETS(Corgi),
 		.frontPicYOffset = 8,
@@ -7440,7 +7480,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_RECKLESS, ABILITY_PRESSURE, ABILITY_STRONG_JAW },
+		.abilities = { ABILITY_RECKLESS, ABILITY_GUARD_DOG, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Terror Dog"),
 		.cryId = CRY_TERROR_DOG,
@@ -7537,7 +7577,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_PRESSURE, ABILITY_RECKLESS },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_BALL_FETCH, ABILITY_RECKLESS },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Muncher"),
 		.cryId = CRY_MUNCHER,
@@ -7547,7 +7587,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 136.1,
 		.description = COMPOUND_STRING(
 			"A skeletal hellhound who served as the\n"
-			"lord of death, Harold's faithful\n"
+			"lord of Death, Harold's faithful\n"
 			"companion."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -7560,7 +7600,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Muncher),
-		ICON(Muncher, 2),
+		ICON(Muncher, 0),
 		.footprint = gMonFootprint_Muncher,
 		LEARNSETS(Muncher),
 		.frontPicYOffset = 11,
@@ -7586,7 +7626,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_CLEAR_BODY, ABILITY_FLAME_BODY },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_BALL_FETCH, ABILITY_FLAME_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Hellpuppy"),
 		.cryId = CRY_HELLPUPPY,
@@ -7596,7 +7636,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 181.4,
 		.description = COMPOUND_STRING(
 			"When a puppy accidentally fell to the\n"
-			"infernal dimension, it comes back as a\n"
+			"infernal dimension, it came back as a\n"
 			"hellpuppy."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -7609,7 +7649,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hellpuppy),
-		ICON(Hellpuppy, 2),
+		ICON(Hellpuppy, 0),
 		.footprint = gMonFootprint_Hellpuppy,
 		LEARNSETS(Hellpuppy),
 		.frontPicYOffset = 0,
@@ -7617,7 +7657,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 45, SPECIES_HELLHOUND},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_SHADOW_HOUND},
-			{EVO_LEVEL_DEATH, 1, SPECIES_SHADOW_HOUND}
+			{EVO_LEVEL_DEATH, 30, SPECIES_SHADOW_HOUND}
 		),
 	},
 
@@ -7640,7 +7680,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_PRESSURE, ABILITY_FLAME_BODY },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_GUARD_DOG, ABILITY_FLAME_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Hellhound"),
 		.cryId = CRY_HELLHOUND,
@@ -7649,7 +7689,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 9.9,
 		.weight = 492.1,
 		.description = COMPOUND_STRING(
-			"A shakroth type demon from infernus.\n"
+			"A Shakroth type demon from Infernus.\n"
 			"They bite really hard if not fed."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -7662,7 +7702,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hellhound),
-		ICON(Hellhound, 0),
+		ICON(Hellhound, 2),
 		.footprint = gMonFootprint_Hellhound,
 		LEARNSETS(Hellhound),
 		.frontPicYOffset = 1,
@@ -7692,7 +7732,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_PRESSURE, ABILITY_FLAME_BODY },
+		.abilities = { ABILITY_INTIMIDATE, ABILITY_GUARD_DOG, ABILITY_FLAME_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Cerberus"),
 		.cryId = CRY_CERBERUS,
@@ -7715,21 +7755,24 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cerberus),
-		ICON(Cerberus, 2),
+		ICON(Cerberus, 0),
 		.footprint = gMonFootprint_Cerberus,
 		LEARNSETS(Cerberus),
 		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
+		.isMegaEvolution = TRUE,
+		.formSpeciesIdTable = sHellhoundFormSpeciesIdTable,
+		.formChangeTable = sHellhoundFormChangeTable,
 	},
 
 [SPECIES_KITTEN] =
 	{
-		.baseHP = 35,
+		.baseHP = 50,
 		.baseAttack = 60,
 		.baseDefense = 35,
 		.baseSpeed = 70,
 		.baseSpAttack = 30,
-		.baseSpDefense = 40,
+		.baseSpDefense = 55,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 255,
 		.expYield = 48,
@@ -7776,7 +7819,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CAT_NORMAL_FORM] =
 	{
-		.baseHP = 40,
+		.baseHP = 60,
 		.baseAttack = 55,
 		.baseDefense = 50,
 		.baseSpeed = 90,
@@ -7832,7 +7875,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_CAT_SUNKEN_FORM},
 			{EVO_ITEM, ITEM_LOVELETTER, SPECIES_CAT_POST_FORM},
 			{EVO_FRIENDSHIP, 190, SPECIES_CAT_OVERGROWN_FORM},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_OVERGROWN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_OVERGROWN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_CAT_OVERGROWN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_CAT_OVERGROWN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_CAT_OVERGROWN_FORM},
 			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_BOB},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_EVIL_BOB},
 			{EVO_MOVE, MOVE_BULK_UP, SPECIES_CAT_WILY_FORM}
@@ -7888,7 +7934,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_LAZY_FORM}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_CAT_LAZY_FORM}
 		),
 	},
 
@@ -7913,7 +7962,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_TRUANT, ABILITY_COMATOSE, ABILITY_COMATOSE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cat"),
+		.speciesName = _("Lazy Cat"),
 		.cryId = CRY_CAT_LAZY_FORM,
 		.natDexNum = NATIONAL_DEX_CAT_LAZY_FORM,
 		.categoryName = _("Untrained"),
@@ -7962,7 +8011,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_VITAL_SPIRIT, ABILITY_GUTS, ABILITY_TOUGH_CLAWS },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cat"),
+		.speciesName = _("Wily Cat"),
 		.cryId = CRY_CAT_WILY_FORM,
 		.natDexNum = NATIONAL_DEX_CAT_WILY_FORM,
 		.categoryName = _("RatCatching"),
@@ -7983,13 +8032,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cat_Wily_Form),
-		ICON(Cat_Wily_Form, 0),
+		ICON(Cat_Wily_Form, 2),
 		.footprint = gMonFootprint_Cat_Wily_Form,
 		LEARNSETS(Cat_Wily_Form),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_LAZY_FORM}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_CAT_LAZY_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_CAT_LAZY_FORM}
 		),
 	},
 
@@ -8063,7 +8115,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_AVERNIC, ABILITY_PRESSURE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cat"),
+		.speciesName = _("Hellcat"),
 		.cryId = CRY_CAT_HELL_FORM,
 		.natDexNum = NATIONAL_DEX_CAT_HELL_FORM,
 		.categoryName = _("InfernalCat"),
@@ -8072,7 +8124,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"When a cat eats too many hell rats, they\n"
 			"become a hellcat. Infused by the hell\n"
-			"rats infernal energy."),
+			"rats' infernal energy."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -8112,7 +8164,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_PICKUP, ABILITY_STAKEOUT, ABILITY_PICKPOCKET },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cat"),
+		.speciesName = _("Post Cat"),
 		.cryId = CRY_CAT_POST_FORM,
 		.natDexNum = NATIONAL_DEX_CAT_POST_FORM,
 		.categoryName = _("Duty Bound"),
@@ -8133,7 +8185,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cat_Post_Form),
-		ICON(Cat_Post_Form, 2),
+		ICON(Cat_Post_Form, 0),
 		.footprint = gMonFootprint_Cat_Post_Form,
 		LEARNSETS(Cat_Post_Form),
 		.frontPicYOffset = 8,
@@ -8161,7 +8213,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_LIQUID_VOICE, ABILITY_WATER_VEIL, ABILITY_LIQUID_VOICE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cat"),
+		.speciesName = _("Sunken Cat"),
 		.cryId = CRY_CAT_SUNKEN_FORM,
 		.natDexNum = NATIONAL_DEX_CAT_SUNKEN_FORM,
 		.categoryName = _("XauTakitten"),
@@ -8183,7 +8235,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cat_Sunken_Form),
-		ICON(Cat_Sunken_Form, 2),
+		ICON(Cat_Sunken_Form, 0),
 		.footprint = gMonFootprint_Cat_Sunken_Form,
 		LEARNSETS(Cat_Sunken_Form),
 		.frontPicYOffset = 14,
@@ -8269,7 +8321,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"An evil tyrant of whom most who have\n"
 			"seen rarely survive. He takes slaves in\n"
-			"to put them trough cruel services like\n"
+			"to put them through cruel services like\n"
 			"uncooking fish."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -8309,7 +8361,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_STURDY, ABILITY_PICKUP, ABILITY_PICKUP },
+		.abilities = { ABILITY_STURDY, ABILITY_STALL, ABILITY_PICKUP },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Pet Rock"),
 		.cryId = CRY_PET_ROCK,
@@ -8332,7 +8384,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pet_Rock),
-		ICON(Pet_Rock, 0),
+		ICON(Pet_Rock, 2),
 		.footprint = gMonFootprint_Pet_Rock,
 		LEARNSETS(Pet_Rock),
 		.frontPicYOffset = 0,
@@ -8344,8 +8396,20 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_SLAGILITH},
 			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_ROCK_STRANGE_FORM},
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_ROCK_GOLDEN_FORM},
-			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_PARTY_ROCK}
+			{EVO_ITEM_HOLD, ITEM_PARTY_HAT, SPECIES_PARTY_ROCK},
+			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_PARTY_ROCK},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_LUCKY_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_DEMON_KALGERION_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_STEEL_TITAN, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ESSWRAITH, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MEGAMASTYX, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SOULGAZER, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TZREK_JAD, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TORTLE, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SAILFISH, SPECIES_MAX_GOLEM}
 		),
+		.formSpeciesIdTable = sStoneOfJasFormSpeciesIdTable,
+		.formChangeTable = sStoneOfJasFormChangeTable,
 	},
 
 [SPECIES_ROCK_POLISHED_FORM] =
@@ -8470,9 +8534,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_STORM_DRAIN, ABILITY_SAP_SIPPER, ABILITY_SAP_SIPPER },
+		.abilities = { ABILITY_STORM_DRAIN, ABILITY_WATER_COMPACTION, ABILITY_SAP_SIPPER },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Rock"),
+		.speciesName = _("Rock Soup"),
 		.cryId = CRY_ROCK_SOUP,
 		.natDexNum = NATIONAL_DEX_ROCK_SOUP,
 		.categoryName = _("Delicious"),
@@ -8493,7 +8557,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Soup),
-		ICON(Rock_Soup, 0),
+		ICON(Rock_Soup, 2),
 		.footprint = gMonFootprint_Rock_Soup,
 		LEARNSETS(Rock_Soup),
 		.frontPicYOffset = 0,
@@ -8520,7 +8584,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_STURDY, ABILITY_SOLID_ROCK, ABILITY_SOLID_ROCK },
+		.abilities = { ABILITY_ROCKY_PAYLOAD, ABILITY_SOLID_ROCK, ABILITY_SOLID_ROCK },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Slagilith"),
 		.cryId = CRY_SLAGILITH,
@@ -8544,7 +8608,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Slagilith),
-		ICON(Slagilith, 0),
+		ICON(Slagilith, 2),
 		.footprint = gMonFootprint_Slagilith,
 		LEARNSETS(Slagilith),
 		.frontPicYOffset = 1,
@@ -8571,7 +8635,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_WEAK_ARMOR, ABILITY_STURDY, ABILITY_STURDY },
+		.abilities = { ABILITY_WONDER_SKIN, ABILITY_STURDY, ABILITY_STURDY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Rock"),
 		.cryId = CRY_ROCK_STRANGE_FORM,
@@ -8621,9 +8685,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_WEAK_ARMOR, ABILITY_STURDY, ABILITY_STURDY },
+		.abilities = { ABILITY_GOOD_AS_GOLD, ABILITY_GOOD_AS_GOLD, ABILITY_STURDY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Rock"),
+		.speciesName = _("GoldenRock"),
 		.cryId = CRY_ROCK_GOLDEN_FORM,
 		.natDexNum = NATIONAL_DEX_ROCK_GOLDEN_FORM,
 		.categoryName = _("Stranger"),
@@ -8644,7 +8708,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Golden_Form),
-		ICON(Rock_Golden_Form, 0),
+		ICON(Rock_Golden_Form, 2),
 		.footprint = gMonFootprint_Rock_Golden_Form,
 		LEARNSETS(Rock_Golden_Form),
 		.frontPicYOffset = 14,
@@ -8694,7 +8758,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Party_Rock),
-		ICON(Party_Rock, 0),
+		ICON(Party_Rock, 2),
 		.footprint = gMonFootprint_Party_Rock,
 		LEARNSETS(Party_Rock),
 		.frontPicYOffset = 12,
@@ -8720,7 +8784,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_CLEAR_BODY, ABILITY_ARENA_TRAP, ABILITY_SLUSH_RUSH },
+		.abilities = { ABILITY_ARENA_TRAP, ABILITY_CLEAR_BODY, ABILITY_SLUSH_RUSH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Strykewyrm"),
 		.cryId = CRY_STRYKEWYRM_FREEZY_FORM,
@@ -8730,7 +8794,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 185.5,
 		.description = COMPOUND_STRING(
 			"The different forms of strykewyrms are\n"
-			"well adapted and dangerous."),
+			"well adapted and dangerous. This one is\n"
+			"known for being so cold it numbs\n"
+			"adventurers hands."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -8747,6 +8813,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Strykewyrm_Freezy_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sStrykewyrmFormSpeciesIdTable,
+		.formChangeTable = sStrykewyrmFormChangeTable,
 	},
 
 [SPECIES_STRYKEWYRM_LEAFY_FORM] =
@@ -8768,7 +8836,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_POISON_POINT, ABILITY_ARENA_TRAP, ABILITY_CHLOROPHYLL },
+		.abilities = { ABILITY_ARENA_TRAP, ABILITY_POISON_POINT, ABILITY_CHLOROPHYLL },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Strykewyrm"),
 		.cryId = CRY_STRYKEWYRM_LEAFY_FORM,
@@ -8777,7 +8845,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 15.7,
 		.weight = 185.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Inhabiting the jungles of the Feldip\n"
+			"Hills, these strykewrym have adapted to\n"
+			"develop a particularly potent poison as\n"
+			"a defence mechanism."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -8794,6 +8865,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Strykewyrm_Leafy_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sStrykewyrmFormSpeciesIdTable,
+		.formChangeTable = sStrykewyrmFormChangeTable,
 	},
 
 [SPECIES_STRYKEWYRM_SANDY_FORM] =
@@ -8815,7 +8888,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_SAND_VEIL, ABILITY_ARENA_TRAP, ABILITY_SLUSH_RUSH },
+		.abilities = { ABILITY_ARENA_TRAP, ABILITY_SAND_VEIL, ABILITY_SLUSH_RUSH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Strykewyrm"),
 		.cryId = CRY_STRYKEWYRM_SANDY_FORM,
@@ -8824,7 +8897,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 15.7,
 		.weight = 185.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"These monsters burrow under the sands of\n"
+			"the Kharidian Desert and burst out the\n"
+			"ground to attack unsuspecting victims."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -8836,11 +8911,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Strykewyrm_Sandy_Form),
-		ICON(Strykewyrm_Sandy_Form, 0),
+		ICON(Strykewyrm_Sandy_Form, 2),
 		.footprint = gMonFootprint_Strykewyrm_Sandy_Form,
 		LEARNSETS(Strykewyrm_Sandy_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sStrykewyrmFormSpeciesIdTable,
+		.formChangeTable = sStrykewyrmFormChangeTable,
 	},
 
 [SPECIES_STRYKEWYRM_WILDY_FORM] =
@@ -8862,7 +8939,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_MAGMA_ARMOR, ABILITY_ARENA_TRAP, ABILITY_FLAME_BODY },
+		.abilities = { ABILITY_ARENA_TRAP, ABILITY_MAGMA_ARMOR, ABILITY_FLAME_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Strykewyrm"),
 		.cryId = CRY_STRYKEWYRM_WILDY_FORM,
@@ -8871,7 +8948,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 15.7,
 		.weight = 185.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A creature of pure fire, this monster\n"
+			"originates from the Lava Maze deep in\n"
+			"the Wilderness."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -8883,21 +8962,23 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Strykewyrm_Wildy_Form),
-		ICON(Strykewyrm_Wildy_Form, 2),
+		ICON(Strykewyrm_Wildy_Form, 0),
 		.footprint = gMonFootprint_Strykewyrm_Wildy_Form,
 		LEARNSETS(Strykewyrm_Wildy_Form),
 		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sStrykewyrmFormSpeciesIdTable,
+		.formChangeTable = sStrykewyrmFormChangeTable,
 	},
 
 [SPECIES_SCORPLING] =
 	{
 		.baseHP = 50,
-		.baseAttack = 35,
-		.baseDefense = 32,
-		.baseSpeed = 30,
+		.baseAttack = 55,
+		.baseDefense = 72,
+		.baseSpeed = 50,
 		.baseSpAttack = 21,
-		.baseSpDefense = 32,
+		.baseSpDefense = 53,
 		.types = { TYPE_BUG, TYPE_GROUND },
 		.catchRate = 255,
 		.expYield = 47,
@@ -8937,7 +9018,6 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_FRIENDSHIP_DAY, 200, SPECIES_DREADNIP},
 			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_SCORPIA},
 			{EVO_LEVEL_DAY, 26, SPECIES_SCORPION_PIT_FORM},
 			{EVO_LEVEL_NIGHT, 26, SPECIES_SCORPION_NORMAL_FORM},
@@ -8949,7 +9029,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_LOBSTER_GOLDEN_FORM, SPECIES_LOBSTROCITY},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_LOBSTER_GIANT_FORM, SPECIES_LOBSTROCITY},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_LOBSTER_HEIM_FORM, SPECIES_LOBSTROCITY},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_LOBSTER_OBSIDIAN_FORM, SPECIES_LOBSTROCITY}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_LOBSTER_OBSIDIAN_FORM, SPECIES_LOBSTROCITY},
+			{EVO_FRIENDSHIP_DAY, 200, SPECIES_DREADNIP}
 		),
 	},
 
@@ -9088,7 +9169,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 160.4,
 		.description = COMPOUND_STRING(
 			"The poison they produce is strong enough\n"
-			"to kill a kharidian sheikah."),
+			"to kill a Kharidian Sheikah."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -9100,7 +9181,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_Poison_Form),
-		ICON(Scorpion_Poison_Form, 0),
+		ICON(Scorpion_Poison_Form, 2),
 		.footprint = gMonFootprint_Scorpion_Poison_Form,
 		LEARNSETS(Scorpion_Poison_Form),
 		.frontPicYOffset = 2,
@@ -9149,7 +9230,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_King_Form),
-		ICON(Scorpion_King_Form, 0),
+		ICON(Scorpion_King_Form, 2),
 		.footprint = gMonFootprint_Scorpion_King_Form,
 		LEARNSETS(Scorpion_King_Form),
 		.frontPicYOffset = 4,
@@ -9198,7 +9279,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_Grave_Form),
-		ICON(Scorpion_Grave_Form, 0),
+		ICON(Scorpion_Grave_Form, 2),
 		.footprint = gMonFootprint_Scorpion_Grave_Form,
 		LEARNSETS(Scorpion_Grave_Form),
 		.frontPicYOffset = 4,
@@ -9233,7 +9314,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 14.5,
 		.weight = 160.4,
 		.description = COMPOUND_STRING(
-			"Scorpion corrupted by the devourer,\n"
+			"Scorpion corrupted by the Devourer,\n"
 			"granting it power at the loss of its\n"
 			"will."),
 		.pokemonScale = 256,
@@ -9296,7 +9377,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_Reanimated_Form),
-		ICON(Scorpion_Reanimated_Form, 2),
+		ICON(Scorpion_Reanimated_Form, 0),
 		.footprint = gMonFootprint_Scorpion_Reanimated_Form,
 		LEARNSETS(Scorpion_Reanimated_Form),
 		.frontPicYOffset = 5,
@@ -9333,7 +9414,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 160.4,
 		.description = COMPOUND_STRING(
 			"Uncorrupted, these scorpions find their\n"
-			"homes in the gauntlet."),
+			"homes in the Gauntlet."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -9394,7 +9475,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_Gauntlet_Corrupted_Form),
-		ICON(Scorpion_Gauntlet_Corrupted_Form, 2),
+		ICON(Scorpion_Gauntlet_Corrupted_Form, 0),
 		.footprint = gMonFootprint_Scorpion_Gauntlet_Corrupted_Form,
 		LEARNSETS(Scorpion_Gauntlet_Corrupted_Form),
 		.frontPicYOffset = 6,
@@ -9429,7 +9510,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 14.5,
 		.weight = 160.4,
 		.description = COMPOUND_STRING(
-			"Generald Khazard's pet. It has been\n"
+			"General Khazard's pet. It has been\n"
 			"trained to fight his prisoners."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -9442,7 +9523,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scorpion_Khazard_Form),
-		ICON(Scorpion_Khazard_Form, 0),
+		ICON(Scorpion_Khazard_Form, 2),
 		.footprint = gMonFootprint_Scorpion_Khazard_Form,
 		LEARNSETS(Scorpion_Khazard_Form),
 		.frontPicYOffset = 2,
@@ -9468,7 +9549,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_SNIPER, ABILITY_CORROSION, ABILITY_NO_GUARD },
+		.abilities = { ABILITY_SNIPER, ABILITY_WANDERING_SPIRIT, ABILITY_NO_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Scorpion"),
 		.cryId = CRY_SCORPION_SPIRIT_FORM,
@@ -9567,7 +9648,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_TOUGH_CLAWS, ABILITY_POISON_POINT, ABILITY_WEAK_ARMOR },
+		.abilities = { ABILITY_SNIPER, ABILITY_SHARPNESS, ABILITY_WEAK_ARMOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dreadnip"),
 		.cryId = CRY_DREADNIP,
@@ -9589,7 +9670,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dreadnip),
-		ICON(Dreadnip, 2),
+		ICON(Dreadnip, 0),
 		.footprint = gMonFootprint_Dreadnip,
 		LEARNSETS(Dreadnip),
 		.frontPicYOffset = 11,
@@ -9639,7 +9720,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Peepling),
-		ICON(Peepling, 0),
+		ICON(Peepling, 2),
 		.footprint = gMonFootprint_Peepling,
 		LEARNSETS(Peepling),
 		.frontPicYOffset = 0,
@@ -9694,7 +9775,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sneakrpeep),
-		ICON(Sneakrpeep, 0),
+		ICON(Sneakrpeep, 2),
 		.footprint = gMonFootprint_Sneakrpeep,
 		LEARNSETS(Sneakrpeep),
 		.frontPicYOffset = 0,
@@ -9708,7 +9789,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseDefense = 50,
 		.baseSpeed = 50,
 		.baseSpAttack = 30,
-		.baseSpDefense = 40,
+		.baseSpDefense = 45,
 		.types = { TYPE_GRASS, TYPE_POISON },
 		.catchRate = 90,
 		.expYield = 47,
@@ -9742,7 +9823,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Runtstable),
-		ICON(Runtstable, 0),
+		ICON(Runtstable, 2),
 		.footprint = gMonFootprint_Runtstable,
 		LEARNSETS(Runtstable),
 		.frontPicYOffset = 7,
@@ -9850,7 +9931,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_GIANT_MOLE}
+			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_GIANT_MOLE},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_VOID_RAVAGER},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VOID_LEECH, SPECIES_VOID_RAVAGER}
 		),
 	},
 
@@ -9863,7 +9946,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 90,
 		.baseSpDefense = 100,
 		.types = { TYPE_GROUND, TYPE_GROUND },
-		.catchRate = 3,
+		.catchRate = 10,
 		.expYield = 253,
 		.evYield_Attack = 3,
 		.genderRatio = PERCENT_FEMALE(75),
@@ -9944,7 +10027,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Squirrel),
-		ICON(Squirrel, 0),
+		ICON(Squirrel, 2),
 		.footprint = gMonFootprint_Squirrel,
 		LEARNSETS(Squirrel),
 		.frontPicYOffset = 2,
@@ -9958,12 +10041,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RAVENLING] =
 	{
-		.baseHP = 35,
+		.baseHP = 55,
 		.baseAttack = 35,
-		.baseDefense = 30,
-		.baseSpeed = 45,
+		.baseDefense = 45,
+		.baseSpeed = 77,
 		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseSpDefense = 58,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 220,
 		.expYield = 52,
@@ -10007,6 +10090,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_NIGHT, 25, SPECIES_RAVEN_NEVERMORE_FORM},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_RAVEN_SPOOKY_FORM},
 			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_RAVEN_CRYSTAL_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_CORXATRICE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TZ_KIH, SPECIES_RAVENTZHAAR}
 		),
 	},
@@ -10053,7 +10137,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Raven_Normal_Form),
-		ICON(Raven_Normal_Form, 0),
+		ICON(Raven_Normal_Form, 2),
 		.footprint = gMonFootprint_Raven_Normal_Form,
 		LEARNSETS(Raven_Normal_Form),
 		.frontPicYOffset = 0,
@@ -10089,7 +10173,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.7,
 		.weight = 99.8,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Once upon a midnight dreary this ghastly\n"
+			"grim and ancient raven can be found\n"
+			"wandering from the nightly shore."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -10101,7 +10187,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Raven_Nevermore_Form),
-		ICON(Raven_Nevermore_Form, 0),
+		ICON(Raven_Nevermore_Form, 2),
 		.footprint = gMonFootprint_Raven_Nevermore_Form,
 		LEARNSETS(Raven_Nevermore_Form),
 		.frontPicYOffset = 2,
@@ -10149,7 +10235,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Raven_Spooky_Form),
-		ICON(Raven_Spooky_Form, 0),
+		ICON(Raven_Spooky_Form, 2),
 		.footprint = gMonFootprint_Raven_Spooky_Form,
 		LEARNSETS(Raven_Spooky_Form),
 		.frontPicYOffset = 0,
@@ -10197,7 +10283,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Raven_Crystal_Form),
-		ICON(Raven_Crystal_Form, 2),
+		ICON(Raven_Crystal_Form, 0),
 		.footprint = gMonFootprint_Raven_Crystal_Form,
 		LEARNSETS(Raven_Crystal_Form),
 		.frontPicYOffset = 6,
@@ -10299,7 +10385,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Magpie),
-		ICON(Magpie, 2),
+		ICON(Magpie, 0),
 		.footprint = gMonFootprint_Magpie,
 		LEARNSETS(Magpie),
 		.frontPicYOffset = 7,
@@ -10309,8 +10395,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_CHINCHOMPA_GREY_FORM] =
 	{
 		.baseHP = 50,
-		.baseAttack = 60,
-		.baseDefense = 20,
+		.baseAttack = 80,
+		.baseDefense = 50,
 		.baseSpeed = 70,
 		.baseSpAttack = 30,
 		.baseSpDefense = 20,
@@ -10335,8 +10421,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 35.4,
 		.description = COMPOUND_STRING(
 			"Capable of running great lengths. All\n"
-			"barbers in Mishtalin uses them as\n"
-			"energy."),
+			"barbers in Misthalin use them as energy."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -10364,8 +10449,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_CHINCHOMPA_RED_FORM] =
 	{
 		.baseHP = 50,
-		.baseAttack = 60,
-		.baseDefense = 20,
+		.baseAttack = 80,
+		.baseDefense = 50,
 		.baseSpeed = 75,
 		.baseSpAttack = 30,
 		.baseSpDefense = 15,
@@ -10403,7 +10488,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chinchompa_Red_Form),
-		ICON(Chinchompa_Red_Form, 2),
+		ICON(Chinchompa_Red_Form, 0),
 		.footprint = gMonFootprint_Chinchompa_Red_Form,
 		LEARNSETS(Chinchompa_Red_Form),
 		.frontPicYOffset = 0,
@@ -10459,7 +10544,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chinchompa_Gold_Form),
-		ICON(Chinchompa_Gold_Form, 0),
+		ICON(Chinchompa_Gold_Form, 2),
 		.footprint = gMonFootprint_Chinchompa_Gold_Form,
 		LEARNSETS(Chinchompa_Gold_Form),
 		.frontPicYOffset = 0,
@@ -10470,10 +10555,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 75,
 		.baseAttack = 65,
-		.baseDefense = 45,
+		.baseDefense = 55,
 		.baseSpeed = 40,
 		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseSpDefense = 50,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 200,
 		.expYield = 53,
@@ -10508,7 +10593,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vultling),
-		ICON(Vultling, 2),
+		ICON(Vultling, 0),
 		.footprint = gMonFootprint_Vultling,
 		LEARNSETS(Vultling),
 		.frontPicYOffset = 6,
@@ -10527,10 +10612,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZOMBIE_RAT, SPECIES_VULTURE_RS3_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_BROAV_ZOMBIE_FORM, SPECIES_VULTURE_RS3_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_ZOMBIE_FORM, SPECIES_VULTURE_RS3_FORM},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_VULTURE_BEARDED_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SKELETALOX_FEMALE_FORM, SPECIES_VULTURE_BEARDED_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SKELETAL_WYVERN, SPECIES_VULTURE_BEARDED_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_HAND_SKELETAL_FORM, SPECIES_VULTURE_BEARDED_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SKELETALOX_MALE_FORM, SPECIES_VULTURE_BEARDED_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SKELETALOX_MALE_FORM, SPECIES_VULTURE_BEARDED_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_VULATRICE}
 		),
 	},
 
@@ -10576,7 +10663,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulture),
-		ICON(Vulture, 0),
+		ICON(Vulture, 2),
 		.footprint = gMonFootprint_Vulture,
 		LEARNSETS(Vulture),
 		.frontPicYOffset = 0,
@@ -10585,12 +10672,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PENGLING] =
 	{
-		.baseHP = 50,
+		.baseHP = 70,
 		.baseAttack = 40,
-		.baseDefense = 30,
+		.baseDefense = 60,
 		.baseSpeed = 50,
 		.baseSpAttack = 40,
-		.baseSpDefense = 30,
+		.baseSpDefense = 40,
 		.types = { TYPE_ICE, TYPE_ICE },
 		.catchRate = 220,
 		.expYield = 52,
@@ -10624,7 +10711,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pengling),
-		ICON(Pengling, 2),
+		ICON(Pengling, 0),
 		.footprint = gMonFootprint_Pengling,
 		LEARNSETS(Pengling),
 		.frontPicYOffset = 0,
@@ -10676,7 +10763,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penguin),
-		ICON(Penguin, 2),
+		ICON(Penguin, 0),
 		.footprint = gMonFootprint_Penguin,
 		LEARNSETS(Penguin),
 		.frontPicYOffset = 2,
@@ -10688,13 +10775,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_PENGUIN_DISGUISE_ROCK_FORM},
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_PENGUIN_DISGUISE_BUSH_FORM},
 			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_PENGUIN_DISGUISE_BOX_FORM},
-			{EVO_LEVEL_MAP_DESERT, 50, SPECIES_PENGUIN_DISGUISE_CACTUS_FORM},
-			{EVO_LEVEL_MAP_WILDERNESS, 50, SPECIES_PENGUIN_DISGUISE_ROCK_FORM},
-			{EVO_LEVEL_MAP_FREMENNIK, 50, SPECIES_PENGUIN_DISGUISE_ROCK_FORM},
-			{EVO_LEVEL_MAP_KANDARIN, 50, SPECIES_PENGUIN_DISGUISE_BUSH_FORM},
-			{EVO_LEVEL_MAP_KARAMJA, 50, SPECIES_PENGUIN_DISGUISE_BUSH_FORM},
-			{EVO_LEVEL_MAP_MISTHALIN, 50, SPECIES_PENGUIN_DISGUISE_BOX_FORM},
-			{EVO_LEVEL_MAP_ASGARNIA, 50, SPECIES_PENGUIN_DISGUISE_BOX_FORM}
+			{EVO_LEVEL_MAP_DESERT, 33, SPECIES_PENGUIN_DISGUISE_CACTUS_FORM},
+			{EVO_LEVEL_MAP_WILDERNESS, 33, SPECIES_PENGUIN_DISGUISE_ROCK_FORM},
+			{EVO_LEVEL_MAP_FREMENNIK, 33, SPECIES_PENGUIN_DISGUISE_ROCK_FORM},
+			{EVO_LEVEL_MAP_KANDARIN, 33, SPECIES_PENGUIN_DISGUISE_BUSH_FORM},
+			{EVO_LEVEL_MAP_KARAMJA, 33, SPECIES_PENGUIN_DISGUISE_BUSH_FORM},
+			{EVO_LEVEL_MAP_MISTHALIN, 33, SPECIES_PENGUIN_DISGUISE_BOX_FORM},
+			{EVO_LEVEL_MAP_ASGARNIA, 33, SPECIES_PENGUIN_DISGUISE_BOX_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_PENGATRICE}
 		),
 	},
 
@@ -10717,7 +10805,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_OWN_TEMPO, ABILITY_VOLT_ABSORB, ABILITY_SLUSH_RUSH },
+		.abilities = { ABILITY_FULL_METAL_BODY, ABILITY_LIGHTNING_ROD, ABILITY_SLUSH_RUSH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Penguin"),
 		.cryId = CRY_PENGUIN_CLOCKWORK_FORM,
@@ -10741,7 +10829,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penguin_Clockwork_Form),
-		ICON(Penguin_Clockwork_Form, 2),
+		ICON(Penguin_Clockwork_Form, 0),
 		.footprint = gMonFootprint_Penguin_Clockwork_Form,
 		LEARNSETS(Penguin_Clockwork_Form),
 		.frontPicYOffset = 9,
@@ -10768,7 +10856,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_WATER_1 },
-		.abilities = { ABILITY_PRESSURE, ABILITY_PRESSURE, ABILITY_DISGUISE },
+		.abilities = { ABILITY_DISGUISE, ABILITY_DISGUISE, ABILITY_DISGUISE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("The Thing"),
 		.cryId = CRY_THE_THING,
@@ -10791,7 +10879,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(The_Thing),
-		ICON(The_Thing, 0),
+		ICON(The_Thing, 2),
 		.footprint = gMonFootprint_The_Thing,
 		LEARNSETS(The_Thing),
 		.frontPicYOffset = 2,
@@ -10839,7 +10927,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ping),
-		ICON(Ping, 0),
+		ICON(Ping, 2),
 		.footprint = gMonFootprint_Ping,
 		LEARNSETS(Ping),
 		.frontPicYOffset = 6,
@@ -10887,7 +10975,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pong),
-		ICON(Pong, 0),
+		ICON(Pong, 2),
 		.footprint = gMonFootprint_Pong,
 		LEARNSETS(Pong),
 		.frontPicYOffset = 2,
@@ -10896,11 +10984,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PENGUIN_MCGRAW_FORM] =
 	{
-		.baseHP = 75,
-		.baseAttack = 85,
+		.baseHP = 65,
+		.baseAttack = 75,
 		.baseDefense = 45,
-		.baseSpeed = 110,
-		.baseSpAttack = 95,
+		.baseSpeed = 100,
+		.baseSpAttack = 85,
 		.baseSpDefense = 70,
 		.types = { TYPE_ICE, TYPE_WATER },
 		.catchRate = 45,
@@ -10936,15 +11024,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penguin_McGraw_Form),
-		ICON(Penguin_McGraw_Form, 2),
+		ICON(Penguin_McGraw_Form, 0),
 		.footprint = gMonFootprint_Penguin_McGraw_Form,
 		LEARNSETS(Penguin_McGraw_Form),
 		.frontPicYOffset = 13,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_WHITE_FORM, SPECIES_THE_THING},
-			{EVO_MOVE_TYPE, TYPE_ROCK, SPECIES_PENGUIN_SPY_FORM},
-			{EVO_MOVE_TYPE, TYPE_STEEL, SPECIES_PENGUIN_AGENT_FORM}
+			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_PENGUIN_SPY_FORM},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_PENGUIN_AGENT_FORM}
 		),
 	},
 
@@ -11040,7 +11128,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penguin_Agent_Form),
-		ICON(Penguin_Agent_Form, 0),
+		ICON(Penguin_Agent_Form, 2),
 		.footprint = gMonFootprint_Penguin_Agent_Form,
 		LEARNSETS(Penguin_Agent_Form),
 		.frontPicYOffset = 2,
@@ -11123,7 +11211,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Next to a pet rock its hard to tell\n"
+			"Next to a pet rock it's hard to tell\n"
 			"which one might pick up a stick."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -11139,7 +11227,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Penguin_Disguise_Rock_Form, 2),
 		.footprint = gMonFootprint_Penguin_Disguise_Rock_Form,
 		LEARNSETS(Penguin_Disguise_Rock_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 10,
 		.enemyMonElevation = 0,
 	},
 
@@ -11232,10 +11320,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penguin_Disguise_Box_Form),
-		ICON(Penguin_Disguise_Box_Form, 0),
+		ICON(Penguin_Disguise_Box_Form, 2),
 		.footprint = gMonFootprint_Penguin_Disguise_Box_Form,
 		LEARNSETS(Penguin_Disguise_Box_Form),
-		.frontPicYOffset = 5,
+		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
 	},
 
@@ -11269,7 +11357,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
 			"Used to be a real parrot but they are no\n"
-			"more, its gone, and it longs for the\n"
+			"more, it's gone, and it longs for the\n"
 			"fjords."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -11282,7 +11370,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(ExExParrot),
-		ICON(ExExParrot, 0),
+		ICON(ExExParrot, 2),
 		.footprint = gMonFootprint_ExExParrot,
 		LEARNSETS(ExExParrot),
 		.frontPicYOffset = 8,
@@ -11332,7 +11420,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Broav),
-		ICON(Broav, 0),
+		ICON(Broav, 2),
 		.footprint = gMonFootprint_Broav,
 		LEARNSETS(Broav),
 		.frontPicYOffset = 3,
@@ -11373,7 +11461,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 340.2,
 		.description = COMPOUND_STRING(
 			"A creature created by the magic of the\n"
-			"tooth fairy. They turn rotten if they\n"
+			"Tooth Fairy. They turn rotten if they\n"
 			"eat chocolate."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -11386,7 +11474,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tooths),
-		ICON(Tooths, 0),
+		ICON(Tooths, 2),
 		.footprint = gMonFootprint_Tooths,
 		LEARNSETS(Tooths),
 		.frontPicYOffset = 7,
@@ -11435,7 +11523,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rune_Guardian),
-		ICON(Rune_Guardian, 0),
+		ICON(Rune_Guardian, 1),
 		.footprint = gMonFootprint_Rune_Guardian,
 		LEARNSETS(Rune_Guardian),
 		.frontPicYOffset = 7,
@@ -11471,7 +11559,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_ILLUMINATE, ABILITY_COMPETITIVE, ABILITY_COMPETITIVE },
+		.abilities = { ABILITY_STALL, ABILITY_COMPETITIVE, ABILITY_COMPETITIVE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gnomey"),
 		.cryId = CRY_GNOMEY,
@@ -11480,7 +11568,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.2,
 		.weight = 272.2,
 		.description = COMPOUND_STRING(
-			"Given to winners of the golden gnome\n"
+			"Given to winners of the Golden Gnome\n"
 			"awards. Most being for pity or lack of\n"
 			"competition."),
 		.pokemonScale = 256,
@@ -11494,7 +11582,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Gnomey),
-		ICON(Gnomey, 0),
+		ICON(Gnomey, 2),
 		.footprint = gMonFootprint_Gnomey,
 		LEARNSETS(Gnomey),
 		.frontPicYOffset = 8,
@@ -11521,7 +11609,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_MARVEL_SCALE, ABILITY_NONE, ABILITY_ILLUMINATE },
+		.abilities = { ABILITY_MARVEL_SCALE, ABILITY_MARVEL_SCALE, ABILITY_ILLUMINATE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Sparkles"),
 		.cryId = CRY_SPARKLES,
@@ -11530,7 +11618,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 8.0,
 		.weight = 31.8,
 		.description = COMPOUND_STRING(
-			"A tinsel snake celebrating christmas.\n"
+			"A tinsel snake celebrating Christmas.\n"
 			"They refuse to curl around a tree."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -11543,7 +11631,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sparkles),
-		ICON(Sparkles, 0),
+		ICON(Sparkles, 2),
 		.footprint = gMonFootprint_Sparkles,
 		LEARNSETS(Sparkles),
 		.frontPicYOffset = 0,
@@ -11552,9 +11640,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_BAT] =
 	{
-		.baseHP = 40,
+		.baseHP = 50,
 		.baseAttack = 55,
-		.baseDefense = 25,
+		.baseDefense = 45,
 		.baseSpeed = 55,
 		.baseSpAttack = 45,
 		.baseSpDefense = 50,
@@ -11647,17 +11735,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Bat),
-		ICON(Giant_Bat, 0),
+		ICON(Giant_Bat, 2),
 		.footprint = gMonFootprint_Giant_Bat,
 		LEARNSETS(Giant_Bat),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 2,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_NIGHT, 32, SPECIES_ALBINO_BAT},
-			{EVO_ITEM, ITEM_SPIRIT_SHARD, SPECIES_FRUIT_BAT},
 			{EVO_LEVEL_DAY, 32, SPECIES_DEATHWING},
+			{EVO_ITEM, ITEM_BANANA, SPECIES_FRUIT_BAT},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_BAT_GAUNTLET_CORRUPTED_FORM},
-			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_VAMPYREBAT}
+			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_VAMPYREBAT},
+			{EVO_LEVEL_MAP_MORYTANIA, 19, SPECIES_VAMPYREBAT}
 		),
 	},
 
@@ -11680,7 +11769,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_SYNCHRONIZE, ABILITY_TELEPATHY },
+		.abilities = { ABILITY_SOUNDPROOF, ABILITY_SYNCHRONIZE, ABILITY_TELEPATHY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Warped Bat"),
 		.cryId = CRY_WARPED_BAT,
@@ -11703,7 +11792,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Warped_Bat),
-		ICON(Warped_Bat, 0),
+		ICON(Warped_Bat, 2),
 		.footprint = gMonFootprint_Warped_Bat,
 		LEARNSETS(Warped_Bat),
 		.frontPicYOffset = 0,
@@ -11810,7 +11899,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_NIGHT, 32, SPECIES_VAMPYREBAT},
 			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_KRYKET_BAT},
 			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_VAMPYREBAT},
-			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_BAT_GAUNTLET_CRYSTALLINE_FORM}
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_BAT_GAUNTLET_CRYSTALLINE_FORM},
+			{EVO_LEVEL_MAP_MORYTANIA, 19, SPECIES_VAMPYREBAT}
 		),
 	},
 
@@ -11833,7 +11923,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_UNBURDEN, ABILITY_SAP_SIPPER, ABILITY_PICKUP },
+		.abilities = { ABILITY_HARVEST, ABILITY_SAP_SIPPER, ABILITY_PICKUP },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Fruit Bat"),
 		.cryId = CRY_FRUIT_BAT,
@@ -11856,7 +11946,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Fruit_Bat),
-		ICON(Fruit_Bat, 0),
+		ICON(Fruit_Bat, 2),
 		.footprint = gMonFootprint_Fruit_Bat,
 		LEARNSETS(Fruit_Bat),
 		.frontPicYOffset = 2,
@@ -11891,7 +11981,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 7.5,
 		.weight = 13.6,
 		.description = COMPOUND_STRING(
-			"Whenever it clings to it's enemies, it\n"
+			"Whenever it clings to its enemies, it\n"
 			"will not let go until it is full of\n"
 			"blood."),
 		.pokemonScale = 256,
@@ -11905,7 +11995,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(VampyreBat),
-		ICON(VampyreBat, 0),
+		ICON(VampyreBat, 2),
 		.footprint = gMonFootprint_VampyreBat,
 		LEARNSETS(VampyreBat),
 		.frontPicYOffset = 0,
@@ -11953,7 +12043,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Deathwing),
-		ICON(Deathwing, 0),
+		ICON(Deathwing, 2),
 		.footprint = gMonFootprint_Deathwing,
 		LEARNSETS(Deathwing),
 		.frontPicYOffset = 3,
@@ -12001,7 +12091,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Shaikah),
-		ICON(Shaikah, 0),
+		ICON(Shaikah, 2),
 		.footprint = gMonFootprint_Shaikah,
 		LEARNSETS(Shaikah),
 		.frontPicYOffset = 0,
@@ -12020,7 +12110,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpeed = 60,
 		.baseSpAttack = 130,
 		.baseSpDefense = 110,
-		.types = { TYPE_NORMAL, TYPE_FAIRY },
+		.types = { TYPE_FAIRY, TYPE_ELECTRIC },
 		.catchRate = 45,
 		.expYield = 121,
 		.evYield_Attack = 1,
@@ -12054,7 +12144,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Growler),
-		ICON(Growler, 2),
+		ICON(Growler, 0),
 		.footprint = gMonFootprint_Growler,
 		LEARNSETS(Growler),
 		.frontPicYOffset = 0,
@@ -12102,7 +12192,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Phoenling_Rebirth_Form),
-		ICON(Phoenling_Rebirth_Form, 2),
+		ICON(Phoenling_Rebirth_Form, 0),
 		.footprint = gMonFootprint_Phoenling_Rebirth_Form,
 		LEARNSETS(Phoenling_Rebirth_Form),
 		.frontPicYOffset = 9,
@@ -12134,7 +12224,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
-		.abilities = { ABILITY_FLAME_BODY, ABILITY_BIG_PECKS, ABILITY_BIG_PECKS },
+		.abilities = { ABILITY_TURBOBLAZE, ABILITY_BIG_PECKS, ABILITY_BIG_PECKS },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Phoenling"),
 		.cryId = CRY_PHOENLING_REBORN_FORM,
@@ -12143,7 +12233,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.6,
 		.weight = 13.6,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Hatching from an egg already cracked by\n"
+			"the feet of reckless adventurers, this\n"
+			"baby phoenix is bitter and bad to the\n"
+			"bone."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -12155,7 +12248,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Phoenling_Reborn_Form),
-		ICON(Phoenling_Reborn_Form, 2),
+		ICON(Phoenling_Reborn_Form, 0),
 		.footprint = gMonFootprint_Phoenling_Reborn_Form,
 		LEARNSETS(Phoenling_Reborn_Form),
 		.frontPicYOffset = 9,
@@ -12209,7 +12302,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Phoenix_Rebirth_Form),
-		ICON(Phoenix_Rebirth_Form, 2),
+		ICON(Phoenix_Rebirth_Form, 0),
 		.footprint = gMonFootprint_Phoenix_Rebirth_Form,
 		LEARNSETS(Phoenix_Rebirth_Form),
 		.frontPicYOffset = 2,
@@ -12235,7 +12328,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
-		.abilities = { ABILITY_FLAME_BODY, ABILITY_BIG_PECKS, ABILITY_BIG_PECKS },
+		.abilities = { ABILITY_TURBOBLAZE, ABILITY_BIG_PECKS, ABILITY_BIG_PECKS },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Phoenix"),
 		.cryId = CRY_PHOENIX_REBORN_FORM,
@@ -12244,7 +12337,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 6.0,
 		.weight = 122.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Arisen from the ashes, this phoenix vows\n"
+			"to burn down the homes of anyone who has\n"
+			"wronged it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -12256,21 +12351,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Phoenix_Reborn_Form),
-		ICON(Phoenix_Reborn_Form, 2),
+		ICON(Phoenix_Reborn_Form, 0),
 		.footprint = gMonFootprint_Phoenix_Reborn_Form,
 		LEARNSETS(Phoenix_Reborn_Form),
 		.frontPicYOffset = 2,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 6,
 	},
 
 [SPECIES_PLANT_STRANGE_FORM] =
 	{
-		.baseHP = 50,
-		.baseAttack = 40,
-		.baseDefense = 50,
+		.baseHP = 65,
+		.baseAttack = 45,
+		.baseDefense = 60,
 		.baseSpeed = 20,
 		.baseSpAttack = 65,
-		.baseSpDefense = 50,
+		.baseSpDefense = 65,
 		.types = { TYPE_GRASS, TYPE_POISON },
 		.catchRate = 90,
 		.expYield = 121,
@@ -12292,7 +12387,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A plant that can grow anywhere. But if\n"
-			"the fruit isnt picked it will attack."),
+			"the fruit isn't picked it will attack."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -12385,7 +12480,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CHLOROPHYLL, ABILITY_MERCILESS, ABILITY_MERCILESS },
+		.abilities = { ABILITY_CHLOROPHYLL, ABILITY_DARK_AURA, ABILITY_MERCILESS },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("EvilTurnip"),
 		.cryId = CRY_EVILTURNIP,
@@ -12396,7 +12491,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A turnip so dastardly evil, not even\n"
 			"demons dare to go near it. It gives the\n"
-			"Evil chicken a run for its title."),
+			"Evil Chicken a run for its title."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -12408,7 +12503,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(EvilTurnip),
-		ICON(EvilTurnip, 0),
+		ICON(EvilTurnip, 2),
 		.footprint = gMonFootprint_EvilTurnip,
 		LEARNSETS(EvilTurnip),
 		.frontPicYOffset = 9,
@@ -12457,11 +12552,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Creature_Cute_Form),
-		ICON(Creature_Cute_Form, 2),
+		ICON(Creature_Cute_Form, 0),
 		.footprint = gMonFootprint_Creature_Cute_Form,
 		LEARNSETS(Creature_Cute_Form),
 		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sCuteCreatureFormSpeciesIdTable,
+		.formChangeTable = sCuteCreatureFormChangeTable,
 	},
 
 [SPECIES_CREATURE_EVIL_FORM] =
@@ -12492,7 +12589,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.9,
 		.weight = 81.6,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Their true form finally revealed, these\n"
+			"creatures are nefarious spies used by\n"
+			"Glouphrie the Untrusted."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -12515,8 +12614,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 60,
 		.baseAttack = 55,
-		.baseDefense = 50,
-		.baseSpeed = 20,
+		.baseDefense = 65,
+		.baseSpeed = 25,
 		.baseSpAttack = 45,
 		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_GRASS },
@@ -12553,7 +12652,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Baby_Yak),
-		ICON(Baby_Yak, 0),
+		ICON(Baby_Yak, 2),
 		.footprint = gMonFootprint_Baby_Yak,
 		LEARNSETS(Baby_Yak),
 		.frontPicYOffset = 0,
@@ -12605,7 +12704,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Normal_Form),
-		ICON(Yak_Normal_Form, 0),
+		ICON(Yak_Normal_Form, 2),
 		.footprint = gMonFootprint_Yak_Normal_Form,
 		LEARNSETS(Yak_Normal_Form),
 		.frontPicYOffset = 6,
@@ -12618,7 +12717,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_YAK_UNDEAD_FORM},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_YAK_MOORRISSEY_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ABYSSAL_DEMON_FORM, SPECIES_YAK_MOORRISSEY_FORM},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_YAK_ROBIN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_YAK_ROBIN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_YAK_ROBIN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_YAK_ROBIN_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_YAK_ROBIN_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SNOW_IMP, SPECIES_YAK_ROBIN_FORM},
 			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_YAK_YAKTRICK_FORM},
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_YAK_LUMBER_FORM},
@@ -12648,7 +12750,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_ROCK_HEAD, ABILITY_MOODY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Pack Yak"),
 		.cryId = CRY_YAK_PACK_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_PACK_FORM,
 		.categoryName = _("Baroo"),
@@ -12669,7 +12771,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Pack_Form),
-		ICON(Yak_Pack_Form, 0),
+		ICON(Yak_Pack_Form, 2),
 		.footprint = gMonFootprint_Yak_Pack_Form,
 		LEARNSETS(Yak_Pack_Form),
 		.frontPicYOffset = 1,
@@ -12705,7 +12807,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 17.6,
 		.weight = 925.3,
 		.description = COMPOUND_STRING(
-			"A Yak said to be holy and sacred. It's\n"
+			"A Yak said to be holy and sacred. Its\n"
 			"presence is an omen of good."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -12769,7 +12871,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_ClueScroll_Form),
-		ICON(Yak_ClueScroll_Form, 2),
+		ICON(Yak_ClueScroll_Form, 0),
 		.footprint = gMonFootprint_Yak_ClueScroll_Form,
 		LEARNSETS(Yak_ClueScroll_Form),
 		.frontPicYOffset = 0,
@@ -12818,7 +12920,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Undead_Form),
-		ICON(Yak_Undead_Form, 0),
+		ICON(Yak_Undead_Form, 1),
 		.footprint = gMonFootprint_Yak_Undead_Form,
 		LEARNSETS(Yak_Undead_Form),
 		.frontPicYOffset = 5,
@@ -12846,7 +12948,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_MOODY, ABILITY_MOODY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Snack Yak"),
 		.cryId = CRY_YAK_SNACK_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_SNACK_FORM,
 		.categoryName = _("Snacking"),
@@ -12867,7 +12969,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Snack_Form),
-		ICON(Yak_Snack_Form, 1),
+		ICON(Yak_Snack_Form, 2),
 		.footprint = gMonFootprint_Yak_Snack_Form,
 		LEARNSETS(Yak_Snack_Form),
 		.frontPicYOffset = 2,
@@ -12918,7 +13020,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Minitrice),
-		ICON(Minitrice, 0),
+		ICON(Minitrice, 1),
 		.footprint = gMonFootprint_Minitrice,
 		LEARNSETS(Minitrice),
 		.frontPicYOffset = 0,
@@ -12932,7 +13034,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_RAVEN_NORMAL_FORM, SPECIES_CORXATRICE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE, SPECIES_VULATRICE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PENGUIN, SPECIES_PENGATRICE},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_CHOCATRICE}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_CHOCATRICE},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_CHOCATRICE},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_CHOCATRICE},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_CHOCATRICE}
 		),
 	},
 
@@ -13014,7 +13119,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 127.0,
 		.description = COMPOUND_STRING(
 			"A green egg corrupted to become a\n"
-			"guthatrice. Their view on balance is\n"
+			"Guthatrice. Their view on balance is\n"
 			"rocky at best."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -13125,7 +13230,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Saratrice),
-		ICON(Saratrice, 2),
+		ICON(Saratrice, 0),
 		.footprint = gMonFootprint_Saratrice,
 		LEARNSETS(Saratrice),
 		.frontPicYOffset = 2,
@@ -13161,7 +13266,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 127.0,
 		.description = COMPOUND_STRING(
 			"A black egg corrupted to become a\n"
-			"corxatrice. They get really sad when\n"
+			"Corxatrice. They get really sad when\n"
 			"they find shiny things and they turn to\n"
 			"stone."),
 		.pokemonScale = 256,
@@ -13175,7 +13280,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Corxatrice),
-		ICON(Corxatrice, 0),
+		ICON(Corxatrice, 2),
 		.footprint = gMonFootprint_Corxatrice,
 		LEARNSETS(Corxatrice),
 		.frontPicYOffset = 2,
@@ -13225,7 +13330,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulatrice),
-		ICON(Vulatrice, 0),
+		ICON(Vulatrice, 2),
 		.footprint = gMonFootprint_Vulatrice,
 		LEARNSETS(Vulatrice),
 		.frontPicYOffset = 0,
@@ -13274,7 +13379,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pengatrice),
-		ICON(Pengatrice, 0),
+		ICON(Pengatrice, 2),
 		.footprint = gMonFootprint_Pengatrice,
 		LEARNSETS(Pengatrice),
 		.frontPicYOffset = 1,
@@ -13323,7 +13428,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chocatrice),
-		ICON(Chocatrice, 0),
+		ICON(Chocatrice, 2),
 		.footprint = gMonFootprint_Chocatrice,
 		LEARNSETS(Chocatrice),
 		.frontPicYOffset = 0,
@@ -13359,7 +13464,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
 			"A sprout that changes its appearance\n"
-			"depending on the season."),
+			"depending on the season. By summer, its\n"
+			"leaves have matured and are now a rich\n"
+			"green colour."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -13406,7 +13513,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.7,
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A sprout that changes its appearance\n"
+			"depending on the season. In the spring,\n"
+			"its leaves resemble cherry blossoms."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -13453,7 +13562,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.7,
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A sprout that changes its appearance\n"
+			"depending on the season. In the winter\n"
+			"it sheds its leaves, ready to blossom\n"
+			"again in the spring."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -13500,7 +13612,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 5.7,
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A sprout that changes its appearance\n"
+			"depending on the season. In the autumn,\n"
+			"its leaves turn a golden brown before\n"
+			"they're shed for winter."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -13548,7 +13663,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 88.5,
 		.description = COMPOUND_STRING(
 			"A dragon made of runic energy. They are\n"
-			"known to sometimes steal adventurers\n"
+			"known to sometimes steal adventurers'\n"
 			"runes as snacks."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -13561,7 +13676,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rue),
-		ICON(Rue, 0),
+		ICON(Rue, 2),
 		.footprint = gMonFootprint_Rue,
 		LEARNSETS(Rue),
 		.frontPicYOffset = 0,
@@ -13587,7 +13702,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
-		.abilities = { ABILITY_NO_GUARD, ABILITY_DEFIANT, ABILITY_NO_GUARD },
+		.abilities = { ABILITY_SHARPNESS, ABILITY_DEFIANT, ABILITY_NO_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Monty"),
 		.cryId = CRY_MONTY,
@@ -13611,7 +13726,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monty),
-		ICON(Monty, 2),
+		ICON(Monty, 0),
 		.footprint = gMonFootprint_Monty,
 		LEARNSETS(Monty),
 		.frontPicYOffset = 6,
@@ -13620,15 +13735,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ZYGOMITE] =
 	{
-		.baseHP = 100,
-		.baseAttack = 60,
-		.baseDefense = 80,
-		.baseSpeed = 40,
-		.baseSpAttack = 100,
-		.baseSpDefense = 100,
-		.types = { TYPE_GRASS, TYPE_FAIRY },
+		.baseHP = 55,
+		.baseAttack = 40,
+		.baseDefense = 50,
+		.baseSpeed = 20,
+		.baseSpAttack = 65,
+		.baseSpDefense = 70,
+		.types = { TYPE_FAIRY, TYPE_GRASS },
 		.catchRate = 45,
-		.expYield = 154,
+		.expYield = 67,
 		.evYield_SpDefense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
@@ -13639,7 +13754,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_FAIRY },
 		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_DAMP, ABILITY_DAMP },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Zygomite"),
+		.speciesName = _("Sporeling"),
 		.cryId = CRY_ZYGOMITE,
 		.natDexNum = NATIONAL_DEX_ZYGOMITE,
 		.categoryName = _("Mushroom"),
@@ -13662,14 +13777,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Zygomite, 0),
 		.footprint = gMonFootprint_Zygomite,
 		LEARNSETS(Zygomite),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 12,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 41, SPECIES_ZYGOMITE_MAGICAL_FORM},
-			{EVO_LEVEL_NIGHT, 41, SPECIES_ZYGOMITE_ZANARIAN_FORM},
-			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_ZYGOMITE_ARCSPORE_FORM},
-			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_ZYGOMITE_DAEMONCAP_FORM},
-			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_ZYGOMITE_ANCIENT_FORM}
+			{EVO_LEVEL_DAY, 28, SPECIES_ZYGOMITE_GLOOMSHROOM},
+			{EVO_LEVEL_NIGHT, 28, SPECIES_ZYGOMITE_OSRS}
 		),
 	},
 
@@ -13714,11 +13826,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssaling),
-		ICON(Abyssaling, 0),
+		ICON(Abyssaling, 2),
 		.footprint = gMonFootprint_Abyssaling,
 		LEARNSETS(Abyssaling),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_MOVE, MOVE_TELEPORT, SPECIES_ABYSSAL_MINION_FORM}
+		),
 	},
 
 [SPECIES_ABYSSAL_MINION_FORM] =
@@ -13742,7 +13857,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_HYPER_CUTTER, ABILITY_TECHNICIAN },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Minion"),
 		.cryId = CRY_ABYSSAL_MINION_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_MINION_FORM,
 		.categoryName = _("Abby Minion"),
@@ -13763,11 +13878,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssal_Minion_Form),
-		ICON(Abyssal_Minion_Form, 0),
+		ICON(Abyssal_Minion_Form, 2),
 		.footprint = gMonFootprint_Abyssal_Minion_Form,
 		LEARNSETS(Abyssal_Minion_Form),
 		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 36, SPECIES_ABYSSAL_DEMON_FORM},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_ABYSSAL_DEMON_REANIMATED_FORM}
+		),
 	},
 
 [SPECIES_ABYSSAL_DEMON_FORM] =
@@ -13792,7 +13911,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_HYPER_CUTTER, ABILITY_TECHNICIAN },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Demon"),
 		.cryId = CRY_ABYSSAL_DEMON_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_DEMON_FORM,
 		.categoryName = _("RiftWeaving"),
@@ -13840,9 +13959,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_PRESSURE, ABILITY_ABYSSAL, ABILITY_SWARM },
+		.abilities = { ABILITY_ABYSSAL, ABILITY_PRESSURE, ABILITY_SWARM },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Sire"),
 		.cryId = CRY_ABYSSAL_SIRE_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_SIRE_FORM,
 		.categoryName = _("Sired"),
@@ -13891,7 +14010,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Leech"),
 		.cryId = CRY_ABYSSAL_LEECH_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_LEECH_FORM,
 		.categoryName = _("Leech"),
@@ -13911,11 +14030,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssal_Leech_Form),
-		ICON(Abyssal_Leech_Form, 2),
+		ICON(Abyssal_Leech_Form, 0),
 		.footprint = gMonFootprint_Abyssal_Leech_Form,
 		LEARNSETS(Abyssal_Leech_Form),
 		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 34, SPECIES_ABYSSAL_WALKER_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ABYSSAL_DEEPSEA_LEECH, SPECIES_ABYSSAL_DEEPSEA_LEECH},
+			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_ABYSSAL_DEEPSEA_LEECH}
+		),
 	},
 
 [SPECIES_ABYSSAL_PARASITE_FORM] =
@@ -13939,7 +14063,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_LIQUID_OOZE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Parasite"),
 		.cryId = CRY_ABYSSAL_PARASITE_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_PARASITE_FORM,
 		.categoryName = _("Parasite"),
@@ -13959,7 +14083,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssal_Parasite_Form),
-		ICON(Abyssal_Parasite_Form, 2),
+		ICON(Abyssal_Parasite_Form, 0),
 		.footprint = gMonFootprint_Abyssal_Parasite_Form,
 		LEARNSETS(Abyssal_Parasite_Form),
 		.frontPicYOffset = 4,
@@ -13987,7 +14111,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_SWARM, ABILITY_LIQUID_OOZE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Lurker"),
 		.cryId = CRY_ABYSSAL_LURKER_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_LURKER_FORM,
 		.categoryName = _("Lurker"),
@@ -14013,6 +14137,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Abyssal_Lurker_Form),
 		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 42, SPECIES_ABYSSAL_PARASITE_FORM}
+		),
 	},
 
 [SPECIES_ABYSSAL_WALKER_FORM] =
@@ -14036,7 +14163,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_SWARM, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Walker"),
 		.cryId = CRY_ABYSSAL_WALKER_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_WALKER_FORM,
 		.categoryName = _("Walker"),
@@ -14061,6 +14188,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Abyssal_Walker_Form),
 		.frontPicYOffset = 1,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 48, SPECIES_ABYSSAL_GUARDIAN}
+		),
 	},
 
 [SPECIES_ABYSSAL_TITAN_FORM] =
@@ -14082,9 +14212,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_IRON_FIST, ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE },
+		.abilities = { ABILITY_ABYSSAL, ABILITY_IRON_FIST, ABILITY_LIQUID_OOZE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Abyssal"),
+		.speciesName = _("Titan"),
 		.cryId = CRY_ABYSSAL_TITAN_FORM,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_TITAN_FORM,
 		.categoryName = _("Abby Giant"),
@@ -14093,7 +14223,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A titan from the abyss summoned by a\n"
 			"summoning obelisk. It's unclear if it\n"
-			"enjoys to serve others."),
+			"enjoys serving others."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -14105,7 +14235,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssal_Titan_Form),
-		ICON(Abyssal_Titan_Form, 0),
+		ICON(Abyssal_Titan_Form, 2),
 		.footprint = gMonFootprint_Abyssal_Titan_Form,
 		LEARNSETS(Abyssal_Titan_Form),
 		.frontPicYOffset = 0,
@@ -14114,12 +14244,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_TZ_KIH] =
 	{
-		.baseHP = 40,
+		.baseHP = 45,
 		.baseAttack = 80,
-		.baseDefense = 20,
+		.baseDefense = 30,
 		.baseSpeed = 75,
 		.baseSpAttack = 35,
-		.baseSpDefense = 20,
+		.baseSpDefense = 35,
 		.types = { TYPE_ROCK, TYPE_FIRE },
 		.catchRate = 200,
 		.expYield = 54,
@@ -14141,7 +14271,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 63.5,
 		.description = COMPOUND_STRING(
 			"Smallest of the wild beings of the\n"
-			"tzhaar volcano. They fly around in the\n"
+			"TzHaar volcano. They fly around in the\n"
 			"fight caves."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -14154,7 +14284,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tz_Kih),
-		ICON(Tz_Kih, 2),
+		ICON(Tz_Kih, 0),
 		.footprint = gMonFootprint_Tz_Kih,
 		LEARNSETS(Tz_Kih),
 		.frontPicYOffset = 0,
@@ -14193,8 +14323,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 10.3,
 		.weight = 362.9,
 		.description = COMPOUND_STRING(
-			"A fighter of the fight cave, they were\n"
-			"originally builders of the elder god\n"
+			"A fighter of the Fight Caves, they were\n"
+			"originally builders of the Elder God\n"
 			"Ful."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -14293,7 +14423,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"The spirit of a Tz-Kih brought to life\n"
+			"by a summoner. These creatures feed on\n"
+			"people's prayers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -14340,7 +14472,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 17.3,
 		.weight = 839.1,
 		.description = COMPOUND_STRING(
-			"A plague upon the tzhaar volcano. These\n"
+			"A plague upon the TzHaar volcano. These\n"
 			"monsters are hunted for their meat but\n"
 			"are hard to catch."),
 		.pokemonScale = 256,
@@ -14354,7 +14486,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ket_Dill),
-		ICON(Ket_Dill, 0),
+		ICON(Ket_Dill, 2),
 		.footprint = gMonFootprint_Ket_Dill,
 		LEARNSETS(Ket_Dill),
 		.frontPicYOffset = 3,
@@ -14394,7 +14526,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 29.9,
 		.weight = 1719.1,
 		.description = COMPOUND_STRING(
-			"A strong monster from the fight caves\n"
+			"A strong monster from the Fight Caves\n"
 			"capable of firing great balls of fire\n"
 			"from their bodies."),
 		.pokemonScale = 256,
@@ -14408,7 +14540,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ket_Zek),
-		ICON(Ket_Zek, 2),
+		ICON(Ket_Zek, 0),
 		.footprint = gMonFootprint_Ket_Zek,
 		LEARNSETS(Ket_Zek),
 		.frontPicYOffset = 2,
@@ -14445,7 +14577,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"It's unknown for what reason, but these\n"
 			"monsters seem to heal stronger monsters\n"
-			"of the Tzhaar."),
+			"of the TzHaar."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -14496,8 +14628,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 1197.5,
 		.description = COMPOUND_STRING(
 			"Possessing great strength they are a\n"
-			"threat to any challenger of the fight\n"
-			"caves. They struggle with small spaces."),
+			"threat to any challenger of the Fight\n"
+			"Caves. They struggle with small spaces."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -14518,12 +14650,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_TZREK_JAD] =
 	{
-		.baseHP = 50,
-		.baseAttack = 50,
-		.baseDefense = 60,
-		.baseSpeed = 35,
-		.baseSpAttack = 45,
-		.baseSpDefense = 30,
+		.baseHP = 80,
+		.baseAttack = 75,
+		.baseDefense = 85,
+		.baseSpeed = 57,
+		.baseSpAttack = 65,
+		.baseSpDefense = 70,
 		.types = { TYPE_FIRE, TYPE_GROUND },
 		.catchRate = 45,
 		.expYield = 130,
@@ -14545,7 +14677,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 394.6,
 		.description = COMPOUND_STRING(
 			"A small creature that loves exploring\n"
-			"what lies beyond the tzhaar volcano."),
+			"what lies beyond the TzHaar volcano."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -14557,7 +14689,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(TzRek_Jad),
-		ICON(TzRek_Jad, 2),
+		ICON(TzRek_Jad, 0),
 		.footprint = gMonFootprint_TzRek_Jad,
 		LEARNSETS(TzRek_Jad),
 		.frontPicYOffset = 9,
@@ -14596,7 +14728,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 46.7,
 		.weight = 4554.1,
 		.description = COMPOUND_STRING(
-			"A monster and king of the fight caves.\n"
+			"A monster and king of the Fight Caves.\n"
 			"Warriors who beat one are presented with\n"
 			"a fire cape."),
 		.pokemonScale = 256,
@@ -15015,7 +15147,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(TzKal_Zuk),
-		ICON(TzKal_Zuk, 2),
+		ICON(TzKal_Zuk, 0),
 		.footprint = gMonFootprint_TzKal_Zuk,
 		LEARNSETS(TzKal_Zuk),
 		.frontPicYOffset = 2,
@@ -15024,12 +15156,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_DUCKLING] =
 	{
-		.baseHP = 60,
+		.baseHP = 73,
 		.baseAttack = 35,
-		.baseDefense = 40,
-		.baseSpeed = 50,
+		.baseDefense = 50,
+		.baseSpeed = 67,
 		.baseSpAttack = 25,
-		.baseSpDefense = 40,
+		.baseSpDefense = 50,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 250,
 		.expYield = 42,
@@ -15064,7 +15196,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Duckling),
-		ICON(Duckling, 0),
+		ICON(Duckling, 2),
 		.footprint = gMonFootprint_Duckling,
 		LEARNSETS(Duckling),
 		.frontPicYOffset = 0,
@@ -15157,7 +15289,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 13.6,
 		.description = COMPOUND_STRING(
 			"Waddling along playfully through the\n"
-			"falador park. Some say they can grow to\n"
+			"Falador park. Some say they can grow to\n"
 			"enormous sizes."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -15284,7 +15416,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 69,
 		.baseAttack = 45,
-		.baseDefense = 40,
+		.baseDefense = 86,
 		.baseSpeed = 30,
 		.baseSpAttack = 30,
 		.baseSpDefense = 40,
@@ -15321,7 +15453,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Platypode),
-		ICON(Platypode, 0),
+		ICON(Platypode, 2),
 		.footprint = gMonFootprint_Platypode,
 		LEARNSETS(Platypode),
 		.frontPicYOffset = 2,
@@ -15372,7 +15504,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Platypus),
-		ICON(Platypus, 0),
+		ICON(Platypus, 2),
 		.footprint = gMonFootprint_Platypus,
 		LEARNSETS(Platypus),
 		.frontPicYOffset = 14,
@@ -15381,11 +15513,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_FLEDGLING] =
 	{
-		.baseHP = 30,
+		.baseHP = 45,
 		.baseAttack = 85,
-		.baseDefense = 35,
+		.baseDefense = 65,
 		.baseSpeed = 40,
-		.baseSpAttack = 35,
+		.baseSpAttack = 45,
 		.baseSpDefense = 35,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 190,
@@ -15421,7 +15553,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Fledgling),
-		ICON(Fledgling, 0),
+		ICON(Fledgling, 2),
 		.footprint = gMonFootprint_Fledgling,
 		LEARNSETS(Fledgling),
 		.frontPicYOffset = 0,
@@ -15460,8 +15592,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 154.2,
 		.description = COMPOUND_STRING(
 			"A monster that is the sworn enemy of the\n"
-			"Fremmenik. They hail from waterbirth\n"
-			"island."),
+			"Fremennik. They hail from Waterbirth\n"
+			"Island."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15473,7 +15605,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_Normal_Form),
-		ICON(Dagannoth_Normal_Form, 0),
+		ICON(Dagannoth_Normal_Form, 2),
 		.footprint = gMonFootprint_Dagannoth_Normal_Form,
 		LEARNSETS(Dagannoth_Normal_Form),
 		.frontPicYOffset = 4,
@@ -15516,7 +15648,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 12.7,
 		.weight = 154.2,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Dagannoth whose sole purpose in life is\n"
+			"to guard the Dagannoth Mother."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15528,7 +15661,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_Guardian_Form),
-		ICON(Dagannoth_Guardian_Form, 0),
+		ICON(Dagannoth_Guardian_Form, 2),
 		.footprint = gMonFootprint_Dagannoth_Guardian_Form,
 		LEARNSETS(Dagannoth_Guardian_Form),
 		.frontPicYOffset = 3,
@@ -15561,7 +15694,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_MONSTER },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_DRY_SKIN, ABILITY_DRY_SKIN },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Supreme"),
 		.cryId = CRY_DAGANNOTH_KING_RANGE_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_RANGE_FORM,
 		.categoryName = _("Supreme  "),
@@ -15613,14 +15746,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_MONSTER },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_DRY_SKIN, ABILITY_DRY_SKIN },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Prime"),
 		.cryId = CRY_DAGANNOTH_KING_MAGIC_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_MAGIC_FORM,
 		.categoryName = _("Prime"),
 		.height = 32.4,
 		.weight = 2685.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Rumoured to fly on Northern winds, this\n"
+			"Dagannoth King known as 'Prime'\n"
+			"possesses innate magical abilities."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15632,7 +15767,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_King_Magic_Form),
-		ICON(Dagannoth_King_Magic_Form, 0),
+		ICON(Dagannoth_King_Magic_Form, 1),
 		.footprint = gMonFootprint_Dagannoth_King_Magic_Form,
 		LEARNSETS(Dagannoth_King_Magic_Form),
 		.frontPicYOffset = 3,
@@ -15662,14 +15797,17 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_MONSTER },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_DRY_SKIN, ABILITY_DRY_SKIN },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Rex"),
 		.cryId = CRY_DAGANNOTH_KING_MELEE_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_MELEE_FORM,
 		.categoryName = _("Rex"),
 		.height = 32.4,
 		.weight = 2685.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"The firstborn of the Dagannoth Kings,\n"
+			"this one is known as 'Rex'. He serves\n"
+			"his Queen by attacking enemies with\n"
+			"vicious claws."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15712,14 +15850,17 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
 		.abilities = { ABILITY_SKILL_LINK, ABILITY_SKILL_LINK, ABILITY_SKILL_LINK },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Supreme"),
 		.cryId = CRY_DAGANNOTH_KING_RANGE_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_RANGE_MEGA_FORM,
 		.categoryName = _("Supreme"),
 		.height = 32.4,
 		.weight = 2685.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Dagannoth Supreme's true form. His\n"
+			"ranged accuracy when shooting spikes at\n"
+			"adventurers is unmatched by any other\n"
+			"dagannoth."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15762,14 +15903,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
 		.abilities = { ABILITY_MAGIC_GUARD, ABILITY_MAGIC_GUARD, ABILITY_MAGIC_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Rex"),
 		.cryId = CRY_DAGANNOTH_KING_MAGIC_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_MAGIC_MEGA_FORM,
 		.categoryName = _("Prime"),
 		.height = 32.4,
 		.weight = 2685.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Dagannoth Prime's true form. His magical\n"
+			"ability is so strong that he is immune\n"
+			"even to the dark art of necromancy."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15812,14 +15955,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
 		.abilities = { ABILITY_STRONG_JAW, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Dagannoth"),
+		.speciesName = _("Prime"),
 		.cryId = CRY_DAGANNOTH_KING_MELEE_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_DAGANNOTH_KING_MELEE_MEGA_FORM,
 		.categoryName = _("Rex"),
 		.height = 32.4,
 		.weight = 2685.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Dagannoth Rex's true form. No other\n"
+			"dagannoth comes close to matching his\n"
+			"raw physical strength."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15831,7 +15976,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_King_Melee_Mega_Form),
-		ICON(Dagannoth_King_Melee_Mega_Form, 3),
+		ICON(Dagannoth_King_Melee_Mega_Form, 0),
 		.footprint = gMonFootprint_Dagannoth_King_Melee_Mega_Form,
 		LEARNSETS(Dagannoth_King_Melee_Mega_Form),
 		.frontPicYOffset = 2,
@@ -15861,7 +16006,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED },
-		.abilities = { ABILITY_TRACE, ABILITY_MOODY, ABILITY_MARVEL_SCALE },
+		.abilities = { ABILITY_MOODY, ABILITY_MOODY, ABILITY_MARVEL_SCALE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Chaos Ely"),
 		.cryId = CRY_CHAOS_ELE,
@@ -15871,8 +16016,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 1977.7,
 		.description = COMPOUND_STRING(
 			"An elemental of pure chaotic energy. Its\n"
-			"powers and behaviour is unpredictable to\n"
-			"any enemy or friend alike."),
+			"powers and behaviour are unpredictable\n"
+			"to any enemy or friend alike."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15884,11 +16029,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chaos_Ele),
-		ICON(Chaos_Ele, 2),
+		ICON(Chaos_Ele, 0),
 		.footprint = gMonFootprint_Chaos_Ele,
 		LEARNSETS(Chaos_Ele),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 6,
 		.formSpeciesIdTable = sChaosElementalFormSpeciesIdTable,
 		.formChangeTable = sChaosElementalFormChangeTable,
 	},
@@ -15913,7 +16058,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_NO_EGGS_DISCOVERED, EGG_GROUP_NO_EGGS_DISCOVERED },
-		.abilities = { ABILITY_TRACE, ABILITY_MOODY, ABILITY_MOODY },
+		.abilities = { ABILITY_MOODY, ABILITY_MOODY, ABILITY_MOODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Chaos Ely"),
 		.cryId = CRY_CHAOS_ELE_MEGA_FORM,
@@ -15922,7 +16067,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 19.9,
 		.weight = 1977.7,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Now emerged from the cloud it had\n"
+			"shrouded itself behind, but still as\n"
+			"unpredictable as ever. This is the true\n"
+			"manifestation of chaos."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -15934,11 +16082,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chaos_Ele_Mega_Form),
-		ICON(Chaos_Ele_Mega_Form, 2),
+		ICON(Chaos_Ele_Mega_Form, 0),
 		.footprint = gMonFootprint_Chaos_Ele_Mega_Form,
 		LEARNSETS(Chaos_Ele_Mega_Form),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 3,
+		.enemyMonElevation = 7,
 		.isMegaEvolution = TRUE,
 		.formSpeciesIdTable = sChaosElementalFormSpeciesIdTable,
 		.formChangeTable = sChaosElementalFormChangeTable,
@@ -15985,7 +16133,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bandling),
-		ICON(Bandling, 0),
+		ICON(Bandling, 2),
 		.footprint = gMonFootprint_Bandling,
 		LEARNSETS(Bandling),
 		.frontPicYOffset = 0,
@@ -16037,7 +16185,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bandbird),
-		ICON(Bandbird, 0),
+		ICON(Bandbird, 2),
 		.footprint = gMonFootprint_Bandbird,
 		LEARNSETS(Bandbird),
 		.frontPicYOffset = 2,
@@ -16075,7 +16223,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 6.3,
 		.weight = 90.7,
 		.description = COMPOUND_STRING(
-			"Used by bandosian warlords as weapons,\n"
+			"Used by Bandosian warlords as weapons,\n"
 			"their claws have felled many soldiers on\n"
 			"the battlefield."),
 		.pokemonScale = 256,
@@ -16089,7 +16237,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bandeagle),
-		ICON(Bandeagle, 0),
+		ICON(Bandeagle, 1),
 		.footprint = gMonFootprint_Bandeagle,
 		LEARNSETS(Bandeagle),
 		.frontPicYOffset = 2,
@@ -16126,7 +16274,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 10.4,
 		.description = COMPOUND_STRING(
 			"Hatched from a purple egg, its\n"
-			"motivations and goal is a mystery."),
+			"motivations and goal are a mystery."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -16248,7 +16396,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.footprint = gMonFootprint_Zaraven,
 		LEARNSETS(Zaraven),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 4,
 	},
 
 [SPECIES_SERELING] =
@@ -16494,7 +16642,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Frog_Normal_Form),
-		ICON(Frog_Normal_Form, 0),
+		ICON(Frog_Normal_Form, 1),
 		.footprint = gMonFootprint_Frog_Normal_Form,
 		LEARNSETS(Frog_Normal_Form),
 		.frontPicYOffset = 0,
@@ -16548,7 +16696,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Frog_Normal_Form),
-		ICON(Giant_Frog_Normal_Form, 0),
+		ICON(Giant_Frog_Normal_Form, 1),
 		.footprint = gMonFootprint_Giant_Frog_Normal_Form,
 		LEARNSETS(Giant_Frog_Normal_Form),
 		.frontPicYOffset = 0,
@@ -16600,7 +16748,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Frog_Royal_Form),
-		ICON(Giant_Frog_Royal_Form, 0),
+		ICON(Giant_Frog_Royal_Form, 1),
 		.footprint = gMonFootprint_Giant_Frog_Royal_Form,
 		LEARNSETS(Giant_Frog_Royal_Form),
 		.frontPicYOffset = 0,
@@ -16626,7 +16774,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_LEVITATE, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+		.abilities = { ABILITY_WIND_RIDER, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Huge Frog"),
 		.cryId = CRY_FROG_BLOATED_FORM,
@@ -16649,7 +16797,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Frog_Bloated_Form),
-		ICON(Frog_Bloated_Form, 0),
+		ICON(Frog_Bloated_Form, 1),
 		.footprint = gMonFootprint_Frog_Bloated_Form,
 		LEARNSETS(Frog_Bloated_Form),
 		.frontPicYOffset = 10,
@@ -16678,7 +16826,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_1, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_LEVITATE, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
+		.abilities = { ABILITY_WIND_RIDER, ABILITY_NO_GUARD, ABILITY_NO_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Huge Frog"),
 		.cryId = CRY_FROG_BALLOON_FORM,
@@ -16689,7 +16837,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A very gassy toad that has no ability to\n"
 			"move. Only being held down by the rock\n"
-			"its tied to. They hate their lives."),
+			"it's tied to. They hate their lives."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -16701,7 +16849,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Frog_Balloon_Form),
-		ICON(Frog_Balloon_Form, 0),
+		ICON(Frog_Balloon_Form, 1),
 		.footprint = gMonFootprint_Frog_Balloon_Form,
 		LEARNSETS(Frog_Balloon_Form),
 		.frontPicYOffset = 0,
@@ -16750,7 +16898,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toad_Barker_Form),
-		ICON(Toad_Barker_Form, 0),
+		ICON(Toad_Barker_Form, 2),
 		.footprint = gMonFootprint_Toad_Barker_Form,
 		LEARNSETS(Toad_Barker_Form),
 		.frontPicYOffset = 12,
@@ -16811,7 +16959,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SPIDERLING] =
 	{
-		.baseHP = 30,
+		.baseHP = 60,
 		.baseAttack = 55,
 		.baseDefense = 55,
 		.baseSpeed = 55,
@@ -16828,7 +16976,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWARM, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_SWARM, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spiderling"),
 		.cryId = CRY_SPIDERLING,
@@ -16886,7 +17034,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWARM, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_SWARM, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_GIANT_FORM,
@@ -16941,7 +17089,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWARM, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_SWARM, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_DEADLYRED_FORM,
@@ -16964,7 +17112,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_DeadlyRed_Form),
-		ICON(Spider_DeadlyRed_Form, 2),
+		ICON(Spider_DeadlyRed_Form, 0),
 		.footprint = gMonFootprint_Spider_DeadlyRed_Form,
 		LEARNSETS(Spider_DeadlyRed_Form),
 		.frontPicYOffset = 6,
@@ -16990,7 +17138,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_SWARM, ABILITY_COMPOUND_EYES, ABILITY_POISON_TOUCH },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_COMPOUND_EYES, ABILITY_POISON_TOUCH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_JUNGLE_FORM,
@@ -17062,7 +17210,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Blessed_Form),
-		ICON(Spider_Blessed_Form, 0),
+		ICON(Spider_Blessed_Form, 2),
 		.footprint = gMonFootprint_Spider_Blessed_Form,
 		LEARNSETS(Spider_Blessed_Form),
 		.frontPicYOffset = 13,
@@ -17100,7 +17248,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 4.3,
 		.weight = 2.7,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"So big they almost seem unrealistic,\n"
+			"they lure adventurers closer to\n"
+			"investigate further. They then promptly\n"
+			"devour the adventurers whole."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -17154,7 +17305,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
 			"They lurk the ruins of Daemonheim. But\n"
-			"it is most known for posessing a hood\n"
+			"it is most known for possessing a hood\n"
 			"that makes you invisible."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -17167,7 +17318,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Night_Form),
-		ICON(Spider_Night_Form, 2),
+		ICON(Spider_Night_Form, 0),
 		.footprint = gMonFootprint_Spider_Night_Form,
 		LEARNSETS(Spider_Night_Form),
 		.frontPicYOffset = 11,
@@ -17193,7 +17344,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_ICE_BODY, ABILITY_GOOSEBUMPS, ABILITY_SWARM },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_ICE_BODY, ABILITY_SWARM },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_ICE_FORM,
@@ -17202,7 +17353,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 12.0,
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
-			"It's body is made of ice, making it one\n"
+			"Its body is made of ice, making it one\n"
 			"of very few cold-blooded insects."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -17215,7 +17366,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Ice_Form),
-		ICON(Spider_Ice_Form, 2),
+		ICON(Spider_Ice_Form, 0),
 		.footprint = gMonFootprint_Spider_Ice_Form,
 		LEARNSETS(Spider_Ice_Form),
 		.frontPicYOffset = 15,
@@ -17250,7 +17401,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"A spider conjured by summoners. It is\n"
+			"often used by herblorists as a safe way\n"
+			"to scavenge for red spiders' eggs."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -17298,7 +17451,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0.9,
 		.description = COMPOUND_STRING(
 			"A really scary spider who loves webbing\n"
-			"houses for the spider queen. Not doing\n"
+			"houses for the Spider Queen. Not doing\n"
 			"so is an offense and will leave a spider\n"
 			"in your bathtub."),
 		.pokemonScale = 256,
@@ -17343,7 +17496,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_STORM_DRAIN, ABILITY_GOOSEBUMPS, ABILITY_SWARM },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_STORM_DRAIN, ABILITY_SWARM },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("MinstrlWeb"),
 		.cryId = CRY_MINSTRLWEB,
@@ -17367,7 +17520,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(MinstrlWeb),
-		ICON(MinstrlWeb, 2),
+		ICON(MinstrlWeb, 0),
 		.footprint = gMonFootprint_MinstrlWeb,
 		LEARNSETS(MinstrlWeb),
 		.frontPicYOffset = 6,
@@ -17393,7 +17546,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_POISON_POINT, ABILITY_GOOSEBUMPS, ABILITY_NONE },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Sarachnis"),
 		.cryId = CRY_SARACHNIS,
@@ -17442,7 +17595,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CURSED_BODY, ABILITY_GOOSEBUMPS, ABILITY_NONE },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_CURSED_BODY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Venenatis"),
 		.cryId = CRY_VENENATIS,
@@ -17451,7 +17604,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"It finds its nest in the wilderness\n"
+			"It finds its nest in the Wilderness\n"
 			"where it awaits for unwitting prey to\n"
 			"ambush."),
 		.pokemonScale = 256,
@@ -17492,7 +17645,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CUTE_CHARM, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_CUTE_CHARM, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spidine"),
 		.cryId = CRY_SPIDINE,
@@ -17524,12 +17677,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CRAYFISH] =
 	{
-		.baseHP = 55,
+		.baseHP = 65,
 		.baseAttack = 55,
-		.baseDefense = 55,
-		.baseSpeed = 25,
-		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseDefense = 75,
+		.baseSpeed = 30,
+		.baseSpAttack = 35,
+		.baseSpDefense = 40,
 		.types = { TYPE_WATER, TYPE_BUG },
 		.catchRate = 255,
 		.expYield = 47,
@@ -17563,7 +17716,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crayfish),
-		ICON(Crayfish, 0),
+		ICON(Crayfish, 2),
 		.footprint = gMonFootprint_Crayfish,
 		LEARNSETS(Crayfish),
 		.frontPicYOffset = 2,
@@ -17575,9 +17728,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SHRIMP] =
 	{
-		.baseHP = 60,
+		.baseHP = 75,
 		.baseAttack = 70,
-		.baseDefense = 60,
+		.baseDefense = 80,
 		.baseSpeed = 45,
 		.baseSpAttack = 40,
 		.baseSpDefense = 40,
@@ -17614,14 +17767,27 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Shrimp),
-		ICON(Shrimp, 0),
+		ICON(Shrimp, 2),
 		.footprint = gMonFootprint_Shrimp,
 		LEARNSETS(Shrimp),
 		.frontPicYOffset = 5,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 19, SPECIES_LOBSTER_NORMAL_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE, SPECIES_LOBSTROCITY}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_MAGICAL_FORM, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_ZANARIAN_FORM, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_ARCSPORE_FORM, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_DAEMONCAP_FORM, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_ANCIENT_FORM, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_OSRS, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_OSRS_ANCIENT, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_RSHD_MUTATED, SPECIES_LOBSTROCITY},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZYGOMITE_GLOOMSHROOM, SPECIES_LOBSTROCITY},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_LOBSTROCITY},
+			{EVO_LEVEL_WEATHER_HOT, 28, SPECIES_LOBSTER_GOLDEN_FORM},
+			{EVO_LEVEL_WEATHER_DUSTY, 28, SPECIES_LOBSTER_GIANT_FORM},
+			{EVO_LEVEL_FOG, 28, SPECIES_LOBSTER_HEIM_FORM},
+			{EVO_LEVEL_WEATHER_ABNORMAL, 28, SPECIES_LOBSTER_OBSIDIAN_FORM},
+			{EVO_LEVEL_RAIN, 28, SPECIES_LOBSTER_NORMAL_FORM}
 		),
 	},
 
@@ -17634,7 +17800,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 75,
 		.baseSpDefense = 95,
 		.types = { TYPE_WATER, TYPE_BUG },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 1,
 		.evYield_Defense = 2,
@@ -17668,18 +17834,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Lobster_Normal_Form),
-		ICON(Lobster_Normal_Form, 2),
+		ICON(Lobster_Normal_Form, 0),
 		.footprint = gMonFootprint_Lobster_Normal_Form,
 		LEARNSETS(Lobster_Normal_Form),
 		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
-		.evolutions = EVOLUTION(
-			{EVO_LEVEL_WEATHER_HOT, 28, SPECIES_LOBSTER_GOLDEN_FORM},
-			{EVO_LEVEL_WEATHER_DUSTY, 28, SPECIES_LOBSTER_GIANT_FORM},
-			{EVO_LEVEL_FOG, 28, SPECIES_LOBSTER_HEIM_FORM},
-			{EVO_LEVEL_WEATHER_ABNORMAL, 28, SPECIES_LOBSTER_OBSIDIAN_FORM},
-			{EVO_LEVEL_RAIN, 28, SPECIES_LOBSTROCITY}
-		),
 	},
 
 [SPECIES_LOBSTER_GOLDEN_FORM] =
@@ -17691,7 +17850,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 75,
 		.types = { TYPE_WATER, TYPE_BUG },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 1,
 		.evYield_Defense = 2,
@@ -17702,7 +17861,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_PINCERS, ABILITY_TOUGH_CLAWS, ABILITY_HYPER_CUTTER },
+		.abilities = { ABILITY_GOOD_AS_GOLD, ABILITY_PINCERS, ABILITY_HYPER_CUTTER },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Lobster"),
 		.cryId = CRY_LOBSTER_GOLDEN_FORM,
@@ -17725,7 +17884,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Lobster_Golden_Form),
-		ICON(Lobster_Golden_Form, 2),
+		ICON(Lobster_Golden_Form, 0),
 		.footprint = gMonFootprint_Lobster_Golden_Form,
 		LEARNSETS(Lobster_Golden_Form),
 		.frontPicYOffset = 7,
@@ -17741,7 +17900,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 75,
 		.baseSpDefense = 75,
 		.types = { TYPE_ROCK, TYPE_BUG },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 2,
 		.evYield_Defense = 1,
@@ -17774,7 +17933,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Lobster_Giant_Form),
-		ICON(Lobster_Giant_Form, 2),
+		ICON(Lobster_Giant_Form, 0),
 		.footprint = gMonFootprint_Lobster_Giant_Form,
 		LEARNSETS(Lobster_Giant_Form),
 		.frontPicYOffset = 7,
@@ -17790,7 +17949,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 75,
 		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_BUG },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 143,
 		.evYield_Attack = 1,
 		.evYield_Defense = 2,
@@ -17840,7 +17999,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 105,
 		.types = { TYPE_WATER, TYPE_FAIRY },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 143,
 		.evYield_Attack = 2,
 		.evYield_SpDefense = 1,
@@ -17886,12 +18045,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 75,
-		.baseDefense = 40,
+		.baseDefense = 80,
 		.baseSpeed = 25,
 		.baseSpAttack = 35,
-		.baseSpDefense = 25,
+		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_Attack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -17924,7 +18083,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crab_Red_Form),
-		ICON(Crab_Red_Form, 2),
+		ICON(Crab_Red_Form, 0),
 		.footprint = gMonFootprint_Crab_Red_Form,
 		LEARNSETS(Crab_Red_Form),
 		.frontPicYOffset = 0,
@@ -17944,7 +18103,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -17977,7 +18136,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Crab_Red_Form),
-		ICON(Giant_Crab_Red_Form, 2),
+		ICON(Giant_Crab_Red_Form, 0),
 		.footprint = gMonFootprint_Giant_Crab_Red_Form,
 		LEARNSETS(Giant_Crab_Red_Form),
 		.frontPicYOffset = 9,
@@ -17988,12 +18147,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 75,
-		.baseDefense = 40,
+		.baseDefense = 80,
 		.baseSpeed = 25,
 		.baseSpAttack = 35,
-		.baseSpDefense = 25,
+		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_Attack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18026,7 +18185,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crab_Moss_Form),
-		ICON(Crab_Moss_Form, 2),
+		ICON(Crab_Moss_Form, 0),
 		.footprint = gMonFootprint_Crab_Moss_Form,
 		LEARNSETS(Crab_Moss_Form),
 		.frontPicYOffset = 0,
@@ -18045,7 +18204,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18078,7 +18237,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Crab_Moss_Form),
-		ICON(Giant_Crab_Moss_Form, 2),
+		ICON(Giant_Crab_Moss_Form, 0),
 		.footprint = gMonFootprint_Giant_Crab_Moss_Form,
 		LEARNSETS(Giant_Crab_Moss_Form),
 		.frontPicYOffset = 9,
@@ -18089,12 +18248,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 75,
-		.baseDefense = 40,
+		.baseDefense = 80,
 		.baseSpeed = 25,
 		.baseSpAttack = 35,
-		.baseSpDefense = 25,
+		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_POISON },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_Defense = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18145,7 +18304,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 110,
 		.baseSpDefense = 50,
 		.types = { TYPE_WATER, TYPE_POISON },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Defense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18165,8 +18324,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 13.6,
 		.description = COMPOUND_STRING(
 			"A crab pumped full of rum under the\n"
-			"orders of Rabbid Jack. They are served\n"
-			"as a delicacy in Menaphos."),
+			"orders of Rabid Jack. They are served as\n"
+			"a delicacy in Menaphos."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -18178,7 +18337,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Crab_RumPumped_Form),
-		ICON(Giant_Crab_RumPumped_Form, 1),
+		ICON(Giant_Crab_RumPumped_Form, 2),
 		.footprint = gMonFootprint_Giant_Crab_RumPumped_Form,
 		LEARNSETS(Giant_Crab_RumPumped_Form),
 		.frontPicYOffset = 13,
@@ -18189,12 +18348,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 35,
-		.baseDefense = 40,
+		.baseDefense = 80,
 		.baseSpeed = 25,
 		.baseSpAttack = 75,
-		.baseSpDefense = 25,
+		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_DARK },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_SpAttack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18204,7 +18363,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_DARK_AURA, ABILITY_PINCERS, ABILITY_NONE },
+		.abilities = { ABILITY_PINCERS, ABILITY_DARK_AURA, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Crab"),
 		.cryId = CRY_CRAB_DARK_FORM,
@@ -18213,7 +18372,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A small adolscent crab posessing dark\n"
+			"A small adolescent crab possessing dark\n"
 			"power it will never unleash."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -18245,7 +18404,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 115,
 		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_DARK },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_SpAttack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18255,7 +18414,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_DARK_AURA, ABILITY_PINCERS, ABILITY_DARK_AURA },
+		.abilities = { ABILITY_PINCERS, ABILITY_DARK_AURA, ABILITY_DARK_AURA },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Giant Crab"),
 		.cryId = CRY_GIANT_CRAB_DARK_FORM,
@@ -18266,7 +18425,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Crabs that are so elusive and rare that\n"
 			"even expert fishermen have trouble\n"
-			"fishing them. Or live long enough to\n"
+			"fishing them. Or living long enough to\n"
 			"return to the bank with them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -18290,12 +18449,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 35,
-		.baseDefense = 40,
+		.baseDefense = 80,
 		.baseSpeed = 75,
 		.baseSpAttack = 25,
-		.baseSpDefense = 25,
+		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_Attack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18328,7 +18487,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crab_Grey_Form),
-		ICON(Crab_Grey_Form, 2),
+		ICON(Crab_Grey_Form, 0),
 		.footprint = gMonFootprint_Crab_Grey_Form,
 		LEARNSETS(Crab_Grey_Form),
 		.frontPicYOffset = 0,
@@ -18347,7 +18506,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 65,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 123,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18366,8 +18525,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"They fight with their pinchers for\n"
-			"rights to mate, but most end up eaten by\n"
+			"They fight with their pincers for rights\n"
+			"to mate, but most end up eaten by\n"
 			"sharks."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -18380,7 +18539,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Crab_Grey_Form),
-		ICON(Giant_Crab_Grey_Form, 2),
+		ICON(Giant_Crab_Grey_Form, 0),
 		.footprint = gMonFootprint_Giant_Crab_Grey_Form,
 		LEARNSETS(Giant_Crab_Grey_Form),
 		.frontPicYOffset = 12,
@@ -18396,7 +18555,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 25,
 		.baseSpDefense = 20,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 86,
 		.evYield_Attack = 3,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18429,7 +18588,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Knife_Crab),
-		ICON(Knife_Crab, 2),
+		ICON(Knife_Crab, 0),
 		.footprint = gMonFootprint_Knife_Crab,
 		LEARNSETS(Knife_Crab),
 		.frontPicYOffset = 15,
@@ -18445,7 +18604,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 50,
 		.baseSpDefense = 40,
 		.types = { TYPE_WATER, TYPE_ROCK },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 87,
 		.evYield_Defense = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18497,7 +18656,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 70,
 		.baseSpDefense = 60,
 		.types = { TYPE_WATER, TYPE_ROCK },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 113,
 		.evYield_HP = 1,
 		.evYield_Defense = 1,
@@ -18508,7 +18667,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_SHEER_FORCE, ABILITY_PINCERS, ABILITY_SHEER_FORCE },
+		.abilities = { ABILITY_PINCERS, ABILITY_SHEER_FORCE, ABILITY_SHEER_FORCE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("WebSnipper"),
 		.cryId = CRY_WEBSNIPPER,
@@ -18531,7 +18690,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(WebSnipper),
-		ICON(WebSnipper, 0),
+		ICON(WebSnipper, 2),
 		.footprint = gMonFootprint_WebSnipper,
 		LEARNSETS(WebSnipper),
 		.frontPicYOffset = 15,
@@ -18547,7 +18706,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 95,
 		.baseSpDefense = 50,
 		.types = { TYPE_WATER, TYPE_STEEL },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 113,
 		.evYield_Defense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18580,7 +18739,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Blue_Crab),
-		ICON(Blue_Crab, 2),
+		ICON(Blue_Crab, 0),
 		.footprint = gMonFootprint_Blue_Crab,
 		LEARNSETS(Blue_Crab),
 		.frontPicYOffset = 14,
@@ -18596,7 +18755,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 15,
 		.baseSpDefense = 15,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_HP = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18629,7 +18788,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crablet_First_Form),
-		ICON(Crablet_First_Form, 2),
+		ICON(Crablet_First_Form, 0),
 		.footprint = gMonFootprint_Crablet_First_Form,
 		LEARNSETS(Crablet_First_Form),
 		.frontPicYOffset = 0,
@@ -18645,7 +18804,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 15,
 		.baseSpDefense = 15,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_HP = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18664,7 +18823,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A small crab with a light coating of\n"
+			"salt. These are less sought after than\n"
+			"their crystal counterparts."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -18676,7 +18837,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crablet_Second_Form),
-		ICON(Crablet_Second_Form, 2),
+		ICON(Crablet_Second_Form, 0),
 		.footprint = gMonFootprint_Crablet_Second_Form,
 		LEARNSETS(Crablet_Second_Form),
 		.frontPicYOffset = 0,
@@ -18692,7 +18853,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 15,
 		.baseSpDefense = 15,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_HP = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18711,7 +18872,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"This small crab is covered in regular\n"
+			"salt crystals. The crystals are\n"
+			"harvested and used to make arc gumbo."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -18723,7 +18886,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crablet_Third_Form),
-		ICON(Crablet_Third_Form, 2),
+		ICON(Crablet_Third_Form, 0),
 		.footprint = gMonFootprint_Crablet_Third_Form,
 		LEARNSETS(Crablet_Third_Form),
 		.frontPicYOffset = 0,
@@ -18739,7 +18902,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 15,
 		.baseSpDefense = 15,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_HP = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18758,7 +18921,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"This small crab is covered in special,\n"
+			"golden, salt crystals. The crystals are\n"
+			"harvested and used to make the rare\n"
+			"delicacy shark soup."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -18770,7 +18936,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crablet_Forth_Form),
-		ICON(Crablet_Forth_Form, 2),
+		ICON(Crablet_Forth_Form, 0),
 		.footprint = gMonFootprint_Crablet_Forth_Form,
 		LEARNSETS(Crablet_Forth_Form),
 		.frontPicYOffset = 0,
@@ -18786,7 +18952,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 15,
 		.baseSpDefense = 15,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 180,
 		.expYield = 55,
 		.evYield_HP = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -18805,7 +18971,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A small crab carrying a golden idol on\n"
+			"its back. Adventurers often try to\n"
+			"obtain this to exchange it with\n"
+			"merchants."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -18817,7 +18986,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crablet_Fifth_Form),
-		ICON(Crablet_Fifth_Form, 2),
+		ICON(Crablet_Fifth_Form, 0),
 		.footprint = gMonFootprint_Crablet_Fifth_Form,
 		LEARNSETS(Crablet_Fifth_Form),
 		.frontPicYOffset = 0,
@@ -18826,12 +18995,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CRAWLER_CAVE_FORM] =
 	{
-		.baseHP = 60,
+		.baseHP = 76,
 		.baseAttack = 30,
-		.baseDefense = 25,
+		.baseDefense = 48,
 		.baseSpeed = 46,
 		.baseSpAttack = 45,
-		.baseSpDefense = 45,
+		.baseSpDefense = 55,
 		.types = { TYPE_POISON, TYPE_POISON },
 		.catchRate = 160,
 		.expYield = 60,
@@ -18981,10 +19150,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 70,
 		.baseAttack = 40,
-		.baseDefense = 65,
+		.baseDefense = 85,
 		.baseSpeed = 5,
-		.baseSpAttack = 15,
-		.baseSpDefense = 65,
+		.baseSpAttack = 25,
+		.baseSpDefense = 75,
 		.types = { TYPE_ROCK, TYPE_ROCK },
 		.catchRate = 200,
 		.expYield = 56,
@@ -19005,7 +19174,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 2.2,
 		.weight = 13.6,
 		.description = COMPOUND_STRING(
-			"Small tortoises bred by the grand tree\n"
+			"Small tortoises bred by the Grand Tree\n"
 			"for use as mounts. They love cabbage."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -19018,7 +19187,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Winston),
-		ICON(Winston, 0),
+		ICON(Winston, 2),
 		.footprint = gMonFootprint_Winston,
 		LEARNSETS(Winston),
 		.frontPicYOffset = 0,
@@ -19073,7 +19242,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tortoise_Normal_Form),
-		ICON(Tortoise_Normal_Form, 0),
+		ICON(Tortoise_Normal_Form, 2),
 		.footprint = gMonFootprint_Tortoise_Normal_Form,
 		LEARNSETS(Tortoise_Normal_Form),
 		.frontPicYOffset = 2,
@@ -19176,7 +19345,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tortoise_War_Form),
-		ICON(Tortoise_War_Form, 2),
+		ICON(Tortoise_War_Form, 0),
 		.footprint = gMonFootprint_Tortoise_War_Form,
 		LEARNSETS(Tortoise_War_Form),
 		.frontPicYOffset = 3,
@@ -19218,7 +19387,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A guardian of Guthix sent to fend off\n"
 			"the void invasion. It can finish off a\n"
-			"pest queen easily."),
+			"Pest Queen easily."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -19279,7 +19448,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sea_Turtle),
-		ICON(Sea_Turtle, 2),
+		ICON(Sea_Turtle, 0),
 		.footprint = gMonFootprint_Sea_Turtle,
 		LEARNSETS(Sea_Turtle),
 		.frontPicYOffset = 12,
@@ -19319,8 +19488,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Carrying a great fortune on its back,\n"
-			"fishermen perceives it as a sign of\n"
-			"luck."),
+			"fishermen perceive it as a sign of luck."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -19341,12 +19509,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_HERBERT] =
 	{
-		.baseHP = 65,
+		.baseHP = 85,
 		.baseAttack = 40,
-		.baseDefense = 75,
+		.baseDefense = 90,
 		.baseSpeed = 15,
 		.baseSpAttack = 40,
-		.baseSpDefense = 75,
+		.baseSpDefense = 90,
 		.types = { TYPE_ROCK, TYPE_GRASS },
 		.catchRate = 180,
 		.expYield = 67,
@@ -19369,7 +19537,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A small and plantlike being often\n"
-			"confused by a toad by passing\n"
+			"mistaken for a toad by passing\n"
 			"adventurers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -19435,7 +19603,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Xinachto),
-		ICON(Xinachto, 0),
+		ICON(Xinachto, 2),
 		.footprint = gMonFootprint_Xinachto,
 		LEARNSETS(Xinachto),
 		.frontPicYOffset = 0,
@@ -19444,12 +19612,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CAVE_SLIME] =
 	{
-		.baseHP = 70,
+		.baseHP = 90,
 		.baseAttack = 40,
-		.baseDefense = 30,
+		.baseDefense = 40,
 		.baseSpeed = 10,
 		.baseSpAttack = 50,
-		.baseSpDefense = 55,
+		.baseSpDefense = 75,
 		.types = { TYPE_POISON, TYPE_POISON },
 		.catchRate = 200,
 		.expYield = 58,
@@ -19491,10 +19659,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_DAY, 24, SPECIES_JELLY_NORMAL_FORM},
-			{EVO_LEVEL_GHOST_TYPE_MON_IN_PARTY, 24, SPECIES_ABBYSPECTR},
-			{EVO_LEVEL_DARK_TYPE_MON_IN_PARTY, 24, SPECIES_SLIME_LILGLOOP},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_KARAMEL},
-			{EVO_LEVEL_NIGHT, 24, SPECIES_JELLY_ALTERNATE_FORM}
+			{EVO_LEVEL_NIGHT, 24, SPECIES_JELLY_ALTERNATE_FORM},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_ABBYSPECTR},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_SLIME_LILGLOOP},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_KARAMEL},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_KARAMEL},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_KARAMEL},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_KARAMEL}
 		),
 	},
 
@@ -19549,7 +19720,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 38, SPECIES_JELLY_WARPED_FORM},
 			{EVO_ITEM, ITEM_SPIRIT_CHARM, SPECIES_JELLY_SPIRIT_FORM},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_JELLY_WARPED_VITREOUS_FORM}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_JELLY_WARPED_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_JELLY_WARPED_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_JELLY_WARPED_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_JELLY_WARPED_VITREOUS_FORM}
 		),
 	},
 
@@ -19583,8 +19757,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 4.5,
 		.description = COMPOUND_STRING(
 			"A jelly so warped it could never be\n"
-			"served to anyone. It's insides are\n"
-			"beyond comprehension."),
+			"served to anyone. Its insides are beyond\n"
+			"comprehension."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -19623,7 +19797,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_REFRIGERATE, ABILITY_CLEAR_BODY, ABILITY_CLEAR_BODY },
+		.abilities = { ABILITY_GOOEY, ABILITY_CLEAR_BODY, ABILITY_CLEAR_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jelly"),
 		.cryId = CRY_JELLY_SPIRIT_FORM,
@@ -19646,7 +19820,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jelly_Spirit_Form),
-		ICON(Jelly_Spirit_Form, 2),
+		ICON(Jelly_Spirit_Form, 0),
 		.footprint = gMonFootprint_Jelly_Spirit_Form,
 		LEARNSETS(Jelly_Spirit_Form),
 		.frontPicYOffset = 8,
@@ -19704,12 +19878,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SALAMANDER_GREEN_FORM] =
 	{
-		.baseHP = 35,
+		.baseHP = 40,
 		.baseAttack = 35,
-		.baseDefense = 35,
+		.baseDefense = 40,
 		.baseSpeed = 55,
 		.baseSpAttack = 70,
-		.baseSpDefense = 40,
+		.baseSpDefense = 60,
 		.types = { TYPE_FIRE, TYPE_FIRE },
 		.catchRate = 255,
 		.expYield = 51,
@@ -19743,7 +19917,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Salamander_Green_Form),
-		ICON(Salamander_Green_Form, 0),
+		ICON(Salamander_Green_Form, 1),
 		.footprint = gMonFootprint_Salamander_Green_Form,
 		LEARNSETS(Salamander_Green_Form),
 		.frontPicYOffset = 0,
@@ -19756,12 +19930,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SALAMANDER_ORANGE_FORM] =
 	{
-		.baseHP = 45,
+		.baseHP = 55,
 		.baseAttack = 45,
-		.baseDefense = 45,
+		.baseDefense = 55,
 		.baseSpeed = 65,
 		.baseSpAttack = 85,
-		.baseSpDefense = 45,
+		.baseSpDefense = 75,
 		.types = { TYPE_FIRE, TYPE_FIRE },
 		.catchRate = 180,
 		.expYield = 61,
@@ -19796,7 +19970,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Salamander_Orange_Form),
-		ICON(Salamander_Orange_Form, 0),
+		ICON(Salamander_Orange_Form, 2),
 		.footprint = gMonFootprint_Salamander_Orange_Form,
 		LEARNSETS(Salamander_Orange_Form),
 		.frontPicYOffset = 0,
@@ -19887,7 +20061,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 1.2,
 		.weight = 25.4,
 		.description = COMPOUND_STRING(
-			"Found only in the wilderness, these\n"
+			"Found only in the Wilderness, these\n"
 			"salamanders are rarely hunted due to the\n"
 			"dangers of the Wilderness."),
 		.pokemonScale = 256,
@@ -20003,7 +20177,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Gecko),
-		ICON(Gecko, 2),
+		ICON(Gecko, 0),
 		.footprint = gMonFootprint_Gecko,
 		LEARNSETS(Gecko),
 		.frontPicYOffset = 13,
@@ -20066,12 +20240,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_BLOODVELD] =
 	{
-		.baseHP = 60,
+		.baseHP = 70,
 		.baseAttack = 45,
-		.baseDefense = 40,
+		.baseDefense = 49,
 		.baseSpeed = 34,
 		.baseSpAttack = 45,
-		.baseSpDefense = 40,
+		.baseSpDefense = 57,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 190,
 		.expYield = 51,
@@ -20092,7 +20266,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 15.8,
 		.weight = 816.5,
 		.description = COMPOUND_STRING(
-			"One of the lower forms of Chtonian\n"
+			"One of the lower forms of Chthonian\n"
 			"demons. They hunger for blood their\n"
 			"entire lives."),
 		.pokemonScale = 256,
@@ -20113,7 +20287,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_ATK_GT_SPATK, 28, SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM},
-			{EVO_LEVEL_ATK_LT_SPATK, 28, SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM}
+			{EVO_LEVEL_ATK_LT_SPATK, 28, SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM},
+			{EVO_LEVEL_ATK_EQ_SPATK, 28, SPECIES_REAVER}
 		),
 	},
 
@@ -20159,7 +20334,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bloodveld_Insatiable_Physical_Form),
-		ICON(Bloodveld_Insatiable_Physical_Form, 2),
+		ICON(Bloodveld_Insatiable_Physical_Form, 0),
 		.footprint = gMonFootprint_Bloodveld_Insatiable_Physical_Form,
 		LEARNSETS(Bloodveld_Insatiable_Physical_Form),
 		.frontPicYOffset = 9,
@@ -20168,7 +20343,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL, 43, SPECIES_BLOODVELD_MUTATED_PHYSICAL_FORM},
 			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_BLOODVELD_VAMPIRIC_FORM},
 			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_REAVER},
-			{EVO_LEVEL_POISON_TYPE_MON_IN_PARTY, 43, SPECIES_BLOODVELD_ACIDIC_FORM}
+			{EVO_LEVEL_POISON_TYPE_MON_IN_PARTY, 43, SPECIES_BLOODVELD_ACIDIC_FORM},
+			{EVO_LEVEL_MAP_MORYTANIA, 29, SPECIES_BLOODVELD_VAMPIRIC_FORM}
 		),
 	},
 
@@ -20200,7 +20376,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 16.8,
 		.weight = 916.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Their love of blood is so strong that\n"
+			"they have adapted to have even longer\n"
+			"tongues to be able to attack from\n"
+			"further away."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -20212,7 +20391,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bloodveld_Insatiable_Special_Form),
-		ICON(Bloodveld_Insatiable_Special_Form, 2),
+		ICON(Bloodveld_Insatiable_Special_Form, 0),
 		.footprint = gMonFootprint_Bloodveld_Insatiable_Special_Form,
 		LEARNSETS(Bloodveld_Insatiable_Special_Form),
 		.frontPicYOffset = 7,
@@ -20221,7 +20400,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL, 43, SPECIES_BLOODVELD_MUTATED_SPECIAL_FORM},
 			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_BLOODVELD_RS3_FORM},
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_BLOODVELD_REANIMATED_FORM},
-			{EVO_LEVEL_BUG_TYPE_MON_IN_PARTY, 43, SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM}
+			{EVO_LEVEL_BUG_TYPE_MON_IN_PARTY, 43, SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM},
+			{EVO_LEVEL_MAP_MORYTANIA, 29, SPECIES_BLOODVELD_VAMPIRIC_FORM}
 		),
 	},
 
@@ -20302,7 +20482,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 16.8,
 		.weight = 916.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"These mutated bloodvelds are superior to\n"
+			"their regular variants. Adventurers are\n"
+			"warned to stay clear of their tongues."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -20314,7 +20496,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bloodveld_Mutated_Special_Form),
-		ICON(Bloodveld_Mutated_Special_Form, 2),
+		ICON(Bloodveld_Mutated_Special_Form, 0),
 		.footprint = gMonFootprint_Bloodveld_Mutated_Special_Form,
 		LEARNSETS(Bloodveld_Mutated_Special_Form),
 		.frontPicYOffset = 14,
@@ -20410,7 +20592,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Armaling),
-		ICON(Armaling, 0),
+		ICON(Armaling, 2),
 		.footprint = gMonFootprint_Armaling,
 		LEARNSETS(Armaling),
 		.frontPicYOffset = 13,
@@ -20462,7 +20644,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Armabird),
-		ICON(Armabird, 0),
+		ICON(Armabird, 2),
 		.footprint = gMonFootprint_Armabird,
 		LEARNSETS(Armabird),
 		.frontPicYOffset = 12,
@@ -20514,7 +20696,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Armafalcon),
-		ICON(Armafalcon, 0),
+		ICON(Armafalcon, 2),
 		.footprint = gMonFootprint_Armafalcon,
 		LEARNSETS(Armafalcon),
 		.frontPicYOffset = 0,
@@ -20714,7 +20896,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tumekling),
-		ICON(Tumekling, 2),
+		ICON(Tumekling, 0),
 		.footprint = gMonFootprint_Tumekling,
 		LEARNSETS(Tumekling),
 		.frontPicYOffset = 14,
@@ -20753,7 +20935,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 31.8,
 		.description = COMPOUND_STRING(
 			"Balancing atop its orb, it will stand\n"
-			"still even in the biggest of desert\n"
+			"still even during the biggest of desert\n"
 			"storms."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -20766,7 +20948,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tumekbird),
-		ICON(Tumekbird, 2),
+		ICON(Tumekbird, 0),
 		.footprint = gMonFootprint_Tumekbird,
 		LEARNSETS(Tumekbird),
 		.frontPicYOffset = 11,
@@ -20818,10 +21000,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tumekibis),
-		ICON(Tumekibis, 2),
+		ICON(Tumekibis, 0),
 		.footprint = gMonFootprint_Tumekibis,
 		LEARNSETS(Tumekibis),
-		.frontPicYOffset = 6,
+		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 	},
 
@@ -20916,7 +21098,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Snuffle),
-		ICON(Snuffle, 0),
+		ICON(Snuffle, 2),
 		.footprint = gMonFootprint_Snuffle,
 		LEARNSETS(Snuffle),
 		.frontPicYOffset = 5,
@@ -21016,7 +21198,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Choloa),
-		ICON(Choloa, 2),
+		ICON(Choloa, 0),
 		.footprint = gMonFootprint_Choloa,
 		LEARNSETS(Choloa),
 		.frontPicYOffset = 9,
@@ -21068,7 +21250,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Durzag, 0),
 		.footprint = gMonFootprint_Durzag,
 		LEARNSETS(Durzag),
-		.frontPicYOffset = 4,
+		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 	},
 
@@ -21115,7 +21297,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yakamaru),
-		ICON(Yakamaru, 0),
+		ICON(Yakamaru, 2),
 		.footprint = gMonFootprint_Yakamaru,
 		LEARNSETS(Yakamaru),
 		.frontPicYOffset = 3,
@@ -21124,12 +21306,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHOMPY] =
 	{
-		.baseHP = 80,
+		.baseHP = 110,
 		.baseAttack = 50,
 		.baseDefense = 35,
-		.baseSpeed = 20,
-		.baseSpAttack = 35,
-		.baseSpDefense = 20,
+		.baseSpeed = 35,
+		.baseSpAttack = 50,
+		.baseSpDefense = 35,
 		.types = { TYPE_NORMAL, TYPE_FLYING },
 		.catchRate = 255,
 		.expYield = 43,
@@ -21163,14 +21345,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chompy),
-		ICON(Chompy, 0),
+		ICON(Chompy, 2),
 		.footprint = gMonFootprint_Chompy,
 		LEARNSETS(Chompy),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_SPE_LT_SPDEF, 26, SPECIES_JUBBLY},
-			{EVO_LEVEL_SPE_GT_SPDEF, 26, SPECIES_TERRORBIRD_NORMAL_FORM}
+			{EVO_LEVEL, 26, SPECIES_JUBBLY},
+			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_TERRORBIRD_NORMAL_FORM},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_TERRORBIRD_NORMAL_FORM}
 		),
 	},
 
@@ -21216,7 +21399,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jubbly),
-		ICON(Jubbly, 0),
+		ICON(Jubbly, 2),
 		.footprint = gMonFootprint_Jubbly,
 		LEARNSETS(Jubbly),
 		.frontPicYOffset = 0,
@@ -21269,7 +21452,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jubster),
-		ICON(Jubster, 0),
+		ICON(Jubster, 2),
 		.footprint = gMonFootprint_Jubster,
 		LEARNSETS(Jubster),
 		.frontPicYOffset = 0,
@@ -21321,7 +21504,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Terrorbird_Normal_Form, 1),
 		.footprint = gMonFootprint_Terrorbird_Normal_Form,
 		LEARNSETS(Terrorbird_Normal_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_SPIRIT_CHARM, SPECIES_TERRORBIRD_SPIRIT_FORM},
@@ -21372,10 +21555,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Terrorbird_Warped_Form),
-		ICON(Terrorbird_Warped_Form, 0),
+		ICON(Terrorbird_Warped_Form, 2),
 		.footprint = gMonFootprint_Terrorbird_Warped_Form,
 		LEARNSETS(Terrorbird_Warped_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 7,
 		.enemyMonElevation = 0,
 	},
 
@@ -21421,7 +21604,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Terrorbird_Spirit_Form),
-		ICON(Terrorbird_Spirit_Form, 2),
+		ICON(Terrorbird_Spirit_Form, 0),
 		.footprint = gMonFootprint_Terrorbird_Spirit_Form,
 		LEARNSETS(Terrorbird_Spirit_Form),
 		.frontPicYOffset = 0,
@@ -21430,12 +21613,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_WOLF_JUVENILE_FORM] =
 	{
-		.baseHP = 50,
-		.baseAttack = 50,
-		.baseDefense = 30,
-		.baseSpeed = 50,
-		.baseSpAttack = 30,
-		.baseSpDefense = 40,
+		.baseHP = 55,
+		.baseAttack = 65,
+		.baseDefense = 45,
+		.baseSpeed = 70,
+		.baseSpAttack = 65,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 220,
 		.expYield = 53,
@@ -21470,7 +21653,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Juvenile_Form),
-		ICON(Wolf_Juvenile_Form, 0),
+		ICON(Wolf_Juvenile_Form, 2),
 		.footprint = gMonFootprint_Wolf_Juvenile_Form,
 		LEARNSETS(Wolf_Juvenile_Form),
 		.frontPicYOffset = 0,
@@ -21504,12 +21687,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_STRONG_JAW },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Wolf"),
 		.cryId = CRY_WOLF_NORMAL_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_NORMAL_FORM,
-		.categoryName = _("Wold"),
+		.categoryName = _("Wolf"),
 		.height = 11.6,
 		.weight = 612.3,
 		.description = COMPOUND_STRING(
@@ -21527,7 +21710,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Normal_Form),
-		ICON(Wolf_Normal_Form, 0),
+		ICON(Wolf_Normal_Form, 2),
 		.footprint = gMonFootprint_Wolf_Normal_Form,
 		LEARNSETS(Wolf_Normal_Form),
 		.frontPicYOffset = 0,
@@ -21557,16 +21740,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_STRONG_JAW },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("FenrisWolf"),
 		.cryId = CRY_WOLF_FENRIS_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_FENRIS_FORM,
 		.categoryName = _("Fenris "),
 		.height = 11.6,
 		.weight = 612.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"These wolves are fearsome predators,\n"
+			"renowned for their fur. They are said to\n"
+			"serve a powerful wolf who wishes to eat\n"
+			"the sun."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21578,7 +21764,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Fenris_Form),
-		ICON(Wolf_Fenris_Form, 0),
+		ICON(Wolf_Fenris_Form, 2),
 		.footprint = gMonFootprint_Wolf_Fenris_Form,
 		LEARNSETS(Wolf_Fenris_Form),
 		.frontPicYOffset = 0,
@@ -21608,16 +21794,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_STRONG_JAW },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("WhiteWolf"),
 		.cryId = CRY_WOLF_WHITE_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_WHITE_FORM,
 		.categoryName = _("White Wolf"),
 		.height = 11.6,
 		.weight = 612.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A vicious wolf adapted to the harsh\n"
+			"landscape of White Wolf Mountain. They\n"
+			"have slain many inexperienced\n"
+			"adventurers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21629,7 +21818,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_White_Form),
-		ICON(Wolf_White_Form, 0),
+		ICON(Wolf_White_Form, 2),
 		.footprint = gMonFootprint_Wolf_White_Form,
 		LEARNSETS(Wolf_White_Form),
 		.frontPicYOffset = 0,
@@ -21659,7 +21848,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_NONE },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Rover"),
 		.cryId = CRY_ROVER,
@@ -21668,7 +21857,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"A totally real red dragon, and not just\n"
+			"a wolf wearing a mask. Honest."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21680,10 +21870,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rover),
-		ICON(Rover, 2),
+		ICON(Rover, 0),
 		.footprint = gMonFootprint_Rover,
 		LEARNSETS(Rover),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 9,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 40, SPECIES_WOLF_CAVE_FORM},
@@ -21710,16 +21900,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_STRONG_JAW },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_STRONG_JAW },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("Dire Wolf"),
 		.cryId = CRY_WOLF_DIRE_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_DIRE_FORM,
 		.categoryName = _("Dire Wolf"),
 		.height = 12.5,
 		.weight = 698.5,
 		.description = COMPOUND_STRING(
-			"A big and dangerous wolf from Arendar\n"
+			"A big and dangerous wolf from Arandar\n"
 			"gates. They sometimes come down to\n"
 			"Isafdar to hunt the unknowing."),
 		.pokemonScale = 256,
@@ -21733,10 +21923,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Dire_Form),
-		ICON(Wolf_Dire_Form, 0),
+		ICON(Wolf_Dire_Form, 2),
 		.footprint = gMonFootprint_Wolf_Dire_Form,
 		LEARNSETS(Wolf_Dire_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
@@ -21759,16 +21949,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_NONE },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("JungleWolf"),
 		.cryId = CRY_WOLF_JUNGLE_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_JUNGLE_FORM,
 		.categoryName = _("Wolf"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"A rare wolf native to the Kharazi\n"
+			"jungles. They have been hunted so much\n"
+			"that it is said there are only a handful\n"
+			"left in existence."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21780,7 +21973,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Jungle_Form),
-		ICON(Wolf_Jungle_Form, 0),
+		ICON(Wolf_Jungle_Form, 2),
 		.footprint = gMonFootprint_Wolf_Jungle_Form,
 		LEARNSETS(Wolf_Jungle_Form),
 		.frontPicYOffset = 0,
@@ -21806,9 +21999,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_DROUGHT, ABILITY_HUNTER, ABILITY_RECKLESS },
+		.abilities = { ABILITY_HUNTER, ABILITY_DROUGHT, ABILITY_RECKLESS },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("Skoll"),
 		.cryId = CRY_WOLF_SKOLL_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_SKOLL_FORM,
 		.categoryName = _("Sun Eating"),
@@ -21816,8 +22009,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 1079.6,
 		.description = COMPOUND_STRING(
 			"A big wolf said in the Fremennik Tales\n"
-			"to be a wolf capable of even swallowing\n"
-			"the sun."),
+			"to be capable of even swallowing the\n"
+			"sun."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21829,10 +22022,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Skoll_Form),
-		ICON(Wolf_Skoll_Form, 0),
+		ICON(Wolf_Skoll_Form, 2),
 		.footprint = gMonFootprint_Wolf_Skoll_Form,
 		LEARNSETS(Wolf_Skoll_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
@@ -21855,16 +22048,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_SAND_RUSH, ABILITY_HUNTER, ABILITY_NONE },
+		.abilities = { ABILITY_HUNTER, ABILITY_SAND_RUSH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("DesertWolf"),
 		.cryId = CRY_WOLF_DESERT_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_DESERT_FORM,
 		.categoryName = _("Wolf"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"Found throughout the Kharidian Desert,\n"
+			"this wolf's fur has adapted so that it\n"
+			"does not overheat in the blazing desert\n"
+			"heat."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -21876,10 +22072,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Desert_Form),
-		ICON(Wolf_Desert_Form, 0),
+		ICON(Wolf_Desert_Form, 2),
 		.footprint = gMonFootprint_Wolf_Desert_Form,
 		LEARNSETS(Wolf_Desert_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
@@ -21901,9 +22097,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_RECKLESS, ABILITY_HUNTER, ABILITY_DROUGHT },
+		.abilities = { ABILITY_HUNTER, ABILITY_RECKLESS, ABILITY_DROUGHT },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("Hati"),
 		.cryId = CRY_WOLF_HATI_HATI,
 		.natDexNum = NATIONAL_DEX_WOLF_HATI_HATI,
 		.categoryName = _("WorldEnding"),
@@ -21924,10 +22120,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Hati_Hati),
-		ICON(Wolf_Hati_Hati, 0),
+		ICON(Wolf_Hati_Hati, 2),
 		.footprint = gMonFootprint_Wolf_Hati_Hati,
 		LEARNSETS(Wolf_Hati_Hati),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
 	},
 
@@ -21950,9 +22146,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_UNNERVE },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_UNNERVE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("SpiritWolf"),
 		.cryId = CRY_WOLF_SPIRIT_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_SPIRIT_FORM,
 		.categoryName = _("Howling"),
@@ -21973,10 +22169,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Spirit_Form),
-		ICON(Wolf_Spirit_Form, 2),
+		ICON(Wolf_Spirit_Form, 0),
 		.footprint = gMonFootprint_Wolf_Spirit_Form,
 		LEARNSETS(Wolf_Spirit_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
 		.formSpeciesIdTable = sWolfSpiritFormSpeciesIdTable,
 		.formChangeTable = sWolfSpiritFormChangeTable,
@@ -22024,17 +22220,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Fox),
-		ICON(Fox, 2),
+		ICON(Fox, 0),
 		.footprint = gMonFootprint_Fox,
 		LEARNSETS(Fox),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_MOVE, MOVE_HEX, SPECIES_INARI},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_CHICKEN_VARROCK_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_CHICKEN_NORMAL_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_CHICKEN_KARAMJA_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_CHICKEN_BANDOSIAN_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
+			{EVO_LEVEL, 30, SPECIES_FOX_RECRUITMENTDRIVE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ROOSTER_NORMAL_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ROOSTER_KARAMJA_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ROOSTER_BANDOSIAN_FORM, SPECIES_FOX_RECRUITMENTDRIVE},
@@ -22086,10 +22279,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Inari),
-		ICON(Inari, 2),
+		ICON(Inari, 0),
 		.footprint = gMonFootprint_Inari,
 		LEARNSETS(Inari),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
@@ -22112,7 +22305,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_PRESSURE, ABILITY_HUNTER, ABILITY_UNNERVE },
+		.abilities = { ABILITY_HUNTER, ABILITY_PRESSURE, ABILITY_UNNERVE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Helwyr"),
 		.cryId = CRY_HELWYR,
@@ -22135,11 +22328,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Helwyr),
-		ICON(Helwyr, 0),
+		ICON(Helwyr, 2),
 		.footprint = gMonFootprint_Helwyr,
 		LEARNSETS(Helwyr),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.isMegaEvolution = TRUE,
+		.formSpeciesIdTable = sWolfSpiritFormSpeciesIdTable,
+		.formChangeTable = sWolfSpiritFormChangeTable,
 	},
 
 [SPECIES_BIRD_NEST] =
@@ -22154,7 +22350,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 255,
 		.expYield = 48,
 		.evYield_HP = 1,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 10,
 		.friendship = 200,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -22184,10 +22380,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bird_Nest),
-		ICON(Bird_Nest, 0),
+		ICON(Bird_Nest, 2),
 		.footprint = gMonFootprint_Bird_Nest,
 		LEARNSETS(Bird_Nest),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 16,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_PERSONALITY_ONE, 10, SPECIES_PIGEON},
@@ -22198,7 +22394,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_PERSONALITY_SIX, 10, SPECIES_VULTLING},
 			{EVO_LEVEL_PERSONALITY_SEVEN, 10, SPECIES_SEAGULL_NORMAL_FORM},
 			{EVO_LEVEL_PERSONALITY_EIGHT, 10, SPECIES_PHOENLING_REBIRTH_FORM},
-			{EVO_LEVEL_PERSONALITY_NINE, 10, SPECIES_PHOENLING_REBORN_FORM}
+			{EVO_LEVEL_PERSONALITY_NINE, 10, SPECIES_PHOENLING_REBORN_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COBRA_SPIRIT_FORM, SPECIES_MINITRICE}
 		),
 	},
 
@@ -22214,7 +22411,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 255,
 		.expYield = 48,
 		.evYield_HP = 1,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 10,
 		.friendship = 200,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -22230,7 +22427,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The next holds a egg which will one day\n"
+			"The nest holds a egg which will one day\n"
 			"hatch into a bird."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -22243,10 +22440,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Birds_Nest_God_Form),
-		ICON(Birds_Nest_God_Form, 0),
+		ICON(Birds_Nest_God_Form, 2),
 		.footprint = gMonFootprint_Birds_Nest_God_Form,
 		LEARNSETS(Birds_Nest_God_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 18,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_GUTHLING},
@@ -22303,7 +22500,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pigeon),
-		ICON(Pigeon, 0),
+		ICON(Pigeon, 2),
 		.footprint = gMonFootprint_Pigeon,
 		LEARNSETS(Pigeon),
 		.frontPicYOffset = 0,
@@ -22394,8 +22591,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 3.0,
 		.weight = 21.8,
 		.description = COMPOUND_STRING(
-			"It's wings are not ready to fly, yet it\n"
-			"hunts for goatweed all day."),
+			"Its wings are not ready to fly, yet it\n"
+			"hunts for goutweed all day."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -22407,10 +22604,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rocling),
-		ICON(Rocling, 0),
+		ICON(Rocling, 2),
 		.footprint = gMonFootprint_Rocling,
 		LEARNSETS(Rocling),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 7,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 45, SPECIES_ROC}
@@ -22459,21 +22656,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Roc),
-		ICON(Roc, 0),
+		ICON(Roc, 2),
 		.footprint = gMonFootprint_Roc,
 		LEARNSETS(Roc),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 0,
+		.enemyMonElevation = 6,
 	},
 
 [SPECIES_FOAL] =
 	{
-		.baseHP = 40,
+		.baseHP = 55,
 		.baseAttack = 40,
-		.baseDefense = 25,
+		.baseDefense = 35,
 		.baseSpeed = 40,
-		.baseSpAttack = 30,
-		.baseSpDefense = 25,
+		.baseSpAttack = 40,
+		.baseSpDefense = 90,
 		.types = { TYPE_FAIRY, TYPE_PSYCHIC },
 		.catchRate = 200,
 		.expYield = 53,
@@ -22507,7 +22704,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Foal),
-		ICON(Foal, 0),
+		ICON(Foal, 2),
 		.footprint = gMonFootprint_Foal,
 		LEARNSETS(Foal),
 		.frontPicYOffset = 0,
@@ -22515,7 +22712,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_DAY, 25, SPECIES_UNICORN_WHITE_FORM},
 			{EVO_LEVEL_NIGHT, 25, SPECIES_UNICORN_BLACK_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_BLACK_FORM, SPECIES_UNICORN_BLACK_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_BLACK_FORM, SPECIES_UNICORN_BLACK_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COW, SPECIES_UNICOW}
 		),
 	},
 
@@ -22526,7 +22724,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseDefense = 55,
 		.baseSpeed = 55,
 		.baseSpAttack = 50,
-		.baseSpDefense = 80,
+		.baseSpDefense = 100,
 		.types = { TYPE_FAIRY, TYPE_PSYCHIC },
 		.catchRate = 120,
 		.expYield = 86,
@@ -22564,7 +22762,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Unicorn_White_Form, 2),
 		.footprint = gMonFootprint_Unicorn_White_Form,
 		LEARNSETS(Unicorn_White_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_SPIRIT_CHARM, SPECIES_UNICORN_STALLION_FORM},
@@ -22615,7 +22813,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicorn_Stallion_Form),
-		ICON(Unicorn_Stallion_Form, 0),
+		ICON(Unicorn_Stallion_Form, 2),
 		.footprint = gMonFootprint_Unicorn_Stallion_Form,
 		LEARNSETS(Unicorn_Stallion_Form),
 		.frontPicYOffset = 0,
@@ -22642,7 +22840,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_MERCILESS, ABILITY_IMMUNITY, ABILITY_RUN_AWAY },
+		.abilities = { ABILITY_GRIM_NEIGH, ABILITY_IMMUNITY, ABILITY_RUN_AWAY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Unicorn"),
 		.cryId = CRY_UNICORN_BLACK_FORM,
@@ -22652,7 +22850,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 1701.0,
 		.description = COMPOUND_STRING(
 			"A unicorn corrupted by the dark will of\n"
-			"man. It laughs at adventurers\n"
+			"man. It laughs at adventurers'\n"
 			"misfortunes."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -22665,10 +22863,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicorn_Black_Form),
-		ICON(Unicorn_Black_Form, 2),
+		ICON(Unicorn_Black_Form, 0),
 		.footprint = gMonFootprint_Unicorn_Black_Form,
 		LEARNSETS(Unicorn_Black_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_UNICORN_REANIMATED_FORM},
@@ -22697,7 +22895,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_ANGER_POINT, ABILITY_IMMUNITY, ABILITY_BERSERK },
+		.abilities = { ABILITY_GRIM_NEIGH, ABILITY_ANGER_POINT, ABILITY_BERSERK },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Unicorn"),
 		.cryId = CRY_UNICORN_ANGRY_FORM,
@@ -22746,7 +22944,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CURSED_BODY, ABILITY_CLEAR_BODY, ABILITY_CLEAR_BODY },
+		.abilities = { ABILITY_GRIM_NEIGH, ABILITY_CURSED_BODY, ABILITY_CLEAR_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Unicorn"),
 		.cryId = CRY_UNICORN_REANIMATED_FORM,
@@ -22769,7 +22967,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicorn_Reanimated_Form),
-		ICON(Unicorn_Reanimated_Form, 0),
+		ICON(Unicorn_Reanimated_Form, 2),
 		.footprint = gMonFootprint_Unicorn_Reanimated_Form,
 		LEARNSETS(Unicorn_Reanimated_Form),
 		.frontPicYOffset = 0,
@@ -22805,9 +23003,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 21.1,
 		.weight = 1973.1,
 		.description = COMPOUND_STRING(
-			"The bodyguard of Commander Zilyana.\n"
-			"Often annoyed, her employer is nicknamed\n"
-			"'Saradomin'."),
+			"The bodyguard of Commander Zilyana, she\n"
+			"is often annoyed that her employer is\n"
+			"nicknamed 'Saradomin'."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -22819,7 +23017,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Starlight),
-		ICON(Starlight, 0),
+		ICON(Starlight, 2),
 		.footprint = gMonFootprint_Starlight,
 		LEARNSETS(Starlight),
 		.frontPicYOffset = 0,
@@ -22828,11 +23026,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_PAWYA] =
 	{
-		.baseHP = 65,
-		.baseAttack = 90,
+		.baseHP = 45,
+		.baseAttack = 60,
 		.baseDefense = 50,
 		.baseSpeed = 100,
-		.baseSpAttack = 95,
+		.baseSpAttack = 65,
 		.baseSpDefense = 100,
 		.types = { TYPE_NORMAL, TYPE_GRASS },
 		.catchRate = 170,
@@ -22868,7 +23066,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pawya),
-		ICON(Pawya, 0),
+		ICON(Pawya, 2),
 		.footprint = gMonFootprint_Pawya,
 		LEARNSETS(Pawya),
 		.frontPicYOffset = 0,
@@ -22897,7 +23095,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FAIRY, EGG_GROUP_FAIRY },
-		.abilities = { ABILITY_POISON_POINT, ABILITY_MERCILESS, ABILITY_POWER_OF_ALCHEMY },
+		.abilities = { ABILITY_IRON_BARBS, ABILITY_MERCILESS, ABILITY_POWER_OF_ALCHEMY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Grenwall"),
 		.cryId = CRY_GRENWALL,
@@ -22921,7 +23119,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Grenwall),
-		ICON(Grenwall, 0),
+		ICON(Grenwall, 2),
 		.footprint = gMonFootprint_Grenwall,
 		LEARNSETS(Grenwall),
 		.frontPicYOffset = 0,
@@ -22932,10 +23130,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 65,
 		.baseAttack = 70,
-		.baseDefense = 50,
+		.baseDefense = 70,
 		.baseSpeed = 30,
 		.baseSpAttack = 23,
-		.baseSpDefense = 32,
+		.baseSpDefense = 42,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 200,
 		.expYield = 42,
@@ -22949,7 +23147,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_CUTE_CHARM, ABILITY_FLUFFY, ABILITY_FLUFFY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Bear"),
+		.speciesName = _("Bear Cub"),
 		.cryId = CRY_BEAR_CUB,
 		.natDexNum = NATIONAL_DEX_BEAR_CUB,
 		.categoryName = _("Cub"),
@@ -22970,7 +23168,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bear_Cub),
-		ICON(Bear_Cub, 0),
+		ICON(Bear_Cub, 2),
 		.footprint = gMonFootprint_Bear_Cub,
 		LEARNSETS(Bear_Cub),
 		.frontPicYOffset = 0,
@@ -22984,9 +23182,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_MAP_KANDARIN, 25, SPECIES_BEAR_GRIZZLY_FORM},
 			{EVO_LEVEL_MAP_DESERT, 25, SPECIES_BEAR_GRIZZLY_FORM},
 			{EVO_LEVEL_MAP_FREMENNIK, 25, SPECIES_POLAR_BEAR_NORMAL_FORM},
-			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_BEAR_NORMAL_FORM},
-			{EVO_ITEM, ITEM_MUD_RUNE, SPECIES_BEAR_GRIZZLY_FORM},
-			{EVO_ITEM, ITEM_MIST_RUNE, SPECIES_POLAR_BEAR_NORMAL_FORM}
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_BEAR_NORMAL_FORM},
+			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_BEAR_GRIZZLY_FORM},
+			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_POLAR_BEAR_NORMAL_FORM}
 		),
 	},
 
@@ -22999,7 +23197,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 50,
 		.baseSpDefense = 60,
 		.types = { TYPE_NORMAL, TYPE_FIGHTING },
-		.catchRate = 85,
+		.catchRate = 100,
 		.expYield = 89,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -23032,7 +23230,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bear_Normal_Form),
-		ICON(Bear_Normal_Form, 0),
+		ICON(Bear_Normal_Form, 2),
 		.footprint = gMonFootprint_Bear_Normal_Form,
 		LEARNSETS(Bear_Normal_Form),
 		.frontPicYOffset = 0,
@@ -23087,10 +23285,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bear_Reanimated_Form),
-		ICON(Bear_Reanimated_Form, 0),
+		ICON(Bear_Reanimated_Form, 2),
 		.footprint = gMonFootprint_Bear_Reanimated_Form,
 		LEARNSETS(Bear_Reanimated_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
@@ -23122,7 +23320,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 17.4,
 		.weight = 1755.4,
 		.description = COMPOUND_STRING(
-			"An uncorrupted bear from the gauntlet.\n"
+			"An uncorrupted bear from the Gauntlet.\n"
 			"Shining in pure crystalline light."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -23138,7 +23336,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Bear_Gauntlet_Crystalline_Form, 1),
 		.footprint = gMonFootprint_Bear_Gauntlet_Crystalline_Form,
 		LEARNSETS(Bear_Gauntlet_Crystalline_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
@@ -23187,7 +23385,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Callisto, 0),
 		.footprint = gMonFootprint_Callisto,
 		LEARNSETS(Callisto),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
@@ -23236,7 +23434,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Polar_Bear_Normal_Form, 0),
 		.footprint = gMonFootprint_Polar_Bear_Normal_Form,
 		LEARNSETS(Polar_Bear_Normal_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_DAY, 41, SPECIES_POLAR_BEAR_ARCTIC_FORM},
@@ -23267,7 +23465,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_SWIFT_SWIM, ABILITY_LEAF_GUARD, ABILITY_DISGUISE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Polar Bear"),
+		.speciesName = _("PBJ Agent"),
 		.cryId = CRY_POLAR_BEAR_PBJ_AGENT_FORM,
 		.natDexNum = NATIONAL_DEX_POLAR_BEAR_PBJ_AGENT_FORM,
 		.categoryName = _("PBJ"),
@@ -23316,7 +23514,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_SWIFT_SWIM, ABILITY_SLUSH_RUSH, ABILITY_ICE_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Polar Bear"),
+		.speciesName = _("ArcticBear"),
 		.cryId = CRY_POLAR_BEAR_ARCTIC_FORM,
 		.natDexNum = NATIONAL_DEX_POLAR_BEAR_ARCTIC_FORM,
 		.categoryName = _("Arctic"),
@@ -23337,10 +23535,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Polar_Bear_Arctic_Form),
-		ICON(Polar_Bear_Arctic_Form, 2),
+		ICON(Polar_Bear_Arctic_Form, 0),
 		.footprint = gMonFootprint_Polar_Bear_Arctic_Form,
 		LEARNSETS(Polar_Bear_Arctic_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 	},
 
@@ -23365,7 +23563,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_FLASH_FIRE, ABILITY_SLUSH_RUSH, ABILITY_FLASH_FIRE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Polar Bear"),
+		.speciesName = _("Nanuq"),
 		.cryId = CRY_POLAR_BEAR_NANUQ_FORM,
 		.natDexNum = NATIONAL_DEX_POLAR_BEAR_NANUQ_FORM,
 		.categoryName = _("Firemaking"),
@@ -23386,10 +23584,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Polar_Bear_Nanuq_Form),
-		ICON(Polar_Bear_Nanuq_Form, 0),
+		ICON(Polar_Bear_Nanuq_Form, 2),
 		.footprint = gMonFootprint_Polar_Bear_Nanuq_Form,
 		LEARNSETS(Polar_Bear_Nanuq_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 	},
 
@@ -23435,10 +23633,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bear_Grizzly_Form),
-		ICON(Bear_Grizzly_Form, 0),
+		ICON(Bear_Grizzly_Form, 2),
 		.footprint = gMonFootprint_Bear_Grizzly_Form,
 		LEARNSETS(Bear_Grizzly_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 41, SPECIES_BEAR_ANGRY_FORM},
@@ -23541,7 +23739,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Bear_Gauntlet_Corrupted_Form, 0),
 		.footprint = gMonFootprint_Bear_Gauntlet_Corrupted_Form,
 		LEARNSETS(Bear_Gauntlet_Corrupted_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 	},
 
@@ -23566,7 +23764,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_ANGER_POINT, ABILITY_FLUFFY, ABILITY_FLUFFY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Bear"),
+		.speciesName = _("Angry Bear"),
 		.cryId = CRY_BEAR_ANGRY_FORM,
 		.natDexNum = NATIONAL_DEX_BEAR_ANGRY_FORM,
 		.categoryName = _("Unmanaged"),
@@ -23587,10 +23785,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bear_Angry_Form),
-		ICON(Bear_Angry_Form, 2),
+		ICON(Bear_Angry_Form, 0),
 		.footprint = gMonFootprint_Bear_Angry_Form,
 		LEARNSETS(Bear_Angry_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
 	},
 
@@ -23636,7 +23834,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Graahk_Normal_Form),
-		ICON(Graahk_Normal_Form, 2),
+		ICON(Graahk_Normal_Form, 0),
 		.footprint = gMonFootprint_Graahk_Normal_Form,
 		LEARNSETS(Graahk_Normal_Form),
 		.frontPicYOffset = 0,
@@ -23689,7 +23887,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Graahk_Spirit_Form),
-		ICON(Graahk_Spirit_Form, 0),
+		ICON(Graahk_Spirit_Form, 2),
 		.footprint = gMonFootprint_Graahk_Spirit_Form,
 		LEARNSETS(Graahk_Spirit_Form),
 		.frontPicYOffset = 0,
@@ -23738,7 +23936,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dust_Devil),
-		ICON(Dust_Devil, 2),
+		ICON(Dust_Devil, 0),
 		.footprint = gMonFootprint_Dust_Devil,
 		LEARNSETS(Dust_Devil),
 		.frontPicYOffset = 3,
@@ -23844,7 +24042,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(SmokeDevil_Nuclear_Form),
-		ICON(SmokeDevil_Nuclear_Form, 2),
+		ICON(SmokeDevil_Nuclear_Form, 0),
 		.footprint = gMonFootprint_SmokeDevil_Nuclear_Form,
 		LEARNSETS(SmokeDevil_Nuclear_Form),
 		.frontPicYOffset = 0,
@@ -23870,7 +24068,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_AFTERMATH, ABILITY_LEVITATE, ABILITY_STENCH },
+		.abilities = { ABILITY_SAND_SPIT, ABILITY_LEVITATE, ABILITY_STENCH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dust Devil"),
 		.cryId = CRY_CHOKEDEVIL,
@@ -23893,7 +24091,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(ChokeDevil),
-		ICON(ChokeDevil, 2),
+		ICON(ChokeDevil, 0),
 		.footprint = gMonFootprint_ChokeDevil,
 		LEARNSETS(ChokeDevil),
 		.frontPicYOffset = 0,
@@ -23922,7 +24120,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_AFTERMATH, ABILITY_LEVITATE, ABILITY_AFTERMATH },
+		.abilities = { ABILITY_SAND_SPIT, ABILITY_LEVITATE, ABILITY_AFTERMATH },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dust Devil"),
 		.cryId = CRY_SMOKEDEVIL_THERMONUCLEAR_FORM,
@@ -23945,7 +24143,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(SmokeDevil_Thermonuclear_Form),
-		ICON(SmokeDevil_Thermonuclear_Form, 2),
+		ICON(SmokeDevil_Thermonuclear_Form, 0),
 		.footprint = gMonFootprint_SmokeDevil_Thermonuclear_Form,
 		LEARNSETS(SmokeDevil_Thermonuclear_Form),
 		.frontPicYOffset = 0,
@@ -23954,12 +24152,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_HATCHLING] =
 	{
-		.baseHP = 30,
-		.baseAttack = 30,
-		.baseDefense = 20,
-		.baseSpeed = 30,
-		.baseSpAttack = 60,
-		.baseSpDefense = 20,
+		.baseHP = 40,
+		.baseAttack = 40,
+		.baseDefense = 35,
+		.baseSpeed = 40,
+		.baseSpAttack = 70,
+		.baseSpDefense = 30,
 		.types = { TYPE_DRAGON, TYPE_DRAGON },
 		.catchRate = 170,
 		.expYield = 49,
@@ -23971,7 +24169,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
-		.abilities = { ABILITY_CUTE_CHARM, ABILITY_MARVEL_SCALE, ABILITY_DRY_SKIN },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_MARVEL_SCALE, ABILITY_DRY_SKIN },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dragonling"),
 		.cryId = CRY_HATCHLING,
@@ -23994,7 +24192,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hatchling),
-		ICON(Hatchling, 0),
+		ICON(Hatchling, 2),
 		.footprint = gMonFootprint_Hatchling,
 		LEARNSETS(Hatchling),
 		.frontPicYOffset = 0,
@@ -24004,15 +24202,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM_HOLD, ITEM_BLUE_SCALE, SPECIES_DRAGONLING_BLUE_FORM},
 			{EVO_ITEM_HOLD, ITEM_RED_SCALE, SPECIES_DRAGONLING_RED_FORM},
 			{EVO_ITEM_HOLD, ITEM_BLACK_SCALE, SPECIES_DRAGONLING_BLACK_FORM},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_DRAGONLING_GREEN_FORM},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_DRAGONLING_BLUE_FORM},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_DRAGONLING_RED_FORM},
+			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_DRAGONLING_BLACK_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MALEDICTUS, SPECIES_REVENANT_DRAGON}
 		),
 	},
 
 [SPECIES_DRAGONLING_GREEN_FORM] =
 	{
-		.baseHP = 40,
+		.baseHP = 70,
 		.baseAttack = 40,
-		.baseDefense = 35,
+		.baseDefense = 55,
 		.baseSpeed = 40,
 		.baseSpAttack = 70,
 		.baseSpDefense = 30,
@@ -24027,7 +24229,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
-		.abilities = { ABILITY_CUTE_CHARM, ABILITY_MARVEL_SCALE, ABILITY_SHELL_ARMOR },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_MARVEL_SCALE, ABILITY_SHELL_ARMOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dragon"),
 		.cryId = CRY_DRAGONLING_GREEN_FORM,
@@ -24109,7 +24311,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 65, SPECIES_DRAGON_BRUTAL_GREEN_FORM},
-			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_DRAGON_THREEHEADED_FORM}
+			{EVO_ITEM, ITEM_SOUL_RUNE, SPECIES_DRAGON_THREEHEADED_FORM}
 		),
 	},
 
@@ -24141,7 +24343,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 23.4,
 		.weight = 2630.8,
 		.description = COMPOUND_STRING(
-			"Scarred from battle, these dragon's are\n"
+			"Scarred from battle, these dragons are\n"
 			"battle hardened and stronger than the\n"
 			"regular kind."),
 		.pokemonScale = 256,
@@ -24158,7 +24360,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Dragon_Brutal_Green_Form, 1),
 		.footprint = gMonFootprint_Dragon_Brutal_Green_Form,
 		LEARNSETS(Dragon_Brutal_Green_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_ELVARG}
@@ -24167,12 +24369,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_DRAGONLING_BLUE_FORM] =
 	{
-		.baseHP = 40,
+		.baseHP = 70,
 		.baseAttack = 40,
 		.baseDefense = 70,
 		.baseSpeed = 30,
-		.baseSpAttack = 35,
-		.baseSpDefense = 40,
+		.baseSpAttack = 40,
+		.baseSpDefense = 55,
 		.types = { TYPE_DRAGON, TYPE_WATER },
 		.catchRate = 160,
 		.expYield = 76,
@@ -24206,10 +24408,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragonling_Blue_Form),
-		ICON(Dragonling_Blue_Form, 2),
+		ICON(Dragonling_Blue_Form, 0),
 		.footprint = gMonFootprint_Dragonling_Blue_Form,
 		LEARNSETS(Dragonling_Blue_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 45, SPECIES_DRAGON_BLUE_FORM}
@@ -24258,10 +24460,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Blue_Form),
-		ICON(Dragon_Blue_Form, 2),
+		ICON(Dragon_Blue_Form, 0),
 		.footprint = gMonFootprint_Dragon_Blue_Form,
 		LEARNSETS(Dragon_Blue_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 7,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 65, SPECIES_DRAGON_BRUTAL_BLUE_FORM},
@@ -24313,19 +24515,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Brutal_Blue_Form),
-		ICON(Dragon_Brutal_Blue_Form, 2),
+		ICON(Dragon_Brutal_Blue_Form, 0),
 		.footprint = gMonFootprint_Dragon_Brutal_Blue_Form,
 		LEARNSETS(Dragon_Brutal_Blue_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_DRAGONLING_RED_FORM] =
 	{
-		.baseHP = 35,
+		.baseHP = 75,
 		.baseAttack = 70,
-		.baseDefense = 40,
-		.baseSpeed = 40,
+		.baseDefense = 45,
+		.baseSpeed = 45,
 		.baseSpAttack = 30,
 		.baseSpDefense = 40,
 		.types = { TYPE_FIRE, TYPE_DRAGON },
@@ -24362,7 +24564,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragonling_Red_Form),
-		ICON(Dragonling_Red_Form, 2),
+		ICON(Dragonling_Red_Form, 0),
 		.footprint = gMonFootprint_Dragonling_Red_Form,
 		LEARNSETS(Dragonling_Red_Form),
 		.frontPicYOffset = 0,
@@ -24414,7 +24616,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Red_Form),
-		ICON(Dragon_Red_Form, 2),
+		ICON(Dragon_Red_Form, 0),
 		.footprint = gMonFootprint_Dragon_Red_Form,
 		LEARNSETS(Dragon_Red_Form),
 		.frontPicYOffset = 3,
@@ -24467,7 +24669,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Brutal_Red_Form),
-		ICON(Dragon_Brutal_Red_Form, 2),
+		ICON(Dragon_Brutal_Red_Form, 0),
 		.footprint = gMonFootprint_Dragon_Brutal_Red_Form,
 		LEARNSETS(Dragon_Brutal_Red_Form),
 		.frontPicYOffset = 3,
@@ -24476,11 +24678,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_DRAGONLING_BLACK_FORM] =
 	{
-		.baseHP = 35,
+		.baseHP = 75,
 		.baseAttack = 70,
-		.baseDefense = 40,
+		.baseDefense = 45,
 		.baseSpeed = 40,
-		.baseSpAttack = 30,
+		.baseSpAttack = 35,
 		.baseSpDefense = 40,
 		.types = { TYPE_DRAGON, TYPE_DARK },
 		.catchRate = 160,
@@ -24515,14 +24717,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragonling_Black_Form),
-		ICON(Dragonling_Black_Form, 2),
+		ICON(Dragonling_Black_Form, 0),
 		.footprint = gMonFootprint_Dragonling_Black_Form,
 		LEARNSETS(Dragonling_Black_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 45, SPECIES_DRAGON_BLACK_FORM},
-			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_REVENANT_DRAGON}
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_REVENANT_DRAGON},
+			{EVO_LEVEL, 45, SPECIES_DRAGON_BLACK_FORM}
 		),
 	},
 
@@ -24568,7 +24770,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Black_Form),
-		ICON(Dragon_Black_Form, 2),
+		ICON(Dragon_Black_Form, 0),
 		.footprint = gMonFootprint_Dragon_Black_Form,
 		LEARNSETS(Dragon_Black_Form),
 		.frontPicYOffset = 0,
@@ -24621,7 +24823,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Brutal_Black_Form),
-		ICON(Dragon_Brutal_Black_Form, 2),
+		ICON(Dragon_Brutal_Black_Form, 0),
 		.footprint = gMonFootprint_Dragon_Brutal_Black_Form,
 		LEARNSETS(Dragon_Brutal_Black_Form),
 		.frontPicYOffset = 0,
@@ -24676,18 +24878,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Dragon_ThreeHeaded_Form, 1),
 		.footprint = gMonFootprint_Dragon_ThreeHeaded_Form,
 		LEARNSETS(Dragon_ThreeHeaded_Form),
-		.frontPicYOffset = 5,
+		.frontPicYOffset = 6,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_ELVARG] =
 	{
-		.baseHP = 90,
-		.baseAttack = 110,
-		.baseDefense = 95,
+		.baseHP = 85,
+		.baseAttack = 135,
+		.baseDefense = 85,
 		.baseSpeed = 105,
 		.baseSpAttack = 110,
-		.baseSpDefense = 90,
+		.baseSpDefense = 80,
 		.types = { TYPE_DRAGON, TYPE_FLYING },
 		.catchRate = 35,
 		.expYield = 242,
@@ -24699,7 +24901,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
-		.abilities = { ABILITY_INTIMIDATE, ABILITY_MARVEL_SCALE, ABILITY_SHELL_ARMOR },
+		.abilities = { ABILITY_DRAGONS_MAW, ABILITY_DRAGONS_MAW, ABILITY_SHELL_ARMOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Elvarg"),
 		.cryId = CRY_ELVARG,
@@ -24757,7 +24959,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 54.5,
 		.weight = 12188.0,
 		.description = COMPOUND_STRING(
-			"A 3-headed black dragon made by Kerapac.\n"
+			"A 3-headed black dragon made by Phalaks.\n"
 			"Its real name is Shakorexis."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -24770,7 +24972,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_King_Black_Form),
-		ICON(Dragon_King_Black_Form, 2),
+		ICON(Dragon_King_Black_Form, 0),
 		.footprint = gMonFootprint_Dragon_King_Black_Form,
 		LEARNSETS(Dragon_King_Black_Form),
 		.frontPicYOffset = 0,
@@ -24806,7 +25008,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 15648.9,
 		.description = COMPOUND_STRING(
 			"The first dragon ever created, laid to\n"
-			"slumber as it serves to use anymore.\n"
+			"slumber as it serves no use anymore.\n"
 			"Grotworms have since infested it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -24819,7 +25021,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dragon_Queen_Black_Form),
-		ICON(Dragon_Queen_Black_Form, 2),
+		ICON(Dragon_Queen_Black_Form, 0),
 		.footprint = gMonFootprint_Dragon_Queen_Black_Form,
 		LEARNSETS(Dragon_Queen_Black_Form),
 		.frontPicYOffset = 0,
@@ -24828,12 +25030,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_HAND_CREEPING_FORM] =
 	{
-		.baseHP = 30,
-		.baseAttack = 60,
-		.baseDefense = 30,
-		.baseSpeed = 45,
+		.baseHP = 50,
+		.baseAttack = 70,
+		.baseDefense = 50,
+		.baseSpeed = 55,
 		.baseSpAttack = 25,
-		.baseSpDefense = 30,
+		.baseSpDefense = 65,
 		.types = { TYPE_FIGHTING, TYPE_FIGHTING },
 		.catchRate = 220,
 		.expYield = 46,
@@ -24871,7 +25073,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Hand_Creeping_Form, 0),
 		.footprint = gMonFootprint_Hand_Creeping_Form,
 		LEARNSETS(Hand_Creeping_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 15,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 24, SPECIES_HAND_CRAWLING_FORM},
@@ -25028,7 +25230,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hand_Crushing_Form),
-		ICON(Hand_Crushing_Form, 2),
+		ICON(Hand_Crushing_Form, 0),
 		.footprint = gMonFootprint_Hand_Crushing_Form,
 		LEARNSETS(Hand_Crushing_Form),
 		.frontPicYOffset = 11,
@@ -25076,7 +25278,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hand_Zombie_Form),
-		ICON(Hand_Zombie_Form, 0),
+		ICON(Hand_Zombie_Form, 1),
 		.footprint = gMonFootprint_Hand_Zombie_Form,
 		LEARNSETS(Hand_Zombie_Form),
 		.frontPicYOffset = 8,
@@ -25112,7 +25314,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 117.9,
 		.description = COMPOUND_STRING(
 			"A creature so persistent, only a broad\n"
-			"type of weapons could ever wish to harm\n"
+			"type of weapon could ever wish to harm\n"
 			"it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -25125,7 +25327,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Turoth),
-		ICON(Turoth, 2),
+		ICON(Turoth, 0),
 		.footprint = gMonFootprint_Turoth,
 		LEARNSETS(Turoth),
 		.frontPicYOffset = 0,
@@ -25167,7 +25369,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A turoth grown to prime strength.\n"
 			"Stronger than others of its kind, it\n"
-			"will fight till its last breath to feed\n"
+			"will fight until its last breath to feed\n"
 			"itself."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -25216,8 +25418,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 331.1,
 		.description = COMPOUND_STRING(
 			"Its size is far larger than other\n"
-			"turoth's making it more dangereous. But\n"
-			"not that much dangereous."),
+			"turoths making it more dangerous. But\n"
+			"not that much dangerous."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -25256,7 +25458,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_MONSTER },
-		.abilities = { ABILITY_COMPOUND_EYES, ABILITY_FLUFFY, ABILITY_DISGUISE },
+		.abilities = { ABILITY_OVERCOAT, ABILITY_OVERCOAT, ABILITY_DISGUISE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Sockroth"),
 		.cryId = CRY_SOCKROTH,
@@ -25280,7 +25482,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sockroth),
-		ICON(Sockroth, 0),
+		ICON(Sockroth, 2),
 		.footprint = gMonFootprint_Sockroth,
 		LEARNSETS(Sockroth),
 		.frontPicYOffset = 10,
@@ -25289,12 +25491,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_LILRASK] =
 	{
-		.baseHP = 60,
+		.baseHP = 75,
 		.baseAttack = 60,
-		.baseDefense = 30,
+		.baseDefense = 80,
 		.baseSpeed = 15,
 		.baseSpAttack = 25,
-		.baseSpDefense = 20,
+		.baseSpDefense = 50,
 		.types = { TYPE_GRASS, TYPE_GRASS },
 		.catchRate = 200,
 		.expYield = 57,
@@ -25491,12 +25693,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT] =
 	{
-		.baseHP = 45,
-		.baseAttack = 35,
-		.baseDefense = 35,
-		.baseSpeed = 35,
-		.baseSpAttack = 35,
-		.baseSpDefense = 35,
+		.baseHP = 75,
+		.baseAttack = 45,
+		.baseDefense = 45,
+		.baseSpeed = 45,
+		.baseSpAttack = 45,
+		.baseSpDefense = 45,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 255,
 		.expYield = 31,
@@ -25530,7 +25732,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit),
-		ICON(Kebbit, 0),
+		ICON(Kebbit, 2),
 		.footprint = gMonFootprint_Kebbit,
 		LEARNSETS(Kebbit),
 		.frontPicYOffset = 0,
@@ -25544,12 +25746,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_POLAR_FORM] =
 	{
-		.baseHP = 50,
-		.baseAttack = 40,
-		.baseDefense = 35,
-		.baseSpeed = 45,
-		.baseSpAttack = 50,
-		.baseSpDefense = 40,
+		.baseHP = 70,
+		.baseAttack = 50,
+		.baseDefense = 55,
+		.baseSpeed = 55,
+		.baseSpAttack = 65,
+		.baseSpDefense = 55,
 		.types = { TYPE_NORMAL, TYPE_ICE },
 		.catchRate = 160,
 		.expYield = 61,
@@ -25645,12 +25847,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_SPOTTED_FORM] =
 	{
-		.baseHP = 40,
-		.baseAttack = 30,
-		.baseDefense = 30,
-		.baseSpeed = 90,
-		.baseSpAttack = 40,
-		.baseSpDefense = 30,
+		.baseHP = 70,
+		.baseAttack = 55,
+		.baseDefense = 40,
+		.baseSpeed = 95,
+		.baseSpAttack = 50,
+		.baseSpDefense = 40,
 		.types = { TYPE_NORMAL, TYPE_FIGHTING },
 		.catchRate = 160,
 		.expYield = 61,
@@ -25684,7 +25886,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Spotted_Form),
-		ICON(Kebbit_Spotted_Form, 0),
+		ICON(Kebbit_Spotted_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Spotted_Form,
 		LEARNSETS(Kebbit_Spotted_Form),
 		.frontPicYOffset = 0,
@@ -25696,7 +25898,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_DARK_FORM] =
 	{
-		.baseHP = 45,
+		.baseHP = 80,
 		.baseAttack = 50,
 		.baseDefense = 35,
 		.baseSpeed = 100,
@@ -25748,7 +25950,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_DASHING_FORM] =
 	{
-		.baseHP = 65,
+		.baseHP = 90,
 		.baseAttack = 65,
 		.baseDefense = 65,
 		.baseSpeed = 170,
@@ -25788,7 +25990,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Dashing_Form),
-		ICON(Kebbit_Dashing_Form, 0),
+		ICON(Kebbit_Dashing_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Dashing_Form,
 		LEARNSETS(Kebbit_Dashing_Form),
 		.frontPicYOffset = 0,
@@ -25797,12 +25999,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_WILD_FORM] =
 	{
-		.baseHP = 50,
-		.baseAttack = 40,
-		.baseDefense = 40,
-		.baseSpeed = 50,
-		.baseSpAttack = 40,
-		.baseSpDefense = 40,
+		.baseHP = 75,
+		.baseAttack = 55,
+		.baseDefense = 50,
+		.baseSpeed = 65,
+		.baseSpAttack = 55,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 160,
 		.expYield = 61,
@@ -25838,7 +26040,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Wild_Form),
-		ICON(Kebbit_Wild_Form, 0),
+		ICON(Kebbit_Wild_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Wild_Form,
 		LEARNSETS(Kebbit_Wild_Form),
 		.frontPicYOffset = 14,
@@ -25850,12 +26052,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_PRICKLY_FORM] =
 	{
-		.baseHP = 60,
-		.baseAttack = 40,
-		.baseDefense = 70,
-		.baseSpeed = 50,
-		.baseSpAttack = 45,
-		.baseSpDefense = 50,
+		.baseHP = 85,
+		.baseAttack = 50,
+		.baseDefense = 80,
+		.baseSpeed = 60,
+		.baseSpAttack = 55,
+		.baseSpDefense = 60,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 160,
 		.expYield = 89,
@@ -25890,7 +26092,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Prickly_Form),
-		ICON(Kebbit_Prickly_Form, 0),
+		ICON(Kebbit_Prickly_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Prickly_Form,
 		LEARNSETS(Kebbit_Prickly_Form),
 		.frontPicYOffset = 13,
@@ -25904,10 +26106,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_KEBBIT_RAZOR_FORM] =
 	{
 		.baseHP = 100,
-		.baseAttack = 75,
+		.baseAttack = 95,
 		.baseDefense = 120,
 		.baseSpeed = 50,
-		.baseSpAttack = 50,
+		.baseSpAttack = 55,
 		.baseSpDefense = 80,
 		.types = { TYPE_NORMAL, TYPE_STEEL },
 		.catchRate = 130,
@@ -25943,7 +26145,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Razor_Form),
-		ICON(Kebbit_Razor_Form, 0),
+		ICON(Kebbit_Razor_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Razor_Form,
 		LEARNSETS(Kebbit_Razor_Form),
 		.frontPicYOffset = 10,
@@ -25952,9 +26154,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_BIG_FORM] =
 	{
-		.baseHP = 110,
+		.baseHP = 130,
 		.baseAttack = 90,
-		.baseDefense = 80,
+		.baseDefense = 85,
 		.baseSpeed = 60,
 		.baseSpAttack = 75,
 		.baseSpDefense = 60,
@@ -25992,7 +26194,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Big_Form),
-		ICON(Kebbit_Big_Form, 0),
+		ICON(Kebbit_Big_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Big_Form,
 		LEARNSETS(Kebbit_Big_Form),
 		.frontPicYOffset = 3,
@@ -26001,12 +26203,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_DESERTDEVIL_FORM] =
 	{
-		.baseHP = 35,
-		.baseAttack = 35,
-		.baseDefense = 40,
-		.baseSpeed = 45,
-		.baseSpAttack = 30,
-		.baseSpDefense = 35,
+		.baseHP = 70,
+		.baseAttack = 55,
+		.baseDefense = 55,
+		.baseSpeed = 65,
+		.baseSpAttack = 40,
+		.baseSpDefense = 65,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 195,
 		.expYield = 41,
@@ -26047,18 +26249,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 15, SPECIES_KEBBIT_FELDIP_WEASEL_FORM},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_KEBBIT_CHOCOLATE_FORM}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_KEBBIT_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_KEBBIT_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_KEBBIT_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_KEBBIT_CHOCOLATE_FORM}
 		),
 	},
 
 [SPECIES_KEBBIT_FELDIP_WEASEL_FORM] =
 	{
-		.baseHP = 50,
+		.baseHP = 70,
 		.baseAttack = 30,
-		.baseDefense = 70,
-		.baseSpeed = 40,
-		.baseSpAttack = 40,
-		.baseSpDefense = 30,
+		.baseDefense = 80,
+		.baseSpeed = 70,
+		.baseSpAttack = 50,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 160,
 		.expYield = 61,
@@ -26104,10 +26309,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_BARBED_FORM] =
 	{
-		.baseHP = 60,
-		.baseAttack = 40,
-		.baseDefense = 80,
-		.baseSpeed = 45,
+		.baseHP = 80,
+		.baseAttack = 45,
+		.baseDefense = 85,
+		.baseSpeed = 50,
 		.baseSpAttack = 50,
 		.baseSpDefense = 40,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
@@ -26143,7 +26348,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Barbed_Form),
-		ICON(Kebbit_Barbed_Form, 0),
+		ICON(Kebbit_Barbed_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Barbed_Form,
 		LEARNSETS(Kebbit_Barbed_Form),
 		.frontPicYOffset = 0,
@@ -26155,12 +26360,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_DISEASED_FORM] =
 	{
-		.baseHP = 70,
+		.baseHP = 80,
 		.baseAttack = 65,
 		.baseDefense = 110,
-		.baseSpeed = 70,
+		.baseSpeed = 65,
 		.baseSpAttack = 100,
-		.baseSpDefense = 60,
+		.baseSpDefense = 80,
 		.types = { TYPE_NORMAL, TYPE_POISON },
 		.catchRate = 130,
 		.expYield = 131,
@@ -26182,7 +26387,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 63.5,
 		.description = COMPOUND_STRING(
 			"Being struck by disease, this kebbit\n"
-			"awaits for it's life to end. Possibly\n"
+			"waits for its life to end. Possibly\n"
 			"dragging more of its kind with it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -26204,12 +26409,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KEBBIT_CHOCOLATE_FORM] =
 	{
-		.baseHP = 80,
+		.baseHP = 90,
 		.baseAttack = 80,
 		.baseDefense = 65,
 		.baseSpeed = 80,
 		.baseSpAttack = 90,
-		.baseSpDefense = 80,
+		.baseSpDefense = 95,
 		.types = { TYPE_NORMAL, TYPE_FAIRY },
 		.catchRate = 130,
 		.expYield = 131,
@@ -26221,7 +26426,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_HUSTLE, ABILITY_SWEET_VEIL, ABILITY_RUN_AWAY },
+		.abilities = { ABILITY_SUPERSWEET_SYRUP, ABILITY_SWEET_VEIL, ABILITY_RUN_AWAY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Kebbit"),
 		.cryId = CRY_KEBBIT_CHOCOLATE_FORM,
@@ -26243,21 +26448,24 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kebbit_Chocolate_Form),
-		ICON(Kebbit_Chocolate_Form, 0),
+		ICON(Kebbit_Chocolate_Form, 2),
 		.footprint = gMonFootprint_Kebbit_Chocolate_Form,
 		LEARNSETS(Kebbit_Chocolate_Form),
 		.frontPicYOffset = 10,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_COCKATRICE, SPECIES_CHOCATRICE}
+		),
 	},
 
 [SPECIES_MONKEY_NORMAL_FORM] =
 	{
-		.baseHP = 30,
+		.baseHP = 45,
 		.baseAttack = 45,
-		.baseDefense = 23,
-		.baseSpeed = 85,
+		.baseDefense = 43,
+		.baseSpeed = 90,
 		.baseSpAttack = 40,
-		.baseSpDefense = 35,
+		.baseSpDefense = 45,
 		.types = { TYPE_FIGHTING, TYPE_FIGHTING },
 		.catchRate = 230,
 		.expYield = 42,
@@ -26292,17 +26500,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Normal_Form),
-		ICON(Monkey_Normal_Form, 0),
+		ICON(Monkey_Normal_Form, 2),
 		.footprint = gMonFootprint_Monkey_Normal_Form,
 		LEARNSETS(Monkey_Normal_Form),
 		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_MOVE_TYPE, TYPE_FLYING, SPECIES_MONKEY_NINJA_FORM},
+			{EVO_MOVE, MOVE_MAT_BLOCK, SPECIES_MONKEY_NINJA_FORM},
 			{EVO_LEVEL_DAY, 40, SPECIES_GORILLA_NORMAL_FORM},
 			{EVO_LEVEL_NIGHT, 40, SPECIES_GORILLA_ANCIENT_FORM},
 			{EVO_LEVEL_GHOST_TYPE_MON_IN_PARTY, 40, SPECIES_MONKEY_ZOMBIE_FORM},
-			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_MONKEY_REANIMATED_FORM}
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_MONKEY_REANIMATED_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_NINJA_FORM, SPECIES_MONKEY_NINJA_FORM}
 		),
 	},
 
@@ -26348,7 +26557,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Ninja_Form),
-		ICON(Monkey_Ninja_Form, 2),
+		ICON(Monkey_Ninja_Form, 0),
 		.footprint = gMonFootprint_Monkey_Ninja_Form,
 		LEARNSETS(Monkey_Ninja_Form),
 		.frontPicYOffset = 10,
@@ -26359,8 +26568,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 120,
 		.baseAttack = 120,
-		.baseDefense = 110,
-		.baseSpeed = 30,
+		.baseDefense = 120,
+		.baseSpeed = 20,
 		.baseSpAttack = 55,
 		.baseSpDefense = 70,
 		.types = { TYPE_FIGHTING, TYPE_FIGHTING },
@@ -26374,7 +26583,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_INNER_FOCUS, ABILITY_GUTS, ABILITY_MOXIE },
+		.abilities = { ABILITY_GUTS, ABILITY_GORILLA_TACTICS, ABILITY_MOXIE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gorilla"),
 		.cryId = CRY_GORILLA_NORMAL_FORM,
@@ -26397,7 +26606,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Gorilla_Normal_Form),
-		ICON(Gorilla_Normal_Form, 0),
+		ICON(Gorilla_Normal_Form, 2),
 		.footprint = gMonFootprint_Gorilla_Normal_Form,
 		LEARNSETS(Gorilla_Normal_Form),
 		.frontPicYOffset = 5,
@@ -26452,7 +26661,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Zombie_Form),
-		ICON(Monkey_Zombie_Form, 0),
+		ICON(Monkey_Zombie_Form, 1),
 		.footprint = gMonFootprint_Monkey_Zombie_Form,
 		LEARNSETS(Monkey_Zombie_Form),
 		.frontPicYOffset = 11,
@@ -26479,7 +26688,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_INNER_FOCUS, ABILITY_MOXIE, ABILITY_MOXIE },
+		.abilities = { ABILITY_MOXIE, ABILITY_GORILLA_TACTICS, ABILITY_MOXIE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gorilla"),
 		.cryId = CRY_GORILLA_ANCIENT_FORM,
@@ -26488,7 +26697,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 20.1,
 		.weight = 1714.6,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"One of the strongest gorillas on the Ape\n"
+			"Atoll, they have evolved to have\n"
+			"distinct blue faces to help them stand\n"
+			"out as superior."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -26509,12 +26721,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MONKEY_HARMLESS_FORM] =
 	{
-		.baseHP = 50,
+		.baseHP = 60,
 		.baseAttack = 45,
-		.baseDefense = 35,
-		.baseSpeed = 75,
-		.baseSpAttack = 20,
-		.baseSpDefense = 33,
+		.baseDefense = 45,
+		.baseSpeed = 85,
+		.baseSpAttack = 25,
+		.baseSpDefense = 48,
 		.types = { TYPE_FIGHTING, TYPE_FIGHTING },
 		.catchRate = 200,
 		.expYield = 47,
@@ -26549,13 +26761,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Harmless_Form),
-		ICON(Monkey_Harmless_Form, 0),
+		ICON(Monkey_Harmless_Form, 2),
 		.footprint = gMonFootprint_Monkey_Harmless_Form,
 		LEARNSETS(Monkey_Harmless_Form),
 		.frontPicYOffset = 7,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_GHOST_TYPE_MON_IN_PARTY, 40, SPECIES_MONKEY_GHOST_FORM}
+			{EVO_LEVEL_GHOST_TYPE_MON_IN_PARTY, 40, SPECIES_MONKEY_GHOST_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_NINJA_FORM, SPECIES_MONKEY_NINJA_FORM}
 		),
 	},
 
@@ -26626,7 +26839,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_KEEN_EYE, ABILITY_KEEN_EYE, ABILITY_NONE },
+		.abilities = { ABILITY_KEEN_EYE, ABILITY_GORILLA_TACTICS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gorilla"),
 		.cryId = CRY_GORILLA_AYUNI_FORM,
@@ -26636,7 +26849,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The Devourer stripped Apmeken of her\n"
-			"sight, creating Ayuni"),
+			"sight, creating Ayuni."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -26674,7 +26887,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_ANGER_POINT, ABILITY_ANGER_POINT, ABILITY_NONE },
+		.abilities = { ABILITY_ANGER_POINT, ABILITY_GORILLA_TACTICS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gorilla"),
 		.cryId = CRY_GORILLA_LEEUNI_FORM,
@@ -26683,8 +26896,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Apmekens lips and voice given shape in a\n"
-			"cruel avatar. Causing havock in the\n"
+			"Apmeken's lips and voice given shape in\n"
+			"a cruel avatar. Causing havoc in the\n"
 			"Desert."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -26724,7 +26937,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_SOUNDPROOF, ABILITY_SOUNDPROOF, ABILITY_NONE },
+		.abilities = { ABILITY_SOUNDPROOF, ABILITY_GORILLA_TACTICS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Gorilla"),
 		.cryId = CRY_GORILLA_ERUNI_FORM,
@@ -26755,12 +26968,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MONKEY_KARAMJA_BABY_FORM] =
 	{
-		.baseHP = 50,
-		.baseAttack = 65,
-		.baseDefense = 23,
-		.baseSpeed = 75,
+		.baseHP = 60,
+		.baseAttack = 68,
+		.baseDefense = 33,
+		.baseSpeed = 85,
 		.baseSpAttack = 20,
-		.baseSpDefense = 22,
+		.baseSpDefense = 42,
 		.types = { TYPE_FIGHTING, TYPE_NORMAL },
 		.catchRate = 200,
 		.expYield = 51,
@@ -26794,7 +27007,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Karamja_Baby_Form),
-		ICON(Monkey_Karamja_Baby_Form, 0),
+		ICON(Monkey_Karamja_Baby_Form, 2),
 		.footprint = gMonFootprint_Monkey_Karamja_Baby_Form,
 		LEARNSETS(Monkey_Karamja_Baby_Form),
 		.frontPicYOffset = 7,
@@ -26806,12 +27019,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MONKEY_KARAMJA_ADULT_FORM] =
 	{
-		.baseHP = 65,
+		.baseHP = 80,
 		.baseAttack = 95,
 		.baseDefense = 60,
 		.baseSpeed = 120,
 		.baseSpAttack = 85,
-		.baseSpDefense = 60,
+		.baseSpDefense = 65,
 		.types = { TYPE_FIGHTING, TYPE_NORMAL },
 		.catchRate = 200,
 		.expYield = 89,
@@ -26846,7 +27059,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Monkey_Karamja_Adult_Form),
-		ICON(Monkey_Karamja_Adult_Form, 0),
+		ICON(Monkey_Karamja_Adult_Form, 2),
 		.footprint = gMonFootprint_Monkey_Karamja_Adult_Form,
 		LEARNSETS(Monkey_Karamja_Adult_Form),
 		.frontPicYOffset = 3,
@@ -26895,7 +27108,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Larupia_Normal_Form),
-		ICON(Larupia_Normal_Form, 2),
+		ICON(Larupia_Normal_Form, 0),
 		.footprint = gMonFootprint_Larupia_Normal_Form,
 		LEARNSETS(Larupia_Normal_Form),
 		.frontPicYOffset = 6,
@@ -26947,7 +27160,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Larupia_Spirit_Form),
-		ICON(Larupia_Spirit_Form, 0),
+		ICON(Larupia_Spirit_Form, 2),
 		.footprint = gMonFootprint_Larupia_Spirit_Form,
 		LEARNSETS(Larupia_Spirit_Form),
 		.frontPicYOffset = 6,
@@ -26996,7 +27209,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kyatt_Normal_Form),
-		ICON(Kyatt_Normal_Form, 0),
+		ICON(Kyatt_Normal_Form, 2),
 		.footprint = gMonFootprint_Kyatt_Normal_Form,
 		LEARNSETS(Kyatt_Normal_Form),
 		.frontPicYOffset = 10,
@@ -27048,7 +27261,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kyatt_Spirit_Form),
-		ICON(Kyatt_Spirit_Form, 2),
+		ICON(Kyatt_Spirit_Form, 0),
 		.footprint = gMonFootprint_Kyatt_Spirit_Form,
 		LEARNSETS(Kyatt_Spirit_Form),
 		.frontPicYOffset = 9,
@@ -27057,11 +27270,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CRABLING] =
 	{
-		.baseHP = 55,
-		.baseAttack = 30,
-		.baseDefense = 65,
+		.baseHP = 65,
+		.baseAttack = 40,
+		.baseDefense = 100,
 		.baseSpeed = 10,
-		.baseSpAttack = 10,
+		.baseSpAttack = 30,
 		.baseSpDefense = 30,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 200,
@@ -27097,7 +27310,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crabling),
-		ICON(Crabling, 2),
+		ICON(Crabling, 0),
 		.footprint = gMonFootprint_Crabling,
 		LEARNSETS(Crabling),
 		.frontPicYOffset = 0,
@@ -27156,7 +27369,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Normal_Form),
-		ICON(Rock_Crab_Normal_Form, 0),
+		ICON(Rock_Crab_Normal_Form, 2),
 		.footprint = gMonFootprint_Rock_Crab_Normal_Form,
 		LEARNSETS(Rock_Crab_Normal_Form),
 		.frontPicYOffset = 0,
@@ -27194,9 +27407,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 20.6,
 		.weight = 839.1,
 		.description = COMPOUND_STRING(
-			"Far larger than it's smaller\n"
-			"counterpart, it has become a lot harder\n"
-			"to hide as a small rock."),
+			"Far larger than its smaller counterpart,\n"
+			"it has become a lot harder to hide as a\n"
+			"small rock."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -27208,10 +27421,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Giant_Normal_Form),
-		ICON(Rock_Crab_Giant_Normal_Form, 0),
+		ICON(Rock_Crab_Giant_Normal_Form, 2),
 		.footprint = gMonFootprint_Rock_Crab_Giant_Normal_Form,
 		LEARNSETS(Rock_Crab_Giant_Normal_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
 	},
 
@@ -27256,7 +27469,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Ammonite_Form),
-		ICON(Rock_Crab_Ammonite_Form, 2),
+		ICON(Rock_Crab_Ammonite_Form, 0),
 		.footprint = gMonFootprint_Rock_Crab_Ammonite_Form,
 		LEARNSETS(Rock_Crab_Ammonite_Form),
 		.frontPicYOffset = 9,
@@ -27308,7 +27521,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Giant_Ammonite_Form),
-		ICON(Rock_Crab_Giant_Ammonite_Form, 2),
+		ICON(Rock_Crab_Giant_Ammonite_Form, 0),
 		.footprint = gMonFootprint_Rock_Crab_Giant_Ammonite_Form,
 		LEARNSETS(Rock_Crab_Giant_Ammonite_Form),
 		.frontPicYOffset = 3,
@@ -27356,7 +27569,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Sand_Form),
-		ICON(Rock_Crab_Sand_Form, 0),
+		ICON(Rock_Crab_Sand_Form, 2),
 		.footprint = gMonFootprint_Rock_Crab_Sand_Form,
 		LEARNSETS(Rock_Crab_Sand_Form),
 		.frontPicYOffset = 0,
@@ -27394,7 +27607,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"In the warm desert its not uncommon to\n"
+			"In the warm desert it's not uncommon to\n"
 			"accidentally step on one."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -27407,7 +27620,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rock_Crab_Giant_Sand_Form),
-		ICON(Rock_Crab_Giant_Sand_Form, 0),
+		ICON(Rock_Crab_Giant_Sand_Form, 2),
 		.footprint = gMonFootprint_Rock_Crab_Giant_Sand_Form,
 		LEARNSETS(Rock_Crab_Giant_Sand_Form),
 		.frontPicYOffset = 4,
@@ -27442,7 +27655,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 7.2,
 		.weight = 322.1,
 		.description = COMPOUND_STRING(
-			"Mainly found in swamp's, they use\n"
+			"Mainly found in swamps, they use\n"
 			"whatever they can find as substitute\n"
 			"shells."),
 		.pokemonScale = 256,
@@ -27510,18 +27723,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Rock_Crab_Giant_Swamp_Form, 1),
 		.footprint = gMonFootprint_Rock_Crab_Giant_Swamp_Form,
 		LEARNSETS(Rock_Crab_Giant_Swamp_Form),
-		.frontPicYOffset = 1,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_CRAB_GRANITE_FORM] =
 	{
 		.baseHP = 75,
-		.baseAttack = 35,
-		.baseDefense = 75,
-		.baseSpeed = 15,
-		.baseSpAttack = 20,
-		.baseSpDefense = 30,
+		.baseAttack = 65,
+		.baseDefense = 95,
+		.baseSpeed = 20,
+		.baseSpAttack = 30,
+		.baseSpDefense = 35,
 		.types = { TYPE_ROCK, TYPE_WATER },
 		.catchRate = 90,
 		.expYield = 62,
@@ -27609,7 +27822,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Lobster_Granite_Form),
-		ICON(Lobster_Granite_Form, 0),
+		ICON(Lobster_Granite_Form, 2),
 		.footprint = gMonFootprint_Lobster_Granite_Form,
 		LEARNSETS(Lobster_Granite_Form),
 		.frontPicYOffset = 10,
@@ -27644,7 +27857,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 13.2,
 		.weight = 748.4,
 		.description = COMPOUND_STRING(
-			"A lobsters pretending to be a rock.\n"
+			"A lobster pretending to be a rock.\n"
 			"Except it wasn't a rock, it was a rock\n"
 			"lobster."),
 		.pokemonScale = 256,
@@ -27658,7 +27871,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Lobster_Rock_Form),
-		ICON(Lobster_Rock_Form, 0),
+		ICON(Lobster_Rock_Form, 2),
 		.footprint = gMonFootprint_Lobster_Rock_Form,
 		LEARNSETS(Lobster_Rock_Form),
 		.frontPicYOffset = 8,
@@ -27667,12 +27880,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RABBIT] =
 	{
-		.baseHP = 50,
+		.baseHP = 60,
 		.baseAttack = 30,
-		.baseDefense = 25,
+		.baseDefense = 35,
 		.baseSpeed = 90,
 		.baseSpAttack = 35,
-		.baseSpDefense = 30,
+		.baseSpDefense = 50,
 		.types = { TYPE_FAIRY, TYPE_FAIRY },
 		.catchRate = 255,
 		.expYield = 59,
@@ -27714,8 +27927,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 27, SPECIES_WOLPERTING},
-			{EVO_LEVEL_NIGHT, 27, SPECIES_JACKALOPE}
+			{EVO_LEVEL_DAY, 25, SPECIES_WOLPERTING},
+			{EVO_LEVEL_NIGHT, 25, SPECIES_JACKALOPE}
 		),
 	},
 
@@ -27848,8 +28061,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 1179.3,
 		.description = COMPOUND_STRING(
 			"A feared monster of Morytania. It gets\n"
-			"it name from the talons it possesses\n"
-			"that has killed many adventurers."),
+			"its name from the talons it possesses\n"
+			"that have killed many adventurers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -27861,7 +28074,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(TalonBeast_Talon_Form),
-		ICON(TalonBeast_Talon_Form, 0),
+		ICON(TalonBeast_Talon_Form, 2),
 		.footprint = gMonFootprint_TalonBeast_Talon_Form,
 		LEARNSETS(TalonBeast_Talon_Form),
 		.frontPicYOffset = 4,
@@ -27889,14 +28102,17 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_SPEED_BOOST, ABILITY_TOUGH_CLAWS, ABILITY_TOUGH_CLAWS },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("TalonBeast"),
+		.speciesName = _("Nail Beast"),
 		.cryId = CRY_TALONBEAST_NAIL_FORM,
 		.natDexNum = NATIONAL_DEX_TALONBEAST_NAIL_FORM,
 		.categoryName = _("Nail"),
 		.height = 20.2,
 		.weight = 1179.3,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Summoned using the essence of a regular\n"
+			"talon beast, these creatures are so\n"
+			"deadly it's said they can attack three\n"
+			"times in a single hit."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -27908,7 +28124,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(TalonBeast_Nail_Form),
-		ICON(TalonBeast_Nail_Form, 0),
+		ICON(TalonBeast_Nail_Form, 2),
 		.footprint = gMonFootprint_TalonBeast_Nail_Form,
 		LEARNSETS(TalonBeast_Nail_Form),
 		.frontPicYOffset = 3,
@@ -27971,15 +28187,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 45,
 		.baseAttack = 35,
-		.baseDefense = 35,
-		.baseSpeed = 60,
+		.baseDefense = 80,
+		.baseSpeed = 70,
 		.baseSpAttack = 35,
 		.baseSpDefense = 35,
 		.types = { TYPE_STEEL, TYPE_STEEL },
 		.catchRate = 200,
 		.expYield = 53,
 		.evYield_Speed = 1,
-		.genderRatio = MON_GENDERLESS,
+		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_FAST,
@@ -28008,7 +28224,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toy_Mouse),
-		ICON(Toy_Mouse, 2),
+		ICON(Toy_Mouse, 0),
 		.footprint = gMonFootprint_Toy_Mouse,
 		LEARNSETS(Toy_Mouse),
 		.frontPicYOffset = 0,
@@ -28034,7 +28250,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 80,
 		.expYield = 115,
 		.evYield_Defense = 2,
-		.genderRatio = MON_GENDERLESS,
+		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_FAST,
@@ -28082,7 +28298,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 80,
 		.expYield = 115,
 		.evYield_Defense = 2,
-		.genderRatio = MON_GENDERLESS,
+		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_FAST,
@@ -28112,7 +28328,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toy_Soldier),
-		ICON(Toy_Soldier, 2),
+		ICON(Toy_Soldier, 0),
 		.footprint = gMonFootprint_Toy_Soldier,
 		LEARNSETS(Toy_Soldier),
 		.frontPicYOffset = 0,
@@ -28131,7 +28347,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 90,
 		.expYield = 130,
 		.evYield_Defense = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -28148,7 +28364,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 31.8,
 		.description = COMPOUND_STRING(
 			"An automation made of clockwork to mimic\n"
-			"mans best friend. They refuse to meow."),
+			"man's best friend. They refuse to meow."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -28160,7 +28376,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cat_Clockwork_Form),
-		ICON(Cat_Clockwork_Form, 0),
+		ICON(Cat_Clockwork_Form, 2),
 		.footprint = gMonFootprint_Cat_Clockwork_Form,
 		LEARNSETS(Cat_Clockwork_Form),
 		.frontPicYOffset = 5,
@@ -28209,7 +28425,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Magicarpet),
-		ICON(Magicarpet, 0),
+		ICON(Magicarpet, 2),
 		.footprint = gMonFootprint_Magicarpet,
 		LEARNSETS(Magicarpet),
 		.frontPicYOffset = 4,
@@ -28220,10 +28436,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 50,
 		.baseAttack = 30,
-		.baseDefense = 50,
-		.baseSpeed = 80,
+		.baseDefense = 60,
+		.baseSpeed = 90,
 		.baseSpAttack = 30,
-		.baseSpDefense = 25,
+		.baseSpDefense = 55,
 		.types = { TYPE_GHOST, TYPE_GHOST },
 		.catchRate = 220,
 		.expYield = 52,
@@ -28258,7 +28474,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Anichair),
-		ICON(Anichair, 0),
+		ICON(Anichair, 2),
 		.footprint = gMonFootprint_Anichair,
 		LEARNSETS(Anichair),
 		.frontPicYOffset = 0,
@@ -28310,7 +28526,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Exoraxe),
-		ICON(Exoraxe, 0),
+		ICON(Exoraxe, 2),
 		.footprint = gMonFootprint_Exoraxe,
 		LEARNSETS(Exoraxe),
 		.frontPicYOffset = 5,
@@ -28363,7 +28579,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spookaxe),
-		ICON(Spookaxe, 0),
+		ICON(Spookaxe, 2),
 		.footprint = gMonFootprint_Spookaxe,
 		LEARNSETS(Spookaxe),
 		.frontPicYOffset = 7,
@@ -28372,7 +28588,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_DOBBIN] =
 	{
-		.baseHP = 40,
+		.baseHP = 60,
 		.baseAttack = 20,
 		.baseDefense = 40,
 		.baseSpeed = 120,
@@ -28412,7 +28628,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dobbin),
-		ICON(Dobbin, 0),
+		ICON(Dobbin, 2),
 		.footprint = gMonFootprint_Dobbin,
 		LEARNSETS(Dobbin),
 		.frontPicYOffset = 0,
@@ -28464,7 +28680,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Marionette),
-		ICON(Marionette, 0),
+		ICON(Marionette, 2),
 		.footprint = gMonFootprint_Marionette,
 		LEARNSETS(Marionette),
 		.frontPicYOffset = 9,
@@ -28490,7 +28706,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_CLOUD_NINE, ABILITY_LIGHTNING_ROD, ABILITY_UNBURDEN },
+		.abilities = { ABILITY_WIND_RIDER, ABILITY_LIGHTNING_ROD, ABILITY_UNBURDEN },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Dragonkite"),
 		.cryId = CRY_DRAGONKITE,
@@ -28518,6 +28734,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(DragonKite),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 44, SPECIES_DRAGONLING_RED_FORM}
+		),
 	},
 
 [SPECIES_ANIMOUR] =
@@ -28571,12 +28790,27 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_ATK_GT_SPATK, 40, SPECIES_SPIRIT_WARRIOR},
 			{EVO_LEVEL_ATK_LT_SPATK, 40, SPECIES_SPIRIT_MAGE},
 			{EVO_LEVEL_ATK_EQ_SPATK, 40, SPECIES_SPIRIT_RANGER},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_STRENGTH, SPECIES_SPIRIT_WARRIOR},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_RANGED, SPECIES_SPIRIT_RANGER},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_MAGIC, SPECIES_SPIRIT_MAGE},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_STRENGTH, SPECIES_SPIRIT_FIGHTER},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_RANGED, SPECIES_SPIRIT_ARCHER},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TOME_OF_MAGIC, SPECIES_SPIRIT_MYSTIC},
+			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_SPIRIT_WARRIOR},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_SPIRIT_MAGE},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_SPIRIT_RANGER},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_SPIRIT_FIGHTER},
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_SPIRIT_ARCHER},
+			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_SPIRIT_MYSTIC},
+			{EVO_ITEM, ITEM_SOUL_RUNE, SPECIES_SPIRIT_KNIGHT},
+			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_SPIRIT_SCOUT},
+			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_SPIRIT_WARMAGE},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SARAOWL, SPECIES_SPIRIT_WARRIOR},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZAMOHAWK, SPECIES_SPIRIT_RANGER},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ARMAFALCON, SPECIES_SPIRIT_MAGE}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_GUTHRAPTOR, SPECIES_SPIRIT_MAGE},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_BANDEAGLE, SPECIES_SPIRIT_FIGHTER},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SEREPEA, SPECIES_SPIRIT_ARCHER},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TUMEKIBIS, SPECIES_SPIRIT_MYSTIC},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZARAVEN, SPECIES_SPIRIT_KNIGHT},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_UNGODGEON, SPECIES_SPIRIT_SCOUT},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ARMAFALCON, SPECIES_SPIRIT_WARMAGE}
 		),
 	},
 
@@ -28622,25 +28856,34 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dead_Tree),
-		ICON(Dead_Tree, 0),
+		ICON(Dead_Tree, 2),
 		.footprint = gMonFootprint_Dead_Tree,
 		LEARNSETS(Dead_Tree),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 30, SPECIES_COMPOST_MOUND}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_YAK_LUMBER_FORM, SPECIES_COMPOST_MOUND},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_BEAVER, SPECIES_COMPOST_MOUND},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_GIANT_BEAVER, SPECIES_COMPOST_MOUND},
+			{EVO_LEVEL_DEATH, 35, SPECIES_COMPOST_MOUND},
+			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_DERWEN},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_ENT},
+			{EVO_LEVEL_WEATHER_HOT, 30, SPECIES_SPROUTLING_SUMMER_FORM},
+			{EVO_LEVEL_WEATHER_WET, 30, SPECIES_SPROUTLING_SPRING_FORM},
+			{EVO_LEVEL_WEATHER_COLD, 30, SPECIES_SPROUTLING_WINTER_FORM},
+			{EVO_LEVEL_WEATHER_DUSTY, 30, SPECIES_SPROUTLING_AUTUMN_FORM}
 		),
 	},
 
 [SPECIES_JADINKO] =
 	{
-		.baseHP = 70,
-		.baseAttack = 70,
-		.baseDefense = 75,
-		.baseSpeed = 80,
-		.baseSpAttack = 70,
-		.baseSpDefense = 70,
-		.types = { TYPE_DRAGON, TYPE_DRAGON },
+		.baseHP = 60,
+		.baseAttack = 50,
+		.baseDefense = 65,
+		.baseSpeed = 65,
+		.baseSpAttack = 50,
+		.baseSpDefense = 60,
+		.types = { TYPE_GRASS, TYPE_GRASS },
 		.catchRate = 140,
 		.expYield = 101,
 		.evYield_HP = 2,
@@ -28650,8 +28893,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.growthRate = GROWTH_FLUCTUATING,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
-		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
-		.abilities = { ABILITY_SPEED_BOOST, ABILITY_SPEED_BOOST, ABILITY_REGENERATOR },
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SYMBIOSIS, ABILITY_GRASS_PELT, ABILITY_REGENERATOR },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jadinko"),
 		.cryId = CRY_JADINKO,
@@ -28673,13 +28916,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jadinko),
-		ICON(Jadinko, 2),
+		ICON(Jadinko, 1),
 		.footprint = gMonFootprint_Jadinko,
 		LEARNSETS(Jadinko),
 		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 20, SPECIES_JADINKO_COMMON_FORM}
+			{EVO_LEVEL_DAY, 20, SPECIES_JADINKO_COMMON_FORM},
+			{EVO_LEVEL_NIGHT, 20, SPECIES_JADINKO_MALE_FORM}
 		),
 	},
 
@@ -28725,7 +28969,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Killerwatt),
-		ICON(Killerwatt, 2),
+		ICON(Killerwatt, 0),
 		.footprint = gMonFootprint_Killerwatt,
 		LEARNSETS(Killerwatt),
 		.frontPicYOffset = 4,
@@ -28734,12 +28978,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MACKERS] =
 	{
-		.baseHP = 42,
-		.baseAttack = 42,
-		.baseDefense = 42,
-		.baseSpeed = 42,
-		.baseSpAttack = 42,
-		.baseSpDefense = 42,
+		.baseHP = 69,
+		.baseAttack = 69,
+		.baseDefense = 69,
+		.baseSpeed = 69,
+		.baseSpAttack = 69,
+		.baseSpDefense = 69,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 255,
 		.expYield = 70,
@@ -28763,7 +29007,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			"Unrelated to the K.G.P. The turkeys are\n"
 			"trying to launch an attack on humans.\n"
 			"Humans don't care since it is\n"
-			"thanksgiving."),
+			"Thanksgiving."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -28775,7 +29019,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Mackers),
-		ICON(Mackers, 0),
+		ICON(Mackers, 2),
 		.footprint = gMonFootprint_Mackers,
 		LEARNSETS(Mackers),
 		.frontPicYOffset = 7,
@@ -28798,7 +29042,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 248,
 		.evYield_HP = 3,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(100),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -28828,14 +29072,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Turkey_Female_Form),
-		ICON(Turkey_Female_Form, 0),
+		ICON(Turkey_Female_Form, 2),
 		.footprint = gMonFootprint_Turkey_Female_Form,
 		LEARNSETS(Turkey_Female_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_TURKEY_PROTESTOR_FORM},
-			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_TURKEY_PROTESTOR_FORM}
+			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_TURKEY_PROTESTOR_FORM}
 		),
 	},
 
@@ -28851,7 +29094,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 248,
 		.evYield_HP = 3,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -28867,7 +29110,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 14.5,
 		.weight = 131.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"These turkeys are larger and more\n"
+			"aggressive than their female\n"
+			"counterparts, constantly trying to evade\n"
+			"capture."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -28879,14 +29125,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Turkey_Male_Form),
-		ICON(Turkey_Male_Form, 0),
+		ICON(Turkey_Male_Form, 2),
 		.footprint = gMonFootprint_Turkey_Male_Form,
 		LEARNSETS(Turkey_Male_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_TURKEY_PROTESTOR_FORM},
-			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_TURKEY_PROTESTOR_FORM}
+			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_TURKEY_PROTESTOR_FORM}
 		),
 	},
 
@@ -28911,14 +29156,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_SOUNDPROOF, ABILITY_GLUTTONY },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Turkey"),
+		.speciesName = _("Protestor"),
 		.cryId = CRY_TURKEY_PROTESTOR_FORM,
 		.natDexNum = NATIONAL_DEX_TURKEY_PROTESTOR_FORM,
 		.categoryName = _("Protesting"),
 		.height = 14.5,
 		.weight = 131.5,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"A turkey that has sought to end the\n"
+			"slaughter of its kind through peaceful\n"
+			"protest. It hasn't worked."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -28930,7 +29177,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Turkey_Protestor_Form),
-		ICON(Turkey_Protestor_Form, 0),
+		ICON(Turkey_Protestor_Form, 2),
 		.footprint = gMonFootprint_Turkey_Protestor_Form,
 		LEARNSETS(Turkey_Protestor_Form),
 		.frontPicYOffset = 0,
@@ -28939,12 +29186,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_TOUCAN_TENACIOUS_MALE_FORM] =
 	{
-		.baseHP = 50,
+		.baseHP = 65,
 		.baseAttack = 40,
-		.baseDefense = 50,
+		.baseDefense = 60,
 		.baseSpeed = 35,
 		.baseSpAttack = 35,
-		.baseSpDefense = 50,
+		.baseSpDefense = 75,
 		.types = { TYPE_FAIRY, TYPE_FLYING },
 		.catchRate = 200,
 		.expYield = 57,
@@ -28979,24 +29226,25 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toucan_Tenacious_Male_Form),
-		ICON(Toucan_Tenacious_Male_Form, 0),
+		ICON(Toucan_Tenacious_Male_Form, 2),
 		.footprint = gMonFootprint_Toucan_Tenacious_Male_Form,
 		LEARNSETS(Toucan_Tenacious_Male_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 32, SPECIES_TOUCAN_TUAI_LEIT_FORM}
+			{EVO_LEVEL, 32, SPECIES_TOUCAN_TUAI_LEIT_FORM},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_MACAW}
 		),
 	},
 
 [SPECIES_TOUCAN_TENACIOUS_FEMALE_FORM] =
 	{
-		.baseHP = 50,
+		.baseHP = 70,
 		.baseAttack = 35,
-		.baseDefense = 50,
-		.baseSpeed = 35,
+		.baseDefense = 55,
+		.baseSpeed = 40,
 		.baseSpAttack = 35,
-		.baseSpDefense = 55,
+		.baseSpDefense = 75,
 		.types = { TYPE_FAIRY, TYPE_FLYING },
 		.catchRate = 75,
 		.expYield = 57,
@@ -29017,7 +29265,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 6.1,
 		.weight = 59.0,
 		.description = COMPOUND_STRING(
-			"Nothing Interesting Happens."),
+			"Just as tenacious, but even more cunning\n"
+			"than male toucans. They have\n"
+			"occasionally been spotted carrying\n"
+			"dismembered body parts."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -29029,13 +29280,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toucan_Tenacious_Female_Form),
-		ICON(Toucan_Tenacious_Female_Form, 0),
+		ICON(Toucan_Tenacious_Female_Form, 2),
 		.footprint = gMonFootprint_Toucan_Tenacious_Female_Form,
 		LEARNSETS(Toucan_Tenacious_Female_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 32, SPECIES_TOUCAN_TUAI_LEIT_FORM}
+			{EVO_LEVEL, 32, SPECIES_TOUCAN_TUAI_LEIT_FORM},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_MACAW}
 		),
 	},
 
@@ -29081,7 +29333,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Toucan_Tuai_Leit_Form),
-		ICON(Toucan_Tuai_Leit_Form, 2),
+		ICON(Toucan_Tuai_Leit_Form, 0),
 		.footprint = gMonFootprint_Toucan_Tuai_Leit_Form,
 		LEARNSETS(Toucan_Tuai_Leit_Form),
 		.frontPicYOffset = 8,
@@ -29090,12 +29342,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_JELLYFISH_BLUBBER_FORM] =
 	{
-		.baseHP = 100,
-		.baseAttack = 25,
-		.baseDefense = 15,
-		.baseSpeed = 10,
-		.baseSpAttack = 20,
-		.baseSpDefense = 85,
+		.baseHP = 103,
+		.baseAttack = 39,
+		.baseDefense = 29,
+		.baseSpeed = 13,
+		.baseSpAttack = 27,
+		.baseSpDefense = 90,
 		.types = { TYPE_WATER, TYPE_ELECTRIC },
 		.catchRate = 200,
 		.expYield = 61,
@@ -29193,10 +29445,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 20,
 		.baseAttack = 5,
-		.baseDefense = 15,
+		.baseDefense = 25,
 		.baseSpeed = 70,
 		.baseSpAttack = 95,
-		.baseSpDefense = 70,
+		.baseSpDefense = 85,
 		.types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
 		.catchRate = 200,
 		.expYield = 67,
@@ -29210,7 +29462,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
 		.abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_MAGIC_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Essence"),
+		.speciesName = _("Pure"),
 		.cryId = CRY_PURE,
 		.natDexNum = NATIONAL_DEX_PURE,
 		.categoryName = _("RuneEssence"),
@@ -29230,7 +29482,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pure),
-		ICON(Pure, 2),
+		ICON(Pure, 0),
 		.footprint = gMonFootprint_Pure,
 		LEARNSETS(Pure),
 		.frontPicYOffset = 0,
@@ -29250,7 +29502,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 25,
 		.baseAttack = 20,
-		.baseDefense = 20,
+		.baseDefense = 30,
 		.baseSpeed = 78,
 		.baseSpAttack = 125,
 		.baseSpDefense = 100,
@@ -29267,7 +29519,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
 		.abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_MAGIC_GUARD },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Essence"),
+		.speciesName = _("Rune"),
 		.cryId = CRY_RUNE,
 		.natDexNum = NATIONAL_DEX_RUNE,
 		.categoryName = _("PureEssence"),
@@ -29288,7 +29540,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rune),
-		ICON(Rune, 2),
+		ICON(Rune, 0),
 		.footprint = gMonFootprint_Rune,
 		LEARNSETS(Rune),
 		.frontPicYOffset = 0,
@@ -29301,18 +29553,27 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_ESSENCE},
 			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_ESSENCE},
 			{EVO_ITEM, ITEM_SOUL_RUNE, SPECIES_ESSENCE},
-			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_ESSENCE}
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_ESSENCE},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_LUCKY_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_DEMON_KALGERION_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_STEEL_TITAN, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ESSWRAITH, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MEGAMASTYX, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SOULGAZER, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TZREK_JAD, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TORTLE, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SAILFISH, SPECIES_MAX_GOLEM}
 		),
 	},
 
 [SPECIES_ESSENCE] =
 	{
-		.baseHP = 50,
-		.baseAttack = 60,
-		.baseDefense = 23,
+		.baseHP = 60,
+		.baseAttack = 35,
+		.baseDefense = 43,
 		.baseSpeed = 101,
 		.baseSpAttack = 155,
-		.baseSpDefense = 120,
+		.baseSpDefense = 130,
 		.types = { TYPE_PSYCHIC, TYPE_ELECTRIC },
 		.catchRate = 65,
 		.expYield = 134,
@@ -29501,7 +29762,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Albatross),
-		ICON(Albatross, 0),
+		ICON(Albatross, 2),
 		.footprint = gMonFootprint_Albatross,
 		LEARNSETS(Albatross),
 		.frontPicYOffset = 0,
@@ -29520,7 +29781,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 85,
 		.expYield = 120,
 		.evYield_Attack = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 15,
 		.friendship = 70,
 		.growthRate = GROWTH_FAST,
@@ -29539,7 +29800,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			"Baron von Hattenkrapper. Sworn rival of\n"
 			"Count Ludvig Koppenploppen. Known as the\n"
 			"slayer of barrelchests on Bloodsplatter\n"
-			"island."),
+			"Isle."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -29570,7 +29831,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 85,
 		.expYield = 120,
 		.evYield_Defense = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 15,
 		.friendship = 70,
 		.growthRate = GROWTH_FAST,
@@ -29588,7 +29849,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Count Ludwig Koppenploppen. Sworn rival\n"
 			"to Baron von Hattenkrapper. Known to\n"
-			"have eaten many meals on The rock."),
+			"have eaten many meals on The Rock."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -29635,9 +29896,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 4.6,
 		.weight = 15.9,
 		.description = COMPOUND_STRING(
-			"Flightless, the bird has nothing but\n"
-			"it's own name that holds any value. It\n"
-			"fights with all it has."),
+			"Flightless, the bird has nothing but its\n"
+			"own name that holds any value. It fights\n"
+			"with all it has."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -29747,7 +30008,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(DesertWyrm),
-		ICON(DesertWyrm, 2),
+		ICON(DesertWyrm, 0),
 		.footprint = gMonFootprint_DesertWyrm,
 		LEARNSETS(DesertWyrm),
 		.frontPicYOffset = 8,
@@ -29799,7 +30060,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wyrm),
-		ICON(Wyrm, 2),
+		ICON(Wyrm, 0),
 		.footprint = gMonFootprint_Wyrm,
 		LEARNSETS(Wyrm),
 		.frontPicYOffset = 0,
@@ -29872,7 +30133,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 60,
 		.baseSpDefense = 35,
 		.types = { TYPE_POISON, TYPE_POISON },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 99,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -29925,7 +30186,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 90,
 		.baseSpDefense = 50,
 		.types = { TYPE_POISON, TYPE_FAIRY },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 161,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -29946,7 +30207,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"A cobra from the spirit realm. They can\n"
 			"corrupt eggs, making them into\n"
-			"cockatrice egg's"),
+			"cockatrice eggs."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -29974,7 +30235,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 90,
 		.baseSpDefense = 130,
 		.types = { TYPE_POISON, TYPE_GRASS },
-		.catchRate = 255,
+		.catchRate = 20,
 		.expYield = 254,
 		.evYield_Attack = 3,
 		.genderRatio = PERCENT_FEMALE(100),
@@ -29995,7 +30256,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Guardian of Guthix, this snake was set\n"
 			"to guard the residual sadness of Guthix\n"
-			"left in the rocks of lumbridge."),
+			"left in the rocks of Lumbridge."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -30023,7 +30284,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 60,
 		.baseSpDefense = 35,
 		.types = { TYPE_POISON, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 89,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -30056,7 +30317,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Snake_Sea_Form),
-		ICON(Snake_Sea_Form, 0),
+		ICON(Snake_Sea_Form, 2),
 		.footprint = gMonFootprint_Snake_Sea_Form,
 		LEARNSETS(Snake_Sea_Form),
 		.frontPicYOffset = 15,
@@ -30076,7 +30337,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 110,
 		.baseSpDefense = 60,
 		.types = { TYPE_POISON, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 150,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -30109,7 +30370,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Big_Snake_Sea_Form),
-		ICON(Big_Snake_Sea_Form, 2),
+		ICON(Big_Snake_Sea_Form, 0),
 		.footprint = gMonFootprint_Big_Snake_Sea_Form,
 		LEARNSETS(Big_Snake_Sea_Form),
 		.frontPicYOffset = 8,
@@ -30125,7 +30386,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 255,
 		.baseSpDefense = 255,
 		.types = { TYPE_FAIRY, TYPE_FAIRY },
-		.catchRate = 255,
+		.catchRate = 3,
 		.expYield = 255,
 		.evYield_HP = 3,
 		.genderRatio = MON_GENDERLESS,
@@ -30193,7 +30454,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 771.1,
 		.description = COMPOUND_STRING(
 			"Made by Dr. Fenkenstrain, these\n"
-			"experiments are either sheep in wolf\n"
+			"experiments are either sheep in wolf's\n"
 			"clothing, or the opposite."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -30206,7 +30467,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Experiment_3_Form),
-		ICON(Experiment_3_Form, 0),
+		ICON(Experiment_3_Form, 2),
 		.footprint = gMonFootprint_Experiment_3_Form,
 		LEARNSETS(Experiment_3_Form),
 		.frontPicYOffset = 7,
@@ -30215,12 +30476,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CABBAGE] =
 	{
-		.baseHP = 40,
-		.baseAttack = 40,
-		.baseDefense = 40,
-		.baseSpeed = 40,
-		.baseSpAttack = 40,
-		.baseSpDefense = 40,
+		.baseHP = 55,
+		.baseAttack = 50,
+		.baseDefense = 50,
+		.baseSpeed = 50,
+		.baseSpAttack = 50,
+		.baseSpDefense = 50,
 		.types = { TYPE_GRASS, TYPE_GRASS },
 		.catchRate = 200,
 		.expYield = 51,
@@ -30265,18 +30526,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_CABBAGE_CRISPY_FORM},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_CABBAGE_SHATTERED_WORLD_FORM},
 			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_BALANCEELE},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_DESSOURT}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_DESSOURT},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_DESSOURT},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_DESSOURT},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_DESSOURT}
 		),
 	},
 
 [SPECIES_UGHTANKI] =
 	{
-		.baseHP = 70,
+		.baseHP = 85,
 		.baseAttack = 30,
-		.baseDefense = 50,
+		.baseDefense = 60,
 		.baseSpeed = 35,
-		.baseSpAttack = 35,
-		.baseSpDefense = 30,
+		.baseSpAttack = 40,
+		.baseSpDefense = 50,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 200,
 		.expYield = 52,
@@ -30288,7 +30552,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_SAND_VEIL, ABILITY_LONG_REACH, ABILITY_NONE },
+		.abilities = { ABILITY_SAND_SPIT, ABILITY_LONG_REACH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Ughtanki"),
 		.cryId = CRY_UGHTANKI,
@@ -30297,9 +30561,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"They roam the desert looking for\n"
-			"oasises, escaping kebab salesmen who\n"
-			"kill them."),
+			"They roam the desert looking for oases,\n"
+			"escaping kebab salesmen who kill them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -30311,7 +30574,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ughtanki),
-		ICON(Ughtanki, 2),
+		ICON(Ughtanki, 0),
 		.footprint = gMonFootprint_Ughtanki,
 		LEARNSETS(Ughtanki),
 		.frontPicYOffset = 0,
@@ -30325,10 +30588,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_CAMEL] =
 	{
 		.baseHP = 90,
-		.baseAttack = 55,
-		.baseDefense = 70,
-		.baseSpeed = 50,
-		.baseSpAttack = 60,
+		.baseAttack = 70,
+		.baseDefense = 75,
+		.baseSpeed = 55,
+		.baseSpAttack = 75,
 		.baseSpDefense = 75,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 85,
@@ -30341,7 +30604,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_SAND_VEIL, ABILITY_LONG_REACH, ABILITY_NONE },
+		.abilities = { ABILITY_SAND_SPIT, ABILITY_LONG_REACH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Camel"),
 		.cryId = CRY_CAMEL,
@@ -30351,7 +30614,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The hump on its back stores water and\n"
-			"moisture as fat. Allowing it to live in\n"
+			"moisture as fat, allowing it to live in\n"
 			"the desert."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -30364,13 +30627,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Camel),
-		ICON(Camel, 2),
+		ICON(Camel, 0),
 		.footprint = gMonFootprint_Camel,
 		LEARNSETS(Camel),
 		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 30, SPECIES_UGHTANKI}
+			{EVO_LEVEL, 35, SPECIES_UGHTANKI}
 		),
 	},
 
@@ -30480,12 +30743,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KALPHITE_LARVA_FORM] =
 	{
-		.baseHP = 15,
-		.baseAttack = 20,
-		.baseDefense = 30,
+		.baseHP = 35,
+		.baseAttack = 40,
+		.baseDefense = 40,
 		.baseSpeed = 30,
-		.baseSpAttack = 15,
-		.baseSpDefense = 30,
+		.baseSpAttack = 25,
+		.baseSpDefense = 35,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 230,
 		.expYield = 32,
@@ -30519,7 +30782,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kalphite_Larva_Form),
-		ICON(Kalphite_Larva_Form, 0),
+		ICON(Kalphite_Larva_Form, 1),
 		.footprint = gMonFootprint_Kalphite_Larva_Form,
 		LEARNSETS(Kalphite_Larva_Form),
 		.frontPicYOffset = 0,
@@ -30532,11 +30795,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KALPHITE_WORKER_FORM] =
 	{
-		.baseHP = 25,
+		.baseHP = 35,
 		.baseAttack = 55,
-		.baseDefense = 60,
+		.baseDefense = 65,
 		.baseSpeed = 60,
-		.baseSpAttack = 15,
+		.baseSpAttack = 35,
 		.baseSpDefense = 50,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 200,
@@ -30584,12 +30847,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KALPHITE_SOLDIER_FORM] =
 	{
-		.baseHP = 55,
+		.baseHP = 65,
 		.baseAttack = 75,
-		.baseDefense = 70,
+		.baseDefense = 75,
 		.baseSpeed = 75,
-		.baseSpAttack = 35,
-		.baseSpDefense = 55,
+		.baseSpAttack = 45,
+		.baseSpDefense = 60,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 150,
 		.expYield = 89,
@@ -30663,8 +30926,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Kalphites from the spirit realm has a\n"
-			"stunning blue colour exoding glamour\n"
+			"Kalphites from the spirit realm have a\n"
+			"stunning blue colour exuding glamour\n"
 			"before they eat their prey alive."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -30677,7 +30940,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kalphite_Spirit_Form),
-		ICON(Kalphite_Spirit_Form, 0),
+		ICON(Kalphite_Spirit_Form, 2),
 		.footprint = gMonFootprint_Kalphite_Spirit_Form,
 		LEARNSETS(Kalphite_Spirit_Form),
 		.frontPicYOffset = 2,
@@ -30800,7 +31063,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 3,
 		.expYield = 238,
 		.evYield_Attack = 2,
-		.genderRatio = PERCENT_FEMALE(12.5),
+		.genderRatio = PERCENT_FEMALE(100),
 		.eggCycles = 20,
 		.friendship = 30,
 		.growthRate = GROWTH_FAST,
@@ -30869,7 +31132,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A small set of kalphites were deemed\n"
-			"warped by the hive and was thus exiled.\n"
+			"warped by the hive and were thus exiled.\n"
 			"These were some of them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -30922,7 +31185,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Giving in to the power and control of\n"
-			"the devourer the kalphite has lost all\n"
+			"the Devourer the kalphite has lost all\n"
 			"reason and will of its own."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -30971,8 +31234,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Outrider of its exiled clans they attack\n"
-			"anything they can see that isnt kalphite\n"
-			"shaped."),
+			"anything they can see that isn't\n"
+			"kalphite shaped."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31045,11 +31308,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KALPHITE_DUNG_FORM] =
 	{
-		.baseHP = 15,
-		.baseAttack = 20,
-		.baseDefense = 20,
+		.baseHP = 35,
+		.baseAttack = 30,
+		.baseDefense = 30,
 		.baseSpeed = 140,
-		.baseSpAttack = 15,
+		.baseSpAttack = 25,
 		.baseSpDefense = 40,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 150,
@@ -31085,7 +31348,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kalphite_Dung_Form),
-		ICON(Kalphite_Dung_Form, 0),
+		ICON(Kalphite_Dung_Form, 1),
 		.footprint = gMonFootprint_Kalphite_Dung_Form,
 		LEARNSETS(Kalphite_Dung_Form),
 		.frontPicYOffset = 5,
@@ -31124,7 +31387,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The head of a slain kalphite reborn\n"
-			"anew. Only to be slain anew once more."),
+			"anew. Only to be slain once more."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31222,7 +31485,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Corrupted beyond recognition the once\n"
-			"shining crystals now spark a stunning\n"
+			"shining crystals now sparkle a stunning\n"
 			"red."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -31235,7 +31498,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bat_Gauntlet_Corrupted_Form),
-		ICON(Bat_Gauntlet_Corrupted_Form, 0),
+		ICON(Bat_Gauntlet_Corrupted_Form, 2),
 		.footprint = gMonFootprint_Bat_Gauntlet_Corrupted_Form,
 		LEARNSETS(Bat_Gauntlet_Corrupted_Form),
 		.frontPicYOffset = 0,
@@ -31270,8 +31533,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A bat adornign beatifull crystals. It\n"
-			"has trouble flying due to their weight."),
+			"A bat adorned with beautiful crystals.\n"
+			"It has trouble flying due to their\n"
+			"weight."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31283,7 +31547,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bat_Gauntlet_Crystalline_Form),
-		ICON(Bat_Gauntlet_Crystalline_Form, 0),
+		ICON(Bat_Gauntlet_Crystalline_Form, 1),
 		.footprint = gMonFootprint_Bat_Gauntlet_Crystalline_Form,
 		LEARNSETS(Bat_Gauntlet_Crystalline_Form),
 		.frontPicYOffset = 0,
@@ -31369,7 +31633,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Its hard to corrupt what is already a\n"
+			"It's hard to corrupt what is already a\n"
 			"beast beyond control, but somehow the\n"
 			"Gauntlet did this."),
 		.pokemonScale = 256,
@@ -31383,7 +31647,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dark_Beast_Gauntlet_Corrupted_Form),
-		ICON(Dark_Beast_Gauntlet_Corrupted_Form, 0),
+		ICON(Dark_Beast_Gauntlet_Corrupted_Form, 2),
 		.footprint = gMonFootprint_Dark_Beast_Gauntlet_Corrupted_Form,
 		LEARNSETS(Dark_Beast_Gauntlet_Corrupted_Form),
 		.frontPicYOffset = 0,
@@ -31421,8 +31685,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Its body adorned with crystal shining in\n"
-			"so many colours its hard to recognice it\n"
-			"as dark."),
+			"so many colours it's hard to recognise\n"
+			"it as dark."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31434,7 +31698,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dark_Beast_Gauntlet_Crystalline_Form),
-		ICON(Dark_Beast_Gauntlet_Crystalline_Form, 0),
+		ICON(Dark_Beast_Gauntlet_Crystalline_Form, 1),
 		.footprint = gMonFootprint_Dark_Beast_Gauntlet_Crystalline_Form,
 		LEARNSETS(Dark_Beast_Gauntlet_Crystalline_Form),
 		.frontPicYOffset = 0,
@@ -31483,23 +31747,23 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dark_Beast_Pup_Form),
-		ICON(Dark_Beast_Pup_Form, 0),
+		ICON(Dark_Beast_Pup_Form, 2),
 		.footprint = gMonFootprint_Dark_Beast_Pup_Form,
 		LEARNSETS(Dark_Beast_Pup_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 40, SPECIES_DARK_BEAST_NORMAL_FORM}
+			{EVO_LEVEL, 55, SPECIES_DARK_BEAST_NORMAL_FORM}
 		),
 	},
 
 [SPECIES_DARK_BEAST_NORMAL_FORM] =
 	{
 		.baseHP = 100,
-		.baseAttack = 110,
+		.baseAttack = 120,
 		.baseDefense = 80,
 		.baseSpeed = 65,
-		.baseSpAttack = 110,
+		.baseSpAttack = 100,
 		.baseSpDefense = 80,
 		.types = { TYPE_DARK, TYPE_DARK },
 		.catchRate = 20,
@@ -31523,7 +31787,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Beasts lurking near the temple of light.\n"
+			"Beasts lurking near the Temple of Light.\n"
 			"Apparently they herald the return of the\n"
 			"dark lord."),
 		.pokemonScale = 256,
@@ -31537,7 +31801,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dark_Beast_Normal_Form),
-		ICON(Dark_Beast_Normal_Form, 0),
+		ICON(Dark_Beast_Normal_Form, 2),
 		.footprint = gMonFootprint_Dark_Beast_Normal_Form,
 		LEARNSETS(Dark_Beast_Normal_Form),
 		.frontPicYOffset = 0,
@@ -31628,8 +31892,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Its head left intact but without a voice\n"
-			"to talk. Its unknown how intelligent it\n"
-			"remains but hopefully its mindless."),
+			"to talk. It's unknown how intelligent it\n"
+			"remains but hopefully it's mindless."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31641,7 +31905,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Experiment_4_Form),
-		ICON(Experiment_4_Form, 0),
+		ICON(Experiment_4_Form, 2),
 		.footprint = gMonFootprint_Experiment_4_Form,
 		LEARNSETS(Experiment_4_Form),
 		.frontPicYOffset = 0,
@@ -31677,7 +31941,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Despite being a spider this spider is\n"
+			"Despite being a spider this creature is\n"
 			"strange because it has three joints\n"
 			"instead of two like regular spiders."),
 		.pokemonScale = 256,
@@ -31691,7 +31955,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Experiment_5_Form),
-		ICON(Experiment_5_Form, 0),
+		ICON(Experiment_5_Form, 2),
 		.footprint = gMonFootprint_Experiment_5_Form,
 		LEARNSETS(Experiment_5_Form),
 		.frontPicYOffset = 7,
@@ -31727,8 +31991,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"This huge beast posesses thick layers of\n"
-			"spores and rotten flesh protecting it\n"
+			"This huge beast possesses thick layers\n"
+			"of spores and rotten flesh protecting it\n"
 			"from harm."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -31741,7 +32005,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ganodermic_Beast),
-		ICON(Ganodermic_Beast, 0),
+		ICON(Ganodermic_Beast, 2),
 		.footprint = gMonFootprint_Ganodermic_Beast,
 		LEARNSETS(Ganodermic_Beast),
 		.frontPicYOffset = 0,
@@ -31790,7 +32054,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Grifolapine),
-		ICON(Grifolapine, 0),
+		ICON(Grifolapine, 2),
 		.footprint = gMonFootprint_Grifolapine,
 		LEARNSETS(Grifolapine),
 		.frontPicYOffset = 0,
@@ -31819,7 +32083,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS },
-		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_LEAF_GUARD, ABILITY_NONE },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_MYCELIUM_MIGHT, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Grifolaroo"),
 		.cryId = CRY_GRIFOLAROO,
@@ -31828,7 +32092,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A ramokee gave life to these otherwise\n"
+			"A Ramokee gave life to these otherwise\n"
 			"insignificant beings and they now work\n"
 			"at his command."),
 		.pokemonScale = 256,
@@ -31842,7 +32106,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Grifolaroo),
-		ICON(Grifolaroo, 0),
+		ICON(Grifolaroo, 2),
 		.footprint = gMonFootprint_Grifolaroo,
 		LEARNSETS(Grifolaroo),
 		.frontPicYOffset = 0,
@@ -31882,7 +32146,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Once posessed by a spirit the axe finds\n"
-			"a new use posessed by spores."),
+			"a new use possessed by spores."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -31894,7 +32158,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sporaxe),
-		ICON(Sporaxe, 0),
+		ICON(Sporaxe, 1),
 		.footprint = gMonFootprint_Sporaxe,
 		LEARNSETS(Sporaxe),
 		.frontPicYOffset = 0,
@@ -31922,7 +32186,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_OBLIVIOUS, ABILITY_CURSED_BODY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Bear"),
+		.speciesName = _("Beast"),
 		.cryId = CRY_HEADLESS_BEAST,
 		.natDexNum = NATIONAL_DEX_HEADLESS_BEAST,
 		.categoryName = _("Headless"),
@@ -31943,7 +32207,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Headless_Beast),
-		ICON(Headless_Beast, 0),
+		ICON(Headless_Beast, 2),
 		.footprint = gMonFootprint_Headless_Beast,
 		LEARNSETS(Headless_Beast),
 		.frontPicYOffset = 6,
@@ -32078,7 +32342,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_MINERAL },
 		.abilities = { ABILITY_STAMINA, ABILITY_FLASH_FIRE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Behemoth"),
+		.speciesName = _("SiegeBeast"),
 		.cryId = CRY_SIEGE_BEAST,
 		.natDexNum = NATIONAL_DEX_SIEGE_BEAST,
 		.categoryName = _("Siege"),
@@ -32086,7 +32350,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Chosen by the god Zamorak these beasts\n"
-			"laid waste to Saradomins armies in\n"
+			"laid waste to Saradomin's armies in\n"
 			"Lumbridge."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -32147,7 +32411,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bulwark_Beast),
-		ICON(Bulwark_Beast, 0),
+		ICON(Bulwark_Beast, 2),
 		.footprint = gMonFootprint_Bulwark_Beast,
 		LEARNSETS(Bulwark_Beast),
 		.frontPicYOffset = 9,
@@ -32229,7 +32493,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"To controll it Bilrach and his armies\n"
+			"To control it Bilrach and his armies\n"
 			"bound this behemoth down with runic\n"
 			"energy to make it obey."),
 		.pokemonScale = 256,
@@ -32243,7 +32507,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Behemoth_Runebound_Form),
-		ICON(Behemoth_Runebound_Form, 0),
+		ICON(Behemoth_Runebound_Form, 1),
 		.footprint = gMonFootprint_Behemoth_Runebound_Form,
 		LEARNSETS(Behemoth_Runebound_Form),
 		.frontPicYOffset = 0,
@@ -32278,7 +32542,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Its body is so big it could not pass\n"
-			"entirely into Gielinor, were the portal\n"
+			"entirely into Gielinor; were the portal\n"
 			"to close it would die."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -32291,7 +32555,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Stomp),
-		ICON(Stomp, 0),
+		ICON(Stomp, 1),
 		.footprint = gMonFootprint_Stomp,
 		LEARNSETS(Stomp),
 		.frontPicYOffset = 0,
@@ -32316,7 +32580,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MONSTER, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_STAMINA, ABILITY_STATIC, ABILITY_NONE },
+		.abilities = { ABILITY_STAMINA, ABILITY_VESSEL_OF_RUIN, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Behemoth"),
 		.cryId = CRY_HOPE_DEVOURER,
@@ -32339,7 +32603,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hope_Devourer),
-		ICON(Hope_Devourer, 0),
+		ICON(Hope_Devourer, 1),
 		.footprint = gMonFootprint_Hope_Devourer,
 		LEARNSETS(Hope_Devourer),
 		.frontPicYOffset = 4,
@@ -32366,7 +32630,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_3, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_SYNCHRONIZE, ABILITY_RAIN_DISH, ABILITY_NONE },
+		.abilities = { ABILITY_SYNCHRONIZE, ABILITY_SUPREME_OVERLORD, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Karamthulu"),
 		.cryId = CRY_KARAMTHULU_OVERLORD,
@@ -32389,7 +32653,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Karamthulu_Overlord),
-		ICON(Karamthulu_Overlord, 0),
+		ICON(Karamthulu_Overlord, 2),
 		.footprint = gMonFootprint_Karamthulu_Overlord,
 		LEARNSETS(Karamthulu_Overlord),
 		.frontPicYOffset = 0,
@@ -32525,7 +32789,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Reanimated from its slumber or death,\n"
+			"Reanimated from its slumber of death,\n"
 			"the monkey now sees little use but to\n"
 			"die once more."),
 		.pokemonScale = 256,
@@ -32549,11 +32813,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_RAT_GAUNTLET_CORRUPTED_FORM] =
 	{
 		.baseHP = 60,
-		.baseAttack = 70,
+		.baseAttack = 90,
 		.baseDefense = 90,
-		.baseSpeed = 60,
+		.baseSpeed = 50,
 		.baseSpAttack = 70,
-		.baseSpDefense = 90,
+		.baseSpDefense = 120,
 		.types = { TYPE_DARK, TYPE_ROCK },
 		.catchRate = 90,
 		.expYield = 140,
@@ -32565,7 +32829,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_RUN_AWAY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_SHELL_ARMOR, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Giant Rat"),
 		.cryId = CRY_RAT_GAUNTLET_CORRUPTED_FORM,
@@ -32588,7 +32852,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rat_Gauntlet_Corrupted_Form),
-		ICON(Rat_Gauntlet_Corrupted_Form, 0),
+		ICON(Rat_Gauntlet_Corrupted_Form, 2),
 		.footprint = gMonFootprint_Rat_Gauntlet_Corrupted_Form,
 		LEARNSETS(Rat_Gauntlet_Corrupted_Form),
 		.frontPicYOffset = 5,
@@ -32599,9 +32863,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 70,
 		.baseAttack = 60,
-		.baseDefense = 80,
-		.baseSpeed = 60,
-		.baseSpAttack = 60,
+		.baseDefense = 100,
+		.baseSpeed = 50,
+		.baseSpAttack = 90,
 		.baseSpDefense = 110,
 		.types = { TYPE_DARK, TYPE_ICE },
 		.catchRate = 90,
@@ -32615,7 +32879,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_RUN_AWAY, ABILITY_CLEAR_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_CLEAR_BODY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Giant Rat"),
 		.cryId = CRY_RAT_GAUNTLET_CRYSTALLINE_FORM,
@@ -32624,7 +32888,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"As it walks around the gauntlet its body\n"
+			"As it walks around the Gauntlet its body\n"
 			"shimmers with light until an adventurer\n"
 			"kills it."),
 		.pokemonScale = 256,
@@ -32638,7 +32902,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rat_Gauntlet_Crystalline_Form),
-		ICON(Rat_Gauntlet_Crystalline_Form, 0),
+		ICON(Rat_Gauntlet_Crystalline_Form, 1),
 		.footprint = gMonFootprint_Rat_Gauntlet_Crystalline_Form,
 		LEARNSETS(Rat_Gauntlet_Crystalline_Form),
 		.frontPicYOffset = 5,
@@ -32648,10 +32912,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_RAT_FUNGAL_FORM] =
 	{
 		.baseHP = 70,
-		.baseAttack = 75,
-		.baseDefense = 90,
-		.baseSpeed = 60,
-		.baseSpAttack = 70,
+		.baseAttack = 85,
+		.baseDefense = 100,
+		.baseSpeed = 70,
+		.baseSpAttack = 80,
 		.baseSpDefense = 75,
 		.types = { TYPE_DARK, TYPE_GRASS },
 		.catchRate = 90,
@@ -32665,7 +32929,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_RUN_AWAY, ABILITY_EFFECT_SPORE, ABILITY_NONE },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Fungal Rat"),
 		.cryId = CRY_RAT_FUNGAL_FORM,
@@ -32688,7 +32952,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rat_Fungal_Form),
-		ICON(Rat_Fungal_Form, 0),
+		ICON(Rat_Fungal_Form, 1),
 		.footprint = gMonFootprint_Rat_Fungal_Form,
 		LEARNSETS(Rat_Fungal_Form),
 		.frontPicYOffset = 2,
@@ -32737,7 +33001,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sparky),
-		ICON(Sparky, 0),
+		ICON(Sparky, 1),
 		.footprint = gMonFootprint_Sparky,
 		LEARNSETS(Sparky),
 		.frontPicYOffset = 10,
@@ -32786,7 +33050,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Corpse_Form),
-		ICON(Spider_Corpse_Form, 0),
+		ICON(Spider_Corpse_Form, 2),
 		.footprint = gMonFootprint_Spider_Corpse_Form,
 		LEARNSETS(Spider_Corpse_Form),
 		.frontPicYOffset = 6,
@@ -32867,7 +33131,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_FLAME_BODY, ABILITY_COMPOUND_EYES, ABILITY_NONE },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_COMPOUND_EYES, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_LAVA_FORM,
@@ -32877,8 +33141,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"They only lurk around lava giving them\n"
-			"their name, but its unknown why they are\n"
-			"in the Dragonkin Laboratories."),
+			"their name, but it's unknown why they\n"
+			"are in the Dragonkin Laboratories."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -32967,7 +33231,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_STALKER,
 		.natDexNum = NATIONAL_DEX_STALKER,
 		.categoryName = _("Stalker"),
@@ -32987,18 +33251,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Stalker),
-		ICON(Stalker, 0),
+		ICON(Stalker, 1),
 		.footprint = gMonFootprint_Stalker,
 		LEARNSETS(Stalker),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_DAY, 38, SPECIES_SOULSEEKER},
+			{EVO_LEVEL_DAY, 38, SPECIES_SOULGAZER},
 			{EVO_LEVEL_NIGHT, 38, SPECIES_STALKER_SENTINEL_FORM}
 		),
 	},
 
-[SPECIES_SOULSEEKER] =
+[SPECIES_SOULGAZER] =
 	{
 		.baseHP = 65,
 		.baseAttack = 54,
@@ -33020,10 +33284,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
-		.cryId = CRY_SOULSEEKER,
-		.natDexNum = NATIONAL_DEX_SOULSEEKER,
-		.categoryName = _("Soulseeker"),
+		.speciesName = _("Soulgazer"),
+		.cryId = CRY_SOULGAZER,
+		.natDexNum = NATIONAL_DEX_SOULGAZER,
+		.categoryName = _("Soulgazer"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
@@ -33034,16 +33298,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.pokemonOffset = 0,
 		.trainerScale = 256,
 		.trainerOffset = 0,
-		FRONT_PIC(Soulseeker, 64, 64),
-		.frontAnimFrames = sAnims_Soulseeker,
+		FRONT_PIC(Soulgazer, 64, 64),
+		.frontAnimFrames = sAnims_Soulgazer,
 		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
-		BACK_PIC(Soulseeker, 64, 64),
+		BACK_PIC(Soulgazer, 64, 64),
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
-		PALETTES(Soulseeker),
-		ICON(Soulseeker, 0),
-		.footprint = gMonFootprint_Soulseeker,
-		LEARNSETS(Soulseeker),
+		PALETTES(Soulgazer),
+		ICON(Soulgazer, 2),
+		.footprint = gMonFootprint_Soulgazer,
+		LEARNSETS(Soulgazer),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
@@ -33075,14 +33339,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_STALKER_SENTINEL_FORM,
 		.natDexNum = NATIONAL_DEX_STALKER_SENTINEL_FORM,
 		.categoryName = _("Sentinel"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"With one gigantic eye its said they can\n"
+			"With one gigantic eye it's said they can\n"
 			"see things human eyes can not."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -33095,7 +33359,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Stalker_Sentinel_Form),
-		ICON(Stalker_Sentinel_Form, 0),
+		ICON(Stalker_Sentinel_Form, 2),
 		.footprint = gMonFootprint_Stalker_Sentinel_Form,
 		LEARNSETS(Stalker_Sentinel_Form),
 		.frontPicYOffset = 6,
@@ -33131,7 +33395,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("NightGazer"),
 		.cryId = CRY_NIGHT_GAZER,
 		.natDexNum = NATIONAL_DEX_NIGHT_GAZER,
 		.categoryName = _("Gazer"),
@@ -33151,7 +33415,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Night_Gazer),
-		ICON(Night_Gazer, 0),
+		ICON(Night_Gazer, 2),
 		.footprint = gMonFootprint_Night_Gazer,
 		LEARNSETS(Night_Gazer),
 		.frontPicYOffset = 0,
@@ -33180,7 +33444,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_PLANE_FREEZER,
 		.natDexNum = NATIONAL_DEX_PLANE_FREEZER,
 		.categoryName = _("Freezer"),
@@ -33229,7 +33493,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_WORLD_GORGER,
 		.natDexNum = NATIONAL_DEX_WORLD_GORGER,
 		.categoryName = _("Gorger"),
@@ -33279,7 +33543,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_FLESH_SPOILER_COVERED_FORM,
 		.natDexNum = NATIONAL_DEX_FLESH_SPOILER_COVERED_FORM,
 		.categoryName = _("Monger"),
@@ -33300,11 +33564,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Flesh_Spoiler_Covered_Form),
-		ICON(Flesh_Spoiler_Covered_Form, 0),
+		ICON(Flesh_Spoiler_Covered_Form, 1),
 		.footprint = gMonFootprint_Flesh_Spoiler_Covered_Form,
 		LEARNSETS(Flesh_Spoiler_Covered_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 4,
+		.formSpeciesIdTable = sFleshSpoilerFormSpeciesIdTable,
+		.formChangeTable = sFleshSpoilerFormChangeTable,
 	},
 
 [SPECIES_SHADOW_FORGER] =
@@ -33329,16 +33595,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("Stalker"),
 		.cryId = CRY_SHADOW_FORGER,
 		.natDexNum = NATIONAL_DEX_SHADOW_FORGER,
 		.categoryName = _("Shadow"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"It prefers to fasten itself in air above\n"
-			"alcoves, killing anything near it with\n"
-			"immense bursts of light."),
+			"It prefers to fasten itself in the air\n"
+			"above alcoves, killing anything near it\n"
+			"with immense bursts of light."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -33379,7 +33645,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_LEVITATE, ABILITY_SEEKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Seeker"),
+		.speciesName = _("VeilRipper"),
 		.cryId = CRY_VEIL_RIPPER,
 		.natDexNum = NATIONAL_DEX_VEIL_RIPPER,
 		.categoryName = _("Veil"),
@@ -33400,7 +33666,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Veil_Ripper),
-		ICON(Veil_Ripper, 0),
+		ICON(Veil_Ripper, 2),
 		.footprint = gMonFootprint_Veil_Ripper,
 		LEARNSETS(Veil_Ripper),
 		.frontPicYOffset = 0,
@@ -33427,7 +33693,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_IMMUNITY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.abilities = { ABILITY_SHELL_ARMOR, ABILITY_IMMUNITY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Unicorn"),
 		.cryId = CRY_UNICORN_GAUNTLET_CORRUPTED_FORM,
@@ -33436,7 +33702,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Hailing from the gauntlet these\n"
+			"Hailing from the Gauntlet these\n"
 			"corrupted unicorns stand out from their\n"
 			"crystalline counterparts."),
 		.pokemonScale = 256,
@@ -33450,7 +33716,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicorn_Gauntlet_Corrupted_Form),
-		ICON(Unicorn_Gauntlet_Corrupted_Form, 0),
+		ICON(Unicorn_Gauntlet_Corrupted_Form, 2),
 		.footprint = gMonFootprint_Unicorn_Gauntlet_Corrupted_Form,
 		LEARNSETS(Unicorn_Gauntlet_Corrupted_Form),
 		.frontPicYOffset = 0,
@@ -33477,7 +33743,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_IMMUNITY, ABILITY_ICE_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_CHILLING_NEIGH, ABILITY_IMMUNITY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Unicorn"),
 		.cryId = CRY_UNICORN_GAUNTLET_CRYSTALLINE_FORM,
@@ -33487,7 +33753,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Pure as the light that strikes them,\n"
-			"these crystalline unicorns walks around\n"
+			"these crystalline unicorns wander around\n"
 			"the Gauntlet."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -33500,7 +33766,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Unicorn_Gauntlet_Crystalline_Form),
-		ICON(Unicorn_Gauntlet_Crystalline_Form, 0),
+		ICON(Unicorn_Gauntlet_Crystalline_Form, 1),
 		.footprint = gMonFootprint_Unicorn_Gauntlet_Crystalline_Form,
 		LEARNSETS(Unicorn_Gauntlet_Crystalline_Form),
 		.frontPicYOffset = 0,
@@ -33526,16 +33792,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_HUNTER, ABILITY_NONE },
+		.abilities = { ABILITY_HUNTER, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("Cave Wolf"),
 		.cryId = CRY_WOLF_CAVE_FORM,
 		.natDexNum = NATIONAL_DEX_WOLF_CAVE_FORM,
 		.categoryName = _("Matriarch"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"They lead their young trough cave\n"
+			"They lead their young through cave\n"
 			"systems hunting for mice and other prey."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -33548,7 +33814,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Cave_Form),
-		ICON(Wolf_Cave_Form, 0),
+		ICON(Wolf_Cave_Form, 2),
 		.footprint = gMonFootprint_Wolf_Cave_Form,
 		LEARNSETS(Wolf_Cave_Form),
 		.frontPicYOffset = 4,
@@ -33574,7 +33840,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_SHELL_ARMOR, ABILITY_HUNTER, ABILITY_NONE },
+		.abilities = { ABILITY_HUNTER, ABILITY_DRAGONS_MAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Wolf"),
 		.cryId = CRY_WOLF_DRAGON_FORM,
@@ -33597,7 +33863,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Wolf_Dragon_Form),
-		ICON(Wolf_Dragon_Form, 0),
+		ICON(Wolf_Dragon_Form, 1),
 		.footprint = gMonFootprint_Wolf_Dragon_Form,
 		LEARNSETS(Wolf_Dragon_Form),
 		.frontPicYOffset = 7,
@@ -33624,9 +33890,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_CURSED_BODY, ABILITY_OWN_TEMPO, ABILITY_NONE },
+		.abilities = { ABILITY_CURSED_BODY, ABILITY_GUARD_DOG, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Wolf"),
+		.speciesName = _("Hound"),
 		.cryId = CRY_SHADOW_HOUND,
 		.natDexNum = NATIONAL_DEX_SHADOW_HOUND,
 		.categoryName = _("Shadow"),
@@ -33674,7 +33940,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_LEAF_GUARD, ABILITY_OWN_TEMPO, ABILITY_NONE },
+		.abilities = { ABILITY_LEAF_GUARD, ABILITY_GUARD_DOG, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Collie"),
 		.cryId = CRY_BORDER_COLLIE,
@@ -33723,7 +33989,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_STAKEOUT, ABILITY_OWN_TEMPO, ABILITY_NONE },
+		.abilities = { ABILITY_STAKEOUT, ABILITY_GUARD_DOG, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Bloodhound"),
 		.cryId = CRY_BLOODHOUND,
@@ -33746,7 +34012,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bloodhound),
-		ICON(Bloodhound, 0),
+		ICON(Bloodhound, 1),
 		.footprint = gMonFootprint_Bloodhound,
 		LEARNSETS(Bloodhound),
 		.frontPicYOffset = 3,
@@ -33773,7 +34039,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_STRONG_JAW, ABILITY_OWN_TEMPO, ABILITY_NONE },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_GUARD_DOG, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Guard Dog"),
 		.cryId = CRY_GUARD_DOG,
@@ -33796,7 +34062,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Guard_Dog),
-		ICON(Guard_Dog, 0),
+		ICON(Guard_Dog, 2),
 		.footprint = gMonFootprint_Guard_Dog,
 		LEARNSETS(Guard_Dog),
 		.frontPicYOffset = 5,
@@ -33824,7 +34090,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
-		.abilities = { ABILITY_PSYCHIC_SURGE, ABILITY_OWN_TEMPO, ABILITY_NONE },
+		.abilities = { ABILITY_PSYCHIC_SURGE, ABILITY_GUARD_DOG, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Lycurgus"),
 		.cryId = CRY_LYCURGUS,
@@ -33834,7 +34100,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"After the untimely death of Cerberus the\n"
-			"original temple guardian. Lycurgus was\n"
+			"original temple guardian, Lycurgus was\n"
 			"put in to guard Paterdomus."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -33875,7 +34141,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_ABYSSAL, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Moorrissey"),
 		.cryId = CRY_YAK_MOORRISSEY_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_MOORRISSEY_FORM,
 		.categoryName = _("Warped Yak"),
@@ -33923,14 +34189,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_SNOW_WARNING, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Robin"),
 		.cryId = CRY_YAK_ROBIN_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_ROBIN_FORM,
 		.categoryName = _("Festive"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Celebrating the festivities of wintuber\n"
+			"Celebrating the festivities of Wintumber\n"
 			"this yak appears when the mood is jolly."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -33943,7 +34209,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Robin_Form),
-		ICON(Yak_Robin_Form, 0),
+		ICON(Yak_Robin_Form, 2),
 		.footprint = gMonFootprint_Yak_Robin_Form,
 		LEARNSETS(Yak_Robin_Form),
 		.frontPicYOffset = 0,
@@ -33971,7 +34237,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_STEELWORKER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Yaktrick"),
 		.cryId = CRY_YAK_YAKTRICK_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_YAKTRICK_FORM,
 		.categoryName = _("Cosmic"),
@@ -33992,7 +34258,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Yaktrick_Form),
-		ICON(Yak_Yaktrick_Form, 0),
+		ICON(Yak_Yaktrick_Form, 2),
 		.footprint = gMonFootprint_Yak_Yaktrick_Form,
 		LEARNSETS(Yak_Yaktrick_Form),
 		.frontPicYOffset = 0,
@@ -34020,16 +34286,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_DITTO, EGG_GROUP_DITTO },
 		.abilities = { ABILITY_MAGIC_GUARD, ABILITY_GRASSY_SURGE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cabbage"),
+		.speciesName = _("Sister"),
 		.cryId = CRY_CABBAGE_SISTER_FORM,
 		.natDexNum = NATIONAL_DEX_CABBAGE_SISTER_FORM,
 		.categoryName = _("Sister"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Member of Saint Elsebeth Citharade. This\n"
+			"Member of Saint Elspeth Citharede. This\n"
 			"sister has taken the vow of silence for\n"
-			"Saradoming."),
+			"Saradomin."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34041,7 +34307,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cabbage_Sister_Form),
-		ICON(Cabbage_Sister_Form, 0),
+		ICON(Cabbage_Sister_Form, 1),
 		.footprint = gMonFootprint_Cabbage_Sister_Form,
 		LEARNSETS(Cabbage_Sister_Form),
 		.frontPicYOffset = 0,
@@ -34069,7 +34335,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_DITTO, EGG_GROUP_DITTO },
 		.abilities = { ABILITY_CHLOROPHYLL, ABILITY_GRASSY_SURGE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Cabbage"),
+		.speciesName = _("Crispy"),
 		.cryId = CRY_CABBAGE_CRISPY_FORM,
 		.natDexNum = NATIONAL_DEX_CABBAGE_CRISPY_FORM,
 		.categoryName = _("Crispy"),
@@ -34088,7 +34354,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cabbage_Crispy_Form),
-		ICON(Cabbage_Crispy_Form, 0),
+		ICON(Cabbage_Crispy_Form, 1),
 		.footprint = gMonFootprint_Cabbage_Crispy_Form,
 		LEARNSETS(Cabbage_Crispy_Form),
 		.frontPicYOffset = 12,
@@ -34097,7 +34363,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_STRYKEWYRM_MINI_FORM] =
 	{
-		.baseHP = 55,
+		.baseHP = 75,
 		.baseAttack = 40,
 		.baseDefense = 40,
 		.baseSpeed = 70,
@@ -34123,9 +34389,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Since theyre practicly defenceless they\n"
-			"prefer to stay underground for most of\n"
-			"the day."),
+			"Since they're practically defenceless\n"
+			"they prefer to stay underground for most\n"
+			"of the day."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34137,7 +34403,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Strykewyrm_Mini_Form),
-		ICON(Strykewyrm_Mini_Form, 0),
+		ICON(Strykewyrm_Mini_Form, 2),
 		.footprint = gMonFootprint_Strykewyrm_Mini_Form,
 		LEARNSETS(Strykewyrm_Mini_Form),
 		.frontPicYOffset = 0,
@@ -34191,7 +34457,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crocodile_Normal_Form),
-		ICON(Crocodile_Normal_Form, 0),
+		ICON(Crocodile_Normal_Form, 1),
 		.footprint = gMonFootprint_Crocodile_Normal_Form,
 		LEARNSETS(Crocodile_Normal_Form),
 		.frontPicYOffset = 0,
@@ -34199,6 +34465,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 38, SPECIES_CROCODILE_MUTADILE_FORM},
 			{EVO_ITEM, ITEM_SOUL_RUNE, SPECIES_CROCODILE_ANKH_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_CROCODILE_UKUNDUKA_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_CROCODILE_UKUNDUKA_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_CROCODILE_UKUNDUKA_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_CROCODILE_UKUNDUKA_FORM},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_BEHEMOTH_GLUTTONOUS_FORM, SPECIES_CROCODILE_UKUNDUKA_FORM},
 			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_CROCODILE_RED_FORM},
 			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_ZEBAK}
@@ -34226,7 +34496,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MONSTER , EGG_GROUP_WATER_1 },
 		.abilities = { ABILITY_SWIFT_SWIM, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Crocodile"),
+		.speciesName = _("Mutadile"),
 		.cryId = CRY_CROCODILE_MUTADILE_FORM,
 		.natDexNum = NATIONAL_DEX_CROCODILE_MUTADILE_FORM,
 		.categoryName = _("Mutadile"),
@@ -34234,7 +34504,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A very big crocodile lurking the\n"
-			"chambers of Xerosic. It is a very good\n"
+			"Chambers of Xeric. It is a very good\n"
 			"boy."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -34247,7 +34517,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crocodile_Mutadile_Form),
-		ICON(Crocodile_Mutadile_Form, 0),
+		ICON(Crocodile_Mutadile_Form, 1),
 		.footprint = gMonFootprint_Crocodile_Mutadile_Form,
 		LEARNSETS(Crocodile_Mutadile_Form),
 		.frontPicYOffset = 2,
@@ -34284,7 +34554,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"The magisters experimentation with souls\n"
 			"caused this crocodile to gain power in\n"
-			"trade for its will."),
+			"exchange for its will."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34296,7 +34566,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crocodile_Ankh_Form),
-		ICON(Crocodile_Ankh_Form, 0),
+		ICON(Crocodile_Ankh_Form, 2),
 		.footprint = gMonFootprint_Crocodile_Ankh_Form,
 		LEARNSETS(Crocodile_Ankh_Form),
 		.frontPicYOffset = 13,
@@ -34324,16 +34594,17 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MONSTER , EGG_GROUP_WATER_1 },
 		.abilities = { ABILITY_POISON_TOUCH, ABILITY_STRONG_JAW, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Crocodile"),
+		.speciesName = _("Ukunduka"),
 		.cryId = CRY_CROCODILE_UKUNDUKA_FORM,
 		.natDexNum = NATIONAL_DEX_CROCODILE_UKUNDUKA_FORM,
 		.categoryName = _("Eating"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The curse placed on Crondis taken\n"
-			"physical forme. It caused a vain and\n"
-			"gluttoneous feeling in Crondis."),
+			"The physical embodiment of the curse\n"
+			"placed on Crondis by Amascut. It caused\n"
+			"a vain and gluttonous feeling in\n"
+			"Crondis."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34345,7 +34616,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crocodile_Ukunduka_Form),
-		ICON(Crocodile_Ukunduka_Form, 0),
+		ICON(Crocodile_Ukunduka_Form, 1),
 		.footprint = gMonFootprint_Crocodile_Ukunduka_Form,
 		LEARNSETS(Crocodile_Ukunduka_Form),
 		.frontPicYOffset = 1,
@@ -34382,9 +34653,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"These demons once served Zaros but\n"
-			"seemed to have gone over to Zamorak by\n"
-			"the rebellion."),
+			"These demons once served Zaros but seem\n"
+			"to have gone over to Zamorak by the\n"
+			"rebellion."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34432,8 +34703,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The highly acidic fluids in its body\n"
-			"makes them more dangereous than any\n"
-			"other bloodsucker."),
+			"make them more dangerous than any other\n"
+			"bloodsucker."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34445,7 +34716,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bloodveld_Acidic_Form),
-		ICON(Bloodveld_Acidic_Form, 0),
+		ICON(Bloodveld_Acidic_Form, 2),
 		.footprint = gMonFootprint_Bloodveld_Acidic_Form,
 		LEARNSETS(Bloodveld_Acidic_Form),
 		.frontPicYOffset = 13,
@@ -34530,7 +34801,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"These bloodveld have been twisted by\n"
+			"Amascut's corruption, making them even\n"
+			"deadlier and more bloodthirsty."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34590,7 +34863,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Beaver),
-		ICON(Beaver, 0),
+		ICON(Beaver, 2),
 		.footprint = gMonFootprint_Beaver,
 		LEARNSETS(Beaver),
 		.frontPicYOffset = 0,
@@ -34609,7 +34882,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 65,
 		.baseSpDefense = 60,
 		.types = { TYPE_WATER, TYPE_WATER },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 109,
 		.evYield_Defense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -34642,7 +34915,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Giant_Beaver),
-		ICON(Giant_Beaver, 0),
+		ICON(Giant_Beaver, 2),
 		.footprint = gMonFootprint_Giant_Beaver,
 		LEARNSETS(Giant_Beaver),
 		.frontPicYOffset = 9,
@@ -34731,8 +35004,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"In their sack they keep the loot they\n"
-			"have stolen. They dont trust anyone to\n"
-			"see whats in there however."),
+			"have stolen. They don't trust anyone to\n"
+			"see what's in there however."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34744,7 +35017,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ralph),
-		ICON(Ralph, 0),
+		ICON(Ralph, 2),
 		.footprint = gMonFootprint_Ralph,
 		LEARNSETS(Ralph),
 		.frontPicYOffset = 0,
@@ -34779,9 +35052,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"These buggers sneak into adventurers\n"
-			"bags to steal from them, but usually\n"
-			"ends up as their pets."),
+			"These buggers sneak into adventurers'\n"
+			"bags to steal from them, but usually end\n"
+			"up as their pets."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -34793,7 +35066,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rocky),
-		ICON(Rocky, 0),
+		ICON(Rocky, 2),
 		.footprint = gMonFootprint_Rocky,
 		LEARNSETS(Rocky),
 		.frontPicYOffset = 5,
@@ -34829,7 +35102,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Known to not care for anything because\n"
-			"its strong, ferocious and badass in\n"
+			"it's strong, ferocious and badass in\n"
 			"every way."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -34842,7 +35115,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Honey_Badger),
-		ICON(Honey_Badger, 0),
+		ICON(Honey_Badger, 2),
 		.footprint = gMonFootprint_Honey_Badger,
 		LEARNSETS(Honey_Badger),
 		.frontPicYOffset = 3,
@@ -34976,8 +35249,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Related tot he strange plant these\n"
-			"plants will grown violent if not pruned\n"
+			"Related to the strange plant these\n"
+			"plants will grow violent if not pruned\n"
 			"occasionally."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -34990,7 +35263,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jade_Vine),
-		ICON(Jade_Vine, 0),
+		ICON(Jade_Vine, 1),
 		.footprint = gMonFootprint_Jade_Vine,
 		LEARNSETS(Jade_Vine),
 		.frontPicYOffset = 0,
@@ -35026,7 +35299,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The dragonkins experimentation on\n"
+			"The dragonkin's experimentation on\n"
 			"dragons caused them to make a breed\n"
 			"mixed of Dragon and Fairy."),
 		.pokemonScale = 256,
@@ -35040,11 +35313,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Klik),
-		ICON(Klik, 0),
+		ICON(Klik, 2),
 		.footprint = gMonFootprint_Klik,
 		LEARNSETS(Klik),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 0,
+		.enemyMonElevation = 1,
 	},
 
 [SPECIES_JACKALOPE] =
@@ -35092,14 +35365,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.footprint = gMonFootprint_Jackalope,
 		LEARNSETS(Jackalope),
 		.frontPicYOffset = 5,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 0,
 	},
 
 [SPECIES_IMP] =
 	{
-		.baseHP = 50,
+		.baseHP = 60,
 		.baseAttack = 50,
-		.baseDefense = 35,
+		.baseDefense = 45,
 		.baseSpeed = 50,
 		.baseSpAttack = 55,
 		.baseSpDefense = 55,
@@ -35180,7 +35453,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 499.0,
 		.description = COMPOUND_STRING(
 			"A Byzroth demon. Once slaves in their\n"
-			"home realm. Now they fight for the god\n"
+			"home realm, they now fight for the God\n"
 			"of chaos."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35198,6 +35471,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Demon_Lesser_RS3_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 35, SPECIES_DEMON_GREATER_RS3_FORM}
+		),
 	},
 
 [SPECIES_DEMON_GREATER_RS3_FORM] =
@@ -35242,11 +35518,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Greater_RS3_Form),
-		ICON(Demon_Greater_RS3_Form, 0),
+		ICON(Demon_Greater_RS3_Form, 2),
 		.footprint = gMonFootprint_Demon_Greater_RS3_Form,
 		LEARNSETS(Demon_Greater_RS3_Form),
 		.frontPicYOffset = 1,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 50, SPECIES_DEMON_KALGERION_FORM},
+			{EVO_LEVEL_NIGHT, 50, SPECIES_DEMON_RIPPER_FORM},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_DEMON_THUNDEREOUS_FORM}
+		),
 	},
 
 [SPECIES_DEMON_KALGERION_FORM] =
@@ -35340,7 +35621,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Thundereous_Form),
-		ICON(Demon_Thundereous_Form, 0),
+		ICON(Demon_Thundereous_Form, 2),
 		.footprint = gMonFootprint_Demon_Thundereous_Form,
 		LEARNSETS(Demon_Thundereous_Form),
 		.frontPicYOffset = 0,
@@ -35368,14 +35649,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_SNIPER, ABILITY_SKILL_LINK, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Demon"),
+		.speciesName = _("Ripper"),
 		.cryId = CRY_DEMON_RIPPER_FORM,
 		.natDexNum = NATIONAL_DEX_DEMON_RIPPER_FORM,
 		.categoryName = _("Ripper"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"They posess humans warping their\n"
+			"They possess humans warping their\n"
 			"appearence to slaughter everyone nearby."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35388,7 +35669,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Ripper_Form),
-		ICON(Demon_Ripper_Form, 0),
+		ICON(Demon_Ripper_Form, 2),
 		.footprint = gMonFootprint_Demon_Ripper_Form,
 		LEARNSETS(Demon_Ripper_Form),
 		.frontPicYOffset = 4,
@@ -35437,11 +35718,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Lesser_OSRS_Form),
-		ICON(Demon_Lesser_OSRS_Form, 2),
+		ICON(Demon_Lesser_OSRS_Form, 0),
 		.footprint = gMonFootprint_Demon_Lesser_OSRS_Form,
 		LEARNSETS(Demon_Lesser_OSRS_Form),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 35, SPECIES_DEMON_GREATER_OSRS_FORM}
+		),
 	},
 
 [SPECIES_DEMON_GREATER_OSRS_FORM] =
@@ -35473,9 +35757,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Theyre called greater demons due to\n"
-			"their wings and larger power, but so is\n"
-			"their cruelty."),
+			"They're called greater demons not just\n"
+			"due to their wings and larger power, but\n"
+			"also their cruelty."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -35492,6 +35776,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Demon_Greater_OSRS_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 50, SPECIES_DEMON_TORMENTED_FORM},
+			{EVO_LEVEL_NIGHT, 50, SPECIES_DEMON_TSTANON_FORM},
+			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_DELRITH}
+		),
 	},
 
 [SPECIES_DEMON_TSTANON_FORM] =
@@ -35517,7 +35806,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_AVERNIC, ABILITY_MOXIE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Demon"),
+		.speciesName = _("Tstanon"),
 		.cryId = CRY_DEMON_TSTANON_FORM,
 		.natDexNum = NATIONAL_DEX_DEMON_TSTANON_FORM,
 		.categoryName = _("Tstanon"),
@@ -35525,7 +35814,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Said to at one point have destroyed over\n"
-			"1000 planes this demon rains thunder on\n"
+			"1,000 planes this demon rains thunder on\n"
 			"its enemies."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35574,7 +35863,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Their flesh burns as theyre fused with\n"
+			"Their flesh burns as they're fused with\n"
 			"the draconic metal around them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35623,7 +35912,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A demon once sealed by the ancestor of\n"
-			"todays Sir Prysin."),
+			"today's Sir Prysin."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -35684,11 +35973,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Lesser_Tongue_Form),
-		ICON(Demon_Lesser_Tongue_Form, 2),
+		ICON(Demon_Lesser_Tongue_Form, 0),
 		.footprint = gMonFootprint_Demon_Lesser_Tongue_Form,
 		LEARNSETS(Demon_Lesser_Tongue_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 35, SPECIES_DEMON_GREATER_TONGUE_FORM}
+		),
 	},
 
 [SPECIES_DEMON_GREATER_TONGUE_FORM] =
@@ -35720,7 +36012,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A great tongue is a sign of nobility in\n"
-			"Infernus. But some claim its to excuse\n"
+			"Infernus. But some claim it's to excuse\n"
 			"their rather small horns."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35738,6 +36030,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Demon_Greater_Tongue_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 50, SPECIES_DEMON_ZAKLN_FORM},
+			{EVO_LEVEL_NIGHT, 50, SPECIES_DEMON_PUMMELER_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_DEMON_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_DEMON_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_DEMON_CHOCOLATE_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_DEMON_CHOCOLATE_FORM}
+		),
 	},
 
 [SPECIES_DEMON_ZAKLN_FORM] =
@@ -35762,16 +36062,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_AVERNIC, ABILITY_SKILL_LINK, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Demon"),
+		.speciesName = _("Zakln"),
 		.cryId = CRY_DEMON_ZAKLN_FORM,
 		.natDexNum = NATIONAL_DEX_DEMON_ZAKLN_FORM,
 		.categoryName = _("Zakl"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Known to some as Scourge of the light.\n"
+			"Known to some as Scourge of the Light.\n"
 			"Mostly because hailstorm and ice magic\n"
-			"clouds the sky near its appearence."),
+			"clouds the sky near its appearance."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -35820,8 +36120,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Carrying two large hammers this\n"
-			"Kalgerion demon is so strong it can bash\n"
-			"the fabric of planes."),
+			"Kal'Gerion demon is so strong it can\n"
+			"bash the fabric of planes."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -35859,7 +36159,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_AVERNIC, ABILITY_SWEET_VEIL, ABILITY_NONE },
+		.abilities = { ABILITY_AVERNIC, ABILITY_SUPERSWEET_SYRUP, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Demon"),
 		.cryId = CRY_DEMON_CHOCOLATE_FORM,
@@ -35882,7 +36182,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Chocolate_Form),
-		ICON(Demon_Chocolate_Form, 0),
+		ICON(Demon_Chocolate_Form, 2),
 		.footprint = gMonFootprint_Demon_Chocolate_Form,
 		LEARNSETS(Demon_Chocolate_Form),
 		.frontPicYOffset = 0,
@@ -35917,8 +36217,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Black demons posess stronger power than\n"
-			"their red counterparts but turns out to\n"
+			"Black demons possess stronger power than\n"
+			"their red counterparts but turn out to\n"
 			"be equally cruel to others."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -35931,11 +36231,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Lesser_Black_Form),
-		ICON(Demon_Lesser_Black_Form, 0),
+		ICON(Demon_Lesser_Black_Form, 1),
 		.footprint = gMonFootprint_Demon_Lesser_Black_Form,
 		LEARNSETS(Demon_Lesser_Black_Form),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 35, SPECIES_DEMON_GREATER_BLACK_FORM}
+		),
 	},
 
 [SPECIES_DEMON_GREATER_BLACK_FORM] =
@@ -35984,6 +36287,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Demon_Greater_Black_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 50, SPECIES_DEMON_BALFRUG_FORM},
+			{EVO_LEVEL_NIGHT, 50, SPECIES_DEMON_JUNGLE_FORM},
+			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_DEMON_RIFTSPLITTER_FORM},
+			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_SKOTIZO}
+		),
 	},
 
 [SPECIES_DEMON_BALFRUG_FORM] =
@@ -36007,15 +36316,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_AVERNIC, ABILITY_FLASH_FIRE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Demon"),
+		.speciesName = _("Balfrug"),
 		.cryId = CRY_DEMON_BALFRUG_FORM,
 		.natDexNum = NATIONAL_DEX_DEMON_BALFRUG_FORM,
 		.categoryName = _("Balfrug"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Most known as the despoiler of Ullek. It\n"
-			"shoots fireballs on anything they can\n"
+			"Most known as the Despoiler of Ullek. It\n"
+			"shoots fireballs at anything they can\n"
 			"see."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -36028,7 +36337,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Balfrug_Form),
-		ICON(Demon_Balfrug_Form, 0),
+		ICON(Demon_Balfrug_Form, 1),
 		.footprint = gMonFootprint_Demon_Balfrug_Form,
 		LEARNSETS(Demon_Balfrug_Form),
 		.frontPicYOffset = 0,
@@ -36063,8 +36372,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A poisonous  demon once summoned by\n"
-			"gnomes to ambush a adventurer."),
+			"A poisonous demon once summoned by\n"
+			"gnomes to ambush an adventurer."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -36113,7 +36422,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"With immense control of the planes\n"
-			"around it this Kalgerion demon breaks\n"
+			"around it this Kal'Gerion demon breaks\n"
 			"the fabric of space at will."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -36126,7 +36435,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Riftsplitter_Form),
-		ICON(Demon_Riftsplitter_Form, 0),
+		ICON(Demon_Riftsplitter_Form, 1),
 		.footprint = gMonFootprint_Demon_Riftsplitter_Form,
 		LEARNSETS(Demon_Riftsplitter_Form),
 		.frontPicYOffset = 0,
@@ -36174,11 +36483,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Snow_Imp),
-		ICON(Snow_Imp, 2),
+		ICON(Snow_Imp, 0),
 		.footprint = gMonFootprint_Snow_Imp,
 		LEARNSETS(Snow_Imp),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 35, SPECIES_DEMON_ICE_OSRS_FORM}
+		),
 	},
 
 [SPECIES_DEMON_ICE_OSRS_FORM] =
@@ -36200,7 +36512,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_SNOW_WARNING, ABILITY_AVERNIC, ABILITY_NONE },
+		.abilities = { ABILITY_AVERNIC, ABILITY_SNOW_WARNING, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Ice Demon"),
 		.cryId = CRY_DEMON_ICE_OSRS_FORM,
@@ -36228,6 +36540,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Demon_Ice_OSRS_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 50, SPECIES_DEMON_ICE_RS3_FORM},
+			{EVO_LEVEL_NIGHT, 50, SPECIES_DEMON_BLOODCHILLER_FORM},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_DEMON_REANIMATED_FORM}
+		),
 	},
 
 [SPECIES_DEMON_ICE_RS3_FORM] =
@@ -36249,7 +36566,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_SNOW_WARNING, ABILITY_AVERNIC, ABILITY_NONE },
+		.abilities = { ABILITY_AVERNIC, ABILITY_SNOW_WARNING, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Ice Demon"),
 		.cryId = CRY_DEMON_ICE_RS3_FORM,
@@ -36258,8 +36575,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"They can only live where its cold, and\n"
-			"has since only been found in Ghorrock."),
+			"They can only live where it's cold, and\n"
+			"have since only been found in Ghorrock."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -36271,7 +36588,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Demon_Ice_RS3_Form),
-		ICON(Demon_Ice_RS3_Form, 2),
+		ICON(Demon_Ice_RS3_Form, 0),
 		.footprint = gMonFootprint_Demon_Ice_RS3_Form,
 		LEARNSETS(Demon_Ice_RS3_Form),
 		.frontPicYOffset = 0,
@@ -36298,7 +36615,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_ICE_BODY, ABILITY_AVERNIC, ABILITY_NONE },
+		.abilities = { ABILITY_AVERNIC, ABILITY_ICE_BODY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Demon"),
 		.cryId = CRY_DEMON_BLOODCHILLER_FORM,
@@ -36307,8 +36624,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Cotrolling immence power over coldness\n"
-			"it gets its name from chilling a mans\n"
+			"Controlling immense power over coldness\n"
+			"it gets its name from chilling a man's\n"
 			"blood to solid ice."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -36347,7 +36664,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_CURSED_BODY, ABILITY_AVERNIC, ABILITY_NONE },
+		.abilities = { ABILITY_AVERNIC, ABILITY_CURSED_BODY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Demon"),
 		.cryId = CRY_DEMON_REANIMATED_FORM,
@@ -36406,8 +36723,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"General of the Zamorakian army it\n"
-			"posesses immense strength to the point\n"
-			"hiding its name isnt important."),
+			"possesses immense strength to the point\n"
+			"hiding its name isn't important."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -36454,8 +36771,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 7.5,
 		.weight = 68.0,
 		.description = COMPOUND_STRING(
-			"A demon posessing the power of fire.\n"
-			"They fought for Zamorak in the god wars."),
+			"A demon possessing the power of fire.\n"
+			"They fought for Zamorak in the God Wars."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -36567,7 +36884,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Waterfiend),
-		ICON(Waterfiend, 2),
+		ICON(Waterfiend, 0),
 		.footprint = gMonFootprint_Waterfiend,
 		LEARNSETS(Waterfiend),
 		.frontPicYOffset = 0,
@@ -36618,7 +36935,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Waterlord),
-		ICON(Waterlord, 2),
+		ICON(Waterlord, 0),
 		.footprint = gMonFootprint_Waterlord,
 		LEARNSETS(Waterlord),
 		.frontPicYOffset = 0,
@@ -36667,7 +36984,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Icefiend),
-		ICON(Icefiend, 2),
+		ICON(Icefiend, 0),
 		.footprint = gMonFootprint_Icefiend,
 		LEARNSETS(Icefiend),
 		.frontPicYOffset = 0,
@@ -36709,7 +37026,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 136.1,
 		.description = COMPOUND_STRING(
 			"Leader of icefiends. No heat is ever\n"
-			"seen in the vicinity of a Icelord."),
+			"seen in the vicinity of an Icelord."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -36721,7 +37038,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Icelord),
-		ICON(Icelord, 2),
+		ICON(Icelord, 0),
 		.footprint = gMonFootprint_Icelord,
 		LEARNSETS(Icelord),
 		.frontPicYOffset = 0,
@@ -36734,12 +37051,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_IMPLING_BABY_FORM] =
 	{
-		.baseHP = 30,
+		.baseHP = 40,
 		.baseAttack = 30,
-		.baseDefense = 20,
+		.baseDefense = 30,
 		.baseSpeed = 70,
-		.baseSpAttack = 55,
-		.baseSpDefense = 60,
+		.baseSpAttack = 60,
+		.baseSpDefense = 70,
 		.types = { TYPE_FLYING, TYPE_FLYING },
 		.catchRate = 255,
 		.expYield = 53,
@@ -36783,7 +37100,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_RANDOM, 17, SPECIES_IMPLING_GOURMET_FORM},
 			{EVO_LEVEL_RANDOM, 17, SPECIES_IMPLING_YOUNG_FORM},
 			{EVO_LEVEL_RANDOM, 17, SPECIES_IMPLING_EARTH_FORM},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_YAK_SNACK_FORM, SPECIES_IMPLING_GOURMET_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_PIRATE_FORM, SPECIES_IMPLING_PIRATE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NINJA_FORM, SPECIES_IMPLING_NINJA_FORM}
 		),
 	},
 
@@ -36815,7 +37133,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"If they see anythign shiny they will\n"
+			"If they see anything shiny they will\n"
 			"rush for it to pick it up."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -36837,7 +37155,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_NATURE_LOW_KEY, 35, SPECIES_IMPLING_KINGLY_FORM},
 			{EVO_LEVEL_NATURE_AMPED, 35, SPECIES_IMPLING_SNOW_FORM},
 			{EVO_LEVEL_DRAGON_TYPE_MON_IN_PARTY, 35, SPECIES_IMPLING_DRAGON_FORM},
-			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_IMPLING_LUCKY_FORM}
+			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_IMPLING_LUCKY_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_PIRATE_FORM, SPECIES_IMPLING_PIRATE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NINJA_FORM, SPECIES_IMPLING_NINJA_FORM}
 		),
 	},
 
@@ -36884,7 +37204,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Dragon_Form),
-		ICON(Impling_Dragon_Form, 2),
+		ICON(Impling_Dragon_Form, 0),
 		.footprint = gMonFootprint_Impling_Dragon_Form,
 		LEARNSETS(Impling_Dragon_Form),
 		.frontPicYOffset = 0,
@@ -36932,7 +37252,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Kingly_Form),
-		ICON(Impling_Kingly_Form, 2),
+		ICON(Impling_Kingly_Form, 0),
 		.footprint = gMonFootprint_Impling_Kingly_Form,
 		LEARNSETS(Impling_Kingly_Form),
 		.frontPicYOffset = 0,
@@ -36980,7 +37300,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Lucky_Form),
-		ICON(Impling_Lucky_Form, 0),
+		ICON(Impling_Lucky_Form, 2),
 		.footprint = gMonFootprint_Impling_Lucky_Form,
 		LEARNSETS(Impling_Lucky_Form),
 		.frontPicYOffset = 0,
@@ -37008,7 +37328,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_PRESSURE, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Spawn"),
+		.speciesName = _("Spawn"),
 		.cryId = CRY_PENANCE_SPAWN,
 		.natDexNum = NATIONAL_DEX_PENANCE_SPAWN,
 		.categoryName = _("Spawn"),
@@ -37029,7 +37349,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Spawn),
-		ICON(Penance_Spawn, 0),
+		ICON(Penance_Spawn, 2),
 		.footprint = gMonFootprint_Penance_Spawn,
 		LEARNSETS(Penance_Spawn),
 		.frontPicYOffset = 9,
@@ -37064,14 +37384,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_HEALER, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Healer"),
+		.speciesName = _("Healer"),
 		.cryId = CRY_PENANCE_HEALER,
 		.natDexNum = NATIONAL_DEX_PENANCE_HEALER,
 		.categoryName = _("Healer"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"With its poisonous  breath its capable\n"
+			"With its poisonous breath it's capable\n"
 			"of healing fellow penances in battles."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -37084,7 +37404,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Healer),
-		ICON(Penance_Healer, 0),
+		ICON(Penance_Healer, 2),
 		.footprint = gMonFootprint_Penance_Healer,
 		LEARNSETS(Penance_Healer),
 		.frontPicYOffset = 0,
@@ -37115,7 +37435,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_SKILL_LINK, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Ranger"),
+		.speciesName = _("Ranger"),
 		.cryId = CRY_PENANCE_RANGER,
 		.natDexNum = NATIONAL_DEX_PENANCE_RANGER,
 		.categoryName = _("Ranger"),
@@ -37136,7 +37456,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Ranger),
-		ICON(Penance_Ranger, 0),
+		ICON(Penance_Ranger, 2),
 		.footprint = gMonFootprint_Penance_Ranger,
 		LEARNSETS(Penance_Ranger),
 		.frontPicYOffset = 0,
@@ -37167,7 +37487,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_RUN_AWAY, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Runner"),
+		.speciesName = _("Runner"),
 		.cryId = CRY_PENANCE_RUNNER,
 		.natDexNum = NATIONAL_DEX_PENANCE_RUNNER,
 		.categoryName = _("Runner"),
@@ -37188,7 +37508,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Runner),
-		ICON(Penance_Runner, 0),
+		ICON(Penance_Runner, 2),
 		.footprint = gMonFootprint_Penance_Runner,
 		LEARNSETS(Penance_Runner),
 		.frontPicYOffset = 0,
@@ -37217,7 +37537,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_PRESSURE, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Fighter"),
+		.speciesName = _("Fighter"),
 		.cryId = CRY_PENANCE_FIGHTER,
 		.natDexNum = NATIONAL_DEX_PENANCE_FIGHTER,
 		.categoryName = _("Fighter"),
@@ -37225,8 +37545,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"With its impeccable defence it brushes\n"
-			"of every form of attack but one specific\n"
-			"one."),
+			"off every form of attack but one\n"
+			"specific type."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -37238,7 +37558,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Fighter),
-		ICON(Penance_Fighter, 0),
+		ICON(Penance_Fighter, 2),
 		.footprint = gMonFootprint_Penance_Fighter,
 		LEARNSETS(Penance_Fighter),
 		.frontPicYOffset = 0,
@@ -37258,7 +37578,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.expYield = 160,
 		.evYield_SpAttack = 2,
 		.evYield_SpDefense = 1,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(100),
 		.eggCycles = 20,
 		.friendship = 0,
 		.growthRate = GROWTH_SLOW,
@@ -37267,7 +37587,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_POISON_TOUCH, ABILITY_MISTY_SURGE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. Queen"),
+		.speciesName = _("Queen"),
 		.cryId = CRY_PENANCE_QUEEN,
 		.natDexNum = NATIONAL_DEX_PENANCE_QUEEN,
 		.categoryName = _("Penance"),
@@ -37288,7 +37608,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_Queen),
-		ICON(Penance_Queen, 0),
+		ICON(Penance_Queen, 2),
 		.footprint = gMonFootprint_Penance_Queen,
 		LEARNSETS(Penance_Queen),
 		.frontPicYOffset = 0,
@@ -37308,7 +37628,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.expYield = 160,
 		.evYield_Attack = 2,
 		.evYield_Defense = 1,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 20,
 		.friendship = 0,
 		.growthRate = GROWTH_SLOW,
@@ -37317,7 +37637,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_POISON_TOUCH, ABILITY_PSYCHIC_SURGE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("P. King"),
+		.speciesName = _("King"),
 		.cryId = CRY_PENANCE_KING,
 		.natDexNum = NATIONAL_DEX_PENANCE_KING,
 		.categoryName = _("Penance"),
@@ -37338,7 +37658,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Penance_King),
-		ICON(Penance_King, 0),
+		ICON(Penance_King, 2),
 		.footprint = gMonFootprint_Penance_King,
 		LEARNSETS(Penance_King),
 		.frontPicYOffset = 5,
@@ -37347,12 +37667,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_VOID_LEECH] =
 	{
-		.baseHP = 50,
-		.baseAttack = 20,
-		.baseDefense = 20,
+		.baseHP = 60,
+		.baseAttack = 55,
+		.baseDefense = 55,
 		.baseSpeed = 20,
-		.baseSpAttack = 20,
-		.baseSpDefense = 20,
+		.baseSpAttack = 55,
+		.baseSpDefense = 55,
 		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 255,
 		.expYield = 41,
@@ -37364,7 +37684,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_UNNERVE, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_UNNERVE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Void Leech"),
 		.cryId = CRY_VOID_LEECH,
@@ -37387,7 +37707,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Leech),
-		ICON(Void_Leech, 0),
+		ICON(Void_Leech, 1),
 		.footprint = gMonFootprint_Void_Leech,
 		LEARNSETS(Void_Leech),
 		.frontPicYOffset = 7,
@@ -37423,9 +37743,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_UNNERVE, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_UNNERVE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Torcher"),
+		.speciesName = _("Torcher"),
 		.cryId = CRY_VOID_TORCHER,
 		.natDexNum = NATIONAL_DEX_VOID_TORCHER,
 		.categoryName = _("Torcher"),
@@ -37433,7 +37753,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Thousands of them might fly upon the sky\n"
-			"to rain fire upon the Void knights\n"
+			"to rain fire upon the Void Knights\n"
 			"closing their portals."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -37472,9 +37792,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_UNNERVE, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_UNNERVE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Shifter"),
+		.speciesName = _("Shifter"),
 		.cryId = CRY_VOID_SHIFTER,
 		.natDexNum = NATIONAL_DEX_VOID_SHIFTER,
 		.categoryName = _("Shifter"),
@@ -37521,16 +37841,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_FLUFFY, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_FLUFFY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Brawler"),
+		.speciesName = _("Brawler"),
 		.cryId = CRY_VOID_BRAWLER,
 		.natDexNum = NATIONAL_DEX_VOID_BRAWLER,
 		.categoryName = _("Brawler"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Due to the brawlers immense body\n"
+			"Due to the brawlers' immense body\n"
 			"adventurers find it hard to slip past\n"
 			"them until they are dead."),
 		.pokemonScale = 256,
@@ -37544,7 +37864,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Brawler),
-		ICON(Void_Brawler, 0),
+		ICON(Void_Brawler, 1),
 		.footprint = gMonFootprint_Void_Brawler,
 		LEARNSETS(Void_Brawler),
 		.frontPicYOffset = 0,
@@ -37570,9 +37890,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_SPEED_BOOST, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_SPEED_BOOST, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Defiler"),
+		.speciesName = _("Defiler"),
 		.cryId = CRY_VOID_DEFILER,
 		.natDexNum = NATIONAL_DEX_VOID_DEFILER,
 		.categoryName = _("Defiler"),
@@ -37580,7 +37900,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The spines on their bodies can be shot\n"
-			"out as if arrows on a bow, mercilessly\n"
+			"out as if arrows from a bow, mercilessly\n"
 			"slaying their enemies."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -37593,7 +37913,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Defiler),
-		ICON(Void_Defiler, 0),
+		ICON(Void_Defiler, 2),
 		.footprint = gMonFootprint_Void_Defiler,
 		LEARNSETS(Void_Defiler),
 		.frontPicYOffset = 2,
@@ -37619,7 +37939,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_AFTERMATH, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_TOXIC_DEBRIS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Splatter"),
 		.cryId = CRY_VOID_SPLATTER,
@@ -37629,8 +37949,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Inside their bodies lies highly unstable\n"
-			"chemical materials that explodes upon\n"
-			"its death."),
+			"chemical materials that explode upon its\n"
+			"death."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -37669,9 +37989,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_ARENA_TRAP, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_ARENA_TRAP, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Ravager"),
+		.speciesName = _("Ravager"),
 		.cryId = CRY_VOID_RAVAGER,
 		.natDexNum = NATIONAL_DEX_VOID_RAVAGER,
 		.categoryName = _("Ravager"),
@@ -37679,7 +37999,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Their long claws are specialized solely\n"
-			"to kill obstacles and reimustments as\n"
+			"to destroy obstacles and barricades as\n"
 			"opposed to living beings."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -37692,7 +38012,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Ravager),
-		ICON(Void_Ravager, 0),
+		ICON(Void_Ravager, 2),
 		.footprint = gMonFootprint_Void_Ravager,
 		LEARNSETS(Void_Ravager),
 		.frontPicYOffset = 6,
@@ -37718,9 +38038,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LIQUID_OOZE, ABILITY_STATIC, ABILITY_NONE },
+		.abilities = { ABILITY_PASTEL_VEIL, ABILITY_STATIC, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("V. Spinner"),
+		.speciesName = _("Spinner"),
 		.cryId = CRY_VOID_SPINNER,
 		.natDexNum = NATIONAL_DEX_VOID_SPINNER,
 		.categoryName = _("Spinner"),
@@ -37741,7 +38061,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Spinner),
-		ICON(Void_Spinner, 0),
+		ICON(Void_Spinner, 2),
 		.footprint = gMonFootprint_Void_Spinner,
 		LEARNSETS(Void_Spinner),
 		.frontPicYOffset = 0,
@@ -37777,7 +38097,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The closest envoys of the Void Queen\n"
-			"that serves the queen until death."),
+			"that serve the Queen until death."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -37789,7 +38109,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Void_Drone),
-		ICON(Void_Drone, 0),
+		ICON(Void_Drone, 2),
 		.footprint = gMonFootprint_Void_Drone,
 		LEARNSETS(Void_Drone),
 		.frontPicYOffset = 0,
@@ -37851,7 +38171,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ANCHOVY] =
 	{
-		.baseHP = 30,
+		.baseHP = 60,
 		.baseAttack = 50,
 		.baseDefense = 30,
 		.baseSpeed = 60,
@@ -37868,7 +38188,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
-		.abilities = { ABILITY_PRESSURE, ABILITY_PRESSURE, ABILITY_NONE },
+		.abilities = { ABILITY_WATER_VEIL, ABILITY_RIPEN, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Anchovy"),
 		.cryId = CRY_ANCHOVY,
@@ -37921,9 +38241,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_WATER_2, EGG_GROUP_WATER_2 },
-		.abilities = { ABILITY_POWER_OF_ALCHEMY, ABILITY_POWER_OF_ALCHEMY, ABILITY_NONE },
+		.abilities = { ABILITY_WELL_BAKED_BODY, ABILITY_GLUTTONY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Anchovy"),
+		.speciesName = _("Pizza"),
 		.cryId = CRY_ANCHOVY_PIZZA_FORM,
 		.natDexNum = NATIONAL_DEX_ANCHOVY_PIZZA_FORM,
 		.categoryName = _("Pizza"),
@@ -37953,12 +38273,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RED_EYE] =
 	{
-		.baseHP = 50,
-		.baseAttack = 30,
-		.baseDefense = 30,
+		.baseHP = 75,
+		.baseAttack = 45,
+		.baseDefense = 50,
 		.baseSpeed = 30,
-		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseSpAttack = 40,
+		.baseSpDefense = 60,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 250,
 		.expYield = 51,
@@ -37993,7 +38313,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Red_Eye),
-		ICON(Red_Eye, 0),
+		ICON(Red_Eye, 1),
 		.footprint = gMonFootprint_Red_Eye,
 		LEARNSETS(Red_Eye),
 		.frontPicYOffset = 5,
@@ -38006,11 +38326,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_FLATFISH] =
 	{
 		.baseHP = 80,
-		.baseAttack = 55,
+		.baseAttack = 65,
 		.baseDefense = 75,
 		.baseSpeed = 35,
-		.baseSpAttack = 30,
-		.baseSpDefense = 35,
+		.baseSpAttack = 50,
+		.baseSpDefense = 70,
 		.types = { TYPE_WATER, TYPE_WATER },
 		.catchRate = 45,
 		.expYield = 89,
@@ -38031,8 +38351,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The shape of it body is flat in order to\n"
-			"minimize air and water pressure when\n"
+			"The shape of its body is flat in order\n"
+			"to minimize air and water pressure when\n"
 			"swimming."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -38045,7 +38365,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Flatfish),
-		ICON(Flatfish, 0),
+		ICON(Flatfish, 1),
 		.footprint = gMonFootprint_Flatfish,
 		LEARNSETS(Flatfish),
 		.frontPicYOffset = 0,
@@ -38060,8 +38380,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseHP = 100,
 		.baseAttack = 85,
 		.baseDefense = 200,
-		.baseSpeed = 40,
-		.baseSpAttack = 30,
+		.baseSpeed = 50,
+		.baseSpAttack = 50,
 		.baseSpDefense = 40,
 		.types = { TYPE_WATER, TYPE_ROCK },
 		.catchRate = 45,
@@ -38083,8 +38403,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Named by Thok Thokson the Bouldabass\n"
-			"once chipped tooths upon being eaten."),
+			"Named by Thok Thokson after the\n"
+			"Bouldabass' stiff scales once chipped\n"
+			"Thok's tooth when he tried eating it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -38096,7 +38417,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Bouldabass),
-		ICON(Bouldabass, 0),
+		ICON(Bouldabass, 1),
 		.footprint = gMonFootprint_Bouldabass,
 		LEARNSETS(Bouldabass),
 		.frontPicYOffset = 0,
@@ -38105,10 +38426,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MUDSKIPPER] =
 	{
-		.baseHP = 70,
+		.baseHP = 80,
 		.baseAttack = 55,
 		.baseDefense = 85,
-		.baseSpeed = 140,
+		.baseSpeed = 85,
 		.baseSpAttack = 40,
 		.baseSpDefense = 75,
 		.types = { TYPE_WATER, TYPE_GROUND },
@@ -38149,6 +38470,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Mudskipper),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 4,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 43, SPECIES_BUNYIP}
+		),
 	},
 
 [SPECIES_BASILISK_BABY_FORM] =
@@ -38299,7 +38623,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Basilisk_OSRS_Form),
-		ICON(Basilisk_OSRS_Form, 0),
+		ICON(Basilisk_OSRS_Form, 1),
 		.footprint = gMonFootprint_Basilisk_OSRS_Form,
 		LEARNSETS(Basilisk_OSRS_Form),
 		.frontPicYOffset = 3,
@@ -38338,7 +38662,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Serving the Jormungard, these Basilisks\n"
+			"Serving the Jormungand, these Basilisks\n"
 			"are knights who will fight to the death\n"
 			"for their master."),
 		.pokemonScale = 256,
@@ -38352,7 +38676,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Basilisk_Knight_Form),
-		ICON(Basilisk_Knight_Form, 0),
+		ICON(Basilisk_Knight_Form, 2),
 		.footprint = gMonFootprint_Basilisk_Knight_Form,
 		LEARNSETS(Basilisk_Knight_Form),
 		.frontPicYOffset = 1,
@@ -38378,7 +38702,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_TINTED_LENS, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_TINTED_LENS, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_UNGAEL_FORM,
@@ -38400,7 +38724,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Ungael_Form),
-		ICON(Spider_Ungael_Form, 0),
+		ICON(Spider_Ungael_Form, 2),
 		.footprint = gMonFootprint_Spider_Ungael_Form,
 		LEARNSETS(Spider_Ungael_Form),
 		.frontPicYOffset = 14,
@@ -38432,7 +38756,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_TINTED_LENS, ABILITY_GOOSEBUMPS, ABILITY_POISON_POINT },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_TINTED_LENS, ABILITY_POISON_POINT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_CRYPT_FORM,
@@ -38443,7 +38767,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Fresh meat is a rare sight in the crypt\n"
 			"it lives in, until people started\n"
-			"killing shades in Mo'orton atleast."),
+			"killing shades in Mort'ton at least."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -38455,7 +38779,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_Crypt_Form),
-		ICON(Spider_Crypt_Form, 0),
+		ICON(Spider_Crypt_Form, 1),
 		.footprint = gMonFootprint_Spider_Crypt_Form,
 		LEARNSETS(Spider_Crypt_Form),
 		.frontPicYOffset = 4,
@@ -38481,7 +38805,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_TINTED_LENS, ABILITY_GOOSEBUMPS, ABILITY_NONE },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_TINTED_LENS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_TEMPLE_FORM,
@@ -38530,7 +38854,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_POISON_TOUCH, ABILITY_GOOSEBUMPS, ABILITY_NONE },
+		.abilities = { ABILITY_GOOSEBUMPS, ABILITY_POISON_TOUCH, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Spider"),
 		.cryId = CRY_SPIDER_APEATOLL_FORM,
@@ -38539,9 +38863,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Moving swiftly and determined these\n"
-			"spiders can almost not be sensed until\n"
-			"they try to kill you."),
+			"Moving swiftly and with determination\n"
+			"these spiders can almost not be sensed\n"
+			"until they try to kill you."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -38553,7 +38877,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spider_ApeAtoll_Form),
-		ICON(Spider_ApeAtoll_Form, 0),
+		ICON(Spider_ApeAtoll_Form, 1),
 		.footprint = gMonFootprint_Spider_ApeAtoll_Form,
 		LEARNSETS(Spider_ApeAtoll_Form),
 		.frontPicYOffset = 2,
@@ -38563,10 +38887,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_CATABLEPON] =
 	{
 		.baseHP = 80,
-		.baseAttack = 75,
+		.baseAttack = 100,
 		.baseDefense = 80,
 		.baseSpeed = 80,
-		.baseSpAttack = 100,
+		.baseSpAttack = 75,
 		.baseSpDefense = 75,
 		.types = { TYPE_GROUND, TYPE_FAIRY },
 		.catchRate = 120,
@@ -38602,7 +38926,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Catablepon),
-		ICON(Catablepon, 0),
+		ICON(Catablepon, 1),
 		.footprint = gMonFootprint_Catablepon,
 		LEARNSETS(Catablepon),
 		.frontPicYOffset = 0,
@@ -38658,11 +38982,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_ATK_EQ_SPATK, 23, SPECIES_SUBMASTYX},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_TYRANNOMASTYX},
 			{EVO_LEVEL_ATK_LT_SPATK, 23, SPECIES_PARAMASTYX},
 			{EVO_LEVEL_ATK_GT_SPATK, 23, SPECIES_ARCHAEMASTYX},
 			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_DROMOMASTYX},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_TYRANNOMASTYX}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_TYRANNOMASTYX},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_TYRANNOMASTYX},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_TYRANNOMASTYX},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_TYRANNOMASTYX}
 		),
 	},
 
@@ -38737,7 +39063,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_RECKLESS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Pig"),
+		.speciesName = _("War Pig"),
 		.cryId = CRY_PIG_WAR_FORM,
 		.natDexNum = NATIONAL_DEX_PIG_WAR_FORM,
 		.categoryName = _("War"),
@@ -38786,7 +39112,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_AURA_BREAK, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Pig"),
+		.speciesName = _("Prayer Pig"),
 		.cryId = CRY_PIG_PRAYER_FORM,
 		.natDexNum = NATIONAL_DEX_PIG_PRAYER_FORM,
 		.categoryName = _("Prayer"),
@@ -38822,7 +39148,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpeed = 35,
 		.baseSpAttack = 75,
 		.baseSpDefense = 100,
-		.types = { TYPE_GROUND, TYPE_POISON },
+		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 120,
 		.expYield = 150,
 		.evYield_HP = 3,
@@ -38835,14 +39161,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_PICKUP, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Pig"),
+		.speciesName = _("Pack Pig"),
 		.cryId = CRY_PIG_PACK_FORM,
 		.natDexNum = NATIONAL_DEX_PIG_PACK_FORM,
 		.categoryName = _("Pack Pig"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Master farmers argue wether a pig or a\n"
+			"Master farmers argue whether a pig or a\n"
 			"yak would be the ideal beast of burden."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -38855,7 +39181,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pig_Pack_Form),
-		ICON(Pig_Pack_Form, 0),
+		ICON(Pig_Pack_Form, 1),
 		.footprint = gMonFootprint_Pig_Pack_Form,
 		LEARNSETS(Pig_Pack_Form),
 		.frontPicYOffset = 3,
@@ -38891,7 +39217,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The herbs growing on its body seems to\n"
-			"wary between specimens making each catch\n"
+			"vary between specimens making each catch\n"
 			"unique."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -38904,7 +39230,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Herbiboar),
-		ICON(Herbiboar, 0),
+		ICON(Herbiboar, 1),
 		.footprint = gMonFootprint_Herbiboar,
 		LEARNSETS(Herbiboar),
 		.frontPicYOffset = 4,
@@ -38940,7 +39266,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Sacred clay inbues its body with\n"
+			"Sacred clay imbues its body with\n"
 			"capabilities beyond those of a regular\n"
 			"goat."),
 		.pokemonScale = 256,
@@ -38954,7 +39280,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Goat_Clay_Form),
-		ICON(Goat_Clay_Form, 0),
+		ICON(Goat_Clay_Form, 1),
 		.footprint = gMonFootprint_Goat_Clay_Form,
 		LEARNSETS(Goat_Clay_Form),
 		.frontPicYOffset = 6,
@@ -39006,7 +39332,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Goat_SacredClay_Form),
-		ICON(Goat_SacredClay_Form, 0),
+		ICON(Goat_SacredClay_Form, 1),
 		.footprint = gMonFootprint_Goat_SacredClay_Form,
 		LEARNSETS(Goat_SacredClay_Form),
 		.frontPicYOffset = 3,
@@ -39046,7 +39372,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Made of the strongest sacred clay, the\n"
-			"pristine qualities of its body has no\n"
+			"pristine qualities of its body have no\n"
 			"equal."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39108,7 +39434,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Shadeel),
-		ICON(Shadeel, 0),
+		ICON(Shadeel, 1),
 		.footprint = gMonFootprint_Shadeel,
 		LEARNSETS(Shadeel),
 		.frontPicYOffset = 0,
@@ -39157,7 +39483,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Golem_Titan),
-		ICON(Golem_Titan, 0),
+		ICON(Golem_Titan, 2),
 		.footprint = gMonFootprint_Golem_Titan,
 		LEARNSETS(Golem_Titan),
 		.frontPicYOffset = 2,
@@ -39176,7 +39502,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_MOSS_TITAN},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PHOENIX_REBORN_FORM, SPECIES_REBORN_WARRIOR},
 			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PHOENIX_REBIRTH_FORM, SPECIES_REBORN_RANGER},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PHOENLING_REBIRTH_FORM, SPECIES_REBORN_MAGE}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_PHOENLING_REBIRTH_FORM, SPECIES_REBORN_MAGE},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_IMPLING_LUCKY_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_DEMON_KALGERION_FORM, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_STEEL_TITAN, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ESSWRAITH, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MEGAMASTYX, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SOULGAZER, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TZREK_JAD, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_TORTLE, SPECIES_MAX_GOLEM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SAILFISH, SPECIES_MAX_GOLEM}
 		),
 	},
 
@@ -39210,7 +39545,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Its true face is hidden in the mass of\n"
-			"moss and leaves on its upper body. Its\n"
+			"moss and leaves on its upper body. It's\n"
 			"shy in nature."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39223,11 +39558,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Moss_Titan),
-		ICON(Moss_Titan, 0),
+		ICON(Moss_Titan, 1),
 		.footprint = gMonFootprint_Moss_Titan,
 		LEARNSETS(Moss_Titan),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_FIRE_TITAN}
+		),
 	},
 
 [SPECIES_IRON_TITAN] =
@@ -39259,7 +39597,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The weight of its body exceeds 5 tons in\n"
+			"The weight of its body exceeds 5 tons of\n"
 			"pure iron. It attacks slowly but packs a\n"
 			"punch."),
 		.pokemonScale = 256,
@@ -39300,7 +39638,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_PRISM_ARMOR, ABILITY_FULL_METAL_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_PRISM_ARMOR, ABILITY_STEELY_SPIRIT, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("SteelTitan"),
 		.cryId = CRY_STEEL_TITAN,
@@ -39323,7 +39661,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Steel_Titan),
-		ICON(Steel_Titan, 0),
+		ICON(Steel_Titan, 2),
 		.footprint = gMonFootprint_Steel_Titan,
 		LEARNSETS(Steel_Titan),
 		.frontPicYOffset = 0,
@@ -39360,7 +39698,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Made entirely out of lava means wherever\n"
-			"it goes things melts. Due to this they\n"
+			"it goes things melt. Due to this they\n"
 			"prefer volcanoes."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39378,6 +39716,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Lava_Titan),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_OBSIDIAN_GOLEM}
+		),
 	},
 
 [SPECIES_OBSIDIAN_GOLEM] =
@@ -39423,7 +39764,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Obsidian_Golem),
-		ICON(Obsidian_Golem, 0),
+		ICON(Obsidian_Golem, 2),
 		.footprint = gMonFootprint_Obsidian_Golem,
 		LEARNSETS(Obsidian_Golem),
 		.frontPicYOffset = 0,
@@ -39461,7 +39802,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"They live their entire lives encased in\n"
 			"swampy tar. Duelling banjos sometimes\n"
-			"brings them out to fight."),
+			"bring them out to fight."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -39473,7 +39814,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Swamp_Titan),
-		ICON(Swamp_Titan, 0),
+		ICON(Swamp_Titan, 1),
 		.footprint = gMonFootprint_Swamp_Titan,
 		LEARNSETS(Swamp_Titan),
 		.frontPicYOffset = 0,
@@ -39511,7 +39852,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Despite looking cool and stoic they have\n"
 			"a violent nature making them highly\n"
-			"dangereous to hikers."),
+			"dangerous to hikers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -39528,6 +39869,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Ice_Titan),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_GEYSIR_TITAN}
+		),
 	},
 
 [SPECIES_FIRE_TITAN] =
@@ -39600,7 +39944,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_PRISM_ARMOR, ABILITY_WATER_ABSORB, ABILITY_NONE },
+		.abilities = { ABILITY_PRISM_ARMOR, ABILITY_STEAM_ENGINE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("GysirTitan"),
 		.cryId = CRY_GEYSIR_TITAN,
@@ -39658,8 +40002,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Concentrated of pure dark energy\n"
-			"exprelled from the Corporeal beast. It\n"
+			"A concentrated mass of pure dark energy\n"
+			"expelled from the Corporeal Beast. It\n"
 			"attacks anything."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39672,13 +40016,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dark_Core),
-		ICON(Dark_Core, 0),
+		ICON(Dark_Core, 2),
 		.footprint = gMonFootprint_Dark_Core,
 		LEARNSETS(Dark_Core),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 70, SPECIES_CORPOREAL_BEAST}
+			{EVO_LEVEL, 70, SPECIES_CORPOREAL_BEAST},
+			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_CORPOREAL_BEAST_ZANIK_FORM}
 		),
 	},
 
@@ -39711,8 +40056,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"It has no place in the real world, but\n"
-			"is rather a byproduct of the spirit\n"
-			"beast being killed in a world that\n"
+			"is rather a byproduct of the Spirit\n"
+			"Beast being killed in a world that\n"
 			"mirrors ours."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39725,7 +40070,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Corporeal_Beast),
-		ICON(Corporeal_Beast, 0),
+		ICON(Corporeal_Beast, 2),
 		.footprint = gMonFootprint_Corporeal_Beast,
 		LEARNSETS(Corporeal_Beast),
 		.frontPicYOffset = 0,
@@ -39760,7 +40105,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"Dont question it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -39772,7 +40117,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Corporeal_Beast_Zanik_Form),
-		ICON(Corporeal_Beast_Zanik_Form, 0),
+		ICON(Corporeal_Beast_Zanik_Form, 1),
 		.footprint = gMonFootprint_Corporeal_Beast_Zanik_Form,
 		LEARNSETS(Corporeal_Beast_Zanik_Form),
 		.frontPicYOffset = 0,
@@ -39798,7 +40143,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_GRASS },
-		.abilities = { ABILITY_STENCH, ABILITY_STICKY_HOLD, ABILITY_NONE },
+		.abilities = { ABILITY_STENCH, ABILITY_SEED_SOWER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Compost"),
 		.cryId = CRY_COMPOST_MOUND,
@@ -39807,7 +40152,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Some proclaim that if you dont clean up\n"
+			"Some proclaim that if you don't clean up\n"
 			"your compost it will turn into a compost\n"
 			"mound."),
 		.pokemonScale = 256,
@@ -39821,11 +40166,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Compost_Mound),
-		ICON(Compost_Mound, 0),
+		ICON(Compost_Mound, 2),
 		.footprint = gMonFootprint_Compost_Mound,
 		LEARNSETS(Compost_Mound),
 		.frontPicYOffset = 3,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_EVILTURNIP}
+		),
 	},
 
 [SPECIES_ENT] =
@@ -39858,7 +40206,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Since they are trees they sense concepts\n"
-			"of time differently from humans. Its\n"
+			"of time differently from humans. It's\n"
 			"very slow winded."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -39871,16 +40219,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Ent),
-		ICON(Ent, 0),
+		ICON(Ent, 1),
 		.footprint = gMonFootprint_Ent,
 		LEARNSETS(Ent),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NORMAL_FORM, SPECIES_AGRITHNANA},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_AGRITHNANA},
-			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_YAK_LUMBER_FORM, SPECIES_DEAD_TREE},
-			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_DERWEN}
+			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_DERWEN},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_DEAD_TREE}
 		),
 	},
 
@@ -39927,7 +40273,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Derwen),
-		ICON(Derwen, 0),
+		ICON(Derwen, 1),
 		.footprint = gMonFootprint_Derwen,
 		LEARNSETS(Derwen),
 		.frontPicYOffset = 0,
@@ -39975,13 +40321,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockroach_Drone),
-		ICON(Cockroach_Drone, 0),
+		ICON(Cockroach_Drone, 1),
 		.footprint = gMonFootprint_Cockroach_Drone,
 		LEARNSETS(Cockroach_Drone),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 11,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 25, SPECIES_COCKROACH_WORKER}
+			{EVO_LEVEL_DAY, 23, SPECIES_COCKROACH_WORKER},
+			{EVO_LEVEL_NIGHT, 23, SPECIES_CAVE_BUG}
 		),
 	},
 
@@ -40027,7 +40374,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockroach_Worker),
-		ICON(Cockroach_Worker, 0),
+		ICON(Cockroach_Worker, 1),
 		.footprint = gMonFootprint_Cockroach_Worker,
 		LEARNSETS(Cockroach_Worker),
 		.frontPicYOffset = 4,
@@ -40035,9 +40382,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 37, SPECIES_COCKROACH_SOLDIER},
 			{EVO_ITEM, ITEM_MIND_RUNE, SPECIES_COCKROACH_WARPED_FORM},
-			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_FIARA},
-			{EVO_ITEM, ITEM_SPIRIT_SHARD, SPECIES_CAVE_BUG},
-			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_MALCOLM}
+			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_FIARA}
 		),
 	},
 
@@ -40071,7 +40416,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Born warriors, their entire life\n"
 			"revolves around finding threats and then\n"
-			"getting rid of them, or die trying."),
+			"getting rid of them, or dying trying."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -40083,7 +40428,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockroach_Soldier),
-		ICON(Cockroach_Soldier, 0),
+		ICON(Cockroach_Soldier, 1),
 		.footprint = gMonFootprint_Cockroach_Soldier,
 		LEARNSETS(Cockroach_Soldier),
 		.frontPicYOffset = 0,
@@ -40119,8 +40464,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Cockroaches warped in the Lumbridge\n"
-			"catacombs. Some say its no longer a part\n"
-			"of the hive."),
+			"catacombs. Some say it's no longer a\n"
+			"part of the hive."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -40132,7 +40477,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockroach_Warped_Form),
-		ICON(Cockroach_Warped_Form, 0),
+		ICON(Cockroach_Warped_Form, 2),
 		.footprint = gMonFootprint_Cockroach_Warped_Form,
 		LEARNSETS(Cockroach_Warped_Form),
 		.frontPicYOffset = 4,
@@ -40169,7 +40514,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Guthix chose this earwig to guard where\n"
-			"The eye of Saradoming once stood."),
+			"the Eye of Saradomin once stood."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -40190,15 +40535,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CAVE_BUG] =
 	{
-		.baseHP = 70,
-		.baseAttack = 100,
-		.baseDefense = 80,
-		.baseSpeed = 90,
-		.baseSpAttack = 75,
-		.baseSpDefense = 75,
-		.types = { TYPE_BUG, TYPE_FIGHTING },
+		.baseHP = 60,
+		.baseAttack = 60,
+		.baseDefense = 60,
+		.baseSpeed = 75,
+		.baseSpAttack = 55,
+		.baseSpDefense = 55,
+		.types = { TYPE_BUG, TYPE_BUG },
 		.catchRate = 65,
-		.expYield = 130,
+		.expYield = 78,
 		.evYield_Speed = 2,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
@@ -40229,11 +40574,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cave_Bug),
-		ICON(Cave_Bug, 0),
+		ICON(Cave_Bug, 2),
 		.footprint = gMonFootprint_Cave_Bug,
 		LEARNSETS(Cave_Bug),
 		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 37, SPECIES_FLESH_CRAWLER},
+			{EVO_ITEM, ITEM_TEAR_OF_GUTHIX, SPECIES_FIARA},
+			{EVO_ITEM, ITEM_AIR_RUNE, SPECIES_MALCOLM}
+		),
 	},
 
 [SPECIES_MALCOLM] =
@@ -40286,11 +40636,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MEERKATS] =
 	{
-		.baseHP = 60,
-		.baseAttack = 90,
-		.baseDefense = 80,
-		.baseSpeed = 90,
-		.baseSpAttack = 60,
+		.baseHP = 75,
+		.baseAttack = 95,
+		.baseDefense = 85,
+		.baseSpeed = 100,
+		.baseSpAttack = 70,
 		.baseSpDefense = 95,
 		.types = { TYPE_GROUND, TYPE_GROUND },
 		.catchRate = 250,
@@ -40326,7 +40676,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Meerkats),
-		ICON(Meerkats, 0),
+		ICON(Meerkats, 2),
 		.footprint = gMonFootprint_Meerkats,
 		LEARNSETS(Meerkats),
 		.frontPicYOffset = 3,
@@ -40352,9 +40702,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_NONE },
+		.abilities = { ABILITY_LEVITATE, ABILITY_WIND_RIDER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Origami"),
+		.speciesName = _("Balloon"),
 		.cryId = CRY_ORIGAMI_BALLOON,
 		.natDexNum = NATIONAL_DEX_ORIGAMI_BALLOON,
 		.categoryName = _("Origami"),
@@ -40375,7 +40725,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Origami_Balloon),
-		ICON(Origami_Balloon, 0),
+		ICON(Origami_Balloon, 2),
 		.footprint = gMonFootprint_Origami_Balloon,
 		LEARNSETS(Origami_Balloon),
 		.frontPicYOffset = 0,
@@ -40407,7 +40757,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_NONE },
+		.abilities = { ABILITY_LEVITATE, ABILITY_WIND_RIDER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Krilloon"),
 		.cryId = CRY_KRILL_BALLOON,
@@ -40430,7 +40780,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Krill_Balloon),
-		ICON(Krill_Balloon, 0),
+		ICON(Krill_Balloon, 1),
 		.footprint = gMonFootprint_Krill_Balloon,
 		LEARNSETS(Krill_Balloon),
 		.frontPicYOffset = 0,
@@ -40456,7 +40806,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_LEVITATE, ABILITY_LEVITATE, ABILITY_NONE },
+		.abilities = { ABILITY_LEVITATE, ABILITY_WIND_RIDER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Balloon"),
 		.cryId = CRY_BALLOON_GOAT,
@@ -40465,7 +40815,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Evil Bobs evil magic reanimated these\n"
+			"Evil Bob's evil magic reanimated these\n"
 			"balloons to work as prison guards in his\n"
 			"jail."),
 		.pokemonScale = 256,
@@ -40479,7 +40829,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Balloon_Goat),
-		ICON(Balloon_Goat, 0),
+		ICON(Balloon_Goat, 2),
 		.footprint = gMonFootprint_Balloon_Goat,
 		LEARNSETS(Balloon_Goat),
 		.frontPicYOffset = 0,
@@ -40516,8 +40866,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The true horror from the deep that\n"
-			"produces a brook that will destroy the\n"
-			"Fremmenik."),
+			"produces a brood that will destroy the\n"
+			"Fremennik."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -40629,7 +40979,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_Daughter),
-		ICON(Dagannoth_Daughter, 0),
+		ICON(Dagannoth_Daughter, 2),
 		.footprint = gMonFootprint_Dagannoth_Daughter,
 		LEARNSETS(Dagannoth_Daughter),
 		.frontPicYOffset = 0,
@@ -40718,7 +41068,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The dagannoths of the spirit realm lurks\n"
+			"The dagannoths of the spirit realm lurk\n"
 			"in deep seas trying to sink boats to eat\n"
 			"their innards."),
 		.pokemonScale = 256,
@@ -40732,7 +41082,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dagannoth_Spirit_Form),
-		ICON(Dagannoth_Spirit_Form, 0),
+		ICON(Dagannoth_Spirit_Form, 2),
 		.footprint = gMonFootprint_Dagannoth_Spirit_Form,
 		LEARNSETS(Dagannoth_Spirit_Form),
 		.frontPicYOffset = 0,
@@ -40769,7 +41119,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The texture on its body is so hot and\n"
-			"solid wearing a weapon to fight it is\n"
+			"solid wielding a weapon to fight it is\n"
 			"too hard."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -40782,7 +41132,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Flambeed),
-		ICON(Flambeed, 0),
+		ICON(Flambeed, 2),
 		.footprint = gMonFootprint_Flambeed,
 		LEARNSETS(Flambeed),
 		.frontPicYOffset = 0,
@@ -40818,9 +41168,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Its entire body is made entirely of\n"
-			"bananas of which it wants to kill\n"
-			"everyone with."),
+			"Its whole body is made entirely of\n"
+			"bananas which it wants to kill everyone\n"
+			"with."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -40832,7 +41182,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(AgrithNaNa),
-		ICON(AgrithNaNa, 0),
+		ICON(AgrithNaNa, 1),
 		.footprint = gMonFootprint_AgrithNaNa,
 		LEARNSETS(AgrithNaNa),
 		.frontPicYOffset = 0,
@@ -40882,7 +41232,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Karamel),
-		ICON(Karamel, 0),
+		ICON(Karamel, 1),
 		.footprint = gMonFootprint_Karamel,
 		LEARNSETS(Karamel),
 		.frontPicYOffset = 0,
@@ -40932,7 +41282,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Dessourt),
-		ICON(Dessourt, 0),
+		ICON(Dessourt, 2),
 		.footprint = gMonFootprint_Dessourt,
 		LEARNSETS(Dessourt),
 		.frontPicYOffset = 0,
@@ -41217,8 +41567,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The ill conceived experiment to make\n"
-			"bigger pigs trough magic created the\n"
+			"An ill conceived experiment to make\n"
+			"bigger pigs through magic created the\n"
 			"Sourhog."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -41231,7 +41581,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sourhog),
-		ICON(Sourhog, 0),
+		ICON(Sourhog, 2),
 		.footprint = gMonFootprint_Sourhog,
 		LEARNSETS(Sourhog),
 		.frontPicYOffset = 0,
@@ -41259,7 +41609,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_IRON_FIST, ABILITY_HARVEST, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Hand"),
+		.speciesName = _("Farmhand"),
 		.cryId = CRY_HAND_FARMHAND_FORM,
 		.natDexNum = NATIONAL_DEX_HAND_FARMHAND_FORM,
 		.categoryName = _("Farmhand"),
@@ -41267,7 +41617,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The most handy dandy help a farmer could\n"
-			"wish for that always helps your work."),
+			"wish for that is always happy to help\n"
+			"out."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -41328,7 +41679,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hand_Stuffed_Form),
-		ICON(Hand_Stuffed_Form, 0),
+		ICON(Hand_Stuffed_Form, 2),
 		.footprint = gMonFootprint_Hand_Stuffed_Form,
 		LEARNSETS(Hand_Stuffed_Form),
 		.frontPicYOffset = 6,
@@ -41356,7 +41707,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_IRON_FIST, ABILITY_UNAWARE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Hand"),
+		.speciesName = _("Fingers"),
 		.cryId = CRY_HAND_BROKENFINGERS_FORM,
 		.natDexNum = NATIONAL_DEX_HAND_BROKENFINGERS_FORM,
 		.categoryName = _("Mask"),
@@ -41364,7 +41715,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The mask of broken fingers is said to\n"
-			"show ones affinity for crawling hands."),
+			"show one's affinity for crawling hands."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -41376,7 +41727,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hand_BrokenFingers_Form),
-		ICON(Hand_BrokenFingers_Form, 0),
+		ICON(Hand_BrokenFingers_Form, 2),
 		.footprint = gMonFootprint_Hand_BrokenFingers_Form,
 		LEARNSETS(Hand_BrokenFingers_Form),
 		.frontPicYOffset = 5,
@@ -41407,14 +41758,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
 		.abilities = { ABILITY_IRON_FIST, ABILITY_UNAWARE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Hand"),
+		.speciesName = _("Deadhand"),
 		.cryId = CRY_HAND_DEADHAND_FORM,
 		.natDexNum = NATIONAL_DEX_HAND_DEADHAND_FORM,
 		.categoryName = _("Mask"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"To prove ones dominance over crawling\n"
+			"To prove one's dominance over crawling\n"
 			"hands, some players wear these on their\n"
 			"heads."),
 		.pokemonScale = 256,
@@ -41454,7 +41805,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_IRON_FIST, ABILITY_SOLID_ROCK, ABILITY_NONE },
+		.abilities = { ABILITY_IRON_FIST, ABILITY_UNSEEN_FIST, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Hand"),
 		.cryId = CRY_HAND_DUNGEONEERING_FORM,
@@ -41464,7 +41815,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Nobody knows how crawling hands got into\n"
-			"Daemonheim. Some think theyre just\n"
+			"Daemonheim. Some think they're just\n"
 			"giving a helping hand."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -41477,7 +41828,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Hand_Dungeoneering_Form),
-		ICON(Hand_Dungeoneering_Form, 0),
+		ICON(Hand_Dungeoneering_Form, 2),
 		.footprint = gMonFootprint_Hand_Dungeoneering_Form,
 		LEARNSETS(Hand_Dungeoneering_Form),
 		.frontPicYOffset = 5,
@@ -41493,7 +41844,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 60,
 		.types = { TYPE_POISON, TYPE_GROUND },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 130,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -41542,7 +41893,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 60,
 		.baseSpDefense = 35,
 		.types = { TYPE_POISON, TYPE_POISON },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 80,
 		.evYield_Attack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -41595,7 +41946,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 75,
 		.baseSpDefense = 70,
 		.types = { TYPE_POISON, TYPE_ROCK },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 130,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -41615,7 +41966,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"They are faster at swimming through mud\n"
-			"than walking on lands and hunts passing\n"
+			"than walking on land and hunt passing\n"
 			"humans."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -41628,7 +41979,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Snake_Swamp_Form),
-		ICON(Snake_Swamp_Form, 0),
+		ICON(Snake_Swamp_Form, 2),
 		.footprint = gMonFootprint_Snake_Swamp_Form,
 		LEARNSETS(Snake_Swamp_Form),
 		.frontPicYOffset = 0,
@@ -41644,7 +41995,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 85,
 		.baseSpDefense = 60,
 		.types = { TYPE_POISON, TYPE_POISON },
-		.catchRate = 255,
+		.catchRate = 160,
 		.expYield = 130,
 		.evYield_Attack = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -41663,7 +42014,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The herald of the zodiac. Its always in\n"
+			"The herald of the Zodiac. It's always in\n"
 			"some form of distress."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -41704,7 +42055,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_DRAGON },
 		.abilities = { ABILITY_INTIMIDATE, ABILITY_REFRIGERATE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("S. Wyvern"),
+		.speciesName = _("Wyvern"),
 		.cryId = CRY_SKELETAL_WYVERN,
 		.natDexNum = NATIONAL_DEX_SKELETAL_WYVERN,
 		.categoryName = _("Skeletal"),
@@ -41826,7 +42177,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Gourmet_Form),
-		ICON(Impling_Gourmet_Form, 0),
+		ICON(Impling_Gourmet_Form, 1),
 		.footprint = gMonFootprint_Impling_Gourmet_Form,
 		LEARNSETS(Impling_Gourmet_Form),
 		.frontPicYOffset = 0,
@@ -41835,7 +42186,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_NATURE_AMPED, 35, SPECIES_IMPLING_DIVINE_FORM},
 			{EVO_LEVEL_NATURE_LOW_KEY, 35, SPECIES_IMPLING_GHOST_FORM},
 			{EVO_ITEM, ITEM_SPIRIT_SHARD, SPECIES_IMPLING_SPIRIT_FORM},
-			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_IMPLING_ESSENCE_FORM}
+			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_IMPLING_ESSENCE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_PIRATE_FORM, SPECIES_IMPLING_PIRATE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NINJA_FORM, SPECIES_IMPLING_NINJA_FORM}
 		),
 	},
 
@@ -41881,16 +42234,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Earth_Form),
-		ICON(Impling_Earth_Form, 0),
+		ICON(Impling_Earth_Form, 1),
 		.footprint = gMonFootprint_Impling_Earth_Form,
 		LEARNSETS(Impling_Earth_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_NATURE_AMPED, 35, SPECIES_IMPLING_NATURE_FORM},
+			{EVO_LEVEL_NATURE_LOW_KEY, 35, SPECIES_IMPLING_ECLECTIC_FORM},
 			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_IMPLING_CRYSTAL_FORM},
 			{EVO_ITEM, ITEM_COSMIC_RUNE, SPECIES_IMPLING_WANDERING_FORM},
-			{EVO_LEVEL_NATURE_LOW_KEY, 35, SPECIES_IMPLING_ECLECTIC_FORM}
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_PIRATE_FORM, SPECIES_IMPLING_PIRATE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NINJA_FORM, SPECIES_IMPLING_NINJA_FORM}
 		),
 	},
 
@@ -41935,7 +42290,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Young_Form),
-		ICON(Impling_Young_Form, 0),
+		ICON(Impling_Young_Form, 1),
 		.footprint = gMonFootprint_Impling_Young_Form,
 		LEARNSETS(Impling_Young_Form),
 		.frontPicYOffset = 0,
@@ -41944,7 +42299,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_NATURE_AMPED, 35, SPECIES_IMPLING_PIRATE_FORM},
 			{EVO_LEVEL_NATURE_LOW_KEY, 35, SPECIES_IMPLING_EASTER_FORM},
 			{EVO_ITEM, ITEM_BODY_RUNE, SPECIES_IMPLING_NINJA_FORM},
-			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_IMPLING_ZOMBIE_FORM}
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_IMPLING_ZOMBIE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SHEEP_PIRATE_FORM, SPECIES_IMPLING_PIRATE_FORM},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_MONKEY_NINJA_FORM, SPECIES_IMPLING_NINJA_FORM}
 		),
 	},
 
@@ -41990,7 +42347,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Pirate_Form),
-		ICON(Impling_Pirate_Form, 0),
+		ICON(Impling_Pirate_Form, 2),
 		.footprint = gMonFootprint_Impling_Pirate_Form,
 		LEARNSETS(Impling_Pirate_Form),
 		.frontPicYOffset = 0,
@@ -42016,7 +42373,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE },
-		.abilities = { ABILITY_PICKPOCKET, ABILITY_SPEED_BOOST, ABILITY_NONE },
+		.abilities = { ABILITY_PICKPOCKET, ABILITY_SHARPNESS, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Impling"),
 		.cryId = CRY_IMPLING_NINJA_FORM,
@@ -42039,7 +42396,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Ninja_Form),
-		ICON(Impling_Ninja_Form, 0),
+		ICON(Impling_Ninja_Form, 1),
 		.footprint = gMonFootprint_Impling_Ninja_Form,
 		LEARNSETS(Impling_Ninja_Form),
 		.frontPicYOffset = 0,
@@ -42087,7 +42444,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Zombie_Form),
-		ICON(Impling_Zombie_Form, 0),
+		ICON(Impling_Zombie_Form, 2),
 		.footprint = gMonFootprint_Impling_Zombie_Form,
 		LEARNSETS(Impling_Zombie_Form),
 		.frontPicYOffset = 0,
@@ -42123,7 +42480,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The peculiar taste of this impling is so\n"
-			"weird that some people dont notice it\n"
+			"weird that some people don't notice it\n"
 			"when they steal from them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -42220,7 +42577,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"This implings lifestyle is sometimes\n"
+			"This impling's lifestyle is sometimes\n"
 			"compared to a druid that has returned to\n"
 			"a life of crime."),
 		.pokemonScale = 256,
@@ -42234,7 +42591,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Nature_Form),
-		ICON(Impling_Nature_Form, 0),
+		ICON(Impling_Nature_Form, 1),
 		.footprint = gMonFootprint_Impling_Nature_Form,
 		LEARNSETS(Impling_Nature_Form),
 		.frontPicYOffset = 0,
@@ -42385,7 +42742,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.footprint = gMonFootprint_Impling_Spirit_Form,
 		LEARNSETS(Impling_Spirit_Form),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 7,
 	},
 
 [SPECIES_ARAXYTE_BABY] =
@@ -42429,7 +42786,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Araxyte_Baby),
-		ICON(Araxyte_Baby, 0),
+		ICON(Araxyte_Baby, 2),
 		.footprint = gMonFootprint_Araxyte_Baby,
 		LEARNSETS(Araxyte_Baby),
 		.frontPicYOffset = 0,
@@ -42438,8 +42795,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 			{EVO_LEVEL_ATK_EQ_SPATK, 28, SPECIES_ARAXYTE_ACIDIC},
 			{EVO_LEVEL_ATK_LT_SPATK, 28, SPECIES_ARAXYTE_MIRRORBACK},
 			{EVO_LEVEL_ATK_GT_SPATK, 28, SPECIES_ARAXYTE_PULSING},
-			{EVO_LEVEL_MALE, 80, SPECIES_ARAXXOR},
-			{EVO_LEVEL_FEMALE, 80, SPECIES_ARAXXI}
+			{EVO_LEVEL_MALE, 90, SPECIES_ARAXXOR},
+			{EVO_LEVEL_FEMALE, 90, SPECIES_ARAXXI}
 		),
 	},
 
@@ -42472,7 +42829,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The acid produced from its glands is so\n"
-			"strong it can smelt steel armour."),
+			"strong it can melt steel armour."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -42569,8 +42926,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The veins on its body pumps as if it has\n"
-			"a pulse, its said this is its bloodlust\n"
+			"The veins on its body pumps as if it had\n"
+			"a pulse. It's said this is its bloodlust\n"
 			"erupting."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -42599,7 +42956,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 145,
 		.baseSpDefense = 80,
 		.types = { TYPE_BUG, TYPE_POISON },
-		.catchRate = 45,
+		.catchRate = 5,
 		.expYield = 148,
 		.evYield_Attack = 3,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -42648,7 +43005,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 100,
 		.baseSpDefense = 80,
 		.types = { TYPE_BUG, TYPE_POISON },
-		.catchRate = 45,
+		.catchRate = 5,
 		.expYield = 148,
 		.evYield_Attack = 3,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -42667,7 +43024,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Fiendishly rivalleous, they will even\n"
+			"Fiendishly rivalrous, they will even\n"
 			"defeat and eat their own mate if the\n"
 			"mate shows weakness."),
 		.pokemonScale = 256,
@@ -42690,12 +43047,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_GLACOR_ENDURING_FORM] =
 	{
-		.baseHP = 50,
+		.baseHP = 70,
 		.baseAttack = 20,
-		.baseDefense = 40,
+		.baseDefense = 60,
 		.baseSpeed = 10,
 		.baseSpAttack = 100,
-		.baseSpDefense = 40,
+		.baseSpDefense = 80,
 		.types = { TYPE_ICE, TYPE_ICE },
 		.catchRate = 65,
 		.expYield = 54,
@@ -42779,7 +43136,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Glacor_Sapping_Form),
-		ICON(Glacor_Sapping_Form, 0),
+		ICON(Glacor_Sapping_Form, 1),
 		.footprint = gMonFootprint_Glacor_Sapping_Form,
 		LEARNSETS(Glacor_Sapping_Form),
 		.frontPicYOffset = 0,
@@ -42889,8 +43246,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 95,
 		.baseAttack = 90,
-		.baseDefense = 120,
-		.baseSpeed = 25,
+		.baseDefense = 80,
+		.baseSpeed = 15,
 		.baseSpAttack = 205,
 		.baseSpDefense = 145,
 		.types = { TYPE_ICE, TYPE_ELECTRIC },
@@ -42913,7 +43270,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The strongest of all Glacors, Bik\n"
+			"The strongest of all Glacors, Wen\n"
 			"kidnapped it from its world to serve\n"
 			"their purpose."),
 		.pokemonScale = 256,
@@ -42932,28 +43289,31 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Glacor_Arch_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.isMegaEvolution = TRUE,
+		.formSpeciesIdTable = sGlacorFormSpeciesIdTable,
+		.formChangeTable = sGlacorFormChangeTable,
 	},
 
 [SPECIES_JADINKO_COMMON_FORM] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 65,
+		.baseAttack = 60,
+		.baseDefense = 65,
+		.baseSpeed = 110,
+		.baseSpAttack = 60,
+		.baseSpDefense = 75,
 		.types = { TYPE_GRASS, TYPE_GRASS },
-		.catchRate = 50,
-		.expYield = 50,
-		.evYield_SpAttack = 1,
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Speed = 2,
 		.genderRatio = PERCENT_FEMALE(50),
-		.eggCycles = 15,
-		.friendship = 70,
-		.growthRate = GROWTH_MEDIUM_FAST,
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
-		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LEAF_GUARD, ABILITY_MOODY, ABILITY_NONE },
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_GRASS_PELT, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jadinko"),
 		.cryId = CRY_JADINKO_COMMON_FORM,
@@ -42962,7 +43322,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"From its body, vines protude. The vines\n"
+			"Vines protude from its body. The vines\n"
 			"have different medicinal properties."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -42975,37 +43335,54 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jadinko_Common_Form),
-		ICON(Jadinko_Common_Form, 0),
+		ICON(Jadinko_Common_Form, 1),
 		.footprint = gMonFootprint_Jadinko_Common_Form,
 		LEARNSETS(Jadinko_Common_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 35, SPECIES_JADINKO_MALE_FORM},
-			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_JADINKO_QUEEN}
+			{EVO_LEVEL_DAY, 35, SPECIES_JADINKO_DRACONIC},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTLING, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_RSHD_FORM, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_OSRS_FORM, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_RS3_FORM, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULTURE_PINK_FORM, SPECIES_JADINKO_CARRION},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_VULATRICE, SPECIES_JADINKO_CARRION},
+			{EVO_LEVEL_NIGHT, 35, SPECIES_JADINKO_SHADOW},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_JADINKO_GUTHIX},
+			{EVO_ITEM, ITEM_CHAOS_RUNE, SPECIES_JADINKO_ZAMORAK},
+			{EVO_ITEM, ITEM_LAW_RUNE, SPECIES_JADINKO_SARADOMIN},
+			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_JADINKO_GUTHIX},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_GUTHRAPTOR, SPECIES_JADINKO_GUTHIX},
+			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_JADINKO_ZAMORAK},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_ZAMOHAWK, SPECIES_JADINKO_ZAMORAK},
+			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_JADINKO_SARADOMIN},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_SARAOWL, SPECIES_JADINKO_SARADOMIN}
 		),
 	},
 
 [SPECIES_JADINKO_MALE_FORM] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
-		.types = { TYPE_GRASS, TYPE_GRASS },
-		.catchRate = 50,
-		.expYield = 100,
-		.evYield_SpAttack = 2,
+		.baseHP = 80,
+		.baseAttack = 100,
+		.baseDefense = 85,
+		.baseSpeed = 40,
+		.baseSpAttack = 60,
+		.baseSpDefense = 70,
+		.types = { TYPE_GRASS, TYPE_FIGHTING },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_HP = 1,
+		.evYield_Attack = 1,
 		.genderRatio = PERCENT_FEMALE(50),
-		.eggCycles = 15,
-		.friendship = 70,
-		.growthRate = GROWTH_MEDIUM_FAST,
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
-		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LEAF_GUARD, ABILITY_MOODY, ABILITY_NONE },
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SYMBIOSIS, ABILITY_GRASS_PELT, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jadinko"),
 		.cryId = CRY_JADINKO_MALE_FORM,
@@ -43015,7 +43392,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The male jadinko gains huge masses of\n"
-			"muscles to better serve their queens\n"
+			"muscles to better serve their queen's\n"
 			"whims."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -43028,35 +43405,43 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jadinko_Male_Form),
-		ICON(Jadinko_Male_Form, 0),
+		ICON(Jadinko_Male_Form, 2),
 		.footprint = gMonFootprint_Jadinko_Male_Form,
 		LEARNSETS(Jadinko_Male_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 35, SPECIES_JADINKO_FEROCIOUS},
+			{EVO_LEVEL_POISON_TYPE_MON_IN_PARTY, 30, SPECIES_JADINKO_MUTATED},
+			{EVO_SPECIFIC_MON_IN_PARTY, SPECIES_JADINKO_FEROCIOUS, SPECIES_JADINKO_QUEEN}
+		),
 	},
 
 [SPECIES_JADINKO_QUEEN] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
-		.types = { TYPE_GRASS, TYPE_GRASS },
-		.catchRate = 50,
-		.expYield = 150,
-		.evYield_SpAttack = 3,
-		.genderRatio = PERCENT_FEMALE(50),
-		.eggCycles = 15,
-		.friendship = 70,
-		.growthRate = GROWTH_MEDIUM_FAST,
+		.baseHP = 100,
+		.baseAttack = 115,
+		.baseDefense = 105,
+		.baseSpeed = 5,
+		.baseSpAttack = 110,
+		.baseSpDefense = 105,
+		.types = { TYPE_GRASS, TYPE_DRAGON },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Attack = 1,
+		.evYield_Defense = 1,
+		.evYield_SpAttack = 1,
+		.evYield_SpDefense = 1,
+		.genderRatio = PERCENT_FEMALE(100),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
-		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_LEAF_GUARD, ABILITY_QUEENLY_MAJESTY, ABILITY_NONE },
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SYMBIOSIS, ABILITY_QUEENLY_MAJESTY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Jadinko Q."),
+		.speciesName = _("Queen"),
 		.cryId = CRY_JADINKO_QUEEN,
 		.natDexNum = NATIONAL_DEX_JADINKO_QUEEN,
 		.categoryName = _("Queen"),
@@ -43077,7 +43462,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jadinko_Queen),
-		ICON(Jadinko_Queen, 0),
+		ICON(Jadinko_Queen, 1),
 		.footprint = gMonFootprint_Jadinko_Queen,
 		LEARNSETS(Jadinko_Queen),
 		.frontPicYOffset = 0,
@@ -43086,14 +43471,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_RUBY_HARVEST] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 50,
+		.baseAttack = 50,
+		.baseDefense = 30,
+		.baseSpeed = 50,
+		.baseSpAttack = 50,
+		.baseSpDefense = 70,
 		.types = { TYPE_BUG, TYPE_FLYING },
-		.catchRate = 25,
+		.catchRate = 120,
 		.expYield = 52,
 		.evYield_Speed = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -43134,14 +43519,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SAPPHIRE_GLACIALIS] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 55,
+		.baseAttack = 50,
+		.baseDefense = 35,
+		.baseSpeed = 100,
+		.baseSpAttack = 75,
+		.baseSpDefense = 90,
 		.types = { TYPE_BUG, TYPE_ICE },
-		.catchRate = 25,
+		.catchRate = 90,
 		.expYield = 79,
 		.evYield_SpDefense = 1,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -43174,7 +43559,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Sapphire_Glacialis),
-		ICON(Sapphire_Glacialis, 0),
+		ICON(Sapphire_Glacialis, 2),
 		.footprint = gMonFootprint_Sapphire_Glacialis,
 		LEARNSETS(Sapphire_Glacialis),
 		.frontPicYOffset = 0,
@@ -43183,14 +43568,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_SNOW_KNIGHT] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 75,
+		.baseAttack = 65,
+		.baseDefense = 37,
+		.baseSpeed = 90,
+		.baseSpAttack = 103,
+		.baseSpDefense = 120,
 		.types = { TYPE_BUG, TYPE_ICE },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 89,
 		.evYield_SpDefense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
@@ -43202,7 +43587,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
 		.abilities = { ABILITY_SNOW_WARNING, ABILITY_SHIELD_DUST, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Butterfly"),
+		.speciesName = _("SnowKnight"),
 		.cryId = CRY_SNOW_KNIGHT,
 		.natDexNum = NATIONAL_DEX_SNOW_KNIGHT,
 		.categoryName = _("Knight"),
@@ -43210,7 +43595,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"It gets its name from how it boldly\n"
-			"presses on even in the strongest winther\n"
+			"presses on even in the strongest winter\n"
 			"wind."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -43229,20 +43614,20 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_FRIENDSHIP_NIGHT, 200, SPECIES_CHARMING_MOTH}
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_CHARMING_MOTH}
 		),
 	},
 
 [SPECIES_BLACK_WARLOCK] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 55,
+		.baseAttack = 50,
+		.baseDefense = 35,
+		.baseSpeed = 100,
+		.baseSpAttack = 90,
+		.baseSpDefense = 75,
 		.types = { TYPE_BUG, TYPE_FLYING },
-		.catchRate = 25,
+		.catchRate = 90,
 		.expYield = 89,
 		.evYield_SpAttack = 1,
 		.evYield_SpDefense = 2,
@@ -43253,7 +43638,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_SNOW_WARNING, ABILITY_SHIELD_DUST, ABILITY_NONE },
+		.abilities = { ABILITY_SHADOW_TAG, ABILITY_SHIELD_DUST, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Butterfly"),
 		.cryId = CRY_BLACK_WARLOCK,
@@ -43282,20 +43667,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
 		.evolutions = EVOLUTION(
-			{EVO_FRIENDSHIP_DAY, 200, SPECIES_FORGE_REGENT}
+			{EVO_LEVEL, 25, SPECIES_DRAUGEN},
+			{EVO_ITEM, ITEM_FIRE_RUNE, SPECIES_FORGE_REGENT}
 		),
 	},
 
 [SPECIES_FORGE_REGENT] =
 	{
-		.baseHP = 50,
-		.baseAttack = 50,
-		.baseDefense = 2,
-		.baseSpeed = 50,
-		.baseSpAttack = 120,
-		.baseSpDefense = 100,
+		.baseHP = 58,
+		.baseAttack = 60,
+		.baseDefense = 37,
+		.baseSpeed = 110,
+		.baseSpAttack = 110,
+		.baseSpDefense = 115,
 		.types = { TYPE_BUG, TYPE_FIRE },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 89,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
@@ -43313,8 +43699,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Its coat burns as if its a real flame,\n"
-			"but is actually just aflame."),
+			"Its coat burns as if it's a real flame,\n"
+			"but it is actually just aflame."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -43338,11 +43724,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseHP = 50,
 		.baseAttack = 50,
 		.baseDefense = 60,
-		.baseSpeed = 120,
-		.baseSpAttack = 135,
+		.baseSpeed = 105,
+		.baseSpAttack = 105,
 		.baseSpDefense = 120,
 		.types = { TYPE_BUG, TYPE_GRASS },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 89,
 		.evYield_SpAttack = 1,
 		.evYield_SpDefense = 1,
@@ -43376,7 +43762,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Guthixian_Butterfly),
-		ICON(Guthixian_Butterfly, 0),
+		ICON(Guthixian_Butterfly, 1),
 		.footprint = gMonFootprint_Guthixian_Butterfly,
 		LEARNSETS(Guthixian_Butterfly),
 		.frontPicYOffset = 0,
@@ -43387,14 +43773,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHARMING_MOTH] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
-		.types = { TYPE_BUG, TYPE_FAIRY },
-		.catchRate = 25,
+		.baseHP = 45,
+		.baseAttack = 60,
+		.baseDefense = 50,
+		.baseSpeed = 110,
+		.baseSpAttack = 115,
+		.baseSpDefense = 110,
+		.types = { TYPE_BUG, TYPE_FLYING },
+		.catchRate = 65,
 		.expYield = 89,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
@@ -43413,7 +43799,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A moth that charms its prey before it\n"
-			"feasts on their liquids. Unless its\n"
+			"feasts on their liquids. Unless it's\n"
 			"eaten first."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -43439,14 +43825,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_TREBORN] =
 	{
-		.baseHP = 65,
+		.baseHP = 55,
 		.baseAttack = 55,
 		.baseDefense = 55,
-		.baseSpeed = 100,
-		.baseSpAttack = 130,
-		.baseSpDefense = 130,
+		.baseSpeed = 95,
+		.baseSpAttack = 110,
+		.baseSpDefense = 120,
 		.types = { TYPE_BUG, TYPE_GRASS },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 95,
 		.evYield_SpAttack = 1,
 		.evYield_SpDefense = 1,
@@ -43485,18 +43871,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Treborn),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 1,
+		.isMegaEvolution = TRUE,
+		.formSpeciesIdTable = sGuthixianButterflyFormSpeciesIdTable,
+		.formChangeTable = sGuthixianButterflyFormChangeTable,
 	},
 
 [SPECIES_DRAUGEN] =
 	{
-		.baseHP = 50,
+		.baseHP = 65,
 		.baseAttack = 105,
-		.baseDefense = 95,
-		.baseSpeed = 80,
-		.baseSpAttack = 85,
+		.baseDefense = 65,
+		.baseSpeed = 70,
+		.baseSpAttack = 65,
 		.baseSpDefense = 120,
-		.types = { TYPE_BUG, TYPE_GHOST },
-		.catchRate = 25,
+		.types = { TYPE_BUG, TYPE_FAIRY },
+		.catchRate = 65,
 		.expYield = 89,
 		.evYield_Attack = 1,
 		.evYield_SpDefense = 1,
@@ -43507,7 +43896,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
-		.abilities = { ABILITY_SHADOW_TAG, ABILITY_SHIELD_DUST, ABILITY_NONE },
+		.abilities = { ABILITY_SHADOW_TAG, ABILITY_SHADOW_SHIELD, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Draugen"),
 		.cryId = CRY_DRAUGEN,
@@ -43540,7 +43929,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MACAW] =
 	{
-		.baseHP = 75,
+		.baseHP = 85,
 		.baseAttack = 65,
 		.baseDefense = 70,
 		.baseSpeed = 100,
@@ -43589,12 +43978,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_THE_ILLUSIVE] =
 	{
-		.baseHP = 5,
-		.baseAttack = 5,
-		.baseDefense = 5,
+		.baseHP = 15,
+		.baseAttack = 15,
+		.baseDefense = 15,
 		.baseSpeed = 230,
-		.baseSpAttack = 5,
-		.baseSpDefense = 5,
+		.baseSpAttack = 15,
+		.baseSpDefense = 15,
 		.types = { TYPE_DARK, TYPE_PSYCHIC },
 		.catchRate = 25,
 		.expYield = 2,
@@ -43615,7 +44004,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The last of Cyrisius fears running away\n"
+			"The last of Cyrisius' fears running away\n"
 			"from its responsibility."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -43628,7 +44017,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(The_Illusive),
-		ICON(The_Illusive, 0),
+		ICON(The_Illusive, 1),
 		.footprint = gMonFootprint_The_Illusive,
 		LEARNSETS(The_Illusive),
 		.frontPicYOffset = 0,
@@ -43667,7 +44056,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Doubts spawned by the Inadequancy, they\n"
+			"Doubts spawned by the Inadequancy. They\n"
 			"spawn forever as Cyrisius doubts\n"
 			"himself."),
 		.pokemonScale = 256,
@@ -43681,7 +44070,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Doubt),
-		ICON(Doubt, 0),
+		ICON(Doubt, 2),
 		.footprint = gMonFootprint_Doubt,
 		LEARNSETS(Doubt),
 		.frontPicYOffset = 0,
@@ -43717,8 +44106,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Thoughts of never being good enough\n"
-			"roams Cyrisuis mind as he battles the\n"
+			"Thoughts of never being good enough roam\n"
+			"Cyrisius' mind as he struggles with the\n"
 			"idea of battling."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -43737,7 +44126,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 30, SPECIES_UNTOUCHABLE}
+			{EVO_LEVEL_NIGHT, 30, SPECIES_UNTOUCHABLE}
 		),
 	},
 
@@ -43771,7 +44160,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The untouchable materializes the fear of\n"
+			"The Untouchable materializes the fear of\n"
 			"not being strong enough to defeat even\n"
 			"the smallest of foes."),
 		.pokemonScale = 256,
@@ -43785,14 +44174,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Untouchable),
-		ICON(Untouchable, 0),
+		ICON(Untouchable, 2),
 		.footprint = gMonFootprint_Untouchable,
 		LEARNSETS(Untouchable),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_FRIENDSHIP_NIGHT, 200, SPECIES_INADEQUANCY},
-			{EVO_LEVEL_NINJASK, 40, SPECIES_DOUBT}
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_INADEQUANCY},
+			{EVO_LEVEL_NINJASK, 30, SPECIES_DOUBT}
 		),
 	},
 
@@ -43847,12 +44236,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHINCHOMPA_BABY] =
 	{
-		.baseHP = 20,
-		.baseAttack = 50,
-		.baseDefense = 20,
-		.baseSpeed = 20,
-		.baseSpAttack = 20,
-		.baseSpDefense = 20,
+		.baseHP = 30,
+		.baseAttack = 55,
+		.baseDefense = 50,
+		.baseSpeed = 50,
+		.baseSpAttack = 50,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 120,
 		.expYield = 252,
@@ -43902,12 +44291,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHINCHOMPA_GREY_BABY] =
 	{
-		.baseHP = 30,
+		.baseHP = 55,
 		.baseAttack = 70,
-		.baseDefense = 30,
+		.baseDefense = 60,
 		.baseSpeed = 50,
 		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 120,
 		.expYield = 252,
@@ -43942,7 +44331,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chinchompa_Grey_Baby),
-		ICON(Chinchompa_Grey_Baby, 0),
+		ICON(Chinchompa_Grey_Baby, 2),
 		.footprint = gMonFootprint_Chinchompa_Grey_Baby,
 		LEARNSETS(Chinchompa_Grey_Baby),
 		.frontPicYOffset = 0,
@@ -43954,12 +44343,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_CHINCHOMPA_RED_BABY] =
 	{
-		.baseHP = 30,
+		.baseHP = 55,
 		.baseAttack = 90,
-		.baseDefense = 30,
+		.baseDefense = 60,
 		.baseSpeed = 30,
 		.baseSpAttack = 30,
-		.baseSpDefense = 30,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 120,
 		.expYield = 252,
@@ -44034,7 +44423,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Cobalt chinchompa are sometimes utilized\n"
-			"for fishing, it excells at killing its\n"
+			"for fishing, it excels at killing its\n"
 			"victims."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -44097,7 +44486,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chinchompa_Viridian),
-		ICON(Chinchompa_Viridian, 0),
+		ICON(Chinchompa_Viridian, 1),
 		.footprint = gMonFootprint_Chinchompa_Viridian,
 		LEARNSETS(Chinchompa_Viridian),
 		.frontPicYOffset = 0,
@@ -44134,7 +44523,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Its mantle shines in crystalline colours\n"
-			"as its flung to its certain death."),
+			"as it's flung to its certain death."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -44182,7 +44571,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Since its larger and more independent,\n"
+			"Since it's larger and more independent,\n"
 			"this chinchompa will sometimes just, not\n"
 			"explode."),
 		.pokemonScale = 256,
@@ -44232,7 +44621,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A chinchompa with mechanized parts so it\n"
-			"can go out in blaxes of glory harder\n"
+			"can go out in blazes of glory harder\n"
 			"than any other chinchompa."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -44245,7 +44634,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Chinchompa_Mechanized),
-		ICON(Chinchompa_Mechanized, 0),
+		ICON(Chinchompa_Mechanized, 2),
 		.footprint = gMonFootprint_Chinchompa_Mechanized,
 		LEARNSETS(Chinchompa_Mechanized),
 		.frontPicYOffset = 0,
@@ -44330,7 +44719,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"They find their home in the deepest\n"
-			"Wilderness where local wildlife leaves\n"
+			"Wilderness where local wildlife leave\n"
 			"them alone due to their explosions."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -44428,7 +44817,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Being natures cleaning crew, Vultures\n"
+			"Being nature's cleaning crew, vultures\n"
 			"help the environment by getting rid of\n"
 			"corpses."),
 		.pokemonScale = 256,
@@ -44442,7 +44831,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulture_RSHD_Form),
-		ICON(Vulture_RSHD_Form, 0),
+		ICON(Vulture_RSHD_Form, 2),
 		.footprint = gMonFootprint_Vulture_RSHD_Form,
 		LEARNSETS(Vulture_RSHD_Form),
 		.frontPicYOffset = 0,
@@ -44468,7 +44857,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FLYING, EGG_GROUP_FLYING },
-		.abilities = { ABILITY_GLUTTONY, ABILITY_SAND_STREAM, ABILITY_OVERCOAT },
+		.abilities = { ABILITY_OPPORTUNIST, ABILITY_SAND_STREAM, ABILITY_OVERCOAT },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Vulture"),
 		.cryId = CRY_VULTURE_PINK_FORM,
@@ -44491,7 +44880,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulture_Pink_Form),
-		ICON(Vulture_Pink_Form, 0),
+		ICON(Vulture_Pink_Form, 2),
 		.footprint = gMonFootprint_Vulture_Pink_Form,
 		LEARNSETS(Vulture_Pink_Form),
 		.frontPicYOffset = 0,
@@ -44526,7 +44915,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Their featherless heads allows them to\n"
+			"Their featherless heads allow them to\n"
 			"stick their heads into carcasses without\n"
 			"blood sticking to them."),
 		.pokemonScale = 256,
@@ -44540,7 +44929,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulture_OSRS_Form),
-		ICON(Vulture_OSRS_Form, 0),
+		ICON(Vulture_OSRS_Form, 2),
 		.footprint = gMonFootprint_Vulture_OSRS_Form,
 		LEARNSETS(Vulture_OSRS_Form),
 		.frontPicYOffset = 0,
@@ -44576,7 +44965,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"While often seen as many and disease\n"
-			"filled, they actually posesses strong\n"
+			"filled, they actually possess strong\n"
 			"immune systems to negate disease and\n"
 			"sickness."),
 		.pokemonScale = 256,
@@ -44590,7 +44979,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Vulture_RS3_Form),
-		ICON(Vulture_RS3_Form, 0),
+		ICON(Vulture_RS3_Form, 1),
 		.footprint = gMonFootprint_Vulture_RS3_Form,
 		LEARNSETS(Vulture_RS3_Form),
 		.frontPicYOffset = 0,
@@ -44627,7 +45016,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Their long ears are seen as endearing\n"
-			"for children who keeps them as pets."),
+			"for children who keep them as pets."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -44639,10 +45028,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Beagle),
-		ICON(Beagle, 0),
+		ICON(Beagle, 2),
 		.footprint = gMonFootprint_Beagle,
 		LEARNSETS(Beagle),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 	},
 
@@ -44675,7 +45064,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Their short snouts causes breathing\n"
+			"Their short snouts cause breathing\n"
 			"problems making them almost kill\n"
 			"themselves in heat."),
 		.pokemonScale = 256,
@@ -44689,10 +45078,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pug),
-		ICON(Pug, 0),
+		ICON(Pug, 2),
 		.footprint = gMonFootprint_Pug,
 		LEARNSETS(Pug),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 	},
 
@@ -44725,7 +45114,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Geneticly theyre very close to wolves\n"
+			"Genetically they're very close to wolves\n"
 			"and are thus used to do tasks best fit\n"
 			"for arctic terrain."),
 		.pokemonScale = 256,
@@ -44739,10 +45128,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Huskie),
-		ICON(Huskie, 0),
+		ICON(Huskie, 1),
 		.footprint = gMonFootprint_Huskie,
 		LEARNSETS(Huskie),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
@@ -44792,7 +45181,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		ICON(Shiba, 0),
 		.footprint = gMonFootprint_Shiba,
 		LEARNSETS(Shiba),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 7,
 		.enemyMonElevation = 0,
 	},
 
@@ -44816,7 +45205,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
-		.abilities = { ABILITY_UNAWARE, ABILITY_SLUSH_RUSH, ABILITY_ICE_BODY },
+		.abilities = { ABILITY_UNAWARE, ABILITY_PROPELLER_TAIL, ABILITY_ICE_BODY },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Polar Bear"),
 		.cryId = CRY_POLAR_BEAR_PUNISHED,
@@ -44863,7 +45252,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_WATER_3 },
-		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_PINCERS, ABILITY_SNIPER },
+		.abilities = { ABILITY_PINCERS, ABILITY_EFFECT_SPORE, ABILITY_SNIPER },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Lobstrocty"),
 		.cryId = CRY_LOBSTROCITY,
@@ -44933,7 +45322,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Salamander_Yellow_Form),
-		ICON(Salamander_Yellow_Form, 0),
+		ICON(Salamander_Yellow_Form, 2),
 		.footprint = gMonFootprint_Salamander_Yellow_Form,
 		LEARNSETS(Salamander_Yellow_Form),
 		.frontPicYOffset = 0,
@@ -44961,7 +45350,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("A. Walker"),
+		.speciesName = _("Walker"),
 		.cryId = CRY_ABYSSAL_DEEPSEA_WALKER,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_DEEPSEA_WALKER,
 		.categoryName = _("Sea"),
@@ -45012,7 +45401,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("A. Leech"),
+		.speciesName = _("Leech"),
 		.cryId = CRY_ABYSSAL_DEEPSEA_LEECH,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_DEEPSEA_LEECH,
 		.categoryName = _("Sea"),
@@ -45020,7 +45409,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"In the depths of the sea, these beings\n"
-			"lurks everywhere."),
+			"lurk everywhere."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45063,15 +45452,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("A.Guardian"),
+		.speciesName = _("Guardian"),
 		.cryId = CRY_ABYSSAL_DEEPSEA_GUARDIAN,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_DEEPSEA_GUARDIAN,
 		.categoryName = _("Sea"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Far below the sea, these beings walks\n"
-			"and roams without a true purpose but to\n"
+			"Far below the sea, these beings walk and\n"
+			"roam without a true purpose but to\n"
 			"devour all."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -45119,7 +45508,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"-"),
+			"Created by Aliya when she sealed the\n"
+			"rift to the Scar, these guard and\n"
+			"protect it from invading abyssal\n"
+			"creatures."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45168,7 +45560,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"Being left in the deep sea for too long\n"
 			"has caused corals to grow upon this\n"
-			"guardians body."),
+			"guardian's body."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45180,7 +45572,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Coral_Guardian),
-		ICON(Coral_Guardian, 0),
+		ICON(Coral_Guardian, 1),
 		.footprint = gMonFootprint_Coral_Guardian,
 		LEARNSETS(Coral_Guardian),
 		.frontPicYOffset = 0,
@@ -45229,7 +45621,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Rewards_Guardian),
-		ICON(Rewards_Guardian, 0),
+		ICON(Rewards_Guardian, 2),
 		.footprint = gMonFootprint_Rewards_Guardian,
 		LEARNSETS(Rewards_Guardian),
 		.frontPicYOffset = 0,
@@ -45264,7 +45656,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Baboons show their rear ends at their\n"
+			"Baboons show their rear ends to their\n"
 			"foes to intimidate them with strong\n"
 			"colours."),
 		.pokemonScale = 256,
@@ -45364,7 +45756,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.description = COMPOUND_STRING(
 			"It meditates several times a day to\n"
 			"attain its spiritual powers to unleash\n"
-			"it at its enemies."),
+			"them at its enemies."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45461,7 +45853,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"Cursed to live once more, these baboons\n"
-			"are spitefull and lamented by its peers."),
+			"are spiteful and lamented by their\n"
+			"peers."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45508,7 +45901,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"Theys erve little purpose but the whims\n"
+			"They serve little purpose but the whims\n"
 			"of their master. They have no free will\n"
 			"of their own."),
 		.pokemonScale = 256,
@@ -45557,9 +45950,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"When exposed to any sort of danger that\n"
-			"endangers its life, it will sometimes\n"
-			"try to drag its enemies down with it."),
+			"When exposed to any sort of conflict\n"
+			"that endangers its life, it will\n"
+			"sometimes try to drag its enemies down\n"
+			"with it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -45866,7 +46260,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Crocodile_Red_Form),
-		ICON(Crocodile_Red_Form, 0),
+		ICON(Crocodile_Red_Form, 1),
 		.footprint = gMonFootprint_Crocodile_Red_Form,
 		LEARNSETS(Crocodile_Red_Form),
 		.frontPicYOffset = 3,
@@ -45989,7 +46383,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_STICKY_HOLD, ABILITY_LIQUID_OOZE, ABILITY_NONE },
+		.abilities = { ABILITY_GOOEY, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("LilGloop"),
 		.cryId = CRY_SLIME_LILGLOOP,
@@ -46012,7 +46406,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Slime_LilGloop),
-		ICON(Slime_LilGloop, 0),
+		ICON(Slime_LilGloop, 1),
 		.footprint = gMonFootprint_Slime_LilGloop,
 		LEARNSETS(Slime_LilGloop),
 		.frontPicYOffset = 0,
@@ -46035,14 +46429,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 153,
 		.evYield_HP = 3,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(0),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_FAST,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_STICKY_HOLD, ABILITY_LIQUID_OOZE, ABILITY_NONE },
+		.abilities = { ABILITY_GOOEY, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Slime King"),
 		.cryId = CRY_SLIME_KING,
@@ -46051,9 +46445,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"King of all slimes that rules over all\n"
-			"slimes. Slimes do however not posess\n"
-			"much of whims and thus does nothing."),
+			"King of all slimes, and ruler over them.\n"
+			"Slimes however do not possess much whim\n"
+			"and thus do nothing."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46065,7 +46459,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Slime_King),
-		ICON(Slime_King, 0),
+		ICON(Slime_King, 1),
 		.footprint = gMonFootprint_Slime_King,
 		LEARNSETS(Slime_King),
 		.frontPicYOffset = 0,
@@ -46123,13 +46517,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ZYGOMITE_MAGICAL_FORM] =
 	{
-		.baseHP = 100,
+		.baseHP = 85,
 		.baseAttack = 60,
-		.baseDefense = 80,
+		.baseDefense = 65,
 		.baseSpeed = 40,
 		.baseSpAttack = 100,
-		.baseSpDefense = 100,
-		.types = { TYPE_GRASS, TYPE_FAIRY },
+		.baseSpDefense = 120,
+		.types = { TYPE_FAIRY, TYPE_GRASS },
 		.catchRate = 45,
 		.expYield = 154,
 		.evYield_SpDefense = 2,
@@ -46149,9 +46543,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The rarest of all Zygomites, its said to\n"
-			"be so rare hardly anyone has seen it in\n"
-			"decades."),
+			"The rarest of all Zygomites. It's said\n"
+			"to be so rare hardly anyone has seen it\n"
+			"in decades."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46163,22 +46557,22 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zygomite_Magical_Form),
-		ICON(Zygomite_Magical_Form, 0),
+		ICON(Zygomite_Magical_Form, 2),
 		.footprint = gMonFootprint_Zygomite_Magical_Form,
 		LEARNSETS(Zygomite_Magical_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 2,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_ZYGOMITE_ZANARIAN_FORM] =
 	{
-		.baseHP = 80,
+		.baseHP = 65,
 		.baseAttack = 60,
-		.baseDefense = 80,
-		.baseSpeed = 60,
-		.baseSpAttack = 80,
-		.baseSpDefense = 120,
-		.types = { TYPE_GRASS, TYPE_FAIRY },
+		.baseDefense = 50,
+		.baseSpeed = 20,
+		.baseSpAttack = 115,
+		.baseSpDefense = 160,
+		.types = { TYPE_FAIRY, TYPE_GRASS },
 		.catchRate = 45,
 		.expYield = 154,
 		.evYield_SpDefense = 2,
@@ -46211,22 +46605,22 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zygomite_Zanarian_Form),
-		ICON(Zygomite_Zanarian_Form, 0),
+		ICON(Zygomite_Zanarian_Form, 2),
 		.footprint = gMonFootprint_Zygomite_Zanarian_Form,
 		LEARNSETS(Zygomite_Zanarian_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 4,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_ZYGOMITE_ARCSPORE_FORM] =
 	{
-		.baseHP = 100,
-		.baseAttack = 60,
-		.baseDefense = 100,
+		.baseHP = 80,
+		.baseAttack = 65,
+		.baseDefense = 65,
 		.baseSpeed = 40,
-		.baseSpAttack = 80,
+		.baseSpAttack = 120,
 		.baseSpDefense = 100,
-		.types = { TYPE_GRASS, TYPE_FAIRY },
+		.types = { TYPE_FAIRY, TYPE_POISON },
 		.catchRate = 45,
 		.expYield = 154,
 		.evYield_SpDefense = 2,
@@ -46247,7 +46641,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"The spore emitted from this Zygomite is\n"
-			"poisonous  and deadly to anything with\n"
+			"poisonous and deadly to anything with\n"
 			"lungs."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -46260,22 +46654,22 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zygomite_Arcspore_Form),
-		ICON(Zygomite_Arcspore_Form, 0),
+		ICON(Zygomite_Arcspore_Form, 2),
 		.footprint = gMonFootprint_Zygomite_Arcspore_Form,
 		LEARNSETS(Zygomite_Arcspore_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_ZYGOMITE_DAEMONCAP_FORM] =
 	{
 		.baseHP = 80,
-		.baseAttack = 60,
-		.baseDefense = 80,
-		.baseSpeed = 40,
-		.baseSpAttack = 110,
-		.baseSpDefense = 110,
-		.types = { TYPE_GRASS, TYPE_GHOST },
+		.baseAttack = 65,
+		.baseDefense = 95,
+		.baseSpeed = 30,
+		.baseSpAttack = 100,
+		.baseSpDefense = 100,
+		.types = { TYPE_FAIRY, TYPE_GHOST },
 		.catchRate = 45,
 		.expYield = 154,
 		.evYield_SpDefense = 2,
@@ -46308,21 +46702,21 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zygomite_Daemoncap_Form),
-		ICON(Zygomite_Daemoncap_Form, 0),
+		ICON(Zygomite_Daemoncap_Form, 2),
 		.footprint = gMonFootprint_Zygomite_Daemoncap_Form,
 		LEARNSETS(Zygomite_Daemoncap_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 	},
 
 [SPECIES_ZYGOMITE_ANCIENT_FORM] =
 	{
-		.baseHP = 100,
-		.baseAttack = 70,
-		.baseDefense = 110,
+		.baseHP = 85,
+		.baseAttack = 65,
+		.baseDefense = 60,
 		.baseSpeed = 20,
-		.baseSpAttack = 80,
-		.baseSpDefense = 100,
+		.baseSpAttack = 110,
+		.baseSpDefense = 130,
 		.types = { TYPE_GRASS, TYPE_ROCK },
 		.catchRate = 45,
 		.expYield = 154,
@@ -46357,10 +46751,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Zygomite_Ancient_Form),
-		ICON(Zygomite_Ancient_Form, 0),
+		ICON(Zygomite_Ancient_Form, 1),
 		.footprint = gMonFootprint_Zygomite_Ancient_Form,
 		LEARNSETS(Zygomite_Ancient_Form),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 8,
 		.enemyMonElevation = 0,
 	},
 
@@ -46411,6 +46805,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Zulrah_Serpentine_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sZulrahFormSpeciesIdTable,
+		.formChangeTable = sZulrahFormChangeTable,
 	},
 
 [SPECIES_ZULRAH_MAGMA_FORM] =
@@ -46461,6 +46857,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Zulrah_Magma_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sZulrahFormSpeciesIdTable,
+		.formChangeTable = sZulrahFormChangeTable,
 	},
 
 [SPECIES_ZULRAH_TANZANITE_FORM] =
@@ -46509,6 +46907,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Zulrah_Tanzanite_Form),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.formSpeciesIdTable = sZulrahFormSpeciesIdTable,
+		.formChangeTable = sZulrahFormChangeTable,
 	},
 
 [SPECIES_PIG_SUMMONING_FORM] =
@@ -46533,7 +46933,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_PICKUP, ABILITY_PICKUP },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Pig"),
+		.speciesName = _("Spirit Pig"),
 		.cryId = CRY_PIG_SUMMONING_FORM,
 		.natDexNum = NATIONAL_DEX_PIG_SUMMONING_FORM,
 		.categoryName = _("Pig"),
@@ -46553,7 +46953,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Pig_Summoning_Form),
-		ICON(Pig_Summoning_Form, 0),
+		ICON(Pig_Summoning_Form, 2),
 		.footprint = gMonFootprint_Pig_Summoning_Form,
 		LEARNSETS(Pig_Summoning_Form),
 		.frontPicYOffset = 0,
@@ -46581,14 +46981,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MONSTER },
 		.abilities = { ABILITY_MAGMA_ARMOR, ABILITY_MAGMA_ARMOR, ABILITY_PRESSURE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("TzTok Jad"),
+		.speciesName = _("TzTok-Jad"),
 		.cryId = CRY_TZTOK_JAD_HD_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_TZTOK_JAD_HD_MEGA_FORM,
 		.categoryName = _("Tzhaar"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"The most powerful creature in the TzHaar\n"
+			"Fight Caves, this monster is capable of\n"
+			"attacking with all three combat styles."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46631,14 +47033,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MONSTER },
 		.abilities = { ABILITY_MAGMA_ARMOR, ABILITY_MAGMA_ARMOR, ABILITY_PRESSURE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("TzTok Jad"),
+		.speciesName = _("TzTok-Jad"),
 		.cryId = CRY_TZTOK_JAD_RS3_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_TZTOK_JAD_RS3_MEGA_FORM,
 		.categoryName = _("Tzhaar"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"An extremely powerful obsidian fire\n"
+			"elemental. Defeating one is the only way\n"
+			"to access the TzHaar Fight Kiln."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46681,14 +47085,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
 		.abilities = { ABILITY_ABYSSAL, ABILITY_LIQUID_OOZE, ABILITY_LIQUID_OOZE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("A.Guardian"),
+		.speciesName = _("Guardian"),
 		.cryId = CRY_ABYSSAL_GUARDIAN,
 		.natDexNum = NATIONAL_DEX_ABYSSAL_GUARDIAN,
 		.categoryName = _("Demon"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A creature that lives between relams.\n"
+			"A creature that lives between realms.\n"
 			"Its face confuses all."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -46701,7 +47105,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Abyssal_Guardian),
-		ICON(Abyssal_Guardian, 2),
+		ICON(Abyssal_Guardian, 0),
 		.footprint = gMonFootprint_Abyssal_Guardian,
 		LEARNSETS(Abyssal_Guardian),
 		.frontPicYOffset = 0,
@@ -46720,14 +47124,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 153,
 		.evYield_HP = 3,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = PERCENT_FEMALE(100),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_FAST,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_STICKY_HOLD, ABILITY_LIQUID_OOZE, ABILITY_NONE },
+		.abilities = { ABILITY_GOOEY, ABILITY_LIQUID_OOZE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("SlimeQueen"),
 		.cryId = CRY_SLIME_QUEEN,
@@ -46749,7 +47153,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Slime_Queen),
-		ICON(Slime_Queen, 0),
+		ICON(Slime_Queen, 2),
 		.footprint = gMonFootprint_Slime_Queen,
 		LEARNSETS(Slime_Queen),
 		.frontPicYOffset = 0,
@@ -46786,7 +47190,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"A creature infused with essence of the\n"
-			"god Tuska."),
+			"God Tuska."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46833,8 +47237,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A demon found deep within the depths of\n"
-			"Kourend. It's origins are unknown."),
+			"Once a general of Zamorak, this demon\n"
+			"eventually betrayed him, living within\n"
+			"the depths of the Kourend Catacombs to\n"
+			"escape his wrath."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46896,7 +47302,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scurrius_Melee_Form),
-		ICON(Scurrius_Melee_Form, 0),
+		ICON(Scurrius_Melee_Form, 2),
 		.footprint = gMonFootprint_Scurrius_Melee_Form,
 		LEARNSETS(Scurrius_Melee_Form),
 		.frontPicYOffset = 0,
@@ -46933,7 +47339,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"Part of the rat king Scurrius, the\n"
+			"ranged head likes to throw stinky fur\n"
+			"balls at adventures to disorientate them\n"
+			"before eating them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -46945,7 +47354,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Scurrius_Ranged_Form),
-		ICON(Scurrius_Ranged_Form, 0),
+		ICON(Scurrius_Ranged_Form, 1),
 		.footprint = gMonFootprint_Scurrius_Ranged_Form,
 		LEARNSETS(Scurrius_Ranged_Form),
 		.frontPicYOffset = 0,
@@ -46981,7 +47390,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"Despite being a much smaller part of the\n"
+			"whole rat king, some believe Scurrius'\n"
+			"mage head ultimately controls it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47043,7 +47454,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Broav_Zombie_Form),
-		ICON(Broav_Zombie_Form, 0),
+		ICON(Broav_Zombie_Form, 1),
 		.footprint = gMonFootprint_Broav_Zombie_Form,
 		LEARNSETS(Broav_Zombie_Form),
 		.frontPicYOffset = 0,
@@ -47078,7 +47489,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The lazy workforce of the easter bunny.\n"
+			"The lazy workforce of the Easter Bunny.\n"
 			"Paid to paint eggs all day, they snooze\n"
 			"off easily."),
 		.pokemonScale = 256,
@@ -47092,7 +47503,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Impling_Easter_Form),
-		ICON(Impling_Easter_Form, 0),
+		ICON(Impling_Easter_Form, 2),
 		.footprint = gMonFootprint_Impling_Easter_Form,
 		LEARNSETS(Impling_Easter_Form),
 		.frontPicYOffset = 0,
@@ -47127,7 +47538,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"These implings only show up at christmas\n"
+			"These implings only show up at Christmas\n"
 			"time, purely to cause mischief."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -47175,8 +47586,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"This impling cant be caught, instead it\n"
-			"tells adventurers of Puro Puro."),
+			"This impling can't be caught, instead it\n"
+			"tells adventurers of its magical home\n"
+			"plane, Puro-Puro."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47192,7 +47604,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.footprint = gMonFootprint_Impling_Wandering_Form,
 		LEARNSETS(Impling_Wandering_Form),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 1,
+		.enemyMonElevation = 8,
 	},
 
 [SPECIES_IMPLING_GHOST_FORM] =
@@ -47224,7 +47636,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"These implings pick up necrotic energy\n"
-			"to store, but players always steals it."),
+			"to store, but adventurers always steal\n"
+			"it."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47272,7 +47685,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The undead dragon, its missing one leg."),
+			"An undead dragon missing its front leg.\n"
+			"Abandoned for not being aggressive\n"
+			"enough, it seeks to change that with its\n"
+			"icy breath."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47299,7 +47715,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpeed = 100,
 		.baseSpAttack = 100,
 		.baseSpDefense = 65,
-		.types = { TYPE_FIRE, TYPE_GHOST },
+		.types = { TYPE_NORMAL, TYPE_FIRE },
 		.catchRate = 75,
 		.expYield = 123,
 		.evYield_SpAttack = 1,
@@ -47334,7 +47750,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Fox_Pyre),
-		ICON(Fox_Pyre, 0),
+		ICON(Fox_Pyre, 2),
 		.footprint = gMonFootprint_Fox_Pyre,
 		LEARNSETS(Fox_Pyre),
 		.frontPicYOffset = 0,
@@ -47345,10 +47761,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 	{
 		.baseHP = 130,
 		.baseAttack = 125,
-		.baseDefense = 110,
+		.baseDefense = 55,
 		.baseSpeed = 125,
 		.baseSpAttack = 115,
-		.baseSpDefense = 110,
+		.baseSpDefense = 50,
 		.types = { TYPE_NORMAL, TYPE_NORMAL },
 		.catchRate = 75,
 		.expYield = 123,
@@ -47364,7 +47780,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_DEFEATIST, ABILITY_NONE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Fox"),
+		.speciesName = _("Trial"),
 		.cryId = CRY_FOX_RECRUITMENTDRIVE,
 		.natDexNum = NATIONAL_DEX_FOX_RECRUITMENTDRIVE,
 		.categoryName = _("Puzzle"),
@@ -47372,7 +47788,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.weight = 0,
 		.description = COMPOUND_STRING(
 			"If the fox stays with the hen then it\n"
-			"eats it, if the hen stays with the sack,\n"
+			"eats it. If the hen stays with the sack,\n"
 			"it eats it. If the fox stays with the\n"
 			"sack, nothing happens."),
 		.pokemonScale = 256,
@@ -47436,7 +47852,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Fox_Fennec),
-		ICON(Fox_Fennec, 0),
+		ICON(Fox_Fennec, 2),
 		.footprint = gMonFootprint_Fox_Fennec,
 		LEARNSETS(Fox_Fennec),
 		.frontPicYOffset = 0,
@@ -47471,8 +47887,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"A salamander that only appears in Tecu.\n"
-			"Their tails are valued."),
+			"A salamander native to the continent of\n"
+			"Varlamore. Their tails are valued."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47484,7 +47900,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Salamander_Tecu),
-		ICON(Salamander_Tecu, 0),
+		ICON(Salamander_Tecu, 1),
 		.footprint = gMonFootprint_Salamander_Tecu,
 		LEARNSETS(Salamander_Tecu),
 		.frontPicYOffset = 0,
@@ -47519,7 +47935,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"a small critter that runs when provoked.\n"
+			"A small critter that runs when provoked.\n"
 			"It can run at great speeds."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
@@ -47532,7 +47948,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jerboa),
-		ICON(Jerboa, 0),
+		ICON(Jerboa, 1),
 		.footprint = gMonFootprint_Jerboa,
 		LEARNSETS(Jerboa),
 		.frontPicYOffset = 0,
@@ -47617,7 +48033,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"The horns on this goat absorbs heat\n"
+			"The horns on this goat absorb heat\n"
 			"easily. It basks in sunlight when it\n"
 			"rests."),
 		.pokemonScale = 256,
@@ -47631,7 +48047,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Antelope_Sunlight_Form),
-		ICON(Antelope_Sunlight_Form, 0),
+		ICON(Antelope_Sunlight_Form, 2),
 		.footprint = gMonFootprint_Antelope_Sunlight_Form,
 		LEARNSETS(Antelope_Sunlight_Form),
 		.frontPicYOffset = 0,
@@ -47680,7 +48096,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Antelope_Moonlight_Form),
-		ICON(Antelope_Moonlight_Form, 0),
+		ICON(Antelope_Moonlight_Form, 2),
 		.footprint = gMonFootprint_Antelope_Moonlight_Form,
 		LEARNSETS(Antelope_Moonlight_Form),
 		.frontPicYOffset = 0,
@@ -47728,7 +48144,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Capybara),
-		ICON(Capybara, 0),
+		ICON(Capybara, 2),
 		.footprint = gMonFootprint_Capybara,
 		LEARNSETS(Capybara),
 		.frontPicYOffset = 0,
@@ -47776,7 +48192,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Capybara_Orange),
-		ICON(Capybara_Orange, 0),
+		ICON(Capybara_Orange, 2),
 		.footprint = gMonFootprint_Capybara_Orange,
 		LEARNSETS(Capybara_Orange),
 		.frontPicYOffset = 0,
@@ -47785,12 +48201,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ENTLING] =
 	{
-		.baseHP = 20,
-		.baseAttack = 20,
-		.baseDefense = 20,
-		.baseSpeed = 20,
-		.baseSpAttack = 20,
-		.baseSpDefense = 20,
+		.baseHP = 50,
+		.baseAttack = 50,
+		.baseDefense = 50,
+		.baseSpeed = 50,
+		.baseSpAttack = 50,
+		.baseSpDefense = 50,
 		.types = { TYPE_GRASS, TYPE_GRASS },
 		.catchRate = 120,
 		.expYield = 120,
@@ -47810,7 +48226,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Entling"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The joyful spawn of an ent, these appear\n"
+			"randomly to ask adventurers to prune\n"
+			"them. They stun anyone who does not\n"
+			"prune them properly."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47822,13 +48242,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Entling),
-		ICON(Entling, 0),
+		ICON(Entling, 1),
 		.footprint = gMonFootprint_Entling,
 		LEARNSETS(Entling),
-		.frontPicYOffset = 0,
+		.frontPicYOffset = 5,
 		.enemyMonElevation = 0,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL, 30, SPECIES_ENT}
+			{EVO_LEVEL, 30, SPECIES_ENT},
+			{EVO_LEVEL_DEATH, 20, SPECIES_DEAD_TREE},
+			{EVO_ITEM, ITEM_DEATH_RUNE, SPECIES_DEAD_TREE}
 		),
 	},
 
@@ -47910,7 +48332,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 7.7,
 		.weight = 122.5,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"This giant Wolpertinger appears so\n"
+			"fearsome it could scare away a pack of\n"
+			"trolls. Despite this, it's scared of\n"
+			"wolves."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -47961,7 +48386,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
-			"CUPHOLDER"),
+			"The exposed inner core of the Flesh\n"
+			"Spoiler. It is immobile, but can still\n"
+			"be extremely deadly."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48004,7 +48431,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Fleshling"),
 		.cryId = CRY_FLESH_SPOILER_SPAWNLING,
 		.natDexNum = NATIONAL_DEX_FLESH_SPOILER_SPAWNLING,
-		.categoryName = _("Stalker"),
+		.categoryName = _("Spawnling"),
 		.height = 0,
 		.weight = 0,
 		.description = COMPOUND_STRING(
@@ -48022,7 +48449,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Flesh_Spoiler_Spawnling),
-		ICON(Flesh_Spoiler_Spawnling, 0),
+		ICON(Flesh_Spoiler_Spawnling, 1),
 		.footprint = gMonFootprint_Flesh_Spoiler_Spawnling,
 		LEARNSETS(Flesh_Spoiler_Spawnling),
 		.frontPicYOffset = 0,
@@ -48053,10 +48480,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Gazer"),
 		.cryId = CRY_CAUSTIC_GAZER,
 		.natDexNum = NATIONAL_DEX_CAUSTIC_GAZER,
-		.categoryName = _("Stalker"),
+		.categoryName = _("Caustic"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The venomous spawn of the Seeker of\n"
+			"Truth, it will do whatever it takes to\n"
+			"protect its master."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48068,7 +48498,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Caustic_Gazer),
-		ICON(Caustic_Gazer, 0),
+		ICON(Caustic_Gazer, 1),
 		.footprint = gMonFootprint_Caustic_Gazer,
 		LEARNSETS(Caustic_Gazer),
 		.frontPicYOffset = 0,
@@ -48099,10 +48529,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Iris"),
 		.cryId = CRY_IRIS_STALKER,
 		.natDexNum = NATIONAL_DEX_IRIS_STALKER,
-		.categoryName = _("Stalker"),
+		.categoryName = _("Iris"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A stalker that has grown fond of an\n"
+			"adventurer and joined them willingly.\n"
+			"You feel as if you are being watched\n"
+			"whenever it is nearby, though."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48114,7 +48548,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Iris_Stalker),
-		ICON(Iris_Stalker, 0),
+		ICON(Iris_Stalker, 1),
 		.footprint = gMonFootprint_Iris_Stalker,
 		LEARNSETS(Iris_Stalker),
 		.frontPicYOffset = 0,
@@ -48130,7 +48564,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.baseSpAttack = 100,
 		.baseSpDefense = 85,
 		.types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
-		.catchRate = 120,
+		.catchRate = 180,
 		.expYield = 51,
 		.evYield_HP = 1,
 		.genderRatio = MON_GENDERLESS,
@@ -48145,10 +48579,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Book"),
 		.cryId = CRY_ANIMATED_BOOK,
 		.natDexNum = NATIONAL_DEX_ANIMATED_BOOK,
-		.categoryName = _("Book"),
+		.categoryName = _("Animated"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"They say knowledge is power, but this\n"
+			"book took that too literally and the\n"
+			"arcane words within it brought it to\n"
+			"life."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48160,15 +48598,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Animated_Book),
-		ICON(Animated_Book, 0),
+		ICON(Animated_Book, 1),
 		.footprint = gMonFootprint_Animated_Book,
 		LEARNSETS(Animated_Book),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 10,
 		.evolutions = EVOLUTION(
-			{EVO_LEVEL_ATK_EQ_SPATK, 35, SPECIES_TOME_OF_RANGED},
-			{EVO_LEVEL_ATK_LT_SPATK, 35, SPECIES_TOME_OF_MAGIC},
-			{EVO_LEVEL_ATK_GT_SPATK, 35, SPECIES_TOME_OF_STRENGTH}
+			{EVO_LEVEL_ATK_EQ_SPATK, 28, SPECIES_TOME_OF_RANGED},
+			{EVO_LEVEL_ATK_LT_SPATK, 28, SPECIES_TOME_OF_MAGIC},
+			{EVO_LEVEL_ATK_GT_SPATK, 28, SPECIES_TOME_OF_STRENGTH}
 		),
 	},
 
@@ -48196,10 +48634,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Tome"),
 		.cryId = CRY_TOME_OF_STRENGTH,
 		.natDexNum = NATIONAL_DEX_TOME_OF_STRENGTH,
-		.categoryName = _("Book"),
+		.categoryName = _("Tome"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"An ancient tome of melee secrets\n"
+			"summoned by the only known librarimancer\n"
+			"in Gielinor."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48216,6 +48657,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Tome_of_Strength),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 10,
+		.formSpeciesIdTable = sTomeFormSpeciesIdTable,
+		.formChangeTable = sTomeFormChangeTable,
 	},
 
 [SPECIES_TOME_OF_RANGED] =
@@ -48242,10 +48685,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Tome"),
 		.cryId = CRY_TOME_OF_RANGED,
 		.natDexNum = NATIONAL_DEX_TOME_OF_RANGED,
-		.categoryName = _("Book"),
+		.categoryName = _("Tome"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"This ancient tome contains ranged combat\n"
+			"secrets, and is part of Lexicus' Almanac\n"
+			"Army."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48262,6 +48708,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Tome_of_Ranged),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 10,
+		.formSpeciesIdTable = sTomeFormSpeciesIdTable,
+		.formChangeTable = sTomeFormChangeTable,
 	},
 
 [SPECIES_TOME_OF_MAGIC] =
@@ -48288,10 +48736,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Tome"),
 		.cryId = CRY_TOME_OF_MAGIC,
 		.natDexNum = NATIONAL_DEX_TOME_OF_MAGIC,
-		.categoryName = _("Book"),
+		.categoryName = _("Tome"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"An ancient tome of arcane secrets. It\n"
+			"has been enchanted by Lexicus to attack\n"
+			"anyone who dares cross him."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48308,6 +48759,8 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Tome_of_Magic),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 10,
+		.formSpeciesIdTable = sTomeFormSpeciesIdTable,
+		.formChangeTable = sTomeFormChangeTable,
 	},
 
 [SPECIES_LUMINESCENT_ICEFIEND] =
@@ -48334,10 +48787,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Icefiend"),
 		.cryId = CRY_LUMINESCENT_ICEFIEND,
 		.natDexNum = NATIONAL_DEX_LUMINESCENT_ICEFIEND,
-		.categoryName = _("Fiend"),
+		.categoryName = _("Luminescent"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A creature of pure ice, its body\n"
+			"sparkles whenever the light hits it. It\n"
+			"likes to lure in adventurers, and then\n"
+			"crush them under falling icicles."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48383,7 +48840,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Warped  "),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Originating from the Spirit Plane, this\n"
+			"creature has been warped by its\n"
+			"proximity to The Rift beneath\n"
+			"Daemonheim."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48395,7 +48856,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Warped_Galuga),
-		ICON(Warped_Galuga, 0),
+		ICON(Warped_Galuga, 2),
 		.footprint = gMonFootprint_Warped_Galuga,
 		LEARNSETS(Warped_Galuga),
 		.frontPicYOffset = 0,
@@ -48429,7 +48890,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A slow creature hunted by adventurers in\n"
+			"Daemonheim to use their skin for ranged\n"
+			"armour."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48446,6 +48910,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Submastyx),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_SPINOMASTYX}
+		),
 	},
 
 [SPECIES_PARAMASTYX] =
@@ -48475,7 +48942,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The fat in its body makes it an able\n"
+			"meal for those who live exclusivly in\n"
+			"the dungeons of Daemonheim."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48492,6 +48962,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Paramastyx),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_GALLIMASTYX}
+		),
 	},
 
 [SPECIES_ARCHAEMASTYX] =
@@ -48521,7 +48994,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"It's skin allows for quick movement. But\n"
+			"due to its large percent of bodyfat it\n"
+			"can never escape."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48538,6 +49014,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Archaemastyx),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_STEGOMASTYX}
+		),
 	},
 
 [SPECIES_DROMOMASTYX] =
@@ -48567,7 +49046,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"To catch one the most efficiently,\n"
+			"hunters made a trap that only cuts off\n"
+			"its head."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48584,6 +49066,9 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		LEARNSETS(Dromomastyx),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_MEGAMASTYX}
+		),
 	},
 
 [SPECIES_SPINOMASTYX] =
@@ -48613,7 +49098,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Hunters who gathers their hide can\n"
+			"create good armour from this beast. But\n"
+			"will never use it since it uses up their\n"
+			"binds."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48659,7 +49148,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Some argue that their brain is really\n"
+			"small. Most people who arent mastyxes\n"
+			"agree."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48705,7 +49197,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"To efficiently catch a mastyx, it is\n"
+			"best to set up a guillotine and wait for\n"
+			"it to curiocly poke its head in."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48751,7 +49246,11 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Dino"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Their hide is hard but flexible and\n"
+			"makes for great hide armour. Only the\n"
+			"best archers wear armour made from their\n"
+			"skin."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48797,7 +49296,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Jelly"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"They devour their prey whole by acidic\n"
+			"engulfment. Most of the time they just\n"
+			"eat dust on the ground however."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48817,7 +49319,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL_DAY, 38, SPECIES_JELLY_TROLLWEISS_FORM},
 			{EVO_LEVEL_NIGHT, 38, SPECIES_JELLY_DUNGEONEERING_FORM},
-			{EVO_ITEM, ITEM_CHOCOLATE_CAKE, SPECIES_JELLY_VITREOUS_FORM}
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_CAKE, SPECIES_JELLY_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_BAR_SANDWICH, SPECIES_JELLY_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_SUNDAY, SPECIES_JELLY_VITREOUS_FORM},
+			{EVO_ITEM_HOLD, ITEM_CHOCOLATE_MILK, SPECIES_JELLY_VITREOUS_FORM}
 		),
 	},
 
@@ -48849,7 +49354,10 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.categoryName = _("Jelly"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"As they clean surfaces really well, its\n"
+			"theorized Bilrach implemented them in\n"
+			"Daemonheim to clean the dungeon."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48861,7 +49369,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jelly_Dungeoneering_Form),
-		ICON(Jelly_Dungeoneering_Form, 0),
+		ICON(Jelly_Dungeoneering_Form, 2),
 		.footprint = gMonFootprint_Jelly_Dungeoneering_Form,
 		LEARNSETS(Jelly_Dungeoneering_Form),
 		.frontPicYOffset = 0,
@@ -48888,15 +49396,19 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_GOOEY, ABILITY_CLEAR_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_GOOEY, ABILITY_REFRIGERATE, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jelly"),
 		.cryId = CRY_JELLY_TROLLWEISS_FORM,
 		.natDexNum = NATIONAL_DEX_JELLY_TROLLWEISS_FORM,
-		.categoryName = _("Jelly"),
+		.categoryName = _("Ice cube"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The icy north of Trollweiss grants\n"
+			"jellies the perfect cover. Where there\n"
+			"is ice everywhere, noone questions a\n"
+			"giant ice cube."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48908,7 +49420,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jelly_Trollweiss_Form),
-		ICON(Jelly_Trollweiss_Form, 0),
+		ICON(Jelly_Trollweiss_Form, 2),
 		.footprint = gMonFootprint_Jelly_Trollweiss_Form,
 		LEARNSETS(Jelly_Trollweiss_Form),
 		.frontPicYOffset = 0,
@@ -48935,15 +49447,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_GOOEY, ABILITY_CLEAR_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_GOOEY, ABILITY_CORROSION, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jelly"),
 		.cryId = CRY_JELLY_VITREOUS_FORM,
 		.natDexNum = NATIONAL_DEX_JELLY_VITREOUS_FORM,
-		.categoryName = _("Jelly"),
+		.categoryName = _("Vitreous"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"More acidic than a regular jelly, these\n"
+			"vitreous jellies destroys any metal they\n"
+			"come in contact with."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -48955,7 +49470,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jelly_Vitreous_Form),
-		ICON(Jelly_Vitreous_Form, 0),
+		ICON(Jelly_Vitreous_Form, 1),
 		.footprint = gMonFootprint_Jelly_Vitreous_Form,
 		LEARNSETS(Jelly_Vitreous_Form),
 		.frontPicYOffset = 0,
@@ -48982,15 +49497,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS },
-		.abilities = { ABILITY_MOODY, ABILITY_CLEAR_BODY, ABILITY_NONE },
+		.abilities = { ABILITY_MOODY, ABILITY_CORROSION, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Jelly"),
 		.cryId = CRY_JELLY_WARPED_VITREOUS_FORM,
 		.natDexNum = NATIONAL_DEX_JELLY_WARPED_VITREOUS_FORM,
-		.categoryName = _("Jelly"),
+		.categoryName = _("Vitreous"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Raped and vitreous, these jellies lash\n"
+			"out at anything to devour it or them\n"
+			"whole."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49011,15 +49529,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MOTH_SUNLIGHT_FORM] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 60,
+		.baseAttack = 60,
+		.baseDefense = 40,
+		.baseSpeed = 100,
+		.baseSpAttack = 95,
+		.baseSpDefense = 135,
 		.types = { TYPE_BUG, TYPE_BUG },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 89,
+		.evYield_SpDefense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
 		.friendship = 30,
@@ -49032,10 +49551,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Moth"),
 		.cryId = CRY_MOTH_SUNLIGHT_FORM,
 		.natDexNum = NATIONAL_DEX_MOTH_SUNLIGHT_FORM,
-		.categoryName = _("Moth"),
+		.categoryName = _("Sunlight"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"They gather out when the sun is high to\n"
+			"bask in the warmth. In midday they fly\n"
+			"away in a flock."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49056,15 +49578,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_MOTH_MOONLIGHT_FORM] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
+		.baseHP = 60,
+		.baseAttack = 60,
+		.baseDefense = 40,
+		.baseSpeed = 105,
+		.baseSpAttack = 90,
+		.baseSpDefense = 135,
 		.types = { TYPE_BUG, TYPE_BUG },
-		.catchRate = 25,
+		.catchRate = 65,
 		.expYield = 89,
+		.evYield_SpDefense = 2,
 		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 15,
 		.friendship = 30,
@@ -49077,10 +49600,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Moth"),
 		.cryId = CRY_MOTH_MOONLIGHT_FORM,
 		.natDexNum = NATIONAL_DEX_MOTH_MOONLIGHT_FORM,
-		.categoryName = _("Moth"),
+		.categoryName = _("Moonlight"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"During the full moon, flocks of\n"
+			"Moonlight moths fly to create a\n"
+			"spectacular sight."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49110,6 +49636,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.types = { TYPE_ROCK, TYPE_ELECTRIC },
 		.catchRate = 1,
 		.expYield = 126,
+		.evYield_HP = 3,
+		.evYield_Attack = 3,
+		.evYield_Defense = 3,
+		.evYield_Speed = 3,
+		.evYield_SpAttack = 3,
+		.evYield_SpDefense = 3,
 		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 20,
 		.friendship = 0,
@@ -49122,10 +49654,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("StoneJas"),
 		.cryId = CRY_STONE_OF_JAS_MEGA_FORM,
 		.natDexNum = NATIONAL_DEX_STONE_OF_JAS_MEGA_FORM,
-		.categoryName = _("Rock"),
+		.categoryName = _("Cabbage"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The Eye of Saradomin. The Fist of\n"
+			"Guthix. The Catalyst. The Cabbage of a\n"
+			"Thousand Truths. The stone of Jas."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49137,7 +49672,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Stone_of_Jas_Mega_Form),
-		ICON(Stone_of_Jas_Mega_Form, 0),
+		ICON(Stone_of_Jas_Mega_Form, 2),
 		.footprint = gMonFootprint_Stone_of_Jas_Mega_Form,
 		LEARNSETS(Stone_of_Jas_Mega_Form),
 		.frontPicYOffset = 2,
@@ -49158,6 +49693,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.types = { TYPE_GHOST, TYPE_STEEL },
 		.catchRate = 45,
 		.expYield = 150,
+		.evYield_Attack = 1,
 		.evYield_Defense = 2,
 		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 20,
@@ -49166,15 +49702,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_STURDY, ABILITY_HEAVY_METAL, ABILITY_NONE },
+		.abilities = { ABILITY_SHARPNESS, ABILITY_HEAVY_METAL, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Warrior"),
 		.cryId = CRY_SPIRIT_WARRIOR,
 		.natDexNum = NATIONAL_DEX_SPIRIT_WARRIOR,
-		.categoryName = _(""),
+		.categoryName = _("Warrior"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A warrior fighting for Saradomin since\n"
+			"ages past. Even in death their servitude\n"
+			"goes on."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49196,15 +49735,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_SPIRIT_RANGER] =
 	{
 		.baseHP = 75,
-		.baseAttack = 95,
-		.baseDefense = 95,
-		.baseSpeed = 95,
-		.baseSpAttack = 95,
-		.baseSpDefense = 95,
+		.baseAttack = 105,
+		.baseDefense = 80,
+		.baseSpeed = 105,
+		.baseSpAttack = 105,
+		.baseSpDefense = 80,
 		.types = { TYPE_GHOST, TYPE_STEEL },
 		.catchRate = 45,
 		.expYield = 150,
 		.evYield_Defense = 2,
+		.evYield_Speed = 1,
 		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 20,
 		.friendship = 70,
@@ -49217,10 +49757,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Ranger"),
 		.cryId = CRY_SPIRIT_RANGER,
 		.natDexNum = NATIONAL_DEX_SPIRIT_RANGER,
-		.categoryName = _(""),
+		.categoryName = _("Ranger"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Found in the god wars dungeon. These\n"
+			"rangers fight even beyond death."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49242,15 +49784,16 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 [SPECIES_SPIRIT_MAGE] =
 	{
 		.baseHP = 75,
-		.baseAttack = 80,
+		.baseAttack = 70,
 		.baseDefense = 115,
 		.baseSpeed = 70,
 		.baseSpAttack = 115,
-		.baseSpDefense = 95,
+		.baseSpDefense = 105,
 		.types = { TYPE_GHOST, TYPE_STEEL },
 		.catchRate = 45,
 		.expYield = 150,
 		.evYield_Defense = 2,
+		.evYield_SpAttack = 1,
 		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 20,
 		.friendship = 70,
@@ -49258,15 +49801,18 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_LEVITATE, ABILITY_LIGHT_METAL, ABILITY_NONE },
+		.abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_LIGHT_METAL, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Mage"),
 		.cryId = CRY_SPIRIT_MAGE,
 		.natDexNum = NATIONAL_DEX_SPIRIT_MAGE,
-		.categoryName = _(""),
+		.categoryName = _("Mage"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Guthix never endorsed war nor conflict.\n"
+			"Yet his warriors and mages would fight\n"
+			"for his cause forever."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49278,7 +49824,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Spirit_Mage),
-		ICON(Spirit_Mage, 0),
+		ICON(Spirit_Mage, 1),
 		.footprint = gMonFootprint_Spirit_Mage,
 		LEARNSETS(Spirit_Mage),
 		.frontPicYOffset = 0,
@@ -49309,10 +49855,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Essling"),
 		.cryId = CRY_ESSLING,
 		.natDexNum = NATIONAL_DEX_ESSLING,
-		.categoryName = _(""),
+		.categoryName = _("Essence"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A being of pure runic energy garnering\n"
+			"the power of elemental runes."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49365,10 +49913,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Esshound"),
 		.cryId = CRY_ESSHOUND,
 		.natDexNum = NATIONAL_DEX_ESSHOUND,
-		.categoryName = _(""),
+		.categoryName = _("Hound"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"It holds the power of body, cosmic,\n"
+			"astral, chaos, nature and law. If used\n"
+			"well they can grant runecrafters these\n"
+			"energies."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49380,7 +49932,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Esshound),
-		ICON(Esshound, 0),
+		ICON(Esshound, 2),
 		.footprint = gMonFootprint_Esshound,
 		LEARNSETS(Esshound),
 		.frontPicYOffset = 2,
@@ -49411,10 +49963,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Esswraith"),
 		.cryId = CRY_ESSWRAITH,
 		.natDexNum = NATIONAL_DEX_ESSWRAITH,
-		.categoryName = _(""),
+		.categoryName = _("Wraith"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Holding the power of death, soul and\n"
+			"blood makes the Esswraith a likely match\n"
+			"for high levelled runecrafters."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49457,10 +50012,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Eagle"),
 		.cryId = CRY_HARPY_EAGLE,
 		.natDexNum = NATIONAL_DEX_HARPY_EAGLE,
-		.categoryName = _(""),
+		.categoryName = _("Harpy"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Their talons are the size of a bear.\n"
+			"Often they mimic the mating calls of\n"
+			"their prey to lure them out in the open."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49472,7 +50030,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Harpy_Eagle),
-		ICON(Harpy_Eagle, 0),
+		ICON(Harpy_Eagle, 2),
 		.footprint = gMonFootprint_Harpy_Eagle,
 		LEARNSETS(Harpy_Eagle),
 		.frontPicYOffset = 1,
@@ -49504,10 +50062,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Reborn"),
 		.cryId = CRY_REBORN_WARRIOR,
 		.natDexNum = NATIONAL_DEX_REBORN_WARRIOR,
-		.categoryName = _(""),
+		.categoryName = _("Reborn"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A warrior reborn by the power of the\n"
+			"Phoenix. In gratitude it protects its\n"
+			"lair."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49551,10 +50112,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Reborn"),
 		.cryId = CRY_REBORN_RANGER,
 		.natDexNum = NATIONAL_DEX_REBORN_RANGER,
-		.categoryName = _(""),
+		.categoryName = _("Reborn"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"By the grace of the Phoenix, these\n"
+			"rangers will block anyone who tries to\n"
+			"save the Phoenix"),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49598,10 +50162,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Reborn"),
 		.cryId = CRY_REBORN_MAGE,
 		.natDexNum = NATIONAL_DEX_REBORN_MAGE,
-		.categoryName = _(""),
+		.categoryName = _("Reborn"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Some of these mages can summon reborn\n"
+			"warriors to their aid."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49632,7 +50198,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 121,
 		.evYield_Attack = 2,
-		.genderRatio = PERCENT_FEMALE(100),
+		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -49644,10 +50210,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Jaguar"),
 		.cryId = CRY_JAGUAR_ORANGE_FORM,
 		.natDexNum = NATIONAL_DEX_JAGUAR_ORANGE_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Jaguar"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A fearless predator who can even hunt\n"
+			"crocodiles if they get the chance."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49659,7 +50227,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jaguar_Orange_Form),
-		ICON(Jaguar_Orange_Form, 0),
+		ICON(Jaguar_Orange_Form, 2),
 		.footprint = gMonFootprint_Jaguar_Orange_Form,
 		LEARNSETS(Jaguar_Orange_Form),
 		.frontPicYOffset = 0,
@@ -49681,7 +50249,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.catchRate = 45,
 		.expYield = 121,
 		.evYield_Attack = 2,
-		.genderRatio = PERCENT_FEMALE(100),
+		.genderRatio = PERCENT_FEMALE(50),
 		.eggCycles = 20,
 		.friendship = 70,
 		.growthRate = GROWTH_MEDIUM_SLOW,
@@ -49693,10 +50261,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Jaguar"),
 		.cryId = CRY_JAGUAR_BLACK_FORM,
 		.natDexNum = NATIONAL_DEX_JAGUAR_BLACK_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Jaguar"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The black fur helps it blend in the\n"
+			"night. There it kills anything it can\n"
+			"find."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49708,7 +50279,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Jaguar_Black_Form),
-		ICON(Jaguar_Black_Form, 0),
+		ICON(Jaguar_Black_Form, 2),
 		.footprint = gMonFootprint_Jaguar_Black_Form,
 		LEARNSETS(Jaguar_Black_Form),
 		.frontPicYOffset = 1,
@@ -49740,10 +50311,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Tortle"),
 		.cryId = CRY_TORTLE,
 		.natDexNum = NATIONAL_DEX_TORTLE,
-		.categoryName = _(""),
+		.categoryName = _("Shelled"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"These creatures come up on land to be\n"
+			"hunted by high levelled hunters in the\n"
+			"Whale's Maw."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49755,7 +50329,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Tortle),
-		ICON(Tortle, 0),
+		ICON(Tortle, 2),
 		.footprint = gMonFootprint_Tortle,
 		LEARNSETS(Tortle),
 		.frontPicYOffset = 0,
@@ -49786,10 +50360,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Cockatrice"),
 		.cryId = CRY_COCKATRICE_OSRS_FORM,
 		.natDexNum = NATIONAL_DEX_COCKATRICE_OSRS_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Cockatrice"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Meeting it's gaze causes petrification.\n"
+			"Slayers are adviced to bring a mirror to\n"
+			"act as a shield when handling them."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49801,7 +50378,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockatrice_OSRS_Form),
-		ICON(Cockatrice_OSRS_Form, 0),
+		ICON(Cockatrice_OSRS_Form, 1),
 		.footprint = gMonFootprint_Cockatrice_OSRS_Form,
 		LEARNSETS(Cockatrice_OSRS_Form),
 		.frontPicYOffset = 0,
@@ -49836,10 +50413,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Cockatrice"),
 		.cryId = CRY_COCKATHRICE,
 		.natDexNum = NATIONAL_DEX_COCKATHRICE,
-		.categoryName = _(""),
+		.categoryName = _("Cockathrice"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The superior version of its species. Its\n"
+			"gaze is strong enough to petrify even\n"
+			"rocks."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49851,7 +50431,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cockathrice),
-		ICON(Cockathrice, 0),
+		ICON(Cockathrice, 2),
 		.footprint = gMonFootprint_Cockathrice,
 		LEARNSETS(Cockathrice),
 		.frontPicYOffset = 0,
@@ -49883,10 +50463,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Cockatrice"),
 		.cryId = CRY_COCKATRICE_MOONLIGHT,
 		.natDexNum = NATIONAL_DEX_COCKATRICE_MOONLIGHT,
-		.categoryName = _(""),
+		.categoryName = _("Moonlight"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Legends speak of how these Cockatrices\n"
+			"gaze up at the moon, hoping the\n"
+			"beautiful thing will turn to a rock and\n"
+			"fall down."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49930,10 +50514,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Imp"),
 		.cryId = CRY_REVENANT_IMP,
 		.natDexNum = NATIONAL_DEX_REVENANT_IMP,
-		.categoryName = _(""),
+		.categoryName = _("Revenant"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"An imp that fought for Zamorak in the\n"
+			"god wars. Lingering regret caused it to\n"
+			"become a revenant."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -49980,10 +50567,14 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Dragon"),
 		.cryId = CRY_REVENANT_DRAGON,
 		.natDexNum = NATIONAL_DEX_REVENANT_DRAGON,
-		.categoryName = _(""),
+		.categoryName = _("Revenant"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The fabled white dragon was said to\n"
+			"boast two heads. But in its current\n"
+			"state its impossible to tell if this is\n"
+			"truly a white Dragon."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50026,10 +50617,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Maledictus"),
 		.cryId = CRY_MALEDICTUS,
 		.natDexNum = NATIONAL_DEX_MALEDICTUS,
-		.categoryName = _(""),
+		.categoryName = _("Convicted"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A Zarosian demon holding the sigil of\n"
+			"its god. The sigil keeps it grounded to\n"
+			"this plane even in its torment."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50050,12 +50644,12 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_KALRAG] =
 	{
-		.baseHP = 86,
+		.baseHP = 96,
 		.baseAttack = 80,
-		.baseDefense = 83,
-		.baseSpeed = 81,
-		.baseSpAttack = 125,
-		.baseSpDefense = 95,
+		.baseDefense = 93,
+		.baseSpeed = 91,
+		.baseSpAttack = 135,
+		.baseSpDefense = 105,
 		.types = { TYPE_BUG, TYPE_ELECTRIC },
 		.catchRate = 45,
 		.expYield = 125,
@@ -50072,10 +50666,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Kalrag"),
 		.cryId = CRY_KALRAG,
 		.natDexNum = NATIONAL_DEX_KALRAG,
-		.categoryName = _(""),
+		.categoryName = _("Blessed"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"A spider who consumed the blood of Iban\n"
+			"and grew immense. It acts as the\n"
+			"broodmaiden of blessed spiders."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50096,32 +50693,34 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ANIMAWHAL] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
-		.types = { TYPE_NORMAL, TYPE_NORMAL },
+		.baseHP = 60,
+		.baseAttack = 60,
+		.baseDefense = 60,
+		.baseSpeed = 60,
+		.baseSpAttack = 60,
+		.baseSpDefense = 60,
+		.types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
 		.catchRate = 200,
 		.expYield = 134,
 		.evYield_SpAttack = 2,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 15,
 		.friendship = 20,
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_MIMICRY, ABILITY_NONE, ABILITY_NONE },
+		.abilities = { ABILITY_MIMICRY, ABILITY_MIMICRY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Animawhal"),
 		.cryId = CRY_ANIMAWHAL,
 		.natDexNum = NATIONAL_DEX_ANIMAWHAL,
-		.categoryName = _(""),
+		.categoryName = _("Puddle"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"An amalgamation of memories and energy\n"
+			"becoming a small hunk of everything."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50137,7 +50736,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.footprint = gMonFootprint_Animawhal,
 		LEARNSETS(Animawhal),
 		.frontPicYOffset = 0,
-		.enemyMonElevation = 0,
+		.enemyMonElevation = 8,
 		.evolutions = EVOLUTION(
 			{EVO_LEVEL, 50, SPECIES_ANIMASAURUS}
 		),
@@ -50145,32 +50744,35 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 
 [SPECIES_ANIMASAURUS] =
 	{
-		.baseHP = 1,
-		.baseAttack = 1,
-		.baseDefense = 1,
-		.baseSpeed = 1,
-		.baseSpAttack = 1,
-		.baseSpDefense = 1,
-		.types = { TYPE_NORMAL, TYPE_NORMAL },
+		.baseHP = 90,
+		.baseAttack = 90,
+		.baseDefense = 90,
+		.baseSpeed = 90,
+		.baseSpAttack = 90,
+		.baseSpDefense = 90,
+		.types = { TYPE_PSYCHIC, TYPE_PSYCHIC },
 		.catchRate = 200,
 		.expYield = 167,
 		.evYield_SpAttack = 3,
-		.genderRatio = PERCENT_FEMALE(50),
+		.genderRatio = MON_GENDERLESS,
 		.eggCycles = 15,
 		.friendship = 20,
 		.growthRate = GROWTH_MEDIUM_FAST,
 		.itemCommon = ITEM_NONE,
 		.itemRare = ITEM_NONE,
 		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
-		.abilities = { ABILITY_MIMICRY, ABILITY_NONE, ABILITY_NONE },
+		.abilities = { ABILITY_MIMICRY, ABILITY_MIMICRY, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
 		.speciesName = _("Animasaur"),
 		.cryId = CRY_ANIMASAURUS,
 		.natDexNum = NATIONAL_DEX_ANIMASAURUS,
-		.categoryName = _(""),
+		.categoryName = _("Abomination"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Large energies and memories from the\n"
+			"shattered world caused this being to\n"
+			"exist."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50214,10 +50816,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Sea Troll"),
 		.cryId = CRY_SEA_TROLL_QUEEN,
 		.natDexNum = NATIONAL_DEX_SEA_TROLL_QUEEN,
-		.categoryName = _(""),
+		.categoryName = _("Queen"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The troll queen of the Piscatoris troll\n"
+			"colony. Killing her means the sea troll\n"
+			"tribe are left weakened."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50257,13 +50862,15 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FIELD },
 		.abilities = { ABILITY_THICK_FAT, ABILITY_SAP_SIPPER, ABILITY_NONE },
 		.bodyColor = BODY_COLOR_BLACK,
-		.speciesName = _("Yak"),
+		.speciesName = _("Lumber Yak"),
 		.cryId = CRY_YAK_LUMBER_FORM,
 		.natDexNum = NATIONAL_DEX_YAK_LUMBER_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Lumber"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"Yak's specialized for carrying lumber to\n"
+			"mills and crafters. They are OK."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50275,7 +50882,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Yak_Lumber_Form),
-		ICON(Yak_Lumber_Form, 0),
+		ICON(Yak_Lumber_Form, 2),
 		.footprint = gMonFootprint_Yak_Lumber_Form,
 		LEARNSETS(Yak_Lumber_Form),
 		.frontPicYOffset = 0,
@@ -50310,10 +50917,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Cabbage"),
 		.cryId = CRY_CABBAGE_SHATTERED_WORLD_FORM,
 		.natDexNum = NATIONAL_DEX_CABBAGE_SHATTERED_WORLD_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Cabbage"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The memeories and love of cabbage that\n"
+			"the world brings to fruition in the\n"
+			"perfect shape. A cabbage."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50325,7 +50935,7 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Cabbage_Shattered_World_Form),
-		ICON(Cabbage_Shattered_World_Form, 0),
+		ICON(Cabbage_Shattered_World_Form, 1),
 		.footprint = gMonFootprint_Cabbage_Shattered_World_Form,
 		LEARNSETS(Cabbage_Shattered_World_Form),
 		.frontPicYOffset = 0,
@@ -50357,10 +50967,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Vulture"),
 		.cryId = CRY_VULTURE_BEARDED_FORM,
 		.natDexNum = NATIONAL_DEX_VULTURE_BEARDED_FORM,
-		.categoryName = _(""),
+		.categoryName = _("Lammergeier"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"They pick up bones and crush them from\n"
+			"tall heights. Their diet is almost\n"
+			"entirely bones."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50404,10 +51017,13 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.speciesName = _("Kryket Bat"),
 		.cryId = CRY_KRYKET_BAT,
 		.natDexNum = NATIONAL_DEX_KRYKET_BAT,
-		.categoryName = _(""),
+		.categoryName = _("Kryket"),
 		.height = 0,
 		.weight = 0,
-		.description = COMPOUND_STRING(),
+		.description = COMPOUND_STRING(
+			"The most perfect and bestest bat in the\n"
+			"world according to everyone. No\n"
+			"validation needed."),
 		.pokemonScale = 256,
 		.pokemonOffset = 0,
 		.trainerScale = 256,
@@ -50419,11 +51035,1923 @@ const struct SpeciesInfo gSpeciesInfoPokescape[] =
 		.backPicYOffset = 0,
 		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
 		PALETTES(Kryket_Bat),
-		ICON(Kryket_Bat, 0),
+		ICON(Kryket_Bat, 1),
 		.footprint = gMonFootprint_Kryket_Bat,
 		LEARNSETS(Kryket_Bat),
 		.frontPicYOffset = 0,
 		.enemyMonElevation = 4,
+	},
+
+[SPECIES_HAR_AKEN] =
+	{
+		.baseHP = 200,
+		.baseAttack = 120,
+		.baseDefense = 100,
+		.baseSpeed = 30,
+		.baseSpAttack = 120,
+		.baseSpDefense = 100,
+		.types = { TYPE_FIRE, TYPE_ROCK },
+		.catchRate = 1,
+		.expYield = 160,
+		.evYield_HP = 3,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 0,
+		.growthRate = GROWTH_SLOW,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_PRESSURE, ABILITY_PRESSURE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Har-Aken"),
+		.cryId = CRY_HAR_AKEN,
+		.natDexNum = NATIONAL_DEX_HAR_AKEN,
+		.categoryName = _("Tzhaar"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"An ugly piece of shit Jagex thought\n"
+			"could replace Jad. It cant because it is\n"
+			"UGLY."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Har_Aken, 64, 64),
+		.frontAnimFrames = sAnims_Har_Aken,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Har_Aken, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Har_Aken),
+		ICON(Har_Aken, 0),
+		.footprint = gMonFootprint_Har_Aken,
+		LEARNSETS(Har_Aken),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_HAR_AKEN_TENTACLE] =
+	{
+		.baseHP = 100,
+		.baseAttack = 100,
+		.baseDefense = 70,
+		.baseSpeed = 60,
+		.baseSpAttack = 100,
+		.baseSpDefense = 70,
+		.types = { TYPE_FIRE, TYPE_ROCK },
+		.catchRate = 1,
+		.expYield = 130,
+		.evYield_HP = 2,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 0,
+		.growthRate = GROWTH_SLOW,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_PRESSURE, ABILITY_PRESSURE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Tentacle"),
+		.cryId = CRY_HAR_AKEN_TENTACLE,
+		.natDexNum = NATIONAL_DEX_HAR_AKEN_TENTACLE,
+		.categoryName = _("Tzhaar"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"That goes for you too you tentacle fuck."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Har_Aken_Tentacle, 64, 64),
+		.frontAnimFrames = sAnims_Har_Aken_Tentacle,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Har_Aken_Tentacle, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Har_Aken_Tentacle),
+		ICON(Har_Aken_Tentacle, 0),
+		.footprint = gMonFootprint_Har_Aken_Tentacle,
+		LEARNSETS(Har_Aken_Tentacle),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SPIRIT_FIGHTER] =
+	{
+		.baseHP = 85,
+		.baseAttack = 140,
+		.baseDefense = 115,
+		.baseSpeed = 45,
+		.baseSpAttack = 80,
+		.baseSpDefense = 85,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Attack = 1,
+		.evYield_Defense = 2,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_DEFIANT, ABILITY_HEAVY_METAL, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Fighter"),
+		.cryId = CRY_SPIRIT_FIGHTER,
+		.natDexNum = NATIONAL_DEX_SPIRIT_FIGHTER,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"For the Glory of Bandos, the measly\n"
+			"sacrifice to keep on fighting even in\n"
+			"death is trivial. For the Glory of\n"
+			"Bandos."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Fighter, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Fighter,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Fighter, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Fighter),
+		ICON(Spirit_Fighter, 1),
+		.footprint = gMonFootprint_Spirit_Fighter,
+		LEARNSETS(Spirit_Fighter),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 5,
+	},
+
+[SPECIES_SPIRIT_ARCHER] =
+	{
+		.baseHP = 75,
+		.baseAttack = 95,
+		.baseDefense = 95,
+		.baseSpeed = 95,
+		.baseSpAttack = 95,
+		.baseSpDefense = 95,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Defense = 2,
+		.evYield_Speed = 1,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_SKILL_LINK, ABILITY_BATTLE_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Archer"),
+		.cryId = CRY_SPIRIT_ARCHER,
+		.natDexNum = NATIONAL_DEX_SPIRIT_ARCHER,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Seren archers who fell in the God wars\n"
+			"kept fighting even in death. Their\n"
+			"archery is second to none."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Archer, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Archer,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Archer, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Archer),
+		ICON(Spirit_Archer, 0),
+		.footprint = gMonFootprint_Spirit_Archer,
+		LEARNSETS(Spirit_Archer),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 5,
+	},
+
+[SPECIES_SPIRIT_MYSTIC] =
+	{
+		.baseHP = 75,
+		.baseAttack = 80,
+		.baseDefense = 95,
+		.baseSpeed = 70,
+		.baseSpAttack = 115,
+		.baseSpDefense = 115,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Defense = 2,
+		.evYield_SpAttack = 1,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_MAGICIAN, ABILITY_LIGHT_METAL, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Mystic"),
+		.cryId = CRY_SPIRIT_MYSTIC,
+		.natDexNum = NATIONAL_DEX_SPIRIT_MYSTIC,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Tumeken dreamed for his empire to stand\n"
+			"immortal. His mystics honour that by\n"
+			"keeping on fighting for him even in\n"
+			"death."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Mystic, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Mystic,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Mystic, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Mystic),
+		ICON(Spirit_Mystic, 2),
+		.footprint = gMonFootprint_Spirit_Mystic,
+		LEARNSETS(Spirit_Mystic),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 5,
+	},
+
+[SPECIES_SPIRIT_KNIGHT] =
+	{
+		.baseHP = 85,
+		.baseAttack = 130,
+		.baseDefense = 115,
+		.baseSpeed = 35,
+		.baseSpAttack = 70,
+		.baseSpDefense = 115,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Attack = 1,
+		.evYield_Defense = 2,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_SHADOW_SHIELD, ABILITY_HEAVY_METAL, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Knight"),
+		.cryId = CRY_SPIRIT_KNIGHT,
+		.natDexNum = NATIONAL_DEX_SPIRIT_KNIGHT,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Abandoned and left to rot in the\n"
+			"Zarosian prison. These warriors of Nex\n"
+			"fight back even when life is no longer\n"
+			"an option."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Knight, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Knight,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Knight, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Knight),
+		ICON(Spirit_Knight, 2),
+		.footprint = gMonFootprint_Spirit_Knight,
+		LEARNSETS(Spirit_Knight),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 4,
+	},
+
+[SPECIES_SPIRIT_SCOUT] =
+	{
+		.baseHP = 65,
+		.baseAttack = 100,
+		.baseDefense = 85,
+		.baseSpeed = 115,
+		.baseSpAttack = 100,
+		.baseSpDefense = 85,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Defense = 2,
+		.evYield_Speed = 1,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_SPEED_BOOST, ABILITY_BATTLE_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Scout"),
+		.cryId = CRY_SPIRIT_SCOUT,
+		.natDexNum = NATIONAL_DEX_SPIRIT_SCOUT,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The godless is a new faction. Regardless\n"
+			"their dedication to the edicts are\n"
+			"remarkeable, allowing them to keep on\n"
+			"struggling even after perishing."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Scout, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Scout,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Scout, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Scout),
+		ICON(Spirit_Scout, 0),
+		.footprint = gMonFootprint_Spirit_Scout,
+		LEARNSETS(Spirit_Scout),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 6,
+	},
+
+[SPECIES_SPIRIT_WARMAGE] =
+	{
+		.baseHP = 65,
+		.baseAttack = 85,
+		.baseDefense = 90,
+		.baseSpeed = 95,
+		.baseSpAttack = 115,
+		.baseSpDefense = 100,
+		.types = { TYPE_GHOST, TYPE_STEEL },
+		.catchRate = 45,
+		.expYield = 150,
+		.evYield_Defense = 2,
+		.evYield_SpAttack = 1,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_LEVITATE, ABILITY_LIGHT_METAL, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Warmage"),
+		.cryId = CRY_SPIRIT_WARMAGE,
+		.natDexNum = NATIONAL_DEX_SPIRIT_WARMAGE,
+		.categoryName = _("Spirit"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The Aviansie were long thought dead\n"
+			"after the god wars. But some like these\n"
+			"fought on even beyond death."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Spirit_Warmage, 64, 64),
+		.frontAnimFrames = sAnims_Spirit_Warmage,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Spirit_Warmage, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Spirit_Warmage),
+		ICON(Spirit_Warmage, 1),
+		.footprint = gMonFootprint_Spirit_Warmage,
+		LEARNSETS(Spirit_Warmage),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 6,
+	},
+
+[SPECIES_POMAPOO] =
+	{
+		.baseHP = 85,
+		.baseAttack = 95,
+		.baseDefense = 70,
+		.baseSpeed = 100,
+		.baseSpAttack = 85,
+		.baseSpDefense = 80,
+		.types = { TYPE_NORMAL, TYPE_PSYCHIC },
+		.catchRate = 45,
+		.expYield = 154,
+		.evYield_SpDefense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_SLOW,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_LIFE },
+		.abilities = { ABILITY_CUTE_CHARM, ABILITY_OPPORTUNIST, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Pomapoo"),
+		.cryId = CRY_POMAPOO,
+		.natDexNum = NATIONAL_DEX_POMAPOO,
+		.categoryName = _("Friend"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Often mistaken for a teddy bear due to\n"
+			"their fur, this fluffy monster is\n"
+			"capable of infatuating anyone they meet\n"
+			"with their overwhelming cuteness."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Pomapoo, 64, 64),
+		.frontAnimFrames = sAnims_Pomapoo,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Pomapoo, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Pomapoo),
+		ICON(Pomapoo, 2),
+		.footprint = gMonFootprint_Pomapoo,
+		LEARNSETS(Pomapoo),
+		.frontPicYOffset = 7,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_MUTATED] =
+	{
+		.baseHP = 100,
+		.baseAttack = 120,
+		.baseDefense = 115,
+		.baseSpeed = 55,
+		.baseSpAttack = 95,
+		.baseSpDefense = 50,
+		.types = { TYPE_GRASS, TYPE_POISON },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_HP = 1,
+		.evYield_Attack = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_LIQUID_VOICE, ABILITY_POISON_TOUCH, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Jadinko"),
+		.cryId = CRY_JADINKO_MUTATED,
+		.natDexNum = NATIONAL_DEX_JADINKO_MUTATED,
+		.categoryName = _("Mutated"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"As vines sometimes grow mutations, so\n"
+			"does the jadinko living by their roots."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Mutated, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Mutated,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Mutated, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Mutated),
+		ICON(Jadinko_Mutated, 0),
+		.footprint = gMonFootprint_Jadinko_Mutated,
+		LEARNSETS(Jadinko_Mutated),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_FEROCIOUS] =
+	{
+		.baseHP = 120,
+		.baseAttack = 120,
+		.baseDefense = 110,
+		.baseSpeed = 45,
+		.baseSpAttack = 65,
+		.baseSpDefense = 75,
+		.types = { TYPE_GRASS, TYPE_FIGHTING },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_HP = 2,
+		.evYield_Attack = 1,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SYMBIOSIS, ABILITY_GRASS_PELT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Jadinko"),
+		.cryId = CRY_JADINKO_FEROCIOUS,
+		.natDexNum = NATIONAL_DEX_JADINKO_FEROCIOUS,
+		.categoryName = _("Ferocious"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The most ferocious of male jadinkos gets\n"
+			"to guard their queen."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Ferocious, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Ferocious,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Ferocious, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Ferocious),
+		ICON(Jadinko_Ferocious, 0),
+		.footprint = gMonFootprint_Jadinko_Ferocious,
+		LEARNSETS(Jadinko_Ferocious),
+		.frontPicYOffset = 2,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_DRACONIC] =
+	{
+		.baseHP = 75,
+		.baseAttack = 80,
+		.baseDefense = 70,
+		.baseSpeed = 125,
+		.baseSpAttack = 90,
+		.baseSpDefense = 95,
+		.types = { TYPE_GRASS, TYPE_DRAGON },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Speed = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_GRASS_PELT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Jadinko"),
+		.cryId = CRY_JADINKO_DRACONIC,
+		.natDexNum = NATIONAL_DEX_JADINKO_DRACONIC,
+		.categoryName = _("Draconic"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Embodying all aspects of a dragon this\n"
+			"Jadinko is everything a dragon is except\n"
+			"being a dragon"),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Draconic, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Draconic,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Draconic, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Draconic),
+		ICON(Jadinko_Draconic, 0),
+		.footprint = gMonFootprint_Jadinko_Draconic,
+		LEARNSETS(Jadinko_Draconic),
+		.frontPicYOffset = 5,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_CARRION] =
+	{
+		.baseHP = 75,
+		.baseAttack = 80,
+		.baseDefense = 95,
+		.baseSpeed = 105,
+		.baseSpAttack = 85,
+		.baseSpDefense = 95,
+		.types = { TYPE_GRASS, TYPE_GROUND },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Defense = 1,
+		.evYield_SpDefense = 1,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_IMMUNITY, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Jadinko"),
+		.cryId = CRY_JADINKO_CARRION,
+		.natDexNum = NATIONAL_DEX_JADINKO_CARRION,
+		.categoryName = _("Carrion"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The smell of this Jadinko is so\n"
+			"repugnant that being near one is like\n"
+			"breathing in the scent of death itself."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Carrion, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Carrion,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Carrion, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Carrion),
+		ICON(Jadinko_Carrion, 2),
+		.footprint = gMonFootprint_Jadinko_Carrion,
+		LEARNSETS(Jadinko_Carrion),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_SHADOW] =
+	{
+		.baseHP = 75,
+		.baseAttack = 90,
+		.baseDefense = 60,
+		.baseSpeed = 145,
+		.baseSpAttack = 85,
+		.baseSpDefense = 80,
+		.types = { TYPE_GRASS, TYPE_GHOST },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Speed = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_COLOR_CHANGE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Jadinko"),
+		.cryId = CRY_JADINKO_SHADOW,
+		.natDexNum = NATIONAL_DEX_JADINKO_SHADOW,
+		.categoryName = _("Shadow"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Connected to the shadow realm this\n"
+			"Jadinko is clouded in mystery and\n"
+			"brooding misery."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Shadow, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Shadow,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Shadow, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Shadow),
+		ICON(Jadinko_Shadow, 2),
+		.footprint = gMonFootprint_Jadinko_Shadow,
+		LEARNSETS(Jadinko_Shadow),
+		.frontPicYOffset = 7,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_GUTHIX] =
+	{
+		.baseHP = 85,
+		.baseAttack = 85,
+		.baseDefense = 85,
+		.baseSpeed = 110,
+		.baseSpAttack = 85,
+		.baseSpDefense = 85,
+		.types = { TYPE_GRASS, TYPE_GRASS },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_HP = 1,
+		.evYield_Speed = 1,
+		.genderRatio = PERCENT_FEMALE(100),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_OVERGROW, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Grasshole"),
+		.cryId = CRY_JADINKO_GUTHIX,
+		.natDexNum = NATIONAL_DEX_JADINKO_GUTHIX,
+		.categoryName = _("Guthixian"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"A Jadinko channeling the divine power of\n"
+			"Guthix. God of nature."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Guthix, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Guthix,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Guthix, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Guthix),
+		ICON(Jadinko_Guthix, 1),
+		.footprint = gMonFootprint_Jadinko_Guthix,
+		LEARNSETS(Jadinko_Guthix),
+		.frontPicYOffset = 2,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_ZAMORAK] =
+	{
+		.baseHP = 75,
+		.baseAttack = 100,
+		.baseDefense = 95,
+		.baseSpeed = 115,
+		.baseSpAttack = 80,
+		.baseSpDefense = 70,
+		.types = { TYPE_GRASS, TYPE_FIRE },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Attack = 1,
+		.evYield_Speed = 1,
+		.genderRatio = PERCENT_FEMALE(100),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_BLAZE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Zammantha"),
+		.cryId = CRY_JADINKO_ZAMORAK,
+		.natDexNum = NATIONAL_DEX_JADINKO_ZAMORAK,
+		.categoryName = _("Zamorak"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Channeling the power of chaos. This\n"
+			"Jadinko represents Zamorak."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Zamorak, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Zamorak,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Zamorak, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Zamorak),
+		ICON(Jadinko_Zamorak, 0),
+		.footprint = gMonFootprint_Jadinko_Zamorak,
+		LEARNSETS(Jadinko_Zamorak),
+		.frontPicYOffset = 2,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_JADINKO_SARADOMIN] =
+	{
+		.baseHP = 75,
+		.baseAttack = 80,
+		.baseDefense = 70,
+		.baseSpeed = 115,
+		.baseSpAttack = 100,
+		.baseSpDefense = 95,
+		.types = { TYPE_GRASS, TYPE_WATER },
+		.catchRate = 140,
+		.expYield = 101,
+		.evYield_Speed = 1,
+		.evYield_SpAttack = 1,
+		.genderRatio = PERCENT_FEMALE(100),
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_DRAGON, EGG_GROUP_GRASS },
+		.abilities = { ABILITY_SOLAR_POWER, ABILITY_TORRENT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Sarah"),
+		.cryId = CRY_JADINKO_SARADOMIN,
+		.natDexNum = NATIONAL_DEX_JADINKO_SARADOMIN,
+		.categoryName = _("Saradomin"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The God of order emanates his power\n"
+			"through this Jadinko. The Saradomin\n"
+			"Jadinko."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Jadinko_Saradomin, 64, 64),
+		.frontAnimFrames = sAnims_Jadinko_Saradomin,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Jadinko_Saradomin, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Jadinko_Saradomin),
+		ICON(Jadinko_Saradomin, 0),
+		.footprint = gMonFootprint_Jadinko_Saradomin,
+		LEARNSETS(Jadinko_Saradomin),
+		.frontPicYOffset = 5,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_MAX_GOLEM] =
+	{
+		.baseHP = 120,
+		.baseAttack = 99,
+		.baseDefense = 99,
+		.baseSpeed = 99,
+		.baseSpAttack = 99,
+		.baseSpDefense = 99,
+		.types = { TYPE_ROCK, TYPE_ELECTRIC },
+		.catchRate = 99,
+		.expYield = 120,
+		.evYield_HP = 1,
+		.evYield_Attack = 1,
+		.evYield_Defense = 1,
+		.evYield_Speed = 1,
+		.evYield_SpAttack = 1,
+		.evYield_SpDefense = 1,
+		.genderRatio = MON_GENDERLESS,
+		.eggCycles = 20,
+		.friendship = 120,
+		.growthRate = GROWTH_FLUCTUATING,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_MINERAL, EGG_GROUP_MINERAL },
+		.abilities = { ABILITY_TRANSISTOR, ABILITY_NONE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Max Golem"),
+		.cryId = CRY_MAX_GOLEM,
+		.natDexNum = NATIONAL_DEX_MAX_GOLEM,
+		.categoryName = _("Maxed"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"When a player has reached its maximum\n"
+			"efficiency in all skills. They may\n"
+			"create this golem to showcase their\n"
+			"power."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Max_Golem, 64, 64),
+		.frontAnimFrames = sAnims_Max_Golem,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Max_Golem, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Max_Golem),
+		ICON(Max_Golem, 2),
+		.footprint = gMonFootprint_Max_Golem,
+		LEARNSETS(Max_Golem),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_FLESH_CRAWLER] =
+	{
+		.baseHP = 70,
+		.baseAttack = 100,
+		.baseDefense = 80,
+		.baseSpeed = 90,
+		.baseSpAttack = 75,
+		.baseSpDefense = 75,
+		.types = { TYPE_BUG, TYPE_FIGHTING },
+		.catchRate = 65,
+		.expYield = 130,
+		.evYield_Speed = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_BUG },
+		.abilities = { ABILITY_STRONG_JAW, ABILITY_GLUTTONY, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Crawler"),
+		.cryId = CRY_FLESH_CRAWLER,
+		.natDexNum = NATIONAL_DEX_FLESH_CRAWLER,
+		.categoryName = _("Crawler"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Their unending hunger has them scourge\n"
+			"the Stronghold of Security for any\n"
+			"resemblence of food."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Flesh_Crawler, 64, 64),
+		.frontAnimFrames = sAnims_Flesh_Crawler,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Flesh_Crawler, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Flesh_Crawler),
+		ICON(Flesh_Crawler, 2),
+		.footprint = gMonFootprint_Flesh_Crawler,
+		LEARNSETS(Flesh_Crawler),
+		.frontPicYOffset = 9,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_ZYGOMITE_OSRS] =
+	{
+		.baseHP = 95,
+		.baseAttack = 55,
+		.baseDefense = 60,
+		.baseSpeed = 20,
+		.baseSpAttack = 80,
+		.baseSpDefense = 90,
+		.types = { TYPE_FAIRY, TYPE_POISON },
+		.catchRate = 45,
+		.expYield = 101,
+		.evYield_SpDefense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_FAIRY },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_MYCELIUM_MIGHT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Zygomite"),
+		.cryId = CRY_ZYGOMITE_OSRS,
+		.natDexNum = NATIONAL_DEX_ZYGOMITE_OSRS,
+		.categoryName = _("Zygomite"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Hailing from Gielinor's moon, Zanaris,\n"
+			"these creatures are known for their\n"
+			"vicious magical headbutt attacks."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Zygomite_OSRS, 64, 64),
+		.frontAnimFrames = sAnims_Zygomite_OSRS,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Zygomite_OSRS, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Zygomite_OSRS),
+		ICON(Zygomite_OSRS, 1),
+		.footprint = gMonFootprint_Zygomite_OSRS,
+		LEARNSETS(Zygomite_OSRS),
+		.frontPicYOffset = 6,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 41, SPECIES_ZYGOMITE_RSHD_MUTATED},
+			{EVO_LEVEL_NIGHT, 41, SPECIES_ZYGOMITE_OSRS_ANCIENT}
+		),
+	},
+
+[SPECIES_ZYGOMITE_OSRS_ANCIENT] =
+	{
+		.baseHP = 105,
+		.baseAttack = 60,
+		.baseDefense = 75,
+		.baseSpeed = 20,
+		.baseSpAttack = 80,
+		.baseSpDefense = 130,
+		.types = { TYPE_FAIRY, TYPE_GRASS },
+		.catchRate = 45,
+		.expYield = 154,
+		.evYield_SpDefense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_FAIRY },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_MYCELIUM_MIGHT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Zygomite"),
+		.cryId = CRY_ZYGOMITE_OSRS_ANCIENT,
+		.natDexNum = NATIONAL_DEX_ZYGOMITE_OSRS_ANCIENT,
+		.categoryName = _("Ancient"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"These mushrooms have been warped by the\n"
+			"unusual soil on Fossil Island to become\n"
+			"even more deadly."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Zygomite_OSRS_Ancient, 64, 64),
+		.frontAnimFrames = sAnims_Zygomite_OSRS_Ancient,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Zygomite_OSRS_Ancient, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Zygomite_OSRS_Ancient),
+		ICON(Zygomite_OSRS_Ancient, 0),
+		.footprint = gMonFootprint_Zygomite_OSRS_Ancient,
+		LEARNSETS(Zygomite_OSRS_Ancient),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_ZYGOMITE_RSHD_MUTATED] =
+	{
+		.baseHP = 105,
+		.baseAttack = 60,
+		.baseDefense = 85,
+		.baseSpeed = 20,
+		.baseSpAttack = 80,
+		.baseSpDefense = 120,
+		.types = { TYPE_FAIRY, TYPE_POISON },
+		.catchRate = 45,
+		.expYield = 154,
+		.evYield_SpDefense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_FAIRY },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_MYCELIUM_MIGHT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Zygomite"),
+		.cryId = CRY_ZYGOMITE_RSHD_MUTATED,
+		.natDexNum = NATIONAL_DEX_ZYGOMITE_RSHD_MUTATED,
+		.categoryName = _("Mutated"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"These bouncy fungus are harmless until\n"
+			"provoked by adventurers testing\n"
+			"experimental sprays. No wonder they're\n"
+			"so angry!"),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Zygomite_RSHD_Mutated, 64, 64),
+		.frontAnimFrames = sAnims_Zygomite_RSHD_Mutated,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Zygomite_RSHD_Mutated, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Zygomite_RSHD_Mutated),
+		ICON(Zygomite_RSHD_Mutated, 1),
+		.footprint = gMonFootprint_Zygomite_RSHD_Mutated,
+		LEARNSETS(Zygomite_RSHD_Mutated),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_ZYGOMITE_GLOOMSHROOM] =
+	{
+		.baseHP = 75,
+		.baseAttack = 55,
+		.baseDefense = 60,
+		.baseSpeed = 40,
+		.baseSpAttack = 80,
+		.baseSpDefense = 90,
+		.types = { TYPE_FAIRY, TYPE_GRASS },
+		.catchRate = 45,
+		.expYield = 101,
+		.evYield_SpDefense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_MEDIUM_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_GRASS, EGG_GROUP_FAIRY },
+		.abilities = { ABILITY_EFFECT_SPORE, ABILITY_DAMP, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Zygomite"),
+		.cryId = CRY_ZYGOMITE_GLOOMSHROOM,
+		.natDexNum = NATIONAL_DEX_ZYGOMITE_GLOOMSHROOM,
+		.categoryName = _("Gloom"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"A zygomite that has been carefully\n"
+			"domesticated to produce fruit for potion\n"
+			"making. They're real fun guys now."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Zygomite_Gloomshroom, 64, 64),
+		.frontAnimFrames = sAnims_Zygomite_Gloomshroom,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Zygomite_Gloomshroom, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Zygomite_Gloomshroom),
+		ICON(Zygomite_Gloomshroom, 0),
+		.footprint = gMonFootprint_Zygomite_Gloomshroom,
+		LEARNSETS(Zygomite_Gloomshroom),
+		.frontPicYOffset = 8,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL_DAY, 41, SPECIES_ZYGOMITE_MAGICAL_FORM},
+			{EVO_LEVEL_NIGHT, 41, SPECIES_ZYGOMITE_ZANARIAN_FORM},
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_ZYGOMITE_ARCSPORE_FORM},
+			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_ZYGOMITE_DAEMONCAP_FORM},
+			{EVO_ITEM, ITEM_NATURE_RUNE, SPECIES_ZYGOMITE_ANCIENT_FORM}
+		),
+	},
+
+[SPECIES_SNAIL] =
+	{
+		.baseHP = 70,
+		.baseAttack = 55,
+		.baseDefense = 55,
+		.baseSpeed = 5,
+		.baseSpAttack = 60,
+		.baseSpDefense = 55,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 255,
+		.expYield = 31,
+		.evYield_Defense = 1,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL,
+		.natDexNum = NATIONAL_DEX_SNAIL,
+		.categoryName = _("Snail"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"It has been documented that a snail in\n"
+			"top shape can reach a velocity of 0.020\n"
+			"miles per hour."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail, 64, 64),
+		.frontAnimFrames = sAnims_Snail,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail),
+		ICON(Snail, 1),
+		.footprint = gMonFootprint_Snail,
+		LEARNSETS(Snail),
+		.frontPicYOffset = 13,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_EARTH_RUNE, SPECIES_ROCKSLUG_RSHD},
+			{EVO_ITEM, ITEM_WATER_RUNE, SPECIES_SEASLUG},
+			{EVO_LEVEL_DAY, 16, SPECIES_SNAIL_GIANT_RS3},
+			{EVO_LEVEL_NIGHT, 16, SPECIES_SNAIL_GIANT_OSRS}
+		),
+	},
+
+[SPECIES_ROCKSLUG_RSHD] =
+	{
+		.baseHP = 85,
+		.baseAttack = 70,
+		.baseDefense = 100,
+		.baseSpeed = 10,
+		.baseSpAttack = 75,
+		.baseSpDefense = 65,
+		.types = { TYPE_BUG, TYPE_ROCK },
+		.catchRate = 120,
+		.expYield = 69,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_PURIFYING_SALT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Rockslug"),
+		.cryId = CRY_ROCKSLUG_RSHD,
+		.natDexNum = NATIONAL_DEX_ROCKSLUG_RSHD,
+		.categoryName = _("Rockslug"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Its thick hide is rock like to the point\n"
+			"it cant be penetrated without salt."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Rockslug_RSHD, 64, 64),
+		.frontAnimFrames = sAnims_Rockslug_RSHD,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Rockslug_RSHD, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Rockslug_RSHD),
+		ICON(Rockslug_RSHD, 1),
+		.footprint = gMonFootprint_Rockslug_RSHD,
+		LEARNSETS(Rockslug_RSHD),
+		.frontPicYOffset = 13,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_ROCKSLUG_OSRS}
+		),
+	},
+
+[SPECIES_ROCKSLUG_OSRS] =
+	{
+		.baseHP = 90,
+		.baseAttack = 85,
+		.baseDefense = 115,
+		.baseSpeed = 15,
+		.baseSpAttack = 95,
+		.baseSpDefense = 90,
+		.types = { TYPE_BUG, TYPE_ROCK },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_PURIFYING_SALT, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Rockslug"),
+		.cryId = CRY_ROCKSLUG_OSRS,
+		.natDexNum = NATIONAL_DEX_ROCKSLUG_OSRS,
+		.categoryName = _("Rockslug"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"A large and feral rock slug that has\n"
+			"grown harder and stronger than its\n"
+			"brethren"),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Rockslug_OSRS, 64, 64),
+		.frontAnimFrames = sAnims_Rockslug_OSRS,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Rockslug_OSRS, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Rockslug_OSRS),
+		ICON(Rockslug_OSRS, 2),
+		.footprint = gMonFootprint_Rockslug_OSRS,
+		LEARNSETS(Rockslug_OSRS),
+		.frontPicYOffset = 10,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SEASLUG] =
+	{
+		.baseHP = 70,
+		.baseAttack = 60,
+		.baseDefense = 65,
+		.baseSpeed = 25,
+		.baseSpAttack = 100,
+		.baseSpDefense = 85,
+		.types = { TYPE_BUG, TYPE_WATER },
+		.catchRate = 120,
+		.expYield = 69,
+		.evYield_SpAttack = 1,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_MINDS_EYE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Sea Slug"),
+		.cryId = CRY_SEASLUG,
+		.natDexNum = NATIONAL_DEX_SEASLUG,
+		.categoryName = _("Seaslug"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"A slug forming a hivemind of Mother\n"
+			"Mallum. Its psychic powers lets it\n"
+			"enslave the minds of others."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Seaslug, 64, 64),
+		.frontAnimFrames = sAnims_Seaslug,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Seaslug, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Seaslug),
+		ICON(Seaslug, 0),
+		.footprint = gMonFootprint_Seaslug,
+		LEARNSETS(Seaslug),
+		.frontPicYOffset = 14,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_LEVEL, 32, SPECIES_SEASLUG_PRINCE},
+			{EVO_ITEM, ITEM_LIFE_RUNE, SPECIES_MOTHER_MALLUM}
+		),
+	},
+
+[SPECIES_SEASLUG_PRINCE] =
+	{
+		.baseHP = 80,
+		.baseAttack = 85,
+		.baseDefense = 85,
+		.baseSpeed = 30,
+		.baseSpAttack = 115,
+		.baseSpDefense = 95,
+		.types = { TYPE_BUG, TYPE_WATER },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_SpAttack = 2,
+		.genderRatio = PERCENT_FEMALE(0),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_MINDS_EYE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Prince"),
+		.cryId = CRY_SEASLUG_PRINCE,
+		.natDexNum = NATIONAL_DEX_SEASLUG_PRINCE,
+		.categoryName = _("Prince"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"When a sea slug grows to immense powers\n"
+			"it becomes a herald of royalty."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Seaslug_Prince, 64, 64),
+		.frontAnimFrames = sAnims_Seaslug_Prince,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Seaslug_Prince, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Seaslug_Prince),
+		ICON(Seaslug_Prince, 0),
+		.footprint = gMonFootprint_Seaslug_Prince,
+		LEARNSETS(Seaslug_Prince),
+		.frontPicYOffset = 5,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_GIANT_OSRS] =
+	{
+		.baseHP = 85,
+		.baseAttack = 70,
+		.baseDefense = 100,
+		.baseSpeed = 10,
+		.baseSpAttack = 65,
+		.baseSpDefense = 75,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 120,
+		.expYield = 69,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_GIANT_OSRS,
+		.natDexNum = NATIONAL_DEX_SNAIL_GIANT_OSRS,
+		.categoryName = _("Giant"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Its shell is gigantic and has protective\n"
+			"propertive equal to a very large snail."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Giant_OSRS, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Giant_OSRS,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Giant_OSRS, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Giant_OSRS),
+		ICON(Snail_Giant_OSRS, 1),
+		.footprint = gMonFootprint_Snail_Giant_OSRS,
+		LEARNSETS(Snail_Giant_OSRS),
+		.frontPicYOffset = 7,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_ASTRAL_RUNE, SPECIES_SNAIL_RAVENOUS},
+			{EVO_LEVEL_DAY, 32, SPECIES_SNAIL_BRUISE_OSRS},
+			{EVO_LEVEL_NIGHT, 32, SPECIES_SNAIL_BARK_OSRS},
+			{EVO_ITEM, ITEM_SPIRIT_CHARM, SPECIES_SNAIL_THORNY}
+		),
+	},
+
+[SPECIES_SNAIL_GIANT_RS3] =
+	{
+		.baseHP = 70,
+		.baseAttack = 85,
+		.baseDefense = 100,
+		.baseSpeed = 10,
+		.baseSpAttack = 75,
+		.baseSpDefense = 65,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 120,
+		.expYield = 69,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_GIANT_RS3,
+		.natDexNum = NATIONAL_DEX_SNAIL_GIANT_RS3,
+		.categoryName = _("Giant"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"This giant snail is found in Morytania\n"
+			"where it's eaten as food."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Giant_RS3, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Giant_RS3,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Giant_RS3, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Giant_RS3),
+		ICON(Snail_Giant_RS3, 1),
+		.footprint = gMonFootprint_Snail_Giant_RS3,
+		LEARNSETS(Snail_Giant_RS3),
+		.frontPicYOffset = 11,
+		.enemyMonElevation = 0,
+		.evolutions = EVOLUTION(
+			{EVO_ITEM, ITEM_BLOOD_RUNE, SPECIES_SNAIL_OCHRE_RS3},
+			{EVO_LEVEL_DAY, 32, SPECIES_SNAIL_MYRE_RS3},
+			{EVO_LEVEL_NIGHT, 32, SPECIES_SNAIL_BLOOD_RS3},
+			{EVO_ITEM, ITEM_SPIRIT_CHARM, SPECIES_SNAIL_THORNY}
+		),
+	},
+
+[SPECIES_SNAIL_THORNY] =
+	{
+		.baseHP = 90,
+		.baseAttack = 75,
+		.baseDefense = 115,
+		.baseSpeed = 15,
+		.baseSpAttack = 95,
+		.baseSpDefense = 100,
+		.types = { TYPE_BUG, TYPE_FAIRY },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_ANGER_SHELL, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_THORNY,
+		.natDexNum = NATIONAL_DEX_SNAIL_THORNY,
+		.categoryName = _("Thorny"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"In the spirit realm, these snails act as\n"
+			"predators for summoners who wrongly\n"
+			"enters their realm."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Thorny, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Thorny,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Thorny, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Thorny),
+		ICON(Snail_Thorny, 0),
+		.footprint = gMonFootprint_Snail_Thorny,
+		LEARNSETS(Snail_Thorny),
+		.frontPicYOffset = 4,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_RAVENOUS] =
+	{
+		.baseHP = 90,
+		.baseAttack = 85,
+		.baseDefense = 120,
+		.baseSpeed = 15,
+		.baseSpAttack = 85,
+		.baseSpDefense = 95,
+		.types = { TYPE_BUG, TYPE_FAIRY },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_CLOUD_NINE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_RAVENOUS,
+		.natDexNum = NATIONAL_DEX_SNAIL_RAVENOUS,
+		.categoryName = _("Ravenous"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"A snail from the spirit realm known for\n"
+			"spewing acid on its enemies."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Ravenous, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Ravenous,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Ravenous, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Ravenous),
+		ICON(Snail_Ravenous, 2),
+		.footprint = gMonFootprint_Snail_Ravenous,
+		LEARNSETS(Snail_Ravenous),
+		.frontPicYOffset = 5,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_BRUISE_OSRS] =
+	{
+		.baseHP = 100,
+		.baseAttack = 90,
+		.baseDefense = 105,
+		.baseSpeed = 15,
+		.baseSpAttack = 95,
+		.baseSpDefense = 85,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_HYDRATION, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_BRUISE_OSRS,
+		.natDexNum = NATIONAL_DEX_SNAIL_BRUISE_OSRS,
+		.categoryName = _("Bruise"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The fatty meat of these snails is a\n"
+			"delicacy in Ardougne."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Bruise_OSRS, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Bruise_OSRS,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Bruise_OSRS, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Bruise_OSRS),
+		ICON(Snail_Bruise_OSRS, 2),
+		.footprint = gMonFootprint_Snail_Bruise_OSRS,
+		LEARNSETS(Snail_Bruise_OSRS),
+		.frontPicYOffset = 2,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_BARK_OSRS] =
+	{
+		.baseHP = 100,
+		.baseAttack = 75,
+		.baseDefense = 115,
+		.baseSpeed = 15,
+		.baseSpAttack = 95,
+		.baseSpDefense = 90,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_BARK_OSRS,
+		.natDexNum = NATIONAL_DEX_SNAIL_BARK_OSRS,
+		.categoryName = _("Bark"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The Bark snail gets its name from a\n"
+			"drunk adventurer thinking it was a tree\n"
+			"and justifying it as a bark like snail."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Bark_OSRS, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Bark_OSRS,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Bark_OSRS, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Bark_OSRS),
+		ICON(Snail_Bark_OSRS, 0),
+		.footprint = gMonFootprint_Snail_Bark_OSRS,
+		LEARNSETS(Snail_Bark_OSRS),
+		.frontPicYOffset = 6,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_BLOOD_RS3] =
+	{
+		.baseHP = 105,
+		.baseAttack = 80,
+		.baseDefense = 105,
+		.baseSpeed = 15,
+		.baseSpAttack = 85,
+		.baseSpDefense = 100,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_HYDRATION, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_BLOOD_RS3,
+		.natDexNum = NATIONAL_DEX_SNAIL_BLOOD_RS3,
+		.categoryName = _("Blood"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The pointy tipped shell it carries on\n"
+			"its back is a prized token of great\n"
+			"fashion in certain circles."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Blood_RS3, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Blood_RS3,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Blood_RS3, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Blood_RS3),
+		ICON(Snail_Blood_RS3, 0),
+		.footprint = gMonFootprint_Snail_Blood_RS3,
+		LEARNSETS(Snail_Blood_RS3),
+		.frontPicYOffset = 5,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_OCHRE_RS3] =
+	{
+		.baseHP = 100,
+		.baseAttack = 85,
+		.baseDefense = 115,
+		.baseSpeed = 15,
+		.baseSpAttack = 95,
+		.baseSpDefense = 80,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_SHELL_ARMOR, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_OCHRE_RS3,
+		.natDexNum = NATIONAL_DEX_SNAIL_OCHRE_RS3,
+		.categoryName = _("Ochre"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Making a helmet out of its shell is said\n"
+			"to give happiness. As is selling it for\n"
+			"high prices to dimwitted free to play\n"
+			"players."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Ochre_RS3, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Ochre_RS3,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Ochre_RS3, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Ochre_RS3),
+		ICON(Snail_Ochre_RS3, 1),
+		.footprint = gMonFootprint_Snail_Ochre_RS3,
+		LEARNSETS(Snail_Ochre_RS3),
+		.frontPicYOffset = 7,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_SNAIL_MYRE_RS3] =
+	{
+		.baseHP = 90,
+		.baseAttack = 85,
+		.baseDefense = 120,
+		.baseSpeed = 15,
+		.baseSpAttack = 90,
+		.baseSpDefense = 90,
+		.types = { TYPE_BUG, TYPE_BUG },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_Defense = 2,
+		.genderRatio = PERCENT_FEMALE(50),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_HYDRATION, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Snail"),
+		.cryId = CRY_SNAIL_MYRE_RS3,
+		.natDexNum = NATIONAL_DEX_SNAIL_MYRE_RS3,
+		.categoryName = _("Myre"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"The shell it carries has protective\n"
+			"properties similar to taping a turtle on\n"
+			"your head as a helmet."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Snail_Myre_RS3, 64, 64),
+		.frontAnimFrames = sAnims_Snail_Myre_RS3,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Snail_Myre_RS3, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Snail_Myre_RS3),
+		ICON(Snail_Myre_RS3, 1),
+		.footprint = gMonFootprint_Snail_Myre_RS3,
+		LEARNSETS(Snail_Myre_RS3),
+		.frontPicYOffset = 7,
+		.enemyMonElevation = 0,
+	},
+
+[SPECIES_MOTHER_MALLUM] =
+	{
+		.baseHP = 120,
+		.baseAttack = 104,
+		.baseDefense = 115,
+		.baseSpeed = 2,
+		.baseSpAttack = 129,
+		.baseSpDefense = 130,
+		.types = { TYPE_BUG, TYPE_WATER },
+		.catchRate = 45,
+		.expYield = 125,
+		.evYield_SpAttack = 2,
+		.evYield_SpDefense = 1,
+		.genderRatio = PERCENT_FEMALE(100),
+		.eggCycles = 15,
+		.friendship = 70,
+		.growthRate = GROWTH_FAST,
+		.itemCommon = ITEM_NONE,
+		.itemRare = ITEM_NONE,
+		.eggGroups = { EGG_GROUP_BUG, EGG_GROUP_AMORPHOUS },
+		.abilities = { ABILITY_GOOEY, ABILITY_MINDS_EYE, ABILITY_NONE },
+		.bodyColor = BODY_COLOR_BLACK,
+		.speciesName = _("Mallum"),
+		.cryId = CRY_MOTHER_MALLUM,
+		.natDexNum = NATIONAL_DEX_MOTHER_MALLUM,
+		.categoryName = _("Tyrant"),
+		.height = 0,
+		.weight = 0,
+		.description = COMPOUND_STRING(
+			"Trapped for ages due to her power.\n"
+			"Mother Mallum is a force feared by the\n"
+			"temple knights."),
+		.pokemonScale = 256,
+		.pokemonOffset = 0,
+		.trainerScale = 256,
+		.trainerOffset = 0,
+		FRONT_PIC(Mother_Mallum, 64, 64),
+		.frontAnimFrames = sAnims_Mother_Mallum,
+		.frontAnimId = ANIM_V_JUMPS_H_JUMPS,
+		BACK_PIC(Mother_Mallum, 64, 64),
+		.backPicYOffset = 0,
+		.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+		PALETTES(Mother_Mallum),
+		ICON(Mother_Mallum, 0),
+		.footprint = gMonFootprint_Mother_Mallum,
+		LEARNSETS(Mother_Mallum),
+		.frontPicYOffset = 0,
+		.enemyMonElevation = 0,
 	},
 
 

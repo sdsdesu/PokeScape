@@ -319,7 +319,7 @@ PokeScapeSongList_VSBattles_12:
 
 PokeScapeSongList_VSBattles_13:
 	namebox PokeScapeSongList_VSBattles_Text_22
-	playbgm MUS_PS_TZHAAR, 1
+	playbgm MUS_PS_CUPHOLDER_1, 1
 	setvar VAR_POKESCAPE_MUSIC_STATE, 12
 	msgbox PokeScapeSongList_VSBattles_Text_23
 	hidenamebox
@@ -463,7 +463,6 @@ BATTLE_KaramjaVolcano_HAM_1_Text_2:
 	.string "the last thing I need is to be eaten...$"
 
 BATTLE_KaramjaVolcano_HAM_2_Text_0:
-	.string "We've set up camp here.\p"
 	.string "I really shouldn't let you go any\n"
 	.string "further.$"
 

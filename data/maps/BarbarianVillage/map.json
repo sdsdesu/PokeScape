@@ -32,6 +32,11 @@
       "map": "MAP_EDGEVILLE",
       "offset": 12,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE40",
+      "offset": -10,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -129,15 +134,15 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_UNICORN_WHITE",
       "x": 11,
-      "y": 10,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ENCOUNTER_UNICORN_BARB",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DWARF_1",
@@ -162,17 +167,17 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ITEM_BARBARIAN_VILLAGE_1",
+      "flag": "FLAG_ITEM_BARBARIAN_VILLAGE_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BARBARIAN_MALE_2",
       "x": 16,
-      "y": 21,
+      "y": 20,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 3,
-      "movement_range_y": 3,
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_BARBARIANVILLAGE_NPC1",
@@ -180,16 +185,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 20,
-      "y": 4,
+      "x": 17,
+      "y": 9,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ITEM_BARBARIAN_VILLAGE_3",
+      "flag": "FLAG_ITEM_BARBARIAN_VILLAGE_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BANKER_M",
@@ -228,6 +233,45 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
+      "x": 0,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
+      "x": 18,
+      "y": 11,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ITEM_BARBARIAN_VILLAGE_2",
+      "flag": "FLAG_ITEM_BARBARIAN_VILLAGE_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BEAR_BROWN",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_BEAR",
       "flag": "0"
     }
   ],
@@ -269,9 +313,9 @@
     },
     {
       "x": 17,
-      "y": 33,
+      "y": 34,
       "elevation": 0,
-      "dest_map": "MAP_BARBARIAN_VILLAGE",
+      "dest_map": "MAP_BARBARIAN_VILLAGE_HOUSE_3",
       "dest_warp_id": "0"
     },
     {
@@ -297,11 +341,11 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 34,
+      "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "LOCKED_DOOR"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

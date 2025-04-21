@@ -1,0 +1,134 @@
+mapscripts Route20_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION 
+    {
+        goto(ROUTE20_STATE)
+    }
+}
+
+script ROUTE20_STATE {
+    setflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_1E)
+    removeobject(9)
+    removeobject(10)
+    removeobject(11)
+    removeobject(12)
+    removeobject(13)
+    
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 160)
+    {
+        clearflag(FLAG_TEMP_1F)
+        clearflag(FLAG_TEMP_1E)
+        addobject(9)
+        addobject(10)
+        addobject(11)
+        addobject(12)
+        addobject(13)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 165)
+    {
+        clearflag(FLAG_TEMP_1E)
+        addobject(11)
+        addobject(12)
+    }
+}
+
+//BATTLES
+
+script BATTLE_ROUTE20_TRAINER_1
+{
+    trainerbattle_single(TRAINER_ROUTE20_TRAINER_6, format("Hey, does this canoe lead to a runecrafting altar?"),format("It leads to Al Kharid?\pFire runes it is then."))
+    namebox ("NatsW40")
+    msgbox(format("It leads to Al Kharid?\pFire runes it is then."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_ROUTE20_TRAINER_2
+{
+    trainerbattle_single(TRAINER_ROUTE20_TRAINER_5, format("Fishing in a canoe is awesome!"),format("Sailing will revolutionise fishing forever dude."))
+    namebox ("BaitNSwitch")
+    msgbox(format("Sailing will revolutionise fishing forever dude."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_ROUTE20_TRAINER_3
+{
+    trainerbattle_single(TRAINER_ROUTE20_TRAINER_7, format("I summoned this canoe."),format("You don't seem to be that impressed..."))
+    namebox ("Srift")
+    msgbox(format("I don't know where this canoe is going.\pI don't know how to steer.\pI'm running out of food.\pHow do I summon this canoe to shore?\pPlease dont leave me, I am dying!"))
+	hidenamebox
+    release
+	end
+}
+
+//NPCS
+
+script ROUTE20_BLOCKADE_NORTH
+{
+    faceplayer
+    namebox ("Sailor")
+    msgbox(format("Woah sorry, I lost my contact lens in the water.\pMove along and I will let you pass once I find it."))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+    waitmovement(0)
+    release
+    end
+}
+
+script ROUTE20_BLOCKADE_SOUTH
+{
+    faceplayer
+    namebox ("Sailor")
+    msgbox(format("Blasted fish leapt out the water and stole me leg!\pI can't let you past until I've caught it...\p{PAUSE 15}I'm comin' for ye Peggy!"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+    waitmovement(0)
+    release
+    end
+}
+
+script ROUTE20_FISHERMAN
+{
+    faceplayer
+    namebox ("Fisherman")
+    msgbox(format("I tried sailing up the river to see whether I'd have better odds of catching rare fish...\pbut I don't think fishing here is any different to fishing on land!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script ROUTE20_VARROCK_GUARD_1
+{
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("Varrock is closed off to all visitors at the moment, by decree of King Roald himself.\pWe will re-open access once things are safe again."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script ROUTE20_VARROCK_GUARD_2
+{
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("We've been asked by the White Knights not to let anybody through while they investigate what's going on over in the west."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+//ITEM
+
+script ITEM_ROUTE20
+{
+    finditem(ITEM_WOOLBALL)
+    end
+}

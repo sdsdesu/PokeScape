@@ -64,6 +64,12 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "cable_club.h"
+#include "battle_tower.h"
+#include "constants/battle_tower.h"
+#include "constants/battle_frontier.h"
+#include "constants/frontier_util.h"
+#include "constants/trainers.h"
+#include "frontier_util.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -386,25 +392,25 @@ const struct TrainerMoney gTrainerMoneyTable[] =
 static const u16 sTrainerBallTable[TRAINER_CLASS_NUM] =
 {
 #if B_TRAINER_CLASS_POKE_BALLS == GEN_7
-    [TRAINER_CLASS_PKMN_BREEDER] = ITEM_ROYAL_POUCH,
+    [TRAINER_CLASS_PKMN_BREEDER] = ITEM_POUCH,
 #elif B_TRAINER_CLASS_POKE_BALLS == GEN_8
-    [TRAINER_CLASS_PKMN_BREEDER] = ITEM_ROYAL_POUCH,
+    [TRAINER_CLASS_PKMN_BREEDER] = ITEM_POUCH,
 #endif
-    [TRAINER_CLASS_COOLTRAINER] = ITEM_IRON_POUCH,
-    [TRAINER_CLASS_COLLECTOR] = ITEM_PREMIER_BALL,
-    [TRAINER_CLASS_SWIMMER_M] = ITEM_CATALYTIC_POUCH,
-    [TRAINER_CLASS_BLACK_BELT] = ITEM_IRON_POUCH,
-    [TRAINER_CLASS_AQUA_LEADER] = ITEM_DRAGON_POUCH,
-    [TRAINER_CLASS_GENTLEMAN] = ITEM_EMBROIDERED_POUCH,
-    [TRAINER_CLASS_ELITE_FOUR] = ITEM_IRON_POUCH,
+    [TRAINER_CLASS_COOLTRAINER] = ITEM_POUCH,
+    [TRAINER_CLASS_COLLECTOR] = ITEM_POUCH,
+    [TRAINER_CLASS_SWIMMER_M] = ITEM_POUCH,
+    [TRAINER_CLASS_BLACK_BELT] = ITEM_POUCH,
+    [TRAINER_CLASS_AQUA_LEADER] = ITEM_POUCH,
+    [TRAINER_CLASS_GENTLEMAN] = ITEM_POUCH,
+    [TRAINER_CLASS_ELITE_FOUR] = ITEM_POUCH,
 #if B_TRAINER_CLASS_POKE_BALLS == GEN_7
-    [TRAINER_CLASS_FISHERMAN] = ITEM_SPIDERSILK_POUCH,
+    [TRAINER_CLASS_FISHERMAN] = ITEM_POUCH,
 #elif B_TRAINER_CLASS_POKE_BALLS == GEN_8
-    [TRAINER_CLASS_FISHERMAN] = ITEM_CATALYTIC_POUCH,
+    [TRAINER_CLASS_FISHERMAN] = ITEM_POUCH,
 #endif
-    [TRAINER_CLASS_SWIMMER_F] = ITEM_CATALYTIC_POUCH,
-    [TRAINER_CLASS_COOLTRAINER_2] = ITEM_IRON_POUCH,
-    [TRAINER_CLASS_MAGMA_LEADER] = ITEM_DRAGON_POUCH,
+    [TRAINER_CLASS_SWIMMER_F] = ITEM_POUCH,
+    [TRAINER_CLASS_COOLTRAINER_2] = ITEM_POUCH,
+    [TRAINER_CLASS_MAGMA_LEADER] = ITEM_POUCH,
 };
 #endif
 
@@ -472,7 +478,10 @@ void CB2_InitBattle(void)
     AllocateMonSpritesGfx();
     RecordedBattle_ClearFrontierPassFlag();
 
-    if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+    if (FlagGet(FLAG_PARTNER_BATTLE) == TRUE) { //Skips the multibattle intro section.
+        CB2_InitBattleInternal();
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         {
@@ -1758,11 +1767,66 @@ static void CB2_HandleStartMultiBattle(void)
 
 void BattleMainCB2(void)
 {
-    AnimateSprites();
-    BuildOamBuffer();
-    RunTextPrinters();
-    UpdatePaletteFade();
-    RunTasks();
+    u32 speedScale = Rogue_GetBattleSpeedScale(FALSE);
+
+    // If we are processing a palette fade we need to temporarily fall back to 1x speed otherwise there is graphical corruption
+    if(PrevPaletteFadeResult() == PALETTE_FADE_STATUS_LOADING)
+        speedScale = 1;
+
+    if (gBattleResults.caughtMonSpecies)
+        speedScale = 1;
+
+    if(speedScale <= 1)
+    {
+        // Maintain OG order for compat
+        AnimateSprites();
+        BuildOamBuffer();
+        RunTextPrinters();
+        UpdatePaletteFade();
+        RunTasks();
+    }
+    else
+    {
+        u32 s;
+        u32 fadeResult;
+
+        // Update select entries at higher speed
+        // disable speed up during palette fades otherwise we run into issues with blending
+        //(e.g. moves that change background like Psychic can get stuck or have their colours overflow)
+        for(s = 1; s < speedScale; ++s)
+        {
+            AnimateSprites();
+            RunTextPrinters();
+            fadeResult = UpdatePaletteFade();
+
+            if(fadeResult == PALETTE_FADE_STATUS_LOADING)
+            {
+                // minimal final update as we've just started a fade
+                BuildOamBuffer();
+                RunTasks();
+                break;
+            }
+            else
+            {
+                RunTasks();
+                VBlankCB_Battle();
+
+                // Call it again to make sure everything is behaving as it should (this is crazy town now)
+                if (gMain.callback1)
+                    gMain.callback1();
+            }
+        }
+
+        if (fadeResult != PALETTE_FADE_STATUS_LOADING)
+        {
+            // final update
+            AnimateSprites();
+            BuildOamBuffer();
+            RunTextPrinters();
+            UpdatePaletteFade();
+            RunTasks();
+        }
+    }
 
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && RecordedBattle_CanStopPlayback())
     {
@@ -1882,6 +1946,13 @@ static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i)
     return Crc32B(buffer, n);
 }
 
+static u32 GeneratePartyHashFightCaves(const struct TrainerFightCaves *trainer, u32 i)
+{
+    const u8 *buffer = (const u8 *) &trainer->pool[i];
+    u32 n = sizeof(*trainer->pool);
+    return Crc32B(buffer, n);
+}
+
 void ModifyPersonalityForNature(u32 *personality, u32 newNature)
 {
     u32 nature = GetNatureFromPersonality(*personality);
@@ -1924,6 +1995,47 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     {
         SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
         SetMonData(mon, MON_DATA_PP1 + j, &gBattleMoves[partyEntry->moves[j]].pp);
+    }
+}
+
+u8 GetPoolIndex(u8 poolSize, u8 currNumMons, u16 *chosenSpecies, const struct TrainerFightCaves *trainer)
+{
+    u16 foundSpecies;
+    u16 rnd;
+    u8 index;
+    bool8 foundIndex = FALSE;
+    while (!foundIndex)
+    {
+        rnd = Random() % poolSize; 
+        foundSpecies = trainer->pool[rnd].lvl;
+        for (index = 0; index < currNumMons; index++) //prevents same mons from appearing twice.
+        {
+            if (foundSpecies == chosenSpecies[index])
+                break;
+        }
+        if (index == currNumMons)
+            foundIndex = TRUE;
+    }
+    return rnd;
+}
+
+static void FixIllusionPartyPos(struct Pokemon *party, u32 partySize) //Illusion Ability fix.
+{
+    struct Pokemon tempMon;
+    u16 lastMonSpecies = GetMonData(&party[partySize - 1], MON_DATA_SPECIES);
+    if (lastMonSpecies == 571 || lastMonSpecies == 1003)
+    {
+        for (u32 i = 1; i < partySize - 2; i++)
+        {
+            u16 currSpecies = GetMonData(&party[i], MON_DATA_SPECIES);
+            if (currSpecies != 571 && currSpecies != 1003)
+            {
+                tempMon = party[partySize - 1];
+                party[partySize - 1] = party[i];
+                party[i] = tempMon;
+                break;
+            }
+        }
     }
 }
 
@@ -2019,7 +2131,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         #if B_TRAINER_CLASS_POKE_BALLS >= GEN_7
             if (ball == -1)
             {
-                ball = (sTrainerBallTable[trainer->trainerClass]) ? sTrainerBallTable[trainer->trainerClass] : ITEM_NORMAL_POUCH;
+                ball = (sTrainerBallTable[trainer->trainerClass]) ? sTrainerBallTable[trainer->trainerClass] : ITEM_POUCH;
                 SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
             }
         #endif
@@ -2029,18 +2141,148 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
     return trainer->partySize;
 }
 
+u8 CreateNPCTrainerPartyFromTrainerFightCaves(struct Pokemon *party, const struct TrainerFightCaves *trainer)
+{
+    u32 personalityValue;
+    s32 i;
+    u8 monsCount = VarGet(VAR_POKESCAPE_TZHAAR_PARTY_SIZE); // trainer->partySize;
+    u16 chosenSpecies[6] = {0, 0, 0, 0, 0, 0};
+    ZeroEnemyPartyMons();
+    for (i = 0; i < monsCount; i++)
+    {
+        u8 poolIndex = GetPoolIndex(trainer->poolSize, i + 1, &chosenSpecies[0], trainer);
+        s32 ball = -1;
+        u32 personalityHash = GeneratePartyHashFightCaves(trainer, i);
+        const struct TrainerMon *poolData = trainer->pool;
+        u32 otIdType = OT_ID_RANDOM_NO_SHINY;
+        u32 fixedOtId = 0;
+        u32 ability = 0;
+        u8 customlevel = poolData[poolIndex].lvl;
+        u8 lvlPoolRnd = 0;
+
+        if (FlagGet(FLAG_POKESCAPE_USECUSTOM_POOL_LEVEL) == TRUE) {
+            lvlPoolRnd = Random() % VarGet(VAR_TEMP_B); 
+            customlevel = (VarGet(VAR_TEMP_A) + lvlPoolRnd);
+        }
+
+        chosenSpecies[i] = poolData[poolIndex].lvl; //prevents same mons from appearing twice. //CHANGE MORE IN GetPoolIndex.
+
+        if (trainer->doubleBattle == TRUE)
+            personalityValue = 0x80;
+        else if (trainer->encounterMusic_gender & F_TRAINER_FEMALE)
+            personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
+        else
+            personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
+
+        personalityValue += personalityHash << 8;
+        if (poolData[poolIndex].gender == TRAINER_MON_MALE)
+            personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_MALE, poolData[poolIndex].species);
+        else if (poolData[poolIndex].gender == TRAINER_MON_FEMALE)
+            personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(MON_FEMALE, poolData[poolIndex].species);
+        // else if (poolData[poolIndex].gender == TRAINER_MON_RANDOM_GENDER)
+        //     personalityValue = (personalityValue & 0xFFFFFF00) | GeneratePersonalityForGender(Random() & 1 ? MON_MALE : MON_FEMALE, poolData[poolIndex].species);
+        // ModifyPersonalityForNature(&personalityValue, poolData[poolIndex].nature);
+        if (poolData[poolIndex].isShiny)
+        {
+            otIdType = OT_ID_PRESET;
+            fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
+        }
+        CreateMon(&party[i], poolData[poolIndex].species, customlevel, 0, TRUE, personalityValue, otIdType, fixedOtId);
+        SetMonData(&party[i], MON_DATA_HELD_ITEM, &poolData[poolIndex].heldItem);
+
+        CustomTrainerPartyAssignMoves(&party[i], &poolData[poolIndex]);
+        SetMonData(&party[i], MON_DATA_IVS, &(poolData[poolIndex].iv));
+        if (poolData[poolIndex].ev != NULL)
+        {
+            SetMonData(&party[i], MON_DATA_HP_EV, &(poolData[poolIndex].ev[0]));
+            SetMonData(&party[i], MON_DATA_ATK_EV, &(poolData[poolIndex].ev[1]));
+            SetMonData(&party[i], MON_DATA_DEF_EV, &(poolData[poolIndex].ev[2]));
+            SetMonData(&party[i], MON_DATA_SPATK_EV, &(poolData[poolIndex].ev[3]));
+            SetMonData(&party[i], MON_DATA_SPDEF_EV, &(poolData[poolIndex].ev[4]));
+            SetMonData(&party[i], MON_DATA_SPEED_EV, &(poolData[poolIndex].ev[5]));
+        }
+        if (poolData[poolIndex].ability != ABILITY_NONE)
+        {
+            const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[poolData[poolIndex].species];
+            u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
+            for (ability = 0; ability < maxAbilities; ++ability)
+            {
+                if (speciesInfo->abilities[ability] == poolData[poolIndex].ability)
+                    break;
+            }
+            if (ability >= maxAbilities)
+                ability = 0;
+        }
+        // else
+        // {
+        //     const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[poolData[poolIndex].species];
+        //     ability = personalityHash % 3;
+        //     while (speciesInfo->abilities[ability] == ABILITY_NONE)
+        //     {
+        //         ability--;
+        //     }
+        // }
+        ability = Random() % 2;
+        SetMonData(&party[i], MON_DATA_ABILITY_NUM, &ability);
+        // SetMonData(&party[i], MON_DATA_FRIENDSHIP, &(poolData[poolIndex].friendship));
+        if (poolData[poolIndex].ball != ITEM_NONE)
+        {
+            ball = poolData[poolIndex].ball;
+            SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
+        }
+        if (poolData[poolIndex].nickname != NULL)
+        {
+            SetMonData(&party[i], MON_DATA_NICKNAME, poolData[poolIndex].nickname);
+        }
+        // if (poolData[poolIndex].isShiny)
+        // {
+        //     u32 data = TRUE;
+        //     SetMonData(&party[i], MON_DATA_IS_SHINY, &data);
+        // }
+        // if (poolData[poolIndex].dynamaxLevel > 0)
+        // {
+        //     u32 data = poolData[poolIndex].dynamaxLevel;
+        //     SetMonData(&party[i], MON_DATA_DYNAMAX_LEVEL, &data);
+        // }
+        // if (poolData[poolIndex].gigantamaxFactor)
+        // {
+        //     u32 data = poolData[poolIndex].gigantamaxFactor;
+        //     SetMonData(&party[i], MON_DATA_GIGANTAMAX_FACTOR, &data);
+        // }
+        // if (poolData[poolIndex].teraType > 0)
+        // {
+        //     u32 data = poolData[poolIndex].teraType;
+        //     SetMonData(&party[i], MON_DATA_TERA_TYPE, &data);
+        // }
+        CalculateMonStats(&party[i]);
+
+        // if (B_TRAINER_CLASS_POKE_BALLS >= GEN_7 && ball == -1)
+        // {
+        //     ball = gTrainerClasses[trainer->trainerClass].ball ?: ITEM_POKE_BALL;
+        //     SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
+        // }
+    }
+    // FixIllusionPartyPos(party, 6);
+
+    return VarGet(VAR_POKESCAPE_TZHAAR_PARTY_SIZE); // trainer->partySize;
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u8 retVal;
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
-    retVal = CreateNPCTrainerPartyFromTrainer(party, &gTrainers[trainerNum], firstTrainer, gBattleTypeFlags);
-
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER
-                                                                        | BATTLE_TYPE_EREADER_TRAINER
-                                                                        | BATTLE_TYPE_TRAINER_HILL)))
-    {
-        gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && FlagGet(FLAG_TZHAAR_RANDOM)) {
+        retVal = CreateNPCTrainerPartyFromTrainerFightCaves(party, &gTrainersFightCaves[trainerNum]);
+    } 
+    else {
+        retVal = CreateNPCTrainerPartyFromTrainer(party, &gTrainers[trainerNum], firstTrainer, gBattleTypeFlags);
+        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & (BATTLE_TYPE_FRONTIER
+                                                                            | BATTLE_TYPE_EREADER_TRAINER
+                                                                            | BATTLE_TYPE_TRAINER_HILL)))
+        {
+            gBattleTypeFlags |= gTrainers[trainerNum].doubleBattle;
+        }
     }
     return retVal;
 }
@@ -2943,6 +3185,16 @@ void BeginBattleIntro(void)
     gBattleMainFunc = DoBattleIntro;
 }
 
+bool32 InBattleChoosingMoves()
+{
+    return gBattleMainFunc == HandleTurnActionSelectionState;
+}
+
+bool32 InBattleRunningActions()
+{
+    return gBattleMainFunc == RunTurnActionsFunctions;
+}
+
 static void BattleMainCB1(void)
 {
     u32 battler;
@@ -3674,7 +3926,9 @@ static void DoBattleIntro(void)
                                           | BATTLE_TYPE_RECORDED_LINK
                                           | BATTLE_TYPE_TRAINER_HILL)))
                 {
-                    HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
+                    DebugPrintf("Setting seen flag for species: %d", gBattleMons[battler].species);  
+                    if (gBattleMons[battler].species != 0)
+                        HandleSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_SET_SEEN, gBattleMons[battler].personality);
                 }
             }
 
@@ -5220,7 +5474,12 @@ static void HandleEndTurn_BattleWon(void)
     else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && !(gBattleTypeFlags & BATTLE_TYPE_LINK))
     {
         BattleStopLowHpSound();
-        gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
+        if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+            gBattlescriptCurrInstr = BattleScript_TzhaarTrainerBattleWon;
+        }
+        else {
+            gBattlescriptCurrInstr = BattleScript_LocalTrainerBattleWon;
+        }
 
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
@@ -5240,13 +5499,24 @@ static void HandleEndTurn_BattleWon(void)
             PlayBGM(MUS_VICTORY_GYM_LEADER);
             break;
         default:
-            PlayBGM(MUS_VICTORY_TRAINER);
+            if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+                PlayBGM(MUS_PS_TRAINER_VICTORY);
+            }
+            else {
+                PlayBGM(MUS_VICTORY_TRAINER);
+            }
             break;
         }
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
+        
+        if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+            gBattlescriptCurrInstr = BattleScript_TzhaarWildBattleWon;
+        }
+        else {
+            gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
+        }
     }
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;
@@ -5282,7 +5552,12 @@ static void HandleEndTurn_BattleLost(void)
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+            gBattlescriptCurrInstr = BattleScript_TzhaarBattleLost;
+        }
+        else {
+            gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
+        }
     }
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;
@@ -5338,6 +5613,7 @@ static void HandleEndTurn_FinishBattle(void)
 
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
+
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
                                   | BATTLE_TYPE_RECORDED_LINK
                                   | BATTLE_TYPE_FIRST_BATTLE

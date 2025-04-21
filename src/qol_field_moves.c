@@ -348,9 +348,10 @@ static void FieldCallback_UseFlashMove(void)
 void FldEff_UseFlashTool(void)
 {
     HideMapNamePopUpWindow();
-    PlaySE(SE_M_REFLECT);
-    FlagSet(FLAG_SYS_USE_FLASH);
-    ScriptContext_SetupScript(EventScript_UseFlashTool);
+    ScriptContext_SetupScript(EventScript_USE_FLASH);
+    //PlaySE(SE_M_REFLECT);
+    //FlagSet(FLAG_SYS_USE_FLASH);
+    //ScriptContext_SetupScript(EventScript_UseFlashTool);
 }
 
 u32 CanUseFlash(void)
@@ -424,7 +425,7 @@ u32 UseRockSmash(u32 fieldMoveStatus)
     else if(fieldMoveStatus == FIELD_MOVE_POKEMON)
         ScriptContext_SetupScript(EventScript_UseRockSmash);
     else if(fieldMoveStatus == FIELD_MOVE_TOOL)
-        ScriptContext_SetupScript(EventScript_UseRockSmashTool);
+        ScriptContext_SetupScript(EventScript_RockSmash_POKESCAPE); //EventScript_UseRockSmashTool  
 
     FlagSet(FLAG_SYS_USE_ROCK_SMASH);
     return COLLISION_START_ROCK_SMASH;

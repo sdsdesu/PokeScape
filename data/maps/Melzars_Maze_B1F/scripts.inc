@@ -15,6 +15,8 @@ MELZARS_B1F_STATE::
 	goto_if_eq MELZARS_B1F_STATE_2
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 107
 	goto_if_eq MELZARS_B1F_STATE_3
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 110
+	goto_if_eq MELZARS_B1F_STATE_4
 	removeobject 2
 	removeobject 3
 	setflag FLAG_TEMP_1B
@@ -45,11 +47,23 @@ MELZARS_B1F_STATE_3:
 	playbgm MUS_PS_ENCOUNTER_HAM, TRUE
 	goto MELZARS_B1F_STATE_1
 
+MELZARS_B1F_STATE_4:
+	removeobject 2
+	removeobject 3
+	setflag FLAG_TEMP_1B
+	setflag FLAG_TEMP_1A
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1C
+	setvar VAR_TEMP_E, 1
+	playbgm MUS_PS_CAVE_F2P, TRUE
+	goto MELZARS_B1F_STATE_1
+
 
 Melzar_Maze_B1F_HAM_Patty::
 	msgbox Melzar_Maze_B1F_HAM_Patty_Text_0
 	closemessage
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 110
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 5
 	end
 
 
@@ -297,7 +311,9 @@ TRIGGER_Melzar_Maze_HAM_EVENT_BABE_13:
 	closemessage
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
+	addvar VAR_GAMEMODE_LEVEL_CAP, 2
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 110
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 5
 	removeobject 6
 	removeobject 7
 	removeobject 8
@@ -305,7 +321,7 @@ TRIGGER_Melzar_Maze_HAM_EVENT_BABE_13:
 	removeobject 2
 	setflag FLAG_TEMP_1D
 	setvar VAR_TEMP_5, 2
-	playbgm MUS_PS_CAVE_F2P, FALSE
+	call MELZARS_B1F_STATE
 	fadescreenswapbuffers FADE_FROM_BLACK
 	release
 	end
@@ -425,7 +441,7 @@ HAM_LESSER_DEMON_EVENT::
 	hidenamebox
 	closemessage
 	delay 1
-	setwildbattle SPECIES_DEMON_LESSER_TONGUE_FORM, 25, ITEM_NONE
+	setwildbattle SPECIES_DEMON_LESSER_TONGUE_FORM, 27, ITEM_NONE
 	dowildbattle
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq HAM_LESSER_DEMON_EVENT_2

@@ -1060,7 +1060,7 @@ const struct Tileset gTileset_Lumbridge_Swamp_Caves =
     .palettes = gTilesetPalettes_Lumbridge_Swamp_Caves,
     .metatiles = gMetatiles_Lumbridge_Swamp_Caves,
     .metatileAttributes = gMetatileAttributes_Lumbridge_Swamp_Caves,
-    .callback = NULL,
+    .callback = InitTilesetAnim_Lumbridge_Swamp_Caves,
 };
 
 const struct Tileset gTileset_Abyss =
@@ -1242,4 +1242,37 @@ const struct Tileset gTileset_PokeScapeCaves_Extra_1 =
     .metatiles = gMetatiles_PokeScapeCaves_Extra_1,
     .metatileAttributes = gMetatileAttributes_PokeScapeCaves_Extra_1,
     .callback = InitTilesetAnim_PokeScapeCaves_Extra_1,
+};
+
+const struct Tileset gTileset_Lighthouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Lighthouse,
+    .palettes = gTilesetPalettes_Lighthouse,
+    .metatiles = gMetatiles_Lighthouse,
+    .metatileAttributes = gMetatileAttributes_Lighthouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_IndoorTowns3 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_IndoorTowns3,
+    .palettes = gTilesetPalettes_IndoorTowns3,
+    .metatiles = gMetatiles_IndoorTowns3,
+    .metatileAttributes = gMetatileAttributes_IndoorTowns3,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_DwarvenMines =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DwarvenMines,
+    .palettes = gTilesetPalettes_DwarvenMines,
+    .metatiles = gMetatiles_DwarvenMines,
+    .metatileAttributes = gMetatileAttributes_DwarvenMines,
+    .callback = NULL,
 };

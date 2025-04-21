@@ -1,10 +1,15 @@
 Rimmington_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Rimmington_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Rimmington_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Rimmington_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_RIMMINGTON
 	goto Rimmington_STATE
+	return
+
+Rimmington_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call PURO_PURO_EVENT
 	return
 
 
@@ -94,7 +99,7 @@ ITEM_RIMMINGTON_4::
 
 
 ITEM_RIMMINGTON_5::
-	finditem ITEM_LAMP_SPATT
+	finditem ITEM_TRIANGLE_SANDWICH
 	end
 
 
@@ -524,8 +529,9 @@ RIMMINGTON_WELL_2:
 
 RIMMINGTON_WELL_6:
 	msgbox RIMMINGTON_WELL_Text_2
-	warp MAP_RIMMINGTON_MINES_B2F, 0, 0, 0
 	closemessage
+	warp MAP_RIMMINGTON_MINES_B2F, 0, 0, 0
+	waitstate
 	release
 	end
 
@@ -550,6 +556,7 @@ RIMMINGTON_HOUSE_PORTAL_3:
 RIMMINGTON_HOUSE_PORTAL_4:
 	msgbox RIMMINGTON_HOUSE_PORTAL_Text_2
 	warp MAP_POH_1, 0, 0, 0
+	waitstate
 	end
 
 RIMMINGTON_HOUSE_PORTAL_5:
@@ -965,6 +972,7 @@ MOVE_HYPERSTAN_1:
 POH_HOUSE_PORTAL::
 	msgbox POH_HOUSE_PORTAL_Text_0
 	warp MAP_RIMMINGTON, 8, 0, 0
+	waitstate
 	release
 	end
 
@@ -1224,6 +1232,53 @@ NPC_POH_HELLWIND::
 	closemessage
 	release
 	end
+
+
+ANCHOVYBOOK::
+	lock
+	msgbox ANCHOVYBOOK_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne ANCHOVYBOOK_2
+	msgbox ANCHOVYBOOK_Text_2
+	closemessage
+ANCHOVYBOOK_1:
+	release
+	end
+
+ANCHOVYBOOK_2:
+	msgbox ANCHOVYBOOK_Text_1
+	closemessage
+	goto ANCHOVYBOOK_1
+
+
+PURO_PURO_EVENT_RIMMINGTON::
+	setmetatile 47, 3, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 3, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 3, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 50, 3, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 50, 4, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 5, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 5, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 5, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 50, 6, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 46, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 50, 7, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 47, 8, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 8, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 49, 8, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 48, 4, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0
+	setmetatile 48, 5, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0
+	setmetatile 48, 6, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
+	return
 
 
 NPC_RIMMINGTON_CustomsOfficer_Text_0:
@@ -1605,10 +1660,10 @@ NPC_RIMMINGTON_DemonAndStan_Text_4:
 	.string "Was frogeel invited?$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_5:
-	.string "Its not Friday today.$"
+	.string "It's not Friday today.$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_6:
-	.string "Where is Orchy and Lukien?$"
+	.string "Where are Orchy and Lukien?$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_7:
 	.string "Fishing.$"
@@ -1618,12 +1673,12 @@ NPC_RIMMINGTON_DemonAndStan_Text_8:
 	.string "your hat or-?$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_9:
-	.string "Lets not have this conversation here\n"
+	.string "Let's not have this conversation here\n"
 	.string "man.$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_10:
 	.string "Ok so tell me again the steps for the\n"
-	.string "plan to kidnap zezimas cat…$"
+	.string "plan to kidnap Zezima's cat…$"
 
 NPC_RIMMINGTON_DemonAndStan_Text_11:
 	.string "SHHHHH people are listening!$"
@@ -1882,3 +1937,30 @@ NPC_POH_HELLWIND_Text_0:
 NPC_POH_HELLWIND_Text_1:
 	.string "Nothing beats these house parties.\p"
 	.string "Except maybe making RSMVs.$"
+
+ANCHOVYBOOK_Text_0:
+	.string "There is a journal on the desk.\p"
+	.string "Do you want to read it?$"
+
+ANCHOVYBOOK_Text_1:
+	.string "Test 119: My quest to continue\n"
+	.string "trialling different methods of evolving\l"
+	.string "monsters continues.\p"
+	.string "I have procured a couple of runes from\n"
+	.string "a local merchant, and am going to\l"
+	.string "attempt to see what effect some\l"
+	.string "elemental runes have on this Anchovy\l"
+	.string "someone left.\p"
+	.string "Previously I'd have ground it up and\n"
+	.string "sieved out the bits to make an oil, but\l"
+	.string "now they have more use in battling.\p"
+	.string "AIR RUNES and WATER RUNES seem to have\n"
+	.string "no effect.\p"
+	.string "Hm.\p"
+	.string "If the heat from cooking them helped to\n"
+	.string "distil the oil, then I wonder what\l"
+	.string "effect a FIRE RUNE would have on it...\p"
+	.string "More testing is required.$"
+
+ANCHOVYBOOK_Text_2:
+	.string "You decide to leave the journal for now.$"

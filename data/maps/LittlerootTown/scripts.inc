@@ -56,8 +56,6 @@ LittlerootTown_EventScript_SetRivalLeftForRoute103::
 	return
 
 LittlerootTown_EventScript_MoveRivalFromOldale::
-	setvar VAR_OLDALE_RIVAL_STATE, 2
-	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
 	return
 
 LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::

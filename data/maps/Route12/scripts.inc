@@ -1,5 +1,6 @@
 Route12_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route12_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Route12_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Route12_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -11,6 +12,10 @@ Route12_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 
 Route12_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	call ROUTE12_STATE
+	return
+
+Route12_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call PURO_PURO_EVENT
 	return
 
 
@@ -25,11 +30,11 @@ OPENWORLD_STATE_ROUTE12::
 
 
 ROUTE12_STATE::
-	goto_if_set FLAG_BADGE02_GET, ROUTE12_STATE_1
+	goto_if_set FLAG_BADGE04_GET, ROUTE12_STATE_1
 	return
 
 ROUTE12_STATE_1:
-	setobjectxyperm 16, 29, 9
+	setobjectxyperm 16, 32, 5
 	setobjectmovementtype 16, MOVEMENT_TYPE_LOOK_AROUND
 	setobjectxyperm 14, 30, 14
 	setobjectmovementtype 14, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT
@@ -131,29 +136,15 @@ NPC_DAIRYCOW_4:
 NPC_LUMBRIDGE_CHICKEN::
 	compare VAR_POKESCAPE_COOKS_ASSISTANT_QUEST_STATE, 1
 	goto_if_eq NPC_LUMBRIDGE_CHICKEN_1
-	lock
-	faceplayer
-	namebox NPC_LUMBRIDGE_CHICKEN_Text_0
-	playmoncry SPECIES_TORCHIC, 0
-	msgbox NPC_LUMBRIDGE_CHICKEN_Text_5
-	waitmoncry
-	hidenamebox
-	release
-	end
+	goto ENCOUNTER_CHICKEN
+	return
 
 NPC_LUMBRIDGE_CHICKEN_1:
 	checkitem ITEM_SUPER_LARGE_EGG, 1
 	compare VAR_RESULT, 0
 	goto_if_eq NPC_LUMBRIDGE_CHICKEN_4
-	lock
-	faceplayer
-	namebox NPC_LUMBRIDGE_CHICKEN_Text_0
-	playmoncry SPECIES_CHICKEN_NORMAL_FORM, 0
-	msgbox NPC_LUMBRIDGE_CHICKEN_Text_5
-	waitmoncry
-	hidenamebox
-	release
-	end
+	goto ENCOUNTER_CHICKEN
+	return
 
 NPC_LUMBRIDGE_CHICKEN_4:
 	lock
@@ -194,7 +185,7 @@ BLOCK_Route12_Farmer::
 	end
 
 BLOCK_Route12_Farmer_1:
-	goto_if_unset FLAG_BADGE02_GET, BLOCK_Route12_Farmer_5
+	goto_if_unset FLAG_BADGE04_GET, BLOCK_Route12_Farmer_5
 	msgbox BLOCK_Route12_Farmer_Text_2
 	hidenamebox
 	closemessage
@@ -369,6 +360,215 @@ NPC_ROUTE12_Goblin_2::
 	end
 
 
+BROKEN_DOOR::
+	msgbox BROKEN_DOOR_Text_0
+	closemessage
+	end
+
+
+BLOCK_Alkharid_Guards::
+	lock
+	faceplayer
+	goto_if_unset FLAG_BADGE04_GET, BLOCK_Alkharid_Guards_2
+BLOCK_Alkharid_Guards_1:
+	namebox BLOCK_Alkharid_Guards_Text_0
+	msgbox BLOCK_Alkharid_Guards_Text_1
+	closemessage
+	release
+	end
+
+BLOCK_Alkharid_Guards_2:
+	goto BLOCK_ALKHARID_GATE
+	goto BLOCK_Alkharid_Guards_1
+
+
+TRIGGER_ALKHARID_GATE::
+	applymovement 27, Movement_InteractFACEDOWN
+	applymovement 28, Movement_InteractFACEUP
+	waitmovement 0
+	goto_if_unset FLAG_BADGE04_GET, TRIGGER_ALKHARID_GATE_2
+TRIGGER_ALKHARID_GATE_1:
+	release
+	end
+
+TRIGGER_ALKHARID_GATE_2:
+	call BLOCK_ALKHARID_GATE
+	goto TRIGGER_ALKHARID_GATE_1
+
+
+BLOCK_ALKHARID_GATE::
+	lockall
+	namebox BLOCK_Alkharid_Guards_Text_0
+	applymovement 27, movement_BLOCK_ALKHARID_GATE_1
+	applymovement 28, movement_BLOCK_ALKHARID_GATE_2
+	waitmovement 0
+	msgbox BLOCK_ALKHARID_GATE_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
+	applymovement 27, MOVEMENT_FACE_LEFT
+	applymovement 28, MOVEMENT_FACE_LEFT
+	waitmovement 0
+	return
+
+
+movement_BLOCK_ALKHARID_GATE_1:
+	face_down
+	step_end
+
+movement_BLOCK_ALKHARID_GATE_2:
+	face_up
+	step_end
+
+movement_BLOCK_ALKHARID_GATE_3:
+	walk_left
+	step_end
+
+ALKHARID_GATE_GUARD::
+	lockall
+	faceplayer
+	namebox ALKHARID_GATE_GUARD_Text_0
+	msgbox BLOCK_ALKHARID_GATE_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
+	applymovement 27, MOVEMENT_FACE_LEFT
+	applymovement 28, MOVEMENT_FACE_LEFT
+	waitmovement 0
+	release
+	end
+
+
+PURO_PURO_EVENT_ROUTE12::
+	setmetatile 29, 9, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 29, 10, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 29, 11, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 29, 12, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 29, 13, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 30, 9, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 30, 10, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 30, 11, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 30, 12, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 30, 13, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 31, 9, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 31, 13, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 32, 9, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 32, 10, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 32, 11, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 32, 12, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 32, 13, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 33, 9, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 33, 10, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 33, 11, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 33, 12, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 33, 13, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 31, 10, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0
+	setmetatile 31, 11, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0
+	setmetatile 31, 12, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
+	return
+
+
+NPC_ROUTE12_IRONMAN::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_IRONMAN_Text_0
+	random 7
+	switch VAR_RESULT
+	case 0, NPC_ROUTE12_IRONMAN_3
+	case 1, NPC_ROUTE12_IRONMAN_4
+	case 2, NPC_ROUTE12_IRONMAN_5
+	case 3, NPC_ROUTE12_IRONMAN_6
+	case 4, NPC_ROUTE12_IRONMAN_7
+	case 5, NPC_ROUTE12_IRONMAN_8
+	case 6, NPC_ROUTE12_IRONMAN_9
+NPC_ROUTE12_IRONMAN_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+NPC_ROUTE12_IRONMAN_3:
+	msgbox NPC_ROUTE12_IRONMAN_Text_1
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_4:
+	msgbox NPC_ROUTE12_IRONMAN_Text_2
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_5:
+	msgbox NPC_ROUTE12_IRONMAN_Text_3
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_6:
+	msgbox NPC_ROUTE12_IRONMAN_Text_4
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_7:
+	msgbox NPC_ROUTE12_IRONMAN_Text_5
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_8:
+	msgbox NPC_ROUTE12_IRONMAN_Text_6
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_9:
+	msgbox NPC_ROUTE12_IRONMAN_Text_7
+	goto NPC_ROUTE12_IRONMAN_1
+
+
+NPC_ROUTE12_BRONZEMAN::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BRONZEMAN_Text_0
+	msgbox NPC_ROUTE12_BRONZEMAN_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_NOOB::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_NOOB_Text_0
+	msgbox NPC_ROUTE12_NOOB_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_SAILING::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_SAILING_Text_0
+	msgbox NPC_ROUTE12_SAILING_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_BOAT_1::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BOAT_1_Text_0
+	msgbox NPC_ROUTE12_BOAT_1_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_BOAT_2::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BOAT_2_Text_0
+	msgbox NPC_ROUTE12_BOAT_2_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
 Gillie_Groats_Text_0:
 	.string "Gillie Groats$"
 
@@ -425,9 +625,6 @@ NPC_LUMBRIDGE_CHICKEN_Text_3:
 
 NPC_LUMBRIDGE_CHICKEN_Text_4:
 	.string "The chicken laid an egg!$"
-
-NPC_LUMBRIDGE_CHICKEN_Text_5:
-	.string "Bwwaak!$"
 
 SIGN_ROUTE12_Text_0:
 	.string "NORTH to Varrock\p"
@@ -543,3 +740,131 @@ NPC_ROUTE12_Fisherman_Text_1:
 
 NPC_ROUTE12_Goblin_2_Text_0:
 	.string "Me fishing.$"
+
+BROKEN_DOOR_Text_0:
+	.string "This door is broken beyond repair.\p"
+	.string "There's no way you could get it open.$"
+
+BLOCK_Alkharid_Guards_Text_0:
+	.string "Guards$"
+
+BLOCK_Alkharid_Guards_Text_1:
+	.string "That is the Al-Kharid Badge!\p"
+	.string "You may pass.$"
+
+BLOCK_ALKHARID_GATE_Text_0:
+	.string "Halt!\p"
+	.string "Only those whom possess the Al-Kharid\n"
+	.string "Badge may enter!$"
+
+ALKHARID_GATE_GUARD_Text_0:
+	.string "Guard$"
+
+NPC_ROUTE12_IRONMAN_Text_0:
+	.string "Limpwurt$"
+
+NPC_ROUTE12_IRONMAN_Text_1:
+	.string "I got 99 Woodcutting with a steel axe\n"
+	.string "without ever leaving Lumbridge!\p"
+	.string "I think I'm the reason Bob is out of\n"
+	.string "axes.\p"
+	.string "Now where is that Woodcutting Tutor\n"
+	.string "with my cape...$"
+
+NPC_ROUTE12_IRONMAN_Text_2:
+	.string "With how my routes rolled, it took me 2\n"
+	.string "years to finish Cook's Assistant.$"
+
+NPC_ROUTE12_IRONMAN_Text_3:
+	.string "I rolled Al Kharid as my next route, but\n"
+	.string "since then the guards have blocked\l"
+	.string "access to anybody without the badge.\p"
+	.string "I probably should have done that\n"
+	.string "before I left, but I came back here to\l"
+	.string "train!$"
+
+NPC_ROUTE12_IRONMAN_Text_4:
+	.string "I'm an extreme one route ironman.\p"
+	.string "That means before I can leave this\n"
+	.string "route, I must complete all of the\l"
+	.string "highest level skilling challenges,\p"
+	.string "do all available achievement diary\n"
+	.string "tasks,\p"
+	.string "obtain all unique monster drops,\p"
+	.string "and obtain all unique items on a route.\p"
+	.string "{PAUSE 15}What do you mean there are no\n"
+	.string "achievement diaries?!$"
+
+NPC_ROUTE12_IRONMAN_Text_5:
+	.string "The extreme part of a extreme one\n"
+	.string "route ironman means absolutely no\l"
+	.string "exceptions to my rules!$"
+
+NPC_ROUTE12_IRONMAN_Text_6:
+	.string "I smelted so many bronze bars in the\n"
+	.string "Lumbridge Furnace that I think I broke\l"
+	.string "it...\p"
+	.string "Apparently they've had to send a dwarf\n"
+	.string "all the way from near Falador to fix it.$"
+
+NPC_ROUTE12_IRONMAN_Text_7:
+	.string "There's a gnome near the windmill that\n"
+	.string "is looking for an item.\p"
+	.string "Do you have any idea where it could be?\p"
+	.string "I can't roll my next route until I find\n"
+	.string "it.\p"
+	.string "{PAUSE 15}...\p"
+	.string "{PAUSE 15}I... must... find... it!$"
+
+NPC_ROUTE12_BRONZEMAN_Text_0:
+	.string "Br0nzem4n$"
+
+NPC_ROUTE12_BRONZEMAN_Text_1:
+	.string "Everyone kept saying that to battle, I\n"
+	.string "had to catch a monster.\p"
+	.string "But no matter how much I run after it, I\n"
+	.string "can't seem to keep this cow still long\l"
+	.string "enough!{PAUSE 15}Wait, what's a pouch..?$"
+
+NPC_ROUTE12_NOOB_Text_0:
+	.string "Big Nub56$"
+
+NPC_ROUTE12_NOOB_Text_1:
+	.string "Where is varok?$"
+
+NPC_ROUTE12_SAILING_Text_0:
+	.string "MonKeeDLoof$"
+
+NPC_ROUTE12_SAILING_Text_1:
+	.string "Once I've saved up enough coins to buy\n"
+	.string "myself a boat, I'm going to set sail and\l"
+	.string "never look back.\p"
+	.string "One day my crew and I will be known as\n"
+	.string "the Straw Boater Pirates!$"
+
+NPC_ROUTE12_BOAT_1_Text_0:
+	.string "L0st2theS3a$"
+
+NPC_ROUTE12_BOAT_1_Text_1:
+	.string "I picked up a courier task to deliver\n"
+	.string "from lobsters from Musa Point to\l"
+	.string "Catherby.\p"
+	.string "I have absolutely no idea how I ended\n"
+	.string "up here, though.\p"
+	.string "I just got caught up in the currents...\p"
+	.string "I'm just continuing to follow them and\n"
+	.string "hoping for the best.$"
+
+NPC_ROUTE12_BOAT_2_Text_0:
+	.string "DaveyJay5$"
+
+NPC_ROUTE12_BOAT_2_Text_1:
+	.string "I heard rumours of an unusual sea\n"
+	.string "creature causing a disturbance north\l"
+	.string "of Musa Point.\p"
+	.string "It has churned up the sea so much that\n"
+	.string "the currents there are out of control\l"
+	.string "and causing boats to veer wildly off\l"
+	.string "course.\p"
+	.string "Be careful if you do ever venture out\n"
+	.string "that way.$"

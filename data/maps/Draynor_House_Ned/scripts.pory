@@ -163,7 +163,7 @@ script Story_Ned_Draynor {
     hidenamebox
     closemessage
     namebox("Sir Owen")
-    msgbox(format("I've come to inform you that a small crew and ship has been aquired, it is located south of the docks in Port Sarim."))
+    msgbox(format("I've come to inform you that a small crew and ship has been acquired, it is located south of the docks in Port Sarim."))
     hidenamebox
     closemessage
     namebox("Ned")
@@ -177,6 +177,7 @@ script Story_Ned_Draynor {
     hidenamebox
     closemessage
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130)
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8)
     release
 	end
 }

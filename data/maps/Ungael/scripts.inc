@@ -41,13 +41,13 @@ ENCOUNTER_VORKATH::
 	waitmovement 0
 	delay 60
 	namebox ENCOUNTER_VORKATH_Text_0
-	playmoncry SPECIES_TZTOK_JAD_RS3_MEGA_FORM, 0
+	playmoncry SPECIES_VORKATH, 0
 	msgbox ENCOUNTER_VORKATH_Text_1
 	waitmoncry
 	hidenamebox
 	closemessage
 	delay 32
-	setwildbattle SPECIES_FROGEEL, 60, ITEM_NONE
+	setwildbattle SPECIES_VORKATH, 70, ITEM_NONE
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	compare VAR_RESULT, B_OUTCOME_WON
@@ -111,6 +111,7 @@ UNGAEL_Fremennik_Sailor_1:
 UNGAEL_Fremennik_Sailor_2:
 	msgbox UNGAEL_Fremennik_Sailor_Text_1
 	warp MAP_RELLEKKA, 6, 0, 0
+	waitstate
 	goto UNGAEL_Fremennik_Sailor_1
 
 
@@ -161,6 +162,7 @@ RELEKKA_Ungael_Sailor_2:
 RELEKKA_Ungael_Sailor_5:
 	msgbox RELEKKA_Ungael_Sailor_Text_3
 	warp MAP_UNGAEL, 0, 0, 0
+	waitstate
 	goto RELEKKA_Ungael_Sailor_4
 
 

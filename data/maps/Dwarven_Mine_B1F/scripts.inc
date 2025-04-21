@@ -128,7 +128,7 @@ ITEM_DWARVENMINES_1::
 
 
 ITEM_DWARVENMINES_2::
-	finditem ITEM_GRANITE_POUCH
+	finditem ITEM_POUCH_GRANITE
 	end
 
 
@@ -341,6 +341,7 @@ NPC_FALADORCASTLE_QUEST_PART_3::
 	removeobject 32
 	setvar VAR_POKESCAPE_FALADOR_STATE, 3
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 115
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 6
 	clearflag FLAG_TEMP_F
 	addobject 59
 	fadescreenswapbuffers FADE_FROM_BLACK
@@ -878,7 +879,7 @@ BATTLE_DWARVENMINES_DWARF_2_Text_0:
 	.string "land!$"
 
 BATTLE_DWARVENMINES_DWARF_2_Text_1:
-	.string "Theres no respect for racially\n"
+	.string "There's no respect for racially\n"
 	.string "established borders for you\l"
 	.string "adventurers.$"
 
@@ -888,7 +889,7 @@ BATTLE_DWARVENMINES_DWARF_2_Text_2:
 BATTLE_DWARVENMINES_DWARF_3_Text_0:
 	.string "They say deep down under this mountain\n"
 	.string "the rocks move.\p"
-	.string "Lets fight to that.$"
+	.string "Let's fight to that.$"
 
 BATTLE_DWARVENMINES_DWARF_3_Text_1:
 	.string "Maybe the ones who told the story were\n"

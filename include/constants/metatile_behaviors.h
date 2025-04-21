@@ -89,7 +89,7 @@
 #define MB_UNUSED_55 0x55
 #define MB_UNUSED_56 0x56
 #define MB_UNUSED_57 0x57
-#define MB_UNUSED_58 0x58
+#define MB_LAVA 0x58
 #define MB_UNUSED_59 0x59
 #define MB_UNUSED_5A 0x5A
 #define MB_UNUSED_5B 0x5B
@@ -237,8 +237,8 @@
 #define MB_TRAINER_HILL_TIMER 0xE9
 #define MB_SKY_PILLAR_CLOSED_DOOR 0xEA
 #define MB_LOCKED_DOOR 0xEB
-#define MB_UNUSED_EC 0xEC
-#define MB_UNUSED_ED 0xED
+#define MB_WALL_CLOCK 0xEC
+#define MB_WHIRLPOOL 0xED
 #define MB_UNUSED_EE 0xEE
 #define MB_UNUSED_EF 0xEF
 

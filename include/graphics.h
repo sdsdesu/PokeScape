@@ -117,6 +117,12 @@ extern const u32 gInterfacePal_AncientPouch[];
 extern const u32 gInterfaceGfx_ElementalPouch[];
 extern const u32 gInterfacePal_ElementalPouch[];
 
+extern const u32 gInterfaceGfx_WhitePouch[];
+extern const u32 gInterfacePal_WhitePouch[];
+
+extern const u32 gInterfaceGfx_CatalyticPouch[];
+extern const u32 gInterfacePal_CatalyticPouch[];
+
 //pokescape pokeballs
 extern const u32 gItemIconPalette_NormalPouch[];
 extern const u32 gItemIcon_NormalPouch[];
@@ -171,6 +177,12 @@ extern const u32 gItemIcon_AncientPouch[];
 
 extern const u32 gItemIconPalette_ElementalPouch[];
 extern const u32 gItemIcon_ElementalPouch[];
+
+extern const u32 gItemIconPalette_WhitePouch[];
+extern const u32 gItemIcon_WhitePouch[];
+
+extern const u32 gItemIconPalette_CatalyticPouch[];
+extern const u32 gItemIcon_CatalyticPouch[];
 
 // pokemon gfx
 extern const u16 gMonIconPalettes[][16];
@@ -372,6 +384,9 @@ extern const u8 gTrainerBackPic_RubySapphireBrendan[];
 extern const u8 gTrainerBackPic_RubySapphireMay[];
 extern const u8 gTrainerBackPic_Wally[];
 extern const u8 gTrainerBackPic_Steven[];
+extern const u8 gTrainerBackPic_Zanik[];
+extern const u8 gTrainerBackPic_Ariane[];
+extern const u8 gTrainerBackPic_Owen[];
 
 extern const u32 gTrainerBackPicPalette_Red[];
 extern const u32 gTrainerBackPicPalette_Leaf[];
@@ -546,6 +561,9 @@ extern const u32 gTrainerFrontPic_zanik_e4[];
 extern const u32 gTrainerFrontPic_worldguardian[];
 extern const u32 gTrainerFrontPic_sagittarian[];
 extern const u32 gTrainerFrontPic_tzhaar_ket[];
+extern const u32 gTrainerFrontPic_sandwich_lady[];
+extern const u32 gTrainerFrontPic_guard_varrock_pose[];
+extern const u32 gTrainerFrontPic_tzhaar_ket_hd[];
 
 //POKESCAPE PALETTES
 extern const u32 gTrainerPalette_a_nub_tot[];
@@ -561,6 +579,9 @@ extern const u32 gTrainerPalette_protaganist_f[];
 extern const u32 gTrainerPalette_protaganist_m[];
 extern const u32 gTrainerPalette_protaganist_f_back[];
 extern const u32 gTrainerPalette_protaganist_m_back[];
+extern const u32 gTrainerPalette_zanik_back[];
+extern const u32 gTrainerPalette_Ariane_back[];
+extern const u32 gTrainerPalette_Owen_back[];
 
 extern const u32 gTrainerPalette_raptor[];
 extern const u32 gTrainerPalette_sigmund[];
@@ -712,6 +733,9 @@ extern const u32 gTrainerPalette_zanik_e4[];
 extern const u32 gTrainerPalette_worldguardian[];
 extern const u32 gTrainerPalette_sagittarian[];
 extern const u32 gTrainerPalette_tzhaar_ket[];
+extern const u32 gTrainerPalette_sandwich_lady[];
+extern const u32 gTrainerPalette_guard_varrock_pose[];
+extern const u32 gTrainerPalette_tzhaar_ket_hd[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -959,6 +983,21 @@ extern const u32 gBattleTerrainTilemap_POKESCAPE_GRASS[];
 extern const u32 gBattleTerrainAnimTiles_POKESCAPE_GRASS[];
 extern const u32 gBattleTerrainAnimTilemap_POKESCAPE_GRASS[];
 extern const u32 gBattleTerrainPalette_POKESCAPE_GRASS[];
+
+extern const u32 gBattleTerrainTiles_POKESCAPE_TZHAAR[];
+extern const u32 gBattleTerrainTilemap_POKESCAPE_TZHAAR[];
+extern const u32 gBattleTerrainAnimTiles_POKESCAPE_TZHAAR[];
+extern const u32 gBattleTerrainAnimTilemap_POKESCAPE_TZHAAR[];
+extern const u32 gBattleTerrainPalette_POKESCAPE_TZHAAR[];
+
+extern const u32 gBattleTerrainTiles_POKESCAPE_TZHAAR_LAVA[];
+extern const u32 gBattleTerrainTilemap_POKESCAPE_TZHAAR_LAVA[];
+extern const u32 gBattleTerrainAnimTiles_POKESCAPE_TZHAAR_LAVA[];
+extern const u32 gBattleTerrainAnimTilemap_POKESCAPE_TZHAAR_LAVA[];
+extern const u32 gBattleTerrainPalette_POKESCAPE_TZHAAR_LAVA[];
+
+extern const u32 gBattleTerrainPalette_POKESCAPE_TOKHAAR[];
+
 
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];
@@ -2696,6 +2735,7 @@ extern const u32 gBattlePyramidBagInterface_Pal[];
 extern const u16 gBattlePyramidFloor_Pal[][16];
 
 extern const u16 gStandardMenuPalette[];
+extern const u16 gPokeScapeMenuPalette[];
 
 //extern const u32 gTitleScreenEmeraldVersionGfx[];
 extern const u32 gTitleScreenPressStartGfx[];
@@ -3891,7 +3931,8 @@ extern const u32 gKantoTrainerCard_Gfx[];
 extern const u32 gKantoTrainerCardBg_Tilemap[];
 extern const u32 gHoennTrainerCardBack_Tilemap[];
 extern const u32 gKantoTrainerCardBack_Tilemap[];
-extern const u32 gHoennTrainerCardFront_Tilemap[];
+extern const u32 gTrainerCard_F2P_Front_Tilemap[];
+extern const u32 gTrainerCard_P2P_Front_Tilemap[];
 extern const u32 gKantoTrainerCardFront_Tilemap[];
 extern const u32 gHoennTrainerCardFrontLink_Tilemap[];
 extern const u32 gKantoTrainerCardFrontLink_Tilemap[];
@@ -4459,6 +4500,38 @@ extern const u32 gItemIcon_REPEL_TEA_2[];
 extern const u32 gItemIconPalette_REPEL_TEA_2[];
 extern const u32 gItemIcon_REPEL_TEA_3[];
 extern const u32 gItemIconPalette_REPEL_TEA_3[];
+extern const u32 gItemIcon_TriangleSandwich[];
+extern const u32 gItemIconPalette_TriangleSandwich[];
+extern const u32 gItemIcon_SquareSandwich[];
+extern const u32 gItemIconPalette_SquareSandwich[];
+extern const u32 gItemIcon_MeatPie[];
+extern const u32 gItemIconPalette_MeatPie[];
+extern const u32 gItemIcon_BreadRoll[];
+extern const u32 gItemIconPalette_BreadRoll[];
+extern const u32 gItemIcon_Baguette[];
+extern const u32 gItemIconPalette_Baguette[];
+extern const u32 gItemIcon_Donut[];
+extern const u32 gItemIconPalette_Donut[];
+extern const u32 gItemIcon_Kebab[];
+extern const u32 gItemIconPalette_Kebab[];
+extern const u32 gItemIcon_BookOfGuthix[];
+extern const u32 gItemIconPalette_BookOfGuthix[];
+extern const u32 gItemIcon_BookOfSaradomin[];
+extern const u32 gItemIconPalette_BookOfSaradomin[];
+extern const u32 gItemIcon_BookOfZamorak[];
+extern const u32 gItemIconPalette_BookOfZamorak[];
+extern const u32 gItemIcon_BookOfTumeken[];
+extern const u32 gItemIconPalette_BookOfTumeken[];
+extern const u32 gItemIcon_BookOfSeren[];
+extern const u32 gItemIconPalette_BookOfSeren[];
+extern const u32 gItemIcon_BookOfZaros[];
+extern const u32 gItemIconPalette_BookOfZaros[];
+extern const u32 gItemIcon_BookOfBandos[];
+extern const u32 gItemIconPalette_BookOfBandos[];
+extern const u32 gItemIcon_BookOfArmadyl[];
+extern const u32 gItemIconPalette_BookOfArmadyl[];
+extern const u32 gItemIcon_ChocolateBarSandwich[];
+extern const u32 gItemIconPalette_ChocolateBarSandwich[];
 
 // ernest quest
 extern const u32 gItemIcon_FishFood[];
@@ -4517,7 +4590,10 @@ extern const u32 gItemIcon_Whistle[];
 extern const u32 gItemIconPalette_Whistle[];
 extern const u32 gItemIcon_ClueScrollTools[];
 extern const u32 gItemIconPalette_ClueScrollTools[];
-
+extern const u32 gItemIcon_dwellberry[];
+extern const u32 gItemIconPalette_dwellberry[];
+extern const u32 gItemIcon_COMMORB[];
+extern const u32 gItemIconPalette_COMMORB[];
 
 // pokescape crops
 extern const u32 gBerryPic_Cabbage[];

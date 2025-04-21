@@ -8,7 +8,7 @@
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": true,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_E"
     },
     {
@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_C"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_2"
     },
     {
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_D"
     },
     {
@@ -180,7 +180,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_3"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_4"
     },
     {
@@ -232,8 +232,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ELVARG_KaramjaVolcano",
-      "flag": "FLAG_ELVARG"
+      "script": "ENCOUNTER_ELVARG",
+      "flag": "FLAG_TEMP_8"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -245,7 +245,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -263,8 +263,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 36,
-      "y": 8,
+      "x": 39,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -297,7 +297,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_5"
     },
     {
@@ -310,7 +310,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_6"
     },
     {
@@ -323,7 +323,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_7"
     },
     {
@@ -336,20 +336,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_B"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 30,
-      "y": 18,
+      "x": 39,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_A"
     },
     {
@@ -362,21 +362,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_A"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 25,
-      "y": 18,
+      "x": 39,
+      "y": 5,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
-      "flag": "FLAG_TEMP_8"
+      "script": "EventScript_RockSmash_POKESCAPE",
+      "flag": "FLAG_TEMP_10"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -388,7 +388,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_9"
     },
     {
@@ -440,7 +440,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_10"
     },
     {
@@ -453,7 +453,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_F"
     },
     {
@@ -632,7 +632,14 @@
     }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 24,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "CHAOS_ELEMENTAL_MURAL_CRANDOR"
+    }
   ],
   "has_night_table": false
 }

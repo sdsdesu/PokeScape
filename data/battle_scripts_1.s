@@ -452,9 +452,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectHealBlockHit			  @ EFFECT_HEAL_BLOCK_HIT
 	.4byte BattleScript_EffectAuroraVeilHit			  @ EFFECT_AURORA_VEIL_HIT
 	.4byte BattleScript_EffectHit                     @ EFFECT_DOUBLE_DAMAGE_IF_BURN
-	.4byte BattleScript_KarilCrossbow
-	.4byte BattleScript_AhrimStaff
-	.4byte BattleScript_ToragHammer
+	.4byte BattleScript_EffectOverload                @ EFFECT_OVERLOAD
+	.4byte BattleScript_EffectSilverlight             @ EFFECT_SILVERLIGHT
+	.4byte BattleScript_EffectRandomStatDown          @ EFFECT_RANDOM_STAT_DOWN
+	.4byte BattleScript_EffectBerserk                 @ EFFECT_BERSERK
+	
 	
 
 BattleScript_EffectGlaiveRush::
@@ -3350,10 +3352,7 @@ BattleScript_MoveMissed::
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectDarkVoid::
-.if B_DARK_VOID_FAIL >= GEN_7
-	jumpifspecies BS_ATTACKER, SPECIES_DARKRAI, BattleScript_EffectSleep
-	goto BattleScript_PokemonCantUseTheMove
-.endif
+	goto BattleScript_EffectSleep
 BattleScript_EffectSleep::
 	attackcanceler
 	attackstring
@@ -3727,31 +3726,31 @@ BattleScript_StatUpMsg::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_EffectAttackDown:
+BattleScript_EffectAttackDown::
 	setstatchanger STAT_ATK, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectDefenseDown:
+BattleScript_EffectDefenseDown::
 	setstatchanger STAT_DEF, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectSpeedDown:
+BattleScript_EffectSpeedDown::
 	setstatchanger STAT_SPEED, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectAccuracyDown:
+BattleScript_EffectAccuracyDown::
 	setstatchanger STAT_ACC, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectSpecialAttackDown:
+BattleScript_EffectSpecialAttackDown::
 	setstatchanger STAT_SPATK, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectSpecialDefenseDown:
+BattleScript_EffectSpecialDefenseDown::
 	setstatchanger STAT_SPDEF, 1, TRUE
 	goto BattleScript_EffectStatDown
 
-BattleScript_EffectEvasionDown:
+BattleScript_EffectEvasionDown::
 	setstatchanger STAT_EVASION, 1, TRUE
 BattleScript_EffectStatDown:
 	attackcanceler
@@ -4813,12 +4812,17 @@ BattleScript_PartyHealEnd::
 BattleScript_EffectTripleKick::
 	attackcanceler
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	jumpifmove MOVE_TRIPLE_AXEL BS_TripleAxel
+	jumpifmove MOVE_TRIPLE_AXEL, BS_TripleAxel
+	jumpifmove MOVE_SLICE_DICE, BattleScript_SliceDice
 	addbyte sTRIPLE_KICK_POWER, 10 @ triple kick gets +10 power
 	goto BattleScript_HitFromAtkString
 
 BS_TripleAxel:
 	addbyte sTRIPLE_KICK_POWER, 20 @ triple axel gets +20 power
+	goto BattleScript_HitFromAtkString
+
+BattleScript_SliceDice:
+	addbyte sTRIPLE_KICK_POWER, 30 @ slicedice gets +30 power
 	goto BattleScript_HitFromAtkString
 
 BattleScript_EffectThief::
@@ -7394,6 +7398,43 @@ BattleScript_AllStatsUpSpDef::
 BattleScript_AllStatsUpRet::
 	return
 
+
+BattleScript_AllStatsUpToMax::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkToMax
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkToMax
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkToMax
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkToMax
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_AllStatsUpRetToMax
+BattleScript_AllStatsUpAtkToMax::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpDefToMax
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpDefToMax::
+	setstatchanger STAT_DEF, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpeedToMax
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpeedToMax::
+	setstatchanger STAT_SPEED, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpAtkToMax
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpAtkToMax::
+	setstatchanger STAT_SPATK, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpDefToMax
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpDefToMax::
+	setstatchanger STAT_SPDEF, MAX_STAT_STAGE, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpRetToMax
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpRetToMax::
+	return
+
 BattleScript_RapidSpinAway::
 	rapidspinfree
 	return
@@ -7928,6 +7969,11 @@ BattleScript_CudChewActivates::
 	setbyte sBERRY_OVERRIDE, 0
 	end3
 
+BattleScript_ApplyDisguiseFormChangeHPLoss::
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	return
+
 BattleScript_TargetFormChangeNoPopup:
 	flushtextbox
 	handleformchange BS_TARGET, 0
@@ -7935,6 +7981,7 @@ BattleScript_TargetFormChangeNoPopup:
 	playanimation BS_TARGET, B_ANIM_FORM_CHANGE
 	waitanimation
 	handleformchange BS_TARGET, 2
+	jumpifability BS_TARGET, ABILITY_DISGUISE, BattleScript_ApplyDisguiseFormChangeHPLoss
 	return
 
 BattleScript_TargetFormChange::
@@ -10021,6 +10068,12 @@ BattleScript_AnnounceAirLockCloudNine::
 	call BattleScript_ActivateWeatherAbilities
 	end3
 
+BattleScript_RemoveWeather::
+	printstring STRINGID_REMOVEWEATHERBOOK
+	waitmessage B_WAIT_TIME_LONG
+	call BattleScript_ActivateWeatherAbilities
+	end3
+
 BattleScript_QuickClawActivation::
 	flushtextbox
 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
@@ -10917,13 +10970,13 @@ BattleScript_EffectHealBlockHit:
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
 	critmessage
-	waitmessage 0x40
+	waitmessage B_WAIT_TIME_LONG
 	resultmessage
-	waitmessage 0x40
+	waitmessage B_WAIT_TIME_LONG
 	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
 	sethealblock BattleScript_ButItFailed
 	printstring STRINGID_PKMNPREVENTEDFROMHEALING
-	waitmessage 0x40
+	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
@@ -11009,3 +11062,188 @@ BattleScript_FireShieldEnds::
 	printstring STRINGID_FIRESHIELDENDS
 	waitmessage 0x40
 	return
+
+BattleScript_RandomStatDown::
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_RandomStatDown2
+BattleScript_RandomStatDown2::
+	setbyte cMULTISTRING_CHOOSER, 0x4
+	call BattleScript_StatUp
+	end2
+
+BattleScript_AntiDragonShieldReducedDamage::
+	printstring STRINGID_ANTIDRAGONSHIELDREDUCEDAMAGE
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_SpiritShieldReducedDamage::
+	printstring STRINGID_SPIRITSHIELDREDUCEDAMAGE
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_EatingSandwich::
+	printstring STRINGID_EATINGSANDWICH
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_TzhaarHeat::
+	printstring STRINGID_TZHAAR_WEATHER_1
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_SUN_CONTINUES
+	call BattleScript_ActivateWeatherAbilities
+	end3
+
+BattleScript_TzhaarHeatLava::
+	printstring STRINGID_TZHAAR_WEATHER_2
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_SUN_CONTINUES
+	call BattleScript_ActivateWeatherAbilities
+	end3
+
+
+
+
+BattleScript_TzhaarTrainerBattleWon::
+	printstring STRINGID_PLAYERDEFEATEDTRAINER1
+	trainerslidein BS_ATTACKER
+	waitstate
+	printstring STRINGID_TRAINER1LOSETEXT
+	gettokkul
+	printstring STRINGID_PLAYERGOTTOKKUL
+	waitmessage B_WAIT_TIME_LONG
+	end2
+BattleScript_TzhaarWildBattleWon::
+	givepaydaymoney
+	pickup
+	gettokkul
+	printstring STRINGID_PLAYERGOTTOKKUL
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_TzhaarBattleLost::
+	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_TzhaarBattleLostEnd
+	trytrainerslideplayerlostmsg
+	printstring STRINGID_PLAYERWHITEOUT
+	waitmessage B_WAIT_TIME_LONG
+	end2
+BattleScript_TzhaarBattleLostEnd::
+	trytrainerslideplayerlostmsg
+	printstring STRINGID_PLAYERLOSTTOENEMYTRAINER
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+
+BattleScript_AvernicActivates::
+	pause 0x20
+	call BattleScript_AbilityPopUp
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN, NULL
+	setgraphicalstatchangevalues
+	playanimation BS_ABILITY_BATTLER, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+	printstring STRINGID_ATTACKERSSTATFELL
+	waitmessage 0x40
+	return
+
+BattleScript_EffectOverload::
+	attackcanceler
+	attackstring
+	ppreduce
+	maxattackhalvehp BattleScript_ButItFailed
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	attackanimation
+	waitanimation
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	call BattleScript_AllStatsUpOverload
+	printstring STRINGID_CUTHPINCREASEDSTATS
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_AllStatsUpOverload::
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkOverload
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkOverload
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkOverload
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_AllStatsUpAtkOverload
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_AllStatsUpRetOverload
+BattleScript_AllStatsUpAtkOverload::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_DEF | BIT_SPEED | BIT_SPATK | BIT_SPDEF, 0
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpDefOverload
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpDefOverload::
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpeedOverload
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpeedOverload::
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpAtkOverload
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpAtkOverload::
+	setstatchanger STAT_SPATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpSpDefOverload
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpSpDefOverload::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_AllStatsUpRetOverload
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_AllStatsUpRetOverload::
+	return
+
+
+BattleScript_EffectSilverlight::
+	jumpiftype BS_TARGET, TYPE_DARK, BattleScript_EffectSilverlight_Burned
+	goto BattleScript_EffectHit
+
+BattleScript_EffectSilverlight_Burned::
+	setmoveeffect MOVE_EFFECT_BURN
+	goto BattleScript_EffectHit
+	end
+
+BattleScript_EffectRandomStatDown::
+	setmoveeffect MOVE_EFFECT_RANDOM_STAT_DOWN
+	goto BattleScript_EffectHit
+
+BattleScript_EffectBerserk:
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BerserkTryAttack
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPEED, MAX_STAT_STAGE, BattleScript_BerserkTryAttack
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_BerserkTryAttack
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MIN_STAT_STAGE, BattleScript_ButItFailed
+BattleScript_BerserkTryAttack:
+	attackanimation
+	waitanimation
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_ATK | BIT_SPEED | BIT_DEF, STAT_CHANGE_BY_TWO
+	setstatchanger STAT_ATK, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BerserkTrySpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BerserkTrySpeed
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_BerserkTrySpeed:
+	setstatchanger STAT_SPEED, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BerserkTryDefense
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BerserkTryDefense
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_BerserkTryDefense:
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BerserkTrySpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BerserkTrySpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_BerserkTrySpDef::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_SPDEF, STAT_CHANGE_NEGATIVE | STAT_CHANGE_CANT_PREVENT
+	setstatchanger STAT_SPDEF, 2, TRUE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR | MOVE_EFFECT_CERTAIN, BattleScript_BerserkEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BerserkEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_BerserkEnd:
+	goto BattleScript_MoveEnd

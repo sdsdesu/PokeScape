@@ -80,8 +80,7 @@ ENCOUNTER_PENGUIN_BUSH_ROUTE8_1:
 
 ENCOUNTER_PENGUIN_BUSH_ROUTE8_2:
 	fadescreenswapbuffers FADE_TO_BLACK
-	setflag FLAG_TEMP_8
-	setflag FLAG_TEMP_9
+	setflag FLAG_PENGUIN_HUNT_ON_ROUTE
 	removeobject 28
 	removeobject 27
 	savebgm MUS_DUMMY
@@ -93,6 +92,12 @@ ENCOUNTER_PENGUIN_BUSH_ROUTE8_2:
 
 ROUTE8_SIGNPOST::
 	msgbox ROUTE8_SIGNPOST_Text_0
+	closemessage
+	end
+
+
+MAKEOVER_MAGE_SIGN::
+	msgbox MAKEOVER_MAGE_SIGN_Text_0
 	closemessage
 	end
 
@@ -117,8 +122,18 @@ ROUTE8_MINER_3::
 	end
 
 
-ITEM_ROUTE8_ITEM_MITHRIL_POUCH::
-	finditem ITEM_MITHRIL_POUCH
+NPC_MAKEOVER_MAGE::
+	faceplayer
+	namebox NPC_MAKEOVER_MAGE_Text_0
+	msgbox NPC_MAKEOVER_MAGE_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+ITEM_ROUTE8_ITEM_POUCH_MITHRIL::
+	finditem ITEM_POUCH_MITHRIL
 	end
 
 
@@ -129,6 +144,11 @@ ITEM_ROUTE8_ITEM_FLAX::
 
 ITEM_ROUTE8_ITEM_PRAYER_POTION::
 	finditem ITEM_PRAYER_POTION
+	end
+
+
+ITEM_MAKEOVER_MAGE_ITEM_CAKE::
+	finditem ITEM_CAKE
 	end
 
 
@@ -203,9 +223,7 @@ BATTLE_ROUTE8_WIZARD_FIRE::
 
 
 BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER::
-	checktrainerflag TRAINER_ROUTE8_WIZARD_MALIGNIUS_MORTIFER
-	compare VAR_RESULT, 0
-	goto_if_eq BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER_1
+	goto_if_unset FLAG_MALIGNIUS_BATTLE, BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER_1
 	lock
 	faceplayer
 	namebox BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER_Text_2
@@ -226,6 +244,7 @@ BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER_1:
 	msgbox BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER_Text_4
 	hidenamebox
 	closemessage
+	setflag FLAG_MALIGNIUS_BATTLE
 	release
 	end
 
@@ -240,8 +259,9 @@ ABYSSALRIFT_Route8_ENTER::
 
 ABYSSALRIFT_Route8_ENTER_2:
 	msgbox ABYSSALRIFT_Route8_ENTER_Text_1
-	warp MAP_ABYSSAL_REALM_2, 0, 0, 0
 	closemessage
+	warp MAP_ABYSSAL_REALM_2, 0, 0, 0
+	waitstate
 	release
 	end
 
@@ -256,8 +276,9 @@ ABYSSALRIFT_Route8_RETURN::
 
 ABYSSALRIFT_Route8_RETURN_2:
 	msgbox ABYSSALRIFT_Route8_ENTER_Text_1
-	warp MAP_ROUTE8, 0, 0, 0
 	closemessage
+	warp MAP_ROUTE8, 0, 0, 0
+	waitstate
 	release
 	end
 
@@ -280,6 +301,7 @@ ABYSSALRIFT_Mazcab_ENTER::
 ABYSSALRIFT_Mazcab_ENTER_2:
 	msgbox ABYSSALRIFT_Route8_ENTER_Text_1
 	warp MAP_MAZCAB_OTOT, 0, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -296,6 +318,7 @@ ABYSSALRIFT_Mazcab_RETURN::
 ABYSSALRIFT_Mazcab_RETURN_2:
 	msgbox ABYSSALRIFT_Route8_ENTER_Text_1
 	warp MAP_ABYSSAL_REALM_1, 10, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -330,7 +353,10 @@ ALTAR_AIR_ENTER_2:
 
 ALTAR_AIR_ENTER_5:
 	msgbox ALTAR_AIR_ENTER_Text_2
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 4
 	warp MAP_AIR_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -355,7 +381,9 @@ ALTAR_MIND_ENTER_2:
 
 ALTAR_MIND_ENTER_5:
 	msgbox ALTAR_MIND_ENTER_Text_1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 5
 	warp MAP_MIND_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -380,7 +408,9 @@ ALTAR_WATER_ENTER_2:
 
 ALTAR_WATER_ENTER_5:
 	msgbox ALTAR_WATER_ENTER_Text_1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 6
 	warp MAP_WATER_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -405,7 +435,9 @@ ALTAR_EARTH_ENTER_2:
 
 ALTAR_EARTH_ENTER_5:
 	msgbox ALTAR_EARTH_ENTER_Text_1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 7
 	warp MAP_EARTH_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -430,7 +462,9 @@ ALTAR_FIRE_ENTER_2:
 
 ALTAR_FIRE_ENTER_5:
 	msgbox ALTAR_FIRE_ENTER_Text_1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 8
 	warp MAP_FIRE_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -455,7 +489,9 @@ ALTAR_BODY_ENTER_2:
 
 ALTAR_BODY_ENTER_5:
 	msgbox ALTAR_BODY_ENTER_Text_1
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 9
 	warp MAP_BODY_ALTAR, 1, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -534,6 +570,7 @@ PEST_CONTROL_ENTER_2:
 	closemessage
 	msgbox PEST_CONTROL_ENTER_Text_2
 	warp MAP_MINIGAME_1, 0, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -555,6 +592,7 @@ PEST_CONTROL_RETURN_2:
 	closemessage
 	msgbox PEST_CONTROL_ENTER_Text_2
 	warp MAP_PORT_SARIM, 9, 0, 0
+	waitstate
 	closemessage
 	release
 	end
@@ -571,6 +609,10 @@ ROUTE8_SIGNPOST_Text_0:
 	.string "SOUTH to Rimmington.\p"
 	.string "EAST to FALADOR.$"
 
+MAKEOVER_MAGE_SIGN_Text_0:
+	.string "The Makeover Mage.\p"
+	.string "Changing appearances since 2004.$"
+
 ROUTE8_MAN_Text_0:
 	.string "Man$"
 
@@ -585,6 +627,31 @@ ROUTE8_MINER_3_Text_1:
 	.string "I wish they had a Bank here.\p"
 	.string "I have to make a trip all the way to\n"
 	.string "Falador if I want to heal my monsters.$"
+
+NPC_MAKEOVER_MAGE_Text_0:
+	.string "Peta$"
+
+NPC_MAKEOVER_MAGE_Text_1:
+	.string "Hi adventurer, I'm Peta -\n"
+	.string "affectionately known as the Makeover\l"
+	.string "Mage.\p"
+	.string "For years I helped people change their\n"
+	.string "gender, or even their skin colour, using\l"
+	.string "a magical amulet I found in a Gazulibird\l"
+	.string "nest.\p"
+	.string "Since people started catching\n"
+	.string "monsters, they lost interest in my\l"
+	.string "services.\p"
+	.string "I am currently working on adapting the\n"
+	.string "amulet to let me change monsters'\l"
+	.string "personalities!\p"
+	.string "This can affect how effective they are\n"
+	.string "in battle, giving a boost to a specific\l"
+	.string "stat at the cost of a penalty to\l"
+	.string "another.\p"
+	.string "I still need to work on the magic.. so\n"
+	.string "it's not quite ready yet, but please\l"
+	.string "come back soon!$"
 
 BATTLE_ROUTE8_THIEF_Text_0:
 	.string "Hi there, you wouldn't want some very\n"

@@ -209,7 +209,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -248,7 +248,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_3"
     },
     {
@@ -261,7 +261,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_4"
     },
     {
@@ -274,7 +274,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_5"
     },
     {
@@ -287,7 +287,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_2"
     },
     {
@@ -300,7 +300,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_6"
     },
     {
@@ -313,7 +313,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_9"
     },
     {
@@ -326,7 +326,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_A"
     },
     {
@@ -380,6 +380,58 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "HAM_ROUTE9_MELZARS_1",
       "flag": "FLAG_TEMP_1E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 11,
+      "y": 2,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_ROCKCRAB",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 10,
+      "y": 8,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_ROCKCRAB",
+      "flag": "FLAG_TEMP_B"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
+      "x": 20,
+      "y": 13,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_ROCKCRAB",
+      "flag": "FLAG_TEMP_C"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PVMER",
+      "x": 17,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "BATTLE_ROUTE9_ITSWILL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -422,7 +474,7 @@
       "x": 20,
       "y": 7,
       "elevation": 3,
-      "item": "ITEM_GRANITE_POUCH",
+      "item": "ITEM_POUCH_GRANITE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE8_3"
     },
     {
@@ -474,5 +526,5 @@
       "script": "HIDDEN_GROTTO_ENTRY"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

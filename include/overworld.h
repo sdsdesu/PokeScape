@@ -26,8 +26,9 @@
 
 #define SKIP_OBJECT_EVENT_LOAD  1
 #define TIME_OF_DAY_NIGHT 0
-#define TIME_OF_DAY_TWILIGHT 1
+#define TIME_OF_DAY_MORNING 1
 #define TIME_OF_DAY_DAY 2
+#define TIME_OF_DAY_EVENING 3
 
 struct InitialPlayerAvatarState
 {
@@ -173,5 +174,7 @@ u8 UpdateTimeOfDay(void);
 bool8 MapHasNaturalLight(u8 mapType);
 void UpdateAltBgPalettes(u16 palettes);
 void UpdatePalettesWithTime(u32);
+bool8 MapIsInPerpetualDarkness(u16 mapLayoutId);
+
 
 #endif // GUARD_OVERWORLD_H

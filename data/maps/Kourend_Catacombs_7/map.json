@@ -52,7 +52,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_IMP",
+      "graphics_id": "OBJ_EVENT_GFX_LESSER_DEMON",
       "x": 8,
       "y": 10,
       "elevation": 3,
@@ -96,7 +96,7 @@
       "x": 8,
       "y": 24,
       "elevation": 3,
-      "item": "ITEM_BLACK_POUCH",
+      "item": "ITEM_POUCH_BLACK",
       "flag": "FLAG_HIDDEN_ITEM_TEMP_15"
     },
     {

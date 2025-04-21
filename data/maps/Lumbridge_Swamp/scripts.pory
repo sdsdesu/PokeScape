@@ -121,7 +121,12 @@ script LumSwampSign {
 
 script ITEM_LUMBRIDGESWAMP_ITEM_2 
 {
-    finditem(ITEM_MITHRIL_POUCH)
+    finditem(ITEM_POUCH_MITHRIL)
+    end
+}
+script ITEM_LUMBRIDGESWAMP_ITEM_3
+{
+    finditem(ITEM_CHOCOLATE_SUNDAY)
     end
 }
 
@@ -241,7 +246,93 @@ script EventScript_Locked_Door
 	end
 }
 
+script EventScript_Whirlpool
+{
+	lockall
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WHIRLPOOL)
+	playse (SE_M_WHIRLPOOL)
+	delay(40)
+	playse(SE_M_DIVE)
 
+	specialvar (VAR_RESULT, GetCurrentMap)
+    if (var(VAR_RESULT) == MAP_CRANDOR_SEA_ROUTE) {
+		getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    	if ((var(VAR_TEMP_1) == 52 && var(VAR_TEMP_2) == 26) ||
+		(var(VAR_TEMP_1) == 53 && var(VAR_TEMP_2) == 24) ||
+		(var(VAR_TEMP_1) == 55 && var(VAR_TEMP_2) == 25) ||
+		(var(VAR_TEMP_1) == 56 && var(VAR_TEMP_2) == 24) ||
+		(var(VAR_TEMP_1) == 58 && var(VAR_TEMP_2) == 27) ||
+		(var(VAR_TEMP_1) == 69 && var(VAR_TEMP_2) == 27) ||
+		(var(VAR_TEMP_1) == 74 && var(VAR_TEMP_2) == 27) ||
+		(var(VAR_TEMP_1) == 70 && var(VAR_TEMP_2) == 29) ||
+		(var(VAR_TEMP_1) == 74 && var(VAR_TEMP_2) == 29) ||
+		(var(VAR_TEMP_1) == 76 && var(VAR_TEMP_2) == 26) ||
+		(var(VAR_TEMP_1) == 69 && var(VAR_TEMP_2) == 18) ||
+		(var(VAR_TEMP_1) == 77 && var(VAR_TEMP_2) == 17) ||
+		(var(VAR_TEMP_1) == 26 && var(VAR_TEMP_2) == 4)  ||
+		(var(VAR_TEMP_1) == 61 && var(VAR_TEMP_2) == 25) ) {
+			warpsilent(MAP_ROUTE39, 1, 0, 0)
+		}
+		else {
+			warpsilent(MAP_CRANDOR_SEA_ROUTE, 0, 0, 0)
+		} 
+    }
+	else { //default warp.
+		warpsilent(MAP_ROUTE39, 1, 0, 0)
+	}
+	waitstate
+	releaseall
+	end
+}
+
+
+movement MOVEMENT_WHIRLPOOL {
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+
+	face_down
+	delay_1
+	face_left
+	delay_1
+	face_up
+	delay_1
+	face_right
+	delay_1
+	face_down
+	delay_1
+	face_left
+	delay_1
+	face_up
+	delay_1
+	face_right
+	delay_1
+	face_down
+
+	step_end
+}
 
 
 
@@ -263,7 +354,7 @@ script Friendship_Checker_Pikkupstix {
 	specialvar (VAR_RESULT, GetLeadMonFriendshipScore)
 	switch(var(VAR_RESULT)) {
 		case 0:
-			msgbox(format("It says that it hates you and everything you stand for.\pIt doesnt want to be your friend and that you're bad and should feel bad.\pTheres also a lot about your mother I left out.\pOverall im not sure if this monster likes you at all."))
+			msgbox(format("It says that it hates you and everything you stand for.\pIt doesnt want to be your friend and that you're bad and should feel bad.\pThere's also a lot about your mother I left out.\pOverall im not sure if this monster likes you at all."))
     		msgbox(format("FRIENDSHIP is: FRIENDSHIP NONE."))
 		case 1:
 			msgbox(format("This monster says it doesn't trust you and that if you wanted to be it's friend, why do you hardly bond with it?\pMaybe it thinks it would be better put in the wild like this?"))

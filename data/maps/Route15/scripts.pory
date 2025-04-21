@@ -1,12 +1,34 @@
 mapscripts Route15_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 16) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
+        call(RANDOM_EVENT_IMPLING)
+        call(RANDOM_EVENT_SPAWNS_ROUTE15)
     }
 }
 
 
 
-
+script RANDOM_EVENT_SPAWNS_ROUTE15 {
+	random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_3)
+		addobject(20)
+	}
+	else {
+		setflag(FLAG_TEMP_3)
+		removeobject(20)
+	}
+    random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_2)
+		addobject(21)
+	}
+	else {
+		setflag(FLAG_TEMP_2)
+		removeobject(21)
+	}
+	return
+}
 
 
 

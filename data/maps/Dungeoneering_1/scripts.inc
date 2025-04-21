@@ -1447,7 +1447,7 @@ DungeonInteractions_Object1_6:
 	goto DungeonInteractions_Object1_1
 
 DungeonInteractions_Object1_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object1_1
 
 
@@ -1477,7 +1477,7 @@ DungeonInteractions_Object2_6:
 	goto DungeonInteractions_Object2_1
 
 DungeonInteractions_Object2_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object2_1
 
 
@@ -1507,7 +1507,7 @@ DungeonInteractions_Object3_6:
 	goto DungeonInteractions_Object3_1
 
 DungeonInteractions_Object3_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object3_1
 
 
@@ -1537,7 +1537,7 @@ DungeonInteractions_Object4_6:
 	goto DungeonInteractions_Object4_1
 
 DungeonInteractions_Object4_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object4_1
 
 
@@ -1567,7 +1567,7 @@ DungeonInteractions_Object5_6:
 	goto DungeonInteractions_Object5_1
 
 DungeonInteractions_Object5_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object5_1
 
 
@@ -1597,7 +1597,7 @@ DungeonInteractions_Object6_6:
 	goto DungeonInteractions_Object6_1
 
 DungeonInteractions_Object6_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object6_1
 
 
@@ -1627,7 +1627,7 @@ DungeonInteractions_Object7_6:
 	goto DungeonInteractions_Object7_1
 
 DungeonInteractions_Object7_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object7_1
 
 
@@ -1657,7 +1657,7 @@ DungeonInteractions_Object8_6:
 	goto DungeonInteractions_Object8_1
 
 DungeonInteractions_Object8_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object8_1
 
 
@@ -1687,7 +1687,7 @@ DungeonInteractions_Object9_6:
 	goto DungeonInteractions_Object9_1
 
 DungeonInteractions_Object9_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object9_1
 
 
@@ -1717,7 +1717,7 @@ DungeonInteractions_Object10_6:
 	goto DungeonInteractions_Object10_1
 
 DungeonInteractions_Object10_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_Object10_1
 
 
@@ -1747,7 +1747,7 @@ DungeonInteractions_6:
 	goto DungeonInteractions_1
 
 DungeonInteractions_7:
-	goto EventScript_New_RockSmash
+	goto EventScript_RockSmash_POKESCAPE
 	goto DungeonInteractions_1
 
 
@@ -2203,7 +2203,7 @@ GIVE_RANDOM_ITEM_DUNGEONEERING_7:
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_8:
-	finditem ITEM_CRYSTAL_POUCH, 1
+	finditem ITEM_POUCH_CRYSTAL, 1
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_9:
@@ -2231,15 +2231,15 @@ GIVE_RANDOM_ITEM_DUNGEONEERING_14:
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_15:
-	finditem ITEM_ELEMENTAL_POUCH, 5
+	finditem ITEM_POUCH_ELEMENTAL, 5
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_16:
-	finditem ITEM_BLACK_POUCH, 15
+	finditem ITEM_POUCH_BLACK, 15
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_17:
-	finditem ITEM_NORMAL_POUCH, 20
+	finditem ITEM_POUCH, 20
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_18:
@@ -2275,7 +2275,7 @@ GIVE_RANDOM_ITEM_DUNGEONEERING_25:
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_26:
-	finditem ITEM_DRAGON_POUCH, 1
+	finditem ITEM_POUCH_DRAGON, 1
 	goto GIVE_RANDOM_ITEM_DUNGEONEERING_1
 
 GIVE_RANDOM_ITEM_DUNGEONEERING_27:

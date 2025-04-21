@@ -42,6 +42,35 @@ GeneralStoreShopScript_7:
 	return
 
 
+SHOP_TOKKUL::
+	lock
+	faceplayer
+	setflag FLAG_A_NUB_TOT_TUTORIAL
+	namebox SHOP_TOKKUL_Text_0
+	msgbox SHOP_TOKKUL_Text_1
+	waitmessage
+	pokemarttokkulshop STORE_GeneralStore_4
+	msgbox SHOP_TOKKUL_Text_2
+	clearflag FLAG_A_NUB_TOT_TUTORIAL
+	release
+	end
+
+
+
+    .align 2
+STORE_TokStore:
+    .2byte DECOR_SMALL_DESK
+	.2byte DECOR_POKEMON_DESK
+	.2byte DECOR_HEAVY_DESK
+	.2byte DECOR_RAGGED_DESK
+	.2byte DECOR_COMFORT_DESK
+	.2byte DECOR_BRICK_DESK
+	.2byte DECOR_CAMP_DESK
+	.2byte DECOR_HARD_DESK
+	.2byte DECOR_NONE
+	release
+	end
+
 GeneralStore_LUMBRIDGE::
 	lock
 	faceplayer
@@ -162,6 +191,18 @@ GeneralStore_TZHAAR::
 	return
 
 
+GeneralStore_TZHAAR_Human::
+	lock
+	faceplayer
+	namebox GeneralStore_LUMBRIDGE_Text_0
+	msgbox GeneralStore_TZHAAR_Human_Text_0
+	waitmessage
+	call GeneralStoreShopScript
+	msgbox GeneralStore_LUMBRIDGE_Text_2
+	release
+	return
+
+
 SHOP_RUNESTORE_VARROCK::
 	lock
 	faceplayer
@@ -227,6 +268,19 @@ SHOP_LOWE::
 	end
 
 
+SHOP_SPECIAL_POUCHES::
+	lock
+	faceplayer
+	namebox SHOP_SPECIAL_POUCHES_Text_0
+	msgbox SHOP_SPECIAL_POUCHES_Text_1
+	waitmessage
+	hidenamebox
+	pokemart STORE_SpecialPouches
+	msgbox GeneralStore_LUMBRIDGE_Text_2
+	release
+	end
+
+
 
     .align 2
 STORE_ArcheryStore:
@@ -287,16 +341,39 @@ STORE_RuneStore_4:
 
     .align 2
 STORE_SpecialPouches:
-    .2byte ITEM_NORMAL_POUCH
-    .2byte ITEM_BLACK_POUCH
-    .2byte ITEM_SPLITBARK_POUCH
-	.2byte ITEM_DRAGONBANE_POUCH
-    .2byte ITEM_AUGMENTED_POUCH
-    .2byte ITEM_MYSTIC_POUCH
-    .2byte ITEM_BARROWS_POUCH
-    .2byte ITEM_GRANITE_POUCH
-    .2byte ITEM_ANCIENT_POUCH
-    .2byte ITEM_ELEMENTAL_POUCH
+    .2byte ITEM_POUCH
+    .2byte ITEM_POUCH_IRON
+    .2byte ITEM_POUCH_MITHRIL
+	.2byte ITEM_POUCH_ADAMANT
+    .2byte ITEM_POUCH_AUGMENTED
+    .2byte ITEM_POUCH_MYSTIC
+    .2byte ITEM_POUCH_SPLITBARK
+    .2byte ITEM_POUCH_GRANITE
+    .2byte ITEM_POUCH_ANCIENT
+    .2byte ITEM_POUCH_ELEMENTAL
+    .2byte ITEM_NONE
+    release
+    end
+
+
+    .align 2
+STORE_SandwichLady:
+    .2byte ITEM_CHOCOLATE_BAR_SANDWICH
+    .2byte ITEM_NONE
+    release
+    end
+
+
+    .align 2
+STORE_SandwichLady_2:
+    .2byte ITEM_DONUT_SANDWICH
+    .2byte ITEM_KEBAB_SANDWICH
+    .2byte ITEM_SQUARE_SANDWICH
+    .2byte ITEM_MEAT_PIE_SANDWICH
+    .2byte ITEM_TRIANGLE_SANDWICH
+    .2byte ITEM_BREAD_ROLL_SANDWICH
+    .2byte ITEM_CHOCOLATE_BAR_SANDWICH
+    .2byte ITEM_BAGUETTE_SANDWICH
     .2byte ITEM_NONE
     release
     end
@@ -398,8 +475,7 @@ STORE_FarmingSupplies:
 
     .align 2
 STORE_GeneralStore_0:
-    .2byte ITEM_BRONZE_POUCH
-    .2byte ITEM_IRON_POUCH
+    .2byte ITEM_POUCH_BRONZE
     .2byte ITEM_BREAD
 	.2byte ITEM_WIZARDS_BLIZZARD
     .2byte ITEM_CHOCOLATE_SUNDAY
@@ -415,9 +491,8 @@ STORE_GeneralStore_0:
 
     .align 2
 STORE_GeneralStore_1:
-    .2byte ITEM_BRONZE_POUCH
-    .2byte ITEM_IRON_POUCH
-    .2byte ITEM_STEEL_POUCH
+    .2byte ITEM_POUCH_BRONZE
+    .2byte ITEM_POUCH_STEEL
     .2byte ITEM_BREAD
     .2byte ITEM_CAKE
 	.2byte ITEM_WIZARDS_BLIZZARD
@@ -434,10 +509,8 @@ STORE_GeneralStore_1:
 
     .align 2
 STORE_GeneralStore_2:
-    .2byte ITEM_BRONZE_POUCH
-    .2byte ITEM_IRON_POUCH
-    .2byte ITEM_STEEL_POUCH
-    .2byte ITEM_MITHRIL_POUCH
+    .2byte ITEM_POUCH_BRONZE
+    .2byte ITEM_POUCH_STEEL
     .2byte ITEM_BREAD
     .2byte ITEM_CAKE
 	.2byte ITEM_WIZARDS_BLIZZARD
@@ -455,11 +528,9 @@ STORE_GeneralStore_2:
 
     .align 2
 STORE_GeneralStore_3:
-    .2byte ITEM_BRONZE_POUCH
-    .2byte ITEM_IRON_POUCH
-    .2byte ITEM_STEEL_POUCH
-    .2byte ITEM_MITHRIL_POUCH
-    .2byte ITEM_ADAMANT_POUCH
+    .2byte ITEM_POUCH_BRONZE
+    .2byte ITEM_POUCH_STEEL
+    .2byte ITEM_POUCH_RUNE
     .2byte ITEM_BREAD
     .2byte ITEM_CAKE
 	.2byte ITEM_WIZARDS_BLIZZARD
@@ -480,12 +551,9 @@ STORE_GeneralStore_3:
 
     .align 2
 STORE_GeneralStore_4:
-    .2byte ITEM_BRONZE_POUCH
-    .2byte ITEM_IRON_POUCH
-    .2byte ITEM_STEEL_POUCH
-    .2byte ITEM_MITHRIL_POUCH
-    .2byte ITEM_ADAMANT_POUCH
-    .2byte ITEM_RUNE_POUCH
+    .2byte ITEM_POUCH_BRONZE
+    .2byte ITEM_POUCH_STEEL
+    .2byte ITEM_POUCH_RUNE
     .2byte ITEM_BREAD
     .2byte ITEM_CAKE
     .2byte ITEM_CHOCOLATE_CAKE
@@ -517,6 +585,16 @@ STORE_cocktails:
     release
     end
 
+SHOP_TOKKUL_Text_0:
+	.string "Tz-ShopKeeps$"
+
+SHOP_TOKKUL_Text_1:
+	.string "Welcome to the Tokkul store.\p"
+	.string "How may I help you?$"
+
+SHOP_TOKKUL_Text_2:
+	.string "TzGtfo.$"
+
 GeneralStore_LUMBRIDGE_Text_0:
 	.string "Clerk$"
 
@@ -528,7 +606,7 @@ GeneralStore_LUMBRIDGE_Text_2:
 	.string "Thank you, come again!$"
 
 GeneralStore_DRAYNOR_Text_0:
-	.string "Welcome to the Drayor Markets.\p"
+	.string "Welcome to the Draynor Markets.\p"
 	.string "How may I help you?$"
 
 GeneralStore_FALADOR_Text_0:
@@ -576,6 +654,11 @@ GeneralStore_TZHAAR_Text_1:
 GeneralStore_TZHAAR_Text_2:
 	.string "Come again.$"
 
+GeneralStore_TZHAAR_Human_Text_0:
+	.string "It's so hot down here...\p"
+	.string "Welcome to the Tzhaar General Store.\p"
+	.string "How may I help you?$"
+
 SHOP_RUNESTORE_VARROCK_Text_0:
 	.string "Aubury$"
 
@@ -622,3 +705,11 @@ SHOP_LOWE_Text_1:
 
 SHOP_LOWE_Text_2:
 	.string "Thank you, come again.$"
+
+SHOP_SPECIAL_POUCHES_Text_0:
+	.string "???$"
+
+SHOP_SPECIAL_POUCHES_Text_1:
+	.string "Welcome to my store, I have pouches\n"
+	.string "that you cannot buy anywhere else!\p"
+	.string "How may I help you today?$"

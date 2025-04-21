@@ -144,7 +144,7 @@ script ITEM_DWARVENMINES_1
 }
 script ITEM_DWARVENMINES_2
 {
-    finditem(ITEM_GRANITE_POUCH)
+    finditem(ITEM_POUCH_GRANITE)
     end
 }
 script ITEM_DWARVENMINES_3
@@ -370,6 +370,7 @@ script NPC_FALADORCASTLE_QUEST_PART_3
     removeobject(OBJ_EVENT_ID_QUEST_OWEN)
     setvar(VAR_POKESCAPE_FALADOR_STATE, 3)
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 115)
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 6)
     clearflag(FLAG_TEMP_F)
     addobject(59)
     fadescreenswapbuffers(FADE_FROM_BLACK)
@@ -514,9 +515,9 @@ script BATTLE_DWARVENMINES_DWARF_1
 
 script BATTLE_DWARVENMINES_DWARF_2
 {
-    trainerbattle_single(TRAINER_DWARVENMINES_DWARF_2, format("Stop, you are trespassing on dwarven land!"),format("Theres no respect for racially established borders for you adventurers."))
+    trainerbattle_single(TRAINER_DWARVENMINES_DWARF_2, format("Stop, you are trespassing on dwarven land!"),format("There's no respect for racially established borders for you adventurers."))
     namebox ("Steinar")
-    msgbox(format("Theres no respect for racially established borders for you adventurers."))
+    msgbox(format("There's no respect for racially established borders for you adventurers."))
 	hidenamebox
     release
 	end
@@ -524,7 +525,7 @@ script BATTLE_DWARVENMINES_DWARF_2
 
 script BATTLE_DWARVENMINES_DWARF_3
 {
-    trainerbattle_single(TRAINER_DWARVENMINES_DWARF_3, format("They say deep down under this mountain the rocks move.\pLets fight to that."),format("Maybe the ones who told the story were just drunks?"))
+    trainerbattle_single(TRAINER_DWARVENMINES_DWARF_3, format("They say deep down under this mountain the rocks move.\pLet's fight to that."),format("Maybe the ones who told the story were just drunks?"))
     namebox ("Valdemar")
     msgbox(format("Maybe the ones who told the story were just drunks?"))
 	hidenamebox

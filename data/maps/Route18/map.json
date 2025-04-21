@@ -60,14 +60,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOODCUTTER",
-      "x": 30,
-      "y": 19,
+      "x": 35,
+      "y": 21,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "2",
+      "trainer_sight_or_berry_tree_id": "1",
       "script": "BATTLE_ROUTE18_TRAINER5",
       "flag": "0"
     },
@@ -172,8 +172,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "BATTLE_ROUTE18_TRAINER2",
-      "flag": "FLAG_TEMP_8"
+      "script": "BATTLE_PENGUIN_EVENT_CANADA_GRRL",
+      "flag": "FLAG_PENGUIN_HUNT_ON_ROUTE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAT_BLACK",
@@ -241,7 +241,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PENGUIN_ROCK",
+      "graphics_id": "OBJ_EVENT_GFX_PENGUIN_BUSH",
       "x": 9,
       "y": 23,
       "elevation": 3,
@@ -251,7 +251,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_PENGUIN_BUSH_ROUTE18",
-      "flag": "FLAG_TEMP_9"
+      "flag": "FLAG_PENGUIN_HUNT_ON_ROUTE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_VARROCK_1",
@@ -264,6 +264,58 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GE_GUARD_BLOCK",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 30,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
+      "x": 31,
+      "y": 22,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_VARROCK_1",
+      "x": 31,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_VARROCK_1",
+      "x": 31,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -306,5 +358,5 @@
       "flag": "FLAG_TEMP_1"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

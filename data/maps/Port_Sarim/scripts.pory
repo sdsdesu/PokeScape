@@ -116,10 +116,25 @@ script PORTSARIM_STATE{
                 addobject(38)
                 clearflag(FLAG_TEMP_1D)
             case 130:
-                addobject(40)
+                addobject(OBJ_EVENT_ID_SIROWEN)
+                addobject(OBJ_EVENT_ID_NED)
                 clearflag(FLAG_TEMP_1C)
+                clearflag(FLAG_TEMP_19) //cabin boy
+                addobject(OBJ_EVENT_ID_CABINBOY)
     
         }
+
+        if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 131)) {
+            setflag(FLAG_TEMP_19) //cabin boy
+            removeobject(OBJ_EVENT_ID_CABINBOY)
+            setflag(FLAG_TEMP_1B)
+            removeobject(OBJ_EVENT_ID_LADY_FALADOR)
+        }
+
+        
+
+
+
 
         //Wise Old Man
         if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 105) && (var(VAR_WISE_OLD_MAN_RIVAL) == 5)) {
@@ -151,6 +166,8 @@ script PORTSARIM_STATE{
         removeobject(48)
         removeobject(49)
         setflag(FLAG_TEMP_9)
+        setflag(FLAG_TEMP_19) //cabin boy
+        removeobject(OBJ_EVENT_ID_CABINBOY)
         return
     }
 }
@@ -423,13 +440,21 @@ script NPC_PORTSARIM_CAPTIAN_TOBIAS
 
     elif (flag(FLAG_BADGE03_GET) == false) 
 	{
-        msgbox(format("Sorry but our boat has popped a leak.\pIt will be some time before it is repaired.\pYou should go visit the Party Room in Falador or something while you are waiting."))
+        msgbox(format("Sorry but our boat has popped a leak.\pIt will be some time before it is repaired.\pYou should go visit those House Parties in Rimmington or something while you are waiting."))
         hidenamebox
         release
         end
     }
     elif(flag(FLAG_BADGE03_GET) == true) { //&& (var(VAR_KARMAJA_SAILORS_STATE) == 0)
-        msgbox(format("Is your name {PLAYER}?\pI have received word that you are participating in the MvM Championships, is this correct?\pUsually our services cost 30gp but we have a deal with the Championship League that allows all participants to travel for free!\pSo…{PAUSE 15}…  Ahem!"))
+        if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 155) {
+            msgbox(format("Our repairs are almost finished.\pMaybe you should visit Falador Castle or finish up an important task or something.\pAfter that I'm sure our boat will be repaired."))
+            hidenamebox
+            release
+            end
+        }
+        else {
+            msgbox(format("Is your name {PLAYER}?\pI have received word that you are participating in the MvM Championships, is this correct?\pUsually our services cost 30gp but we have a deal with the Championship League that allows all participants to travel for free!\pSo…{PAUSE 15}…  Ahem!"))
+        }
         //Set var for KARMAJA_SAILORS_STATE
         //setvar(KARMAJA_SAILORS_STATE, 5)
     }
@@ -440,6 +465,7 @@ script NPC_PORTSARIM_CAPTIAN_TOBIAS
         waitmessage
         hidenamebox
         warp (MAP_MUSA_POINT,2,0,0)
+        waitstate
     }
     else
     {
@@ -1050,7 +1076,7 @@ script CRANDOR_EVENT_PORTSARIM_NED {
             delay(120)
             special(RemoveCameraObject) 
 
-            warp(MAP_CRANDOR_SEA_ROUTE, 0, 72, 7)
+            warp(MAP_CRANDOR_SEA_ROUTE, 72, 7)
             waitstate
             end
         }

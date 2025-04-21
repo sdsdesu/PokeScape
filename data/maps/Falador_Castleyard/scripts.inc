@@ -62,6 +62,26 @@ FALADORCASTLE_QUEST_STATE_4:
 	return
 
 
+ITEM_FALADOR_COURTYARD_1::
+	finditem ITEM_SPIRIT_CHARM
+	end
+
+
+ITEM_FALADOR_COURTYARD_2::
+	finditem ITEM_BOOK_OF_SARADOMIN
+	end
+
+
+ITEM_SHANTY_PASS_1::
+	finditem ITEM_BOOK_OF_TUMEKEN
+	end
+
+
+ITEM_ROUTE_7::
+	finditem ITEM_BOOK_OF_ARMADYL
+	end
+
+
 NPC_FALADORCASTLE_QUEST_PART_1::
 	lock
 	namebox NPC_FALADORCASTLE_QUEST_PART_1_Text_0
@@ -369,6 +389,7 @@ NPC_FALADORCASTLE_GYM_TRAINER_2::
 NPC_FALADORCASTLE_GYM_TRAINER_2_1:
 	hidenamebox
 	closemessage
+	release
 	end
 
 NPC_FALADORCASTLE_GYM_TRAINER_2_2:
@@ -414,7 +435,9 @@ NPC_FALADORCASTLE_GYM_SIRAMIKVARZE::
 	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_2
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 130
 	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_3
-	goto_if_unset FLAG_BADGE02_GET, NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 155
+	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_4
+	goto_if_unset FLAG_BADGE02_GET, NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_5
 NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_1:
 	namebox NPC_FALADORCASTLE_QUEST_PART_4_Text_0
 	msgbox NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_7
@@ -434,9 +457,13 @@ NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_3:
 	end
 
 NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_4:
+	call STORY_FALADORCASTLE_3F_SIRAMIKVARZE_REPORTING_BACK
+	goto NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_1
+
+NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_5:
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
-	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_9
-NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_8:
+	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_11
+NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_10:
 	namebox NPC_FALADORCASTLE_QUEST_PART_4_Text_0
 	msgbox NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_2
 	hidenamebox
@@ -458,26 +485,28 @@ NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_8:
 	msgbox NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_6
 	closemessage
 	hidenamebox
+	addvar VAR_GAMEMODE_LEVEL_CAP, 5
 	setvar VAR_POKESCAPE_FALADOR_STATE, 5
 	setflag FLAG_BADGE02_GET
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 1
 	call HIDDEN_GROTTO_RESET
 	addvar VAR_GAMEMODE_LEVEL_SCALING, 1
 	call SetGymTrainers_FALADOR
 	setvar VAR_POKESCAPE_FALADOR_GYM_QUEST, 10
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
-	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_12
-NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_11:
+	goto_if_eq NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_14
+NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_13:
 	release
 	end
 
-NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_9:
+NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_11:
 	msgbox NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_1
 	closemessage
-	goto NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_8
+	goto NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_10
 
-NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_12:
+NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_14:
 	goto QUEST_FALADORCASTLE_GYM_SIRTHEO
-	goto NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_11
+	goto NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_13
 
 
 QUEST_FALADORCASTLE_GYM_SIRTHEO::
@@ -493,6 +522,7 @@ QUEST_FALADORCASTLE_GYM_SIRTHEO::
 	closemessage
 	hidenamebox
 	warp MAP_FALADOR_CASTLE_3F, 3, 0, 0
+	waitstate
 	release
 	end
 
@@ -513,6 +543,7 @@ SetGymTrainers_FALADOR::
 	settrainerflag TRAINER_FALADOR_GYM_3
 	settrainerflag TRAINER_FALADOR_GYM_4
 	settrainerflag TRAINER_FALADOR_GYM_5
+	settrainerflag TRAINER_FALADOR_GYM_6
 	return
 
 
@@ -590,8 +621,8 @@ NPC_FALADORCASTLE_WHITEKNIGHT_1::
 NPC_FALADORCASTLE_WHITEKNIGHT_1_2:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
-	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_1
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
+	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
 	hidenamebox
 	closemessage
 	release
@@ -600,8 +631,8 @@ NPC_FALADORCASTLE_WHITEKNIGHT_1_2:
 NPC_FALADORCASTLE_WHITEKNIGHT_1_3:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
-	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_2
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
+	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -617,7 +648,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_2::
 NPC_FALADORCASTLE_WHITEKNIGHT_2_2:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_2_Text_0
 	hidenamebox
 	closemessage
@@ -627,7 +658,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_2_2:
 NPC_FALADORCASTLE_WHITEKNIGHT_2_3:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_2_Text_1
 	hidenamebox
 	closemessage
@@ -665,7 +696,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_4::
 NPC_FALADORCASTLE_WHITEKNIGHT_5::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_5_Text_0
 	closemessage
 	hidenamebox
@@ -698,7 +729,7 @@ NPC_FALADORCASTLE_GUARD_1::
 NPC_FALADORCASTLE_WHITEKNIGHT_7::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_7_Text_0
 	closemessage
 	hidenamebox
@@ -709,7 +740,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_7::
 NPC_FALADORCASTLE_WHITEKNIGHT_8::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_8_Text_0
 	closemessage
 	hidenamebox
@@ -736,7 +767,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_9_2:
 NPC_FALADORCASTLE_WHITEKNIGHT_10::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_10_Text_0
 	closemessage
 	hidenamebox
@@ -747,7 +778,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_10::
 NPC_FALADORCASTLE_WHITEKNIGHT_11::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_11_Text_0
 	closemessage
 	hidenamebox
@@ -758,7 +789,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_11::
 NPC_FALADORCASTLE_WHITEKNIGHT_12::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_12_Text_0
 	closemessage
 	hidenamebox
@@ -775,8 +806,8 @@ NPC_FALADORCASTLE_WHITEKNIGHT_13::
 NPC_FALADORCASTLE_WHITEKNIGHT_13_2:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_GYM_TRAINER_4_Text_2
-	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_0
+	namebox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_0
+	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -785,8 +816,8 @@ NPC_FALADORCASTLE_WHITEKNIGHT_13_2:
 NPC_FALADORCASTLE_WHITEKNIGHT_13_3:
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_GYM_TRAINER_4_Text_2
-	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_1
+	namebox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_0
+	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_2
 	hidenamebox
 	closemessage
 	release
@@ -796,7 +827,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_13_3:
 NPC_FALADORCASTLE_WHITEKNIGHT_14::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_WHITEKNIGHT_14_Text_0
 	closemessage
 	hidenamebox
@@ -863,17 +894,6 @@ NPC_FALADORCASTLE_COOK::
 	faceplayer
 	namebox NPC_FALADORCASTLE_COOK_Text_0
 	msgbox NPC_FALADORCASTLE_COOK_Text_1
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_ROUTE23_DWARF_ROCKS::
-	lock
-	faceplayer
-	namebox NPC_ROUTE23_DWARF_ROCKS_Text_0
-	msgbox NPC_ROUTE23_DWARF_ROCKS_Text_1
 	closemessage
 	hidenamebox
 	release
@@ -983,7 +1003,7 @@ FALADORCASTLE_MOVEMENT_SQUIRE_3r:
 NPC_FALADORCASTLE_KNIGHT_9::
 	lock
 	faceplayer
-	namebox NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0
+	namebox NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0
 	msgbox NPC_FALADORCASTLE_KNIGHT_9_Text_0
 	closemessage
 	hidenamebox
@@ -1046,7 +1066,7 @@ NPC_FALADORCASTLE_QUEST_PART_2_Text_0:
 	.string "we can have a gym battle$"
 
 NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_0:
-	.string "WHITE KNIGHT$"
+	.string "White Knight$"
 
 NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT_Text_1:
 	.string "Welcome to the Falador Castle!$"
@@ -1070,7 +1090,7 @@ NPC_FALADORCASTLE_KNIGHT_CHAT_2_Text_0:
 NPC_FALADORCASTLE_KNIGHT_CHAT_3_Text_0:
 	.string "Up or Down, Left or Right.\p"
 	.string "Our Castle will confuse even the most\n"
-	.string "smartest Black Knights.$"
+	.string "intelligent Black Knights.$"
 
 NPC_FALADORCASTLE_QUEST_PART_4_Text_0:
 	.string "Sir Amik Varze$"
@@ -1254,8 +1274,8 @@ NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_6:
 
 NPC_FALADORCASTLE_GYM_SIRAMIKVARZE_Text_7:
 	.string "I recommend that you make your way to\n"
-	.string "Al Kharid or Varrock for your next MvM\l"
-	.string "gym challenge.\p"
+	.string "Barbarian Village for your next MvM gym\l"
+	.string "challenge.\p"
 	.string "Unless you would like to become a white\n"
 	.string "knight instead?$"
 
@@ -1321,13 +1341,10 @@ NPC_FALADORCASTLE_GYM_BLACKKNIGHT_Text_1:
 	.string "make my blood boil.$"
 
 NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_0:
-	.string "White Knight$"
-
-NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_1:
 	.string "If you are looking for Amik then you\n"
 	.string "should probably head back inside.$"
 
-NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_2:
+NPC_FALADORCASTLE_WHITEKNIGHT_1_Text_1:
 	.string "Those Black Knights really grind my\n"
 	.string "gears, one of these days we will rid\l"
 	.string "them.$"
@@ -1377,7 +1394,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_6_Text_0:
 	.string "But it is even harder navigating it.$"
 
 NPC_FALADORCASTLE_GUARD_1_Text_0:
-	.string "Its a steep learning curve, but one day\n"
+	.string "It's a steep learning curve, but one day\n"
 	.string "I will become a White Knight.$"
 
 NPC_FALADORCASTLE_WHITEKNIGHT_7_Text_0:
@@ -1397,7 +1414,7 @@ NPC_FALADORCASTLE_WHITEKNIGHT_9_Text_1:
 	.string "At least I will respawn here.$"
 
 NPC_FALADORCASTLE_WHITEKNIGHT_9_Text_2:
-	.string "Sir ???$"
+	.string "Sir Atcha$"
 
 NPC_FALADORCASTLE_WHITEKNIGHT_9_Text_3:
 	.string "If you are tired of searching for Sir\n"
@@ -1442,12 +1459,15 @@ NPC_FALADORCASTLE_WHITEKNIGHT_12_Text_0:
 	.string "openings!$"
 
 NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_0:
+	.string "Sir Iyus Lee$"
+
+NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_1:
 	.string "You would think Sir Amik Varze would be\n"
 	.string "here in the throne room wouldn't you?\p"
 	.string "Well sorry to burst your bubble, but he\n"
 	.string "isn't here.$"
 
-NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_1:
+NPC_FALADORCASTLE_WHITEKNIGHT_13_Text_2:
 	.string "King Vallance?\p"
 	.string "Yeh, he is still alive and kicking.\p"
 	.string "We try our best to keep the bucket away\n"
@@ -1480,7 +1500,7 @@ BOOK_FALADORCASTLE_GUARD_INFO_Text_0:
 
 SIGN_BLURITE_CUPBOARD_Text_0:
 	.string "It looks like there was once a picture\n"
-	.string "in the cupboard but someone must of\l"
+	.string "in the cupboard but someone must have\l"
 	.string "taken it.$"
 
 BOOK_FALADORCASTLE_SIRVYVIN_Text_0:
@@ -1496,10 +1516,60 @@ BOOK_FALADORCASTLE_SIRVYVIN_Text_0:
 
 BOOK_CRANDOR_Text_0:
 	.string "It's a book about the Isle of Crandor.\p"
+	.string "It looks quite long.\p"
 	.string "Read it?$"
 
 BOOK_CRANDOR_Text_1:
-	.string "Nothing interesting happens…$"
+	.string "Crandor was known throughout Gielinor\n"
+	.string "for developing its own school of magic\l"
+	.string "and possessing one of the largest\l"
+	.string "libraries in the world.\p"
+	.string "Most of the city was built on piers\n"
+	.string "which extended out onto the sea, with a\l"
+	.string "large market located in the central\l"
+	.string "cove.\p"
+	.string "Due to their naval prowess, being able\n"
+	.string "to carefully navigate the dangerous\l"
+	.string "reefs that surrounded the island, the\l"
+	.string "inhabitants were able to sail to various\l"
+	.string "ports around Gielinor and trade with\l"
+	.string "Asgarnians, Misthalinians, gnomes, and\l"
+	.string "even the Fremennik.\p"
+	.string "Due to this, for some time it was\n"
+	.string "considered to be an influential\l"
+	.string "city-state with political importance\l"
+	.string "rivalling that of Varrock and Falador.\p"
+	.string "Many Crandorians even earned the right\n"
+	.string "to be members of the Champions’ Guild.\p"
+	.string "Unfortunately, one day one of their\n"
+	.string "adventurers went too far and entered\l"
+	.string "the volcano,\p"
+	.string "discovering the lair of a ferocious\n"
+	.string "dragon named Elvarg.\p"
+	.string "Enraged that she had been awoken from\n"
+	.string "her slumber, Elvarg fought the\l"
+	.string "adventurer.\p"
+	.string "The dragon won the fight,\p"
+	.string "but it is said that the adventurer\n"
+	.string "managed to leave her with a scar down\l"
+	.string "her side before he perished.\p"
+	.string "Elvarg then emerged from the volcano\n"
+	.string "setting the entirety of the island\l"
+	.string "ablaze in a fit of fiery wrath.\p"
+	.string "Several Crandorians fled to the shores\n"
+	.string "near Rimmington and set up a camp\l"
+	.string "there, but Elvarg pursued them and\l"
+	.string "scorched that too.\p"
+	.string "It is said that only three mages\n"
+	.string "survived the onslaught; Lozar, Thalzar,\l"
+	.string "and Melzar.\p"
+	.string "Thankfully, Elvarg has never been seen\n"
+	.string "on the mainland again\p"
+	.string "though it is thought that she\n"
+	.string "continues to be active around Crandor.\p"
+	.string "Many sailors will not go anywhere near\n"
+	.string "it for fear of their ships being\l"
+	.string "attacked.$"
 
 NPC_FALADORCASTLE_COOK_Text_0:
 	.string "Cook$"
@@ -1511,17 +1581,8 @@ NPC_FALADORCASTLE_COOK_Text_1:
 	.string "What did I cook?\p"
 	.string "Uh, I think it was some Anchovies.$"
 
-NPC_ROUTE23_DWARF_ROCKS_Text_0:
-	.string "DWARF$"
-
-NPC_ROUTE23_DWARF_ROCKS_Text_1:
-	.string "If only those goblins did not steal our\n"
-	.string "pickaxe supplies.\p"
-	.string "Then I could easily clear this\n"
-	.string "rockslide.$"
-
 NPC_ROUTE24_DORIC_Text_0:
-	.string "DORIC$"
+	.string "Doric$"
 
 NPC_ROUTE24_DORIC_Text_1:
 	.string "Hello traveller, I was wondering if you\n"

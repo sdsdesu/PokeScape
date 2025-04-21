@@ -725,6 +725,9 @@
 #define MAP_ICE_MOUNTAIN                (43 | (36 << 8))
 #define MAP_ASGARNIAN_DUNGEON_B4F       (44 | (36 << 8))
 #define MAP_LUMBRIDGE_SWAMP_CAVES_WGS_5 (45 | (36 << 8))
+#define MAP_PURO_PURO1                  (46 | (36 << 8))
+#define MAP_PURO_PURO2                  (47 | (36 << 8))
+#define MAP_PURO_PURO3                  (48 | (36 << 8))
 
 // gMapGroup_PokescapeIndoorTutorialIsland
 #define MAP_TUTORIAL_ISLAND_LAB_UP   (0 | (37 << 8))
@@ -754,6 +757,7 @@
 #define MAP_LUMBRIDGE_HOUSE_3_2F       (18 | (38 << 8))
 #define MAP_LUMBRIDGE_CHURCH           (19 | (38 << 8))
 #define MAP_LUMBRIDGE_CASTLE_BASEMENT  (20 | (38 << 8))
+#define MAP_LUMBRIDGE_HOUSE_5          (21 | (38 << 8))
 
 // gMapGroup_PokescapeIndoorDraynor
 #define MAP_DRAYNOR_HOUSE_MORGAN_1F   (0 | (39 << 8))
@@ -802,6 +806,7 @@
 #define MAP_MELZARS_MAZE_2F             (12 | (41 << 8))
 #define MAP_MELZARS_MAZE_3F             (13 | (41 << 8))
 #define MAP_MELZARS_MAZE_B1F            (14 | (41 << 8))
+#define MAP_ROUTE8_MAKEOVER_MAGE_2F     (15 | (41 << 8))
 
 // gMapGroup_PokescapeIndoorFalador
 #define MAP_FALADOR_HAIRDRESSERS     (0 | (42 << 8))
@@ -826,6 +831,7 @@
 #define MAP_FALADOR_CASTLE_1F_R2     (19 | (42 << 8))
 #define MAP_FALADOR_CASTLE_1F_R3     (20 | (42 << 8))
 #define MAP_FALADOR_CASTLE_3F_R2     (21 | (42 << 8))
+#define MAP_FALADOR_HOUSE_1          (22 | (42 << 8))
 
 // gMapGroup_PokescapeIndoorVarrock
 #define MAP_VARROCK_THESSALIA_SHOP    (0 | (43 << 8))
@@ -861,11 +867,13 @@
 #define MAP_VARROCK_HOUSE_7           (30 | (43 << 8))
 #define MAP_VARROCK_HOUSE_8           (31 | (43 << 8))
 #define MAP_VARROCK_HOUSE_9           (32 | (43 << 8))
+#define MAP_VARROCK_HOUSE_10          (33 | (43 << 8))
 
 // gMapGroup_PokescapeIndoorBarbarianVillage
 #define MAP_BARBARIAN_VILLAGE_GYM_HALL (0 | (44 << 8))
 #define MAP_BARBARIAN_VILLAGE_HOUSE_1  (1 | (44 << 8))
 #define MAP_BARBARIAN_VILLAGE_HOUSE_2  (2 | (44 << 8))
+#define MAP_BARBARIAN_VILLAGE_HOUSE_3  (3 | (44 << 8))
 
 // gMapGroup_PokescapeIndoorAlkharid
 #define MAP_ALKHARID_GYM_1F_R1      (0 | (45 << 8))
@@ -902,6 +910,19 @@
 #define MAP_DUNGEONEERING_LOBBY (16 | (46 << 8))
 #define MAP_DAEMONHEIM_GYM      (17 | (46 << 8))
 #define MAP_DAEMONHEIM_BANK     (18 | (46 << 8))
+#define MAP_DUNG_GYM_1          (19 | (46 << 8))
+#define MAP_DUNG_GYM_2          (20 | (46 << 8))
+#define MAP_DUNG_GYM_3          (21 | (46 << 8))
+#define MAP_DUNG_GYM_4          (22 | (46 << 8))
+#define MAP_DUNG_GYM_5          (23 | (46 << 8))
+#define MAP_DUNG_GYM_6          (24 | (46 << 8))
+#define MAP_DUNG_GYM_7          (25 | (46 << 8))
+#define MAP_DUNG_GYM_8          (26 | (46 << 8))
+#define MAP_DUNG_GYM_9          (27 | (46 << 8))
+#define MAP_DUNG_GYM_10         (28 | (46 << 8))
+#define MAP_DUNG_GYM_11         (29 | (46 << 8))
+#define MAP_DUNG_GYM_12         (30 | (46 << 8))
+#define MAP_DUNG_GYM_13         (31 | (46 << 8))
 
 // gMapGroup47
 #define MAP_EDGEVILLE_GYM                 (0 | (47 << 8))
@@ -916,6 +937,8 @@
 #define MAP_DWARVEN_MINES_HOUSE_2         (9 | (47 << 8))
 #define MAP_DWARVEN_MINES_HOUSE_3         (10 | (47 << 8))
 #define MAP_EDGEVILLE_ROUTE19_BRASS_HOUSE (11 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_1 (12 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_2 (13 | (47 << 8))
 
 // gMapGroup_PokescapeOutdoorMembers
 #define MAP_YANILLE       (0 | (48 << 8))
@@ -951,8 +974,8 @@
 #define MAP_ROUTE63       (30 | (48 << 8))
 
 // gMapGroup_PokescapeIndoorTzhaar
-#define MAP_TZHAAR_1F            (0 | (49 << 8))
-#define MAP_TZHAAR_FIGHT_CAVES   (1 | (49 << 8))
+#define MAP_MOR_UL_REK           (0 | (49 << 8))
+#define MAP_TZHAAR_GYM_ROOM      (1 | (49 << 8))
 #define MAP_TZHAAR_CAVES_1       (2 | (49 << 8))
 #define MAP_TZHAAR_CAVES_2       (3 | (49 << 8))
 #define MAP_TZHAAR_CAVES_3       (4 | (49 << 8))
@@ -960,6 +983,7 @@
 #define MAP_TZHAAR_CAVES_5       (6 | (49 << 8))
 #define MAP_TZHAAR_GYM_CHALLENGE (7 | (49 << 8))
 #define MAP_TZHAAR_HAR_AKEN      (8 | (49 << 8))
+#define MAP_TZHAAR_FIGHT_CAVES   (9 | (49 << 8))
 
 // gMapGroup_PokescapeIndoorVarious
 #define MAP_ROUTE1_HOUSE_FRED                   (0 | (50 << 8))
@@ -1052,6 +1076,12 @@
 #define MAP_UNGAEL                              (87 | (50 << 8))
 #define MAP_VARLAMORE                           (88 | (50 << 8))
 #define MAP_BARB_STRONGHOLD_B4F_MURAL           (89 | (50 << 8))
+#define MAP_GOBLIN_VILLAGE_HOUSE_4              (90 | (50 << 8))
+#define MAP_COOKING_GUILD                       (91 | (50 << 8))
+#define MAP_BLACK_KNIGHTS_FORTRESS_1            (92 | (50 << 8))
+#define MAP_BLACK_KNIGHTS_FORTRESS_2            (93 | (50 << 8))
+#define MAP_BLACK_KNIGHTS_FORTRESS_3            (94 | (50 << 8))
+#define MAP_BLACK_KNIGHTS_FORTRESS_4            (95 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

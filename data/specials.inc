@@ -326,7 +326,7 @@ gSpecials::
 	def_special StartRegiBattle
 	def_special SetTrainerFacingDirection
 	def_special DoSealedChamberShakingEffect_Short
-	def_special FoundBlackGlasses
+
 	def_special StartDroughtWeatherBlend
 	def_special DoDiveWarp
 	def_special DoFallWarp
@@ -343,8 +343,7 @@ gSpecials::
 	def_special MoveOutOfSecretBaseFromOutside
 	def_special LoadPlayerBag
 	def_special Script_FadeOutMapMusic
-	def_special SetPacifidlogTMReceivedDay
-	def_special GetDaysUntilPacifidlogTMAvailable
+
 	def_special HasAllHoennMons
 	def_special MonOTNameNotPlayer
 	def_special BufferLottoTicketNumber
@@ -554,3 +553,23 @@ gSpecials::
 	def_special GetCurrentMap
 	def_special GetSeededResult
 	def_special GetTimeOfDaySpecial
+	def_special Is_InParty_TZHAAR
+	def_special Is_InParty_Swan
+	def_special Is_InParty_Balanced
+	def_special Is_InParty_hasHAT
+	def_special Is_InParty_CABBAGE
+	def_special Is_InParty_GOBLINFISH
+	def_special Is_InParty_ZAMORAK
+	def_special Is_InParty_SARADOMIN
+	def_special Is_InParty_GUTHIX
+	def_special Is_InParty_SEREN
+	def_special Is_InParty_ZAROS
+	def_special Is_InParty_BANDOS
+	def_special Is_InParty_TUMEKEN
+	def_special Is_InParty_GODLESS
+	def_special Is_InParty_ARMADYL
+	def_special GetSeededResultLessRandom
+
+
+
+

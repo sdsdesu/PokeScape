@@ -101,7 +101,7 @@ SKOTIZO_TRIGGER_8:
 ENCOUNTER_SKOTIZO::
 	lock
 	namebox ENCOUNTER_SKOTIZO_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_SKOTIZO, 0
 	msgbox ENCOUNTER_SKOTIZO_Text_1
 	waitmoncry
 	hidenamebox
@@ -209,7 +209,7 @@ ENCOUNTER_ABYSSAL_DEMON::
 	lock
 	faceplayer
 	namebox ENCOUNTER_ABYSSAL_DEMON_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_ABYSSAL_DEMON_FORM, 0
 	msgbox ENCOUNTER_ABYSSAL_DEMON_Text_1
 	waitmoncry
 	hidenamebox
@@ -249,7 +249,7 @@ ENCOUNTER_SLIME::
 	lock
 	faceplayer
 	namebox ENCOUNTER_SLIME_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_CAVE_SLIME, 0
 	msgbox ENCOUNTER_SLIME_Text_1
 	waitmoncry
 	hidenamebox
@@ -260,13 +260,15 @@ ENCOUNTER_SLIME::
 	goto_if_eq ENCOUNTER_SLIME_2
 	compare VAR_RESULT, MAP_KOUREND_CATACOMBS_3
 	goto_if_eq ENCOUNTER_SLIME_3
+	compare VAR_RESULT, MAP_LUMBRIDGE_SWAMP_CAVES
+	goto_if_eq ENCOUNTER_SLIME_4
 	setwildbattle SPECIES_CAVE_SLIME, 20, ITEM_NONE
 ENCOUNTER_SLIME_1:
 	dowildbattle
 	switch VAR_RESULT
-	case B_OUTCOME_WON, ENCOUNTER_SLIME_9
-	case B_OUTCOME_CAUGHT, ENCOUNTER_SLIME_10
-ENCOUNTER_SLIME_7:
+	case B_OUTCOME_WON, ENCOUNTER_SLIME_11
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SLIME_12
+ENCOUNTER_SLIME_9:
 	release
 	end
 
@@ -278,23 +280,34 @@ ENCOUNTER_SLIME_3:
 	setwildbattle SPECIES_JELLY_NORMAL_FORM, 50, ITEM_NONE
 	goto ENCOUNTER_SLIME_1
 
-ENCOUNTER_SLIME_9:
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	goto ENCOUNTER_SLIME_7
+ENCOUNTER_SLIME_4:
+	random 10
+	switch VAR_RESULT
+	case 9, ENCOUNTER_SLIME_14
+	setwildbattle SPECIES_CAVE_SLIME, 10, ITEM_NONE
+	goto ENCOUNTER_SLIME_1
 
-ENCOUNTER_SLIME_10:
+ENCOUNTER_SLIME_11:
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-	goto ENCOUNTER_SLIME_7
+	goto ENCOUNTER_SLIME_9
+
+ENCOUNTER_SLIME_12:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SLIME_9
+
+ENCOUNTER_SLIME_14:
+	setwildbattle SPECIES_SLIME_LILGLOOP, 10, ITEM_NONE
+	goto ENCOUNTER_SLIME_1
 
 
 ENCOUNTER_ROCKCRAB::
 	lock
 	namebox ENCOUNTER_ROCKCRAB_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_ROCK_CRAB_NORMAL_FORM, 0
 	msgbox ENCOUNTER_ROCKCRAB_Text_1
 	waitmoncry
 	hidenamebox
@@ -305,13 +318,19 @@ ENCOUNTER_ROCKCRAB::
 	goto_if_eq ENCOUNTER_ROCKCRAB_2
 	compare VAR_RESULT, MAP_KOUREND_CATACOMBS_4
 	goto_if_eq ENCOUNTER_ROCKCRAB_2
+	compare VAR_RESULT, MAP_MUDSKIPPER_POINT
+	goto_if_eq ENCOUNTER_ROCKCRAB_3
+	compare VAR_RESULT, MAP_ROUTE11
+	goto_if_eq ENCOUNTER_ROCKCRAB_3
+	compare VAR_RESULT, MAP_ROUTE9
+	goto_if_eq ENCOUNTER_ROCKCRAB_3
 	setwildbattle SPECIES_ROCK_CRAB_NORMAL_FORM, 20, ITEM_NONE
 ENCOUNTER_ROCKCRAB_1:
 	dowildbattle
 	switch VAR_RESULT
-	case B_OUTCOME_WON, ENCOUNTER_ROCKCRAB_9
-	case B_OUTCOME_CAUGHT, ENCOUNTER_ROCKCRAB_10
-ENCOUNTER_ROCKCRAB_7:
+	case B_OUTCOME_WON, ENCOUNTER_ROCKCRAB_15
+	case B_OUTCOME_CAUGHT, ENCOUNTER_ROCKCRAB_16
+ENCOUNTER_ROCKCRAB_13:
 	release
 	end
 
@@ -319,23 +338,38 @@ ENCOUNTER_ROCKCRAB_2:
 	setwildbattle SPECIES_ROCK_CRAB_GIANT_SAND_FORM, 50, ITEM_NONE
 	goto ENCOUNTER_ROCKCRAB_1
 
-ENCOUNTER_ROCKCRAB_9:
-	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject VAR_LAST_TALKED
-	fadescreenswapbuffers FADE_FROM_BLACK
-	goto ENCOUNTER_ROCKCRAB_7
+ENCOUNTER_ROCKCRAB_3:
+	random 2
+	switch VAR_RESULT
+	case 0, ENCOUNTER_ROCKCRAB_18
+	case 1, ENCOUNTER_ROCKCRAB_19
+	goto ENCOUNTER_ROCKCRAB_1
 
-ENCOUNTER_ROCKCRAB_10:
+ENCOUNTER_ROCKCRAB_15:
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-	goto ENCOUNTER_ROCKCRAB_7
+	goto ENCOUNTER_ROCKCRAB_13
+
+ENCOUNTER_ROCKCRAB_16:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_ROCKCRAB_13
+
+ENCOUNTER_ROCKCRAB_18:
+	setwildbattle SPECIES_ROCK_CRAB_SAND_FORM, 15, ITEM_NONE
+	goto ENCOUNTER_ROCKCRAB_1
+
+ENCOUNTER_ROCKCRAB_19:
+	setwildbattle SPECIES_CRAB_GRANITE_FORM, 15, ITEM_NONE
+	goto ENCOUNTER_ROCKCRAB_1
 
 
 ENCOUNTER_DRAGON_BLACK::
 	lock
 	namebox ENCOUNTER_DRAGON_BLACK_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_DRAGON_BLACK_FORM, 0
 	msgbox ENCOUNTER_DRAGON_BLACK_Text_1
 	waitmoncry
 	hidenamebox
@@ -366,7 +400,7 @@ ENCOUNTER_DRAGON_BLACK_4:
 ENCOUNTER_DRAGON_RED::
 	lock
 	namebox ENCOUNTER_DRAGON_BLACK_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_DRAGON_RED_FORM, 0
 	msgbox ENCOUNTER_DRAGON_BLACK_Text_1
 	waitmoncry
 	hidenamebox
@@ -397,7 +431,7 @@ ENCOUNTER_DRAGON_RED_4:
 ENCOUNTER_DRAGON_BLUE::
 	lock
 	namebox ENCOUNTER_DRAGON_BLACK_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_DRAGON_BLUE_FORM, 0
 	msgbox ENCOUNTER_DRAGON_BLACK_Text_1
 	waitmoncry
 	hidenamebox
@@ -428,7 +462,7 @@ ENCOUNTER_DRAGON_BLUE_4:
 ENCOUNTER_DRAGON_GREEN::
 	lock
 	namebox ENCOUNTER_DRAGON_BLACK_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_DRAGON_GREEN_FORM, 0
 	msgbox ENCOUNTER_DRAGON_BLACK_Text_1
 	waitmoncry
 	hidenamebox
@@ -459,7 +493,7 @@ ENCOUNTER_DRAGON_GREEN_4:
 ENCOUNTER_BASILISK::
 	lock
 	namebox ENCOUNTER_BASILISK_Text_0
-	playmoncry SPECIES_URSARING, 0
+	playmoncry SPECIES_BASILISK_KNIGHT_FORM, 0
 	msgbox ENCOUNTER_BASILISK_Text_1
 	waitmoncry
 	hidenamebox
@@ -491,7 +525,7 @@ ENCOUNTER_GREATER_DEMON::
 	lock
 	faceplayer
 	namebox ENCOUNTER_GREATER_DEMON_Text_0
-	playmoncry SPECIES_EKANS, 0
+	playmoncry SPECIES_DEMON_GREATER_TONGUE_FORM, 0
 	msgbox ENCOUNTER_GREATER_DEMON_Text_1
 	waitmoncry
 	hidenamebox
@@ -578,6 +612,921 @@ ENCOUNTER_MONKEY_QUEST_4:
 	goto ENCOUNTER_MONKEY_QUEST_1
 
 
+ENCOUNTER_SNOW_IMP::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SNOW_IMP_Text_0
+	playmoncry SPECIES_SNOW_IMP, 0
+	msgbox ENCOUNTER_SNOW_IMP_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_WIZARDS_TOWER_DINING_HALL
+	goto_if_eq ENCOUNTER_SNOW_IMP_2
+	setwildbattle SPECIES_SNOW_IMP, 30, ITEM_NONE
+ENCOUNTER_SNOW_IMP_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SNOW_IMP_7
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SNOW_IMP_8
+ENCOUNTER_SNOW_IMP_5:
+	release
+	end
+
+ENCOUNTER_SNOW_IMP_2:
+	setwildbattle SPECIES_SNOW_IMP, 5, ITEM_NONE
+	goto ENCOUNTER_SNOW_IMP_1
+
+ENCOUNTER_SNOW_IMP_7:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SNOW_IMP_5
+
+ENCOUNTER_SNOW_IMP_8:
+	fadescreenswapbuffers FADE_TO_BLACK
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_WIZARDS_TOWER_DINING_HALL
+	goto_if_eq ENCOUNTER_SNOW_IMP_10
+ENCOUNTER_SNOW_IMP_9:
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SNOW_IMP_5
+
+ENCOUNTER_SNOW_IMP_10:
+	setflag FLAG_CAPTURED_SNOWIMP
+	goto ENCOUNTER_SNOW_IMP_9
+
+
+ENCOUNTER_UNICORN_BARB::
+	lock
+	faceplayer
+	namebox ENCOUNTER_UNICORN_BARB_Text_0
+	playmoncry SPECIES_UNICORN_WHITE_FORM, 0
+	msgbox ENCOUNTER_UNICORN_BARB_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	setwildbattle SPECIES_UNICORN_WHITE_FORM, 30, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_UNICORN_BARB_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_UNICORN_BARB_4
+ENCOUNTER_UNICORN_BARB_1:
+	release
+	end
+
+ENCOUNTER_UNICORN_BARB_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_UNICORN_BARB_1
+
+ENCOUNTER_UNICORN_BARB_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_UNICORN_BARB_1
+
+
+ENCOUNTER_CHAIR::
+	lock
+	faceplayer
+	namebox ENCOUNTER_CHAIR_Text_0
+	playmoncry SPECIES_ANICHAIR, 0
+	msgbox ENCOUNTER_CHAIR_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	setwildbattle SPECIES_ANICHAIR, 10, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_CHAIR_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_CHAIR_4
+ENCOUNTER_CHAIR_1:
+	release
+	end
+
+ENCOUNTER_CHAIR_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CHAIR_1
+
+ENCOUNTER_CHAIR_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CHAIR_1
+
+
+ENCOUNTER_GHOST::
+	lock
+	faceplayer
+	namebox ENCOUNTER_CHAIR_Text_0
+	playmoncry SPECIES_DOBBIN, 0
+	msgbox ENCOUNTER_GHOST_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	random 8
+	switch VAR_RESULT
+	case 0, ENCOUNTER_GHOST_3
+	case 1, ENCOUNTER_GHOST_3
+	case 2, ENCOUNTER_GHOST_4
+	case 3, ENCOUNTER_GHOST_4
+	case 4, ENCOUNTER_GHOST_4
+	case 5, ENCOUNTER_GHOST_5
+	case 6, ENCOUNTER_GHOST_5
+	case 7, ENCOUNTER_GHOST_6
+	setwildbattle SPECIES_DOBBIN, 10, ITEM_NONE
+ENCOUNTER_GHOST_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_GHOST_10
+	case B_OUTCOME_CAUGHT, ENCOUNTER_GHOST_11
+ENCOUNTER_GHOST_8:
+	release
+	end
+
+ENCOUNTER_GHOST_3:
+	setwildbattle SPECIES_DOBBIN, 10, ITEM_NONE
+	goto ENCOUNTER_GHOST_1
+
+ENCOUNTER_GHOST_4:
+	setwildbattle SPECIES_TOY_MOUSE, 10, ITEM_NONE
+	goto ENCOUNTER_GHOST_1
+
+ENCOUNTER_GHOST_5:
+	setwildbattle SPECIES_ORIGAMI_BALLOON, 10, ITEM_NONE
+	goto ENCOUNTER_GHOST_1
+
+ENCOUNTER_GHOST_6:
+	setwildbattle SPECIES_ANIMOUR, 10, ITEM_NONE
+	goto ENCOUNTER_GHOST_1
+
+ENCOUNTER_GHOST_10:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_GHOST_8
+
+ENCOUNTER_GHOST_11:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_GHOST_8
+
+
+ENCOUNTER_RAT::
+	lock
+	faceplayer
+	namebox ENCOUNTER_RAT_Text_0
+	playmoncry SPECIES_GIANT_RAT_NORMAL_FORM, 0
+	msgbox ENCOUNTER_RAT_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_LUMBRIDGE
+	goto_if_eq ENCOUNTER_RAT_2
+	compare VAR_RESULT, MAP_LUMBRIDGE_SWAMP
+	goto_if_eq ENCOUNTER_RAT_2
+	compare VAR_RESULT, MAP_LUMBRIDGE_FOREST
+	goto_if_eq ENCOUNTER_RAT_2
+	compare VAR_RESULT, MAP_DRAYNOR_MANOR_B1F
+	goto_if_eq ENCOUNTER_RAT_2
+	setwildbattle SPECIES_GIANT_RAT_NORMAL_FORM, 30, ITEM_NONE
+ENCOUNTER_RAT_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_RAT_13
+	case B_OUTCOME_CAUGHT, ENCOUNTER_RAT_14
+ENCOUNTER_RAT_11:
+	release
+	end
+
+ENCOUNTER_RAT_2:
+	random 20
+	switch VAR_RESULT
+	case 7, ENCOUNTER_RAT_16
+	setwildbattle SPECIES_RAT_NORMAL_FORM, 5, ITEM_NONE
+	goto ENCOUNTER_RAT_1
+
+ENCOUNTER_RAT_13:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_RAT_11
+
+ENCOUNTER_RAT_14:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_RAT_11
+
+ENCOUNTER_RAT_16:
+	setwildbattle SPECIES_GIANT_RAT_NORMAL_FORM, 8, ITEM_NONE
+	goto ENCOUNTER_RAT_1
+
+
+ENCOUNTER_SHEEP::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SHEEP_Text_0
+	playmoncry SPECIES_SHEEP_WHITE_FORM, 0
+	msgbox ENCOUNTER_SHEEP_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_ROUTE1
+	goto_if_eq ENCOUNTER_SHEEP_2
+	compare VAR_RESULT, MAP_MILL_LANE_MILL
+	goto_if_eq ENCOUNTER_SHEEP_2
+	compare VAR_RESULT, MAP_LUMBRIDGE_FOREST
+	goto_if_eq ENCOUNTER_SHEEP_2
+	random 1
+	switch VAR_RESULT
+	case 0, ENCOUNTER_SHEEP_18
+	case 1, ENCOUNTER_SHEEP_19
+ENCOUNTER_SHEEP_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SHEEP_11
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SHEEP_12
+ENCOUNTER_SHEEP_9:
+	release
+	end
+
+ENCOUNTER_SHEEP_2:
+	random 20
+	switch VAR_RESULT
+	case 5, ENCOUNTER_SHEEP_14
+	case 7, ENCOUNTER_SHEEP_15
+	setwildbattle SPECIES_LAMB, 5, ITEM_NONE
+	goto ENCOUNTER_SHEEP_1
+
+ENCOUNTER_SHEEP_11:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SHEEP_9
+
+ENCOUNTER_SHEEP_12:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SHEEP_9
+
+ENCOUNTER_SHEEP_14:
+	setwildbattle SPECIES_SHEEP_WHITE_FORM, 8, ITEM_NONE
+	goto ENCOUNTER_SHEEP_1
+
+ENCOUNTER_SHEEP_15:
+	setwildbattle SPECIES_RAM_FLUFFY_FORM, 8, ITEM_NONE
+	goto ENCOUNTER_SHEEP_1
+
+ENCOUNTER_SHEEP_18:
+	setwildbattle SPECIES_SHEEP_WHITE_FORM, 10, ITEM_NONE
+	goto ENCOUNTER_SHEEP_1
+
+ENCOUNTER_SHEEP_19:
+	setwildbattle SPECIES_RAM_FLUFFY_FORM, 10, ITEM_NONE
+	goto ENCOUNTER_SHEEP_1
+
+
+ENCOUNTER_CHICKEN::
+	lock
+	faceplayer
+	namebox ENCOUNTER_CHICKEN_Text_0
+	playmoncry SPECIES_CHICKEN_NORMAL_FORM, 0
+	msgbox ENCOUNTER_CHICKEN_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_ROUTE1
+	goto_if_eq ENCOUNTER_CHICKEN_2
+	compare VAR_RESULT, MAP_ROUTE12
+	goto_if_eq ENCOUNTER_CHICKEN_2
+	random 1
+	switch VAR_RESULT
+	case 0, ENCOUNTER_CHICKEN_16
+	case 1, ENCOUNTER_CHICKEN_17
+ENCOUNTER_CHICKEN_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_CHICKEN_9
+	case B_OUTCOME_CAUGHT, ENCOUNTER_CHICKEN_10
+ENCOUNTER_CHICKEN_7:
+	release
+	end
+
+ENCOUNTER_CHICKEN_2:
+	random 20
+	switch VAR_RESULT
+	case 5, ENCOUNTER_CHICKEN_12
+	case 7, ENCOUNTER_CHICKEN_13
+	setwildbattle SPECIES_CHICK, 5, ITEM_NONE
+	goto ENCOUNTER_CHICKEN_1
+
+ENCOUNTER_CHICKEN_9:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CHICKEN_7
+
+ENCOUNTER_CHICKEN_10:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CHICKEN_7
+
+ENCOUNTER_CHICKEN_12:
+	setwildbattle SPECIES_CHICKEN_NORMAL_FORM, 8, ITEM_NONE
+	goto ENCOUNTER_CHICKEN_1
+
+ENCOUNTER_CHICKEN_13:
+	setwildbattle SPECIES_CHICKEN_NORMAL_FORM, 8, ITEM_NONE
+	goto ENCOUNTER_CHICKEN_1
+
+ENCOUNTER_CHICKEN_16:
+	setwildbattle SPECIES_CHICKEN_NORMAL_FORM, 10, ITEM_NONE
+	goto ENCOUNTER_CHICKEN_1
+
+ENCOUNTER_CHICKEN_17:
+	setwildbattle SPECIES_CHICKEN_NORMAL_FORM, 10, ITEM_NONE
+	goto ENCOUNTER_CHICKEN_1
+
+
+ENCOUNTER_COW::
+	lock
+	faceplayer
+	namebox ENCOUNTER_COW_Text_0
+	playmoncry SPECIES_COW, 0
+	msgbox ENCOUNTER_COW_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	goto_if_set FLAG_BADGE01_GET, ENCOUNTER_COW_2
+	random 13
+	switch VAR_RESULT
+	case 0, ENCOUNTER_COW_11
+	case 1, ENCOUNTER_COW_11
+	case 2, ENCOUNTER_COW_11
+	case 3, ENCOUNTER_COW_12
+	case 6, ENCOUNTER_COW_13
+	case 7, ENCOUNTER_COW_13
+	case 9, ENCOUNTER_COW_14
+	setwildbattle SPECIES_CALF, 5, ITEM_NONE
+ENCOUNTER_COW_1:
+	dowildbattle
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq ENCOUNTER_COW_6
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq ENCOUNTER_COW_6
+ENCOUNTER_COW_5:
+	release
+	end
+
+ENCOUNTER_COW_2:
+	setwildbattle SPECIES_COW, 10, ITEM_NONE
+	goto ENCOUNTER_COW_1
+
+ENCOUNTER_COW_6:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_COW_5
+
+ENCOUNTER_COW_11:
+	setwildbattle SPECIES_CALF, 8, ITEM_NONE
+	goto ENCOUNTER_COW_1
+
+ENCOUNTER_COW_12:
+	setwildbattle SPECIES_COW, 5, ITEM_NONE
+	goto ENCOUNTER_COW_1
+
+ENCOUNTER_COW_13:
+	setwildbattle SPECIES_CALF, 10, ITEM_NONE
+	goto ENCOUNTER_COW_1
+
+ENCOUNTER_COW_14:
+	setwildbattle SPECIES_COW, 10, ITEM_NONE
+	goto ENCOUNTER_COW_1
+
+
+ENCOUNTER_SPIDER_BROWN::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SPIDER_BROWN_Text_0
+	playmoncry SPECIES_SPIDER_GIANT_FORM, 0
+	msgbox ENCOUNTER_SPIDER_BROWN_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_SPIDER_GIANT_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SPIDER_BROWN_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SPIDER_BROWN_4
+ENCOUNTER_SPIDER_BROWN_1:
+	release
+	end
+
+ENCOUNTER_SPIDER_BROWN_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_BROWN_1
+
+ENCOUNTER_SPIDER_BROWN_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_BROWN_1
+
+
+ENCOUNTER_SPIDER_GREEN::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SPIDER_BROWN_Text_0
+	playmoncry SPECIES_SPIDER_JUNGLE_FORM, 0
+	msgbox ENCOUNTER_SPIDER_BROWN_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_SPIDER_JUNGLE_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SPIDER_GREEN_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SPIDER_GREEN_4
+ENCOUNTER_SPIDER_GREEN_1:
+	release
+	end
+
+ENCOUNTER_SPIDER_GREEN_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_GREEN_1
+
+ENCOUNTER_SPIDER_GREEN_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_GREEN_1
+
+
+ENCOUNTER_BAT::
+	lock
+	faceplayer
+	namebox ENCOUNTER_BAT_Text_0
+	playmoncry SPECIES_BAT, 0
+	msgbox ENCOUNTER_BAT_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	random 13
+	switch VAR_RESULT
+	case 0, ENCOUNTER_BAT_3
+	case 1, ENCOUNTER_BAT_3
+	case 2, ENCOUNTER_BAT_3
+	case 3, ENCOUNTER_BAT_4
+	case 6, ENCOUNTER_BAT_5
+	case 7, ENCOUNTER_BAT_5
+	case 9, ENCOUNTER_BAT_6
+	setwildbattle SPECIES_BAT, VAR_TEMP_E, ITEM_NONE
+ENCOUNTER_BAT_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_BAT_10
+	case B_OUTCOME_CAUGHT, ENCOUNTER_BAT_11
+ENCOUNTER_BAT_8:
+	release
+	end
+
+ENCOUNTER_BAT_3:
+	setwildbattle SPECIES_BAT, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_BAT_1
+
+ENCOUNTER_BAT_4:
+	setwildbattle SPECIES_BAT_BOX_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_BAT_1
+
+ENCOUNTER_BAT_5:
+	setwildbattle SPECIES_BAT, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_BAT_1
+
+ENCOUNTER_BAT_6:
+	setwildbattle SPECIES_GIANT_BAT, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_BAT_1
+
+ENCOUNTER_BAT_10:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BAT_8
+
+ENCOUNTER_BAT_11:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BAT_8
+
+
+ENCOUNTER_CRAB_RED::
+	lock
+	faceplayer
+	namebox ENCOUNTER_CRAB_RED_Text_0
+	playmoncry SPECIES_CRAB_RED_FORM, 0
+	msgbox ENCOUNTER_CRAB_RED_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	random 5
+	switch VAR_RESULT
+	case 0, ENCOUNTER_CRAB_RED_3
+	case 1, ENCOUNTER_CRAB_RED_4
+	case 2, ENCOUNTER_CRAB_RED_5
+	case 3, ENCOUNTER_CRAB_RED_6
+	case 4, ENCOUNTER_CRAB_RED_7
+	setwildbattle SPECIES_CRAB_RED_FORM, VAR_TEMP_E, ITEM_NONE
+ENCOUNTER_CRAB_RED_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_CRAB_RED_11
+	case B_OUTCOME_CAUGHT, ENCOUNTER_CRAB_RED_12
+ENCOUNTER_CRAB_RED_9:
+	release
+	end
+
+ENCOUNTER_CRAB_RED_3:
+	setwildbattle SPECIES_CRAB_RED_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_CRAB_RED_1
+
+ENCOUNTER_CRAB_RED_4:
+	setwildbattle SPECIES_CRAB_GREY_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_CRAB_RED_1
+
+ENCOUNTER_CRAB_RED_5:
+	setwildbattle SPECIES_CRAB_MOSS_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_CRAB_RED_1
+
+ENCOUNTER_CRAB_RED_6:
+	setwildbattle SPECIES_CRAB_RUMPUMPED_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_CRAB_RED_1
+
+ENCOUNTER_CRAB_RED_7:
+	setwildbattle SPECIES_CRAB_DARK_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_CRAB_RED_1
+
+ENCOUNTER_CRAB_RED_11:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CRAB_RED_9
+
+ENCOUNTER_CRAB_RED_12:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_CRAB_RED_9
+
+
+ENCOUNTER_SCORPION::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SCORPION_Text_0
+	playmoncry SPECIES_CRAB_RED_FORM, 0
+	msgbox ENCOUNTER_SCORPION_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	random 7
+	switch VAR_RESULT
+	case 0, ENCOUNTER_SCORPION_3
+	case 1, ENCOUNTER_SCORPION_3
+	case 2, ENCOUNTER_SCORPION_3
+	case 3, ENCOUNTER_SCORPION_4
+	case 4, ENCOUNTER_SCORPION_4
+	case 5, ENCOUNTER_SCORPION_4
+	setwildbattle SPECIES_SCORPLING, VAR_TEMP_E, ITEM_NONE
+ENCOUNTER_SCORPION_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SCORPION_8
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SCORPION_9
+ENCOUNTER_SCORPION_6:
+	release
+	end
+
+ENCOUNTER_SCORPION_3:
+	setwildbattle SPECIES_SCORPION_NORMAL_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SCORPION_1
+
+ENCOUNTER_SCORPION_4:
+	setwildbattle SPECIES_SCORPION_PIT_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SCORPION_1
+
+ENCOUNTER_SCORPION_8:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SCORPION_6
+
+ENCOUNTER_SCORPION_9:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SCORPION_6
+
+
+ENCOUNTER_SPIDER_RED_LAVA::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SPIDER_BROWN_Text_0
+	playmoncry SPECIES_SPIDER_DEADLYRED_FORM, 0
+	msgbox ENCOUNTER_SPIDER_RED_LAVA_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	random 7
+	switch VAR_RESULT
+	case 0, ENCOUNTER_SPIDER_RED_LAVA_3
+	case 1, ENCOUNTER_SPIDER_RED_LAVA_3
+	case 2, ENCOUNTER_SPIDER_RED_LAVA_3
+	case 3, ENCOUNTER_SPIDER_RED_LAVA_4
+	case 4, ENCOUNTER_SPIDER_RED_LAVA_4
+	case 5, ENCOUNTER_SPIDER_RED_LAVA_4
+	setwildbattle SPECIES_SPIDER_HUGE_FORM, VAR_TEMP_E, ITEM_NONE
+ENCOUNTER_SPIDER_RED_LAVA_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SPIDER_RED_LAVA_8
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SPIDER_RED_LAVA_9
+ENCOUNTER_SPIDER_RED_LAVA_6:
+	release
+	end
+
+ENCOUNTER_SPIDER_RED_LAVA_3:
+	setwildbattle SPECIES_SPIDER_DEADLYRED_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SPIDER_RED_LAVA_1
+
+ENCOUNTER_SPIDER_RED_LAVA_4:
+	setwildbattle SPECIES_SPIDER_LAVA_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SPIDER_RED_LAVA_1
+
+ENCOUNTER_SPIDER_RED_LAVA_8:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_RED_LAVA_6
+
+ENCOUNTER_SPIDER_RED_LAVA_9:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_RED_LAVA_6
+
+
+ENCOUNTER_SPIDER_BROWN_VARIED::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SPIDER_BROWN_Text_0
+	playmoncry SPECIES_SPIDER_HUGE_FORM, 0
+	msgbox ENCOUNTER_SPIDER_BROWN_VARIED_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	random 3
+	switch VAR_RESULT
+	case 0, ENCOUNTER_SPIDER_BROWN_VARIED_3
+	case 1, ENCOUNTER_SPIDER_BROWN_VARIED_4
+	case 2, ENCOUNTER_SPIDER_BROWN_VARIED_5
+ENCOUNTER_SPIDER_BROWN_VARIED_1:
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SPIDER_BROWN_VARIED_8
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SPIDER_BROWN_VARIED_9
+ENCOUNTER_SPIDER_BROWN_VARIED_6:
+	release
+	end
+
+ENCOUNTER_SPIDER_BROWN_VARIED_3:
+	setwildbattle SPECIES_SPIDER_FEVER_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SPIDER_BROWN_VARIED_1
+
+ENCOUNTER_SPIDER_BROWN_VARIED_4:
+	setwildbattle SPECIES_SPIDER_GIANT_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SPIDER_BROWN_VARIED_1
+
+ENCOUNTER_SPIDER_BROWN_VARIED_5:
+	setwildbattle SPECIES_SPIDER_HUGE_FORM, VAR_TEMP_E, ITEM_NONE
+	goto ENCOUNTER_SPIDER_BROWN_VARIED_1
+
+ENCOUNTER_SPIDER_BROWN_VARIED_8:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_BROWN_VARIED_6
+
+ENCOUNTER_SPIDER_BROWN_VARIED_9:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_BROWN_VARIED_6
+
+
+ENCOUNTER_BABY_DRAGON_GREEN::
+	lock
+	faceplayer
+	namebox ENCOUNTER_DRAGON_BLACK_Text_0
+	playmoncry SPECIES_DRAGONLING_GREEN_FORM, 0
+	msgbox ENCOUNTER_BABY_DRAGON_GREEN_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_DRAGONLING_GREEN_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_BABY_DRAGON_GREEN_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_BABY_DRAGON_GREEN_4
+ENCOUNTER_BABY_DRAGON_GREEN_1:
+	release
+	end
+
+ENCOUNTER_BABY_DRAGON_GREEN_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BABY_DRAGON_GREEN_1
+
+ENCOUNTER_BABY_DRAGON_GREEN_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BABY_DRAGON_GREEN_1
+
+
+ENCOUNTER_SPIDER_ICE::
+	lock
+	faceplayer
+	namebox ENCOUNTER_SPIDER_BROWN_Text_0
+	playmoncry SPECIES_SPIDER_ICE_FORM, 0
+	msgbox ENCOUNTER_SPIDER_ICE_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_SPIDER_ICE_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_SPIDER_ICE_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_SPIDER_ICE_4
+ENCOUNTER_SPIDER_ICE_1:
+	release
+	end
+
+ENCOUNTER_SPIDER_ICE_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_ICE_1
+
+ENCOUNTER_SPIDER_ICE_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_SPIDER_ICE_1
+
+
+ENCOUNTER_BEAR_BLACK::
+	lock
+	faceplayer
+	namebox ENCOUNTER_BEAR_BLACK_Text_0
+	playmoncry SPECIES_BEAR_NORMAL_FORM, 0
+	msgbox ENCOUNTER_BEAR_BLACK_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_BEAR_NORMAL_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_BEAR_BLACK_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_BEAR_BLACK_4
+ENCOUNTER_BEAR_BLACK_1:
+	release
+	end
+
+ENCOUNTER_BEAR_BLACK_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BEAR_BLACK_1
+
+ENCOUNTER_BEAR_BLACK_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BEAR_BLACK_1
+
+
+ENCOUNTER_BEAR_BROWN::
+	lock
+	faceplayer
+	namebox ENCOUNTER_BEAR_BLACK_Text_0
+	playmoncry SPECIES_BEAR_GRIZZLY_FORM, 0
+	msgbox ENCOUNTER_BEAR_BROWN_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_BEAR_GRIZZLY_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_BEAR_BROWN_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_BEAR_BROWN_4
+ENCOUNTER_BEAR_BROWN_1:
+	release
+	end
+
+ENCOUNTER_BEAR_BROWN_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BEAR_BROWN_1
+
+ENCOUNTER_BEAR_BROWN_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_BEAR_BROWN_1
+
+
+ENCOUNTER_DAGANNOTH::
+	lock
+	faceplayer
+	namebox ENCOUNTER_DAGANNOTH_Text_0
+	playmoncry SPECIES_DAGANNOTH_NORMAL_FORM, 0
+	msgbox ENCOUNTER_BEAR_BROWN_Text_0
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 1
+	call HIDDEN_GROTTO_LEVELS
+	setwildbattle SPECIES_DAGANNOTH_NORMAL_FORM, VAR_TEMP_E, ITEM_NONE
+	dowildbattle
+	switch VAR_RESULT
+	case B_OUTCOME_WON, ENCOUNTER_DAGANNOTH_3
+	case B_OUTCOME_CAUGHT, ENCOUNTER_DAGANNOTH_4
+ENCOUNTER_DAGANNOTH_1:
+	release
+	end
+
+ENCOUNTER_DAGANNOTH_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_DAGANNOTH_1
+
+ENCOUNTER_DAGANNOTH_4:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto ENCOUNTER_DAGANNOTH_1
+
+
 SKOTIZO_TRIGGER_Text_0:
 	.string "The Dark Totem in your backpack starts\n"
 	.string "to react to the crystal.\p"
@@ -592,7 +1541,7 @@ SKOTIZO_TRIGGER_Text_2:
 	.string "giant monster!$"
 
 ENCOUNTER_SKOTIZO_Text_0:
-	.string "SKOTIZO$"
+	.string "Skotizo$"
 
 ENCOUNTER_SKOTIZO_Text_1:
 	.string "ROOOARR!$"
@@ -612,43 +1561,43 @@ ENCOUNTER_SKOTIZO_Text_4:
 	.string "teleported away from battle.$"
 
 ENCOUNTER_ABYSSAL_DEMON_Text_0:
-	.string "ABYSSAL DEMON$"
+	.string "Abyssal Demon$"
 
 ENCOUNTER_ABYSSAL_DEMON_Text_1:
 	.string "WIZZZLE!$"
 
 ENCOUNTER_SLIME_Text_0:
-	.string "SLIME$"
+	.string "Slime$"
 
 ENCOUNTER_SLIME_Text_1:
 	.string "GLOOOP! GOOP!$"
 
 ENCOUNTER_ROCKCRAB_Text_0:
-	.string "ROCK CRAB$"
+	.string "Rock Crab$"
 
 ENCOUNTER_ROCKCRAB_Text_1:
 	.string "SNIP SNIP!$"
 
 ENCOUNTER_DRAGON_BLACK_Text_0:
-	.string "DRAGON$"
+	.string "Dragon$"
 
 ENCOUNTER_DRAGON_BLACK_Text_1:
 	.string "RAWR!$"
 
 ENCOUNTER_BASILISK_Text_0:
-	.string "BASILISK$"
+	.string "Basilisk$"
 
 ENCOUNTER_BASILISK_Text_1:
 	.string "KYARROOW!$"
 
 ENCOUNTER_GREATER_DEMON_Text_0:
-	.string "GREATER DEMON$"
+	.string "Greater Demon$"
 
 ENCOUNTER_GREATER_DEMON_Text_1:
 	.string "RAOUGH!$"
 
 ENCOUNTER_MONKEY_QUEST_Text_0:
-	.string "MONKEY$"
+	.string "Monkey$"
 
 ENCOUNTER_MONKEY_QUEST_Text_1:
 	.string "EEEKK OOK AAAK!!$"
@@ -658,3 +1607,96 @@ ENCOUNTER_MONKEY_QUEST_Text_2:
 
 ENCOUNTER_MONKEY_QUEST_Text_3:
 	.string "The monkey dropped some bananas.$"
+
+ENCOUNTER_SNOW_IMP_Text_0:
+	.string "Snow Imp$"
+
+ENCOUNTER_SNOW_IMP_Text_1:
+	.string "Sneez kek Kek!$"
+
+ENCOUNTER_UNICORN_BARB_Text_0:
+	.string "Unicorn$"
+
+ENCOUNTER_UNICORN_BARB_Text_1:
+	.string "NeEeehHHaAyY!$"
+
+ENCOUNTER_CHAIR_Text_0:
+	.string "???$"
+
+ENCOUNTER_CHAIR_Text_1:
+	.string "The chair attacks you!$"
+
+ENCOUNTER_GHOST_Text_0:
+	.string "Something attacks you!$"
+
+ENCOUNTER_RAT_Text_0:
+	.string "Rat$"
+
+ENCOUNTER_RAT_Text_1:
+	.string "Squeek!$"
+
+ENCOUNTER_SHEEP_Text_0:
+	.string "Sheep$"
+
+ENCOUNTER_SHEEP_Text_1:
+	.string "Baaa!$"
+
+ENCOUNTER_CHICKEN_Text_0:
+	.string "Chicken$"
+
+ENCOUNTER_CHICKEN_Text_1:
+	.string "Bawk!$"
+
+ENCOUNTER_COW_Text_0:
+	.string "Cow$"
+
+ENCOUNTER_COW_Text_1:
+	.string "MOOOOOOOO!!$"
+
+ENCOUNTER_SPIDER_BROWN_Text_0:
+	.string "Spider$"
+
+ENCOUNTER_SPIDER_BROWN_Text_1:
+	.string "Skisssh!$"
+
+ENCOUNTER_BAT_Text_0:
+	.string "Bat$"
+
+ENCOUNTER_BAT_Text_1:
+	.string "Skeep Skeep!$"
+
+ENCOUNTER_CRAB_RED_Text_0:
+	.string "Crab$"
+
+ENCOUNTER_CRAB_RED_Text_1:
+	.string "Snipper snips!$"
+
+ENCOUNTER_SCORPION_Text_0:
+	.string "Scorpion$"
+
+ENCOUNTER_SCORPION_Text_1:
+	.string "CHOPSNIPCHOP!!$"
+
+ENCOUNTER_SPIDER_RED_LAVA_Text_0:
+	.string "SIZZLEKREEER!$"
+
+ENCOUNTER_SPIDER_BROWN_VARIED_Text_0:
+	.string "Skasssha!$"
+
+ENCOUNTER_BABY_DRAGON_GREEN_Text_0:
+	.string "Rawwoor!$"
+
+ENCOUNTER_SPIDER_ICE_Text_0:
+	.string "Brrskeeech!$"
+
+ENCOUNTER_BEAR_BLACK_Text_0:
+	.string "Bear$"
+
+ENCOUNTER_BEAR_BLACK_Text_1:
+	.string "Grrr…$"
+
+ENCOUNTER_BEAR_BROWN_Text_0:
+	.string "Grrrr!$"
+
+ENCOUNTER_DAGANNOTH_Text_0:
+	.string "Dagannoth$"

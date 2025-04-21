@@ -69,12 +69,12 @@ ITEM_LUMBRIDGESWAMPCAVE_ITEM_1::
 
 
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_2::
-	finditem ITEM_SPIRIT_SHARD
+	finditem ITEM_WATER_RUNE
 	end
 
 
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_3::
-	finditem ITEM_SPIRIT_SHARD
+	finditem ITEM_BOOK_OF_GUTHIX
 	end
 
 
@@ -84,7 +84,7 @@ ITEM_LUMBRIDGESWAMPCAVE_ITEM_4::
 
 
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_5::
-	finditem ITEM_SPIRIT_SHARD
+	finditem ITEM_TALISMAN_WATER
 	end
 
 
@@ -140,6 +140,17 @@ BATTLE_LUMBRIDGESWAMPCAVE_6::
 	end
 
 
+LUMBRIDGESWAMPCAVE_ZANIK::
+	lock
+	faceplayer
+	namebox LUMBRIDGESWAMPCAVE_ZANIK_Text_0
+	msgbox LUMBRIDGESWAMPCAVE_ZANIK_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 LumbridgeSwampCaves_WallBeasts_Text_0:
 	.string "Something jumps out of the wall towards\n"
 	.string "you!$"
@@ -161,7 +172,7 @@ BATTLE_LUMBRIDGESWAMPCAVE_FISHERMAN_1_Text_0:
 	.string "me.$"
 
 BATTLE_LUMBRIDGESWAMPCAVE_FISHERMAN_1_Text_1:
-	.string "I hear somewhere in Kandarin theres a\n"
+	.string "I hear somewhere in Kandarin there's a\n"
 	.string "tower.\p"
 	.string "If you bring it a slimy eel and frog legs\n"
 	.string "it will create a legendary monster.$"
@@ -208,3 +219,11 @@ BATTLE_LUMBRIDGESWAMPCAVE_6_Text_0:
 
 BATTLE_LUMBRIDGESWAMPCAVE_6_Text_1:
 	.string "Kill all the slimes!!$"
+
+LUMBRIDGESWAMPCAVE_ZANIK_Text_0:
+	.string "Zanik$"
+
+LUMBRIDGESWAMPCAVE_ZANIK_Text_1:
+	.string "I'm afraid that it's too dangerous for\n"
+	.string "humans to take this route.\p"
+	.string "Only goblins are able to pass through!$"

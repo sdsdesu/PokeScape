@@ -461,11 +461,11 @@ static const u8 sDebugText_Cancel[] =           _("Cancel");
 // Script menu
 static const u8 sDebugText_Util_Script_1[] =               _("STORYMODE_VAR_CHECK");
 static const u8 sDebugText_Util_Script_2[] =               _("SLAYER VAR CHECK");
-static const u8 sDebugText_Util_Script_3[] =               _("Script 3");
-static const u8 sDebugText_Util_Script_4[] =               _("Script 4");
-static const u8 sDebugText_Util_Script_5[] =               _("Script 5");
-static const u8 sDebugText_Util_Script_6[] =               _("Script 6");
-static const u8 sDebugText_Util_Script_7[] =               _("Script 7");
+static const u8 sDebugText_Util_Script_3[] =               _("LEVEL CAP");
+static const u8 sDebugText_Util_Script_4[] =               _("TOKKUL");
+static const u8 sDebugText_Util_Script_5[] =               _("TOGGLE BATTLE SPEED");
+static const u8 sDebugText_Util_Script_6[] =               _("FRIENDSHIP CHECKER");
+static const u8 sDebugText_Util_Script_7[] =               _("GNOMEBOY KEVIN");
 static const u8 sDebugText_Util_Script_8[] =               _("Script 8");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] =                 _("Fly to map…{CLEAR_TO 110}{RIGHT_ARROW}");
@@ -3726,6 +3726,7 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
 static void DebugAction_Give_MaxMoney(u8 taskId)
 {
     SetMoney(&gSaveBlock1Ptr->money, MAX_MONEY);
+    SetTokkul(&gSaveBlock1Ptr->tokkul, MAX_MONEY);
 }
 
 static void DebugAction_Give_MaxCoins(u8 taskId)
@@ -4084,7 +4085,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
 	X(MUS_PS_VARROCK) \
 	X(MUS_PS_ALKHARID) \
 	X(MUS_PS_MUSA_POINT) \
-	X(MUS_PS_TZHAAR) \
+	X(MUS_PS_CUPHOLDER_1) \
 	X(MUS_PS_BARBARIAN_VILLAGE) \
 	X(MUS_PS_EDGEVILLE) \
 	X(MUS_PS_ROUTE_LUMBRIDGE) \
@@ -4126,7 +4127,9 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
 	X(MUS_PS_VS_WISE_OLD_MAN_RIVAL) \
 	X(MUS_PS_GODSLAYER) \
 	X(MUS_PS_LUMBRIDGE_CASTLE) \
-
+    X(MUS_PS_TZHAAR) \
+    X(MUS_PS_ICE_MOUNTAIN) \
+    
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

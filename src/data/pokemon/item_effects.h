@@ -490,6 +490,47 @@ const u8 gItemEffect_TamatoBerry[10] = {
     EV_BERRY_FRIENDSHIP_CHANGE,
 };
 
+const u8 gItemEffect_TriangleSandwich[7] = { //ITEM_TRIANGLE_SANDWICH
+    [1] = ITEM1_X_ATTACK,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_SquareSandwich[7] = { //ITEM_SQUARE_SANDWICH
+    [1] = ITEM1_X_DEFENSE,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_MeatPieSandwich[7] = { //ITEM_MEAT_PIE
+    [1] = ITEM1_X_SPATK,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_DonutSandwich[7] = { //ITEM_DONUT
+    [1] = ITEM1_X_SPDEF,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_BreadRollSandwich[7] = { //ITEM_BREAD_ROLL
+    [1] = ITEM1_X_SPEED,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_KebabSandwich[7] = { //ITEM_KEBAB
+    [1] = ITEM1_X_ACCURACY,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 75, // Amount of HP to recover
+};
+const u8 gItemEffect_BaguetteSandwich[7] = { //ITEM_BAGUETTE
+    [1] = ITEM1_X_SPDEF,
+    [4] = ITEM4_HEAL_HP,
+    [6] = 200, // Amount of HP to recover
+};
+
+
+
+
+
+
 const u8 *const gItemEffectTable[ITEMS_COUNT] =
 {
     // Medicine
@@ -684,14 +725,16 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_VANILLA_MILK]		            = gItemEffect_EvoItem,
     [ITEM_STRAWBERRY_MILK]              = gItemEffect_EvoItem,
     [ITEM_CHOCOLATE_MILK]               = gItemEffect_EvoItem,
+    [ITEM_BANANA]                       = gItemEffect_EvoItem,
+    
 
     // Medicine
-    [ITEM_BREAD]             = gItemEffect_Potion,
-    [ITEM_CAKE]       = gItemEffect_SuperPotion,
-    [ITEM_CHOCOLATE_CAKE]       = gItemEffect_HyperPotion,
-    //[ITEM_MAX_POTION]         = gItemEffect_MaxPotion,
+    [ITEM_BREAD]                        = gItemEffect_Potion,
+    [ITEM_CAKE]                         = gItemEffect_SuperPotion,
+    [ITEM_CHOCOLATE_CAKE]               = gItemEffect_HyperPotion,
+    //[ITEM_TRIANGLE_SANDWICH]            = gItemEffect_MaxPotion,
     //[ITEM_FULL_RESTORE]       = gItemEffect_FullRestore,
-    [ITEM_CABBAGE]             = gItemEffect_Revive,
+    [ITEM_CABBAGE]                      = gItemEffect_Revive,
     //[ITEM_MAX_REVIVE]         = gItemEffect_MaxRevive,
     //[ITEM_FRESH_WATER]        = gItemEffect_FreshWater,
     //[ITEM_SODA_POP]           = gItemEffect_SodaPop,
@@ -712,7 +755,7 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     //[ITEM_ELIXIR]             = gItemEffect_Elixir,
     //[ITEM_MAX_ELIXIR]         = gItemEffect_MaxElixir,
     //[ITEM_BERRY_JUICE]        = gItemEffect_BerryJuice,
-    //[ITEM_SACRED_ASH]         = gItemEffect_SacredAsh,
+    //[ITEM_BAGUETTE]                     = gItemEffect_SacredAsh,
     //[ITEM_SWEET_HEART]        = gItemEffect_Potion,
     //[ITEM_MAX_HONEY]          = gItemEffect_MaxRevive,
 
@@ -730,10 +773,20 @@ const u8 *const gItemEffectTable[ITEMS_COUNT] =
     [ITEM_POTION_ATT]               = gItemEffect_XAttack,
     [ITEM_POTION_DEF]               = gItemEffect_XDefense,
     [ITEM_POTION_SPEED]             = gItemEffect_XSpeed,
-    //[ITEM_X_ACCURACY]             = gItemEffect_XAccuracy,
+    [ITEM_POTION_ACC]               = gItemEffect_XAccuracy,
     [ITEM_POTION_SPATT]             = gItemEffect_XSpecialAttack,
     [ITEM_POTION_SPDEF]             = gItemEffect_XSpecialDefense,
     //[ITEM_DIRE_HIT]           = gItemEffect_DireHit,
     //[ITEM_GUARD_SPEC]         = gItemEffect_GuardSpec,
+
+    [ITEM_TRIANGLE_SANDWICH]        = gItemEffect_TriangleSandwich,  //atk
+    [ITEM_SQUARE_SANDWICH]          = gItemEffect_SquareSandwich,    //def
+    [ITEM_BREAD_ROLL_SANDWICH]      = gItemEffect_BreadRollSandwich, //speed
+    [ITEM_MEAT_PIE_SANDWICH]        = gItemEffect_MeatPieSandwich, //spatk
+    [ITEM_DONUT_SANDWICH]           = gItemEffect_DonutSandwich, //spdef
+    [ITEM_BAGUETTE_SANDWICH]        = gItemEffect_BaguetteSandwich, //all
+    [ITEM_KEBAB_SANDWICH]           = gItemEffect_KebabSandwich, //acc
+    [ITEM_CHOCOLATE_BAR_SANDWICH]   = gItemEffect_OranBerry, //10hp restore at half hp.
+
 };
 

@@ -102,8 +102,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DRUID_1",
-      "x": 9,
-      "y": 33,
+      "x": 5,
+      "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -115,8 +115,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUTHIX_RAPTOR",
-      "x": 16,
-      "y": 28,
+      "x": 22,
+      "y": 26,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
@@ -180,12 +180,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DOG_GUARD",
-      "x": 23,
-      "y": 6,
+      "x": 28,
+      "y": 3,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FRITZ_THE_EXPERIMENT",
@@ -258,7 +258,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_JITTERBUG",
-      "x": 21,
+      "x": 17,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -266,12 +266,74 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SHOP_SPECIAL_POUCHES",
       "flag": "0"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 14,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 8,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 21,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 24,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 6,
+      "y": 14,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 17,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "8"
+    },
+    {
+      "x": 20,
+      "y": 3,
+      "elevation": 0,
+      "dest_map": "MAP_TAVERLEY",
+      "dest_warp_id": "6"
+    }
   ],
   "coord_events": [
 
@@ -287,8 +349,8 @@
     },
     {
       "type": "sign",
-      "x": 25,
-      "y": 31,
+      "x": 12,
+      "y": 37,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "TAVERLEY_DUNGEON_SIGN"
@@ -326,5 +388,5 @@
       "script": "LOCKED_DOOR"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

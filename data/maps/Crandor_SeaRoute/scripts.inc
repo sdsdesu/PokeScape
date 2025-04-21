@@ -25,11 +25,18 @@ CRANDOR_SEAROUTE_STATE::
 	setflag FLAG_TEMP_11
 	setflag FLAG_TEMP_13
 CRANDOR_SEAROUTE_STATE_1:
+	goto_if_set FLAG_SEA_TROLL, CRANDOR_SEAROUTE_STATE_6
+CRANDOR_SEAROUTE_STATE_5:
 	return
 
 CRANDOR_SEAROUTE_STATE_2:
 	setvar VAR_TEMP_B, 1
 	goto CRANDOR_SEAROUTE_STATE_1
+
+CRANDOR_SEAROUTE_STATE_6:
+	setflag FLAG_TEMP_1
+	removeobject 5
+	goto CRANDOR_SEAROUTE_STATE_5
 
 
 hideplayer::
@@ -51,7 +58,8 @@ CRANDOR_SHIP_SCENE::
 	removeobject 2
 	setobjectxyperm 1, 34, 14
 	setobjectxyperm 2, 26, 8
-	applymovement OBJ_EVENT_ID_PLAYER, movement_setinvisible
+	playbgm MUS_PS_SURFING, 0
+	applymovement OBJ_EVENT_ID_PLAYER, movement_walk_slow_left10
 	applymovement 3, movement_crandor_ship
 	waitmovement 0
 	namebox CRANDOR_SHIP_SCENE_Text_0
@@ -185,7 +193,7 @@ CRANDOR_SHIP_SCENE::
 	setvar VAR_0x8006, 8 @ num shakes
 	setvar VAR_0x8007, 3 @ shake delay
 	special ShakeCamera
-	setmetatile 25, 8, 834, 0
+	setmetatile 24, 9, 834, 0
 	special DrawWholeMapView
 	waitstate
 	namebox CRANDOR_SHIP_SCENE_Text_2
@@ -220,6 +228,10 @@ CRANDOR_SHIP_SCENE::
 
 
 movement_setinvisible:
+	set_invisible
+	step_end
+
+movement_walk_slow_left10:
 	walk_slow_left
 	walk_slow_left
 	walk_slow_left
@@ -408,6 +420,88 @@ CRANDOR_EVENT_PORTSARIM_CABIN_BOY_4:
 	end
 
 
+STRANDED_CABIN_BOY::
+	lock
+	faceplayer
+	namebox CRANDOR_SHIP_SCENE_Text_0
+	msgbox STRANDED_CABIN_BOY_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+ITEM_CRANDOR_SEA_ROUTE_1::
+	finditem ITEM_CHAOS_RUNE
+	end
+
+
+ITEM_CRANDOR_SEA_ROUTE_2::
+	finditem ITEM_CHAOS_RUNE
+	end
+
+
+ENCOUNTER_SEA_TROLL::
+	lock
+	delay 32
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
+	special ShakeCamera
+	delay 60
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
+	special ShakeCamera
+	delay 60
+	setvar VAR_0x8004, 1 @ vertical pan
+	setvar VAR_0x8005, 1 @ horizontal pan
+	setvar VAR_0x8006, 8 @ num shakes
+	setvar VAR_0x8007, 3 @ shake delay
+	special ShakeCamera
+	delay 60
+	playse SE_M_DIVE
+	waitse
+	namebox ENCOUNTER_SEA_TROLL_Text_0
+	playmoncry SPECIES_SEA_TROLL_QUEEN, 0
+	msgbox ENCOUNTER_SEA_TROLL_Text_1
+	waitmoncry
+	hidenamebox
+	closemessage
+	delay 32
+	setwildbattle SPECIES_SEA_TROLL_QUEEN, 40, ITEM_NONE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq ENCOUNTER_SEA_TROLL_2
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq ENCOUNTER_SEA_TROLL_3
+ENCOUNTER_SEA_TROLL_1:
+	release
+	end
+
+ENCOUNTER_SEA_TROLL_2:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	playse SE_M_DIVE
+	waitse
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_SEA_TROLL_Text_2
+	closemessage
+	goto ENCOUNTER_SEA_TROLL_1
+
+ENCOUNTER_SEA_TROLL_3:
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_SEA_TROLL
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_SEA_TROLL_Text_3
+	closemessage
+	goto ENCOUNTER_SEA_TROLL_1
+
+
 CRANDOR_SHIP_SCENE_Text_0:
 	.string "Cabin Boy$"
 
@@ -466,3 +560,23 @@ CRANDOR_EVENT_PORTSARIM_CABIN_BOY_Text_1:
 	.string "One day I hope to set sail with her!\p"
 	.string "But alas the lady, she needs a captain.\p"
 	.string "Not a wee cabin boy like myself…$"
+
+STRANDED_CABIN_BOY_Text_0:
+	.string "{PLAYER}…\n"
+	.string "Is… that you?\p"
+	.string "I washed up here…\p"
+	.string "Please help me get home…$"
+
+ENCOUNTER_SEA_TROLL_Text_0:
+	.string "Sea Troll$"
+
+ENCOUNTER_SEA_TROLL_Text_1:
+	.string "Skkrrraaaaawwooor!$"
+
+ENCOUNTER_SEA_TROLL_Text_2:
+	.string "The Sea Troll seems to have gone into\n"
+	.string "hiding.$"
+
+ENCOUNTER_SEA_TROLL_Text_3:
+	.string "After capturing the Sea Troll the ocean\n"
+	.string "seems slightly more calm…$"

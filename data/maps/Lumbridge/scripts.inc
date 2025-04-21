@@ -1,5 +1,6 @@
 Lumbridge_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Lumbridge_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Lumbridge_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Lumbridge_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -13,6 +14,23 @@ Lumbridge_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 Lumbridge_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	call STORYMODE_STATE_LUMBRIDGE
 	return
+
+Lumbridge_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call LUMBRIDGE_STATE
+	return
+
+
+LUMBRIDGE_STATE::
+	removeobject 33
+	setflag FLAG_TEMP_1F
+	goto_if_unset FLAG_A_NUB_TOT_TUTORIAL, LUMBRIDGE_STATE_2
+LUMBRIDGE_STATE_1:
+	return
+
+LUMBRIDGE_STATE_2:
+	setmetatile 18, 8, METATILE_PokeScapeOutdoors_NOT_A_DOOR, 1
+	special DrawWholeMapView
+	goto LUMBRIDGE_STATE_1
 
 
 OPENWORLD_STATE_LUMBRIDGE::
@@ -856,6 +874,173 @@ Lumbridge_HAMDuo_2::
 	end
 
 
+A_NUB_TOT_LOCKED_DOOR_TUTORIAL::
+	goto_if_unset FLAG_A_NUB_TOT_TUTORIAL, A_NUB_TOT_LOCKED_DOOR_TUTORIAL_2
+A_NUB_TOT_LOCKED_DOOR_TUTORIAL_1:
+	end
+
+A_NUB_TOT_LOCKED_DOOR_TUTORIAL_2:
+	lockall
+	setmetatile 18, 8, METATILE_PokeScapeOutdoors_Door_General_R, 1
+	special DrawWholeMapView
+	delay 10
+	playse SE_DOOR
+	opendoor 18, 8
+	applymovement OBJ_EVENT_ID_PLAYER, ANUBTOT_1
+	waitmovement 0
+	addobject 33
+	clearflag FLAG_TEMP_1F
+	applymovement 33, ANUBTOT_2
+	waitmovement 0
+	delay 10
+	closedoor 18, 8
+	playbgm MUS_PS_WISE_OLD_MAN_THEME, 1
+	namebox A_NUB_TOT_LOCKED_DOOR_TUTORIAL_Text_0
+	msgbox A_NUB_TOT_LOCKED_DOOR_TUTORIAL_Text_1
+	closemessage
+	applymovement 33, ANUBTOT_3
+	waitmovement 0
+	fadedefaultbgm
+	setflag FLAG_A_NUB_TOT_TUTORIAL
+	removeobject 33
+	setflag FLAG_TEMP_1F
+	release
+	goto A_NUB_TOT_LOCKED_DOOR_TUTORIAL_1
+
+
+ANUBTOT_1:
+	lock_facing_direction
+	walk_down
+	unlock_facing_direction
+	step_end
+
+ANUBTOT_2:
+	walk_down
+	step_end
+
+ANUBTOT_3:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+Lumbridge_GRAVEYARD_SIGN_1::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_1_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_2::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_2_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_3::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_3_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_4::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_4_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_5::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_5_Text_0
+	release
+	end
+
+
+Lumbridge_River_NPC1::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC1_Text_0
+	msgbox Lumbridge_River_NPC1_Text_1
+	hidenamebox
+	release
+	end
+
+
+Lumbridge_River_NPC2::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC2_Text_0
+	msgbox Lumbridge_River_NPC2_Text_1
+	hidenamebox
+	release
+	end
+
+
+Lumbridge_River_NPC3::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC3_Text_0
+	random 8
+	switch VAR_RESULT
+	case 0, Lumbridge_River_NPC3_3
+	case 1, Lumbridge_River_NPC3_4
+	case 2, Lumbridge_River_NPC3_5
+	case 3, Lumbridge_River_NPC3_6
+	case 4, Lumbridge_River_NPC3_7
+	case 5, Lumbridge_River_NPC3_8
+	case 6, Lumbridge_River_NPC3_9
+	case 7, Lumbridge_River_NPC3_10
+Lumbridge_River_NPC3_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+Lumbridge_River_NPC3_3:
+	msgbox Lumbridge_River_NPC3_Text_1
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_4:
+	msgbox Lumbridge_River_NPC3_Text_2
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_5:
+	msgbox Lumbridge_River_NPC3_Text_3
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_6:
+	msgbox Lumbridge_River_NPC3_Text_4
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_7:
+	msgbox Lumbridge_River_NPC3_Text_5
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_8:
+	msgbox Lumbridge_River_NPC3_Text_6
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_9:
+	msgbox Lumbridge_River_NPC3_Text_7
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_10:
+	msgbox Lumbridge_River_NPC3_Text_8
+	goto Lumbridge_River_NPC3_1
+
+
 CUPHOLDER_NPC_Text_0:
 	.string "I am currently a Cupholder with no\n"
 	.string "dialog.$"
@@ -1043,7 +1228,9 @@ Lumbridge_EVENT_NPC3_Text_2:
 
 NPC_LumbridgeBridge_Text_0:
 	.string "Is it just me or is this really long?\p"
-	.string "Nah I must be imagining it.$"
+	.string "Nah, I must be imagining it.\p"
+	.string "{PAUSE 15}Wait, I'm SURE the river used to be wider\n"
+	.string "than this...$"
 
 Lumbridge_Guard_NORTH_Text_0:
 	.string "Pazel$"
@@ -1258,3 +1445,113 @@ Lumbridge_HAMDuo_2_Text_0:
 	.string "Did the forest get overgrown again?\p"
 	.string "Maybe we need to go find an axe to cut\n"
 	.string "back some of these trees..$"
+
+A_NUB_TOT_LOCKED_DOOR_TUTORIAL_Text_0:
+	.string "A Nub Tot$"
+
+A_NUB_TOT_LOCKED_DOOR_TUTORIAL_Text_1:
+	.string "Heya! My name is A Nub Tot, but everyone\n"
+	.string "calls me Tot.\p"
+	.string "Let me pass on some very important\n"
+	.string "advice to you that will help you on your\l"
+	.string "adventure.\p"
+	.string "The A BUTTON!\n"
+	.string "Yes, simply the A BUTTON!\p"
+	.string "The A BUTTON will give you all sorts of\n"
+	.string "knowledge in your travels!\p"
+	.string "Is there a RED BOOK in that bookcase?\n"
+	.string "Is that a LEVER that needs pulling?\p"
+	.string "What's that thing that is SPARKLING?\n"
+	.string "Is that DOOR LOCKED?\p"
+	.string "Are you lost and don't know where to\n"
+	.string "go?\p"
+	.string "Just use the A BUTTON!\p"
+	.string "And that is it, that is the wisdom I give\n"
+	.string "to you.\p"
+	.string "I hope you have an amazing adventure!\p"
+	.string "Nice meeting you!\p"
+	.string "And one final time.\n"
+	.string "Remember… the A BUTTON.$"
+
+Lumbridge_GRAVEYARD_SIGN_1_Text_0:
+	.string "RIP 'Thick Lum'.\p"
+	.string "Gone before its time.$"
+
+Lumbridge_GRAVEYARD_SIGN_2_Text_0:
+	.string "The grave is simply marked with the\n"
+	.string "letter 'J'.\p"
+	.string "There is a tattered scroll with the\n"
+	.string "number 17 written on it, along with a\l"
+	.string "bloody harpoon.\p"
+	.string "You decide it's best to leave that\n"
+	.string "alone...$"
+
+Lumbridge_GRAVEYARD_SIGN_3_Text_0:
+	.string "Lumbridge Graveyard.\p"
+	.string "Please respect the graves while\n"
+	.string "searching for monsters.$"
+
+Lumbridge_GRAVEYARD_SIGN_4_Text_0:
+	.string "In loving memory of Duchess Oriana of\n"
+	.string "Lumbridge.$"
+
+Lumbridge_GRAVEYARD_SIGN_5_Text_0:
+	.string "Note to adventurers.\p"
+	.string "The restless ghost has been released\n"
+	.string "from the world, and the mausoleum is now\l"
+	.string "closed off to the public.$"
+
+Lumbridge_River_NPC1_Text_0:
+	.string "Sailor$"
+
+Lumbridge_River_NPC1_Text_1:
+	.string "The River Lum used to be the second\n"
+	.string "longest river in Gielinor, second only to\l"
+	.string "the River Dougne.\p"
+	.string "You used to be able to paddle from here\n"
+	.string "all the way up to the Wilderness!\p"
+	.string "It became too dangerous to travel\n"
+	.string "there though, so they had to block the\l"
+	.string "route beyond Edgeville.$"
+
+Lumbridge_River_NPC2_Text_0:
+	.string "b4nana m4n$"
+
+Lumbridge_River_NPC2_Text_1:
+	.string "There's a single, small island just north\n"
+	.string "of here with a solitary oak tree on it.\p"
+	.string "I wonder how it got there.$"
+
+Lumbridge_River_NPC3_Text_0:
+	.string "Finta5tic$"
+
+Lumbridge_River_NPC3_Text_1:
+	.string "This is a good plaice to go fishing.$"
+
+Lumbridge_River_NPC3_Text_2:
+	.string "I'd tell you what I just caught, but I'm\n"
+	.string "too shellfish to share.$"
+
+Lumbridge_River_NPC3_Text_3:
+	.string "If you find any rare fish, could you let\n"
+	.string "minnow?$"
+
+Lumbridge_River_NPC3_Text_4:
+	.string "You’re krilling me with these sea-rious\n"
+	.string "vibes...$"
+
+Lumbridge_River_NPC3_Text_5:
+	.string "Speak up, I'm hard of herring.$"
+
+Lumbridge_River_NPC3_Text_6:
+	.string "Sorry, I can't talk right now.\p"
+	.string "I have a haddock.$"
+
+Lumbridge_River_NPC3_Text_7:
+	.string "Do you like my fish puns?\p"
+	.string "Eh, I guess they cod be betta.$"
+
+Lumbridge_River_NPC3_Text_8:
+	.string "You think you know some better fish\n"
+	.string "puns?\p"
+	.string "I seriously trout it.$"

@@ -6,6 +6,7 @@ Daemonheim_MapScripts::
 Daemonheim_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 6
 	call Daemonheim_STATE
+	call RANDOM_EVENT_SANDWICH_LADY
 	return
 
 Daemonheim_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
@@ -57,6 +58,7 @@ THOK_GYM_CHALLENGE_STATE_2::
 	waitmovement 0
 	setvar VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST, 10
 	warp MAP_DUNGEONEERING_LOBBY, 0, 0, 0
+	waitstate
 	return
 
 

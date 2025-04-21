@@ -1,0 +1,33 @@
+mapscripts Route22_MapScripts {
+
+}
+
+//BATTLE
+
+script BATTLE_ROUTE22_TRAINER_1
+{
+    trainerbattle_single(TRAINER_ROUTE22_TRAINER_1, format("I can squeeze in a quick battle."),format("Now I'm out of breath.\pMy training regimen is ruined."))
+    namebox ("Point Zero")
+    msgbox(format("Now I'm out of breath.\pMy training regimen is ruined."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_ROUTE22_TRAINER_2
+{
+    trainerbattle_single(TRAINER_ROUTE22_TRAINER_2, format("I flew here on the back of an eagle to hunt the local wildlife!"),format("Were you not impressed?"))
+    namebox ("Quaffle8")
+    msgbox(format("Now, uh, how do I call the eagle back..?\pIt has flown away and I don't know how to swim."))
+	hidenamebox
+    release
+	end
+}
+
+//ITEMS
+
+script ITEM_ROUTE22
+{
+    finditem(ITEM_POUCH_RUNE)
+    end
+}

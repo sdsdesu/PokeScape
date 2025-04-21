@@ -1048,6 +1048,22 @@ static const struct InGameTrade sIngameTrades[] =
         .sheen = 10,
         .requestedSpecies = SPECIES_GIANT_RAT_NORMAL_FORM
     },
+    [INGAME_TRADE_GRIFOLAPINE] = 
+    {
+        .nickname = _("Dawn"),
+        .species = SPECIES_GRIFOLAPINE,
+        .ivs = {4, 5, 4, 5, 4, 4},
+        .abilityNum = 0,
+        .otId = 27482,
+        .moves = {MOVE_POLYPORE_STRIKE, MOVE_GRASSY_TERRAIN, MOVE_BANEFUL_BUNKER, MOVE_SPORE},
+        .personality = 0x00,
+        .heldItem = ITEM_CABBAGE,
+        .mailNum = -1,
+        .otName = _("Lensig"),
+        .otGender = FEMALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_CABBAGE
+    },
 };
 
 static const u16 sIngameTradeMail[][MAIL_WORDS_COUNT + 1] =

@@ -764,7 +764,7 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(SPIDER_LAVA_FORM),
     HOENN_TO_NATIONAL(SPIDER_SHADOW_FORM),
     HOENN_TO_NATIONAL(STALKER),
-    HOENN_TO_NATIONAL(SOULSEEKER),
+    HOENN_TO_NATIONAL(SOULGAZER),
     HOENN_TO_NATIONAL(STALKER_SENTINEL_FORM),
     HOENN_TO_NATIONAL(NIGHT_GAZER),
     HOENN_TO_NATIONAL(PLANE_FREEZER),
@@ -1116,6 +1116,44 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(CABBAGE_SHATTERED_WORLD_FORM),
     HOENN_TO_NATIONAL(VULTURE_BEARDED_FORM),
     HOENN_TO_NATIONAL(KRYKET_BAT),
+    HOENN_TO_NATIONAL(HAR_AKEN),
+    HOENN_TO_NATIONAL(HAR_AKEN_TENTACLE),
+    HOENN_TO_NATIONAL(SPIRIT_FIGHTER),
+    HOENN_TO_NATIONAL(SPIRIT_ARCHER),
+    HOENN_TO_NATIONAL(SPIRIT_MYSTIC),
+    HOENN_TO_NATIONAL(SPIRIT_KNIGHT),
+    HOENN_TO_NATIONAL(SPIRIT_SCOUT),
+    HOENN_TO_NATIONAL(SPIRIT_WARMAGE),
+    HOENN_TO_NATIONAL(POMAPOO),
+    HOENN_TO_NATIONAL(JADINKO_MUTATED),
+    HOENN_TO_NATIONAL(JADINKO_FEROCIOUS),
+    HOENN_TO_NATIONAL(JADINKO_DRACONIC),
+    HOENN_TO_NATIONAL(JADINKO_CARRION),
+    HOENN_TO_NATIONAL(JADINKO_SHADOW),
+    HOENN_TO_NATIONAL(JADINKO_GUTHIX),
+    HOENN_TO_NATIONAL(JADINKO_ZAMORAK),
+    HOENN_TO_NATIONAL(JADINKO_SARADOMIN),
+    HOENN_TO_NATIONAL(MAX_GOLEM),
+    HOENN_TO_NATIONAL(FLESH_CRAWLER),
+    HOENN_TO_NATIONAL(ZYGOMITE_OSRS),
+    HOENN_TO_NATIONAL(ZYGOMITE_OSRS_ANCIENT),
+    HOENN_TO_NATIONAL(ZYGOMITE_RSHD_MUTATED),
+    HOENN_TO_NATIONAL(ZYGOMITE_GLOOMSHROOM),
+    HOENN_TO_NATIONAL(SNAIL),
+    HOENN_TO_NATIONAL(ROCKSLUG_RSHD),
+    HOENN_TO_NATIONAL(ROCKSLUG_OSRS),
+    HOENN_TO_NATIONAL(SEASLUG),
+    HOENN_TO_NATIONAL(SEASLUG_PRINCE),
+    HOENN_TO_NATIONAL(SNAIL_GIANT_OSRS),
+    HOENN_TO_NATIONAL(SNAIL_GIANT_RS3),
+    HOENN_TO_NATIONAL(SNAIL_THORNY),
+    HOENN_TO_NATIONAL(SNAIL_RAVENOUS),
+    HOENN_TO_NATIONAL(SNAIL_BRUISE_OSRS),
+    HOENN_TO_NATIONAL(SNAIL_BARK_OSRS),
+    HOENN_TO_NATIONAL(SNAIL_BLOOD_RS3),
+    HOENN_TO_NATIONAL(SNAIL_OCHRE_RS3),
+    HOENN_TO_NATIONAL(SNAIL_MYRE_RS3),
+    HOENN_TO_NATIONAL(MOTHER_MALLUM),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -1339,6 +1377,33 @@ static const struct SpriteTemplate sTrainerBackSpriteTemplates[] =
         .affineAnims = gAffineAnims_BattleSpritePlayerSide,
         .callback = SpriteCB_BattleSpriteStartSlideLeft,
     },
+    [TRAINER_BACK_PIC_ZANIK] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Zanik,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+    [TRAINER_BACK_PIC_ARIANE] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Ariane,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
+    [TRAINER_BACK_PIC_OWEN] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = 0,
+        .oam = &gOamData_BattleSpritePlayerSide,
+        .anims = NULL,
+        .images = gTrainerBackPicTable_Owen,
+        .affineAnims = gAffineAnims_BattleSpritePlayerSide,
+        .callback = SpriteCB_BattleSpriteStartSlideLeft,
+    },
 };
 
 #define NUM_SECRET_BASE_CLASSES 5
@@ -1395,8 +1460,8 @@ static const s8 sFriendshipEventModifiers[][3] =
 
 static const u16 sHMMoves[] =
 {
-    MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
+    /*MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
+    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE,*/ HM_MOVES_END
 };
 
 static const struct SpeciesItem sAlteringCaveWildMonHeldItems[] =
@@ -1584,7 +1649,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     SetBoxMonData(boxMon, MON_DATA_MET_LOCATION, &value);
     SetBoxMonData(boxMon, MON_DATA_MET_LEVEL, &level);
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
-    value = ITEM_NORMAL_POUCH;
+    value = ITEM_POUCH;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
     SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
 
@@ -3501,6 +3566,9 @@ u8 GiveMonToPlayer(struct Pokemon *mon)
     if (i >= PARTY_SIZE)
         return CopyMonToPC(mon);
 
+    if (FlagGet(FLAG_PARTNER_BATTLE) == TRUE) {
+        return CopyMonToPC(mon);
+    }
     CopyMon(&gPlayerParty[i], mon, sizeof(*mon));
     gPlayerPartyCount = i + 1;
     return MON_GIVEN_TO_PARTY;
@@ -3870,7 +3938,7 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
         {                                                                                               \
-            if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_EMBROIDERED_POUCH)                           \
+            if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_POUCH_ANCIENT)                         \
                 friendship++;                                                                           \
             if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetCurrentRegionMapSectionId())         \
                 friendship++;                                                                           \
@@ -4626,23 +4694,23 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_LEVEL_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && evolutions[i].param <= level)
+                if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT && evolutions[i].param <= level)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_FRIENDSHIP_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
+                if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT && friendship >= FRIENDSHIP_EVO_THRESHOLD)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_LEVEL_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && evolutions[i].param <= level)
+                if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT && evolutions[i].param <= level)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_ITEM_HOLD_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && heldItem == evolutions[i].param)
+                if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT && heldItem == evolutions[i].param)
                 {
                     heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
@@ -4650,7 +4718,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 }
                 break;
             case EVO_ITEM_HOLD_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && heldItem == evolutions[i].param)
+                if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT && heldItem == evolutions[i].param)
                 {
                     heldItem = ITEM_NONE;
                     SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
@@ -4982,140 +5050,735 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_LEVEL_MAP_MORYTANIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_CANIFIS) || (currentMap == MAP_ROUTE180) || (currentMap == MAP_ROUTE45))
+                        if (
+                        (currentMap == MAP_CANIFIS )
+                        || (currentMap == MAP_ROUTE180 )
+                        || (currentMap == MAP_ROUTE45 )
+                        || (currentMap == MAP_LUMBRIDGE_SWAMP )
+                        || (currentMap == MAP_DRAYNOR_MANOR )
+                        || (currentMap == MAP_DRAYNOR_MANOR_1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_2F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_3F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_B1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_CRYPT )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;
             case EVO_LEVEL_MALE_MAP_MORYTANIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
 					if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_CANIFIS) || (currentMap == MAP_ROUTE180) || (currentMap == MAP_ROUTE45))
+                        if (
+                        (currentMap == MAP_CANIFIS )
+                        || (currentMap == MAP_ROUTE180 )
+                        || (currentMap == MAP_ROUTE45 )
+                        || (currentMap == MAP_LUMBRIDGE_SWAMP )
+                        || (currentMap == MAP_DRAYNOR_MANOR )
+                        || (currentMap == MAP_DRAYNOR_MANOR_1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_2F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_3F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_B1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_CRYPT )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;
             case EVO_LEVEL_FEMALE_MAP_MORYTANIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
 					if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_CANIFIS) || (currentMap == MAP_ROUTE180) || (currentMap == MAP_ROUTE45))
+                        if (
+                        (currentMap == MAP_CANIFIS )
+                        || (currentMap == MAP_ROUTE180 )
+                        || (currentMap == MAP_ROUTE45 )
+                        || (currentMap == MAP_LUMBRIDGE_SWAMP )
+                        || (currentMap == MAP_DRAYNOR_MANOR )
+                        || (currentMap == MAP_DRAYNOR_MANOR_1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_2F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_3F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_B1F )
+                        || (currentMap == MAP_DRAYNOR_MANOR_CRYPT )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;
         //KARAMJA
             case EVO_LEVEL_MAP_KARAMJA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_MUSA_POINT )
+                        || (currentMap ==  MAP_ROUTE39 )
+                        || (currentMap ==  MAP_BRIMHAVEN )
+                        || (currentMap ==  MAP_CRANDOR )
+                        || (currentMap ==  MAP_CRANDOR_SEA_ROUTE )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_2 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_3 )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B1F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B2F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B3F )
+                        || (currentMap ==  MAP_MOR_UL_REK )
+                        || (currentMap ==  MAP_TZHAAR_GYM_ROOM )
+                        || (currentMap ==  MAP_TZHAAR_FIGHT_CAVES )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_1 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_2 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_3 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_4 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_5 )
+                        || (currentMap ==  MAP_TZHAAR_GYM_CHALLENGE )
+                        || (currentMap ==  MAP_TZHAAR_HAR_AKEN )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;    
             case EVO_LEVEL_MALE_MAP_KARAMJA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_MUSA_POINT )
+                        || (currentMap ==  MAP_ROUTE39 )
+                        || (currentMap ==  MAP_BRIMHAVEN )
+                        || (currentMap ==  MAP_CRANDOR )
+                        || (currentMap ==  MAP_CRANDOR_SEA_ROUTE )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_2 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_3 )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B1F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B2F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B3F )
+                        || (currentMap ==  MAP_MOR_UL_REK )
+                        || (currentMap ==  MAP_TZHAAR_GYM_ROOM )
+                        || (currentMap ==  MAP_TZHAAR_FIGHT_CAVES )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_1 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_2 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_3 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_4 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_5 )
+                        || (currentMap ==  MAP_TZHAAR_GYM_CHALLENGE )
+                        || (currentMap ==  MAP_TZHAAR_HAR_AKEN )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_FEMALE_MAP_KARAMJA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_MUSA_POINT )
+                        || (currentMap ==  MAP_ROUTE39 )
+                        || (currentMap ==  MAP_BRIMHAVEN )
+                        || (currentMap ==  MAP_CRANDOR )
+                        || (currentMap ==  MAP_CRANDOR_SEA_ROUTE )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_2 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_3 )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B1F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B2F )
+                        || (currentMap ==  MAP_KARAMJA_VOLCANO_B3F )
+                        || (currentMap ==  MAP_MOR_UL_REK )
+                        || (currentMap ==  MAP_TZHAAR_GYM_ROOM )
+                        || (currentMap ==  MAP_TZHAAR_FIGHT_CAVES )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_1 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_2 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_3 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_4 )
+                        || (currentMap ==  MAP_TZHAAR_CAVES_5 )
+                        || (currentMap ==  MAP_TZHAAR_GYM_CHALLENGE )
+                        || (currentMap ==  MAP_TZHAAR_HAR_AKEN )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
         //MISTHALIN
             case EVO_LEVEL_MAP_MISTHALIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_ROUTE1) || (currentMap == MAP_ROUTE2) || (currentMap == MAP_ROUTE3) || (currentMap == MAP_MILL_LANE_MILL) || (currentMap == MAP_DRAYNOR) || (currentMap == MAP_WIZARDS_TOWER) || (currentMap == MAP_LUMBRIDGE) || (currentMap == MAP_ROUTE12) || (currentMap == MAP_ROUTE13) || (currentMap == MAP_VARROCK) || (currentMap == MAP_VARROCK_NORTH) || (currentMap == MAP_ROUTE14) || (currentMap == MAP_ROUTE15) || (currentMap == MAP_ROUTE46) || (currentMap == MAP_DIGSITE) || (currentMap == MAP_ROUTE16) || (currentMap == MAP_ROUTE17) || (currentMap == MAP_ROUTE30) || (currentMap == MAP_GRAND_EXCHANGE) || (currentMap == MAP_VARROCK_GRAND_EXCHANGE_PATH) || (currentMap == MAP_ROUTE18) || (currentMap == MAP_ROUTE21) || (currentMap == MAP_ROUTE22) || (currentMap == MAP_ROUTE20) || (currentMap == MAP_EDGEVILLE) || (currentMap == MAP_DRAYNOR_SEWERS_1) || (currentMap == MAP_DRAYNOR_SEWERS_2) || (currentMap == MAP_DRAYNOR_SEWERS_3) || (currentMap == MAP_DRAYNOR_SEWERS_4) || (currentMap == MAP_MILL_LANE_MILL_1) || (currentMap == MAP_MILL_LANE_MILL_2) || (currentMap == MAP_MILL_LANE_MILL_3))
+                        if (
+                         (currentMap ==  MAP_ROUTE1 )
+                        || (currentMap ==  MAP_ROUTE2 )
+                        || (currentMap ==  MAP_ROUTE3 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL )
+                        || (currentMap ==  MAP_DRAYNOR )
+                        || (currentMap ==  MAP_WIZARDS_TOWER )
+                        || (currentMap ==  MAP_LUMBRIDGE )
+                        || (currentMap ==  MAP_ROUTE12 )
+                        || (currentMap ==  MAP_ROUTE13 )
+                        || (currentMap ==  MAP_VARROCK )
+                        || (currentMap ==  MAP_VARROCK_NORTH )
+                        || (currentMap ==  MAP_ROUTE14 )
+                        || (currentMap ==  MAP_ROUTE15 )
+                        || (currentMap ==  MAP_ROUTE46 )
+                        || (currentMap ==  MAP_DIGSITE )
+                        || (currentMap ==  MAP_ROUTE16 )
+                        || (currentMap ==  MAP_ROUTE17 )
+                        || (currentMap ==  MAP_ROUTE30 )
+                        || (currentMap ==  MAP_GRAND_EXCHANGE )
+                        || (currentMap ==  MAP_VARROCK_GRAND_EXCHANGE_PATH )
+                        || (currentMap ==  MAP_ROUTE18 )
+                        || (currentMap ==  MAP_ROUTE21 )
+                        || (currentMap ==  MAP_ROUTE22 )
+                        || (currentMap ==  MAP_ROUTE20 )
+                        || (currentMap ==  MAP_EDGEVILLE )
+                        || (currentMap ==  MAP_ROUTE38 )
+                        || (currentMap ==  MAP_LUMBRIDGE_FOREST )
+                        || (currentMap ==  MAP_VARROCK_PUB_1F )
+                        || (currentMap ==  MAP_VARROCK_PUB_2F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_1F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_2F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_1F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_2F )
+                        || (currentMap ==  MAP_VARROCK_GERTRUDE_HOUSE )
+                        || (currentMap ==  MAP_VARROCK_HOUSE_7 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_1 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_2 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_3 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_4 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_1 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_2 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_5 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_MALE_MAP_MISTHALIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_ROUTE1) || (currentMap == MAP_ROUTE2) || (currentMap == MAP_ROUTE3) || (currentMap == MAP_MILL_LANE_MILL) || (currentMap == MAP_DRAYNOR) || (currentMap == MAP_WIZARDS_TOWER) || (currentMap == MAP_LUMBRIDGE) || (currentMap == MAP_ROUTE12) || (currentMap == MAP_ROUTE13) || (currentMap == MAP_VARROCK) || (currentMap == MAP_VARROCK_NORTH) || (currentMap == MAP_ROUTE14) || (currentMap == MAP_ROUTE15) || (currentMap == MAP_ROUTE46) || (currentMap == MAP_DIGSITE) || (currentMap == MAP_ROUTE16) || (currentMap == MAP_ROUTE17) || (currentMap == MAP_ROUTE30) || (currentMap == MAP_GRAND_EXCHANGE) || (currentMap == MAP_VARROCK_GRAND_EXCHANGE_PATH) || (currentMap == MAP_ROUTE18) || (currentMap == MAP_ROUTE21) || (currentMap == MAP_ROUTE22) || (currentMap == MAP_ROUTE20) || (currentMap == MAP_EDGEVILLE) || (currentMap == MAP_DRAYNOR_SEWERS_1) || (currentMap == MAP_DRAYNOR_SEWERS_2) || (currentMap == MAP_DRAYNOR_SEWERS_3) || (currentMap == MAP_DRAYNOR_SEWERS_4) || (currentMap == MAP_MILL_LANE_MILL_1) || (currentMap == MAP_MILL_LANE_MILL_2) || (currentMap == MAP_MILL_LANE_MILL_3))
+                        if (
+                         (currentMap ==  MAP_ROUTE1 )
+                        || (currentMap ==  MAP_ROUTE2 )
+                        || (currentMap ==  MAP_ROUTE3 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL )
+                        || (currentMap ==  MAP_DRAYNOR )
+                        || (currentMap ==  MAP_WIZARDS_TOWER )
+                        || (currentMap ==  MAP_LUMBRIDGE )
+                        || (currentMap ==  MAP_ROUTE12 )
+                        || (currentMap ==  MAP_ROUTE13 )
+                        || (currentMap ==  MAP_VARROCK )
+                        || (currentMap ==  MAP_VARROCK_NORTH )
+                        || (currentMap ==  MAP_ROUTE14 )
+                        || (currentMap ==  MAP_ROUTE15 )
+                        || (currentMap ==  MAP_ROUTE46 )
+                        || (currentMap ==  MAP_DIGSITE )
+                        || (currentMap ==  MAP_ROUTE16 )
+                        || (currentMap ==  MAP_ROUTE17 )
+                        || (currentMap ==  MAP_ROUTE30 )
+                        || (currentMap ==  MAP_GRAND_EXCHANGE )
+                        || (currentMap ==  MAP_VARROCK_GRAND_EXCHANGE_PATH )
+                        || (currentMap ==  MAP_ROUTE18 )
+                        || (currentMap ==  MAP_ROUTE21 )
+                        || (currentMap ==  MAP_ROUTE22 )
+                        || (currentMap ==  MAP_ROUTE20 )
+                        || (currentMap ==  MAP_EDGEVILLE )
+                        || (currentMap ==  MAP_ROUTE38 )
+                        || (currentMap ==  MAP_LUMBRIDGE_FOREST )
+                        || (currentMap ==  MAP_VARROCK_PUB_1F )
+                        || (currentMap ==  MAP_VARROCK_PUB_2F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_1F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_2F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_1F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_2F )
+                        || (currentMap ==  MAP_VARROCK_GERTRUDE_HOUSE )
+                        || (currentMap ==  MAP_VARROCK_HOUSE_7 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_1 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_2 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_3 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_4 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_1 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_2 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_5 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break; 
             case EVO_LEVEL_FEMALE_MAP_MISTHALIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                    if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_ROUTE1) || (currentMap == MAP_ROUTE2) || (currentMap == MAP_ROUTE3) || (currentMap == MAP_MILL_LANE_MILL) || (currentMap == MAP_DRAYNOR) || (currentMap == MAP_WIZARDS_TOWER) || (currentMap == MAP_LUMBRIDGE) || (currentMap == MAP_ROUTE12) || (currentMap == MAP_ROUTE13) || (currentMap == MAP_VARROCK) || (currentMap == MAP_VARROCK_NORTH) || (currentMap == MAP_ROUTE14) || (currentMap == MAP_ROUTE15) || (currentMap == MAP_ROUTE46) || (currentMap == MAP_DIGSITE) || (currentMap == MAP_ROUTE16) || (currentMap == MAP_ROUTE17) || (currentMap == MAP_ROUTE30) || (currentMap == MAP_GRAND_EXCHANGE) || (currentMap == MAP_VARROCK_GRAND_EXCHANGE_PATH) || (currentMap == MAP_ROUTE18) || (currentMap == MAP_ROUTE21) || (currentMap == MAP_ROUTE22) || (currentMap == MAP_ROUTE20) || (currentMap == MAP_EDGEVILLE) || (currentMap == MAP_DRAYNOR_SEWERS_1) || (currentMap == MAP_DRAYNOR_SEWERS_2) || (currentMap == MAP_DRAYNOR_SEWERS_3) || (currentMap == MAP_DRAYNOR_SEWERS_4) || (currentMap == MAP_MILL_LANE_MILL_1) || (currentMap == MAP_MILL_LANE_MILL_2) || (currentMap == MAP_MILL_LANE_MILL_3))
+                    if (
+                         (currentMap ==  MAP_ROUTE1 )
+                        || (currentMap ==  MAP_ROUTE2 )
+                        || (currentMap ==  MAP_ROUTE3 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL )
+                        || (currentMap ==  MAP_DRAYNOR )
+                        || (currentMap ==  MAP_WIZARDS_TOWER )
+                        || (currentMap ==  MAP_LUMBRIDGE )
+                        || (currentMap ==  MAP_ROUTE12 )
+                        || (currentMap ==  MAP_ROUTE13 )
+                        || (currentMap ==  MAP_VARROCK )
+                        || (currentMap ==  MAP_VARROCK_NORTH )
+                        || (currentMap ==  MAP_ROUTE14 )
+                        || (currentMap ==  MAP_ROUTE15 )
+                        || (currentMap ==  MAP_ROUTE46 )
+                        || (currentMap ==  MAP_DIGSITE )
+                        || (currentMap ==  MAP_ROUTE16 )
+                        || (currentMap ==  MAP_ROUTE17 )
+                        || (currentMap ==  MAP_ROUTE30 )
+                        || (currentMap ==  MAP_GRAND_EXCHANGE )
+                        || (currentMap ==  MAP_VARROCK_GRAND_EXCHANGE_PATH )
+                        || (currentMap ==  MAP_ROUTE18 )
+                        || (currentMap ==  MAP_ROUTE21 )
+                        || (currentMap ==  MAP_ROUTE22 )
+                        || (currentMap ==  MAP_ROUTE20 )
+                        || (currentMap ==  MAP_EDGEVILLE )
+                        || (currentMap ==  MAP_ROUTE38 )
+                        || (currentMap ==  MAP_LUMBRIDGE_FOREST )
+                        || (currentMap ==  MAP_VARROCK_PUB_1F )
+                        || (currentMap ==  MAP_VARROCK_PUB_2F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_1F )
+                        || (currentMap ==  MAP_VARROCK_SEWERS_2F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_1F )
+                        || (currentMap ==  MAP_VARROCK_PALACE_2F )
+                        || (currentMap ==  MAP_VARROCK_GERTRUDE_HOUSE )
+                        || (currentMap ==  MAP_VARROCK_HOUSE_7 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_1 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_2 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_3 )
+                        || (currentMap ==  MAP_DRAYNOR_SEWERS_4 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_1 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_2 )
+                        || (currentMap ==  MAP_MILL_LANE_MILL_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_CASTLE_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_1 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_2 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_3 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_4 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_WGS_5 )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES_JUNA )
+                        || (currentMap ==  MAP_LUMBRIDGE_SWAMP_CAVES )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break; 
         //ASGARNIA
             case EVO_LEVEL_MAP_ASGARNIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_FALADOR )
+                        || (currentMap ==  MAP_ROUTE24 )
+                        || (currentMap ==  MAP_GOBLIN_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE23 )
+                        || (currentMap ==  MAP_DWARVEN_MINES )
+                        || (currentMap ==  MAP_ROUTE25 )
+                        || (currentMap ==  MAP_ROUTE27 )
+                        || (currentMap ==  MAP_ROUTE26 )
+                        || (currentMap ==  MAP_ICE_MOUNTAIN )
+                        || (currentMap ==  MAP_ROUTE33 )
+                        || (currentMap ==  MAP_ROUTE34 )
+                        || (currentMap ==  MAP_ROUTE35 )
+                        || (currentMap ==  MAP_TAVERLEY )
+                        || (currentMap ==  MAP_ROUTE37 )
+                        || (currentMap ==  MAP_ROUTE8 )
+                        || (currentMap ==  MAP_ROUTE9 )
+                        || (currentMap ==  MAP_RIMMINGTON )
+                        || (currentMap ==  MAP_MUDSKIPPER_POINT )
+                        || (currentMap ==  MAP_ROUTE11 )
+                        || (currentMap ==  MAP_ROUTE10 )
+                        || (currentMap ==  MAP_PORT_SARIM )
+                        || (currentMap ==  MAP_ROUTE5 )
+                        || (currentMap ==  MAP_ROUTE4 )
+                        || (currentMap ==  MAP_ROUTE6 )
+                        || (currentMap ==  MAP_ROUTE7 )
+                        || (currentMap ==  MAP_ROUTE40 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_1 )
+                        || (currentMap ==  MAP_BAY_OF_SARIM )
+                        || (currentMap ==  MAP_FALADOR_HAIRDRESSERS )
+                        || (currentMap ==  MAP_FALADOR_CASTLEYARD )
+                        || (currentMap ==  MAP_FALADOR_PUB_1F )
+                        || (currentMap ==  MAP_FALADOR_PUB_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F )
+                        || (currentMap ==  MAP_FALADOR_PARTY_ROOM )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R2 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R3 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F_R2 )
+                        || (currentMap ==  MAP_ROUTE8_CRAFTING_GUILD )
+                        || (currentMap ==  MAP_MELZARS_MAZE_1F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_2F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_3F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_B1F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_2F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_3F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_1F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B1F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B3F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B4F )
+                        || (currentMap ==  MAP_VORAGO_CAVERN )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B2F )
+                        || (currentMap ==  MAP_QUEEN_BLACK_DRAGON_LAIR )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B1F )
+                        || (currentMap ==  MAP_GIANT_MOLE_CAVE )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_MALE_MAP_ASGARNIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_FALADOR )
+                        || (currentMap ==  MAP_ROUTE24 )
+                        || (currentMap ==  MAP_GOBLIN_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE23 )
+                        || (currentMap ==  MAP_DWARVEN_MINES )
+                        || (currentMap ==  MAP_ROUTE25 )
+                        || (currentMap ==  MAP_ROUTE27 )
+                        || (currentMap ==  MAP_ROUTE26 )
+                        || (currentMap ==  MAP_ICE_MOUNTAIN )
+                        || (currentMap ==  MAP_ROUTE33 )
+                        || (currentMap ==  MAP_ROUTE34 )
+                        || (currentMap ==  MAP_ROUTE35 )
+                        || (currentMap ==  MAP_TAVERLEY )
+                        || (currentMap ==  MAP_ROUTE37 )
+                        || (currentMap ==  MAP_ROUTE8 )
+                        || (currentMap ==  MAP_ROUTE9 )
+                        || (currentMap ==  MAP_RIMMINGTON )
+                        || (currentMap ==  MAP_MUDSKIPPER_POINT )
+                        || (currentMap ==  MAP_ROUTE11 )
+                        || (currentMap ==  MAP_ROUTE10 )
+                        || (currentMap ==  MAP_PORT_SARIM )
+                        || (currentMap ==  MAP_ROUTE5 )
+                        || (currentMap ==  MAP_ROUTE4 )
+                        || (currentMap ==  MAP_ROUTE6 )
+                        || (currentMap ==  MAP_ROUTE7 )
+                        || (currentMap ==  MAP_ROUTE40 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_1 )
+                        || (currentMap ==  MAP_BAY_OF_SARIM )
+                        || (currentMap ==  MAP_FALADOR_HAIRDRESSERS )
+                        || (currentMap ==  MAP_FALADOR_CASTLEYARD )
+                        || (currentMap ==  MAP_FALADOR_PUB_1F )
+                        || (currentMap ==  MAP_FALADOR_PUB_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F )
+                        || (currentMap ==  MAP_FALADOR_PARTY_ROOM )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R2 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R3 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F_R2 )
+                        || (currentMap ==  MAP_ROUTE8_CRAFTING_GUILD )
+                        || (currentMap ==  MAP_MELZARS_MAZE_1F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_2F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_3F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_B1F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_2F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_3F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_1F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B1F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B3F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B4F )
+                        || (currentMap ==  MAP_VORAGO_CAVERN )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B2F )
+                        || (currentMap ==  MAP_QUEEN_BLACK_DRAGON_LAIR )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B1F )
+                        || (currentMap ==  MAP_GIANT_MOLE_CAVE )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;
             case EVO_LEVEL_FEMALE_MAP_ASGARNIA:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_FALADOR )
+                        || (currentMap ==  MAP_ROUTE24 )
+                        || (currentMap ==  MAP_GOBLIN_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE23 )
+                        || (currentMap ==  MAP_DWARVEN_MINES )
+                        || (currentMap ==  MAP_ROUTE25 )
+                        || (currentMap ==  MAP_ROUTE27 )
+                        || (currentMap ==  MAP_ROUTE26 )
+                        || (currentMap ==  MAP_ICE_MOUNTAIN )
+                        || (currentMap ==  MAP_ROUTE33 )
+                        || (currentMap ==  MAP_ROUTE34 )
+                        || (currentMap ==  MAP_ROUTE35 )
+                        || (currentMap ==  MAP_TAVERLEY )
+                        || (currentMap ==  MAP_ROUTE37 )
+                        || (currentMap ==  MAP_ROUTE8 )
+                        || (currentMap ==  MAP_ROUTE9 )
+                        || (currentMap ==  MAP_RIMMINGTON )
+                        || (currentMap ==  MAP_MUDSKIPPER_POINT )
+                        || (currentMap ==  MAP_ROUTE11 )
+                        || (currentMap ==  MAP_ROUTE10 )
+                        || (currentMap ==  MAP_PORT_SARIM )
+                        || (currentMap ==  MAP_ROUTE5 )
+                        || (currentMap ==  MAP_ROUTE4 )
+                        || (currentMap ==  MAP_ROUTE6 )
+                        || (currentMap ==  MAP_ROUTE7 )
+                        || (currentMap ==  MAP_ROUTE40 )
+                        || (currentMap ==  MAP_MUDSKIPPER_SOUND_1 )
+                        || (currentMap ==  MAP_BAY_OF_SARIM )
+                        || (currentMap ==  MAP_FALADOR_HAIRDRESSERS )
+                        || (currentMap ==  MAP_FALADOR_CASTLEYARD )
+                        || (currentMap ==  MAP_FALADOR_PUB_1F )
+                        || (currentMap ==  MAP_FALADOR_PUB_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_2F )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F )
+                        || (currentMap ==  MAP_FALADOR_PARTY_ROOM )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R2 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_1F_R3 )
+                        || (currentMap ==  MAP_FALADOR_CASTLE_3F_R2 )
+                        || (currentMap ==  MAP_ROUTE8_CRAFTING_GUILD )
+                        || (currentMap ==  MAP_MELZARS_MAZE_1F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_2F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_3F )
+                        || (currentMap ==  MAP_MELZARS_MAZE_B1F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_2F )
+                        || (currentMap ==  MAP_PORT_SARIM_LIGHTHOUSE_3F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_1F )
+                        || (currentMap ==  MAP_PORT_SARIM_PUB_2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B1F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B2F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B3F )
+                        || (currentMap ==  MAP_ASGARNIAN_DUNGEON_B4F )
+                        || (currentMap ==  MAP_VORAGO_CAVERN )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B2F )
+                        || (currentMap ==  MAP_QUEEN_BLACK_DRAGON_LAIR )
+                        || (currentMap ==  MAP_DWARVEN_MINE_B1F )
+                        || (currentMap ==  MAP_GIANT_MOLE_CAVE )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;
         //WILDERNESS
             case EVO_LEVEL_MAP_WILDERNESS:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_ROUTE31 )
+                        || (currentMap ==  MAP_ROUTE49 )
+                        || (currentMap ==  MAP_ROUTE48 )
+                        || (currentMap ==  MAP_ROUTE47 )
+                        || (currentMap ==  MAP_ROUTE41 )
+                        || (currentMap ==  MAP_ROUTE42 )
+                        || (currentMap ==  MAP_ROUTE43 )
+                        || (currentMap ==  MAP_ROUTE44 )
+                        || (currentMap ==  MAP_WILDERNESS_VOLCANO_LOBBY )
+                        || (currentMap ==  MAP_ROUTE200 )
+                        || (currentMap ==  MAP_ROUTE0 )
+                        || (currentMap ==  MAP_DAEMONHEIM )
+                        || (currentMap ==  MAP_WILDERNESS_FOREST )
+                        || (currentMap ==  MAP_CALLISTO_LAIR )
+                        || (currentMap ==  MAP_CHAOS_TUNNELS_B1F )
+                        || (currentMap ==  MAP_CHAOS_TUNNELS_B2F )
+                        || (currentMap ==  MAP_KING_BLACK_DRAGON_B2F )
+                        || (currentMap ==  MAP_KING_BLACK_DRAGON_B1F )
+                        || (currentMap ==  MAP_KING_BLACK_DRAGON_LAIR )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
         //FREMENNIK
             case EVO_LEVEL_MAP_FREMENNIK:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_ROUTE60 )
+                        || (currentMap ==  MAP_ROUTE62 )
+                        || (currentMap ==  MAP_ROUTE63 )
+                        || (currentMap ==  MAP_RELLEKKA )
+                        || (currentMap ==  MAP_JATIZSO )
+                        || (currentMap ==  MAP_NEITIZNOT )
+                        || (currentMap ==  MAP_ROUTE170 )
+                        || (currentMap ==  MAP_ROUTE169 )
+                        || (currentMap ==  MAP_ROUTE171 )
+                        || (currentMap ==  MAP_ROUTE172 )
+                        || (currentMap ==  MAP_UNGAEL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B1F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B2F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B3F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B4F )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_GYM_HALL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_1 )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_2 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_MALE_MAP_FREMENNIK:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_ROUTE60 )
+                        || (currentMap ==  MAP_ROUTE62 )
+                        || (currentMap ==  MAP_ROUTE63 )
+                        || (currentMap ==  MAP_RELLEKKA )
+                        || (currentMap ==  MAP_JATIZSO )
+                        || (currentMap ==  MAP_NEITIZNOT )
+                        || (currentMap ==  MAP_ROUTE170 )
+                        || (currentMap ==  MAP_ROUTE169 )
+                        || (currentMap ==  MAP_ROUTE171 )
+                        || (currentMap ==  MAP_ROUTE172 )
+                        || (currentMap ==  MAP_UNGAEL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B1F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B2F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B3F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B4F )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_GYM_HALL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_1 )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_2 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_FEMALE_MAP_FREMENNIK:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_ROUTE60 )
+                        || (currentMap ==  MAP_ROUTE62 )
+                        || (currentMap ==  MAP_ROUTE63 )
+                        || (currentMap ==  MAP_RELLEKKA )
+                        || (currentMap ==  MAP_JATIZSO )
+                        || (currentMap ==  MAP_NEITIZNOT )
+                        || (currentMap ==  MAP_ROUTE170 )
+                        || (currentMap ==  MAP_ROUTE169 )
+                        || (currentMap ==  MAP_ROUTE171 )
+                        || (currentMap ==  MAP_ROUTE172 )
+                        || (currentMap ==  MAP_UNGAEL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B1F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B2F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B3F )
+                        || (currentMap ==  MAP_BARB_STRONGHOLD_B4F )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_GYM_HALL )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_1 )
+                        || (currentMap ==  MAP_BARBARIAN_VILLAGE_HOUSE_2 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break; 
         //KANDARIN
             case EVO_LEVEL_MAP_KANDARIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_YANILLE )
+                        || (currentMap ==  MAP_ARDOUGNE )
+                        || (currentMap ==  MAP_ROUTE52 )
+                        || (currentMap ==  MAP_ROUTE53 )
+                        || (currentMap ==  MAP_ROUTE54 )
+                        || (currentMap ==  MAP_PORT_KHAZARD )
+                        || (currentMap ==  MAP_ROUTE51 )
+                        || (currentMap ==  MAP_ROUTE50 )
+                        || (currentMap ==  MAP_ROUTE55 )
+                        || (currentMap ==  MAP_ROUTE56 )
+                        || (currentMap ==  MAP_SEERS_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE58 )
+                        || (currentMap ==  MAP_CATHERBY )
+                        || (currentMap ==  MAP_ROUTE59 )
+                        || (currentMap ==  MAP_CAMELOT )
+                        || (currentMap ==  MAP_ROUTE61 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_MALE_MAP_KANDARIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_YANILLE )
+                        || (currentMap ==  MAP_ARDOUGNE )
+                        || (currentMap ==  MAP_ROUTE52 )
+                        || (currentMap ==  MAP_ROUTE53 )
+                        || (currentMap ==  MAP_ROUTE54 )
+                        || (currentMap ==  MAP_PORT_KHAZARD )
+                        || (currentMap ==  MAP_ROUTE51 )
+                        || (currentMap ==  MAP_ROUTE50 )
+                        || (currentMap ==  MAP_ROUTE55 )
+                        || (currentMap ==  MAP_ROUTE56 )
+                        || (currentMap ==  MAP_SEERS_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE58 )
+                        || (currentMap ==  MAP_CATHERBY )
+                        || (currentMap ==  MAP_ROUTE59 )
+                        || (currentMap ==  MAP_CAMELOT )
+                        || (currentMap ==  MAP_ROUTE61 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
             case EVO_LEVEL_FEMALE_MAP_KANDARIN:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
                     if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_YANILLE )
+                        || (currentMap ==  MAP_ARDOUGNE )
+                        || (currentMap ==  MAP_ROUTE52 )
+                        || (currentMap ==  MAP_ROUTE53 )
+                        || (currentMap ==  MAP_ROUTE54 )
+                        || (currentMap ==  MAP_PORT_KHAZARD )
+                        || (currentMap ==  MAP_ROUTE51 )
+                        || (currentMap ==  MAP_ROUTE50 )
+                        || (currentMap ==  MAP_ROUTE55 )
+                        || (currentMap ==  MAP_ROUTE56 )
+                        || (currentMap ==  MAP_SEERS_VILLAGE )
+                        || (currentMap ==  MAP_ROUTE58 )
+                        || (currentMap ==  MAP_CATHERBY )
+                        || (currentMap ==  MAP_ROUTE59 )
+                        || (currentMap ==  MAP_CAMELOT )
+                        || (currentMap ==  MAP_ROUTE61 )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
         //DESERT
             case EVO_LEVEL_MAP_DESERT:
                 currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
                 if (evolutions[i].param <= level)
-                        if ((currentMap == MAP_TUTORIAL_ISLAND) || (currentMap == MAP_TUTORIAL_ISLAND))
+                        if (
+                         (currentMap ==  MAP_AL_KHARID )
+                        || (currentMap ==  MAP_SHANTAY_PASS )
+                        || (currentMap ==  MAP_ROUTE28 )
+                        || (currentMap ==  MAP_ROUTE29 )
+                        || (currentMap ==  MAP_AL_KHARID_MINES_B1F )
+                        || (currentMap ==  MAP_AL_KHARID_MINES_B2F )
+                        || (currentMap ==  MAP_KALPHITE_CAVES_B1F )
+                        || (currentMap ==  MAP_KALPHITE_CAVES_B2F )
+                        || (currentMap ==  MAP_KALPHITE_CAVES_B3F )
+                        || (currentMap ==  MAP_KALPHITE_CAVES_B4F )
+                        || (currentMap ==  MAP_ALKHARID_GYM_1F_R1 )
+                        || (currentMap ==  MAP_ALKHARID_GYM_1F_R2 )
+                        || (currentMap ==  MAP_ALKHARID_GYM_1F_R3 )
+                        || (currentMap ==  MAP_AL_KHARID_HOUSE_1 )
+                        || (currentMap ==  MAP_AL_KHARID_BANK )
+                        || (currentMap ==  MAP_STARTER_HOUSE_AL_KHARID )
+                        || (currentMap ==  MAP_ALKHARID_GYM_2F_R1 )
+                        || (currentMap ==  MAP_AL_KHARID_HOUSE_2 )
+                        || (currentMap ==  MAP_AL_KHARID_HOUSE_3 )
+                        || (currentMap ==  MAP_AL_KHARID_HOUSE_4_1F )
+                        || (currentMap ==  MAP_AL_KHARID_HOUSE_4_2F )
+                        || (currentMap ==  MAP_AL_KHARID_GENERAL_STORE )
+                        || (currentMap ==  MAP_AL_KHARID_TENT )
+                        )
                             targetSpecies = evolutions[i].targetSpecies; 
                 break;  
 
@@ -5250,7 +5913,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_LEVEL_WEATHER_HOT:
                     j = GetCurrentWeather();
                     if (evolutions[i].param <= level
-                    && (j == WEATHER_SUNNY_CLOUDS || j == WEATHER_DROUGHT))
+                    && (j == WEATHER_SUNNY || j == WEATHER_SUNNY_CLOUDS || j == WEATHER_DROUGHT))
                         targetSpecies = evolutions[i].targetSpecies;
                     break;
             case EVO_LEVEL_WEATHER_DUSTY:
@@ -5262,7 +5925,13 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
             case EVO_LEVEL_WEATHER_ABNORMAL:
                     j = GetCurrentWeather();
                     if (evolutions[i].param <= level
-                    && (j == WEATHER_ABNORMAL))
+                    && (j == WEATHER_ABNORMAL || j == WEATHER_SHADE || j == WEATHER_FOG_DIAGONAL || j == WEATHER_FOG_HORIZONTAL))
+                        targetSpecies = evolutions[i].targetSpecies;
+                    break;
+            case EVO_LEVEL_WEATHER_WET:
+                    j = GetCurrentWeather();
+                    if (evolutions[i].param <= level
+                    && (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || WEATHER_DOWNPOUR))
                         targetSpecies = evolutions[i].targetSpecies;
                     break;
 
@@ -5327,11 +5996,11 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_ITEM_NIGHT:
-                if (GetTimeOfDay() == TIME_NIGHT && evolutions[i].param == evolutionItem)
+                if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT && evolutions[i].param == evolutionItem)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             case EVO_ITEM_DAY:
-                if (GetTimeOfDay() != TIME_NIGHT && evolutions[i].param == evolutionItem)
+                if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT && evolutions[i].param == evolutionItem)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
             }
@@ -5379,6 +6048,44 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                 if (evolutionItem == EVO_WATER_SCROLL)
                     targetSpecies = evolutions[i].targetSpecies;
                 break;
+
+
+            case EVO_ITEM:
+                if (evolutionItem == EVO_ITEM) {
+                    currentMap = ((gSaveBlock1Ptr->location.mapGroup) << 8 | gSaveBlock1Ptr->location.mapNum);
+                    if (currentMap == MAP_AIR_ALTAR) {
+                        if (evolutions[i].param == ITEM_AIR_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                    if (currentMap == MAP_WATER_ALTAR) {
+                        if (evolutions[i].param == ITEM_WATER_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                    if (currentMap == MAP_EARTH_ALTAR) {
+                        if (evolutions[i].param == ITEM_EARTH_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                    if (currentMap == MAP_FIRE_ALTAR) {
+                        if (evolutions[i].param == ITEM_FIRE_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                    if (currentMap == MAP_MIND_ALTAR) {
+                        if (evolutions[i].param == ITEM_MIND_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                    if (currentMap == MAP_BODY_ALTAR) {
+                        if (evolutions[i].param == ITEM_BODY_RUNE) {
+                            targetSpecies = evolutions[i].targetSpecies;
+                        }
+                    }
+                }
+                break;
+
             }
         }
         break;
@@ -5628,6 +6335,8 @@ u8 GetTrainerEncounterMusicId(u16 trainerOpponentId)
         return GetTrainerEncounterMusicIdInBattlePyramid(trainerOpponentId);
     else if (InTrainerHillChallenge())
         return GetTrainerEncounterMusicIdInTrainerHill(trainerOpponentId);
+    else if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) 
+        return TRAINER_FIGHT_CAVES_ENCOUNTER_MUSIC(trainerOpponentId);
     else
         return TRAINER_ENCOUNTER_MUSIC(trainerOpponentId);
 }
@@ -5708,22 +6417,9 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
         if (event == FRIENDSHIP_EVENT_WALKING)
         {
-            s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
-            if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-                mod = (150 * mod) / 100;
-            friendship += mod;
-            if (mod > 0)
-            {
-                if (GetMonData(mon, MON_DATA_POKEBALL, 0) == ITEM_EMBROIDERED_POUCH)
-                    friendship++;
-                if (GetMonData(mon, MON_DATA_MET_LOCATION, 0) == GetCurrentRegionMapSectionId())
-                    friendship++;
-            }
-            if (friendship < 0)
-                friendship = 0;
-            if (friendship > MAX_FRIENDSHIP)
-                friendship = MAX_FRIENDSHIP;
-            SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+            // 50% chance every 128 steps
+            if (Random() & 1)
+                return;
         }
         if (event == FRIENDSHIP_EVENT_LEAGUE_BATTLE)
         {
@@ -5744,7 +6440,7 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         friendship += mod;
         if (mod > 0)
         {
-            if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_EMBROIDERED_POUCH)
+            if (GetMonData(mon, MON_DATA_POKEBALL, NULL) == ITEM_POUCH_ANCIENT)
                 friendship++;
             if (GetMonData(mon, MON_DATA_MET_LOCATION, NULL) == GetCurrentRegionMapSectionId())
                 friendship++;
@@ -6265,8 +6961,9 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_POKESCAPER:
             return MUS_PS_VS_POKESCAPERS;   //POKESCAPE
         case TRAINER_CLASS_COUNT:
-            return MUS_PS_VS_LEGENDARY;   //POKESCAPE
+        case TRAINER_CLASS_WITCH:
         case TRAINER_CLASS_LEGEND:
+        case TRAINER_CLASS_MELZAR:
             return MUS_PS_VS_LEGENDARY;   //POKESCAPE
         case TRAINER_CLASS_LEADER:
             return MUS_PS_VS_GYM;   //POKESCAPE
@@ -6298,6 +6995,8 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_PIKE_QUEEN:
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;
+        case TRAINER_CLASS_SANDWICH:
+            return MUS_PS_VS_ORCHY;
         default:
             return MUS_PS_VS_TRAINER_P2P; //POKESCAPE
         }
@@ -7070,11 +7769,11 @@ u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 
                         switch (formChanges[i].param2)
                         {
                         case DAY:
-                            if (GetTimeOfDay() != TIME_NIGHT)
+                            if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT)
                                 targetSpecies = formChanges[i].targetSpecies;
                             break;
                         case NIGHT:
-                            if (GetTimeOfDay() == TIME_NIGHT)
+                            if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT)
                                 targetSpecies = formChanges[i].targetSpecies;
                             break;
                         default:
@@ -7112,11 +7811,11 @@ u16 GetFormChangeTargetSpeciesBoxMon(struct BoxPokemon *boxMon, u16 method, u32 
                     switch (formChanges[i].param1)
                     {
                     case DAY:
-                        if (GetTimeOfDay() != TIME_NIGHT)
+                        if (UpdateTimeOfDay() != TIME_OF_DAY_NIGHT)
                             targetSpecies = formChanges[i].targetSpecies;
                         break;
                     case NIGHT:
-                        if (GetTimeOfDay() == TIME_NIGHT)
+                        if (UpdateTimeOfDay() == TIME_OF_DAY_NIGHT)
                             targetSpecies = formChanges[i].targetSpecies;
                         break;
                     }

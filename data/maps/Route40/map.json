@@ -15,14 +15,19 @@
   "connections": [
     {
       "map": "MAP_ROUTE23",
-      "offset": -44,
+      "offset": -42,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_BARBARIAN_VILLAGE",
+      "offset": 10,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_DIVINER",
-      "x": 2,
+      "x": 4,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
@@ -35,8 +40,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 15,
-      "y": 2,
+      "x": 2,
+      "y": 8,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -48,7 +53,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PHOENIX_EGG",
-      "x": 6,
+      "x": 8,
       "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -61,13 +66,34 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 15,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_GROTTOS",
+      "dest_warp_id": "10"
+    }
   ],
   "coord_events": [
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HIDDEN_GROTTO_ENTRY"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 1,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HIDDEN_GROTTO_ENTRY"
+    }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

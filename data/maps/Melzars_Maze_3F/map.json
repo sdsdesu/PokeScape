@@ -104,6 +104,32 @@
       "trainer_sight_or_berry_tree_id": "2",
       "script": "BATTLE_MELZAR_3F_TRAINER_1",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 26,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_3"
     }
   ],
   "warp_events": [
@@ -188,7 +214,7 @@
       "y": 23,
       "elevation": 0,
       "item": "ITEM_CAKE",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_6"
     },
     {
       "type": "hidden_item",
@@ -196,15 +222,15 @@
       "y": 3,
       "elevation": 0,
       "item": "ITEM_LAMP_ATT",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_7"
     },
     {
       "type": "hidden_item",
       "x": 11,
       "y": 15,
       "elevation": 0,
-      "item": "ITEM_TEA",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_REPEL_TEA_1",
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_5"
     }
   ],
   "has_night_table": false

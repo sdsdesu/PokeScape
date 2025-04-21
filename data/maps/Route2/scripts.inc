@@ -32,7 +32,6 @@ STORYMODE_STATE_ROUTE2::
 STORYMODE_STATE_ROUTE2_1:
 	removeobject 14
 	setflag FLAG_TEMP_1F
-	setvar VAR_WISE_OLD_MAN_RIVAL, 1
 	return
 
 
@@ -306,10 +305,24 @@ NPC_ROUTE2_Wizard::
 	end
 
 
+CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER::
+	namebox CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER_Text_0
+	msgbox CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER_Text_1
+	hidenamebox
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_TEMP_1C
+	removeobject 13
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+
 BATTLE_ROUTE2_Trainer_1::
-	trainerbattle_single TRAINER_ROUTE2_TRAINER_1, BATTLE_ROUTE2_Trainer_1_Text_0, BATTLE_ROUTE2_Trainer_1_Text_1
+	trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT, TRAINER_ROUTE2_TRAINER_1, 0, BATTLE_ROUTE2_Trainer_1_Text_0, BATTLE_ROUTE2_Trainer_1_Text_1, CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER
 	msgbox BATTLE_ROUTE2_Trainer_1_Text_2
 	hidenamebox
+	closemessage
 	release
 	end
 
@@ -358,9 +371,19 @@ BATTLE_ROUTE2_Trainer_6::
 
 BATTLE_ROUTE2_Trainer_7::
 	trainerbattle_single TRAINER_ROUTE2_TRAINER_7, BATTLE_ROUTE2_Trainer_7_Text_0, BATTLE_ROUTE2_Trainer_7_Text_0
+	namebox BATTLE_ROUTE2_Trainer_7_Text_1
 	msgbox BATTLE_ROUTE2_Trainer_7_Text_0
 	hidenamebox
 	closemessage
+	release
+	end
+
+
+BATTLE_ROUTE2_Trainer_8::
+	trainerbattle_single TRAINER_ROUTE2_TRAINER_8, BATTLE_ROUTE2_Trainer_8_Text_0, BATTLE_ROUTE2_Trainer_8_Text_1
+	namebox BATTLE_ROUTE2_Trainer_8_Text_2
+	msgbox BATTLE_ROUTE2_Trainer_8_Text_3
+	hidenamebox
 	release
 	end
 
@@ -414,6 +437,7 @@ TRIGGER_WISEOLDMAN_RIVAL_1_1:
 	removeobject 14
 	setflag FLAG_TEMP_1F
 	setvar VAR_WISE_OLD_MAN_RIVAL, 5
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 2
 	release
 	end
 
@@ -510,7 +534,7 @@ HAM_EVENT_WizardsTower_4_Text_1:
 	.string "I wonder if he went this way?$"
 
 HAM_EVENT_Route2_MAIN_1_Text_0:
-	.string "H.A.M. member$"
+	.string "H.A.M. Grunt$"
 
 HAM_EVENT_Route2_MAIN_1_Text_1:
 	.string "Move!\n"
@@ -539,6 +563,13 @@ NPC_ROUTE2_Wizard_Text_1:
 	.string "They say that there are hidden floors\n"
 	.string "within the Wizards' Tower.\p"
 	.string "I've never found them though.$"
+
+CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER_Text_0:
+	.string "H0w2Typ3$"
+
+CONTINUE_AFTER_BATTLE_ROUTE2_SKILLER_Text_1:
+	.string "Awh man, really…\n"
+	.string "Back to Lumbridge for me…$"
 
 BATTLE_ROUTE2_Trainer_1_Text_0:
 	.string "Please no!\p"
@@ -615,6 +646,24 @@ BATTLE_ROUTE2_Trainer_6_Text_2:
 
 BATTLE_ROUTE2_Trainer_7_Text_0:
 	.string "…$"
+
+BATTLE_ROUTE2_Trainer_7_Text_1:
+	.string "110111l1110$"
+
+BATTLE_ROUTE2_Trainer_8_Text_0:
+	.string "The anima in this area is strong, do you\n"
+	.string "feel it?$"
+
+BATTLE_ROUTE2_Trainer_8_Text_1:
+	.string "You feel it too! The anima is strong\n"
+	.string "with you!$"
+
+BATTLE_ROUTE2_Trainer_8_Text_2:
+	.string "Glimmermist$"
+
+BATTLE_ROUTE2_Trainer_8_Text_3:
+	.string "Can you smell it in the air? In your\n"
+	.string "bones? The tingle! Yes thats the anima!$"
 
 NPC_ROUTE2_BLACK_KNIGHT_Text_0:
 	.string "Black Knight$"

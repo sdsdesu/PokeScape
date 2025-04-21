@@ -74,6 +74,26 @@ script FALADORCASTLE_QUEST_STATE{
 	}
 }
 
+script ITEM_FALADOR_COURTYARD_1
+{
+    finditem(ITEM_SPIRIT_CHARM)
+    end
+}
+script ITEM_FALADOR_COURTYARD_2
+{
+    finditem(ITEM_BOOK_OF_SARADOMIN)
+    end
+}
+script ITEM_SHANTY_PASS_1
+{
+    finditem(ITEM_BOOK_OF_TUMEKEN)
+    end
+}
+script ITEM_ROUTE_7
+{
+    finditem(ITEM_BOOK_OF_ARMADYL)
+    end
+}
 
 //IGNORE
 script NPC_FALADORCASTLE_QUEST_PART_1
@@ -181,7 +201,7 @@ script NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT
     	{
             lock
             faceplayer
-            namebox ("WHITE KNIGHT")
+            namebox ("White Knight")
             msgbox(format("Welcome to the Falador Castle!"))
     	}
 		else
@@ -193,13 +213,13 @@ script NPC_FALADORCASTLE_QUEST_KNIGHT_CHAT
             case 3: 
                 lock
                 faceplayer
-                namebox ("WHITE KNIGHT")
+                namebox ("White Knight")
                 msgbox(format("Sorry but the castle is closed for all MvM Championship participants, until the disturbance within the Dwarven mines is resolved.\pWhich also means do not go poking around the mines in the north east of town, past the Party Room.\pWe don't want you getting in danger."))
             case 4: 
             case 5: 
                 lock
                 faceplayer
-                namebox ("WHITE KNIGHT")
+                namebox ("White Knight")
                 msgbox(format("Welcome to the Falador Castle!"))
             }
 		}
@@ -213,7 +233,7 @@ script NPC_FALADORCASTLE_KNIGHT_CHAT_2
 {
     lock
     faceplayer
-    namebox ("WHITE KNIGHT")
+    namebox ("White Knight")
     msgbox(format("Are you an MvM challenger?\pOur castle was designed to confuse intruders and we decided to use that for our gym challenge too."))
     closemessage
     hidenamebox
@@ -225,8 +245,8 @@ script NPC_FALADORCASTLE_KNIGHT_CHAT_3
 {
     lock
     faceplayer
-    namebox ("WHITE KNIGHT")
-    msgbox(format("Up or Down, Left or Right.\pOur Castle will confuse even the most smartest Black Knights."))
+    namebox ("White Knight")
+    msgbox(format("Up or Down, Left or Right.\pOur Castle will confuse even the most intelligent Black Knights."))
     closemessage
     hidenamebox
     release
@@ -374,6 +394,7 @@ script NPC_FALADORCASTLE_GYM_TRAINER_2 {
     }
     hidenamebox
     closemessage
+    release
     end
 }
 //Sir Pryce
@@ -421,6 +442,9 @@ script NPC_FALADORCASTLE_GYM_SIRAMIKVARZE {
         release
         end
     }
+    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 155) { // After Musa Point. Reporting back.
+        call(STORY_FALADORCASTLE_3F_SIRAMIKVARZE_REPORTING_BACK)
+    }
     elif (!flag(FLAG_BADGE02_GET)){
         if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
     	{
@@ -448,8 +472,10 @@ script NPC_FALADORCASTLE_GYM_SIRAMIKVARZE {
         msgbox(format("That move is called Razor Shell, it is a very sharp move.\pHopefully it will help you on your journey."))
         closemessage
         hidenamebox
+        addvar(VAR_GAMEMODE_LEVEL_CAP, 5)
         setvar(VAR_POKESCAPE_FALADOR_STATE, 5)
         setflag(FLAG_BADGE02_GET)
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 1)
         call(HIDDEN_GROTTO_RESET)
         addvar(VAR_GAMEMODE_LEVEL_SCALING, 1) //INCREASES LEVEL SCALING & SHOPS
         call(SetGymTrainers_FALADOR)
@@ -462,7 +488,7 @@ script NPC_FALADORCASTLE_GYM_SIRAMIKVARZE {
         end
     }
     namebox("Sir Amik Varze")
-    msgbox(format("I recommend that you make your way to Al Kharid or Varrock for your next MvM gym challenge.\pUnless you would like to become a white knight instead?"))
+    msgbox(format("I recommend that you make your way to Barbarian Village for your next MvM gym challenge.\pUnless you would like to become a white knight instead?"))
     hidenamebox
     release
     end
@@ -483,6 +509,7 @@ script QUEST_FALADORCASTLE_GYM_SIRTHEO
     closemessage
     hidenamebox
     warp(MAP_FALADOR_CASTLE_3F, 3, 0, 0)
+    waitstate
 	release
 	end
 }
@@ -499,6 +526,7 @@ script SetGymTrainers_FALADOR {
     settrainerflag(TRAINER_FALADOR_GYM_3)
     settrainerflag(TRAINER_FALADOR_GYM_4)
     settrainerflag(TRAINER_FALADOR_GYM_5)
+    settrainerflag(TRAINER_FALADOR_GYM_6)
     return
 }
 
@@ -683,7 +711,7 @@ script NPC_FALADORCASTLE_GUARD_1
 	lock
 	faceplayer
     namebox("Guard")
-	msgbox(format("Its a steep learning curve, but one day I will become a White Knight."))
+	msgbox(format("It's a steep learning curve, but one day I will become a White Knight."))
     closemessage
     hidenamebox
 	release
@@ -717,7 +745,7 @@ script NPC_FALADORCASTLE_WHITEKNIGHT_8
 script NPC_FALADORCASTLE_WHITEKNIGHT_9
 {
     trainerbattle_single(TRAINER_FALADOR_GYM_6, format("Looks like someone is a little lost, don't worry though I'll put you to rest."),format("Wow, I got wiped!\pAt least I will respawn here.") )
-    namebox("Sir ???")
+    namebox("Sir Atcha")
     if (!flag(FLAG_BADGE02_GET)) {
     msgbox(format("If you are tired of searching for Sir Amik Varze, might I suggest taking a rest?"))
     }
@@ -773,7 +801,7 @@ script NPC_FALADORCASTLE_WHITEKNIGHT_13
 		case 4: 
 			lock
 			faceplayer
-			namebox("Sir Loin")
+			namebox("Sir Iyus Lee")
 			msgbox(format("You would think Sir Amik Varze would be here in the throne room wouldn't you?\pWell sorry to burst your bubble, but he isn't here."))
             hidenamebox
             closemessage
@@ -782,7 +810,7 @@ script NPC_FALADORCASTLE_WHITEKNIGHT_13
         case 5:
 			lock
 			faceplayer
-            namebox("Sir Loin")
+            namebox("Sir Iyus Lee")
 			msgbox(format("King Vallance?\pYeh, he is still alive and kicking.\pWe try our best to keep the bucket away from him."))
             hidenamebox
             closemessage
@@ -828,7 +856,7 @@ script BOOK_FALADORCASTLE_GUARD_INFO
 script SIGN_BLURITE_CUPBOARD
 {
 	lock
-	msgbox(format("It looks like there was once a picture in the cupboard but someone must of taken it."))
+	msgbox(format("It looks like there was once a picture in the cupboard but someone must have taken it."))
     closemessage
     hidenamebox
 	release
@@ -848,10 +876,10 @@ script BOOK_FALADORCASTLE_SIRVYVIN
 script BOOK_CRANDOR
 {
 	lock
-	msgbox(format("It's a book about the Isle of Crandor.\pRead it?"), MSGBOX_YESNO)
+	msgbox(format("It's a book about the Isle of Crandor.\pIt looks quite long.\pRead it?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     { 
-        msgbox(format("Nothing interesting happens…"))
+        msgbox(format("Crandor was known throughout Gielinor for developing its own school of magic and possessing one of the largest libraries in the world.\pMost of the city was built on piers which extended out onto the sea, with a large market located in the central cove.\pDue to their naval prowess, being able to carefully navigate the dangerous reefs that surrounded the island, the inhabitants were able to sail to various ports around Gielinor and trade with Asgarnians, Misthalinians, gnomes, and even the Fremennik.\pDue to this, for some time it was considered to be an influential city-state with political importance rivalling that of Varrock and Falador.\pMany Crandorians even earned the right to be members of the Champions’ Guild.\pUnfortunately, one day one of their adventurers went too far and entered the volcano,\pdiscovering the lair of a ferocious dragon named Elvarg.\pEnraged that she had been awoken from her slumber, Elvarg fought the adventurer.\pThe dragon won the fight,\pbut it is said that the adventurer managed to leave her with a scar down her side before he perished.\pElvarg then emerged from the volcano setting the entirety of the island ablaze in a fit of fiery wrath.\pSeveral Crandorians fled to the shores near Rimmington and set up a camp there, but Elvarg pursued them and scorched that too.\pIt is said that only three mages survived the onslaught; Lozar, Thalzar, and Melzar.\pThankfully, Elvarg has never been seen on the mainland again\pthough it is thought that she continues to be active around Crandor.\pMany sailors will not go anywhere near it for fear of their ships being attacked."))
     }
     closemessage
     hidenamebox
@@ -906,18 +934,6 @@ script NPC_FALADORCASTLE_COOK
 
 
 
-//ROUTE 23
-script NPC_ROUTE23_DWARF_ROCKS
-{
-	lock
-	faceplayer
-    namebox ("DWARF")
-	msgbox(format("If only those goblins did not steal our pickaxe supplies.\pThen I could easily clear this rockslide."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
 //ROUTE 24
 
@@ -925,7 +941,7 @@ script NPC_ROUTE24_DORIC
 {
 	lock
 	faceplayer
-    namebox ("DORIC")
+    namebox ("Doric")
 	msgbox(format("Hello traveller, I was wondering if you could get me some Iron ore.\pYou see, suddenly all ya human-folk are obsessed with Ironman mode and I want in.{PAUSE 15}\pWhat does that mean I have to get it myself?\pNonsense!\pStop kidding around and get this old dwarf some iron ore.\pI will reward you of course!"))
     closemessage
     hidenamebox

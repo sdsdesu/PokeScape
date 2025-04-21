@@ -3131,6 +3131,13 @@ extern const u8 gText_BROWN_WATER[];
 extern const u8 gText_PICKAXE[];
 extern const u8 gText_AXE[];
 
+extern const u8 gText_BAGUETTE[];
+extern const u8 gText_TRIANGLE_SANDWICH[];
+
+extern const u8 gText_RenameMon[];
+extern const u8 gText_ReLearnMove[];
+extern const u8 gText_ForgetMove[];
+
 //pokescape cheat menu
 extern const u8 gText_CheatEvolutionShop[];
 extern const u8 gText_CheatPouchShop[];
@@ -3205,6 +3212,27 @@ extern const u8 gText_SubQuest1_Desc_RuneMysteries_1[];
 extern const u8 gText_SubQuest1_Desc_RuneMysteries_2[];
 extern const u8 gText_SubQuest1_Desc_RuneMysteries_3[];
 extern const u8 gText_MapName_Route7[];
+extern const u8 gText_SubQuest_RuneMysteries_4[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_4[];
+extern const u8 gText_SubQuest_RuneMysteries_5[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_5[];
+extern const u8 gText_SubQuest_RuneMysteries_6[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_6[];
+extern const u8 gText_SubQuest_RuneMysteries_7[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_7[];
+extern const u8 gText_SubQuest_RuneMysteries_8[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_8[];
+extern const u8 gText_SubQuest_RuneMysteries_9[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_9[];
+extern const u8 gText_SubQuest_RuneMysteries_10[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_10[];
+extern const u8 gText_SubQuest_RuneMysteries_11[];
+extern const u8 gText_SubQuest1_Desc_RuneMysteries_11[];
+extern const u8 gText_MapName_LumbridgeSwamp[];
+extern const u8 gText_MapName_Route28[];
+extern const u8 gText_MapName_Route17[];
+extern const u8 gText_MapName_Route23[];
+extern const u8 gText_MapName_Route33[];
 
 //Quest - Ernest
 extern const u8 gText_SideQuestName_Ernest[];
@@ -3214,6 +3242,10 @@ extern const u8 gText_SideQuestMap_Draynor_Manor[];
 extern const u8 gText_SubQuest_Ernest_Name1[];
 extern const u8 gText_SubQuest_Ernest_Name2[];
 extern const u8 gText_SubQuest_Ernest_Name3[];
+extern const u8 gText_SubQuest_Ernest_Name4[];
+extern const u8 gText_SubQuest_Ernest_Name5[];
+extern const u8 gText_SubQuest_Ernest_Desc4[];
+extern const u8 gText_SubQuest_Ernest_Desc5[];
 
 //Quest - Kourend Slayer
 extern const u8 gText_SideQuestName_Kourend_Slayer[];
@@ -3233,10 +3265,91 @@ extern const u8 gText_SubQuest_Banana_Boat_Name1[];
 extern const u8 gText_SubQuest_Banana_Boat_Name2[];
 extern const u8 gText_SubQuest_Banana_Boat_Name3[];
 
+//MvM Championships
+extern const u8 gText_SideQuestName_MvM_Championships[];
+extern const u8 gText_SideQuestDesc_MvM_Championships[];
+extern const u8 gText_SideQuestDesc_Completed_MvM_Championships[];
+extern const u8 gText_SubQuest_MvM_Championships_Name1[];
+extern const u8 gText_SubQuest_MvM_Championships_Name2[];
+extern const u8 gText_SubQuest_MvM_Championships_Name3[];
+extern const u8 gText_SubQuest_MvM_Championships_Name4[];
+extern const u8 gText_SubQuest_MvM_Championships_Name5[];
+extern const u8 gText_SubQuest_MvM_Championships_Name6[];
+extern const u8 gText_SubQuest_MvM_Championships_Name7[];
+extern const u8 gText_SubQuest_MvM_Championships_Name8[];
+extern const u8 gText_SubQuest_MvM_Championships_Name9[];
+extern const u8 gText_SubQuest_MvM_Championships_Name10[];
+extern const u8 gText_SubQuest_MvM_Championships_Name11[];
+extern const u8 gText_SubQuest_MvM_Championships_Name12[];
+extern const u8 gText_SubQuest_MvM_Championships_Name13[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc1[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc2[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc3[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc4[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc5[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc6[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc7[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc8[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc9[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc10[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc11[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc12[];
+extern const u8 gText_SubQuest_MvM_Championships_Desc13[];
+
+extern const u8 gText_MapName_Falador[];
+extern const u8 gText_MapName_Tzhaar[];
+extern const u8 gText_MapName_Varrock[];
+extern const u8 gText_MapName_AlKharid[];
+extern const u8 gText_MapName_Edgeville[];
+extern const u8 gText_MapName_BarbarianVillage[];
+extern const u8 gText_MapName_Daemonheim[];
+extern const u8 gText_MapName_WildernessCrater[];
+
+extern const u8 gText_MapName_DraynorManor[];
+extern const u8 gText_MapName_LumbridgeForest[];
+extern const u8 gText_MapName_PortSarim[];
+extern const u8 gText_MapName_MelzarsMaze[];
+extern const u8 gText_MapName_DwarvenMines[];
+extern const u8 gText_MapName_Crandor[];
+
+extern const u8 gText_SideQuestName_Main_Story[];
+extern const u8 gText_SideQuestDesc_Main_Story[];
+extern const u8 gText_SubQuest_Main_Story_Name1[];
+extern const u8 gText_SubQuest_Main_Story_Desc1[];
+extern const u8 gText_SubQuest_Main_Story_Name2[];
+extern const u8 gText_SubQuest_Main_Story_Desc2[];
+extern const u8 gText_SubQuest_Main_Story_Name3[];
+extern const u8 gText_SubQuest_Main_Story_Desc3[];
+extern const u8 gText_SubQuest_Main_Story_Name4[];
+extern const u8 gText_SubQuest_Main_Story_Desc4[];
+extern const u8 gText_SubQuest_Main_Story_Name5[];
+extern const u8 gText_SubQuest_Main_Story_Desc5[];
+extern const u8 gText_SubQuest_Main_Story_Name6[];
+extern const u8 gText_SubQuest_Main_Story_Desc6[];
+extern const u8 gText_SubQuest_Main_Story_Name7[];
+extern const u8 gText_SubQuest_Main_Story_Desc7[];
+extern const u8 gText_SubQuest_Main_Story_Name8[];
+extern const u8 gText_SubQuest_Main_Story_Desc8[];
+extern const u8 gText_SubQuest_Main_Story_Name9[];
+extern const u8 gText_SubQuest_Main_Story_Desc9[];
+extern const u8 gText_SubQuest_Main_Story_Name10[];
+extern const u8 gText_SubQuest_Main_Story_Desc10[];
+
+extern const u8 gText_SideQuestName_MithrilmanQuest[];
+extern const u8 gText_SideQuestDesc_MithrilmanQuest[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name1[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc1[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name2[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc2[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name3[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc3[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name4[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc4[];
 
 
 
 /*
+
 //names
 extern const u8 gText_SideQuestName_1[];
 extern const u8 gText_SideQuestName_2[];
@@ -3483,5 +3596,10 @@ extern const u8	gText_DragonScimitar_Desc[];
 extern const u8	gText_ElementalShield_Desc[];
 extern const u8	gText_GraniteMaul_Desc[];
 extern const u8	gText_KrakenTentacle_Desc[];
+extern const u8 gText_TrainerCardTokkul[];
+extern const u8 gText_TrainerCardSlayerPoints[];
+extern const u8 gText_SlayerPoints[];
+extern const u8 gText_Tokkul[];
+
 
 #endif // GUARD_STRINGS_H

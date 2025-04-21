@@ -785,7 +785,7 @@ RusturfTunnel_EventScript_SetRusturfTunnelOpen::
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDAS_BOYFRIEND
 	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA
 	setvar VAR_RUSTURF_TUNNEL_STATE, 6
-	setflag FLAG_RUSTURF_TUNNEL_OPENED
+
 	return
 
 EventScript_UnusedBoardFerry::
@@ -1162,9 +1162,9 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Kalphite_Caves_B1F/scripts.inc"
 	.include "data/maps/Kalphite_Caves_B2F/scripts.inc"
 	.include "data/maps/Kalphite_Caves_B3F/scripts.inc"
-	.include "data/maps/Tzhaar_1F/scripts.inc"
+	.include "data/maps/Mor_Ul_Rek/scripts.inc"
 	.include "data/maps/Giant_Mole_Cave/scripts.inc"
-	.include "data/maps/Tzhaar_FightCaves/scripts.inc"
+	.include "data/maps/Tzhaar_Gym_Room/scripts.inc"
 	.include "data/maps/Route39/scripts.inc"
 	.include "data/maps/Varrock_House_1/scripts.inc"
 	.include "data/maps/Varrock_House_1_Up/scripts.inc"
@@ -1510,3 +1510,63 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Tzhaar_HarAken/scripts.inc"
 
 	.include "data/maps/Draynor_House_PokeScaper/scripts.inc"
+
+	.include "data/maps/Puro_Puro1/scripts.inc"
+
+	.include "data/maps/Puro_Puro2/scripts.inc"
+
+	.include "data/maps/Puro_Puro3/scripts.inc"
+
+	.include "data/maps/Lumbridge_House_5/scripts.inc"
+
+	.include "data/maps/Falador_House_1/scripts.inc"
+
+	.include "data/maps/GoblinVillage_House_4/scripts.inc"
+
+	.include "data/maps/BarbarianVillage_House_3/scripts.inc"
+
+	.include "data/maps/Tzhaar_Fight_Caves/scripts.inc"
+
+	.include "data/maps/Route8_MakeoverMage_2F/scripts.inc"
+
+	.include "data/maps/Cooking_Guild/scripts.inc"
+
+	.include "data/maps/Varrock_House_10/scripts.inc"
+
+	.include "data/maps/Black_Knights_Fortress_1/scripts.inc"
+
+	.include "data/maps/Black_Knights_Fortress_2/scripts.inc"
+
+	.include "data/maps/Black_Knights_Fortress_3/scripts.inc"
+
+	.include "data/maps/Black_Knights_Fortress_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_1/scripts.inc"
+
+	.include "data/maps/Dung_Gym_2/scripts.inc"
+
+	.include "data/maps/Dung_Gym_3/scripts.inc"
+
+	.include "data/maps/Dung_Gym_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_5/scripts.inc"
+
+	.include "data/maps/Dung_Gym_6/scripts.inc"
+
+	.include "data/maps/Dung_Gym_7/scripts.inc"
+
+	.include "data/maps/Dung_Gym_8/scripts.inc"
+
+	.include "data/maps/Dung_Gym_9/scripts.inc"
+
+	.include "data/maps/Dung_Gym_10/scripts.inc"
+
+	.include "data/maps/Dung_Gym_11/scripts.inc"
+
+	.include "data/maps/Dung_Gym_12/scripts.inc"
+
+	.include "data/maps/Dung_Gym_13/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_1/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_2/scripts.inc"

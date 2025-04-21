@@ -312,6 +312,7 @@ SAFARI_ZONE_ALTAR_STATE::
 	case 6, SAFARI_ZONE_ALTAR_STATE_9
 	case 7, SAFARI_ZONE_ALTAR_STATE_10
 SAFARI_ZONE_ALTAR_STATE_1:
+	waitstate
 	release
 	end
 
@@ -453,4 +454,4 @@ ITEM_SAFARI_ZONE_POUCH_Text_0:
 	.string "You found extra Pouches!$"
 
 POKESCAPE_CURRENT_VERSION_Text_0:
-	.string "PokeScape Version 1.6.0$"
+	.string "PokeScape Version 2.0.1$"

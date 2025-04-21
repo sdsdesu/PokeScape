@@ -884,6 +884,31 @@ static const struct MenuAction MultichoiceList_AXES[] =
     {gText_PICKAXE},
     {gText_AXE},
 };
+static const struct MenuAction MultichoiceList_SANDWICH[] =
+{
+    {gText_BAGUETTE},
+    {gText_BAGUETTE},
+    {gText_BAGUETTE},
+    {gText_BAGUETTE},
+    {gText_BAGUETTE},
+    {gText_TRIANGLE_SANDWICH},
+};
+static const struct MenuAction MultichoiceList_TZHAAR_FIGHTCAVES[] =
+{
+    {gText_Challenge},
+    {gText_Info},
+    {gText_Exit},
+};
+static const struct MenuAction MultichoiceList_UTILITY[] =
+{
+    {gText_RenameMon},
+    {gText_ReLearnMove},
+    {gText_ForgetMove},
+    {gText_Exit},
+};
+
+
+
 
 static const struct MenuAction MultichoiceList_Exit[] =
 {
@@ -1027,6 +1052,9 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLAYER_MASTER]			   = MULTICHOICE(MultichoiceList_SLAYER_MASTER),
     [MULTI_SCURRIUS]			       = MULTICHOICE(MultichoiceList_SCURRIUS),
     [MULTI_AXES]			           = MULTICHOICE(MultichoiceList_AXES),
+    [MULTI_SANDWICH]			       = MULTICHOICE(MultichoiceList_SANDWICH),
+    [MULTI_TZHAAR_FIGHTCAVES]		   = MULTICHOICE(MultichoiceList_TZHAAR_FIGHTCAVES),
+    [MULTI_UTILITY]		               = MULTICHOICE(MultichoiceList_UTILITY),
 };
 
 const u8 *const gStdStrings[] =

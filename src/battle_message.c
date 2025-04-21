@@ -77,12 +77,12 @@ static const u8 sText_PkmnAvoidedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} avoided\
 static const u8 sText_ItDoesntAffect[] = _("It doesn't affect\n{B_DEF_NAME_WITH_PREFIX}…");
 static const u8 sText_AttackerFainted[] = _("{B_ATK_NAME_WITH_PREFIX}\nfainted!\p");
 static const u8 sText_TargetFainted[] = _("{B_DEF_NAME_WITH_PREFIX}\nfainted!\p");
-static const u8 sText_PlayerGotMoney[] = _("{B_PLAYER_NAME} got ¥{B_BUFF1}\nfor winning!\p");
+static const u8 sText_PlayerGotMoney[] = _("{B_PLAYER_NAME} got {B_BUFF1} GP\nfor winning!\p");
 static const u8 sText_PlayerLostToEnemyTrainer[] = _("{B_PLAYER_NAME} is out of\nusable MONSTERS!\pPlayer lost against\n{B_TRAINER1_CLASS} {B_TRAINER1_NAME}!{PAUSE_UNTIL_PRESS}");
-static const u8 sText_PlayerPaidPrizeMoney[] = _("{B_PLAYER_NAME} paid ¥{B_BUFF1} as the prize\nmoney…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerPaidPrizeMoney[] = _("{B_PLAYER_NAME} paid {B_BUFF1} GP as the prize\nmoney…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayerWhiteout[] = _("{B_PLAYER_NAME} is out of\nusable MONSTERS!\p");
 #if B_WHITEOUT_MONEY >= GEN_4
-static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} panicked and lost ¥{B_BUFF1}…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} panicked and lost {B_BUFF1} GP…\p… … … …\p{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
 #else
 static const u8 sText_PlayerWhiteout2[] = _("{B_PLAYER_NAME} whited out!{PAUSE_UNTIL_PRESS}");
 #endif
@@ -192,7 +192,7 @@ static const u8 sText_PkmnStayedAwakeUsing[] = _("{B_DEF_NAME_WITH_PREFIX} staye
 static const u8 sText_PkmnStoringEnergy[] = _("{B_ATK_NAME_WITH_PREFIX} is storing\nenergy!");
 static const u8 sText_PkmnUnleashedEnergy[] = _("{B_ATK_NAME_WITH_PREFIX} unleashed\nenergy!");
 static const u8 sText_PkmnFatigueConfusion[] = _("{B_ATK_NAME_WITH_PREFIX} became\nconfused due to fatigue!");
-static const u8 sText_PlayerPickedUpMoney[] = _("{B_PLAYER_NAME} picked up\n¥{B_BUFF1}!\p");
+static const u8 sText_PlayerPickedUpMoney[] = _("{B_PLAYER_NAME} picked up\n{B_BUFF1} GP!\p");
 static const u8 sText_PkmnUnaffected[] = _("{B_DEF_NAME_WITH_PREFIX} is\nunaffected!");
 static const u8 sText_PkmnTransformedInto[] = _("{B_ATK_NAME_WITH_PREFIX} transformed\ninto {B_BUFF1}!");
 static const u8 sText_PkmnMadeSubstitute[] = _("{B_ATK_NAME_WITH_PREFIX} made\na SUBSTITUTE!");
@@ -742,10 +742,10 @@ static const u8 sText_TormentedNoMore[] = _("{B_ATK_NAME_WITH_PREFIX} is\ntormen
 static const u8 sText_HealBlockedNoMore[] = _("{B_ATK_NAME_WITH_PREFIX} is cured of\nits heal block!");
 static const u8 sText_AttackerBecameFullyCharged[] = _("{B_ATK_NAME_WITH_PREFIX} became fully charged\ndue to its bond with its trainer!\p");
 static const u8 sText_AttackerBecameAshSpecies[] = _("{B_ATK_NAME_WITH_PREFIX} became Ash-{B_BUFF1}!\p");
-static const u8 sText_ExtremelyHarshSunlight[] = _("The sunlight turned\nextremely harsh!");
-static const u8 sText_ExtremeSunlightFaded[] = _("The extreme sunlight faded.{PAUSE 64}");
-static const u8 sText_MoveEvaporatedInTheHarshSunlight[] = _("The Water-type attack evaporated\nin the harsh sunlight!");
-static const u8 sText_ExtremelyHarshSunlightWasNotLessened[] = _("The extremely harsh sunlight\nwas not lessened at all!");
+static const u8 sText_ExtremelyHarshSunlight[] = _("The heat turned\nextremely harsh!");
+static const u8 sText_ExtremeSunlightFaded[] = _("The extreme heat faded.{PAUSE 64}");
+static const u8 sText_MoveEvaporatedInTheHarshSunlight[] = _("The Water-type attack evaporated\nin the harsh heat!");
+static const u8 sText_ExtremelyHarshSunlightWasNotLessened[] = _("The extremely harsh heat\nwas not lessened at all!");
 static const u8 sText_HeavyRain[] = _("A heavy rain began to fall!");
 static const u8 sText_HeavyRainLifted[] = _("The heavy rain has lifted!{PAUSE 64}");
 static const u8 sText_MoveFizzledOutInTheHeavyRain[] = _("The Fire-type attack fizzled out\nin the heavy rain!");
@@ -786,7 +786,7 @@ static const u8 sText_TargetToughedItOut[] = _("{B_DEF_NAME_WITH_PREFIX} toughed
 static const u8 sText_AttackerLostElectricType[] = _("{B_ATK_NAME_WITH_PREFIX} used up all\nof its electricity!");
 static const u8 sText_AttackerSwitchedStatWithTarget[] = _("{B_ATK_NAME_WITH_PREFIX} switched {B_BUFF1}\nwith its target!");
 static const u8 sText_BeingHitChargedPkmnWithPower[] = _("Being hit by {B_CURRENT_MOVE}\ncharged {B_DEF_NAME_WITH_PREFIX} with power!");
-static const u8 sText_SunlightActivatedAbility[] = _("The harsh sunlight activated\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ABILITY}!");
+static const u8 sText_SunlightActivatedAbility[] = _("The harsh heat activated\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ABILITY}!");
 static const u8 sText_StatWasHeightened[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_BUFF1} was heightened!");
 static const u8 sText_ElectricTerrainActivatedAbility[] = _("The Electric Terrain activated\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_LAST_ABILITY}!");
 static const u8 sText_AbilityWeakenedSurroundingMonsStat[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_ATK_ABILITY}\nweakened the {B_BUFF1} of\lall surrounding Monsters!\p");
@@ -834,6 +834,9 @@ static const u8 sText_HurtByTheSeaOfFire[] = _("{B_ATK_TEAM1} {B_ATK_NAME_WITH_P
 static const u8 sText_TheSeaOfFireDisappeared[] = _("The sea of fire around {B_ATK_TEAM2}\nteam disappeared!");
 static const u8 sText_SwampEnvelopedSide[] = _("A swamp enveloped\n{B_DEF_TEAM2} team!");
 static const u8 sText_TheSwampDisappeared[] = _("The swamp around {B_ATK_TEAM2}\nteam disappeared!");
+static const u8 sText_WeatherDisapearedBook[] = _("The effects of weather disappeared\ndue to the Book of Balance.");
+static const u8 sText_TzhaarWeather1[] = _("It is very hot.");
+static const u8 sText_TzhaarWeather2[] = _("The heat is way too extreme!");
 
 //Pokescape Start
 static const u8 sText_CantRunFromRat[] = _("DON'T EVEN THINK ABOUT RUNNING\nFROM A RAT!!");
@@ -845,18 +848,33 @@ static const u8 sText_ToragHammer[] =_("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ITEM}
 static const u8 sText_Petrify[] =_("{B_SCR_ACTIVE_NAME_WITH_PREFIX}'s {B_SCR_ACTIVE_ABILITY}\nlowers {B_DEF_NAME_WITH_PREFIX}'s SPEED!");
 static const u8 sText_TooScared[] =_("{B_ATK_NAME_WITH_PREFIX}'s {B_LAST_ABILITY} makes\n{B_DEF_NAME_WITH_PREFIX} only able to attack!");
 static const u8 sText_FireShieldEnds[] = _("{B_DEF_NAME_WITH_PREFIX}'s fire shield\ndissipates!");
-
-//trainer battle messages
+static const u8 sText_AntiDragonShieldReducedDamage[] = _("The Dragonfire Shield reduced\nthe incoming damage.");
+static const u8 sText_SpiritShieldReducedDamage[] = _("The Spirit Shield reduced\nthe incoming damage.");
+static const u8 sText_EatingSandwich[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} happily\nconsumes the {B_LAST_ITEM}.\p{B_BUFF1} was boosted.\nHP was restored.");
 static const u8 sText_Demonheadge_BeforeFirstTurn[] = _("Oh, ho.\nYou dare approach me?!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_Demonheadge_MegaEvolves[] = _("I've got one up on Sigmund!\pI shall be the first Trainer\nin PokeScape to MEGA EVOLVE!!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_Demonheadge_PlayerMonUnaffected[] = _("Oh please, come back when you've\nlearnt your type weakness.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_Demonheadge_FirstSTABMove[] = _("Ow! Now thats a STAB wound.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_Demonheadge_PlayerLost[] = _("It seems I have won this fight.\pBack to Lumbridge for you.{PAUSE_UNTIL_PRESS}");
-
-
 static const u8 sText_CountDraynor_BeforeFirstTurn[] = _("I will drain you dry!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CountDraynor_SwitchIn[] = _("We fight till the last drop.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_CountDraynor_PlayerLost[] = _("Pathetic human.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SandwichLady_BeforeFirstTurn[] = _("You should have picked the\ntriangle sandwich.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SandwichLady_SwitchIn[] = _("Oh dear…\pIt appears I'm down to\nmy last monster.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SandwichLady_LastHalfHp[] = _("I'm down to my last\nbaguette!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SandwichLady_FirstSuperEffectiveHit[] = _("Hey, I didn't say you could\ndo that!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Maggie_BeforeFirstTurn[] = _("I can feel it now, this is going to be\na splentabulous battle!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Maggie_SwitchIn[] = _("Now that wasn't very nice of cha!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Maggie_PlayerLost[] = _("Sweet, sweet victory.\pI think cha should go back and train\ncha's monsters some more.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Melzar_BeforeFirstTurn[] = _("Let me drink my tea in peace!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Melzar_SwitchIn[] = _("By the power of custard!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Melzar_LastLowHp[] = _("Leave me alone, I need to feed my\npet rock!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Melzar_PlayerMonUnaffected[] = _("Cabbage stew!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Melzar_PlayerLost[] = _("Feel the wrath of my feet!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PlayerGotTokkul[] = _("{B_PLAYER_NAME} got {B_BUFF1} TOKKUL\nfor winning!\p");
+static const u8 sText_CutHPIncreasedStats[] = _("{B_ATK_NAME_WITH_PREFIX} increased it's\nstats at the cost of it's health!");
+
+
 
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
@@ -1558,18 +1576,35 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PETRIFY - BATTLESTRINGS_TABLE_START] = sText_Petrify,
     [STRINGID_TOOSCARED - BATTLESTRINGS_TABLE_START] = sText_TooScared,
     [STRINGID_FIRESHIELDENDS - BATTLESTRINGS_TABLE_START] = sText_FireShieldEnds,
-
-    //TRAINER MESSAGES
     [STRINGID_DEMONHEADGE_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Demonheadge_BeforeFirstTurn,
     [STRINGID_DEMONHEADGE_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Demonheadge_MegaEvolves,
     [STRINGID_DEMONHEADGE_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Demonheadge_PlayerMonUnaffected,
     [STRINGID_DEMONHEADGE_MESSAGE_4 - BATTLESTRINGS_TABLE_START] = sText_Demonheadge_FirstSTABMove,
     [STRINGID_DEMONHEADGE_MESSAGE_5 - BATTLESTRINGS_TABLE_START] = sText_Demonheadge_PlayerLost,
-
     [STRINGID_COUNTDRAYNOR_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_CountDraynor_BeforeFirstTurn,
     [STRINGID_COUNTDRAYNOR_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_CountDraynor_SwitchIn,
     [STRINGID_COUNTDRAYNOR_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_CountDraynor_PlayerLost,
-    
+    [STRINGID_SANDWICHLADY_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_SandwichLady_BeforeFirstTurn,
+    [STRINGID_SANDWICHLADY_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_SandwichLady_SwitchIn,
+    [STRINGID_SANDWICHLADY_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_SandwichLady_LastHalfHp,
+    [STRINGID_SANDWICHLADY_MESSAGE_4 - BATTLESTRINGS_TABLE_START] = sText_SandwichLady_FirstSuperEffectiveHit,
+    [STRINGID_ANTIDRAGONSHIELDREDUCEDAMAGE - BATTLESTRINGS_TABLE_START] = sText_AntiDragonShieldReducedDamage,
+    [STRINGID_SPIRITSHIELDREDUCEDAMAGE - BATTLESTRINGS_TABLE_START] = sText_SpiritShieldReducedDamage,
+    [STRINGID_EATINGSANDWICH - BATTLESTRINGS_TABLE_START] = sText_EatingSandwich,
+    [STRINGID_MAGGIE_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Maggie_BeforeFirstTurn,
+    [STRINGID_MAGGIE_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Maggie_SwitchIn,
+    [STRINGID_MAGGIE_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Maggie_PlayerLost,
+    [STRINGID_MELZAR_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Melzar_BeforeFirstTurn,
+    [STRINGID_MELZAR_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Melzar_SwitchIn,
+    [STRINGID_MELZAR_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Melzar_LastLowHp,
+    [STRINGID_MELZAR_MESSAGE_4 - BATTLESTRINGS_TABLE_START] = sText_Melzar_PlayerMonUnaffected,
+    [STRINGID_MELZAR_MESSAGE_5 - BATTLESTRINGS_TABLE_START] = sText_Melzar_PlayerLost,
+    [STRINGID_REMOVEWEATHERBOOK - BATTLESTRINGS_TABLE_START] = sText_WeatherDisapearedBook,
+    [STRINGID_TZHAAR_WEATHER_1 - BATTLESTRINGS_TABLE_START] = sText_TzhaarWeather1,
+    [STRINGID_TZHAAR_WEATHER_2 - BATTLESTRINGS_TABLE_START] = sText_TzhaarWeather2,
+    [STRINGID_PLAYERGOTTOKKUL - BATTLESTRINGS_TABLE_START] = sText_PlayerGotTokkul,
+    [STRINGID_CUTHPINCREASEDSTATS - BATTLESTRINGS_TABLE_START] = sText_CutHPIncreasedStats,
+
 
 };
 
@@ -2080,7 +2115,8 @@ const u16 gDamageNonTypesDmgStringIds[] =
 };
 
 const u8 gText_PkmnIsEvolving[] = _("What?\n{STR_VAR_1} is evolving!");
-const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevolved into {STR_VAR_2}!{WAIT_SE}\p");
+//const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nevolved into {STR_VAR_2}!{WAIT_SE}\p");
+const u8 gText_CongratsPkmnEvolved[] = _("Congratulations! Your {STR_VAR_1}\nhas evolved!{WAIT_SE}\p");
 const u8 gText_PkmnStoppedEvolving[] = _("Huh? {STR_VAR_1}\nstopped evolving!\p");
 const u8 gText_EllipsisQuestionMark[] = _("……?\p");
 const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_BUFF1} do?");
@@ -3236,7 +3272,8 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
     }
     else
     {
-        toCpy = gTrainers[trainerId].trainerName;
+        if (FlagGet(FLAG_TZHAAR_RANDOM)) toCpy = gTrainersFightCaves[trainerId].trainerName; //todo
+        else toCpy = gTrainers[trainerId].trainerName;
     }
 
     return toCpy;
@@ -3324,7 +3361,8 @@ static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
     else if (gBattleTypeFlags & BATTLE_TYPE_EREADER_TRAINER)
         toCpy = gTrainerClassNames[GetEreaderTrainerClassId()];
     else
-        toCpy = gTrainerClassNames[gTrainers[trainerId].trainerClass];
+        if (FlagGet(FLAG_TZHAAR_RANDOM)) toCpy = gTrainerClassNames[gTrainersFightCaves[trainerId].trainerClass];
+        else toCpy = gTrainerClassNames[gTrainers[trainerId].trainerClass];
 
     return toCpy;
 }
@@ -4187,7 +4225,32 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgLastSwitchIn = sText_CountDraynor_SwitchIn,
         .msgPlayerLost = sText_CountDraynor_PlayerLost,
     },
+
+    {
+        .trainerId = TRAINER_SANDWICH_LADY_1,
+        .msgBeforeFirstTurn = sText_SandwichLady_BeforeFirstTurn, //You should have picked the triangle sandwich.
+        .msgLastSwitchIn = sText_SandwichLady_SwitchIn, //Oh dear…
+        .msgLastHalfHp = sText_SandwichLady_LastHalfHp, //I'm down to my last baguette!
+        .msgFirstSuperEffectiveHit = sText_SandwichLady_FirstSuperEffectiveHit, //Hey, I didn't say you could do that!
+    },
+
+    {
+        .trainerId = TRAINER_MAGGIE,
+        .msgBeforeFirstTurn = sText_Maggie_BeforeFirstTurn,
+        .msgLastSwitchIn = sText_Maggie_SwitchIn,
+        .msgPlayerLost = sText_Maggie_PlayerLost,
+    },
+
+    {
+        .trainerId = TRAINER_MELZARSMAZE_MELZAR_THE_MAD,
+        .msgBeforeFirstTurn = sText_Melzar_BeforeFirstTurn, //Let me drink my tea in peace!
+        .msgLastSwitchIn = sText_Melzar_SwitchIn, //By the power of custard!
+        .msgLastLowHp = sText_Melzar_LastLowHp, //Leave me alone, I need to feed my pet rock!
+        .msgPlayerMonUnaffected = sText_Melzar_PlayerMonUnaffected, //Cabbage stew!
+        .msgPlayerLost = sText_Melzar_PlayerLost, //Feel the wrath of my feet!
+    },
 };
+
 
 
 

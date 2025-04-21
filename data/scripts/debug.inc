@@ -77,18 +77,23 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	goto(LEVEL_CAP_INCREASE)
 	end
 
 Debug_EventScript_Script_4::
+	goto(TOKKUL_CHECK)
 	end
 
 Debug_EventScript_Script_5::
+	goto(TOGGLE_BATTLE_SPEED)
 	end
 
 Debug_EventScript_Script_6::
+	goto(Friendship_Checker_Pikkupstix)
 	end
 
 Debug_EventScript_Script_7::
+	goto(GnomeBoi_Kevin)
 	end
 
 Debug_EventScript_Script_8::

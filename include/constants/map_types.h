@@ -13,6 +13,7 @@
 #define MAP_TYPE_SECRET_BASE 9
 #define MAP_TYPE_WILDERNESS  10
 #define MAP_TYPE_BARROWS     11
+#define MAP_TYPE_TZHAAR      12
 
 #define MAP_BATTLE_SCENE_NORMAL       0
 #define MAP_BATTLE_SCENE_GYM          1
@@ -23,5 +24,6 @@
 #define MAP_BATTLE_SCENE_GLACIA       6
 #define MAP_BATTLE_SCENE_DRAKE        7
 #define MAP_BATTLE_SCENE_FRONTIER     8
+#define MAP_BATTLE_SCENE_TOKHAAR      9
 
 #endif  // GUARD_CONSTANTS_MAP_TYPES_H

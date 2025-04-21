@@ -16,7 +16,7 @@ script Explorer_Jack_1
             applymovement(1, Movement_Explorer_Jack_1)
             waitmovement (0)
             namebox ("Explorer Jack")
-            msgbox(format("You're awake!\pDo you know what time it is?"))
+            msgbox(format("You're awake!\pDo you know what time it is?!"))
             goto (SetClock)
             hidenamebox
             setvar(VAR_TEMP_0, 1)
@@ -47,14 +47,18 @@ script SetClock
 
 script Explorer_Jack_2 {
 	namebox ("Explorer Jack")
-    gettime
-    if (var(VAR_0x8000) < 7 || var(VAR_0x8000) >= 21) {
-        msgbox(format("Are you sure you don't want to go back to bed?"))
-    } elif (var(VAR_0x8000) < 12) {
-        msgbox(format("I am surprised you're up this early, you usually oversleep."))
-    } else {
-        msgbox(format("It's about time you got up."))
-    }
+
+    special(GetTimeOfDaySpecial)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("It's quite late.\pAre you sure you don't want to go back to bed?"))
+		case 1:
+			msgbox(format("I am surprised you're up this early, you usually oversleep."))
+		case 2:
+			msgbox(format("That's right it's time to start the day."))
+		case 3:
+			msgbox(format("It's about time you got up, you've been sleeping all day."))
+	}
 	msgbox(format("Anyhow, I've got some news for you.\pApparently a famous researcher is currently visiting the Duke in Lumbridge Castle and I heard he is giving out Monsters to anyone who can help him with a quest!\pI think you should go pay him a visit seeing as you've always had a fondness for adventures."))
 	closemessage
 	hidenamebox
@@ -65,6 +69,7 @@ script Explorer_Jack_2 {
     setflag (FLAG_SYS_QUEST_MENU_GET) //Unlocks quest menu.
     additem (ITEM_ROTTEN_POTATO)
     setvar (VAR_POKESCAPE_STORYMODE_PROGRESS, 1) //Explorer Jack tells the player to go to Lumbridge Castle to meet the Prof.
+    startquest (QUEST_MAIN_STORY)
 	release
 	end
 }
@@ -130,7 +135,27 @@ script Explorer_Jack_3 {
 //---------------------------------
 script CHEAT_ITEM_PULSE_CORE
 {
-    finditem(ITEM_PULSE_CORE)
+    checkitem(ITEM_PULSE_CORE, 1)
+    if (var(VAR_RESULT)) {
+        finditem(ITEM_PRISMATIC_STAR)
+        applymovement(1, Movement_InteractFACEDOWN)
+        waitmovement (0)
+        namebox ("Explorer Jack")
+        msgbox(format("A Prismatic Star will gain a little bit of boosted experience to the monster holding it during battles.\pGive it to a monster to hold."))
+        closemessage
+        hidenamebox
+    }
+    else {
+        finditem(ITEM_PULSE_CORE)
+        applymovement(1, Movement_InteractFACEDOWN)
+        waitmovement (0)
+        namebox ("Explorer Jack")
+        msgbox(format("A Pulse Core will help your monsters share a little bit of extra experience after battles.\pToggle it on in the key items."))
+        closemessage
+        hidenamebox
+    }
+    applymovement(1, Movement_InteractFACEUP)
+    waitmovement (0)
     end
 }
 
@@ -142,7 +167,7 @@ script ITEM_LUMBRIDGE_BREAD_1
 
 script ITEM_LUMBRIDGE_STEEL_POUCH
 {
-    finditem(ITEM_STEEL_POUCH)
+    finditem(ITEM_POUCH_MITHRIL)
     end
 }
 
@@ -176,9 +201,15 @@ script ITEM_LUMBRIDGE_PRISMATIC_STAR
     end
 }
 
-script ITEM_ROUTE1_DEATH_RUNE
+script ITEM_ROUTE1_WATER_RUNE
 {
     finditem(ITEM_EARTH_RUNE)
+    end
+}
+
+script ITEM_LUMBRIDGE_FIRE_RUNE
+{
+    finditem(ITEM_FIRE_RUNE)
     end
 }
 
@@ -196,7 +227,7 @@ script ITEM_ROUTE1_BREAD
 
 script ITEM_ROUTE1_CHOCOLATE_SUNDAY
 {
-    finditem(ITEM_CHOCOLATE_SUNDAY)
+    finditem(ITEM_DONUT_SANDWICH)
     end
 }
 
@@ -208,7 +239,7 @@ script ITEM_MILLLANEMILL_TM05
 
 script ITEM_MILLLANEMILL_MITHRIL_POUCH
 {
-    finditem(ITEM_MITHRIL_POUCH)
+    finditem(ITEM_POUCH_MITHRIL)
     end
 }
 
@@ -250,7 +281,7 @@ script ITEM_ROUTE2_MAGIC_POTION
 
 script ITEM_ROUTE2_RUNE_POUCH
 {
-    finditem(ITEM_RUNE_POUCH)
+    finditem(ITEM_POUCH_RUNE)
     end
 }
 
@@ -290,7 +321,7 @@ script ITEM_ROUTE12_BREAD
 
 script ITEM_ROUTE12_WIZARDS_BLIZZARD
 {
-    finditem(ITEM_WIZARDS_BLIZZARD)
+    finditem(ITEM_CHOCOLATE_SUNDAY)
     end
 }
 
@@ -320,9 +351,14 @@ script ITEM_ROUTE12_PRAYER_POTION
 
 //DRAYNOR MANOR
 
-script ITEM_DRAYNORMANOR_TM43_PSYCHO_CUT
+script ITEM_DRAYNORMANOR_TM55_HEX
 {
-    finditem(ITEM_TM43_PSYCHO_CUT)
+    finditem(ITEM_TM55_HEX)
+    end
+}
+script ITEM_DRAYNORMANOR_TEA_2
+{
+    finditem(ITEM_REPEL_TEA_1)
     end
 }
 
@@ -330,9 +366,16 @@ script ITEM_DRAYNORMANOR_TM43_PSYCHO_CUT
 //WIZARDS TOWER
 script ITEM_WIZARDSTOWER_AIR_RUNE_2
 {
-    finditem(ITEM_AIR_RUNE)
+    finditem(ITEM_MIND_RUNE)
     end
 }
+
+script ITEM_WIZARDSTOWER_RUNE_3
+{
+    finditem(ITEM_BODY_RUNE)
+    end
+}
+
 
 script ITEM_ROUTE4_FLAX
 {
@@ -379,6 +422,6 @@ script ITEM_DRAYNORMANOR_TEA
 }
 script ITEM_DRAYNORMANOR_POUCHES
 {
-    finditem(ITEM_NORMAL_POUCH, 5)
+    finditem(ITEM_POUCH, 5)
     end
 }

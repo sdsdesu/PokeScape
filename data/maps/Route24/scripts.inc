@@ -1,9 +1,15 @@
 Route24_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route24_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Route24_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Route24_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 3
+	call RANDOM_EVENT_IMPLING
+	return
+
+Route24_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call PURO_PURO_EVENT
 	return
 
 
@@ -65,7 +71,7 @@ BATTLE_ROUTE24_WOODCUTTER_1::
 
 BATTLE_ROUTE24_WOODCUTTER_2::
 	trainerbattle_single TRAINER_ROUTE24_WOODCUTTER_2, BATTLE_ROUTE24_WOODCUTTER_2_Text_0, BATTLE_ROUTE24_WOODCUTTER_2_Text_1
-	namebox BATTLE_ROUTE24_MUGGER_Text_2
+	namebox BATTLE_ROUTE24_WOODCUTTER_2_Text_2
 	msgbox BATTLE_ROUTE24_WOODCUTTER_2_Text_1
 	hidenamebox
 	release
@@ -74,6 +80,7 @@ BATTLE_ROUTE24_WOODCUTTER_2::
 
 BATTLE_ROUTE24_GOBLIN_1::
 	trainerbattle_single TRAINER_ROUTE24_GOBLIN_1, BATTLE_ROUTE24_GOBLIN_1_Text_0, BATTLE_ROUTE24_GOBLIN_1_Text_1
+	namebox BATTLE_ROUTE24_GOBLIN_1_Text_2
 	msgbox BATTLE_ROUTE24_GOBLIN_1_Text_1
 	hidenamebox
 	release
@@ -136,6 +143,23 @@ BATTLE_ROUTE40_DIVINER::
 	end
 
 
+PURO_PURO_EVENT_ROUTE24::
+	setmetatile 15, 27, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 14, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 15, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 17, 28, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 14, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 15, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 17, 29, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 15, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 17, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 18, 30, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 16, 28, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0
+	setmetatile 16, 29, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0
+	setmetatile 16, 30, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
+	return
+
+
 ROUTE24_SIGNPOST_Text_0:
 	.string "East to Taverley.\p"
 	.string "North to Goblin Village\p"
@@ -149,11 +173,10 @@ NPC_ROUTE24_BLOCKADE_1_Text_0:
 	.string "White Knight$"
 
 NPC_ROUTE24_BLOCKADE_1_Text_1:
-	.string "Sorry you need to be a member to access\n"
-	.string "past here.\p"
-	.string "What is a member?\p"
-	.string "A member is someone who has obtained\n"
-	.string "all of the badges in F2P.$"
+	.string "Beyond here is too dangerous due to\n"
+	.string "the Trolls invading Burthorpe.\p"
+	.string "Only members of the White Knights may\n"
+	.string "pass.$"
 
 BATTLE_ROUTE24_MUGGER_Text_0:
 	.string "Deliver and stand!$"
@@ -165,7 +188,7 @@ BATTLE_ROUTE24_MUGGER_Text_1:
 	.string "Ok then…$"
 
 BATTLE_ROUTE24_MUGGER_Text_2:
-	.string "RSN$"
+	.string "Mugger$"
 
 BATTLE_ROUTE24_WOODCUTTER_1_Text_0:
 	.string "Woodcutting is more than just cutting\n"
@@ -186,11 +209,17 @@ BATTLE_ROUTE24_WOODCUTTER_2_Text_1:
 	.string "I bet you don't even have over 20\n"
 	.string "Woodcutting.$"
 
+BATTLE_ROUTE24_WOODCUTTER_2_Text_2:
+	.string "L0ggerh3ad$"
+
 BATTLE_ROUTE24_GOBLIN_1_Text_0:
 	.string "Prepare for battle human!$"
 
 BATTLE_ROUTE24_GOBLIN_1_Text_1:
 	.string "Human prepare well.$"
+
+BATTLE_ROUTE24_GOBLIN_1_Text_2:
+	.string "Cleansbane$"
 
 BATTLE_ROUTE24_GOBLIN_2_Text_0:
 	.string "Stay out of village smelly human!$"
@@ -254,7 +283,7 @@ BATTLE_ROUTE40_DIVINER_Text_1:
 	.string "It makes me feel all tingly!$"
 
 BATTLE_ROUTE40_DIVINER_Text_2:
-	.string "DIVINER$"
+	.string "Nyx$"
 
 BATTLE_ROUTE40_DIVINER_Text_3:
 	.string "You feel it too don't you?\p"

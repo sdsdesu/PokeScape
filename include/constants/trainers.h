@@ -16,6 +16,9 @@
 #define TRAINER_UNION_ROOM                  3072
 #define TRAINER_STEVEN_PARTNER              3075
 #define TRAINER_CUSTOM_PARTNER              3076
+#define TRAINER_ZANIK_PARTNER               3077
+#define TRAINER_ARIANE_PARTNER              3078
+#define TRAINER_OWEN_PARTNER                3079
 
 #define TRAINER_PIC_HIKER                  0
 #define TRAINER_PIC_AQUA_GRUNT_M           1
@@ -111,6 +114,8 @@
 #define TRAINER_PIC_RS_BRENDAN            91
 #define TRAINER_PIC_RS_MAY                92
 //POKESCAPE
+
+
 #define TRAINER_PIC_a_nub_tot             93
 #define TRAINER_PIC_ariane                94
 #define TRAINER_PIC_count_draynor         95
@@ -272,6 +277,9 @@
 #define TRAINER_PIC_worldguardian				251
 #define TRAINER_PIC_sagittarian				    252
 #define TRAINER_PIC_tzhaar_ket				    253
+#define TRAINER_PIC_sandwich_lady   		    254
+#define TRAINER_PIC_guard_varrock_pose   		255
+#define TRAINER_PIC_tzhaar_ket_hd   		    256
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -282,6 +290,9 @@
 #define TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY      5
 #define TRAINER_BACK_PIC_WALLY                  6
 #define TRAINER_BACK_PIC_STEVEN                 7
+#define TRAINER_BACK_PIC_ZANIK                  8
+#define TRAINER_BACK_PIC_ARIANE                 9
+#define TRAINER_BACK_PIC_OWEN                   10
 
 #define FACILITY_CLASS_HIKER                 0x0
 #define FACILITY_CLASS_AQUA_GRUNT_M          0x1
@@ -596,8 +607,14 @@
 #define TRAINER_CLASS_JAILER		    0x87
 #define TRAINER_CLASS_FORGOTTEN         0x88
 #define TRAINER_CLASS_RANGER            0x89
+#define TRAINER_CLASS_SANDWICH          0x8a
+#define TRAINER_CLASS_MELZAR            0x8b
+#define TRAINER_CLASS_ZAMORAK           0x8c
 
-#define TRAINER_CLASS_NUM       		0x8A
+
+
+
+#define TRAINER_CLASS_NUM       		0x8c
 
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // Standard male encounter music

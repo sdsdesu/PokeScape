@@ -1231,7 +1231,7 @@ static void PrintItemSoldAmount(int windowId, int numSold, int moneyEarned)
     ConvertIntToDecimalStringN(gStringVar1, numSold, STR_CONV_MODE_LEADING_ZEROS, numDigits);
     StringExpandPlaceholders(gStringVar4, gText_xVar1);
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 0, 1, TEXT_SKIP_DRAW, 0);
-    PrintMoneyAmount(windowId, 38, 1, moneyEarned, 0);
+    PrintMoneyAmount(windowId, 30, 1, moneyEarned, 0);
 }
 
 static void Task_BagMenu_HandleInput(u8 taskId)
@@ -2381,7 +2381,7 @@ void DoWallyTutorialBagMenu(void)
 {
     PrepareBagForWallyTutorial();
     AddBagItem(ITEM_POTION, 1);
-    AddBagItem(ITEM_NORMAL_POUCH, 1);
+    AddBagItem(ITEM_POUCH, 1);
     GoToBagMenu(ITEMMENULOCATION_WALLY, ITEMS_POCKET, CB2_SetUpReshowBattleScreenAfterMenu2);
 }
 
@@ -2404,7 +2404,7 @@ static void Task_WallyTutorialBagMenu(u8 taskId)
         case WALLY_BAG_DELAY * 2:
             PlaySE(SE_SELECT);
             BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
-            gSpecialVar_ItemId = ITEM_NORMAL_POUCH;
+            gSpecialVar_ItemId = ITEM_POUCH;
             OpenContextMenu(taskId);
             tTimer++;
             break;

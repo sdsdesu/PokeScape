@@ -1329,7 +1329,7 @@ $(MID_SUBDIR)/MUS_PS_ALKHARID.s: %.s: %.mid
 $(MID_SUBDIR)/MUS_PS_MUSA_POINT.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 
-$(MID_SUBDIR)/MUS_PS_TZHAAR.s: %.s: %.mid
+$(MID_SUBDIR)/MUS_PS_CUPHOLDER_1.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 
 $(MID_SUBDIR)/MUS_PS_BARBARIAN_VILLAGE.s: %.s: %.mid
@@ -1435,7 +1435,7 @@ $(MID_SUBDIR)/MUS_PS_ENCOUNTER_MITHRILMAN.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 
 $(MID_SUBDIR)/MUS_PS_QUEST_COMPLETE.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V090 -P5
 
 $(MID_SUBDIR)/MUS_PS_KOUREND_CATACOMBS.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G146 -V080 -P1
@@ -1458,8 +1458,12 @@ $(MID_SUBDIR)/MUS_PS_GODSLAYER.s: %.s: %.mid
 $(MID_SUBDIR)/MUS_PS_LUMBRIDGE_CASTLE.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 
-
+$(MID_SUBDIR)/MUS_PS_TZHAAR.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 	
+$(MID_SUBDIR)/mus_ps_ice_mountain.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
+
 
 
 	

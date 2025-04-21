@@ -23,6 +23,7 @@
 #include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/items.h"
+#include "constants/flags.h"
 
 #define AI_ACTION_DONE          (1 << 0)
 #define AI_ACTION_FLEE          (1 << 1)
@@ -161,6 +162,8 @@ void BattleAI_SetupFlags(void)
         AI_THINKING_STRUCT->aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT;
     else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags | gTrainers[gTrainerBattleOpponent_B].aiFlags;
+    else if (FlagGet(FLAG_TZHAAR_RANDOM))
+        AI_THINKING_STRUCT->aiFlags = gTrainersFightCaves[gTrainerBattleOpponent_A].aiFlags;
     else
         AI_THINKING_STRUCT->aiFlags = gTrainers[gTrainerBattleOpponent_A].aiFlags;
 
@@ -4513,6 +4516,7 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
         IncreaseStatUpScore(battlerAtk, battlerDef, STAT_DEF, &score);
         break;
     case EFFECT_SHELL_SMASH:
+    case EFFECT_BERSERK:
         if (aiData->holdEffects[battlerAtk] == HOLD_EFFECT_RESTORE_STATS)
             ADJUST_SCORE(1);
 
@@ -4755,6 +4759,8 @@ static s32 AI_CheckViability(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_TAILWIND:
         if (GetBattlerSideSpeedAverage(battlerAtk) < GetBattlerSideSpeedAverage(battlerDef))
             ADJUST_SCORE(2);
+        if (aiData->holdEffects[battlerAtk] == HOLD_EFFECT_EXTEND_TAILWIND) //WIP
+            ADJUST_SCORE(1);
         break;
     case EFFECT_LUCKY_CHANT:
         if (!isDoubleBattle)
@@ -4978,6 +4984,7 @@ static s32 AI_SetupFirstTurn(u32 battlerAtk, u32 battlerDef, u32 move, s32 score
     case EFFECT_GEOMANCY:
     case EFFECT_VICTORY_DANCE:
     case EFFECT_HIT_SET_ENTRY_HAZARD:
+    case EFFECT_BERSERK:
         ADJUST_SCORE(2);
         break;
     default:

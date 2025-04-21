@@ -109,7 +109,12 @@ LumSwampSign::
 
 
 ITEM_LUMBRIDGESWAMP_ITEM_2::
-	finditem ITEM_MITHRIL_POUCH
+	finditem ITEM_POUCH_MITHRIL
+	end
+
+
+ITEM_LUMBRIDGESWAMP_ITEM_3::
+	finditem ITEM_CHOCOLATE_SUNDAY
 	end
 
 
@@ -214,6 +219,187 @@ EventScript_Locked_Door::
 	release
 	end
 
+
+EventScript_Whirlpool::
+	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WHIRLPOOL
+	playse SE_M_WHIRLPOOL
+	delay 40
+	playse SE_M_DIVE
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_CRANDOR_SEA_ROUTE
+	goto_if_eq EventScript_Whirlpool_2
+	warpsilent MAP_ROUTE39, 1, 0, 0
+EventScript_Whirlpool_1:
+	waitstate
+	releaseall
+	end
+
+EventScript_Whirlpool_2:
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 52
+	goto_if_eq EventScript_Whirlpool_8
+EventScript_Whirlpool_7:
+	compare VAR_TEMP_1, 53
+	goto_if_eq EventScript_Whirlpool_12
+EventScript_Whirlpool_11:
+	compare VAR_TEMP_1, 55
+	goto_if_eq EventScript_Whirlpool_16
+EventScript_Whirlpool_15:
+	compare VAR_TEMP_1, 56
+	goto_if_eq EventScript_Whirlpool_20
+EventScript_Whirlpool_19:
+	compare VAR_TEMP_1, 58
+	goto_if_eq EventScript_Whirlpool_24
+EventScript_Whirlpool_23:
+	compare VAR_TEMP_1, 69
+	goto_if_eq EventScript_Whirlpool_28
+EventScript_Whirlpool_27:
+	compare VAR_TEMP_1, 74
+	goto_if_eq EventScript_Whirlpool_32
+EventScript_Whirlpool_31:
+	compare VAR_TEMP_1, 70
+	goto_if_eq EventScript_Whirlpool_36
+EventScript_Whirlpool_35:
+	compare VAR_TEMP_1, 74
+	goto_if_eq EventScript_Whirlpool_40
+EventScript_Whirlpool_39:
+	compare VAR_TEMP_1, 76
+	goto_if_eq EventScript_Whirlpool_44
+EventScript_Whirlpool_43:
+	compare VAR_TEMP_1, 69
+	goto_if_eq EventScript_Whirlpool_48
+EventScript_Whirlpool_47:
+	compare VAR_TEMP_1, 77
+	goto_if_eq EventScript_Whirlpool_52
+EventScript_Whirlpool_51:
+	compare VAR_TEMP_1, 26
+	goto_if_eq EventScript_Whirlpool_56
+EventScript_Whirlpool_55:
+	compare VAR_TEMP_1, 61
+	goto_if_eq EventScript_Whirlpool_59
+EventScript_Whirlpool_6:
+	warpsilent MAP_CRANDOR_SEA_ROUTE, 0, 0, 0
+	goto EventScript_Whirlpool_1
+
+EventScript_Whirlpool_5:
+	warpsilent MAP_ROUTE39, 1, 0, 0
+	goto EventScript_Whirlpool_1
+
+EventScript_Whirlpool_8:
+	compare VAR_TEMP_2, 26
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_7
+
+EventScript_Whirlpool_12:
+	compare VAR_TEMP_2, 24
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_11
+
+EventScript_Whirlpool_16:
+	compare VAR_TEMP_2, 25
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_15
+
+EventScript_Whirlpool_20:
+	compare VAR_TEMP_2, 24
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_19
+
+EventScript_Whirlpool_24:
+	compare VAR_TEMP_2, 27
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_23
+
+EventScript_Whirlpool_28:
+	compare VAR_TEMP_2, 27
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_27
+
+EventScript_Whirlpool_32:
+	compare VAR_TEMP_2, 27
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_31
+
+EventScript_Whirlpool_36:
+	compare VAR_TEMP_2, 29
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_35
+
+EventScript_Whirlpool_40:
+	compare VAR_TEMP_2, 29
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_39
+
+EventScript_Whirlpool_44:
+	compare VAR_TEMP_2, 26
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_43
+
+EventScript_Whirlpool_48:
+	compare VAR_TEMP_2, 18
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_47
+
+EventScript_Whirlpool_52:
+	compare VAR_TEMP_2, 17
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_51
+
+EventScript_Whirlpool_56:
+	compare VAR_TEMP_2, 4
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_55
+
+EventScript_Whirlpool_59:
+	compare VAR_TEMP_2, 25
+	goto_if_eq EventScript_Whirlpool_5
+	goto EventScript_Whirlpool_6
+
+
+MOVEMENT_WHIRLPOOL:
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_4
+	face_left
+	delay_4
+	face_up
+	delay_4
+	face_right
+	delay_4
+	face_down
+	delay_1
+	face_left
+	delay_1
+	face_up
+	delay_1
+	face_right
+	delay_1
+	face_down
+	delay_1
+	face_left
+	delay_1
+	face_up
+	delay_1
+	face_right
+	delay_1
+	face_down
+	step_end
 
 Friendship_Checker_Pikkupstix::
 	lock
@@ -423,7 +609,7 @@ Friendship_Checker_Pikkupstix_Text_2:
 	.string "everything you stand for.\p"
 	.string "It doesnt want to be your friend and\n"
 	.string "that you're bad and should feel bad.\p"
-	.string "Theres also a lot about your mother I\n"
+	.string "There's also a lot about your mother I\n"
 	.string "left out.\p"
 	.string "Overall im not sure if this monster likes\n"
 	.string "you at all.$"

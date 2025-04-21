@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE26",
   "name": "Route26",
   "layout": "LAYOUT_ROUTE26",
-  "music": "MUS_PS_ROUTE_ASGARNIA",
+  "music": "MUS_PS_ICE_MOUNTAIN",
   "region_map_section": "MAPSEC_ROUTE_26",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_GOBLIN_VILLAGE",
-      "offset": -2,
+      "offset": 0,
       "direction": "left"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "map": "MAP_ICE_MOUNTAIN",
-      "offset": 0,
+      "offset": -2,
       "direction": "up"
     }
   ],
@@ -113,7 +113,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
       "x": 8,
-      "y": 7,
+      "y": 6,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -121,7 +121,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1F"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -133,8 +133,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
-      "flag": "0"
+      "script": "EventScript_RockSmash_POKESCAPE",
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -146,8 +146,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
-      "flag": "0"
+      "script": "EventScript_RockSmash_POKESCAPE",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -172,8 +172,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
-      "flag": "0"
+      "script": "EventScript_RockSmash_POKESCAPE",
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DND",
@@ -186,7 +186,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PENGUIN_EVENT_CANADA_GRRL",
-      "flag": "FLAG_TEMP_8"
+      "flag": "FLAG_PENGUIN_HUNT_ON_ROUTE"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PENGUIN_BOX",
@@ -199,7 +199,59 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_PENGUIN_BOX_ROUTE26",
-      "flag": "FLAG_TEMP_9"
+      "flag": "FLAG_PENGUIN_HUNT_ON_ROUTE"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SIR_OWEN",
+      "x": 8,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FOLLOWING_SirOwen",
+      "flag": "FLAG_TEMP_1E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT",
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT",
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SIR_OWEN",
+      "x": 23,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
     }
   ],
   "warp_events": [
@@ -208,24 +260,56 @@
   "coord_events": [
     {
       "type": "weather",
+      "x": 11,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SNOW"
+    },
+    {
+      "type": "weather",
+      "x": 9,
+      "y": 26,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 9,
+      "y": 25,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SHADE"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "175",
+      "script": "TRIGGER_STORYMODE_EVENT_ROUTE26"
+    },
+    {
+      "type": "trigger",
       "x": 8,
-      "y": 9,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "TRIGGER_STORYMODE_EVENT_ROUTE26"
+    },
+    {
+      "type": "weather",
+      "x": 11,
+      "y": 11,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SNOW"
     },
     {
       "type": "weather",
       "x": 11,
-      "y": 27,
+      "y": 12,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SUNNY"
-    },
-    {
-      "type": "weather",
-      "x": 11,
-      "y": 25,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SHADE"
+      "weather": "COORD_EVENT_WEATHER_SNOW"
     }
   ],
   "bg_events": [
@@ -238,5 +322,5 @@
       "script": "SIGN_ROUTE26"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

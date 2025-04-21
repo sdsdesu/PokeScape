@@ -84,7 +84,7 @@ script MODTIMBO_STATE{
 //HIDDEN ITEMS:
 script ITEM_FALADOR_1
 {
-    finditem(ITEM_ADAMANT_POUCH)
+    finditem(ITEM_POUCH_ADAMANT)
     end
 }
 script ITEM_FALADOR_2
@@ -243,7 +243,7 @@ script NPC_FALADOR_GUARD_4
 	lock
 	faceplayer
     namebox ("Guard")
-	msgbox(format("Falador is a nice city, the white knights keeps us safe.\pStay vigilant adventurer."))
+	msgbox(format("Falador is a nice city, the White Knights keeps us safe.\pStay vigilant adventurer."))
     waitmessage
     hidenamebox
 	release
@@ -278,7 +278,7 @@ script NPC_FALADOR_GUARD_7
 {
 	lock
 	faceplayer
-    namebox ("Guard")
+    //namebox ("Guard")
 	msgbox(format("The guard looks nervous, you wonder why…"))
     waitmessage
     hidenamebox
@@ -309,7 +309,7 @@ script NPC_FALADOR_WHITEKNIGHT_2
 		msgbox(format("Sorry the Gym is closed until the disturbance at the Dwarven Mines are resolved.\pHuh?\nYou want to know where the Dwarven Mines are?\pThey are underneath us!\pIf you go to the east of town there you can find a small shack which leads to the mines."))
 	}
 	elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 115) {
-		msgbox(format("Welcome to the Faldor Gym!\pNow that the disturbance at the mines have been dealt with we can reopen."))
+		msgbox(format("Welcome to the Falador Gym!\pNow that the disturbance at the mines have been dealt with we can reopen."))
 	}
 	else {
 		msgbox(format("Past this bridge is Falador Castle!\pWhich is also the gym location for the MvM Championships."))
@@ -330,7 +330,7 @@ script NPC_FALADOR_WHITEKNIGHT_3
 		msgbox(format("Sorry but the gym is closed for a very important mission.\pIn the meantime you should go visit the Party room in the east of town.\pIt looks like a big castle, you cannot miss it."))
 	}
 	elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 115) {
-		msgbox(format("Welcome to the Faldor Gym!\pNow that the disturbance at the mines have been dealt with we can reopen."))
+		msgbox(format("Welcome to the Falador Gym!\pNow that the disturbance at the mines have been dealt with we can reopen."))
 	}
 	else {
 		msgbox(format("Sir Amik Varze is our town's gym leader."))
@@ -500,7 +500,7 @@ script NPC_FALADOR_APPRENTICE
 		{
 			goto(NPC_FALADOR_APPRENTICE_NO)
 		}
-		msgbox(format("Thank you so much!\pLet me just calculate the total…{PAUSE 15}…{PAUSE 15}…{PAUSE 15}Alright!\pSo that comes to 5000gp.\pIs this okay with you?"), MSGBOX_YESNO)
+		msgbox(format("Thank you so much!\pLet me just calculate the total…{PAUSE 15}…{PAUSE 15}…{PAUSE 15}Alright!\pSo that comes to 5,000gp.\pIs this okay with you?"), MSGBOX_YESNO)
 			if (!var(VAR_RESULT))
 			{
 				goto(NPC_FALADOR_APPRENTICE_NO)
@@ -586,7 +586,6 @@ script GiveMon_FALADOR_TransferredToPC_ANICHAIR{
 script GiveMon_FALADOR_ReceivedFanfare_ANICHAIR{
 	bufferspeciesname(1, SPECIES_ANICHAIR)
 	//removeobject LOCALID_BELDUM_BALL
-    //setvar(VAR_POKESCAPE_ERNEST_QUEST_STATE, 3)
 	playfanfare (MUS_OBTAIN_ITEM)
 	msgbox(format("{PLAYER} obtained a {STR_VAR_2}."))
 	waitmessage
@@ -663,7 +662,7 @@ script NPC_FALADOR_HAIRDRESSER_NPC
 	lock
 	faceplayer
     namebox ("RSMVer")
-	msgbox(format("Today im really feeling the dragoon hairstyle.\pIt will fix my love life for sure."))
+	msgbox(format("Today I'm really feeling the dragoon hairstyle.\pIt will fix my love life for sure."))
     waitmessage
     hidenamebox
 	release
@@ -728,7 +727,7 @@ script NPC_FALADOR_MYSTERIOUS_OLD_MAN
 	faceplayer
     namebox ("Mysterious Old Man")
 	msgbox(format("Oh hello again {PLAYER}. I am here to visit Falador in attempt to open these strange cubes. Here you have one"))
-    msgbox(format(" If you figure out how to open it please get in contact with me again."))
+    msgbox(format("If you figure out how to open it please get in contact with me again."))
     waitmessage
     hidenamebox
 	release
@@ -739,12 +738,12 @@ script NPC_FALADOR_MYSTERIOUS_OLD_MAN
 
 
 //FALADOR PARK
-script NPC_FALADOR_SirTiffyCachien
+script NPC_FALADOR_SirTiffyCashien
 {
 	lock
 	faceplayer
-    namebox ("Sir Tiffy Cachien")
-	msgbox(format("I enjoy spending my time here at the park sitting on this bench."))
+    namebox ("Tiffy Cashien")
+	msgbox(format("I enjoy spending my time here at the park sitting on this bench and feeding the ducks."))
     waitmessage
     hidenamebox
 	release
@@ -757,7 +756,7 @@ script NPC_FALADOR_HESKEL
 	lock
 	faceplayer
     namebox ("Heskel")
-	msgbox(format("I wish someone would take over for me, it has been days since I had my last break."))
+	msgbox(format("Gardening is actually my full time job.\pI am here every day and night tending to this lovely park."))
     waitmessage
     hidenamebox
 	release
@@ -782,7 +781,7 @@ script NPC_FALADOR_NPC_6
 {
 	lock
 	faceplayer
-    namebox ("Garden Supplier")
+    namebox ("Gardener")
 	msgbox(format("If you are here to buy bagged trees to sell them for a higher price, I regret to inform you that I have increased the prices."))
     waitmessage
     hidenamebox
@@ -796,7 +795,7 @@ script NPC_FALADOR_Wyson
 	lock
 	faceplayer
     namebox ("Wyson")
-	msgbox(format("I heard some rumours about a giant mole living somewhere in this area, and that interacting with an object would get you to it.\pI am too scared to find out how though."))
+	msgbox(format("Those pesky moles are so annoying!\pThey keep digging holes in the park and eating the flowers!\pIt would be great if someone got rid of them…"))
     waitmessage
     hidenamebox
 	release
@@ -948,8 +947,8 @@ script NPC_FALADOR_GEMSTORE_NPC_1
 {
 	lock
 	faceplayer
-    //namebox ("Guard")
-	msgbox(format("They say the gems from this store comes all the way from Shilo Village.\pThat's all the way over in Karamja!"))
+    namebox ("Druidess")
+	msgbox(format("They say the gems from this store come all the way from Shilo Village.\pThat's all the way over in Karamja!"))
     waitmessage
     hidenamebox
 	release
@@ -980,7 +979,7 @@ script NPC_FALADOR_BANK_NPC_2
 {
 	lock
 	faceplayer
-    //namebox ("Guard")
+    namebox ("AxMeAnythin")
 	msgbox(format("I got wiped out by Sir Amik.\pGuess my monsters just weren't strong enough."))
     waitmessage
     hidenamebox
@@ -1004,7 +1003,7 @@ script NPC_FALADOR_HOUSE_NPC_1
 {
 	lock
 	faceplayer
-    //namebox ("Guard")
+    namebox ("Woman")
 	msgbox(format("Dinner will be ready soon, will you be joining us?"))
     waitmessage
     hidenamebox
@@ -1016,7 +1015,7 @@ script NPC_FALADOR_HOUSE_NPC_2
 {
 	lock
 	faceplayer
-    //namebox ("Guard")
+    namebox ("Man")
 	msgbox(format("I don't know you but I am telling you, run!\pIt is too late for me but you can still run before the dinner is ready!\pHelp…"))
     waitmessage
     hidenamebox
@@ -1071,8 +1070,12 @@ script NPC_FALADOR_NPC_9
 
 
 script FALADOR_QUEST_STATE{
-	if (!flag(FLAG_BADGE02_GET)) {
-		setflag(FLAG_MITHRILMAN2)
+
+	setflag(FLAG_TEMP_1C) 	//mithrilman
+	removeobject(23)		//mithrilman
+	if (var(VAR_MITHRILMAN_STATE) == 5) {
+		clearflag(FLAG_TEMP_1C)
+		addobject(23)
 	}
 	
 	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) < 114) { // before map 3 obtained in mines
@@ -1105,6 +1108,20 @@ script FALADOR_QUEST_STATE{
 		removeobject(51)
 		removeobject(52)
 		setvar(VAR_TEMP_F, 1)
+	}
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 160) { // North Gate opens after Reporting to Amik after Musa point.
+		setflag(FLAG_TEMP_2)
+		setmetatile(24, 6, 609, 0)
+		setmetatile(24, 7, 617, 0)
+		setmetatile(25, 6, 609, 0)
+		special(DrawWholeMapView) 
+		removeobject(OBJ_EVENT_ID_BLOCK_KNIGHT)
+		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_1F)
+		removeobject(OBJ_EVENT_ID_BLOCK_GUARD_1)
+		removeobject(OBJ_EVENT_ID_BLOCK_GUARD_2)
+		removeobject(OBJ_EVENT_ID_BLOCK_MERCHANT)
+		removeobject(OBJ_EVENT_ID_BLOCK_durial321)
 	}
 
 	switch (var(VAR_POKESCAPE_FALADOR_STATE)){ 
@@ -1165,7 +1182,7 @@ movement MOVEMENT_FALADOR_WALK_UP {
 	face_up
 	delay_16 * 2
 	face_right
-
+	step_end
 }
 
 movement movement_falador_walk_sirowen {
@@ -1186,7 +1203,7 @@ script NPC_FALADOR_BLOCK_GUARD_1
 	lock
 	faceplayer
     namebox ("Guard")
-	msgbox(format("We've been informed that this shipment may contain Karmajan Rum.\pYou should inform Sir Amik Varze right away!"))
+	msgbox(format("We've been informed that this shipment may contain Karamjan Rum.\pYou should inform Sir Amik Varze right away!"))
     waitmessage
     hidenamebox
 	release
@@ -1197,7 +1214,7 @@ script NPC_FALADOR_BLOCK_GUARD_2
 	lock
 	faceplayer
     namebox ("Guard")
-	msgbox(format("Please stand back while we search these wares.\pWhile waiting you should visit the White Knights Castle."))
+	msgbox(format("Please stand back while we search these wares.\pWhile waiting you should visit the White Knights' Castle."))
     waitmessage
     hidenamebox
 	release
@@ -1372,7 +1389,7 @@ script NPC_FALADOR_STORY_WHITE_KNIGHT_4
 	lock
 	faceplayer
     namebox ("White Knight")
-	msgbox(format(""))
+	msgbox(format("Have you visited any battle pubs?\pDid you know you can challenge people to battles once per day for some cool rewards?"))
     waitmessage
     hidenamebox
 	release
@@ -1457,3 +1474,74 @@ script NPC_FALADOR_PARTYROOM_PETE
 	release
 	end
 }
+
+
+
+
+
+
+//MITHRILMAN ENCOUNTER 2--------
+
+script TRIGGER_Mithrilman_FALADOR {
+	lockall
+	playse(SE_PIN)
+	applymovement(23, Movement_Falador_Mithrilman_1)
+	waitmovement(0)
+	waitse
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+		if (var(VAR_TEMP_1) == 41){
+			applymovement(23, Movement_Falador_Mithrilman_2)
+		} 
+		elif (var(VAR_TEMP_1) == 42){
+			applymovement(23, Movement_Falador_Mithrilman_3)
+		}
+	waitmovement(0)
+	goto(Mithrilman_FALADOR1)
+	end
+}
+movement Movement_Falador_Mithrilman_1 {
+	emote_exclamation_mark
+	face_down
+}
+movement Movement_Falador_Mithrilman_2 {
+	walk_right
+	walk_down * 2
+}
+movement Movement_Falador_Mithrilman_3 {
+	walk_right * 2
+	walk_down * 2
+}
+
+script Mithrilman_FALADOR1{
+    playbgm (MUS_ENCOUNTER_MAY, 1)
+    namebox ("Mithrilman")
+    msgbox(format("West meet again knave, howst fares thoughst adventure?\pThine has already beaten the whitest of knights, and provenst that Mithrilmen are superior to those of the whitest armour.\pDo thoust wonder why thine am in the park?\pThine am contemplating catching a duck for thine arsenal.\pWord sayst the pen is mightiest than the sword and pens be made from feathers.\pSo who else than the duck wouldst be mightyer than the sword?\pWhy donst thine show ye, knave, the power of onst without a sword?"))
+    hidenamebox
+    trainerbattle_no_intro(TRAINER_MITHRILMAN2,format("…"))
+    namebox("Mithrilman")
+    msgbox(format("I see troughst thoust clever trick knave, that duck in thest pond were mightyest than the sword.\p And thine not posessing sword or feather lost becaust of that?\pClever knave, very clever.\pThine am a Mithrilman and seest trough thee clever tricks, but as a Mithrilman, thine will accept this outcome.\pForst know."))
+    waitmessage
+	closemessage
+	fadescreenswapbuffers (FADE_TO_BLACK)
+	removeobject(23)
+	fadescreenswapbuffers(FADE_FROM_BLACK)
+	playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+	waitmovement(0)
+	waitse
+	msgbox(format("It appears Mithrilman dropped something while rushing off."))
+	finditem(ITEM_LAW_RUNE, 1)
+    setvar(VAR_MITHRILMAN_STATE, 10) //defetated falador
+	setflag(FLAG_TEMP_1C)
+	removeobject(23)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 1)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    release
+    end
+}
+//-----------------------------
+
+
+
+

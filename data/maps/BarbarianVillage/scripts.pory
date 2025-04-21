@@ -1,5 +1,7 @@
 const OBJ_EVENT_ID_BARBARIAN_BLOCK_1 = 6
 const OBJ_EVENT_ID_BARBARIAN_BLOCK_2 = 7
+const OBJ_EVENT_ID_BLACK_KNIGHT = 16
+const OBJ_EVENT_ID_LITARA = 2
 
 mapscripts BarbarianVillage_MapScripts {
     MAP_SCRIPT_ON_TRANSITION { 
@@ -15,13 +17,174 @@ mapscripts BarbarianVillage_MapScripts {
             call(OPENWORLDMODE_STATE_BARBARIAN_VILLAGE)
     	}
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_B, 1: BARBARIANVILLAGE_STORYMODE_EVENT
+    ]
 }
 
 
 
 
+script BARBARIANVILLAGE_STORYMODE_EVENT
+{
+    lock
+    removeobject(OBJ_EVENT_ID_LITARA)
+    removeobject(OBJ_EVENT_ID_BLACK_KNIGHT)
+    delay(30)
+    playse(SE_DOOR)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 12) {
+        opendoor(11, 17)
+        delay(20)
+        setobjectxyperm(OBJ_EVENT_ID_LITARA, 11, 17) //litara
+        setobjectxy(OBJ_EVENT_ID_LITARA, 11, 17)
+        addobject(OBJ_EVENT_ID_LITARA)
+        showobjectat (OBJ_EVENT_ID_LITARA, MAP_BARBARIAN_VILLAGE)
+        applymovement(OBJ_EVENT_ID_LITARA, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+        waitmovement(0)
+        closedoor(11 , 17)
+    }
+    elif (var(VAR_TEMP_1) == 11) {
+        opendoor(12, 17)
+        delay(20)
+        setobjectxyperm(OBJ_EVENT_ID_LITARA, 12, 17) //litara
+        setobjectxy(OBJ_EVENT_ID_LITARA, 12, 17)
+        addobject(OBJ_EVENT_ID_LITARA)
+        showobjectat (OBJ_EVENT_ID_LITARA, MAP_BARBARIAN_VILLAGE)
+        applymovement(OBJ_EVENT_ID_LITARA, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+        waitmovement(0)
+        closedoor(12 , 17)
+    }
+    namebox("Litara")
+    msgbox(format("Wait {PLAYER}, before you leave allow me to show you our stronghold."))
+    hidenamebox
+    closemessage
+    applymovement(OBJ_EVENT_ID_LITARA, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2)
+    waitmovement(0)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 12) {
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACERIGHT)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+    }
+    elif (var(VAR_TEMP_1) == 11) {
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACELEFT)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+    }
+    waitmovement(0)
+    namebox("Litara")
+    msgbox(format("Our stronghold is located down this ladder."))
+    hidenamebox
+    closemessage
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_LITARA, MOVEMENT_EXCLAMATIONMARK_FACE_DOWN)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_DOWN)
+    waitmovement(0)
+    waitse
+    addobject(OBJ_EVENT_ID_BLACK_KNIGHT)
+    setobjectxyperm(OBJ_EVENT_ID_BLACK_KNIGHT, 12, 29)
+    setobjectxy(OBJ_EVENT_ID_BLACK_KNIGHT, 12, 29)
+    applymovement(OBJ_EVENT_ID_BLACK_KNIGHT, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3)
+    delay(60)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 12) {
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_5)
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_Barbmovement_4)
+    }
+    elif (var(VAR_TEMP_1) == 11) {
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_2)
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_Barbmovement_1)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_3)
+    }
+    waitmovement(OBJ_EVENT_ID_BLACK_KNIGHT)
+    //remove knight
+    waitmovement(0)
+    namebox("Litara")
+    msgbox(format("Who was that, they weren't allowed in there!"))
+    hidenamebox
+    closemessage
+    applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACEUP)
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)
+    waitmovement(0)
+    namebox("Litara")
+    msgbox(format("Sorry, I know you're itching to give our stronghold a shot, but could you chase that knight and find out what he was doing down here."))
+    hidenamebox
+    closemessage
+    setvar(VAR_TEMP_B, 0)
+    setflag(FLAG_TEMP_1F)
+    removeobject(OBJ_EVENT_ID_BLACK_KNIGHT)
+    //SET STORYMODE VAR
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 165)
+    release
+    end
+}
+movement Movement_Barbmovement_1 {
+    face_left
+    delay_4
+    walk_fast_left
+    walk_fast_down
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_2 {
+    lock_facing_direction
+    walk_up
+    unlock_facing_direction
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_3 {
+    walk_down
+    step_end
+}
+movement Movement_Barbmovement_4 {
+    walk_fast_down
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_5 {
+    walk_left
+    step_end
+}
+
+movement MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1 {
+    face_down
+    set_visible
+    walk_down
+    face_player
+    step_end
+}
+movement MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_2 {
+    walk_down * 8
+    step_end
+}
+movement MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3 {
+    face_up
+    set_visible
+    walk_fast_up
+    walk_fast_left
+    walk_fast_up
+    walk_fast_left * 4
+    walk_fast_down * 2
+    walk_fast_left * 5
+    step_end
+}
+
+
+
 
 script STORYMODE_STATE_BARBARIAN_VILLAGE {
+
+    if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 160) && (flag(FLAG_BADGE04_GET))) {  
+        setvar(VAR_TEMP_B, 1)
+	}
+
+
 	switch (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE)){ 
 		case 0: 
             //Block the Gym entry until the gym is explained to the player.
@@ -30,21 +193,24 @@ script STORYMODE_STATE_BARBARIAN_VILLAGE {
             setobjectxyperm(OBJ_EVENT_ID_BARBARIAN_BLOCK_2,12,19)
 			setobjectmovementtype(OBJ_EVENT_ID_BARBARIAN_BLOCK_2,MOVEMENT_TYPE_FACE_DOWN)
             return
+        case 5:
         case 1:
         case 2:
             return
         case 3:
             //Allows access to the Stronghold.
-            setobjectxyperm(2,13,27)
-			setobjectmovementtype(2,MOVEMENT_TYPE_FACE_UP)
+            setobjectxyperm(OBJ_EVENT_ID_LITARA,13,27)
+			setobjectmovementtype(OBJ_EVENT_ID_LITARA,MOVEMENT_TYPE_FACE_UP)
             return
     }
+
+
 }
 script OPENWORLDMODE_STATE_BARBARIAN_VILLAGE {
-    if (flag(FLAG_BADGE06_GET) == TRUE) {
+    if (flag(FLAG_BADGE04_GET) == TRUE) {
         //Allows access to the Stronghold.
-        setobjectxyperm(2,13,27)
-        setobjectmovementtype(2,MOVEMENT_TYPE_FACE_UP)
+        setobjectxyperm(OBJ_EVENT_ID_LITARA,13,27)
+        setobjectmovementtype(OBJ_EVENT_ID_LITARA,MOVEMENT_TYPE_FACE_UP)
         return
     }
 }
@@ -72,47 +238,47 @@ script NPC_BARB_BLOCKADE_1
     }
     if (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 0)
     {
-        msgbox(format("Only the strong may enter our longhall!\pYou should probably leave if you know what is good for you."))
-        if (flag(FLAG_BADGE01_GET) && flag(FLAG_BADGE02_GET) && flag(FLAG_BADGE03_GET) && flag(FLAG_BADGE04_GET) && flag(FLAG_BADGE05_GET))
-        {
-            msgbox(format("Ohhoho!!\pImpressive you have at least four Badges.\pYou may pass, we shall watch your battle and cheer for your victory!"))
-            hidenamebox
-            closemessage
+        //msgbox(format("Only the strong may enter our longhall!\pYou should probably leave if you know what is good for you."))
+        //if (flag(FLAG_BADGE01_GET) && flag(FLAG_BADGE02_GET) && flag(FLAG_BADGE03_GET) && flag(FLAG_BADGE04_GET) && flag(FLAG_BADGE05_GET))
+        //{
+        //    msgbox(format("Ohhoho!!\pImpressive you have at least four Badges.\pYou may pass, we shall watch your battle and cheer for your victory!"))
+        //    hidenamebox
+        //    closemessage
+        //}
+        //else
+        //{
+        //    hidenamebox
+        //    closemessage
+       //     msgbox(format("It is recommended that you have at least 4 Gym Badges attempting our Gym.\pAre you sure you would like to challenge the Gym?"), MSGBOX_YESNO)
+        msgbox(format("Only the strong may enter our longhall!\pYou should probably leave if you know what is good for you.\pWhat?\pAre you sure you would like to challenge our Gym?"), MSGBOX_YESNO)
+        if (var(VAR_RESULT)){
+            namebox ("Barbarian")
+            msgbox(format("Ohho, so this challenger thinks they have what it takes to beat our Chieftain?\pThis will be entertaining to watch, very well.\pYou may pass."))
         }
         else
         {
+            namebox ("Barbarian")
+            msgbox(format("That's what we thought come back when you are stronger!"))
             hidenamebox
             closemessage
-            msgbox(format("It is recommended that you have at least 4 Gym Badges attempting our Gym.\pAre you sure you would like to challenge the Gym?"), MSGBOX_YESNO)
-			if (var(VAR_RESULT)){
-                namebox ("Barbarian")
-                msgbox(format("Ohho, so this challenger thinks they have what it takes to beat our Chieftain?\pThis will be entertaining to watch, very well.\pYou may pass."))
-            }
-            else
-            {
-                namebox ("Barbarian")
-                msgbox(format("Come back when you are stronger!"))
-                hidenamebox
-                closemessage
-                release
-                end
-            }
-        }
-            hidenamebox
-            closemessage
-            applymovement(OBJ_EVENT_ID_BARBARIAN_BLOCK_1, BARBARIANVILLAGE_BLOCK_1)
-            applymovement(OBJ_EVENT_ID_BARBARIAN_BLOCK_2, BARBARIANVILLAGE_BLOCK_2)
-            waitmovement(0)
-            setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 1)
             release
             end
+        }
+        hidenamebox
+        closemessage
+        applymovement(OBJ_EVENT_ID_BARBARIAN_BLOCK_1, BARBARIANVILLAGE_BLOCK_1)
+        applymovement(OBJ_EVENT_ID_BARBARIAN_BLOCK_2, BARBARIANVILLAGE_BLOCK_2)
+        waitmovement(0)
+        setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 1)
+        release
+        end
     }
 
     if (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 1)
     {
         msgbox(format("Good luck on your gym challenge."))
     }
-    if (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 2)
+    if ((var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 2) || (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 5))
     {
         msgbox(format("We knew you would be struggling but good luck on your gym challenge."))
     }
@@ -180,14 +346,20 @@ script NPC_BARBARIANVILLAGE_DUNGEONGIRL
     lock
     faceplayer
     namebox("Litara")
-    if (flag(FLAG_BADGE06_GET)) 
+    if (flag(FLAG_BADGE04_GET)) 
     {
-        msgbox(format("You have proved yourself a barbarian in name and spirit!\pI grant you access to use our stronghold for training.\pThe monsters found within are very strong, so have fun training!"))
+        if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 165) {
+            msgbox(format("This is not good, somehow an outsider got access to our stronghold!\pDid you find out where they went?"))
+        }
+        else {
+            msgbox(format("You have proved yourself a barbarian in name and spirit!\pI grant you access to use our stronghold for training.\pThe monsters found within are very strong, so have fun training!"))
+        }
     }
     else
     {
-        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our dungeon for training."))
+        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our stronghold for training."))
     }
+    closemessage
     hidenamebox
     release
     end
@@ -230,7 +402,7 @@ script NPC_BARBARIANVILLAGE_NPC3
     lock
     faceplayer
     namebox("Barbarian")
-    msgbox(format("We don't need no Banks to heal our Monsters in our Village.\pThat is the path of a weakling."))
+    msgbox(format("We don't need no Banks to heal our Monsters in our Village.\pThat is the path of a weakling!\pAlthough if you are tired I suppose you could rest in our visitors hall."))
     hidenamebox
     release
     end
@@ -276,7 +448,7 @@ script NPC_ROUTE20_NPC1
 script BATTLE_ROUTE20_FISHERMAN_1
 {
     trainerbattle_single(TRAINER_ROUTE20_TRAINER_1, format("If you look carefully in the water you can see a rainbow."),format("So these Rainbow Fish are why you can see a rainbow in the river."))
-    //namebox ("")
+    namebox ("TrawlerSux")
     msgbox(format("So these Rainbow Fish are why you can see a rainbow in the river."))
 	hidenamebox
     release
@@ -287,7 +459,7 @@ script BATTLE_ROUTE20_FISHERMAN_1
 script BATTLE_ROUTE20_FISHERMAN_2
 {
     trainerbattle_single(TRAINER_ROUTE20_TRAINER_2, format("You just scared away my catch!"),format("I just ran out of feathers…"))
-    //namebox ("")
+    namebox ("MastrBaitr")
     msgbox(format("Fly fishing is great!\pMuch better than regular net fishing."))
 	hidenamebox
     release
@@ -297,7 +469,7 @@ script BATTLE_ROUTE20_FISHERMAN_2
 script BATTLE_ROUTE20_FISHERMAN_3
 {
     trainerbattle_single(TRAINER_ROUTE20_TRAINER_3, format("I caught these fishing in a dungeon.\pI'd like to see how good they are in battle!"),format("I may have lost but I now understand the strength of these little guys."))
-    //namebox ("")
+    namebox ("Hurley")
     msgbox(format("If you are interested where I got these from you should take a visit to the cavern by Mudskipper point."))
 	hidenamebox
     release
@@ -307,7 +479,7 @@ script BATTLE_ROUTE20_FISHERMAN_3
 script BATTLE_ROUTE20_SKILLER
 {
     trainerbattle_single(TRAINER_ROUTE20_TRAINER_4, format("Fishing is great, I could do this all day."),format("You should do some fishing too."))
-    //namebox ("")
+    namebox ("Lvl3Foreva")
     msgbox(format("You should do some fishing too.\pYou would never know what rare fish you could find until you try."))
 	hidenamebox
     release
@@ -365,6 +537,30 @@ script SHOP_HELMET_BARBARIANVILLAGE
 }
 
 
+script NPC_BARBARIANVILLAGE_NPC8
+{
+    lock
+    faceplayer
+    namebox("Fremennik")
+
+    if (!flag(FLAG_RECEIVED_TM47)) { //
+        msgbox(format("I've travelled all the way here from Rellekka.\pMy goal is to make friendly relations with our barbarian brothers in Gunnar's Ground."))
+        msgbox(format("You may not be a barbarian, but as the first person to talk to me since I got here let me share with you something from my homeland."))
+        hidenamebox
+        giveitem(ITEM_TM47, 1) // Lunar Dance
+        namebox("Fremennik")
+        msgbox(format("Any monster that uses that move will faint instantly, but whatever monster you send in next will have all of their health restored and they will be cured of any status condition.\pIt is a reminder that sometimes in battle, sacrifices need to be made.."))
+        setflag(FLAG_RECEIVED_TM47)
+        hidenamebox
+        release
+        end
+    }
+    
+    msgbox(format("I've travelled all the way here from Rellekka.\pMy goal is to make friendly relations with our barbarian brothers in Gunnar's Ground.\pWhere is Rellekka?\pIt's far, far north-west of here in the Fremennik Province.\pMaybe one day you can visit it."))
+    hidenamebox
+    release
+	end
+}
 
 
 

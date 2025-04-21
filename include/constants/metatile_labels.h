@@ -334,6 +334,10 @@
 #define METATILE_GoblinVillage_Door_Goblin_L  0x229
 #define METATILE_GoblinVillage_Door_Goblin_R  0x228
 
+// gTileset_Ice_Mountain
+#define METATILE_Ice_Mountain_SNOW_LOGFIRE_ON   0x2B4
+#define METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT  0x2B5
+
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
 #define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x215
@@ -360,6 +364,9 @@
 #define METATILE_Lavaridge_NormalGrass          0x206
 #define METATILE_Lavaridge_RockWall             0x274
 
+// gTileset_Lighthouse
+#define METATILE_Lighthouse_SKY_DAY  0x368
+
 // gTileset_Lilycove
 #define METATILE_Lilycove_Door             0x246
 #define METATILE_Lilycove_Door_DeptStore   0x30C
@@ -383,6 +390,10 @@
 #define METATILE_LilycoveMuseum_Painting3_Right  0x261
 #define METATILE_LilycoveMuseum_Painting4_Left   0x262
 #define METATILE_LilycoveMuseum_Painting4_Right  0x263
+
+// gTileset_Lumbridge
+#define METATILE_Lumbridge_Swamp_Caves_ICE_ROCKS          0x37D
+#define METATILE_Lumbridge_Swamp_Caves_ICE_ROCKS_SPAKRLE  0x397
 
 // gTileset_Mauville
 #define METATILE_Mauville_DeepSand_BottomMid  0x259
@@ -520,6 +531,7 @@
 #define METATILE_PokeScapeIndoors_CUPBOARD_SPARKLE         0x190
 
 // gTileset_PokeScapeOutdoors
+#define METATILE_PokeScapeOutdoors_DIRT_PATH_MIDDLE     0x0B6
 #define METATILE_PokeScapeOutdoors_Door_Bank_L          0x13A
 #define METATILE_PokeScapeOutdoors_Door_Bank_R          0x135
 #define METATILE_PokeScapeOutdoors_Door_GeneralStore_L  0x12C
@@ -533,6 +545,12 @@
 #define METATILE_PokeScapeOutdoors_GENERAL_SAND         0x0F9
 #define METATILE_PokeScapeOutdoors_LOCKED_DOOR          0x1F0
 #define METATILE_PokeScapeOutdoors_NORMAL_GRASS_TILE    0x001
+#define METATILE_PokeScapeOutdoors_NORMAL_WHEAT_TILE    0x03F
+#define METATILE_PokeScapeOutdoors_NOT_A_DOOR           0x1F8
+#define METATILE_PokeScapeOutdoors_SHAKING_WHEAT        0x167
+#define METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1     0x14F
+#define METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2     0x157
+#define METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3     0x15F
 
 // gTileset_PokeScape_Caves
 #define METATILE_PokeScape_Caves_HARAKEN_POOL_L      0x2F0
@@ -543,6 +561,7 @@
 #define METATILE_PokeScape_Caves_LAVA_POOL_DOWN      0x2D9
 #define METATILE_PokeScape_Caves_LAVA_POOL_L         0x2E2
 #define METATILE_PokeScape_Caves_LAVA_POOL_R         0x2E0
+#define METATILE_PokeScape_Caves_NO_WILD_ENCOUNTERS  0x3F4
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_DOWN  0x300
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_L     0x2F9
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_R     0x2F8

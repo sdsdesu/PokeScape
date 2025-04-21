@@ -1,0 +1,292 @@
+mapscripts Black_Knights_Fortress_3_MapScripts {
+
+}
+
+//NPCS
+
+script BKFORT_3F_NPC_1
+{
+    lock
+    faceplayer
+    namebox ("Black Knight")
+    msgbox(format("Heh, you want to get a jab in at the prisoner too?\pI heard there are some weapons fresh off the forge that could do with being tested on someone like this!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_2
+{
+    lock
+    faceplayer
+    namebox ("Black Knight")
+    msgbox(format("I can't believe I spend all day down here torturing people...\p{PAUSE 15}THIS IS THE BEST JOB EVER!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_3
+{
+    lock
+    faceplayer
+    namebox ("Sir Gawain")
+    msgbox(format("For the last time...\pI AM NOT A WHITE KNIGHT!\pI AM A KNIGHT OF THE ROUND TABLE!\p{PAUSE 15}Very well, the King will save me..."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_4
+{
+    lock
+    faceplayer
+    namebox ("Hill Giant")
+    msgbox(format("Wait...\pDo...\pdo not...\pflig...\pfight.\pWant...\pno, need...\pyour help.\pPlease..."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_5
+{
+    lock
+    faceplayer
+    namebox ("Dungeonletic")
+    msgbox(format("Meet Dungeonletics, my Black Knights Fortress dungeon locked Ultimate Ironman.\pAfter recently maxing my Ultimate Ironman I decided to up the ante to forge my own journey from scratch.\pNo banking, no trading, but this time I can't leave this jail cell.\pAll leading up to eventually taking on one of PokeScape's biggest challenges...\pTagging Stan in the Discord and not getting banned."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_6
+{
+    lock
+    faceplayer
+    namebox ("Goebie")
+    msgbox(format("The airut invaded our planet and enslaved our people.\pI came to your world for help, but the people here weren't as friendly as I'd hoped.\pWe aren't strong enough to fight back on our own..."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_7
+{
+    lock
+    msgbox(format("No matter how hard you try, you can't seem to get their attention.\pThey just keep walking into the wall, over and over and over again..."))
+    closemessage
+    release
+    end
+}
+
+script BKFORT_3F_NPC_8
+{
+    lock
+    faceplayer
+    namebox ("Skeleton")
+    msgbox(format("The skeleton stares at you.\pIt can see you looking at the item behind it, but it clearly has no intention of handing it over."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_9
+{
+    lock
+    faceplayer
+    namebox ("Worldbearer")
+    msgbox(format("Yildoi!\pAlnaasdzoh klesh yetsan."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_10
+{
+    lock
+    faceplayer
+    namebox ("Forgotten W.")
+    msgbox(format("This place is even more bleak than the dungeons back home."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_11
+{
+    lock
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("It might not look like much, but this is one of the best assignments you can get in this place.\pMuch better than those suckers who have to stand outside in the freezing cold!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_12
+{
+    lock
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("Do you know what the average life span of a Falador guard is?\pThey're constantly attacked for no reason.\pThe White Knights do nothing to intervene and help!\pThat's why I deserted them to join the Black Knights.\pLook how secure this place is!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_13
+{
+    lock
+    faceplayer
+    namebox ("Blacksmith")
+    msgbox(format("Do you know how difficult it is to smelt enough black armour to keep up with demand?"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_14
+{
+    lock
+    namebox ("Black Knight")
+    msgbox(format("I am Black Knight Sergeant Tyme, your drill instructor.\pFrom now on you will speak only when spoken to, and the first and last words out of your mouths will be 'Sir'.\pDo you maggots understand that?"))
+    closemessage
+    hidenamebox
+    applymovement(2, MOVEMENT_FACE_RIGHT)
+    applymovement(4, MOVEMENT_FACE_RIGHT)
+    applymovement(3, MOVEMENT_FACE_LEFT)
+    applymovement(5, MOVEMENT_FACE_LEFT)
+    waitmovement(0)
+    namebox ("Guards")
+    msgbox(format("Sir, yes Sir."))
+    closemessage
+    hidenamebox
+    namebox ("Black Knight")
+    msgbox(format("I can't hear you."))
+    closemessage
+    hidenamebox 
+    applymovement(2, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+    applymovement(4, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+    applymovement(3, MOVEMENT_EXCLAMATIONMARK_JUMP_LEFT)
+    applymovement(5, MOVEMENT_EXCLAMATIONMARK_JUMP_LEFT)
+    waitmovement(0) 
+    namebox ("Guards")
+    msgbox(format("SIR, YES SIR!"))
+    closemessage
+    hidenamebox
+    applymovement(2, MOVEMENT_FACE_LEFT)
+    applymovement(4, MOVEMENT_FACE_LEFT)
+    applymovement(3, MOVEMENT_FACE_RIGHT)
+    applymovement(5, MOVEMENT_FACE_RIGHT)
+    waitmovement(0)          
+    release
+    end
+}
+
+movement MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT {
+    emote_exclamation_mark
+    jump_in_place_right
+}
+
+script BKFORT_3F_NPC_15
+{
+    lock
+    namebox ("Guard")
+    msgbox(format("Left hand... hut!\pRight hand... hut!\pDraw and parry!\pOrder... hut!\pThis is my longsword!\pThere are many like it, but this one is mine!\pMy longsword is my best friend!\pIt is my life!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_16
+{
+    lock
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("Boy, when I joined the exchange program between the Khazard Guard and the Black Knights guard, I never expected these guys to be even more intense than the General!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_17
+{
+    lock
+    faceplayer
+    namebox ("Durial321")
+    msgbox(format("Those blasted White Knights stopped me from engaging in the biggest massacre Gielinor had ever seen...\pWith the strength of the Kinshra behind me, I swear I will have my revenge."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_18
+{
+    lock
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("I am not sure how hitting this dummy and doing practice drills is really going to help when everybody now just fights with monsters.\pHow am I supposed to use a sword to defeat some otherworldly being?\pI just keep quiet and do what I'm told though, the instructor is scary!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_19
+{
+    lock
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("Uhhhh, am I halucinating or is that a freaking DEMON training over there?!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script BKFORT_3F_NPC_20
+{
+    lock
+    faceplayer
+    namebox ("Lesser Demon")
+    msgbox(format("Gwuaaahhh!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+//ITEMS
+
+script ITEM_BKFORT_3F_ITEM1
+{
+    finditem(ITEM_PRAYER_POTION)
+    end
+}
+
+script ITEM_BKFORT_3F_ITEM2
+{
+    finditem(ITEM_BRONZEHELMET)
+    end
+}
+
+script ITEM_BKFORT_3F_ITEM3
+{
+    finditem(ITEM_POUCH_BLACK)
+    end
+}

@@ -37,6 +37,8 @@ PORTSARIM_STATE::
 	removeobject 48
 	removeobject 49
 	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_19
+	removeobject 41
 	return
 
 PORTSARIM_STATE_1:
@@ -64,12 +66,15 @@ PORTSARIM_STATE_1:
 	case 101, PORTSARIM_STATE_9
 	case 130, PORTSARIM_STATE_10
 PORTSARIM_STATE_4:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 131
+	goto_if_ge PORTSARIM_STATE_12
+PORTSARIM_STATE_11:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 105
-	goto_if_eq PORTSARIM_STATE_14
-PORTSARIM_STATE_13:
+	goto_if_eq PORTSARIM_STATE_17
+PORTSARIM_STATE_16:
 	removeobject 42
 	setflag FLAG_TEMP_1A
-PORTSARIM_STATE_11:
+PORTSARIM_STATE_14:
 	return
 
 PORTSARIM_STATE_6:
@@ -131,20 +136,30 @@ PORTSARIM_STATE_9:
 	goto PORTSARIM_STATE_4
 
 PORTSARIM_STATE_10:
+	addobject 44
 	addobject 40
 	clearflag FLAG_TEMP_1C
+	clearflag FLAG_TEMP_19
+	addobject 41
 	goto PORTSARIM_STATE_4
 
 PORTSARIM_STATE_12:
+	setflag FLAG_TEMP_19
+	removeobject 41
+	setflag FLAG_TEMP_1B
+	removeobject 39
+	goto PORTSARIM_STATE_11
+
+PORTSARIM_STATE_15:
 	setvar VAR_TEMP_F, 1
 	addobject 42
 	clearflag FLAG_TEMP_1A
-	goto PORTSARIM_STATE_11
+	goto PORTSARIM_STATE_14
 
-PORTSARIM_STATE_14:
+PORTSARIM_STATE_17:
 	compare VAR_WISE_OLD_MAN_RIVAL, 5
-	goto_if_eq PORTSARIM_STATE_12
-	goto PORTSARIM_STATE_13
+	goto_if_eq PORTSARIM_STATE_15
+	goto PORTSARIM_STATE_16
 
 
 PORTSARIM_HAM_EVENT_TRIGGER1::
@@ -382,10 +397,10 @@ NPC_PORTSARIM_CAPTIAN_TOBIAS::
 	goto_if_unset FLAG_BADGE03_GET, NPC_PORTSARIM_CAPTIAN_TOBIAS_3
 	goto_if_set FLAG_BADGE03_GET, NPC_PORTSARIM_CAPTIAN_TOBIAS_4
 NPC_PORTSARIM_CAPTIAN_TOBIAS_1:
-	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_4, MSGBOX_YESNO
+	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_5, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_eq NPC_PORTSARIM_CAPTIAN_TOBIAS_11
-	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_6
+	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_7
 NPC_PORTSARIM_CAPTIAN_TOBIAS_10:
 	waitmessage
 	hidenamebox
@@ -405,15 +420,24 @@ NPC_PORTSARIM_CAPTIAN_TOBIAS_3:
 	end
 
 NPC_PORTSARIM_CAPTIAN_TOBIAS_4:
-	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_3
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 155
+	goto_if_eq NPC_PORTSARIM_CAPTIAN_TOBIAS_14
+	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_4
 	goto NPC_PORTSARIM_CAPTIAN_TOBIAS_1
 
 NPC_PORTSARIM_CAPTIAN_TOBIAS_11:
-	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_5
+	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_6
 	waitmessage
 	hidenamebox
 	warp MAP_MUSA_POINT, 2, 0, 0
+	waitstate
 	goto NPC_PORTSARIM_CAPTIAN_TOBIAS_10
+
+NPC_PORTSARIM_CAPTIAN_TOBIAS_14:
+	msgbox NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_3
+	hidenamebox
+	release
+	end
 
 
 NPC_PORTSARIM_CREWMAN_1::
@@ -953,7 +977,7 @@ CRANDOR_EVENT_PORTSARIM_NED_4:
 	applymovement 39, MOVEMENT_PORTSARIM_CRANDOR_SAIL_6
 	delay 120
 	special RemoveCameraObject
-	warp MAP_CRANDOR_SEA_ROUTE, 0, 72, 7
+	warp MAP_CRANDOR_SEA_ROUTE, 72, 7
 	waitstate
 	end
 
@@ -1172,11 +1196,19 @@ NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_2:
 	.string "Sorry but our boat has popped a leak.\p"
 	.string "It will be some time before it is\n"
 	.string "repaired.\p"
-	.string "You should go visit the Party Room in\n"
-	.string "Falador or something while you are\l"
+	.string "You should go visit those House Parties\n"
+	.string "in Rimmington or something while you are\l"
 	.string "waiting.$"
 
 NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_3:
+	.string "Our repairs are almost finished.\p"
+	.string "Maybe you should visit Falador Castle\n"
+	.string "or finish up an important task or\l"
+	.string "something.\p"
+	.string "After that I'm sure our boat will be\n"
+	.string "repaired.$"
+
+NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_4:
 	.string "Is your name {PLAYER}?\p"
 	.string "I have received word that you are\n"
 	.string "participating in the MvM Championships,\l"
@@ -1187,15 +1219,15 @@ NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_3:
 	.string "travel for free!\p"
 	.string "So…{PAUSE 15}… Ahem!$"
 
-NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_4:
+NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_5:
 	.string "Hi, there would you like to board the\n"
 	.string "boat to Musa Point, Karamja?$"
 
-NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_5:
+NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_6:
 	.string "All aboard!\l"
 	.string "We set sail for Karamja!$"
 
-NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_6:
+NPC_PORTSARIM_CAPTIAN_TOBIAS_Text_7:
 	.string "Suit yourself.$"
 
 NPC_PORTSARIM_CREWMAN_1_Text_0:

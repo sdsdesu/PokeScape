@@ -26,6 +26,7 @@
 #include "constants/songs.h"
 #include "constants/trainers.h"
 #include "constants/battle_anim.h"
+#include "config/battle.h"
 
 // .rodata
 static const u16 sUnrefArray[] = {0x0300, 0x0000}; //OamData?
@@ -186,7 +187,7 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 55,
-        .width = 16,    //for z move names
+        .width = 8,    //for z move names
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x0300,
@@ -198,16 +199,16 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
         .width = 8,
         .height = 2,
         .paletteNum = 5,
-        .baseBlock = 0x0318,
+        .baseBlock = 0x0310,
     },
     [B_WIN_MOVE_NAME_3] = {
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 57,
-        .width = 16,    //for z effect descriptions
+        .width = 8,    //for z effect descriptions
         .height = 2,
         .paletteNum = 5,
-        .baseBlock = 0x0328,
+        .baseBlock = 0x0320,
     },
     [B_WIN_MOVE_NAME_4] = {
         .bg = 0,
@@ -216,13 +217,13 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
         .width = 8,
         .height = 2,
         .paletteNum = 5,
-        .baseBlock = 0x0340,
+        .baseBlock = 0x0330,
     },
     [B_WIN_PP] = {
         .bg = 0,
-        .tilemapLeft = 21,
+        .tilemapLeft = 23,
         .tilemapTop = 55,
-        .width = 4,
+        .width = 2,
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x0290,
@@ -230,11 +231,11 @@ static const struct WindowTemplate sStandardBattleWindowTemplates[] =
     [B_WIN_DUMMY] = {
         .bg = 0,
         .tilemapLeft = 21,
-        .tilemapTop = 57,
-        .width = 0,
-        .height = 0,
-        .paletteNum = 5,
-        .baseBlock = 0x0298,
+        .tilemapTop = 55,
+        .width = 2,
+        .height = 2,
+        .paletteNum = 10,
+        .baseBlock = 0x0294,
     },
     [B_WIN_PP_REMAINING] = {
         .bg = 0,
@@ -441,9 +442,9 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
     },
     [B_WIN_PP] = {
         .bg = 0,
-        .tilemapLeft = 21,
+        .tilemapLeft = 23,
         .tilemapTop = 55,
-        .width = 4,
+        .width = 2,
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x0290,
@@ -451,11 +452,11 @@ static const struct WindowTemplate sBattleArenaWindowTemplates[] =
     [B_WIN_DUMMY] = {
         .bg = 0,
         .tilemapLeft = 21,
-        .tilemapTop = 57,
-        .width = 0,
-        .height = 0,
-        .paletteNum = 5,
-        .baseBlock = 0x0298,
+        .tilemapTop = 55,
+        .width = 2,
+        .height = 2,
+        .paletteNum = 10,
+        .baseBlock = 0x0294,
     },
     [B_WIN_PP_REMAINING] = {
         .bg = 0,
@@ -720,6 +721,24 @@ const struct BattleBackground sBattleTerrainTable[] =
         .entryTilemap = gBattleTerrainAnimTilemap_POKESCAPE_GRASS,
         .palette = gBattleTerrainPalette_POKESCAPE_GRASS,
     },
+
+    [BATTLE_TERRAIN_POKESCAPE_TZHAAR] =
+    {
+        .tileset = gBattleTerrainTiles_POKESCAPE_TZHAAR,
+        .tilemap = gBattleTerrainTilemap_POKESCAPE_TZHAAR,
+        .entryTileset = gBattleTerrainAnimTiles_POKESCAPE_TZHAAR,
+        .entryTilemap = gBattleTerrainAnimTilemap_POKESCAPE_TZHAAR,
+        .palette = gBattleTerrainPalette_POKESCAPE_TZHAAR,
+    },
+
+    [BATTLE_TERRAIN_POKESCAPE_TZHAAR_LAVA] =
+    {
+        .tileset = gBattleTerrainTiles_POKESCAPE_TZHAAR_LAVA,
+        .tilemap = gBattleTerrainTilemap_POKESCAPE_TZHAAR_LAVA,
+        .entryTileset = gBattleTerrainAnimTiles_POKESCAPE_TZHAAR_LAVA,
+        .entryTilemap = gBattleTerrainAnimTilemap_POKESCAPE_TZHAAR_LAVA,
+        .palette = gBattleTerrainPalette_POKESCAPE_TZHAAR_LAVA,
+    },
 };
 
 static void UNUSED CB2_UnusedBattleInit(void);
@@ -919,6 +938,14 @@ void DrawMainBattleBackground(void)
             LZDecompressVram(gBattleTerrainTiles_Building, (void *)(BG_CHAR_ADDR(2)));
             LZDecompressVram(gBattleTerrainTilemap_Building, (void *)(BG_SCREEN_ADDR(26)));
             LoadCompressedPalette(gBattleTerrainPalette_Frontier, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            break;
+        case MAP_BATTLE_SCENE_TOKHAAR:
+            LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tileset, (void *)(BG_CHAR_ADDR(2)));
+            LZDecompressVram(sBattleTerrainTable[gBattleTerrain].tilemap, (void *)(BG_SCREEN_ADDR(26)));    
+            if (gBattleTerrain == BATTLE_TERRAIN_POKESCAPE_TZHAAR)
+                    LoadCompressedPalette(gBattleTerrainPalette_POKESCAPE_TOKHAAR, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+            else if (gBattleTerrain == BATTLE_TERRAIN_POKESCAPE_TZHAAR_LAVA)
+                    LoadCompressedPalette(gBattleTerrainPalette_POKESCAPE_TOKHAAR, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
             break;
         }
     }
@@ -1276,6 +1303,11 @@ void DrawBattleEntryBackground(void)
             LZDecompressVram(sBattleTerrainTable[gBattleTerrain].entryTileset, (void *)(BG_CHAR_ADDR(1)));
             LZDecompressVram(sBattleTerrainTable[gBattleTerrain].entryTilemap, (void *)(BG_SCREEN_ADDR(28)));
         }
+        else if (GetCurrentMapBattleScene() == MAP_BATTLE_SCENE_TOKHAAR)
+        {
+            LZDecompressVram(gBattleTerrainAnimTiles_POKESCAPE_TZHAAR_LAVA, (void *)(BG_CHAR_ADDR(1)));
+            LZDecompressVram(gBattleTerrainAnimTilemap_POKESCAPE_TZHAAR_LAVA, (void *)(BG_SCREEN_ADDR(28)));
+        }
         else
         {
             LZDecompressVram(gBattleTerrainAnimTiles_Building, (void *)(BG_CHAR_ADDR(1)));
@@ -1364,6 +1396,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
             case MAP_BATTLE_SCENE_FRONTIER:
                 LZDecompressVram(gBattleTerrainTiles_Building, (void *)(BG_CHAR_ADDR(2)));
                 break;
+            case MAP_BATTLE_SCENE_TOKHAAR:
+                LZDecompressVram(gBattleTerrainTiles_POKESCAPE_TZHAAR, (void *)(BG_CHAR_ADDR(2)));
+                break;
             }
         }
         break;
@@ -1425,6 +1460,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 break;
             case MAP_BATTLE_SCENE_FRONTIER:
                 LZDecompressVram(gBattleTerrainTilemap_Building, (void *)(BG_SCREEN_ADDR(26)));
+                break;
+            case MAP_BATTLE_SCENE_TOKHAAR:
+                LZDecompressVram(gBattleTerrainTilemap_POKESCAPE_TZHAAR, (void *)(BG_SCREEN_ADDR(26)));
                 break;
             }
         }
@@ -1513,6 +1551,9 @@ bool8 LoadChosenBattleElement(u8 caseId)
                 break;
             case MAP_BATTLE_SCENE_FRONTIER:
                 LoadCompressedPalette(gBattleTerrainPalette_Frontier, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
+                break;
+            case MAP_BATTLE_SCENE_TOKHAAR:
+                LoadCompressedPalette(gBattleTerrainPalette_POKESCAPE_TOKHAAR, BG_PLTT_ID(2), 3 * PLTT_SIZE_4BPP);
                 break;
             }
         }

@@ -6,6 +6,7 @@ Varrock_MapScripts::
 Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_VARROCK
 	setvar VAR_EVOLUTION_MAP_STATE, 16
+	call RANDOM_EVENT_SANDWICH_LADY
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
@@ -25,6 +26,105 @@ Varrock_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 VARROCK_STATE::
 	setmetatile 9, 26, METATILE_PokeScapeOutdoors_Door_GeneralStore_L, 0
+	return
+
+
+RANDOM_EVENT_SANDWICH_LADY::
+	random 20
+	compare VAR_RESULT, 1
+	goto_if_eq RANDOM_EVENT_SANDWICH_LADY_2
+	setflag FLAG_SANDWICH_LADY
+	removeobject 46
+RANDOM_EVENT_SANDWICH_LADY_1:
+	return
+
+RANDOM_EVENT_SANDWICH_LADY_2:
+	clearflag FLAG_SANDWICH_LADY
+	addobject 46
+	goto RANDOM_EVENT_SANDWICH_LADY_1
+
+
+NPC_SANDWICH_LADY::
+	lock
+	faceplayer
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_Text_1
+	hidenamebox
+	closemessage
+	msgbox NPC_SANDWICH_LADY_Text_2
+	multichoicedefault 1, 0, MULTI_SANDWICH, 0, 1
+	switch VAR_RESULT
+	case 0, NPC_SANDWICH_LADY_3
+	case 1, NPC_SANDWICH_LADY_3
+	case 2, NPC_SANDWICH_LADY_3
+	case 3, NPC_SANDWICH_LADY_3
+	case 4, NPC_SANDWICH_LADY_3
+	case 5, NPC_SANDWICH_LADY_4
+NPC_SANDWICH_LADY_1:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	setflag FLAG_SANDWICH_LADY
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+NPC_SANDWICH_LADY_3:
+	giveitem ITEM_BAGUETTE_SANDWICH, 1
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_Text_3
+	call BATTLE_SANDWICH_LADY
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_Text_4
+	hidenamebox
+	closemessage
+	goto NPC_SANDWICH_LADY_1
+
+NPC_SANDWICH_LADY_4:
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_Text_5
+	hidenamebox
+	closemessage
+	giveitem ITEM_TRIANGLE_SANDWICH, 1
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_Text_6
+	hidenamebox
+	closemessage
+	goto NPC_SANDWICH_LADY_1
+
+
+NPC_SANDWICH_LADY_LUMBRIDGE::
+	lock
+	faceplayer
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_LUMBRIDGE_Text_0
+	pokemart STORE_SandwichLady
+	lock
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_LUMBRIDGE_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+NPC_SANDWICH_LADY_COOKING_GUILD::
+	lock
+	faceplayer
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_COOKING_GUILD_Text_0
+	pokemart STORE_SandwichLady_2
+	lock
+	namebox NPC_SANDWICH_LADY_Text_0
+	msgbox NPC_SANDWICH_LADY_LUMBRIDGE_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+BATTLE_SANDWICH_LADY::
+	cleartrainerflag TRAINER_SANDWICH_LADY_1
+	trainerbattle_no_intro TRAINER_SANDWICH_LADY_1, BATTLE_SANDWICH_LADY_Text_0
 	return
 
 
@@ -601,7 +701,7 @@ VARROCK_NPC_Apothecary::
 
     .align 2
 ApothecaryVarrock:
-    .2byte ITEM_POTION_HP
+    .2byte ITEM_POTION_ACC
     .2byte ITEM_POTION_ATT
     .2byte ITEM_POTION_DEF
     .2byte ITEM_POTION_SPATT
@@ -1025,7 +1125,7 @@ GIVE_RANDOM_ITEM_28_7:
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_8:
-	giveitem ITEM_CRYSTAL_POUCH, 1
+	giveitem ITEM_POUCH_CRYSTAL, 1
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_9:
@@ -1053,15 +1153,15 @@ GIVE_RANDOM_ITEM_28_14:
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_15:
-	giveitem ITEM_ELEMENTAL_POUCH, 5
+	giveitem ITEM_POUCH_ELEMENTAL, 5
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_16:
-	giveitem ITEM_BLACK_POUCH, 15
+	giveitem ITEM_POUCH_BLACK, 15
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_17:
-	giveitem ITEM_NORMAL_POUCH, 20
+	giveitem ITEM_POUCH, 20
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_18:
@@ -1097,7 +1197,7 @@ GIVE_RANDOM_ITEM_28_25:
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_26:
-	giveitem ITEM_DRAGON_POUCH, 1
+	giveitem ITEM_POUCH_DRAGON, 1
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_27:
@@ -1130,7 +1230,7 @@ ITEM_VARROCK_POTIONSTORE::
 
 
 ITEM_VARROCK_CLOTHESSTORE::
-	finditem ITEM_ELEMENTAL_POUCH
+	finditem ITEM_POUCH_ELEMENTAL
 	end
 
 
@@ -1181,6 +1281,52 @@ VARROCK_NPC_WondertradeHint::
 	release
 	end
 
+
+NPC_SANDWICH_LADY_Text_0:
+	.string "Sandwich Lady$"
+
+NPC_SANDWICH_LADY_Text_1:
+	.string "Hello deary, you look hungry.\p"
+	.string "Here have the triangle sandwich on me.$"
+
+NPC_SANDWICH_LADY_Text_2:
+	.string "What do you take?$"
+
+NPC_SANDWICH_LADY_Text_3:
+	.string "Hey!\n"
+	.string "I didn't say you could take that one!$"
+
+NPC_SANDWICH_LADY_Text_4:
+	.string "How rude!\p"
+	.string "Be off with you.$"
+
+NPC_SANDWICH_LADY_Text_5:
+	.string "Here you go sweety.$"
+
+NPC_SANDWICH_LADY_Text_6:
+	.string "Hope that fills you up!\p"
+	.string "Toodle-oo!$"
+
+NPC_SANDWICH_LADY_LUMBRIDGE_Text_0:
+	.string "Hello deary, are you participating in\n"
+	.string "the MvM Championships?\p"
+	.string "Here's a tip, monsters LOVE chocolate!\p"
+	.string "Funnily enough I am selling chocolate\n"
+	.string "bars.\p"
+	.string "Can I interest you in any?$"
+
+NPC_SANDWICH_LADY_LUMBRIDGE_Text_1:
+	.string "Thanks! By the way, I travel around a\n"
+	.string "lot!\p"
+	.string "So keep your eyes peeled for me.$"
+
+NPC_SANDWICH_LADY_COOKING_GUILD_Text_0:
+	.string "Hello deary, I am selling a bunch of\n"
+	.string "fresh sandwiches.\p"
+	.string "Can I interest you in any?$"
+
+BATTLE_SANDWICH_LADY_Text_0:
+	.string "My poor sandwiches…$"
 
 VARROCK_SEWERS_SIGNPOST_Text_0:
 	.string "Sewers - Watch out for rats.$"

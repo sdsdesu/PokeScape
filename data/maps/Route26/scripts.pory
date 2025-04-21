@@ -1,12 +1,173 @@
 const OBJ_EVENT_ID_PENGUIN_DND = 11
 const OBJ_EVENT_ID_PENGUIN = 12
+const BLACKKNIGHT_ID = 6
 
 mapscripts Route26_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 3) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
         call(WEATHER_CHANGE_AREA_ICE_MOUNTAIN)
+        call(ROUTE26_STATE)
         call(PENGUIN_EVENT)
 	}
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_POKESCAPE_STORYMODE_PROGRESS, 200: POST_WARP_BKF_EVENT
+    ]
+}
+
+script POST_WARP_BKF_EVENT {
+    //knights movement
+    applymovement (16, Movement_InteractFACEUP)
+    applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+    waitmovement(0)
+    delay(90)
+    applymovement (14, movement_BlackKnights_POST_WARP_BKF_EVENT)
+    applymovement (15, movement_BlackKnights_POST_WARP_BKF_EVENT)
+    applymovement (16, Movement_InteractFACERIGHT)
+    applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+    waitmovement(0)
+    namebox("Sir Owen")
+    msgbox(format("This is not good, hopefully its a big ball of nothing.\pEither way I should probably report our findings back to Sir Tiffy Cashien.\p{PLAYER}, thank you for your help we couldn't have done this without you.\pOn behalf of the Temple Knights, please accept this as a token of our thanks."))
+    closemessage
+    hidenamebox
+    giveitem(ITEM_STRENGTH_TOOL)
+    msgbox(format("Hopefully you will find a use for it on your adventures.\pCUPHOLDER!"))
+    closemessage
+    hidenamebox
+    waitmovement(0)
+    //movement
+    applymovement (16, movement_SirOwen_POST_WARP_BKF_EVENT)
+    waitmovement(0)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 205)
+    removeobject(16)
+    removeobject(14)
+    removeobject(15)
+    setflag(FLAG_TEMP_1D)
+}
+
+movement movement_BlackKnights_POST_WARP_BKF_EVENT {
+    walk_up * 3
+    walk_left * 5
+    walk_down * 12
+}
+movement movement_SirOwen_POST_WARP_BKF_EVENT {
+    walk_down
+    walk_right * 5
+    walk_down * 6
+}
+
+script ROUTE26_STATE {
+    removeobject(14)
+    removeobject(15)
+    setflag(FLAG_TEMP_1D)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 200)
+    {
+        addobject(14)
+        addobject(15)
+        addobject(16)
+        clearflag(FLAG_TEMP_1D)
+    }
+    if (!flag(FLAG_PARTNER_BATTLE)) {
+        setflag(FLAG_TEMP_1E)
+        removeobject(13)
+    }
+    setflag(FLAG_TEMP_1F)
+    removeobject(6)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
+    {
+        if (!flag(FLAG_PARTNER_BATTLE)) {
+            clearflag(FLAG_TEMP_1E)
+            addobject(13)
+        }
+        clearflag(FLAG_TEMP_1F)
+		addobject(6)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180)
+    {
+        if (!flag(FLAG_PARTNER_BATTLE)) {
+            clearflag(FLAG_TEMP_1E)
+            addobject(13)
+            setobjectxyperm(13, 8, 7)
+        }
+    }
+    return
+}
+
+script TRIGGER_STORYMODE_EVENT_ROUTE26 {
+
+    switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)){ 
+		case 175: 
+            lockall
+            applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+            applymovement (13, Movement_InteractFACEDOWN)
+            waitmovement(0)
+            namebox("Sir Owen")
+            msgbox(format("{PLAYER}! Mind lending me a hand?\pThis guy is not playing fair!"), MSGBOX_YESNO)
+            if (!var(VAR_RESULT))
+            {
+                msgbox(format("Call for backup while I hold them off!"))
+                closemessage
+                hidenamebox
+                applymovement (13, Movement_InteractFACEUP)
+                applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+                waitmovement(0)
+                releaseall
+                end
+            }
+            msgbox(format("Let us fight him fairly then!"))
+            applymovement (13, MOVEMENT_FACE_UP)
+            setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+            setflag(FLAG_PARTNER_BATTLE)
+            setvar (VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1)
+            setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN)
+            trainerbattle_no_intro(TRAINER_ROUTE26_BLACK_KNIGHT, format("Urgh, I could have stopped one of you but not both..."))
+            applymovement (BLACKKNIGHT_ID,movement_BLACKKNIGHT_1)
+            waitmovement (0)
+            setflag(FLAG_TEMP_1F)
+            removeobject(6)
+            //applymovement (13, MOVEMENT_WALK_UP)
+            //applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+            applymovement (13, MOVEMENT_FACE_DOWN)
+            waitmovement(0)
+            msgbox(format("Thank you {PLAYER}.\pI think it would be wise for us to continue on foot together in case we encounter any more enemy resistance."))
+            closemessage
+            hidenamebox
+            playfanfare(MUS_OBTAIN_SYMBOL)
+            msgbox(format("Lead the charge!\nSir Owen Sonde is on your side!"))
+            waitfanfare
+            closemessage
+            
+            loadword(0, FOLLOWING_SirOwen)
+            setfollower(13, 0x80)
+            namebox("Sir Owen")
+            msgbox(format("May Saradomin guide us!"))
+            closemessage
+            hidenamebox
+            applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+            applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+            waitmovement(0)
+            setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 180)
+            releaseall
+            end
+        case 180: 
+        case 181: 
+        case 185: 
+        case 186: 
+        case 187: 
+        case 190: 
+        case 195: 
+            goto(CHECK_FOLLOWER_SIROWEN)
+    }
+    setvar(VAR_TEMP_0, 1)
+    releaseall
+    end
+}
+
+movement movement_BLACKKNIGHT_1
+{
+    emote_exclamation_mark
+    walk_slow_up
+    walk_fast_right
+    walk_fast_up * 2
 }
 
 script ENCOUNTER_PENGUIN_BOX_ROUTE26 {
@@ -23,8 +184,7 @@ script ENCOUNTER_PENGUIN_BOX_ROUTE26 {
 	dowildbattle
     if (var(VAR_RESULT) == B_OUTCOME_WON || var(VAR_RESULT) == B_OUTCOME_CAUGHT) {
         fadescreenswapbuffers(FADE_TO_BLACK)
-        setflag(FLAG_TEMP_8)
-        setflag(FLAG_TEMP_9)
+        setflag(FLAG_PENGUIN_HUNT_ON_ROUTE)
         removeobject(OBJ_EVENT_ID_PENGUIN_DND)
         removeobject(OBJ_EVENT_ID_PENGUIN)
 		savebgm(MUS_DUMMY) //<- IMPORTANT
@@ -105,6 +265,6 @@ script ROUTE26_SUPER_PRAYER_POTION
 
 script ROUTE26_ADAMANT_POUCH
 {
-    finditem(ITEM_ADAMANT_POUCH)
+    finditem(ITEM_POUCH_ADAMANT)
     end
 }

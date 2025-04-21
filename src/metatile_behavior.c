@@ -131,6 +131,7 @@ static const u8 sTileBitAttributes[NUM_METATILE_BEHAVIORS] =
     [MB_VERTICAL_RAIL]                   = TILE_FLAG_UNUSED,
     [MB_HORIZONTAL_RAIL]                 = TILE_FLAG_UNUSED,
     [MB_WHEAT]                           = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
+    [MB_LAVA]                            = TILE_FLAG_UNUSED | TILE_FLAG_HAS_ENCOUNTERS,
 };
 
 bool8 MetatileBehavior_IsATile(u8 metatileBehavior)
@@ -1181,6 +1182,14 @@ bool8 MetatileBehavior_IsSurfableFishableWater(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsSurfableFishableLava(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_LAVA)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsMtPyreHole(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_MT_PYRE_HOLE)
@@ -1507,3 +1516,18 @@ bool8 MetatileBehavior_IsLockedDoor(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsWallClock(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_WALL_CLOCK)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsWhirlpool(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_WHIRLPOOL)
+        return TRUE;
+    else
+        return FALSE;
+}

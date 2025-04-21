@@ -71,11 +71,11 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ENCOUNTER_RAT",
+      "flag": "FLAG_TEMP_4"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RAT",
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
       "x": 18,
       "y": 7,
       "elevation": 3,
@@ -84,8 +84,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ENCOUNTER_SPIDER_BROWN_VARIED",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAT",
@@ -97,8 +97,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "ENCOUNTER_RAT",
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PKER",
@@ -291,5 +291,5 @@
       "script": "CHAOS_TUNNELS_SIGN"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

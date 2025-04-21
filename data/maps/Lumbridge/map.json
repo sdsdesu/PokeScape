@@ -29,11 +29,6 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE14",
-      "offset": 44,
-      "direction": "up"
-    },
-    {
       "map": "MAP_UNDERWATER_LUMBRIDGE",
       "offset": 0,
       "direction": "dive"
@@ -42,6 +37,11 @@
       "map": "MAP_DRAYNOR",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE36",
+      "offset": 44,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -229,21 +229,21 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAT",
-      "x": 15,
-      "y": 27,
+      "x": 28,
+      "y": 39,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 9,
-      "movement_range_y": 9,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 4,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_RAT",
-      "flag": "0"
+      "script": "ENCOUNTER_RAT",
+      "flag": "FLAG_TEMP_B"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAVEN",
       "x": 50,
-      "y": 38,
+      "y": 36,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -268,16 +268,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAT",
-      "x": 16,
-      "y": 26,
+      "x": 49,
+      "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 9,
-      "movement_range_y": 9,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_RAT",
-      "flag": "0"
+      "script": "ENCOUNTER_RAT",
+      "flag": "FLAG_TEMP_A"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -345,21 +345,21 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 35,
-      "y": 45,
+      "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
+      "x": 46,
+      "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_1"
+      "script": "NPC_DUCK",
+      "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_IMP",
-      "x": 15,
+      "graphics_id": "OBJ_EVENT_GFX_ZANIK",
+      "x": 13,
       "y": 29,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -367,7 +367,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "GnomeBoi_Kevin",
+      "script": "multipartnerBattle_Zanik",
       "flag": "0"
     },
     {
@@ -459,6 +459,58 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_A_NUB_TOT",
+      "x": 18,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_4",
+      "x": 48,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 8,
+      "movement_range_y": 8,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lumbridge_River_NPC1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_6",
+      "x": 56,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 8,
+      "movement_range_y": 8,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lumbridge_River_NPC2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_5",
+      "x": 56,
+      "y": 15,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Lumbridge_River_NPC3",
       "flag": "0"
     }
   ],
@@ -563,10 +615,10 @@
     },
     {
       "x": 18,
-      "y": 7,
+      "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_ABYSSAL_REALM_1",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_LUMBRIDGE_HOUSE_5",
+      "dest_warp_id": "0"
     },
     {
       "x": 44,
@@ -765,7 +817,7 @@
       "y": 8,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "LOCKED_DOOR"
+      "script": "A_NUB_TOT_LOCKED_DOOR_TUTORIAL"
     },
     {
       "type": "hidden_item",
@@ -774,7 +826,47 @@
       "elevation": 3,
       "item": "ITEM_STAT_BEER",
       "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_BEER"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_1"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 38,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_2"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 36,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_3"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_4"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 38,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_5"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

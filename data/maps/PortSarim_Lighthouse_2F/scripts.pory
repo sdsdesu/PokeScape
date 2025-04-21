@@ -18,6 +18,7 @@ script LIGHTHOUSE_2F_STATE {
 
         setobjectmovementtype(1, MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT)
         setobjectxyperm(1, 13, 2)
+        playbgm(MUS_PS_ENCOUNTER_HAM, TRUE)
         special(Overworld_PlaySpecialMapMusic)
 
     }
@@ -73,7 +74,7 @@ script LIGHTHOUSE_2F_NPC_3
         lock
 	    faceplayer
         namebox ("Jailer")
-        msgbox(format("You should go visit Rimmington to the east.\pThey throw the best house parties!"))
+        msgbox(format("You should go visit Rimmington to the west.\pThey throw the best house parties!"))
     }
     else {
         lock
@@ -98,7 +99,7 @@ script LIGHTHOUSE_2F_NPC_5
 {
 	lock
 	faceplayer
-    namebox ("Security Guard")
+    namebox ("SecurityGuard")
     if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 100) || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 101)) { 
 	    msgbox(format("Oh god! I only came here to give people tips on security!\pI'm not built for battling."))
     }

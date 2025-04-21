@@ -88,7 +88,7 @@ script NPC_MUSAPOINT_SAILOR
 {
 	lock
     namebox ("Officer")
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 155) { //Post Karamaja Gym,  //FLIP >
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 155) { //Post Karamaja Gym,  
 		msgbox(format("I've confiscated your Karamja Rum.\pYou're in for da cage now."))
 	}
 	else {
@@ -98,6 +98,7 @@ script NPC_MUSAPOINT_SAILOR
 		{
 			msgbox(format("All aboard!\lWe set sail for Port Sarim!"))
 			warp (MAP_PORT_SARIM,8,0,0)
+			waitstate
 		}
 		else
 		{
@@ -130,7 +131,7 @@ script NPC_LegendArts
 
 script SIGNPOST_MUSA_POINT
 {
-	msgbox(format("Musa Point - The best bannanas in all of Karamaja!"))
+	msgbox(format("Musa Point - The best bananas in all of Karamja!"))
     closemessage
 	end
 }
@@ -181,7 +182,7 @@ script NPC_MUSA_POINT_3
 	lock
 	faceplayer
     namebox ("Pirate")
-	msgbox(format("The Customs Officers constantly keep us under supervision, apparently they don't want Karamja Rum to reach the mainland.\pIts all a conspiracy to keep the White knights in power I tell you!"))
+	msgbox(format("The Customs Officers constantly keep us under supervision, apparently they don't want Karamjan Rum to reach the mainland.\pIt's all a conspiracy to keep the White Knights in power I tell you!"))
     closemessage
     hidenamebox
 	release
@@ -213,7 +214,7 @@ script NPC_MUSA_POINT_6
 {
 	lock
 	faceplayer
-    namebox ("Woman")
+    namebox ("Man")
 	msgbox(format("The banana farm is the pride and joy of Musa Point.\pThat or the bar is the only thing keeping us a landmark really."))
     closemessage
     hidenamebox
@@ -236,7 +237,7 @@ script NPC_MUSA_POINT_8
 	lock
 	faceplayer
     namebox ("Officer")
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 155) { //Post Karamaja Gym, //FLIP >
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 155) { //Post Karamaja Gym, 
 		msgbox(format("Sorry we've had an incident of someone trying to smuggle some Rum to the mainland.\pOur ships won't be sailing for some time while we check the cargo."))
 	}
 	else {
@@ -302,7 +303,7 @@ script NPC_MONKEY_BLOCK
 script BATTLE_MUSA_POINT_TRAINER_1
 {
     trainerbattle_single(TRAINER_MUSA_POINT_TRAINER_1, format("My Fishing level is 62."),format("I can only use quick chat."))
-    //namebox ("Cupholder")
+    namebox ("HelpImMuted")
     msgbox(format("I can only use quick chat."))
 	hidenamebox
     release
@@ -311,7 +312,7 @@ script BATTLE_MUSA_POINT_TRAINER_1
 script BATTLE_MUSA_POINT_TRAINER_2
 {
     trainerbattle_single(TRAINER_MUSA_POINT_TRAINER_2, format("Why am I here?\pFight me to find out!"),format("I love fishing but I cannot afford membership.\pThat is why I am here."))
-    //namebox ("Cupholder")
+    namebox ("Fishin4Bond")
     msgbox(format("I love fishing but I cannot afford membership.\pThat is why I am here."))
 	hidenamebox
     release
@@ -320,7 +321,7 @@ script BATTLE_MUSA_POINT_TRAINER_2
 script BATTLE_MUSA_POINT_TRAINER_3
 {
     trainerbattle_single(TRAINER_MUSA_POINT_TRAINER_3, format("Noob fishing spot tells me I need a higher fishing level to be here.\pNow I am angry!"),format("My fishing level is 14."))
-    //namebox ("Cupholder")
+    namebox ("New2this")
     msgbox(format("My fishing level is 14."))
 	hidenamebox
     release
@@ -329,7 +330,7 @@ script BATTLE_MUSA_POINT_TRAINER_3
 script BATTLE_MUSA_POINT_TRAINER_4
 {
     trainerbattle_single(TRAINER_MUSA_POINT_TRAINER_4, format("Life is like a fishing spot, you never know what you are going to get."),format("Unless you fish for lobsters, you only get lobsters like this."))
-    //namebox ("Cupholder")
+    namebox ("Lobs4Sale")
     msgbox(format("Life is like a fishing spot, you never know what you are going to get.\pUnless you fish for lobsters, you only get lobsters like this."))
 	hidenamebox
     release
@@ -391,7 +392,7 @@ script NEWSLETTER_4 //ALKHARID
 	faceplayer
 	msgbox(format("Newsletter Volume 4.\nMysterious Mounds.\pWould you like to read it?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT)) {
-	msgbox(format("Shh, the ground.\nIt moves ever so slightly.\pBe careful as Wyrms are buried deep within the sands!\pThey change type depending on their enviorment.\pSome say you can force these changes to happen with magic.\pI shall continue to track them.\nAnd you should too.\p - Strykewyrm Jim."))
+	msgbox(format("Shh, the ground.\nIt moves ever so slightly.\pBe careful as Wyrms are buried deep within the sands!\pThey change type depending on their environment.\pSome say you can force these changes to happen with magic.\pI shall continue to track them.\nAnd you should too.\p - Strykewyrm Jim."))
 	}
     closemessage
 	release
@@ -403,7 +404,7 @@ script NEWSLETTER_5 //FALADOR
 	faceplayer
 	msgbox(format("Newsletter Volume 5.\nGotta go fast!\pWould you like to read it?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT)) {
-	msgbox(format("Got sore feet?\n{PAUSE 15}Run energy drained?\pAgility level too low?\n{PAUSE 15}Well be exhausted no more!\pMy Terrorbird can fix that in a jiffy!\nCome see them in Rimmington.\p - Gnome boy Kevin"))
+	msgbox(format("Got sore feet?\n{PAUSE 15}Run energy drained?\pAgility level too low?\n{PAUSE 15}Well be exhausted no more!\pMy Terrorbird can fix that in a jiffy!\nCome see them in Rimmington.\p - Gnome boi Kevin"))
 	}
     closemessage
 	release
@@ -447,13 +448,13 @@ script NEWSLETTER_8 //PORT SARIM
 }
 
 
-script NEWSLETTER_9
+script NEWSLETTER_9 //Dwarven Mines
 {
 	lock
 	faceplayer
-	msgbox(format("Newsletter Volume 9.\n???.\pWould you like to read it?"), MSGBOX_YESNO)
+	msgbox(format("Newsletter Volume 9.\nMysterious Strangers.\pWould you like to read it?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT)) {
-	msgbox(format("?\p - ???"))
+	msgbox(format("Mysterious figures have been spotted in and around Potterington Farm!\pThere are rumours circulating that they possess some kind of magical ability and only make themselves visible to adventurers with specific monsters in their parties.\pWhat are these monsters?\pNobody knows for certain, but apparently one of the mysterious visitors really, really likes hats..."))
 	}
     closemessage
 	release
@@ -507,23 +508,21 @@ script NEWSLETTER_13
 
 script EventScript_BananaTree{
     msgbox(format("There are a bunch of Bananas on this tree!"))
-    random(2)
+    random(3)
     if (var(VAR_RESULT) == 0) {
-        msgbox(format("You picked a Banana!"))
-        giveitem(ITEM_BANANA, 1)
+        msgbox(format("You failed to pick a Banana…"))
     }
 	else {
-		msgbox(format("You failed to pick a Banana…"))
+		msgbox(format("You picked a Banana!"))
+        giveitem(ITEM_BANANA, 1)
 	}
 	closemessage
 	end
 }
 
 script EventScript_BananaGround{
-	random(6)
+	random(8)
 	switch (var(VAR_RESULT)){ 
-		case 0:
-			giveitem(ITEM_BANANA, 1)
 		case 1:
 			msgbox(format("This banana smells."))
 		case 2:
@@ -534,6 +533,8 @@ script EventScript_BananaGround{
 			msgbox(format("As you reach for the banana you sense the gaze a monkey in the distance.\pYou decide to leave it."))
 		case 5:
 			msgbox(format("Ew, looks like someone stepped on this banana."))
+		default:
+			giveitem(ITEM_BANANA, 1)
 	}
 	closemessage
 	end
@@ -578,24 +579,24 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 	msgbox(format("Well then, it truly has been awhile.\nYou look quite different since we last met."))
 	switch (var(VAR_WISE_OLD_MAN_RIVAL)) { 
 		case 10: // Last encounter was port sarim.
-			msgbox(format("It was a shame you didn't take me up on the offer to meet within Asganria Dungeon.\pIt cannot be helped I suppose.\pHow about we check just how much you have truly grown."))
+			msgbox(format("It was a shame you didn't take me up on the offer to meet within Asgarnia Dungeon.\pIt cannot be helped I suppose.\pHow about we check just how much you have truly grown."))
 		case 15: //Encountered optional within Asganria Dungeon
-			msgbox(format("By the way, did you end up meeting with Melzar?\pHow did that go, did he put up a good fight?\pThat man loves his cabbages.\pEnough, chit chat, this old man wants to see how much you've grown since our last enocunter!"))
+			msgbox(format("By the way, did you end up meeting with Melzar?\pHow did that go, did he put up a good fight?\pThat man loves his cabbages.\pEnough chit chat, this old man wants to see how much you've grown since our last encounter!"))
 		}
 	hidenamebox
 	closemessage
 	trainerbattle_no_intro(TRAINER_RIVAL_WISE_OLD_MAN_3, format("You are really getting this old man riled up.")) 
 	namebox("Wise Old Man")
-	msgbox(format("So you got stranded on Crandor, passed through volcano passage undereath Karamja Volcano, met with the Tzhaar and now you are here?\pYou certainly have been busy haven't you.\pYou should really take the MvM championship seriously, I think you might just make it to the end."))
+	msgbox(format("So you got stranded on Crandor, passed through a volcano passage underneath Karamja Volcano, met with the Tzhaar and now you are here?\pYou certainly have been busy haven't you.\pYou should really take the MvM championship seriously, I think you might just make it to the end."))
 	hidenamebox
 	closemessage
 	applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_1)
 	waitmovement(0)
 	namebox("Wise Old Man")
-	msgbox(format("Although that might have to be put on hold for a bit as it seems someone was caught smuggling Karmaja Rum.\pAll of the boats are in lockdown until the matter is resolved.\pIf you don't want to wait around with me, I heard Luthas was selling a boat."))
+	msgbox(format("Although that might have to be put on hold for a bit as it seems someone was caught smuggling Karmajan Rum.\pAll of the boats are in lockdown until the matter is resolved.\pIf you don't want to wait around with me, I heard Luthas was selling a boat."))
 	applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, MOVEMENT_FACE_UP)
 	waitmovement(0)
-	msgbox(format("He lives in that shack just over there.\pGo give him a visit if your interested."))
+	msgbox(format("He lives in that shack just over there.\pGo give him a visit if you're interested."))
 	applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, Common_Movement_FacePlayer)
 	waitmovement(0)
 	msgbox(format("Me?\pI think I might go visit the pub for a drink.\pI truly am looking forward to seeing your MvM championship progress.\pUntil next time {PLAYER}."))
@@ -619,7 +620,10 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 	removeobject(OBJ_EVENT_ID_WISE_OLD_MAN)
 	setflag(FLAG_TEMP_1F)
 	closedoor(18,32)
-	setvar(VAR_WISE_OLD_MAN_RIVAL, 20) //Karmaja event completed.
+	if (var(VAR_WISE_OLD_MAN_RIVAL) == 10) {
+		addvar(VAR_GAMEMODE_LEVEL_CAP, 2)
+	}
+	setvar(VAR_WISE_OLD_MAN_RIVAL, 20) //Karamja event completed.
 	setvar(VAR_TEMP_F, 0)
 	savebgm(MUS_DUMMY)
 	fadedefaultbgm
@@ -887,6 +891,7 @@ script LUTHAS_QUEST_PART_5 {
 			closemessage
 			hidenamebox
 			//give mon
+			call(EventScript_GiftMonster_Banana)
 			msgbox(format("I hope you will keep assisting me in the future."))
 			setvar(VAR_BANANA_BOAT_QUEST, 25)
 			subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_BANANA_BOAT, 3)
@@ -951,5 +956,547 @@ script TOGGLE_INVERSE_BATTLE {
 script BATTLE_scorp {
 	setwildbattle (SPECIES_PET_ROCK, 50, ITEM_NONE)
 	dowildbattle
+	end
+}
+
+
+
+
+script QUEST_TESTER {
+	
+	msgbox(format("Start MVM CHAMPIONSHIPS quest?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		startquest (QUEST_MVM_CHAMPIONSHIPS)
+	}
+
+	msgbox(format("Obtain Lumbridge Badge?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 0)
+	}
+	//msgbox(format("Battle?"), MSGBOX_YESNO)
+	//if (var(VAR_RESULT)) {
+	//	trainerbattle_no_intro(TRAINER_TZHAAR_FIGHTCAVES_LOW_KET_1, "Damn I lost.")
+	//}
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 1)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 2)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 3)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 4)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 5)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 6)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 7)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 8)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 9)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 10)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 11)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 12)
+
+
+	startquest (QUEST_MAIN_STORY)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 0)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 1)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 2)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 3)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 4)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 5)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 6)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 7)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 9)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10)
+
+	startquest (QUEST_MITHRILMAN_QUEST)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 0)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 1)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 2)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3)
+
+
+	closemessage
+	end
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+script EventScript_GiftMonster_Banana {
+    setvar(VAR_TEMP_1, SPECIES_AGRITHNANA)
+    givemon (SPECIES_AGRITHNANA, 30, ITEM_NONE)
+	goto(EventScript_GiftMonster_Start)
+}
+
+
+
+script EventScript_GiftMonster_Start {
+    compare(VAR_RESULT, 0)
+	goto_if_eq(EventScript_GiftMonster_SendParty)
+    compare(VAR_RESULT, 1)
+	goto_if_eq(EventScript_GiftMonster_SendPC)
+    goto(Common_EventScript_NoMoreRoomForPokemon)
+    end
+}
+
+script EventScript_GiftMonster_SendParty{
+	call(EventScript_GiftMonster_ReceivedFanfare)
+	msgbox(format("Would you like to give your monster a nickname?"), MSGBOX_YESNO)
+    compare(VAR_RESULT, NO)
+	goto_if_eq(EventScript_GiftMonster_Received)
+	call(Common_EventScript_GetGiftMonPartySlot)
+	call(Common_EventScript_NameReceivedPartyMon)
+	goto(EventScript_GiftMonster_Received)
+	end
+}
+
+script EventScript_GiftMonster_SendPC {
+	call(EventScript_GiftMonster_ReceivedFanfare)
+	msgbox(format("Would you like to give your monster a nickname?"), MSGBOX_YESNO)
+    compare(VAR_RESULT, NO)
+	goto_if_eq(EventScript_GiftMonster_TransferredToPC)
+	call (Common_EventScript_NameReceivedBoxMon)
+	goto (EventScript_GiftMonster_TransferredToPC)
+	end
+}
+
+script EventScript_GiftMonster_TransferredToPC{
+	call (Common_EventScript_TransferredToPC)
+	goto (EventScript_GiftMonster_Received)
+	end
+}
+
+script EventScript_GiftMonster_ReceivedFanfare{
+	bufferspeciesname(1, VAR_TEMP_1)
+	playfanfare (MUS_OBTAIN_ITEM)
+	msgbox(format("{PLAYER} obtained {STR_VAR_2}."))
+	waitmessage
+	waitfanfare
+	bufferspeciesname(0, VAR_TEMP_1)
+	return
+}
+
+script EventScript_GiftMonster_Received{
+	releaseall
+	return
+}
+
+
+
+
+
+script multipartnerBattle_Zanik {
+
+    lock
+    faceplayer
+    namebox("Zanik")
+	msgbox(format("May we adventure together?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        loadword(0, Following_Zanik)
+		setfollower(37, 0x100)
+		closemessage
+		hidenamebox
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("ZANIK JOINS THE PARTY!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK)
+		release
+		end
+    }
+	msgbox(format("Maybe some other time then…"))
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+script Following_Zanik {
+	lock
+	facefollower
+	if (var(VAR_PARTNER_SPRITE) == TRAINER_BACK_PIC_ARIANE) { //chance to a switch case later
+		namebox("Zanik")
+	}
+	elif (var(VAR_PARTNER_SPRITE) == TRAINER_BACK_PIC_ZANIK) {
+		namebox("Zanik")
+	}
+	else {
+		namebox("???")
+	}
+	
+	msgbox(format("Did you want to encounter two wild monsters at once?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		hidenamebox
+		closemessage
+		release
+		end
+    }
+    msgbox(format("What's wrong {PLAYER}?\pDid you want to stop our adventure?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        msgbox(format("Oh, that's a shame I was having so much fun…\pSee you around…"))
+		clearflag(FLAG_PARTNER_BATTLE)
+		clearflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+        destroyfollower
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+script multipartnerBattle_Ariane {
+
+    lock
+    faceplayer
+    namebox("Ariane")
+	msgbox(format("May we adventure together?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        loadword(0, Following_Zanik)
+		setfollower(38, 0x100)
+		closemessage
+		hidenamebox
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("ARIANE JOINS THE PARTY!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ARIANE_1)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ARIANE)
+		release
+		end
+    }
+	msgbox(format("Maybe some other time then…"))
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+
+script multipartnerBattle_SirOwen {
+
+    lock
+    faceplayer
+    namebox("Sir Owen")
+	msgbox(format("May we adventure together?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        loadword(0, Following_Zanik)
+		setfollower(36, 0x100)
+		closemessage
+		hidenamebox
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("SIR OWEN JOINS THE PARTY!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN)
+		release
+		end
+    }
+	msgbox(format("Maybe some other time then…"))
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+
+script FOLLOWER_REMOVE {
+	clearflag(FLAG_PARTNER_BATTLE)
+	clearflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+	destroyfollower
+	//waitstate
+	return
+}
+
+
+script CHECK_FOLLOWER_SIROWEN {
+	checkfollower
+	if (var(VAR_RESULT)) {
+		lockall
+		namebox("Sir Owen")
+		msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{ 
+			msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
+			closemessage
+			hidenamebox
+			call(FOLLOWER_REMOVE)
+			clearflag(FLAG_TEMP_1E)
+			addobject(13)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+			waitmovement(0)
+		}
+		else {
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+			waitmovement(0)
+		}
+		releaseall
+	}
+	else {
+		applymovement (13, Movement_InteractFACEDOWN)
+		waitmovement(0)
+		goto(SetFollower_SirOwen)
+	}
+	return
+}
+
+
+
+
+script SetFollower_SirOwen {
+    lockall
+    faceplayer
+    namebox("Sir Owen")
+	msgbox(format("What do you say me and you team up and show these Black Knights just what we are made of?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+		hidenamebox
+		//SIR OWEN JOINS THE PARTY and Follows!
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("Lead the charge!\nSir Owen Sonde is on your side!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN)
+		loadword(0, FOLLOWING_SirOwen)
+		setfollower(13, 0x80)
+
+		namebox("Sir Owen")
+		msgbox(format("May Saradomin guide us!"))
+		closemessage
+		hidenamebox
+		applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+		waitmovement(0)
+		releaseall
+		end
+    }
+	msgbox(format("Oh… I see.\nThat's a bit disappointing.\pThought we had a heroic thing going here…"))
+    hidenamebox
+    closemessage
+    releaseall
+    end
+}
+
+
+script FOLLOWING_SirOwen {
+    namebox("Sir Owen")
+    facefollower 
+
+	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
+		case 181:
+			msgbox(format("Is that a Black Knight Fortress?!"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 186:
+			msgbox(format("We should go say hello to those guards up on the mountain."))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 187:
+			msgbox(format("I cannot believe we just did that…\pI guess we should try to enter the fortress, now that we look the part."))
+			hidenamebox
+			closemessage
+			release
+			end
+	}
+	//It is more common for special dialogue than this common dialogue. 1/5
+	random(5)
+	switch (var(VAR_RESULT)) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			specialvar (VAR_RESULT, GetCurrentMap)
+			if (var(VAR_RESULT) == MAP_ICE_MOUNTAIN) {
+				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
+			}
+			else {
+				goto(SIR_OWEN_DIALOGUE_COMMON)
+			}
+		default:
+			goto(SIR_OWEN_DIALOGUE_COMMON)
+	}
+}
+
+script SIR_OWEN_DIALOGUE_COMMON {
+	random(11)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("So you saw a Black Knight run out of the barbarian's stronghold?\pHow Strange…"))
+		case 1:
+			msgbox(format("Oh by the way, we had a team resuce Ned.\pWe still cannot believe you just left him there though."))
+		case 2:
+			msgbox(format("I wonder what happened to the Cabin Boy that went to Crandor with you and Ned."))
+		case 3:
+			msgbox(format("The Black Knights have been a pain in our side for as long as I can remember."))
+		case 4:
+			msgbox(format("May Saradomin's light guide us."))
+		case 5:
+			msgbox(format("{PLAYER} are you a believer in Saradomin?"))
+		case 6:
+			msgbox(format("Oh you met Ariane?\nShe got into trouble?\pThat sounds like her."))
+		case 7:
+			msgbox(format("I used to be a White knight, but I shot someone with a bow.\pSir Amik threw me out…\pLuckily Sir Tiffy Cashien took me in to the Temple knights.\pIt is a minor difference, but it matters."))
+		case 8:
+			msgbox(format("My arm? It is a long story.\pMaybe someday we will have time."))
+		case 9:
+			msgbox(format("My arm?\nNo I dont know a troll like that."))
+		case 10:
+			msgbox(format("Stand with me {PLAYER}.\pWe will prevail!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
+	random(6)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("Brrr… It's quite cold."))
+	case 1:
+		msgbox(format("We are looking for any suspicious behavour keep your eyes peeled!"))
+	case 2:
+		msgbox(format("I think there is something atop of that mountain."))
+	case 3:
+		msgbox(format("They say the Orcale is located somewhere on this mountain."))
+	case 4:
+		msgbox(format("Watch out, we don't want to fall down these cliffs."))
+	case 5:
+		playse(SE_LEDGE)
+		applymovement(17, MOVEMENT_EXCLAMATIONMARK_JUMP_UP)
+		waitmovement(0)
+		msgbox(format("Aaaah!\p…{PAUSE 15}… Don't mind me, I just slipped on some ice…"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1 {
+	random(8)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("Careful {PLAYER} we don't want them to suspect us."))
+	case 1:
+		msgbox(format("I cannot believe this hideout was just located on the other side of Ice Mountain this entire time!"))
+	case 2:
+		msgbox(format("We should send a mission update to the other Temple Knights.\pWe might need backup…"))
+	case 3:
+		msgbox(format("I wonder what their plan is."))
+	case 4:
+		msgbox(format("We should find whoever is in charge of this place."))
+	case 5:
+		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
+	case 6:
+		msgbox(format("These Black knights dont know when to quit."))
+	case 7:
+		msgbox(format("We know of another hideout for the Black Knights, it is actually deep underground.\pThis is just an outpost compared to that."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2 {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These Kinshra seem obsessed with their history."))
+	case 1:
+		msgbox(format("I cannot believe that they are having a feast in here while people in nearby towns are starving..."))
+	case 2:
+		msgbox(format("Sir Tiffy is not going to be pleased when he hears how many Black Knights are here."))
+	case 3:
+		msgbox(format("How big is this place?\pIf I was in charge, I'd probably want to be right at the very top."))
+	case 4:
+		msgbox(format("I can hear the chanting of hymns.\pI cannot believe that there are still people openly worshipping Zamorak in Gielinor."))
+	case 5:
+		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
+	case 6:
+		msgbox(format("Did you know Kinshra means 'the ones that spark the fire'?\pAll these people know are death and destruction."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3 {
+	random(4)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These dungeons are full of prisoners.\pI wish we could free them all."))
+	case 1:
+		msgbox(format("The Kinshra often fill up their armies with slaves.\pI bet these poor people are some of them, ready for whatever war they start next."))
+	case 2:
+		msgbox(format("Can you hear that sound?\pThey've got more than just humans down here..."))
+	case 3:
+		msgbox(format("That sound!\pThey're training!\p{PAUSE 15}We need to find out what they're up to and stop them quickly!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4 {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I can feel it {PLAYER}, we're getting close now."))
+	case 1:
+		msgbox(format("Can you hear the whispering?\pThere's an important meeting going on up here.\pIt cost me dearly, but if I could go back I would do it all over again."))
+	case 2:
+		msgbox(format("The Kinshra despise me for what I did to Iban."))
+	case 3:
+		msgbox(format("Whilst some may not approve of the tactics I use, I know without a doubt that Saradomin himself guides my hand."))
+	case 4:
+		msgbox(format("When we find Lord Daquarius, we may need to be prepared for a fierce battle."))
+	}
+	hidenamebox
+	closemessage
+	release
 	end
 }

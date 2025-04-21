@@ -11,46 +11,49 @@ POTTERINGTON_FARM_STATE::
 	setflag FLAG_TEMP_1
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3
-	setflag FLAG_TEMP_4
-	setflag FLAG_TEMP_5
 	setflag FLAG_TEMP_6
-	setflag FLAG_TEMP_7
 	setflag FLAG_TEMP_8
 	setflag FLAG_TEMP_9
-	setflag FLAG_TEMP_A
 	removeobject 5
 	removeobject 4
 	removeobject 2
-	removeobject 10
-	removeobject 9
-	removeobject 12
 	removeobject 6
-	removeobject 11
 	removeobject 7
 	removeobject 8
-	removeobject 14
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_2
+	special Is_InParty_CABBAGE
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_2
+	goto_if_set FLAG_RECEIVED_GUTHIX_EGG, POTTERINGTON_FARM_STATE_2
+	special Is_InParty_GUTHIX
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_12
+	goto_if_set FLAG_RECEIVED_GUTHIX_EGG, POTTERINGTON_FARM_STATE_12
 POTTERINGTON_FARM_STATE_1:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_5
-POTTERINGTON_FARM_STATE_4:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_8
+	special Is_InParty_SARADOMIN
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_8
+	goto_if_set FLAG_RECEIVED_SARADOMIN_EGG, POTTERINGTON_FARM_STATE_8
 POTTERINGTON_FARM_STATE_7:
-	checkitem ITEM_TERRORBIRD_POUCH, 1
-	compare VAR_RESULT, 0
-	goto_if_ne POTTERINGTON_FARM_STATE_11
-POTTERINGTON_FARM_STATE_10:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_14
-POTTERINGTON_FARM_STATE_13:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_17
+	special Is_InParty_ZAMORAK
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_17
+	goto_if_set FLAG_RECEIVED_ZAMORAK_EGG, POTTERINGTON_FARM_STATE_17
 POTTERINGTON_FARM_STATE_16:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_20
-POTTERINGTON_FARM_STATE_19:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_23
-POTTERINGTON_FARM_STATE_22:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_26
-POTTERINGTON_FARM_STATE_25:
-	goto_if_set FLAG_EVILCHICKEN_DEFEATED, POTTERINGTON_FARM_STATE_29
-POTTERINGTON_FARM_STATE_28:
+	special Is_InParty_BANDOS
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_22
+	goto_if_set FLAG_RECEIVED_BANDLING_EGG, POTTERINGTON_FARM_STATE_22
+POTTERINGTON_FARM_STATE_21:
+	special Is_InParty_hasHAT
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_27
+	goto_if_set FLAG_RECEIVED_RAVENLING_EGG, POTTERINGTON_FARM_STATE_27
+POTTERINGTON_FARM_STATE_26:
+	special Is_InParty_TZHAAR
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_STATE_32
+	goto_if_set FLAG_RECEIVED_BASILISK_EGG, POTTERINGTON_FARM_STATE_32
+POTTERINGTON_FARM_STATE_31:
 	release
 	end
 
@@ -59,51 +62,35 @@ POTTERINGTON_FARM_STATE_2:
 	addobject 5
 	goto POTTERINGTON_FARM_STATE_1
 
-POTTERINGTON_FARM_STATE_5:
+POTTERINGTON_FARM_STATE_8:
 	clearflag FLAG_TEMP_2
 	addobject 4
-	goto POTTERINGTON_FARM_STATE_4
-
-POTTERINGTON_FARM_STATE_8:
-	clearflag FLAG_TEMP_3
-	addobject 2
 	goto POTTERINGTON_FARM_STATE_7
 
-POTTERINGTON_FARM_STATE_11:
-	clearflag FLAG_TEMP_4
-	addobject 10
-	addobject 9
-	goto POTTERINGTON_FARM_STATE_10
-
-POTTERINGTON_FARM_STATE_14:
-	clearflag FLAG_TEMP_5
-	addobject 12
-	goto POTTERINGTON_FARM_STATE_13
+POTTERINGTON_FARM_STATE_12:
+	clearflag FLAG_TEMP_1
+	addobject 5
+	goto POTTERINGTON_FARM_STATE_1
 
 POTTERINGTON_FARM_STATE_17:
-	clearflag FLAG_TEMP_6
-	addobject 6
+	clearflag FLAG_TEMP_3
+	addobject 2
 	goto POTTERINGTON_FARM_STATE_16
 
-POTTERINGTON_FARM_STATE_20:
-	clearflag FLAG_TEMP_7
-	addobject 11
-	goto POTTERINGTON_FARM_STATE_19
+POTTERINGTON_FARM_STATE_22:
+	clearflag FLAG_TEMP_6
+	addobject 6
+	goto POTTERINGTON_FARM_STATE_21
 
-POTTERINGTON_FARM_STATE_23:
+POTTERINGTON_FARM_STATE_27:
 	clearflag FLAG_TEMP_8
 	addobject 7
-	goto POTTERINGTON_FARM_STATE_22
+	goto POTTERINGTON_FARM_STATE_26
 
-POTTERINGTON_FARM_STATE_26:
+POTTERINGTON_FARM_STATE_32:
 	clearflag FLAG_TEMP_9
 	addobject 8
-	goto POTTERINGTON_FARM_STATE_25
-
-POTTERINGTON_FARM_STATE_29:
-	clearflag FLAG_TEMP_A
-	addobject 14
-	goto POTTERINGTON_FARM_STATE_28
+	goto POTTERINGTON_FARM_STATE_31
 
 
 EventScript_DaycareMan::
@@ -197,26 +184,68 @@ SCRIPT_EGG_NOROOM::
 
 
 POTTERINGTON_FARM_Zamorak::
+	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_ZAMORAK_EGG, POTTERINGTON_FARM_Zamorak_2
+	namebox POTTERINGTON_FARM_Zamorak_Text_4
+	msgbox POTTERINGTON_FARM_Zamorak_Text_5
+POTTERINGTON_FARM_Zamorak_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+POTTERINGTON_FARM_Zamorak_2:
 	namebox POTTERINGTON_FARM_Zamorak_Text_0
 	msgbox POTTERINGTON_FARM_Zamorak_Text_1
 	closemessage
 	hidenamebox
-	release
-	end
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_ZAMORAK_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_Zamorak_Text_2
+	waitfanfare
+	giveegg SPECIES_ZAMLING
+	namebox POTTERINGTON_FARM_Zamorak_Text_0
+	msgbox POTTERINGTON_FARM_Zamorak_Text_3
+	goto POTTERINGTON_FARM_Zamorak_1
 
 
 POTTERINGTON_FARM_Saradomin::
+	lock
 	faceplayer
-	namebox POTTERINGTON_FARM_Saradomin_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
-	closemessage
+	goto_if_unset FLAG_RECEIVED_SARADOMIN_EGG, POTTERINGTON_FARM_Saradomin_2
+	namebox POTTERINGTON_FARM_Saradomin_Text_4
+	msgbox POTTERINGTON_FARM_Saradomin_Text_5
+POTTERINGTON_FARM_Saradomin_1:
 	hidenamebox
+	closemessage
 	release
 	end
 
+POTTERINGTON_FARM_Saradomin_2:
+	namebox POTTERINGTON_FARM_Saradomin_Text_0
+	msgbox POTTERINGTON_FARM_Saradomin_Text_1
+	closemessage
+	hidenamebox
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_SARADOMIN_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_Saradomin_Text_2
+	waitfanfare
+	giveegg SPECIES_SARALING
+	namebox POTTERINGTON_FARM_Saradomin_Text_0
+	msgbox POTTERINGTON_FARM_Saradomin_Text_3
+	goto POTTERINGTON_FARM_Saradomin_1
+
 
 POTTERINGTON_FARM_Guthix::
+	lock
+	faceplayer
 	goto_if_unset FLAG_RECEIVED_GUTHIX_EGG, POTTERINGTON_FARM_Guthix_2
 	namebox POTTERINGTON_FARM_Guthix_Text_0
 	msgbox POTTERINGTON_FARM_Guthix_Text_4
@@ -227,8 +256,6 @@ POTTERINGTON_FARM_Guthix_1:
 	end
 
 POTTERINGTON_FARM_Guthix_2:
-	lock
-	faceplayer
 	namebox POTTERINGTON_FARM_Guthix_Text_0
 	msgbox POTTERINGTON_FARM_Guthix_Text_1
 	closemessage
@@ -247,105 +274,205 @@ POTTERINGTON_FARM_Guthix_2:
 
 
 POTTERINGTON_FARM_Gonthorian::
+	lock
+	faceplayer
+	goto_if_unset FLAG_RECEIVED_BANDLING_EGG, POTTERINGTON_FARM_Gonthorian_1
+	random 6
+	switch VAR_RESULT
+	case 0, POTTERINGTON_FARM_Gonthorian_6
+	case 1, POTTERINGTON_FARM_Gonthorian_7
+	case 2, POTTERINGTON_FARM_Gonthorian_8
+	case 3, POTTERINGTON_FARM_Gonthorian_9
+	case 4, POTTERINGTON_FARM_Gonthorian_10
+	case 5, POTTERINGTON_FARM_Gonthorian_11
+	release
+	end
+
+POTTERINGTON_FARM_Gonthorian_1:
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_1
+	closemessage
+	hidenamebox
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_BANDLING_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_2
+	waitfanfare
+	giveegg SPECIES_BANDLING
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_3
+	return
+
+POTTERINGTON_FARM_Gonthorian_6:
+	lock
 	faceplayer
 	namebox POTTERINGTON_FARM_Gonthorian_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
-	closemessage
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_4
 	hidenamebox
 	release
 	end
 
-
-POTTERINGTON_FARM_Zezima::
+POTTERINGTON_FARM_Gonthorian_7:
+	lock
 	faceplayer
-	namebox POTTERINGTON_FARM_Zezima_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
-	closemessage
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_5
 	hidenamebox
 	release
 	end
 
-
-POTTERINGTON_FARM_Prezleek::
-	lockall
+POTTERINGTON_FARM_Gonthorian_8:
+	lock
 	faceplayer
-	checkitem ITEM_YAK_POUCH, 1
-	compare VAR_RESULT, 0
-	goto_if_eq POTTERINGTON_FARM_Prezleek_2
-POTTERINGTON_FARM_Prezleek_1:
-	namebox POTTERINGTON_FARM_Prezleek_Text_0
-	msgbox POTTERINGTON_FARM_Prezleek_Text_6
-	closemessage
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_6
 	hidenamebox
 	release
 	end
 
-POTTERINGTON_FARM_Prezleek_2:
-	checkitem ITEM_TERRORBIRD_POUCH, 1
-	compare VAR_RESULT, 0
-	goto_if_ne POTTERINGTON_FARM_Prezleek_4
-	goto POTTERINGTON_FARM_Prezleek_1
-
-POTTERINGTON_FARM_Prezleek_4:
-	namebox POTTERINGTON_FARM_Prezleek_Text_0
-	msgbox POTTERINGTON_FARM_Prezleek_Text_1
-	applymovement 10, Movement_InteractFACELEFT
-	waitmovement 0
-	msgbox POTTERINGTON_FARM_Prezleek_Text_2
-	closemessage
-	hidenamebox
-	namebox POTTERINGTON_FARM_Prezleek_Text_3
-	msgbox POTTERINGTON_FARM_Prezleek_Text_4
-	closemessage
-	hidenamebox
-	applymovement 10, Movement_InteractFACEPLAYER
-	waitmovement 0
-	namebox POTTERINGTON_FARM_Prezleek_Text_0
-	msgbox POTTERINGTON_FARM_Prezleek_Text_5
-	closemessage
-	hidenamebox
-	giveitem ITEM_YAK_POUCH, 1
-	goto POTTERINGTON_FARM_Prezleek_1
-
-
-POTTERINGTON_FARM_Baroo::
+POTTERINGTON_FARM_Gonthorian_9:
+	lock
 	faceplayer
-	namebox POTTERINGTON_FARM_Prezleek_Text_3
-	msgbox POTTERINGTON_FARM_Baroo_Text_0
-	closemessage
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_7
 	hidenamebox
 	release
 	end
+
+POTTERINGTON_FARM_Gonthorian_10:
+	lock
+	faceplayer
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_8
+	hidenamebox
+	release
+	end
+
+POTTERINGTON_FARM_Gonthorian_11:
+	lock
+	faceplayer
+	namebox POTTERINGTON_FARM_Gonthorian_Text_0
+	msgbox POTTERINGTON_FARM_Gonthorian_Text_9
+	hidenamebox
+	release
+	end
+
+
+POTTERINGTON_FARM_Seren_Spirit::
+	lock
+	faceplayer
+	goto_if_unset FLAG_RECEIVED_SERELING_EGG, POTTERINGTON_FARM_Seren_Spirit_2
+	msgbox POTTERINGTON_FARM_Seren_Spirit_Text_3
+POTTERINGTON_FARM_Seren_Spirit_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+POTTERINGTON_FARM_Seren_Spirit_2:
+	msgbox POTTERINGTON_FARM_Seren_Spirit_Text_0
+	closemessage
+	hidenamebox
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_SERELING_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_Seren_Spirit_Text_1
+	waitfanfare
+	giveegg SPECIES_SERELING
+	msgbox POTTERINGTON_FARM_Seren_Spirit_Text_2
+	goto POTTERINGTON_FARM_Seren_Spirit_1
 
 
 POTTERINGTON_FARM_Demonheadge::
+	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_RAVENLING_EGG, POTTERINGTON_FARM_Demonheadge_2
 	namebox POTTERINGTON_FARM_Demonheadge_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
-	closemessage
+	msgbox POTTERINGTON_FARM_Demonheadge_Text_4
+POTTERINGTON_FARM_Demonheadge_1:
 	hidenamebox
+	closemessage
 	release
 	end
+
+POTTERINGTON_FARM_Demonheadge_2:
+	namebox POTTERINGTON_FARM_Demonheadge_Text_0
+	msgbox POTTERINGTON_FARM_Demonheadge_Text_1
+	closemessage
+	hidenamebox
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_RAVENLING_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_Demonheadge_Text_2
+	waitfanfare
+	giveegg SPECIES_RAVENLING
+	namebox POTTERINGTON_FARM_Demonheadge_Text_0
+	msgbox POTTERINGTON_FARM_Demonheadge_Text_3
+	goto POTTERINGTON_FARM_Demonheadge_1
 
 
 POTTERINGTON_FARM_HyperStan::
+	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_BASILISK_EGG, POTTERINGTON_FARM_HyperStan_2
 	namebox POTTERINGTON_FARM_HyperStan_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
-	closemessage
+	msgbox POTTERINGTON_FARM_HyperStan_Text_4
+POTTERINGTON_FARM_HyperStan_1:
 	hidenamebox
+	closemessage
 	release
 	end
+
+POTTERINGTON_FARM_HyperStan_2:
+	namebox POTTERINGTON_FARM_HyperStan_Text_0
+	msgbox POTTERINGTON_FARM_HyperStan_Text_1
+	closemessage
+	hidenamebox
+	getpartysize
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq SCRIPT_EGG_NOROOM
+	setflag FLAG_RECEIVED_BASILISK_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox POTTERINGTON_FARM_HyperStan_Text_2
+	waitfanfare
+	giveegg SPECIES_BASILISK_BABY_FORM
+	namebox POTTERINGTON_FARM_HyperStan_Text_0
+	msgbox POTTERINGTON_FARM_HyperStan_Text_3
+	goto POTTERINGTON_FARM_HyperStan_1
 
 
 POTTERINGTON_FARM_JagexMod::
 	faceplayer
 	namebox POTTERINGTON_FARM_JagexMod_Text_0
-	msgbox POTTERINGTON_FARM_Zamorak_Text_1
+	msgbox POTTERINGTON_FARM_JagexMod_Text_1
 	closemessage
 	hidenamebox
 	release
 	end
+
+
+POTTERINGTON_FARM_test::
+	faceplayer
+	namebox POTTERINGTON_FARM_Demonheadge_Text_0
+	special Is_InParty_hasHAT
+	compare VAR_RESULT, TRUE
+	goto_if_eq POTTERINGTON_FARM_test_2
+	msgbox POTTERINGTON_FARM_test_Text_1
+POTTERINGTON_FARM_test_1:
+	closemessage
+	hidenamebox
+	release
+	end
+
+POTTERINGTON_FARM_test_2:
+	msgbox POTTERINGTON_FARM_test_Text_0
+	goto POTTERINGTON_FARM_test_1
 
 
 EventScript_DaycareMan_Text_0:
@@ -412,68 +539,177 @@ POTTERINGTON_FARM_Zamorak_Text_0:
 	.string "Zamorak$"
 
 POTTERINGTON_FARM_Zamorak_Text_1:
-	.string "I am a cupholder.$"
+	.string "Take this and use it to beat up that\n"
+	.string "pesky Saradomin worshipers.$"
+
+POTTERINGTON_FARM_Zamorak_Text_2:
+	.string "Obtained an EGG from Zamorak!$"
+
+POTTERINGTON_FARM_Zamorak_Text_3:
+	.string "Destroy them all!$"
+
+POTTERINGTON_FARM_Zamorak_Text_4:
+	.string "Zamorak.$"
+
+POTTERINGTON_FARM_Zamorak_Text_5:
+	.string "I hope you find strength through\n"
+	.string "chaos.$"
 
 POTTERINGTON_FARM_Saradomin_Text_0:
 	.string "Saradomin$"
+
+POTTERINGTON_FARM_Saradomin_Text_1:
+	.string "I heard you were training monsters.\p"
+	.string "These might be useful for you.$"
+
+POTTERINGTON_FARM_Saradomin_Text_2:
+	.string "Obtained an EGG from Saradomin!$"
+
+POTTERINGTON_FARM_Saradomin_Text_3:
+	.string "Train it well.$"
+
+POTTERINGTON_FARM_Saradomin_Text_4:
+	.string "Saradomin.$"
+
+POTTERINGTON_FARM_Saradomin_Text_5:
+	.string "May that egg help guide you on your\n"
+	.string "path.$"
 
 POTTERINGTON_FARM_Guthix_Text_0:
 	.string "Guthix$"
 
 POTTERINGTON_FARM_Guthix_Text_1:
-	.string "Hello my name is GUTTTHHHIIXX!!!\p"
-	.string "You can have THHHISSS!$"
+	.string "My name is GUTTTHHHIIXX!!!\p"
+	.string "Your monsters know about\n"
+	.string "BALLAANNCCEE!\p"
+	.string "So you can have THHHISSS!$"
 
 POTTERINGTON_FARM_Guthix_Text_2:
 	.string "Obtained an EGG from Guthix!$"
 
 POTTERINGTON_FARM_Guthix_Text_3:
-	.string "Look after it!$"
+	.string "EGGS ARE COOOOL!$"
 
 POTTERINGTON_FARM_Guthix_Text_4:
-	.string "Did you know grass is blue!!$"
+	.string "Did you know grass is blue!?$"
 
 POTTERINGTON_FARM_Gonthorian_Text_0:
 	.string "Gonthorian$"
 
-POTTERINGTON_FARM_Zezima_Text_0:
-	.string "Zezima$"
+POTTERINGTON_FARM_Gonthorian_Text_1:
+	.string "Fish crackers!$"
 
-POTTERINGTON_FARM_Prezleek_Text_0:
-	.string "Prezleek$"
+POTTERINGTON_FARM_Gonthorian_Text_2:
+	.string "Obtained an EGG from Gonthorian!$"
 
-POTTERINGTON_FARM_Prezleek_Text_1:
-	.string "Hello.\p"
-	.string "Wait…{PAUSE 16} What is that…?{PAUSE 16}\n"
-	.string "A rideable Terrorbird?!\p"
-	.string "Unbelieveable everyone knows Yaks are\n"
-	.string "the best source of transportation.$"
+POTTERINGTON_FARM_Gonthorian_Text_3:
+	.string "Look after it!$"
 
-POTTERINGTON_FARM_Prezleek_Text_2:
-	.string "Baroo, you agree with me right?$"
+POTTERINGTON_FARM_Gonthorian_Text_4:
+	.string "It is I, Gonthorian!\p"
+	.string "I'm the slayer of dragons!\p"
+	.string "The caster of ancient magic!\p"
+	.string "Seducer of woman!\p"
+	.string "And eater of goldfish crackers.$"
 
-POTTERINGTON_FARM_Prezleek_Text_3:
-	.string "Baroo$"
+POTTERINGTON_FARM_Gonthorian_Text_5:
+	.string "It is I, Gonthorian!\p"
+	.string "Killer of demons!\p"
+	.string "Completer of really hard quests!\p"
+	.string "Lover of Will Smith movies!$"
 
-POTTERINGTON_FARM_Prezleek_Text_4:
-	.string "Baroooo, Baroo!$"
+POTTERINGTON_FARM_Gonthorian_Text_6:
+	.string "It is I, Gonthorian!\p"
+	.string "Destroyer of beasts!\p"
+	.string "Fisher of trout!\p"
+	.string "Cooker of...$"
 
-POTTERINGTON_FARM_Prezleek_Text_5:
-	.string "See even Baroo agrees.\p"
-	.string "Here have this.$"
+POTTERINGTON_FARM_Gonthorian_Text_7:
+	.string "It is I, Gonthorian!\p"
+	.string "Annihilator of all that is evil!\p"
+	.string "Surfer of really rad waves at the\n"
+	.string "beach!\p"
+	.string "Fixer of unanimous household\n"
+	.string "appliances!$"
 
-POTTERINGTON_FARM_Prezleek_Text_6:
-	.string "See aren't Yaks so much better than\n"
-	.string "Terrorbirds?$"
+POTTERINGTON_FARM_Gonthorian_Text_8:
+	.string "It is I, Gonthorian!\p"
+	.string "Conqueror of kingdoms!\p"
+	.string "Tweeter of what I am doing!\p"
+	.string "Enjoyer of the show King of Queens.$"
 
-POTTERINGTON_FARM_Baroo_Text_0:
-	.string "Baroo, baroo!$"
+POTTERINGTON_FARM_Gonthorian_Text_9:
+	.string "It is I, Gonthorian!\p"
+	.string "Protector of Falador!!\p"
+	.string "Keeper of wisdom!\p"
+	.string "Creator of Kraft Dinner\p"
+	.string "...On a regular basis$"
+
+POTTERINGTON_FARM_Seren_Spirit_Text_0:
+	.string "The crystal shines brightly.\p"
+	.string "A gift has appeared for you!$"
+
+POTTERINGTON_FARM_Seren_Spirit_Text_1:
+	.string "Obtained an EGG from the Seren Spirit!$"
+
+POTTERINGTON_FARM_Seren_Spirit_Text_2:
+	.string "The crystal goes back to roaming.$"
+
+POTTERINGTON_FARM_Seren_Spirit_Text_3:
+	.string "You attempt to capture the floating\n"
+	.string "crystal but it gets away.$"
 
 POTTERINGTON_FARM_Demonheadge_Text_0:
 	.string "Demonheadge$"
 
+POTTERINGTON_FARM_Demonheadge_Text_1:
+	.string "That…{PAUSE 15}\n"
+	.string "That……\p"
+	.string "THAT HAT IS ABSOLUTLEY AMAZING!\p"
+	.string "Your monster looks so cool just wearing\n"
+	.string "it!\p"
+	.string "Here I want you to have this!$"
+
+POTTERINGTON_FARM_Demonheadge_Text_2:
+	.string "Obtained an EGG from the Demonheadge!$"
+
+POTTERINGTON_FARM_Demonheadge_Text_3:
+	.string "Raven's are also pretty damn cool.\p"
+	.string "Look after that egg!$"
+
+POTTERINGTON_FARM_Demonheadge_Text_4:
+	.string "Hats are cool, but Raven's are pretty\n"
+	.string "damn cool too.$"
+
 POTTERINGTON_FARM_HyperStan_Text_0:
-	.string "Hyper Stan$"
+	.string "HyperStan$"
+
+POTTERINGTON_FARM_HyperStan_Text_1:
+	.string "Ew what is that monster you have with\n"
+	.string "you in your party!\p"
+	.string "Get rid of it and take use this instead.$"
+
+POTTERINGTON_FARM_HyperStan_Text_2:
+	.string "Obtained an EGG from the HyperStan!$"
+
+POTTERINGTON_FARM_HyperStan_Text_3:
+	.string "You'll have to hatch it first.\p"
+	.string "But already as an egg it surpasses\n"
+	.string "those monsters you have with you…$"
+
+POTTERINGTON_FARM_HyperStan_Text_4:
+	.string "I hope you decided to get rid of those\n"
+	.string "monsters you had.$"
 
 POTTERINGTON_FARM_JagexMod_Text_0:
 	.string "Mod ???$"
+
+POTTERINGTON_FARM_JagexMod_Text_1:
+	.string "I am a cupholder.$"
+
+POTTERINGTON_FARM_test_Text_0:
+	.string "Your monsters are balanced in attack\n"
+	.string "and defense.$"
+
+POTTERINGTON_FARM_test_Text_1:
+	.string "You do not have a baby yak.$"

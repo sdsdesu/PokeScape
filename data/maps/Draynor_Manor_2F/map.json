@@ -76,8 +76,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DRAYNORMANOR_TM43_PSYCHO_CUT",
-      "flag": "FLAG_ITEM_DRAYNORMANOR_TM43_PSYCHO_CUT"
+      "script": "ITEM_DRAYNORMANOR_TM55_HEX",
+      "flag": "FLAG_ITEM_DRAYNORMANOR_TM55_HEX"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SKELETON_1",
@@ -94,29 +94,29 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHAIR",
-      "x": 31,
+      "x": 33,
       "y": 22,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "NPC_DraynorManor_Chair",
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHAIR",
-      "x": 32,
-      "y": 3,
+      "x": 34,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "NPC_DraynorManor_Chair",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHICKEN",
@@ -133,16 +133,68 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHAIR",
-      "x": 17,
-      "y": 9,
+      "x": 13,
+      "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_DraynorManor_Chair",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_M",
+      "x": 33,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "DraynorManor_HAM_GRUNT",
+      "flag": "FLAG_TEMP_1E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 24,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 15,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 4,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_6"
     }
   ],
   "warp_events": [
@@ -162,7 +214,42 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 33,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "26",
+      "script": "DraynorManor_HAM_GRUNT"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "27",
+      "script": "DraynorManor_HAM_GRUNT"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "27",
+      "script": "DraynorManor_HAM_GRUNT"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
+      "var_value": "27",
+      "script": "DraynorManor_HAM_GRUNT"
+    }
   ],
   "bg_events": [
     {
@@ -186,8 +273,24 @@
       "x": 24,
       "y": 22,
       "elevation": 0,
-      "item": "ITEM_BLACK_POUCH",
+      "item": "ITEM_POUCH_BLACK",
       "flag": "FLAG_HIDDEN_ITEM_DRAYNORMANOR_2"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 20,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NPC_PIANO"
+    },
+    {
+      "type": "sign",
+      "x": 41,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NPC_PIANO"
     }
   ],
   "has_night_table": false

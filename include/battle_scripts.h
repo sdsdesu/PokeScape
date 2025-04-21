@@ -540,4 +540,29 @@ extern const u8 BattleScript_Goosebumps[];
 extern const u8 BattleScript_AvernicActivates[];
 extern const u8 BattleScript_FireShieldEnds[];
 
+extern const u8 BattleScript_RandomStatDown[];
+extern const u8 BattleScript_RandomStatDown2[];
+extern const u8 BattleScript_KarilCrossbow[];
+extern const u8 BattleScript_AhrimStaff[];
+extern const u8 BattleScript_ToragHammer[];
+
+extern const u8 BattleScript_AntiDragonShieldReducedDamage[];
+extern const u8 BattleScript_SpiritShieldReducedDamage[];
+extern const u8 BattleScript_EatingSandwich[];
+extern const u8 BattleScript_RemoveWeather[];
+extern const u8 BattleScript_TzhaarHeat[];
+extern const u8 BattleScript_TzhaarHeatLava[];
+extern const u8 BattleScript_TzhaarTrainerBattleWon[];
+extern const u8 BattleScript_TzhaarBattleLost[];
+extern const u8 BattleScript_TzhaarWildBattleWon[];
+
+extern const u8 BattleScript_EffectAttackDown[];
+extern const u8 BattleScript_EffectDefenseDown[];
+extern const u8 BattleScript_EffectSpeedDown[];
+extern const u8 BattleScript_EffectSpecialAttackDown[];
+extern const u8 BattleScript_EffectSpecialDefenseDown[];
+extern const u8 BattleScript_EffectAccuracyDown[];
+
+
+
 #endif // GUARD_BATTLE_SCRIPTS_H

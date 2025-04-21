@@ -555,12 +555,20 @@ NPC_WIZARDSTOWER_Rick::
 NPC_WIZARDSTOWER_SnowImp::
 	lock
 	faceplayer
+	goto_if_unset FLAG_CAPTURED_SNOWIMP, NPC_WIZARDSTOWER_SnowImp_2
+NPC_WIZARDSTOWER_SnowImp_1:
 	namebox NPC_WIZARDSTOWER_SnowImp_Text_0
+	playmoncry SPECIES_SNOW_IMP, 0
 	msgbox NPC_WIZARDSTOWER_SnowImp_Text_1
+	waitmoncry
 	waitmessage
 	hidenamebox
 	release
 	end
+
+NPC_WIZARDSTOWER_SnowImp_2:
+	goto ENCOUNTER_SNOW_IMP
+	goto NPC_WIZARDSTOWER_SnowImp_1
 
 
 NPC_WIZARDSTOWER_Rinsit::
@@ -577,7 +585,7 @@ NPC_WIZARDSTOWER_Rinsit::
 NPC_WIZARDSTOWER_RuneGuardian::
 	lock
 	faceplayer
-	playmoncry SPECIES_UNOWN, 0
+	playmoncry SPECIES_RUNE_GUARDIAN, 0
 	namebox NPC_WIZARDSTOWER_RuneGuardian_Text_0
 	msgbox NPC_WIZARDSTOWER_RuneGuardian_Text_1
 	waitmoncry
@@ -595,7 +603,7 @@ NPC_WIZARDSTOWER_PulseCore::
 	applymovement 2, rinsit_1
 	waitmovement 0
 	namebox NPC_WIZARDSTOWER_Rinsit_Text_0
-	msgbox NPC_WIZARDSTOWER_PulseCore_Text_7
+	msgbox NPC_WIZARDSTOWER_PulseCore_Text_8
 	waitmessage
 	hidenamebox
 	release
@@ -623,11 +631,15 @@ NPC_WIZARDSTOWER_PulseCore_4:
 	waitmovement 0
 	msgbox NPC_WIZARDSTOWER_PulseCore_Text_5
 	hidenamebox
+	checkitem ITEM_PULSE_CORE, 1
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_WIZARDSTOWER_PulseCore_9
 	giveitem ITEM_PULSE_CORE, 1
 	namebox NPC_WIZARDSTOWER_Rinsit_Text_0
-	msgbox NPC_WIZARDSTOWER_PulseCore_Text_6
+	msgbox NPC_WIZARDSTOWER_PulseCore_Text_7
 	waitmessage
 	hidenamebox
+NPC_WIZARDSTOWER_PulseCore_8:
 	setflag FLAG_RECEIVED_PULSECORE
 	release
 	end
@@ -635,6 +647,14 @@ NPC_WIZARDSTOWER_PulseCore_4:
 NPC_WIZARDSTOWER_PulseCore_5:
 	msgbox NPC_WIZARDSTOWER_PulseCore_Text_1
 	goto NPC_WIZARDSTOWER_PulseCore_4
+
+NPC_WIZARDSTOWER_PulseCore_9:
+	giveitem ITEM_PRISMATIC_STAR, 1
+	namebox NPC_WIZARDSTOWER_Rinsit_Text_0
+	msgbox NPC_WIZARDSTOWER_PulseCore_Text_6
+	waitmessage
+	hidenamebox
+	goto NPC_WIZARDSTOWER_PulseCore_8
 
 
 rinsit_1:
@@ -654,6 +674,13 @@ rinsit_3:
 rinsit_4:
 	face_left
 	step_end
+
+WIZARDS_TOWER_SYMBOL::
+	lock
+	msgbox WIZARDS_TOWER_SYMBOL_Text_0
+	release
+	end
+
 
 HAM_EVENT_Ariane1::
 	lock
@@ -733,11 +760,243 @@ VAR_CHECKER_11:
 	end
 
 
+TOKKUL_CHECK::
+	buffernumberstring STR_VAR_1, VAR_POKESCAPE_TOKKUL_CURRENCY
+	msgbox TOKKUL_CHECK_Text_0
+	closemessage
+	msgbox TOKKUL_CHECK_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne TOKKUL_CHECK_2
+TOKKUL_CHECK_1:
+	closemessage
+	release
+	end
+
+TOKKUL_CHECK_2:
+	goto VAR_EDIT_TOKKUL
+	goto TOKKUL_CHECK_1
+
+
+VAR_EDIT_TOKKUL::
+	msgbox VAR_EDIT_TOKKUL_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne VAR_EDIT_TOKKUL_2
+	msgbox VAR_EDIT_TOKKUL_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne VAR_EDIT_TOKKUL_5
+	closemessage
+	release
+	end
+
+VAR_EDIT_TOKKUL_2:
+	setvar VAR_POKESCAPE_TOKKUL_CURRENCY, 0
+	buffernumberstring 0, VAR_POKESCAPE_TOKKUL_CURRENCY
+	msgbox TOKKUL_CHECK_Text_0
+	closemessage
+	release
+	end
+
+VAR_EDIT_TOKKUL_5:
+	addvar VAR_POKESCAPE_TOKKUL_CURRENCY, 1000
+	buffernumberstring 0, VAR_POKESCAPE_TOKKUL_CURRENCY
+	msgbox TOKKUL_CHECK_Text_0
+	closemessage
+	release
+	end
+
+
 STORYMODE_VAR_CHECK::
-	addvar VAR_GAMEMODE_LEVEL_CAP, 10
-	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
+	buffernumberstring STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS
+	buffernumberstring STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL
 	msgbox STORYMODE_VAR_CHECK_Text_0
 	closemessage
+	msgbox TOKKUL_CHECK_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_CHECK_2
+STORYMODE_VAR_CHECK_1:
+	msgbox STORYMODE_VAR_CHECK_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_CHECK_5
+STORYMODE_VAR_CHECK_4:
+	closemessage
+	end
+
+STORYMODE_VAR_CHECK_2:
+	goto STORYMODE_VAR_EDIT
+	goto STORYMODE_VAR_CHECK_1
+
+STORYMODE_VAR_CHECK_5:
+	goto_if_unset FLAG_ENABLE_P2P_BADGES, STORYMODE_VAR_CHECK_7
+	clearflag FLAG_ENABLE_P2P_BADGES
+	goto STORYMODE_VAR_CHECK_4
+
+STORYMODE_VAR_CHECK_7:
+	setflag FLAG_ENABLE_P2P_BADGES
+	goto STORYMODE_VAR_CHECK_4
+
+
+STORYMODE_VAR_EDIT::
+	msgbox STORYMODE_VAR_EDIT_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_2
+	buffernumberstring STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS
+	msgbox STORYMODE_VAR_EDIT_Text_1
+	msgbox STORYMODE_VAR_EDIT_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_5
+	msgbox STORYMODE_VAR_EDIT_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_8
+	msgbox STORYMODE_VAR_EDIT_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_11
+	buffernumberstring STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL
+	msgbox STORYMODE_VAR_EDIT_Text_5
+	msgbox STORYMODE_VAR_EDIT_Text_6, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_14
+	msgbox STORYMODE_VAR_EDIT_Text_7, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_17
+	msgbox STORYMODE_VAR_EDIT_Text_8, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne STORYMODE_VAR_EDIT_20
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_2:
+	call FOLLOWER_REMOVE
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 200
+	warp MAP_ROUTE26, 24, 17
+	waitstate
+	buffernumberstring 0, VAR_POKESCAPE_STORYMODE_PROGRESS
+	msgbox STORYMODE_VAR_EDIT_Text_1
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_5:
+	addvar VAR_POKESCAPE_STORYMODE_PROGRESS, 5
+	buffernumberstring 0, VAR_POKESCAPE_STORYMODE_PROGRESS
+	msgbox STORYMODE_VAR_EDIT_Text_1
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_8:
+	addvar VAR_POKESCAPE_STORYMODE_PROGRESS, 10
+	buffernumberstring 0, VAR_POKESCAPE_STORYMODE_PROGRESS
+	msgbox STORYMODE_VAR_EDIT_Text_1
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_11:
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 0
+	buffernumberstring 0, VAR_POKESCAPE_STORYMODE_PROGRESS
+	msgbox STORYMODE_VAR_EDIT_Text_1
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_14:
+	addvar VAR_WISE_OLD_MAN_RIVAL, 5
+	buffernumberstring 0, VAR_WISE_OLD_MAN_RIVAL
+	msgbox STORYMODE_VAR_EDIT_Text_5
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_17:
+	addvar VAR_WISE_OLD_MAN_RIVAL, 10
+	buffernumberstring 0, VAR_WISE_OLD_MAN_RIVAL
+	msgbox STORYMODE_VAR_EDIT_Text_5
+	closemessage
+	release
+	end
+
+STORYMODE_VAR_EDIT_20:
+	setvar VAR_WISE_OLD_MAN_RIVAL, 0
+	buffernumberstring 0, VAR_WISE_OLD_MAN_RIVAL
+	msgbox STORYMODE_VAR_EDIT_Text_5
+	closemessage
+	release
+	end
+
+
+RUNE_EVOLUTIONS_NOTES::
+	random 6
+	switch VAR_RESULT
+	case 0, RUNE_EVOLUTIONS_NOTES_3
+	case 1, RUNE_EVOLUTIONS_NOTES_4
+	case 2, RUNE_EVOLUTIONS_NOTES_5
+	case 3, RUNE_EVOLUTIONS_NOTES_6
+	case 4, RUNE_EVOLUTIONS_NOTES_7
+	case 5, RUNE_EVOLUTIONS_NOTES_8
+	case 6, RUNE_EVOLUTIONS_NOTES_9
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_3:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_0
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_4:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_1
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_5:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_2
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_6:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_3
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_7:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_4
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_8:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_5
+	release
+	end
+
+RUNE_EVOLUTIONS_NOTES_9:
+	msgbox RUNE_EVOLUTIONS_NOTES_Text_6
+	release
+	end
+
+
+TOGGLE_BATTLE_SPEED::
+	msgbox TOGGLE_BATTLE_SPEED_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne TOGGLE_BATTLE_SPEED_2
+	msgbox TOGGLE_BATTLE_SPEED_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne TOGGLE_BATTLE_SPEED_4
+	return
+
+TOGGLE_BATTLE_SPEED_2:
+	addvar VAR_BATTLE_SPEED, 1
+	buffernumberstring STR_VAR_1, VAR_BATTLE_SPEED
+	msgbox TOGGLE_BATTLE_SPEED_Text_1
+	closemessage
+	release
+	end
+
+TOGGLE_BATTLE_SPEED_4:
+	setvar VAR_BATTLE_SPEED, 0
+	buffernumberstring STR_VAR_1, VAR_BATTLE_SPEED
+	msgbox TOGGLE_BATTLE_SPEED_Text_1
+	closemessage
+	release
 	end
 
 
@@ -900,7 +1159,7 @@ NPC_WIZARDSTOWER_Ellaron_Text_1:
 	.string "QUIET AROUND HERE! GO AWAY!$"
 
 NPC_WIZARDSTOWER_Onglewip_Text_0:
-	.string "Prof. Onglewip$"
+	.string "Prof.Onglewip$"
 
 NPC_WIZARDSTOWER_Onglewip_Text_1:
 	.string "Hello human.\p"
@@ -933,7 +1192,7 @@ NPC_WIZARDSTOWER_SnowImp_Text_0:
 	.string "Snow Imp$"
 
 NPC_WIZARDSTOWER_SnowImp_Text_1:
-	.string "Kekeke!$"
+	.string "Snezkekeke!$"
 
 NPC_WIZARDSTOWER_Rinsit_Text_0:
 	.string "Rinsit$"
@@ -968,21 +1227,31 @@ NPC_WIZARDSTOWER_PulseCore_Text_3:
 
 NPC_WIZARDSTOWER_PulseCore_Text_4:
 	.string "{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\p"
-	.string "Ah… this is a Pulse Core.$"
+	.string "Ah…ahaha…$"
 
 NPC_WIZARDSTOWER_PulseCore_Text_5:
 	.string "Here you can have it.$"
 
 NPC_WIZARDSTOWER_PulseCore_Text_6:
-	.string "A Pulse Core will help your monsters\n"
-	.string "gain a little bit of extra experience\l"
-	.string "after battles.\p"
+	.string "That is a Prismatic Star.\p"
+	.string "It will help your monsters gain a little\n"
+	.string "bit of boosted experience to the\l"
+	.string "monster holding it during battles.\p"
 	.string "I am sure you will find a use for it.$"
 
 NPC_WIZARDSTOWER_PulseCore_Text_7:
+	.string "That is a Pulse Core.\p"
+	.string "It will share a little bit of extra\n"
+	.string "experience after battles for your team.\p"
+	.string "I am sure you will find a use for it.$"
+
+NPC_WIZARDSTOWER_PulseCore_Text_8:
 	.string "Hey!\p"
 	.string "Don't touch my bag of rocks!\p"
 	.string "I mean Runes, not rocks!$"
+
+WIZARDS_TOWER_SYMBOL_Text_0:
+	.string "It's a weird symbol.$"
 
 HAM_EVENT_Ariane1_Text_0:
 	.string "Ariane$"
@@ -1017,6 +1286,152 @@ VAR_CHECKER_Text_7:
 VAR_CHECKER_Text_8:
 	.string "8$"
 
+TOKKUL_CHECK_Text_0:
+	.string "You have: {STR_VAR_1} TOKKUL.$"
+
+TOKKUL_CHECK_Text_1:
+	.string "Would you like to edit these?$"
+
+VAR_EDIT_TOKKUL_Text_0:
+	.string "Set TOKKUL to 0?$"
+
+VAR_EDIT_TOKKUL_Text_1:
+	.string "Add 1000 TOKKUL?$"
+
 STORYMODE_VAR_CHECK_Text_0:
-	.string "VAR_GAMEMODE_LEVEL_CAP is:\n"
+	.string "STORYMODE_PROGRESS: {STR_VAR_1}.\n"
+	.string "VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}.$"
+
+STORYMODE_VAR_CHECK_Text_1:
+	.string "Toggle P2P Badges?$"
+
+STORYMODE_VAR_EDIT_Text_0:
+	.string "Set custom story-test values?$"
+
+STORYMODE_VAR_EDIT_Text_1:
+	.string "VAR_POKESCAPE_STORYMODE_PROGRESS:\n"
 	.string "{STR_VAR_1}.$"
+
+STORYMODE_VAR_EDIT_Text_2:
+	.string "Increase STORYMODE_PROGRESS by 1?$"
+
+STORYMODE_VAR_EDIT_Text_3:
+	.string "Increase STORYMODE_PROGRESS by 10?$"
+
+STORYMODE_VAR_EDIT_Text_4:
+	.string "Reset STORYMODE_PROGRESS to 0?$"
+
+STORYMODE_VAR_EDIT_Text_5:
+	.string "VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}.$"
+
+STORYMODE_VAR_EDIT_Text_6:
+	.string "Increase VAR_WISE_OLD_MAN_RIVAL by 1?$"
+
+STORYMODE_VAR_EDIT_Text_7:
+	.string "Increase VAR_WISE_OLD_MAN_RIVAL by 10?$"
+
+STORYMODE_VAR_EDIT_Text_8:
+	.string "Reset VAR_WISE_OLD_MAN_RIVAL to 0?$"
+
+RUNE_EVOLUTIONS_NOTES_Text_0:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "When local wildlife such as calves and\n"
+	.string "bulls are exposed to Chaos Runes, they\l"
+	.string "evolve into creatures that have only\l"
+	.string "otherwise ever been seen deep in the\l"
+	.string "tunnels below Barbarian Village.\p"
+	.string "I wonder what connection that place\n"
+	.string "has to Chaos Runes.$"
+
+RUNE_EVOLUTIONS_NOTES_Text_1:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "Fire Runes appear to have some\n"
+	.string "connection to an otherworldly plane of\l"
+	.string "hellfire, as exposing kittens, puppies,\l"
+	.string "and even rats to them turns them into\l"
+	.string "demonic forms that burn with the fires\l"
+	.string "of hell itself.$"
+
+RUNE_EVOLUTIONS_NOTES_Text_2:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "It appears that puppies have some of\n"
+	.string "the most runic evolutions of any\l"
+	.string "monster I have encountered.\p"
+	.string "These also vary depending on the type\n"
+	.string "of dog you expose to the stone.\p"
+	.string "For example, a pup exposed to an Air\n"
+	.string "Rune evolves into a Labrador.\p"
+	.string "However, if you expose a mutt to the\n"
+	.string "same rune?\p"
+	.string "It turns into a Greyhound.\p"
+	.string "Completely different!.$"
+
+RUNE_EVOLUTIONS_NOTES_Text_3:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "Zamorakian mages say that sometimes\n"
+	.string "death itself is powerful enough to\l"
+	.string "evolve a monster.\p"
+	.string "For those adventurers who don't want\n"
+	.string "to put their monsters through that,\l"
+	.string "Death Runes appear to have the same\l"
+	.string "effect for evolution.\p"
+	.string "They are extremely rare though, as\n"
+	.string "nobody seems to be able to find the\l"
+	.string "Altar to make more.$"
+
+RUNE_EVOLUTIONS_NOTES_Text_4:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "We once had adventurers stay in the\n"
+	.string "tower with their Pet Rock.\p"
+	.string "They didn't stay long though, as\n"
+	.string "someone left a Law Rune lying around\l"
+	.string "and the Pet Rock evolved into a Party\l"
+	.string "Rock!\p"
+	.string "It kept the whole tower up all night\n"
+	.string "long, partying over and over..$"
+
+RUNE_EVOLUTIONS_NOTES_Text_5:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "There are runes said to hail from one of\n"
+	.string "Gielinor's moons, which are imbued with\l"
+	.string "the energy of the cosmos.\p"
+	.string "I've only ever been able to document a\n"
+	.string "single evolution from one of these\l"
+	.string "Cosmic Runes, but it turned the Magpie\l"
+	.string "Impling who stole it into a Lucky\l"
+	.string "Impling that vanished before I could\l"
+	.string "catch it for myself..$"
+
+RUNE_EVOLUTIONS_NOTES_Text_6:
+	.string "The bookcase contains various\n"
+	.string "research notes that Rick has written.\p"
+	.string "You choose one at random.\p"
+	.string "All of the essence creatures around\n"
+	.string "the tower like Pure, Rune, Essling, and\l"
+	.string "even the Rune Guardians all have their\l"
+	.string "own unique interactions with\l"
+	.string "runestones.\p"
+	.string "I still need to find more unusual runes\n"
+	.string "to see what other evolutions are out\l"
+	.string "there.$"
+
+TOGGLE_BATTLE_SPEED_Text_0:
+	.string "Increase VAR_BATTLE_SPEED by 1?$"
+
+TOGGLE_BATTLE_SPEED_Text_1:
+	.string "VAR_BATTLE_SPEED: {STR_VAR_1}.$"
+
+TOGGLE_BATTLE_SPEED_Text_2:
+	.string "Reset VAR_BATTLE_SPEED to 0?$"

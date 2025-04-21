@@ -93,7 +93,22 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "hidden_item",
+      "x": 1,
+      "y": 7,
+      "elevation": 0,
+      "item": "ITEM_EXP_CANDY_XS",
+      "flag": "FLAG_HIDDEN_ITEM_TRAINING_ROOM_3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 5,
+      "elevation": 0,
+      "item": "ITEM_EXP_CANDY_XS",
+      "flag": "FLAG_HIDDEN_ITEM_TRAINING_ROOM_4"
+    }
   ],
   "has_night_table": false
 }

@@ -466,15 +466,15 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 
 #define OBJ_EVENT_PAL_DRUID_2 0x1131
 #define OBJ_EVENT_PAL_DRUID_3 0x1132
-#define OBJ_EVENT_PAL_MAGGIE 0x1133
+//#define OBJ_EVENT_PAL_MAGGIE 0x1133
 #define OBJ_EVENT_PAL_WENDY 0x1134
 #define OBJ_EVENT_PAL_HAM_JOHANHUS 0x1135
-#define OBJ_EVENT_PAL_HAM_SIGMUND_1 0x1136
+//#define OBJ_EVENT_PAL_HAM_SIGMUND_1 0x1136
 #define OBJ_EVENT_PAL_HAM_SIGMUND_2 0x1137
-#define OBJ_EVENT_PAL_HAM_PATTY 0x1138
+/*#define OBJ_EVENT_PAL_HAM_PATTY 0x1138
 #define OBJ_EVENT_PAL_HAM_DEACON 0x1139
 #define OBJ_EVENT_PAL_HAM_GRUNT_M 0x113A
-#define OBJ_EVENT_PAL_HAM_GRUNT_F 0x113B
+#define OBJ_EVENT_PAL_HAM_GRUNT_F 0x113B*/
 #define OBJ_EVENT_PAL_GOBLIN_1 0x113C
 #define OBJ_EVENT_PAL_GOBLIN_2 0x113D
 #define OBJ_EVENT_PAL_GOBLIN_GENERALBENTNOZE 0x113E
@@ -499,7 +499,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_KNIGHT_BLACK_DAQUARIUS 0x115D
 #define OBJ_EVENT_PAL_BANKER_F 0x115E
 #define OBJ_EVENT_PAL_BANKER_M 0x115F
-#define OBJ_EVENT_PAL_GENERAL_STORE_CLERK 0x1160
+//#define OBJ_EVENT_PAL_GENERAL_STORE_CLERK 0x1160
 #define OBJ_EVENT_PAL_GUARD_KHAZARD 0x1161
 #define OBJ_EVENT_PAL_GUARD_FALADOR 0x1162
 #define OBJ_EVENT_PAL_GUARD_ALKHAIRD 0x1163
@@ -521,7 +521,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_BARROWS_GUTHAN 0x1173
 #define OBJ_EVENT_PAL_BARROWS_SILSKE 0x1174
 #define OBJ_EVENT_PAL_MAN_1 0x1175
-#define OBJ_EVENT_PAL_WOMAN_1 0x1176
+//#define OBJ_EVENT_PAL_WOMAN_1 0x1176
 //SKILLS
 #define OBJ_EVENT_PAL_GRACEFUL 0x1177
 #define OBJ_EVENT_PAL_CHEF 0x1178
@@ -529,11 +529,11 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_WOODCUTTER 0x117A
 #define OBJ_EVENT_PAL_SUMMONER 0x117B
 #define OBJ_EVENT_PAL_MERCHER 0x117C
-#define OBJ_EVENT_PAL_FISHERMAN 0x117D
+//#define OBJ_EVENT_PAL_FISHERMAN 0x117D
 #define OBJ_EVENT_PAL_HUNTER_M 0x117E
 #define OBJ_EVENT_PAL_HUNTER_F 0x117F
 #define OBJ_EVENT_PAL_FARMER_M 0x1180
-#define OBJ_EVENT_PAL_FARMER_F 0x1181
+//#define OBJ_EVENT_PAL_FARMER_F 0x1181
 #define OBJ_EVENT_PAL_NOOB 0x1183
 #define OBJ_EVENT_PAL_QUESTER 0x1184
 #define OBJ_EVENT_PAL_JMOD 0x1185
@@ -565,7 +565,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_HAIG_HALEN 0x119E
 #define OBJ_EVENT_PAL_KATRINE 0x119F
 //#define OBJ_EVENT_PAL_PROF_NORMAL_TREE 0x1200
-#define OBJ_EVENT_PAL_STRAVEN 0x1201
+//#define OBJ_EVENT_PAL_STRAVEN 0x1201
 #define OBJ_EVENT_PAL_EXPLORER_JACK 0x1202
 #define OBJ_EVENT_PAL_FORTUNATO 0x1203
 //#define OBJ_EVENT_PAL_AVA 0x1207
@@ -587,10 +587,10 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_DUCK_SWIM         0x1215
 #define OBJ_EVENT_PAL_DUCK_WALK         0x1216
 #define OBJ_EVENT_PAL_BASILISK          0x1217
-#define OBJ_EVENT_PAL_COW               0x1218
+//#define OBJ_EVENT_PAL_COW               0x1218
 #define OBJ_EVENT_PAL_COW_DAIRY         0x1219
-#define OBJ_EVENT_PAL_CHICKEN           0x121A
-#define OBJ_EVENT_PAL_EVIL_CHICKEN      0x121B
+//#define OBJ_EVENT_PAL_CHICKEN           0x121A
+//#define OBJ_EVENT_PAL_EVIL_CHICKEN      0x121B
 #define OBJ_EVENT_PAL_IMP               0x121C
 #define OBJ_EVENT_PAL_IMP_SNOW          0x121D
 #define OBJ_EVENT_PAL_KALPHITE_KING     0x121E
@@ -598,7 +598,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_VORAGO            0x1223
 #define OBJ_EVENT_PAL_PIGLET            0x1224
 #define OBJ_EVENT_PAL_PIGZILLA          0x1225
-#define OBJ_EVENT_PAL_YAK               0x1226
+//#define OBJ_EVENT_PAL_YAK               0x1226
 #define OBJ_EVENT_PAL_PENGUINS          0x1227
 #define OBJ_EVENT_PAL_QUEEN_BLACK_DRAGON 0x1228
 #define OBJ_EVENT_PAL_KING_BLACK_DRAGON 0x122A
@@ -615,7 +615,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_MOLE_BABY         0x1237
 #define OBJ_EVENT_PAL_CAMEL             0x1238
 #define OBJ_EVENT_PAL_FROGEEL           0x1239
-#define OBJ_EVENT_PAL_SCORPION          0x123A
+//#define OBJ_EVENT_PAL_SCORPION          0x123A
 #define OBJ_EVENT_PAL_SLIME             0x123B
 #define OBJ_EVENT_PAL_RAVEN             0x123C
 #define OBJ_EVENT_PAL_SEAGULL           0x123D
@@ -646,7 +646,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_DOG_SLEEP         0x1254
 #define OBJ_EVENT_PAL_LEGEND_GREEN      0x1255
 #define OBJ_EVENT_PAL_ABYSS_PORTAL      0x1256
-#define OBJ_EVENT_PAL_CHAIR             0x1257
+//#define OBJ_EVENT_PAL_CHAIR             0x1257
 #define OBJ_EVENT_PAL_STRYKEWYRM_FREEZY 0x1258
 #define OBJ_EVENT_PAL_STRYKEWYRM_LEAFY  0x1259
 #define OBJ_EVENT_PAL_GhostDisguise     0x125A
@@ -689,6 +689,16 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_PIRATE_SHIP       0x1249
 #define OBJ_EVENT_PAL_TZHAAR            0x114E
 #define OBJ_EVENT_PAL_DRUID_1           0x1130
+#define OBJ_EVENT_PAL_YAK_COW           0x1257
+#define OBJ_EVENT_PAL_CHICKENS          0x121A
+#define OBJ_EVENT_PAL_DUNGEONEERING_2   0x121B
+#define OBJ_EVENT_PAL_GREYPAL           0x121F
+#define OBJ_EVENT_PAL_ELITEBLACK        0x1151
+#define OBJ_EVENT_PAL_SAILING           0x1153
+#define OBJ_EVENT_PAL_GORAJO            0x1218
+#define OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW    0x1176
+#define OBJ_EVENT_PAL_MONSTERS_RED_GREY             0x123A
+
 
 
 
@@ -759,15 +769,15 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     
     {gObjectEventPalette_Druid_2, OBJ_EVENT_PAL_DRUID_2},
     {gObjectEventPalette_Druid_3, OBJ_EVENT_PAL_DRUID_3},
-    {gObjectEventPalette_Maggie, OBJ_EVENT_PAL_MAGGIE},
+    //{gObjectEventPalette_Maggie, OBJ_EVENT_PAL_MAGGIE},
     {gObjectEventPalette_Wendy, OBJ_EVENT_PAL_WENDY},
     {gObjectEventPalette_HAM_Johanhus, OBJ_EVENT_PAL_HAM_JOHANHUS},
-    {gObjectEventPalette_HAM_Sigmund_1, OBJ_EVENT_PAL_HAM_SIGMUND_1},
+    //{gObjectEventPalette_HAM_Sigmund_1, OBJ_EVENT_PAL_HAM_SIGMUND_1},
     {gObjectEventPalette_HAM_Sigmund_2, OBJ_EVENT_PAL_HAM_SIGMUND_2},
-    {gObjectEventPalette_HAM_Patty, OBJ_EVENT_PAL_HAM_PATTY},
+    /*{gObjectEventPalette_HAM_Patty, OBJ_EVENT_PAL_HAM_PATTY},
     {gObjectEventPalette_HAM_Deacon, OBJ_EVENT_PAL_HAM_DEACON},
     {gObjectEventPalette_HAM_Grunt_M, OBJ_EVENT_PAL_HAM_GRUNT_M},
-    {gObjectEventPalette_HAM_Grunt_F, OBJ_EVENT_PAL_HAM_GRUNT_F},
+    {gObjectEventPalette_HAM_Grunt_F, OBJ_EVENT_PAL_HAM_GRUNT_F},*/
     //{gObjectEventPalette_Goblin_1, OBJ_EVENT_PAL_GOBLIN_1},
     //{gObjectEventPalette_Goblin_2, OBJ_EVENT_PAL_GOBLIN_2},
     //{gObjectEventPalette_Goblin_GeneralBentnoze, OBJ_EVENT_PAL_GOBLIN_GENERALBENTNOZE},
@@ -808,7 +818,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Knight_Black_Daquarius, OBJ_EVENT_PAL_KNIGHT_BLACK_DAQUARIUS},
     {gObjectEventPalette_Banker_F, OBJ_EVENT_PAL_BANKER_F},
     {gObjectEventPalette_Banker_M, OBJ_EVENT_PAL_BANKER_M},
-    {gObjectEventPalette_General_Store_Clerk, OBJ_EVENT_PAL_GENERAL_STORE_CLERK},
+    //{gObjectEventPalette_General_Store_Clerk, OBJ_EVENT_PAL_GENERAL_STORE_CLERK},
     {gObjectEventPalette_Guard_Khazard, OBJ_EVENT_PAL_GUARD_KHAZARD},
     {gObjectEventPalette_Guard_Falador, OBJ_EVENT_PAL_GUARD_FALADOR},
     {gObjectEventPalette_Guard_Alkhaird, OBJ_EVENT_PAL_GUARD_ALKHAIRD},
@@ -830,7 +840,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Barrows_Guthan, OBJ_EVENT_PAL_BARROWS_GUTHAN},
     {gObjectEventPalette_Barrows_Silske, OBJ_EVENT_PAL_BARROWS_SILSKE},
     {gObjectEventPalette_Man_1, OBJ_EVENT_PAL_MAN_1},
-    {gObjectEventPalette_Woman_1, OBJ_EVENT_PAL_WOMAN_1},
+    //{gObjectEventPalette_Woman_1, OBJ_EVENT_PAL_WOMAN_1},
 //SKILLS
     {gObjectEventPalette_Graceful, OBJ_EVENT_PAL_GRACEFUL},
     {gObjectEventPalette_Chef, OBJ_EVENT_PAL_CHEF},
@@ -838,11 +848,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Woodcutter, OBJ_EVENT_PAL_WOODCUTTER},
     {gObjectEventPalette_Summoner, OBJ_EVENT_PAL_SUMMONER},
     {gObjectEventPalette_Mercher, OBJ_EVENT_PAL_MERCHER},
-    {gObjectEventPalette_Fisherman, OBJ_EVENT_PAL_FISHERMAN},
+    //{gObjectEventPalette_Fisherman, OBJ_EVENT_PAL_FISHERMAN},
     {gObjectEventPalette_Hunter_M, OBJ_EVENT_PAL_HUNTER_M},
     {gObjectEventPalette_Hunter_F, OBJ_EVENT_PAL_HUNTER_F},
     {gObjectEventPalette_Farmer_M, OBJ_EVENT_PAL_FARMER_M},
-    {gObjectEventPalette_Farmer_F, OBJ_EVENT_PAL_FARMER_F},
+    //{gObjectEventPalette_Farmer_F, OBJ_EVENT_PAL_FARMER_F},
     //
     {gObjectEventPalette_Noob, OBJ_EVENT_PAL_NOOB},
     {gObjectEventPalette_Quester, OBJ_EVENT_PAL_QUESTER},
@@ -876,7 +886,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Haig_Halen, OBJ_EVENT_PAL_HAIG_HALEN},
     {gObjectEventPalette_Katrine, OBJ_EVENT_PAL_KATRINE},
     //{gObjectEventPalette_Prof_Normal_Tree, OBJ_EVENT_PAL_PROF_NORMAL_TREE},
-    {gObjectEventPalette_Straven, OBJ_EVENT_PAL_STRAVEN},
+    //{gObjectEventPalette_Straven, OBJ_EVENT_PAL_STRAVEN},
     {gObjectEventPalette_Explorer_Jack, OBJ_EVENT_PAL_EXPLORER_JACK},
     //{gObjectEventPalette_Fortunato, OBJ_EVENT_PAL_FORTUNATO},
     /*
@@ -903,10 +913,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Duck_Swim, OBJ_EVENT_PAL_DUCK_SWIM},
     {gObjectEventPalette_Duck_Walk, OBJ_EVENT_PAL_DUCK_WALK},
     {gObjectEventPalette_Basilisk, OBJ_EVENT_PAL_BASILISK},
-    {gObjectEventPalette_Cow, OBJ_EVENT_PAL_COW},
+    //{gObjectEventPalette_Cow, OBJ_EVENT_PAL_COW},
     {gObjectEventPalette_Cow_Dairy, OBJ_EVENT_PAL_COW_DAIRY},
-    {gObjectEventPalette_Chicken, OBJ_EVENT_PAL_CHICKEN},
-    {gObjectEventPalette_Evil_Chicken, OBJ_EVENT_PAL_EVIL_CHICKEN},
+    //{gObjectEventPalette_Chicken, OBJ_EVENT_PAL_CHICKEN},
+    //{gObjectEventPalette_Evil_Chicken, OBJ_EVENT_PAL_EVIL_CHICKEN},
     {gObjectEventPalette_Imp, OBJ_EVENT_PAL_IMP},
     {gObjectEventPalette_Imp_Snow, OBJ_EVENT_PAL_IMP_SNOW},
     {gObjectEventPalette_Kalphite_King, OBJ_EVENT_PAL_KALPHITE_KING},
@@ -917,7 +927,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Vorago, OBJ_EVENT_PAL_VORAGO},
     {gObjectEventPalette_Piglet, OBJ_EVENT_PAL_PIGLET},
     {gObjectEventPalette_Pigzilla, OBJ_EVENT_PAL_PIGZILLA},
-    {gObjectEventPalette_Yak, OBJ_EVENT_PAL_YAK},
+    //{gObjectEventPalette_Yak, OBJ_EVENT_PAL_YAK},
     //{gObjectEventPalette_Penguin_Rock, OBJ_EVENT_PAL_PENGUIN_ROCK},
     {gObjectEventPalette_Queen_Black_Dragon, OBJ_EVENT_PAL_QUEEN_BLACK_DRAGON},
     //{gObjectEventPalette_Elvarg, OBJ_EVENT_PAL_ELVARG},
@@ -939,14 +949,14 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Mole_Baby, OBJ_EVENT_PAL_MOLE_BABY},
     {gObjectEventPalette_Camel, OBJ_EVENT_PAL_CAMEL},
     {gObjectEventPalette_Frogeel, OBJ_EVENT_PAL_FROGEEL},
-    {gObjectEventPalette_Scorpion, OBJ_EVENT_PAL_SCORPION},
+    //{gObjectEventPalette_Scorpion, OBJ_EVENT_PAL_SCORPION},
     {gObjectEventPalette_Slime, OBJ_EVENT_PAL_SLIME},
     {gObjectEventPalette_Raven, OBJ_EVENT_PAL_RAVEN},
     {gObjectEventPalette_Seagull, OBJ_EVENT_PAL_SEAGULL},
     {gObjectEventPalette_Strykewyrm_Sandy, OBJ_EVENT_PAL_STRYKEWYRM_SANDY},
     {gObjectEventPalette_Strykewyrm_Freezy, OBJ_EVENT_PAL_STRYKEWYRM_FREEZY},
     {gObjectEventPalette_Strykewyrm_Leafy, OBJ_EVENT_PAL_STRYKEWYRM_LEAFY},
-    {gObjectEventPalette_Unicorn_White, OBJ_EVENT_PAL_UNICORN_WHITE},
+    //{gObjectEventPalette_Unicorn_White, OBJ_EVENT_PAL_UNICORN_WHITE},
     {gObjectEventPalette_Unicorn_Black, OBJ_EVENT_PAL_UNICORN_BLACK},
 //GYMLEADERS
     {gObjectEventPalette_GymLeader_Duke_Horacio, OBJ_EVENT_PAL_GYMLEADER_DUKE_HORACIO},
@@ -969,7 +979,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Dog_Sleep, OBJ_EVENT_PAL_DOG_SLEEP},	
     //{gObjectEventPalette_Juna, OBJ_EVENT_PAL_JUNA},	
     {gObjectEventPalette_Abyss_Portal, OBJ_EVENT_PAL_ABYSS_PORTAL},	
-    {gObjectEventPalette_Chair, OBJ_EVENT_PAL_CHAIR},	
+    //{gObjectEventPalette_Chair, OBJ_EVENT_PAL_CHAIR},	
 /*
     {gObjectEventPalette_Cat_Black, OBJ_EVENT_PAL_CAT_BLACK},
     {gObjectEventPalette_Cat_White, OBJ_EVENT_PAL_CAT_WHITE},
@@ -1032,6 +1042,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Skotizo, OBJ_EVENT_PAL_SKOTIZO},
     {gObjectEventPalette_DRAGONS, OBJ_EVENT_PAL_DRAGONS},
     {gObjectEventPalette_DUNGEONEERING, OBJ_EVENT_PAL_DUNGEONEERING},
+    {gObjectEventPalette_DUNGEONEERING_2, OBJ_EVENT_PAL_DUNGEONEERING_2},
     {gObjectEventPalette_VORKATH, OBJ_EVENT_PAL_VORKATH},
     {gObjectEventPalette_LEGEND_GREEN, OBJ_EVENT_PAL_LEGEND_GREEN},
     {gObjectEventPalette_PENGUINS, OBJ_EVENT_PAL_PENGUINS},
@@ -1040,6 +1051,14 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_PIRATE_SHIP, OBJ_EVENT_PAL_PIRATE_SHIP},
     {gObjectEventPalette_TZHAAR, OBJ_EVENT_PAL_TZHAAR},
     {gObjectEventPalette_Druid_1, OBJ_EVENT_PAL_DRUID_1},
+    {gObjectEventPalette_YAK_COW, OBJ_EVENT_PAL_YAK_COW},
+    {gObjectEventPalette_CHICKENS, OBJ_EVENT_PAL_CHICKENS},
+    {gObjectEventPalette_GREYPAL, OBJ_EVENT_PAL_GREYPAL},
+    {gObjectEventPalette_ELITEBLACK, OBJ_EVENT_PAL_ELITEBLACK},
+    {gObjectEventPalette_SAILING, OBJ_EVENT_PAL_SAILING},
+    {gObjectEventPalette_GORAJO, OBJ_EVENT_PAL_GORAJO},
+    {gObjectEventPalette_MONSTERS_GREEN_BLUE_YELLOW, OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW},
+    {gObjectEventPalette_MONSTERS_RED_GREY, OBJ_EVENT_PAL_MONSTERS_RED_GREY},
     
     
     
@@ -2169,6 +2188,11 @@ void UpdateLightSprite(struct Sprite *sprite)
     else
     {
         if (gTimeOfDay == TIME_OF_DAY_NIGHT)
+        {
+            Weather_SetBlendCoeffs(12, 12);
+            sprite->invisible = FALSE;
+        }
+        else if (MapIsInPerpetualDarkness(gMapHeader.mapLayoutId))
         {
             Weather_SetBlendCoeffs(12, 12);
             sprite->invisible = FALSE;

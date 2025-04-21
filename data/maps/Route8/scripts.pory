@@ -89,8 +89,7 @@ script ENCOUNTER_PENGUIN_BUSH_ROUTE8 {
 	dowildbattle
     if (var(VAR_RESULT) == B_OUTCOME_WON || var(VAR_RESULT) == B_OUTCOME_CAUGHT) {
         fadescreenswapbuffers(FADE_TO_BLACK)
-        setflag(FLAG_TEMP_8)
-        setflag(FLAG_TEMP_9)
+        setflag(FLAG_PENGUIN_HUNT_ON_ROUTE)
         removeobject(OBJ_EVENT_ID_PENGUIN_DND)
         removeobject(OBJ_EVENT_ID_PENGUIN)
 		savebgm(MUS_DUMMY) //<- IMPORTANT
@@ -112,6 +111,13 @@ script ROUTE8_SIGNPOST
     end
 }
 
+
+script MAKEOVER_MAGE_SIGN
+{
+    msgbox(format("The Makeover Mage.\pChanging appearances since 2004."))
+    closemessage
+    end
+}
 
 
 //NPCS
@@ -138,14 +144,23 @@ script ROUTE8_MINER_3
     end
 }
 
-
+script NPC_MAKEOVER_MAGE
+{
+    faceplayer
+    namebox ("Peta")
+    msgbox(format("Hi adventurer, I'm Peta - affectionately known as the Makeover Mage.\pFor years I helped people change their gender, or even their skin colour, using a magical amulet I found in a Gazulibird nest.\pSince people started catching monsters, they lost interest in my services.\pI am currently working on adapting the amulet to let me change monsters' personalities!\pThis can affect how effective they are in battle, giving a boost to a specific stat at the cost of a penalty to another.\pI still need to work on the magic.. so it's not quite ready yet, but please come back soon!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
 
 
 //ITEMS
 
-script ITEM_ROUTE8_ITEM_MITHRIL_POUCH
+script ITEM_ROUTE8_ITEM_POUCH_MITHRIL
 {
-    finditem(ITEM_MITHRIL_POUCH)
+    finditem(ITEM_POUCH_MITHRIL)
     end
 }
 
@@ -161,7 +176,11 @@ script ITEM_ROUTE8_ITEM_PRAYER_POTION
     end
 }
 
-
+script ITEM_MAKEOVER_MAGE_ITEM_CAKE
+{
+    finditem(ITEM_CAKE)
+    end
+}
 
 
 
@@ -228,34 +247,33 @@ script BATTLE_ROUTE8_WIZARD_FIRE{
     release
 }
 
-script BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER{
-    checktrainerflag(TRAINER_ROUTE8_WIZARD_MALIGNIUS_MORTIFER)
-		if (!var(VAR_RESULT))
-		{	
-            trainerbattle_single(TRAINER_ROUTE8_WIZARD_MALIGNIUS_MORTIFER, format("Impressive…\pYou got past the 4 elemental lame wizards.\pI'll have you know my skill is on a completely different level to them.\pI hope you are prepared for I will turn you into a mushroom, and then maybe have mushroom soup for dinner!"),format("Impossible!"))
-            namebox ("Malignius")
-            msgbox(format("Impossible!\pI have never lost a battle before.\pYou are strong adventurer, I will give you that…\pHere as a reward for defeating me take this."))
-            hidenamebox
-            closemessage
-            giveitem(ITEM_STAFF_OF_EARTH, 1)
-            namebox ("Malignius")
-            msgbox(format("You can go away now.\pIf you do not I may have second thoughts about having mushroom soup."))
-            hidenamebox
-            closemessage
-            release
-            end
-        }
-        else
-        {
-            lock
-            faceplayer
-            namebox ("Malignius")
-            msgbox(format("You can go away now.\pIf you do not I may have second thoughts about having mushroom soup."))
-            hidenamebox
-            closemessage
-            release
-            end
-        }
+script BATTLE_ROUTE8_WIZARD_MALIGNIUS_MORTIFER {
+    if (flag(FLAG_MALIGNIUS_BATTLE) == FALSE) {
+        trainerbattle_single(TRAINER_ROUTE8_WIZARD_MALIGNIUS_MORTIFER, format("Impressive…\pYou got past the 4 elemental lame wizards.\pI'll have you know my skill is on a completely different level to them.\pI hope you are prepared for I will turn you into a mushroom, and then maybe have mushroom soup for dinner!"),format("Impossible!"))
+        namebox ("Malignius")
+        msgbox(format("Impossible!\pI have never lost a battle before.\pYou are strong adventurer, I will give you that…\pHere as a reward for defeating me take this."))
+        hidenamebox
+        closemessage
+        giveitem(ITEM_STAFF_OF_EARTH, 1)
+        namebox ("Malignius")
+        msgbox(format("You can go away now.\pIf you do not I may have second thoughts about having mushroom soup."))
+        hidenamebox
+        closemessage
+        setflag(FLAG_MALIGNIUS_BATTLE)
+        release
+        end
+    }
+    else
+    {
+        lock
+        faceplayer
+        namebox ("Malignius")
+        msgbox(format("You can go away now.\pIf you do not I may have second thoughts about having mushroom soup."))
+        hidenamebox
+        closemessage
+        release
+        end
+    }
 }
 
 
@@ -283,8 +301,9 @@ script ABYSSALRIFT_Route8_ENTER{
 msgbox(format("There is a rift in space.\pWould you like to enter it?"), MSGBOX_YESNO)
 				if (var(VAR_RESULT)){
                     msgbox(format("As you step into the rift the world around you starts to shimmer."))
-                    warp (MAP_ABYSSAL_REALM_2,0,0,0)
                     closemessage
+                    warp (MAP_ABYSSAL_REALM_2,0,0,0)
+                    waitstate
                     release
                     end
                 }
@@ -298,8 +317,9 @@ script ABYSSALRIFT_Route8_RETURN{
 msgbox(format("There is a rift in space.\pWould you like to enter it?"), MSGBOX_YESNO)
 				if (var(VAR_RESULT)){
                     msgbox(format("As you step into the rift the world around you starts to shimmer."))
-                    warp (MAP_ROUTE8,0,0,0)
                     closemessage
+                    warp (MAP_ROUTE8,0,0,0)
+                    waitstate
                     release
                     end
                 }
@@ -329,6 +349,7 @@ msgbox(format("There is a rift in space.\pWould you like to enter it?"), MSGBOX_
 				if (var(VAR_RESULT)){
                     msgbox(format("As you step into the rift the world around you starts to shimmer."))
                     warp (MAP_MAZCAB_OTOT,0,0,0)
+                    waitstate
                     closemessage
                     release
                     end
@@ -344,6 +365,7 @@ msgbox(format("There is a rift in space.\pWould you like to enter it?"), MSGBOX_
 				if (var(VAR_RESULT)){
                     msgbox(format("As you step into the rift the world around you starts to shimmer."))
                     warp (MAP_ABYSSAL_REALM_1,10,0,0)
+                    waitstate
                     closemessage
                     release
                     end
@@ -384,7 +406,10 @@ script ALTAR_AIR_ENTER{
         msgbox(format("Would you like to use the AIR TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The AIR TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 1)
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 4) //FOUND ALTAR
                         warp (MAP_AIR_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -405,7 +430,9 @@ script ALTAR_MIND_ENTER{
         msgbox(format("Would you like to use the MIND TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The MIND TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 5) //FOUND ALTAR
                         warp (MAP_MIND_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -426,7 +453,9 @@ script ALTAR_WATER_ENTER{
         msgbox(format("Would you like to use the WATER TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The WATER TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 6) //FOUND ALTAR
                         warp (MAP_WATER_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -447,7 +476,9 @@ script ALTAR_EARTH_ENTER{
         msgbox(format("Would you like to use the EARTH TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The EARTH TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 7) //FOUND ALTAR
                         warp (MAP_EARTH_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -468,7 +499,9 @@ script ALTAR_FIRE_ENTER{
         msgbox(format("Would you like to use the FIRE TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The FIRE TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 8) //FOUND ALTAR
                         warp (MAP_FIRE_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -489,7 +522,9 @@ script ALTAR_BODY_ENTER{
         msgbox(format("Would you like to use the BODY TALISMAN?"), MSGBOX_YESNO)
                     if (var(VAR_RESULT)){
                         msgbox(format("The BODY TALISMAN begins to glow.\pA mass of energy suddenly surrounds you!"))
+                        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_RUNE_MYSTERIES, 9) //FOUND ALTAR
                         warp (MAP_BODY_ALTAR,1,0,0)
+                        waitstate
                         closemessage
                         release
                         end
@@ -598,6 +633,7 @@ script PEST_CONTROL_ENTER{
                     closemessage
                     msgbox(format("You board the ship."))
                     warp (MAP_MINIGAME_1,0,0,0)
+                    waitstate
                     closemessage
                     release
                     end
@@ -618,6 +654,7 @@ script PEST_CONTROL_RETURN{
                     closemessage
                     msgbox(format("You board the ship."))
                     warp (MAP_PORT_SARIM,9,0,0)
+                    waitstate
                     closemessage
                     release
                     end

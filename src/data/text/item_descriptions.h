@@ -543,27 +543,27 @@ static const u8 sRareCandyDesc[] = _(
 static const u8 sExpCandyXSDesc[] = _(
     "Gives a very small\n"
     "amount of Exp. to\n"
-    "a single Pokémon.");
+    "a single Monster.");
 
 static const u8 sExpCandySDesc[] = _(
     "Gives a small\n"
     "amount of Exp. to\n"
-    "a single Pokémon.");
+    "a single Monster.");
 
 static const u8 sExpCandyMDesc[] = _(
     "Gives a moderate\n"
     "amount of Exp. to\n"
-    "a single Pokémon.");
+    "a single Monster.");
 
 static const u8 sExpCandyLDesc[] = _(
     "Gives a large\n"
     "amount of Exp. to\n"
-    "a single Pokémon.");
+    "a single Monster.");
 
 static const u8 sExpCandyXLDesc[] = _(
     "Gives a very large\n"
     "amount of Exp. to\n"
-    "a single Pokémon.");
+    "a single Monster.");
 
 static const u8 sDynamaxCandyDesc[] = _(
     "Raises the Dynamax\n"
@@ -4175,7 +4175,52 @@ static const u8 sElementalPouchDesc[] = _(
     "A tool for \n"
     "catching Elemental\n"
     "MONSTERS.");
-	
+
+static const u8 sBlessedPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sLeatherPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sCatalyticPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sEmbroideredPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sSpidersilkPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sRoyalPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sImphidePouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sGemPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
+static const u8 sFishbowlPouchDesc[] = _(
+    "This pouch's effect\n"
+    "is still a \n"
+    "cupholder.");
+
 static const u8 sTALISMANDesc[] = _(
     "A strange Talisman\n"
     "that is attracted\n"
@@ -4296,17 +4341,155 @@ static const u8 sCabbageDesc[] = _(
     "Brassica. Heals a\n"
     "paralyzed MONSTER.");
 
-static const u8 sAppleDesc[] = _(
-    "This is a Cupholder.");
+static const u8 sOnionDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base HP.");
+
+static const u8 sBlueberryDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base Attack.");
+
+static const u8 sCornDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base Defense.");
+
+static const u8 sJangerberryDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base Sp. Atk.");
+
+static const u8 sCheeseDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base Sp. Def.");
+
+static const u8 sTomatoDesc[] = _(
+    "Makes a MONSTER\n"
+    "friendly but lowers\n"
+    "base Speed.");
+
+static const u8 sGarlicDesc[] = _(
+    "A hold item that\n"
+    "raises Attack in\n"
+    "a pinch.");
+
+static const u8 sStrawberryDesc[] = _(
+    "A hold item that\n"
+    "raises Defense in\n"
+    "a pinch.");
 
 static const u8 sBananaDesc[] = _(
-    "This is a Cupholder.");
+    "A hold item that\n"
+    "raises Speed in\n"
+    "a pinch.");
 
-static const u8 sCadavaberryDesc[] = _(
-    "This is a Cupholder.");
+static const u8 sGrapesDesc[] = _(
+    "A hold item that\n"
+    "raises Sp. Atk in\n"
+    "a pinch.");
+
+static const u8 sRedberryDesc[] = _(
+    "A hold item that\n"
+    "raises Sp. Def in\n"
+    "a pinch.");
+
+static const u8 sPapayaDesc[] = _(
+    "A hold item that\n"
+    "ups the critical-\n"
+    "hit rate in a pinch.");
 
 static const u8 sCoconutDesc[] = _(
-    "This is a Cupholder.");
+    "A hold item that\n"
+    "sharply boosts a\n"
+    "stat in a pinch.");
+
+static const u8 sAppleDesc[] = _(
+    "When held, it ups\n"
+    "the Accuracy of a\n"
+    "move in a pinch.");
+
+static const u8 sCoffeeBeanDesc[] = _(
+    "It allows a MONSTER\n"
+    "in a pinch to move\n"
+    "first just once.");
+
+static const u8 sPoisonIvyDesc[] = _(
+    "If hit by a physical\n"
+    "move, it will hurt\n"
+    "the attacker a bit.");
+
+static const u8 sPineappleDesc[] = _(
+    "If hit by a special\n"
+    "move, it will hurt\n"
+    "the attacker a bit.");
+
+static const u8 sLemonDesc[] = _(
+    "A hold item that\n"
+    "heals paralysis\n"
+    "in battle.");
+
+static const u8 sDwellberryDesc[] = _(
+    "A hold item that\n"
+    "awakens a MONSTER\n"
+    "in battle.");
+
+static const u8 sPotatoDesc[] = _(
+    "A hold item that\n"
+    "heals poisoning\n"
+    "in battle.");
+
+static const u8 sWatermelonDesc[] = _(
+    "A hold item that\n"
+    "heals a burn in\n"
+    "battle.");
+
+static const u8 sWhiteberryDesc[] = _(
+    "A hold item that\n"
+    "defrosts a MONSTER\n"
+    "in battle.");
+
+static const u8 sCadavaberryDesc[] = _(
+    "A hold item that\n"
+    "restores 10 PP in\n"
+    "battle.");
+
+static const u8 sTurnipDesc[] = _(
+    "A hold item that\n"
+    "heals confusion\n"
+    "in battle.");
+
+static const u8 sOrangeDesc[] = _(
+    "A hold item that\n"
+    "heals any status\n"
+    "problem in battle.");
+
+static const u8 sEelSushiDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "may confuse.");
+
+static const u8 sFrogburgerDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "may confuse.");
+
+static const u8 sGloopSoupDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "may confuse.");
+
+static const u8 sBatShishDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "may confuse.");
+
+static const u8 sFingersDesc[] = _(
+    "A hold item that\n"
+    "restores HP but\n"
+    "may confuse.");
 
 //POKESCAPE SPECIAL ITEMS
 
@@ -4508,7 +4691,7 @@ static const u8 sRingOfLifeDesc[] = _(
    
 static const u8 sRingOfWealthDesc[] = _(
     "Makes people\n"
-    "genereous after\n"
+    "generous after\n"
     "battle.");
   
 static const u8 sRockCakeDesc[] = _(
@@ -4606,8 +4789,8 @@ static const u8 sAkriaeMaceDesc[] = _(
 
 static const u8 sDFSDesc[] = _(
     "Decreases damage\n"
-    "from Dragon\n"
-    "type moves.");
+    "from Dragon &\n"
+    "Fire type moves.");
 
 static const u8 sPhoenixNeckDesc[] = _(
     "Holds the user\n"
@@ -4756,11 +4939,6 @@ static const u8 sChocolateMilkDesc[] = _(
     "Makes certain\n"
     "species of MONSTERs\n"
     "evolve.");
-
-static const u8 sSpeedLampDesc[] = _(
-    "A lamp left by a\n"
-    "Genie. Raises the\n"
-    "base SPEED stat.");
 
 static const u8 sEmptyBucketDesc[] = _(
     "An empty bucket.\n"
@@ -5099,6 +5277,182 @@ static const u8 sScroll_66_Desc[] = _(
     "contains the move:\n"
     "(Brutal Swing)");
 
+static const u8 sScroll_67_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Protect)");
+
+static const u8 sScroll_68_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Tele Block)");
+
+static const u8 sScroll_69_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Overload)");
+
+static const u8 sScroll_70_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Reflect)");
+
+static const u8 sScroll_71_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Light Screen)");
+
+static const u8 sScroll_72_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Future Sight)");
+
+static const u8 sScroll_73_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Berserk)");
+            
+static const u8 sScroll_74_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Ceaseless Edge)");
+
+static const u8 sScroll_75_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Triple Arrows)");
+
+static const u8 sScroll_76_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Eerie Spell)");
+
+static const u8 sScroll_77_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Victory Dance)");
+
+static const u8 sScroll_78_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Parting Shot)");
+    
+static const u8 sScroll_79_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Snipe Shot)");
+    
+static const u8 sScroll_80_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Jaw Lock)");
+    
+static const u8 sScroll_81_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Teatime)");
+    
+static const u8 sScroll_82_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(No Retreat)");
+    
+static const u8 sScroll_83_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Dragon Darts)");
+                
+static const u8 sScroll_84_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Glacial Lance)");
+    
+static const u8 sScroll_85_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Psyshield Bash)");
+    
+static const u8 sScroll_86_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Stone Axe)");
+
+static const u8 sScroll_87_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Terrain Pulse)");
+    
+static const u8 sScroll_88_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Armor Cannon)");
+        
+static const u8 sScroll_89_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Bitter Blade)");
+        
+static const u8 sScroll_90_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Gigaton Hammer)");
+        
+static const u8 sScroll_91_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Rage Fist)");
+        
+static const u8 sScroll_92_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Glaive Rush)");
+        
+static const u8 sScroll_93_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Mighty Cleave)");
+                    
+static const u8 sScroll_94_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Pounce)");
+        
+static const u8 sScroll_95_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Make It Rain)");
+        
+static const u8 sScroll_96_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Burning Jealousy)");
+
+static const u8 sScroll_97_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Obstruct)");
+            
+static const u8 sScroll_98_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Sword Strike)");
+            
+static const u8 sScroll_99_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Trump Card)");
+
+
+
+
+
+
+
+
+
+
+
+
 //END -- SCROLLS
 
 static const u8 sANCIENT_SHARD_Desc[] = _(
@@ -5161,7 +5515,7 @@ static const u8 sCrandorPieceDesc[] = _(
     "leading to an\n"
     "unknown location.");
     
-static const u8 sCheeseDesc[] = _(
+static const u8 sScurriusCheeseDesc[] = _(
     "Some sewer cheese.\n"
     "It seems like it\n"
     "may be sentient.");
@@ -5208,3 +5562,174 @@ static const u8 sClueScrollToolsDesc[] = _(
     
 static const u8 sCupholderDesc[] = _(
     "This is a Cupholder.");
+
+// Lamps
+static const u8 sHPLampDesc[] = _(
+    "Raises the base HP\n"
+    "of one MONSTER.");
+
+static const u8 sAtkLampDesc[] = _(
+    "Raises the base\n"
+    "Attack stat of one\n"
+    "MONSTER.");
+
+static const u8 sDefLampDesc[] = _(
+    "Raises the base\n"
+    "Defense stat of\n"
+    "one MONSTER.");
+
+static const u8 sSpAtkLampDesc[] = _(
+    "Raises the base\n"
+    "Sp. Atk stat of one\n"
+    "MONSTER.");
+
+static const u8 sSpDefLampDesc[] = _(
+    "Raises the base\n"
+    "Sp. Def stat of one\n"
+    "MONSTER.");
+
+static const u8 sSpeedLampDesc[] = _(
+    "A lamp left by a\n"
+    "Genie. Raises the\n"
+    "base SPEED stat.");
+
+static const u8 sSturdyBookDesc[] = _(
+    "Protects the holder\n"
+    "from weather\n"
+    "effects.");
+
+static const u8 sBarrierBookDesc[] = _(
+    "Extends the length\n"
+    "of Barrier Moves if\n"
+    "used by the holder.");
+
+static const u8 sWindyBookDesc[] = _(
+    "Extends the length\n"
+    "of Tailwind if used\n"
+    "by the holder.");
+
+static const u8 sBalanceBookDesc[] = _(
+    "Removes all active\n"
+    "weather effects\n"
+    "on the field.");
+
+static const u8 sTriangleSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises Attack\n"
+    "when eaten in battle.");
+static const u8 sSquareSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises Defense\n"
+    "when eaten in battle.");
+static const u8 sMeatPieSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises SpAtk\n"
+    "when eaten in battle.");
+static const u8 sDonutSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises SpDef\n"
+    "when eaten in battle.");
+static const u8 sBreadRollSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises Speed\n"
+    "when eaten in battle.");
+static const u8 sKebabSandwichDesc[] = _(
+    "Heals a small amount\n"
+    "and raises Accuracy\n"
+    "when eaten in battle.");
+static const u8 sBaguetteSandwichDesc[] = _(
+    "Fully heals a monster\n"
+    "and raises all stats\n"
+    "for the active battler.");
+static const u8 sChocolateBarSandwichDesc[] = _(
+    "A good battle snack\n"
+    "for those who need a\n"
+    "little energy hit.");
+
+
+
+static const u8 sPouch_Desc[] = _(
+    "Used for catching\n"
+    "wild monsters.\n"
+    "");
+static const u8 sPouch_Bronze_Desc[] = _(
+    "A basic pouch\n"
+    "used for catching\n"
+    "wild monsters.");
+static const u8 sPouch_Iron_Desc[] = _(
+    "A pouch that is good\n"
+    "for monsters caught\n"
+    "in the sea.");
+static const u8 sPouch_Steel_Desc[] = _(
+    "A great pouch\n"
+    "used for catching\n"
+    "wild monsters.");
+static const u8 sPouch_Mithril_Desc[] = _(
+    "A pouch that is very\n"
+    "effective if thrown\n"
+    "on the first turn.");
+static const u8 sPouch_Adamant_Desc[] = _(
+    "A pouch that is very\n"
+    "effective the longer\n"
+    "the battle lasts.");
+static const u8 sPouch_Rune_Desc[] = _(
+    "An excellent pouch\n"
+    "used for catching\n"
+    "wild monsters.");
+static const u8 sPouch_Dragon_Desc[] = _(
+    "A pouch that\n"
+    "catches a monster\n"
+    "without fail.");
+static const u8 sPouch_Crystal_Desc[] = _(
+    "A pouch that is very\n"
+    "effective on special\n"
+    "coloured monsters.");
+static const u8 sPouch_Black_Desc[] = _(
+    "A pouch that is more\n"
+    "effective in dark\n"
+    "places.");
+static const u8 sPouch_White_Desc[] = _(
+    "A pouch that is more\n"
+    "effective in bright\n"
+    "places.");
+static const u8 sPouch_Elemental_Desc[] = _(
+    "A pouch that is very\n"
+    "effective on Elemental\n"
+    "infused monsters.");
+static const u8 sPouch_Catalytic_Desc[] = _(
+    "A pouch that is very\n"
+    "effective on Catalytic\n"
+    "infused monsters.");
+static const u8 sPouch_Bane_Desc[] = _(
+    "A pouch that is very\n"
+    "effective on Banite\n"
+    "infused monsters.");
+static const u8 sPouch_Augmented_Desc[] = _(
+    "A pouch that works\n"
+    "better on monsters\n"
+    "caught before.");
+static const u8 sPouch_Barrows_Desc[] = _(
+    "A pouch that works\n"
+    "better on lower\n"
+    "level monsters.");
+static const u8 sPouch_Granite_Desc[] = _(
+    "A pouch that is very\n"
+    "effective on heavier\n"
+    "monsters.");
+static const u8 sPouch_Splitbark_Desc[] = _(
+    "A pouch that is very\n"
+    "effective if a\n"
+    "monster is unwell.");
+static const u8 sPouch_Mystic_Desc[] = _(
+    "A pouch that\n"
+    "restores a monsters\n"
+    "health when caught.");
+static const u8 sPouch_Ancient_Desc[] = _(
+    "A strange pouch that\n"
+    "seems to bind and force\n"
+    "better friendship.");
+
+static const u8 sCOMMORB_Desc[] = _(
+    "An orb that contacts\n"
+    "the White Knights.\n"
+    "");

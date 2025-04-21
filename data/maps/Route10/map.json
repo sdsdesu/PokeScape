@@ -86,8 +86,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 17,
-      "y": 20,
+      "x": 10,
+      "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -200,6 +200,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_PORTSARIM_BLOCKADE_HAM_2",
       "flag": "FLAG_TEMP_1F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_WHITE_M",
+      "x": 12,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ROUTE10_SirAcknis",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -223,6 +236,13 @@
       "elevation": 0,
       "dest_map": "MAP_RIMMINGTON_MINES",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 15,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_HIDDEN_GROTTOS",
+      "dest_warp_id": "8"
     }
   ],
   "coord_events": [
@@ -231,14 +251,14 @@
       "x": 12,
       "y": 35,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_FOG_DIAGONAL"
+      "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
       "x": 11,
       "y": 35,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_FOG_DIAGONAL"
+      "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
@@ -259,14 +279,14 @@
       "x": 8,
       "y": 27,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_FOG_DIAGONAL"
+      "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
       "x": 9,
       "y": 27,
       "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_FOG_DIAGONAL"
+      "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
@@ -347,7 +367,23 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
       "script": "ROUTE10_Gravestone_5"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HIDDEN_GROTTO_ENTRY"
+    },
+    {
+      "type": "sign",
+      "x": 16,
+      "y": 19,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "HIDDEN_GROTTO_ENTRY"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

@@ -535,7 +535,7 @@ script NPC_WIZARDSTOWER_Onglewip
 {
 	lock
 	faceplayer
-    namebox ("Prof. Onglewip")
+    namebox ("Prof.Onglewip")
 	msgbox(format("Hello human.\pI am here to study what type of Magic the Human Wizards here use in battle."))
     waitmessage
     hidenamebox
@@ -584,8 +584,13 @@ script NPC_WIZARDSTOWER_SnowImp
 {
 	lock
 	faceplayer
+	if (flag(FLAG_CAPTURED_SNOWIMP) == FALSE) {
+		goto(ENCOUNTER_SNOW_IMP)
+	}
     namebox ("Snow Imp")
-	msgbox(format("Kekeke!"))
+	playmoncry(SPECIES_SNOW_IMP, 0)
+	msgbox(format("Snezkekeke!"))
+    waitmoncry
     waitmessage
     hidenamebox
 	release
@@ -609,7 +614,7 @@ script NPC_WIZARDSTOWER_RuneGuardian
 {
 	lock
 	faceplayer
-	playmoncry(SPECIES_UNOWN, 0)
+	playmoncry(SPECIES_RUNE_GUARDIAN, 0)
     namebox ("Rune Guardian")
 	msgbox(format("Btttz, btzz!"))
 	waitmoncry
@@ -647,16 +652,26 @@ script NPC_WIZARDSTOWER_PulseCore
 		msgbox(format("Oh?{PAUSE 15}\nWhat is that shiny rock?\pWait a minute, that is not suppose to be in there let me see."))
 		applymovement(2 rinsit_2)
 		waitmovement(0)
-		msgbox(format("{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\pAh… this is a Pulse Core."))
+		msgbox(format("{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\pAh…ahaha…"))
 		applymovement(2 rinsit_3)
 		waitmovement(0)
 		msgbox(format("Here you can have it."))
 		hidenamebox
-		giveitem(ITEM_PULSE_CORE, 1)
-		namebox ("Rinsit")
-		msgbox(format("A Pulse Core will help your monsters gain a little bit of extra experience after battles.\pI am sure you will find a use for it."))
-		waitmessage
-		hidenamebox
+		checkitem(ITEM_PULSE_CORE, 1)
+		if (var(VAR_RESULT)) {
+			giveitem(ITEM_PRISMATIC_STAR, 1)
+			namebox ("Rinsit")
+			msgbox(format("That is a Prismatic Star.\pIt will help your monsters gain a little bit of boosted experience to the monster holding it during battles.\pI am sure you will find a use for it."))
+			waitmessage
+			hidenamebox
+		}
+		else {
+			giveitem(ITEM_PULSE_CORE, 1)
+			namebox ("Rinsit")
+			msgbox(format("That is a Pulse Core.\pIt will share a little bit of extra experience after battles for your team.\pI am sure you will find a use for it."))
+			waitmessage
+			hidenamebox
+		}
 		setflag(FLAG_RECEIVED_PULSECORE)
 		release
 		end
@@ -711,6 +726,13 @@ movement rinsit_4 {
 
 
 
+script WIZARDS_TOWER_SYMBOL
+{
+	lock
+	msgbox(format("It's a weird symbol."))
+	release
+	end
+}
 
 
 script HAM_EVENT_Ariane1
@@ -783,32 +805,200 @@ script HAM_EVENT_Ariane1
 
 
 
+script TOKKUL_CHECK {
+    buffernumberstring(STR_VAR_1, VAR_POKESCAPE_TOKKUL_CURRENCY)
+    msgbox(format("You have: {STR_VAR_1} TOKKUL."))
+	closemessage
+	msgbox(format("Would you like to edit these?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        goto(VAR_EDIT_TOKKUL)
+    }
+    closemessage
+	release
+	end
+}
+
+script VAR_EDIT_TOKKUL {
+    msgbox(format("Set TOKKUL to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_POKESCAPE_TOKKUL_CURRENCY, 0)
+        buffernumberstring(0, VAR_POKESCAPE_TOKKUL_CURRENCY)
+        msgbox(format("You have: {STR_VAR_1} TOKKUL."))
+		closemessage
+		release
+		end
+    }
+	msgbox(format("Add 1000 TOKKUL?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_POKESCAPE_TOKKUL_CURRENCY, 1000)
+        buffernumberstring(0, VAR_POKESCAPE_TOKKUL_CURRENCY)
+        msgbox(format("You have: {STR_VAR_1} TOKKUL."))
+		closemessage
+		release
+		end
+    }
+	closemessage
+	release
+	end
+}
+
+
 
 script STORYMODE_VAR_CHECK {
 	
-	//setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 105)
-	//buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
-    //msgbox(format("Storymode Var is: {STR_VAR_1}."))
-	//closemessage
-
-
-	//addvar(VAR_WISE_OLD_MAN_RIVAL, 5)
-	//buffernumberstring(0, VAR_WISE_OLD_MAN_RIVAL)
-    //msgbox(format("VAR_WISE_OLD_MAN_RIVAL is: {STR_VAR_1}."))
-	//closemessage
-
-	
-	
-	//setvar(VAR_WISE_OLD_MAN_RIVAL, 5)
-	//setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
-
-
-
-	addvar(VAR_GAMEMODE_LEVEL_CAP, 10)
-	buffernumberstring(0, VAR_GAMEMODE_LEVEL_CAP)
-    msgbox(format("VAR_GAMEMODE_LEVEL_CAP is: {STR_VAR_1}."))
+	buffernumberstring(STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS)
+	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
+    msgbox(format("STORYMODE_PROGRESS: {STR_VAR_1}.\nVAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
+	closemessage
+	msgbox(format("Would you like to edit these?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        goto(STORYMODE_VAR_EDIT)
+    }
+	msgbox(format("Toggle P2P Badges?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		if (!flag(FLAG_ENABLE_P2P_BADGES)) {
+			setflag(FLAG_ENABLE_P2P_BADGES)
+		}
+		else {
+			clearflag(FLAG_ENABLE_P2P_BADGES)
+		}
+    }
 	closemessage
     end
+}
+script STORYMODE_VAR_EDIT {
+	msgbox(format("Set custom story-test values?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		//setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130) // CRANDOR SCENE
+
+		call(FOLLOWER_REMOVE)
+		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
+		warp(MAP_ROUTE26, 24, 17)
+		waitstate
+
+		//setflag(FLAG_BADGE04_GET) // BKF START
+        //setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 160) // BKF START
+
+        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
+        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+    }
+
+
+	//STORYMODE
+    buffernumberstring(STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS)
+    msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+    msgbox(format("Increase STORYMODE_PROGRESS by 1?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 5)
+        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
+        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Increase STORYMODE_PROGRESS by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 10)
+        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
+        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset STORYMODE_PROGRESS to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 0)
+        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
+        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+    }
+	//WOM
+	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
+    msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
+    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 1?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_WISE_OLD_MAN_RIVAL, 5)
+        buffernumberstring(0, VAR_WISE_OLD_MAN_RIVAL)
+        msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_WISE_OLD_MAN_RIVAL, 10)
+        buffernumberstring(0, VAR_WISE_OLD_MAN_RIVAL)
+        msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset VAR_WISE_OLD_MAN_RIVAL to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_WISE_OLD_MAN_RIVAL, 0)
+        buffernumberstring(0, VAR_WISE_OLD_MAN_RIVAL)
+        msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    closemessage
+    release
+    end
+}
+
+script RUNE_EVOLUTIONS_NOTES {
+
+ random(6)
+        switch (var(VAR_RESULT)) {
+            case 0: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pWhen local wildlife such as calves and bulls are exposed to Chaos Runes, they evolve into creatures that have only otherwise ever been seen deep in the tunnels below Barbarian Village.\pI wonder what connection that place has to Chaos Runes."))
+                release
+		end
+            case 1: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pFire Runes appear to have some connection to an otherworldly plane of hellfire, as exposing kittens, puppies, and even rats to them turns them into demonic forms that burn with the fires of hell itself."))
+                release
+		end
+            case 2: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pIt appears that puppies have some of the most runic evolutions of any monster I have encountered.\pThese also vary depending on the type of dog you expose to the stone.\pFor example, a pup exposed to an Air Rune evolves into a Labrador.\pHowever, if you expose a mutt to the same rune?\pIt turns into a Greyhound.\pCompletely different!."))
+                release
+		end
+            case 3: 
+                 msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pZamorakian mages say that sometimes death itself is powerful enough to evolve a monster.\pFor those adventurers who don't want to put their monsters through that, Death Runes appear to have the same effect for evolution.\pThey are extremely rare though, as nobody seems to be able to find the Altar to make more."))
+                		release
+				end
+            case 4: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pWe once had adventurers stay in the tower with their Pet Rock.\pThey didn't stay long though, as someone left a Law Rune lying around and the Pet Rock evolved into a Party Rock!\pIt kept the whole tower up all night long, partying over and over.."))
+                release
+		end
+            case 5: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pThere are runes said to hail from one of Gielinor's moons, which are imbued with the energy of the cosmos.\pI've only ever been able to document a single evolution from one of these Cosmic Runes, but it turned the Magpie Impling who stole it into a Lucky Impling that vanished before I could catch it for myself.."))
+                release
+		end
+            case 6: 
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pAll of the essence creatures around the tower like Pure, Rune, Essling, and even the Rune Guardians all have their own unique interactions with runestones.\pI still need to find more unusual runes to see what other evolutions are out there."))
+                release
+		end
+        }
+	release
+	end
 }
 
 
@@ -817,5 +1007,25 @@ script STORYMODE_VAR_CHECK {
 
 
 
-
-
+script TOGGLE_BATTLE_SPEED {
+	msgbox(format("Increase VAR_BATTLE_SPEED by 1?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_BATTLE_SPEED, 1)
+        buffernumberstring(STR_VAR_1, VAR_BATTLE_SPEED)
+        msgbox(format("VAR_BATTLE_SPEED: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+    }
+	msgbox(format("Reset VAR_BATTLE_SPEED to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		setvar(VAR_BATTLE_SPEED, 0)
+		buffernumberstring(STR_VAR_1, VAR_BATTLE_SPEED)
+		msgbox(format("VAR_BATTLE_SPEED: {STR_VAR_1}."))
+		closemessage
+		release
+		end
+	}
+}

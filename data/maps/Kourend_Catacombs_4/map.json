@@ -2,7 +2,7 @@
   "id": "MAP_KOUREND_CATACOMBS_4",
   "name": "Kourend_Catacombs_4",
   "layout": "LAYOUT_KOUREND_CATACOMBS_4",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_PS_KOUREND_CATACOMBS",
   "region_map_section": "MAPSEC_TUTORIAL_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -79,7 +79,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -92,7 +92,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_5"
     },
     {
@@ -105,7 +105,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_4"
     },
     {
@@ -118,7 +118,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_3"
     },
     {
@@ -131,7 +131,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_2"
     },
     {
@@ -157,7 +157,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_6"
     },
     {
@@ -170,7 +170,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_A"
     },
     {
@@ -183,7 +183,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_9"
     },
     {
@@ -196,7 +196,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_C"
     },
     {
@@ -222,7 +222,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_D"
     },
     {
@@ -235,7 +235,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "EventScript_New_RockSmash",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_7"
     },
     {
@@ -398,7 +398,7 @@
       "x": 33,
       "y": 1,
       "elevation": 3,
-      "item": "ITEM_ANCIENT_POUCH",
+      "item": "ITEM_POUCH_ANCIENT",
       "flag": "FLAG_HIDDEN_ITEM_TEMP_15"
     },
     {
@@ -406,7 +406,7 @@
       "x": 78,
       "y": 9,
       "elevation": 3,
-      "item": "ITEM_RUNE_POUCH",
+      "item": "ITEM_POUCH_RUNE",
       "flag": "FLAG_HIDDEN_ITEM_TEMP_17"
     },
     {

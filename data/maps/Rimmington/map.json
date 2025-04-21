@@ -42,6 +42,11 @@
       "map": "MAP_MUDSKIPPER_SOUND_2",
       "offset": 42,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE39",
+      "offset": -53,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -268,8 +273,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 8,
-      "y": 9,
+      "x": 9,
+      "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -525,6 +530,13 @@
       "elevation": 0,
       "dest_map": "MAP_POH_1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 48,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_PURO_PURO2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -596,5 +608,5 @@
       "script": "NPC_SETVAR_RIMMINGTON"
     }
   ],
-  "has_night_table": false
+  "has_night_table": true
 }

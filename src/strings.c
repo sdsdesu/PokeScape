@@ -353,9 +353,9 @@ const u8 gText_InBagVar1[] = _("IN BAG: {STR_VAR_1}");
 const u8 gText_QuitShopping[] = _("Quit shopping.");
 const u8 gText_Var1CertainlyHowMany[] = _("{STR_VAR_1}? Certainly.\nHow many would you like?");
 const u8 gText_Var1CertainlyHowMany2[] = _("{STR_VAR_1}? Certainly.\nHow many would you like?");
-const u8 gText_Var1AndYouWantedVar2[] = _("{STR_VAR_1}? And you wanted {STR_VAR_2}?\nThat will be ¥{STR_VAR_3}.");
-const u8 gText_Var1IsItThatllBeVar2[] = _("{STR_VAR_1}, is it?\nThat'll be ¥{STR_VAR_2}. Do you want it?");
-const u8 gText_YouWantedVar1ThatllBeVar2[] = _("You wanted {STR_VAR_1}?\nThat'll be ¥{STR_VAR_2}. Will that be okay?");
+const u8 gText_Var1AndYouWantedVar2[] = _("{STR_VAR_1}? And you wanted {STR_VAR_2}?\nThat will be {STR_VAR_3} GP.");
+const u8 gText_Var1IsItThatllBeVar2[] = _("{STR_VAR_1}, is it?\nThat'll be {STR_VAR_2} GP. Do you want it?");
+const u8 gText_YouWantedVar1ThatllBeVar2[] = _("You wanted {STR_VAR_1}?\nThat'll be {STR_VAR_2} GP. Will that be okay?");
 const u8 gText_HereYouGoThankYou[] = _("Here you go!\nThank you very much.");
 const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to your home PC.");
 const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your PC at home.");
@@ -364,12 +364,12 @@ const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PA
 const u8 gText_SpaceForVar1Full[] = _("The space for {STR_VAR_1} is full.{PAUSE_UNTIL_PRESS}");
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
 const u8 gText_CanIHelpWithAnythingElse[] = _("Can I help you with anything else?");
-const u8 gText_ThrowInPremierBall[] = _("I'll throw in a PREMIER BALL, too.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ThrowInPremierBall[] = _("I'll throw in a regular Pouch, too.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantBuyKeyItem[] = _("{STR_VAR_2}? Oh, no.\nI can't buy that.{PAUSE_UNTIL_PRESS}");
 const u8 gText_HowManyToSell[] = _("{STR_VAR_2}?\nHow many would you like to sell?");
-const u8 gText_ICanPayVar1[] = _("I can pay ¥{STR_VAR_1}.\nWould that be okay?");
-const u8 gText_TurnedOverVar1ForVar2[] = _("Turned over the {STR_VAR_2}\nand received ¥{STR_VAR_1}.");
-const u8 gText_PokedollarVar1[] = _("¥{STR_VAR_1}");
+const u8 gText_ICanPayVar1[] = _("I can pay {STR_VAR_1} GP.\nWould that be okay?");
+const u8 gText_TurnedOverVar1ForVar2[] = _("Turned over the {STR_VAR_2}\nand received {STR_VAR_1} GP.");
+const u8 gText_PokedollarVar1[] = _("{STR_VAR_1} GP");
 const u8 gText_Shift[] = _("SHIFT");
 const u8 gText_SendOut[] = _("SEND OUT");
 const u8 gText_Switch2[] = _("SWITCH");
@@ -1211,15 +1211,15 @@ const u8 gText_PkmnFainted_FldPsn[] = _("{STR_VAR_1} survived the poisoning.\nTh
 #endif
 
 const u8 gText_Marco[] = _("MARCO");
-const u8 gText_TrainerCardName[] = _("NAME: ");
+const u8 gText_TrainerCardName[] = _("");
 const u8 gText_TrainerCardIDNo[] = _("IDNo.");
-const u8 gText_TrainerCardMoney[] = _("MONEY");
+const u8 gText_TrainerCardMoney[] = _("MONEY:");
 const u8 gText_PokeDollar[] = _("¥"); // Unused
-const u8 gText_TrainerCardPokedex[] = _("BESTIARY");
+const u8 gText_TrainerCardPokedex[] = _("BESTIARY:");
 const u8 gText_EmptyString6[] = _("");
 const u8 gText_Colon2[] = _(":");
 const u8 gText_Points[] = _(" points"); // Unused
-const u8 gText_TrainerCardTime[] = _("TIME");
+const u8 gText_TrainerCardTime[] = _("PLAY TIME:");
 const u8 gJPText_BattlePoints[] = _("ゲ-ムポイント"); // Unused. Name presumed, translation is Game Points
 const u8 gText_Var1sTrainerCard[] = _("{STR_VAR_1}'s TRAINER CARD");
 const u8 gText_HallOfFameDebut[] = _("HALL OF FAME DEBUT  ");
@@ -1928,10 +1928,17 @@ const u8 gText_BROWN_WATER[] =_("BROWN WATER");
 const u8 gText_PICKAXE[] =_("PICKAXE");
 const u8 gText_AXE[] =_("AXE");
 
+const u8 gText_BAGUETTE[] =_("BAGUETTE");
+const u8 gText_TRIANGLE_SANDWICH[] =_("TRIANGLE SANDWICH");
+
+const u8 gText_RenameMon[] =_("RENAME A MONSTER");
+const u8 gText_ReLearnMove[] =_("FORGET A MOVE");
+const u8 gText_ForgetMove[] =_("RELEARN A MOVE");
+
 //misc
 const u8 gText_NextMenu[] =_("Next");
 const u8 gText_YouAlreadyHaveThis[] =_("You already have this item.{PAUSE_UNTIL_PRESS}");
-const u8 gText_YouWantedThisTM[] =_("You want {STR_VAR_2}?\nThat will be ¥{STR_VAR_1}.");
+const u8 gText_YouWantedThisTM[] =_("You want {STR_VAR_2}?\nThat will be {STR_VAR_1} GP.");
 const u8 gText_NeedMoreBadges[] =_("You need more badges to do this.{PAUSE_UNTIL_PRESS}");
 
 
@@ -1989,6 +1996,7 @@ const u8 gText_MapName_MillLaneMill[] = _("Mill Lane Mill");
 const u8 gText_MapName_Route1[] = _("Route 1");
 const u8 gText_MapName_Route12[] = _("Route 12");
 
+
 //Rune Mysteries
 const u8 gText_SideQuestName_RuneMysteries[] = _("Rune Mysteries");
 const u8 gText_SideQuestDesc_RuneMysteries[] = _("Deliver the mysterious Talisman\nto Archmage Sedridor in\nthe Wizards' Tower.");
@@ -1997,18 +2005,44 @@ const u8 gText_MapName_WizardsTower[] = _("Wizards' Tower");
 const u8 gText_SubQuest_RuneMysteries_1[] = _("Mysterious Talisman");
 const u8 gText_SubQuest1_Desc_RuneMysteries_1[] = _("You delivered the Talisman\nto Archmage Sedridor.");
 const u8 gText_SubQuest_RuneMysteries_2[] = _("Mysterious Ruins");
-const u8 gText_SubQuest1_Desc_RuneMysteries_2[] = _("You accessed the Ruins\nusing the Talisman.");
+const u8 gText_SubQuest1_Desc_RuneMysteries_2[] = _("You accessed some ruins\nusing a Talisman.");
 const u8 gText_SubQuest_RuneMysteries_3[] = _("Reported Findings");
 const u8 gText_SubQuest1_Desc_RuneMysteries_3[] = _("You reported everything you\nfound out to Duke Horacio.");
 const u8 gText_MapName_Route7[] = _("Route 7");
+const u8 gText_SubQuest_RuneMysteries_4[] = _("Air Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_4[] = _("You found the Air Altar.");
+const u8 gText_SubQuest_RuneMysteries_5[] = _("Mind Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_5[] = _("You found the Mind Altar.");
+const u8 gText_SubQuest_RuneMysteries_6[] = _("Water Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_6[] = _("You found the Water Altar.");
+const u8 gText_SubQuest_RuneMysteries_7[] = _("Earth Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_7[] = _("You found the Earth Altar.");
+const u8 gText_SubQuest_RuneMysteries_8[] = _("Fire Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_8[] = _("You found the Fire Altar.");
+const u8 gText_SubQuest_RuneMysteries_9[] = _("Body Altar");
+const u8 gText_SubQuest1_Desc_RuneMysteries_9[] = _("You found the Body Altar.");
+const u8 gText_SubQuest_RuneMysteries_10[] = _("Elemental");
+const u8 gText_SubQuest1_Desc_RuneMysteries_10[] = _("You reported your findings\nto Archmage Sedridor.");
+const u8 gText_MapName_LumbridgeSwamp[] = _("Lumbridge Swamp");
+const u8 gText_SubQuest_RuneMysteries_11[] = _("Reported Findings");
+const u8 gText_SubQuest1_Desc_RuneMysteries_11[] = _("You reported everything you\nfound out to Archmage Sedridor.");
+const u8 gText_MapName_Route28[] = _("Route 28");
+const u8 gText_MapName_Route17[] = _("Route 17");
+const u8 gText_MapName_Route23[] = _("Route 23");
+const u8 gText_MapName_Route33[] = _("Route 33");
+
 //Ernest the Chicken
 const u8 gText_SideQuestName_Ernest[] = _("Ernest the Chicken");
-const u8 gText_SideQuestDesc_Ernest[] = _("Help Prof.Oddenstein resurect Poly.");
+const u8 gText_SideQuestDesc_Ernest[] = _("Help Prof.Oddenstein with his\nexperiment.");
 const u8 gText_SideQuestDesc_Completed_Ernest[] = _("Quest Completed!");
 const u8 gText_SideQuestMap_Draynor_Manor[] = _("Draynor Manor");
 const u8 gText_SubQuest_Ernest_Name1[] = _("Oil Can");
 const u8 gText_SubQuest_Ernest_Name2[] = _("Rubber Tube");
 const u8 gText_SubQuest_Ernest_Name3[] = _("Pressure Gauge");
+const u8 gText_SubQuest_Ernest_Name4[] = _("Capture: Evil Chicken");
+const u8 gText_SubQuest_Ernest_Name5[] = _("Revived Poly");
+const u8 gText_SubQuest_Ernest_Desc4[] = _("You caught the Evil Chicken.");
+const u8 gText_SubQuest_Ernest_Desc5[] = _("You revived Prof. Oddenstien's\nparrot.");
 
 //Kourend Slayer
 const u8 gText_SideQuestName_Kourend_Slayer[] = _("The Dark Totem");
@@ -2027,6 +2061,97 @@ const u8 gText_SideQuestMap_MusaPoint[] = _("Musa Point");
 const u8 gText_SubQuest_Banana_Boat_Name1[] = _("Deliver 10 Bananas.");
 const u8 gText_SubQuest_Banana_Boat_Name2[] = _("Deliver 30 Bananas.");
 const u8 gText_SubQuest_Banana_Boat_Name3[] = _("Deliver over 120 Bananas.");
+
+
+//MvM Championships
+const u8 gText_SideQuestName_MvM_Championships[] = _("MvM Championships");
+const u8 gText_SideQuestDesc_MvM_Championships[] = _("Participate in the MvM Championships.");
+const u8 gText_SideQuestDesc_Completed_MvM_Championships[] = _("Quest Completed!");
+const u8 gText_SubQuest_MvM_Championships_Name1[] = _("Defeated Duke Horacio.");
+const u8 gText_SubQuest_MvM_Championships_Name2[] = _("Defeated Sir Amik Varze.");
+const u8 gText_SubQuest_MvM_Championships_Name3[] = _("Defeated Kimit-Kal.");
+const u8 gText_SubQuest_MvM_Championships_Name4[] = _("Defeated Gunthor.");
+const u8 gText_SubQuest_MvM_Championships_Name5[] = _("Defeated Prince Ali.");
+const u8 gText_SubQuest_MvM_Championships_Name6[] = _("Defeated King Roald.");
+const u8 gText_SubQuest_MvM_Championships_Name7[] = _("Defeated Vannaka.");
+const u8 gText_SubQuest_MvM_Championships_Name8[] = _("Defeated Thok.");
+const u8 gText_SubQuest_MvM_Championships_Name9[] = _("Defeated Sir Tiffy Cashin.");
+const u8 gText_SubQuest_MvM_Championships_Name10[] = _("Defeated Zanik.");
+const u8 gText_SubQuest_MvM_Championships_Name11[] = _("Defeated Hazlemare.");
+const u8 gText_SubQuest_MvM_Championships_Name12[] = _("Defeated Hans.");
+const u8 gText_SubQuest_MvM_Championships_Name13[] = _("Defeated Dionysius.");
+
+const u8 gText_SubQuest_MvM_Championships_Desc1[] = _("Obtain the Lumbridge Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc2[] = _("Obtain the Falador Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc3[] = _("Obtain the Tzhaar Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc4[] = _("Obtain the Barbarian Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc5[] = _("Obtain the Al-Kharid Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc6[] = _("Obtain the Varrock Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc7[] = _("Obtain the Edgeville Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc8[] = _("Obtain the Daemonheim Badge.");
+const u8 gText_SubQuest_MvM_Championships_Desc9[] = _("You defeat Sir Tiffy Cashin\nof the Elite 4.");
+const u8 gText_SubQuest_MvM_Championships_Desc10[] = _("You defeat Zanik\nof the Elite 4.");
+const u8 gText_SubQuest_MvM_Championships_Desc11[] = _("You defeat Hazlemere\nof the Elite 4.");
+const u8 gText_SubQuest_MvM_Championships_Desc12[] = _("You defeat Hans\nof the Elite 4.");
+const u8 gText_SubQuest_MvM_Championships_Desc13[] = _("You defeat the Champion of Gilienor,\nWise Old Man, Dionysius.");
+
+const u8 gText_MapName_Falador[] = _("Falador");
+const u8 gText_MapName_Tzhaar[] = _("Tzhaar City");
+const u8 gText_MapName_Varrock[] = _("Varrock");
+const u8 gText_MapName_AlKharid[] = _("Al-Kharid");
+const u8 gText_MapName_Edgeville[] = _("Edgeville");
+const u8 gText_MapName_BarbarianVillage[] = _("Barbarian Village");
+const u8 gText_MapName_Daemonheim[] = _("Daemonheim");
+const u8 gText_MapName_WildernessCrater[] = _("Wilderness Crater");
+
+
+
+
+const u8 gText_SideQuestName_Main_Story[] = _("Main Story");
+const u8 gText_SideQuestDesc_Main_Story[] = _("Follow the story of PokeScape.");
+const u8 gText_SubQuest_Main_Story_Name1[] = _("Obtain your first Monster");
+const u8 gText_SubQuest_Main_Story_Desc1[] = _("You vistied Prof. Normal Tree\nin Lumbridge Castle.");
+const u8 gText_SubQuest_Main_Story_Name2[] = _("Obtain your first badge!");
+const u8 gText_SubQuest_Main_Story_Desc2[] = _("By helping out the Cook you were\nable to challenge the Duke\nto a battle and won!");
+const u8 gText_SubQuest_Main_Story_Name3[] = _("A strange encounter?");
+const u8 gText_SubQuest_Main_Story_Desc3[] = _("You met a strange, yet wise old man\nin the Lumbridge Forest.");
+const u8 gText_SubQuest_Main_Story_Name4[] = _("A thief shrouded in pink");
+const u8 gText_SubQuest_Main_Story_Desc4[] = _("You and Ariane chased a stranger\nthrough Draynor Manor.");
+const u8 gText_SubQuest_Main_Story_Name5[] = _("Raid on the Lighthouse!");
+const u8 gText_SubQuest_Main_Story_Desc5[] = _("You thwarted H.A.M from obtaining\na map peice in Port Sarim.");
+const u8 gText_SubQuest_Main_Story_Name6[] = _("Cabbage Chaos?");
+const u8 gText_SubQuest_Main_Story_Desc6[] = _("You prevented H.A.M from obtaining\na map peice in Melzars Maze.");
+const u8 gText_SubQuest_Main_Story_Name7[] = _("Disturbance in the Mines");
+const u8 gText_SubQuest_Main_Story_Desc7[] = _("You assisted the White Knights in\ncapturing H.A.M obtaining the final\nmap peice.");
+const u8 gText_SubQuest_Main_Story_Name8[] = _("Mission Accepted!");
+const u8 gText_SubQuest_Main_Story_Desc8[] = _("You accepted the mission to stop H.A.M.\nFirst you must find a captain to\nsail a ship.");
+const u8 gText_SubQuest_Main_Story_Name9[] = _("Dragon Sailor");
+const u8 gText_SubQuest_Main_Story_Desc9[] = _("You found a captain for the boat.\nAll that's left to do now is to set sail!");
+const u8 gText_SubQuest_Main_Story_Name10[] = _("Close one!");
+const u8 gText_SubQuest_Main_Story_Desc10[] = _("You escaped from the volcano just in\ntime. Best report back to the\nWhite Knights of Falador.");
+
+const u8 gText_MapName_DraynorManor[] = _("Draynor Manor");
+const u8 gText_MapName_LumbridgeForest[] = _("Lumbridge Forest");
+const u8 gText_MapName_PortSarim[] = _("Port Sarim");
+const u8 gText_MapName_MelzarsMaze[] = _("Melzars Maze");
+const u8 gText_MapName_DwarvenMines[] = _("Dwarven Mines");
+const u8 gText_MapName_Crandor[] = _("Crandor");
+
+const u8 gText_SideQuestName_MithrilmanQuest[] = _("Mithrilman Quest");
+const u8 gText_SideQuestDesc_MithrilmanQuest[] = _("Follow the story of Mithrilman.");
+const u8 gText_SubQuest_MithrilmanQuest_Name1[] = _("Thousts fatedst foe");
+const u8 gText_SubQuest_MithrilmanQuest_Desc1[] = _("You met the Mithrilman and wonder\nwhy he talks like that.");
+const u8 gText_SubQuest_MithrilmanQuest_Name2[] = _("Mightier than thatd swordst");
+const u8 gText_SubQuest_MithrilmanQuest_Desc2[] = _("You found the Mithrilman in Falador.\nHe still talks weird.");
+const u8 gText_SubQuest_MithrilmanQuest_Name3[] = _("A Hot encounterestd");
+const u8 gText_SubQuest_MithrilmanQuest_Desc3[] = _("Mithrilman is in the Karamja volcano.\nDoes he call lava, lavastedst?");
+const u8 gText_SubQuest_MithrilmanQuest_Name4[] = _("Mithril life crisis");
+const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("");
+
+
+
+
+
 //names
 
 /*
@@ -2284,3 +2409,7 @@ const u8 gText_ElementalShield_Desc [] = _("Increases defence but locks\nmonster
 const u8 gText_GraniteMaul_Desc [] = _("Increases the power of\nRock-type moves.");
 const u8 gText_KrakenTentacle_Desc [] = _("Applies poison to the monsters moves.");
 
+const u8 gText_TrainerCardTokkul[] = _("TOKKUL:");
+const u8 gText_TrainerCardSlayerPoints[] = _("SLAYER POINTS:");
+const u8 gText_SlayerPoints[] = _("{STR_VAR_1} SP");
+const u8 gText_Tokkul[] = _("{STR_VAR_1} TKL");

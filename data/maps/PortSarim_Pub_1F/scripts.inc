@@ -201,15 +201,15 @@ GIVE_RANDOM_ITEM_14:
 	goto GIVE_RANDOM_ITEM_1
 
 GIVE_RANDOM_ITEM_15:
-	giveitem ITEM_GRANITE_POUCH, 5
+	giveitem ITEM_POUCH_GRANITE, 5
 	goto GIVE_RANDOM_ITEM_1
 
 GIVE_RANDOM_ITEM_16:
-	giveitem ITEM_BLACK_POUCH, 10
+	giveitem ITEM_POUCH_BLACK, 10
 	goto GIVE_RANDOM_ITEM_1
 
 GIVE_RANDOM_ITEM_17:
-	giveitem ITEM_NORMAL_POUCH, 20
+	giveitem ITEM_POUCH, 20
 	goto GIVE_RANDOM_ITEM_1
 
 GIVE_RANDOM_ITEM_18:
@@ -351,7 +351,7 @@ NPC_PortSarimPub_Pirate_1_Text_4:
 	.string "I guess I owe you this.$"
 
 NPC_PortSarimPub_Pirate_2_Text_0:
-	.string "PIRATE POPEYE$"
+	.string "AyePatch$"
 
 NPC_PortSarimPub_Pirate_2_Text_1:
 	.string "AYE!\p"

@@ -117,6 +117,32 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "BATTLE_MELZAR_2F_TRAINER_5",
       "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 20,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [
@@ -236,7 +262,7 @@
       "y": 7,
       "elevation": 0,
       "item": "ITEM_WATER_RUNE",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_1"
     },
     {
       "type": "hidden_item",
@@ -244,7 +270,7 @@
       "y": 17,
       "elevation": 0,
       "item": "ITEM_STAT_BEER",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_4"
     },
     {
       "type": "hidden_item",
@@ -252,15 +278,15 @@
       "y": 14,
       "elevation": 0,
       "item": "ITEM_LAMP_SPEED",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_2"
     },
     {
       "type": "hidden_item",
       "x": 13,
       "y": 24,
       "elevation": 0,
-      "item": "ITEM_IRON_POUCH",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_POUCH_IRON",
+      "flag": "FLAG_HIDDEN_ITEM_MELZAR_3"
     },
     {
       "type": "sign",

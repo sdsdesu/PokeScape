@@ -6,7 +6,7 @@
   "region_map_section": "MAPSEC_ABYSS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_UNDERGROUND",
+  "map_type": "MAP_TYPE_TOWN",
   "allow_cycling": true,
   "allow_escaping": true,
   "allow_running": true,
@@ -180,7 +180,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "RANDOM_PARTY_SIZE",
       "flag": "0"
     },
     {
@@ -236,7 +236,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TZHAAR_4",
+      "graphics_id": "OBJ_EVENT_GFX_TZHAAR_CHAMPION",
       "x": 66,
       "y": 56,
       "elevation": 0,
@@ -390,6 +390,123 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GYMLEADER_DUKE",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ABYSSAL_SIRE",
+      "x": 34,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RandomiseSeed_Weather",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MAX",
+      "x": 35,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GET_TIME_OF_DAY_old",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_PROF_NORMAL_TREE",
+      "x": 36,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "WEATHER_CHANGE_AREA_MUSAPOINT",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DRAGON_ARMOUR",
+      "x": 37,
+      "y": 58,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GET_TIME_OF_DAY",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ABYSSAL_DEMON",
+      "x": 31,
+      "y": 61,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CHECK_TIME_OF_DAY_EVENT_TRIGGERED",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TZ_KIH",
+      "x": 40,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "testbattle_tzhaar",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SIR_OWEN",
+      "x": 53,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "multipartnerBattle_SirOwen",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ZANIK",
+      "x": 53,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "multipartnerBattle_Zanik",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ARIANE",
+      "x": 52,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "multipartnerBattle_Ariane",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -418,7 +535,7 @@
       "x": 22,
       "y": 6,
       "elevation": 0,
-      "dest_map": "MAP_TZHAAR_1F",
+      "dest_map": "MAP_MOR_UL_REK",
       "dest_warp_id": "3"
     },
     {
@@ -621,7 +738,7 @@
       "x": 66,
       "y": 22,
       "elevation": 0,
-      "dest_map": "MAP_TZHAAR_1F",
+      "dest_map": "MAP_MOR_UL_REK",
       "dest_warp_id": "0"
     },
     {
@@ -693,6 +810,20 @@
       "elevation": 0,
       "dest_map": "MAP_RIMMINGTON",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 55,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_ABYSSAL_REALM_1",
+      "dest_warp_id": "44"
+    },
+    {
+      "x": 49,
+      "y": 31,
+      "elevation": 0,
+      "dest_map": "MAP_ABYSSAL_REALM_1",
+      "dest_warp_id": "43"
     }
   ],
   "coord_events": [
@@ -722,6 +853,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VARSETTER"
+    },
+    {
+      "type": "sign",
+      "x": 39,
+      "y": 54,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "TEST_POKESCAPE"
     }
   ],
   "has_night_table": false

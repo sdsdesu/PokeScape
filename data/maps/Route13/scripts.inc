@@ -1,9 +1,14 @@
 Route13_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route13_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Route13_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Route13_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 16
+	return
+
+Route13_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call PURO_PURO_EVENT
 	return
 
 
@@ -211,6 +216,35 @@ BATTLE_ROUTE17_TRAINER_2::
 	hidenamebox
 	release
 	end
+
+
+PURO_PURO_EVENT_ROUTE13::
+	setmetatile 5, 21, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 5, 22, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 5, 23, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 5, 24, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 5, 25, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 6, 21, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 6, 22, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 6, 23, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 6, 24, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 6, 25, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 7, 21, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 7, 25, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 8, 21, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 8, 22, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 8, 23, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 8, 24, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 8, 25, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 9, 21, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 9, 22, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 9, 23, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 9, 24, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 9, 25, METATILE_PokeScapeOutdoors_SHAKING_WHEAT, 0
+	setmetatile 7, 22, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_1, 0
+	setmetatile 7, 23, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_2, 0
+	setmetatile 7, 24, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
+	return
 
 
 VARROCK_NPC_RATBURGUS_Text_0:
