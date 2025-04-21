@@ -545,14 +545,22 @@
 #define TRAINER_DRAYNOR_SEWERS3_TRAINER_2               539
 #define TRAINER_DRAYNOR_SEWERS3_TRAINER_3               540
 #define TRAINER_BLACKKNIGHT_TEE                         541
-
-
+#define TRAINER_DWARF_POWERSTATION_F1_1                 542
+#define TRAINER_DWARF_POWERSTATION_F1_2                 543
+#define TRAINER_DWARF_POWERSTATION_F1_3                 544
+#define TRAINER_DWARF_POWERSTATION_F2_1                 545
+#define TRAINER_DWARF_POWERSTATION_F2_2                 546
+#define TRAINER_DWARF_POWERSTATION_F2_3                 547
+#define TRAINER_DWARVENMINES_HOUSE_1                    548
+#define TRAINER_DWARVENMINES_HOUSE_2                    549
+#define TRAINER_DWARVENMINES_HOUSE_3                    550
+#define TRAINER_DWARVENMINES_HOUSE_4                    551
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_BLACKKNIGHT_TEE + 1)
+#define TRAINERS_COUNT                      (TRAINER_DWARVENMINES_HOUSE_4 + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

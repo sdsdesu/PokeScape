@@ -8211,3 +8211,76 @@ static const struct TrainerMon sParty_DraynorSewers3_Trainer3[] = {    //Mystic
     .species = SPECIES_RUNE_GUARDIAN,
     }
 };
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {    //Fire Giant
+    {
+    .lvl = 40,
+    .species = SPECIES_FIRE_TITAN,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_FIRE_TITAN,
+    }
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {    //Fire Giant
+    {
+    .lvl = 40,
+    .species = SPECIES_LAVA_TITAN,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_SPIDER_LAVA_FORM,                    //Should be a Lava Monster, replace when they are added
+    }
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //Ironman
+    {
+    .lvl = 40,
+    .species = SPECIES_IRON_TITAN,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_BASILISK_RS3_FORM,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
+    }
+};
+
+static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer1[] = {    //Dwarf
+    {
+    .lvl = 40,
+    .species = SPECIES_DESERTWYRM,
+    }
+};
+
+static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer2[] = {    //Dwarf
+    {
+    .lvl = 40,
+    .species = SPECIES_SCORPION_KING_FORM,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_ROCKTAIL,
+    }
+};
+
+static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer3[] = {    //Dwarf
+    {
+    .lvl = 40,
+    .species = SPECIES_TORTLE,
+    }
+};
+
+static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer4[] = {    //Dwarf
+    {
+    .lvl = 40,
+    .species = SPECIES_SPOOKAXE,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_STEEL_TITAN,
+    }
+};
