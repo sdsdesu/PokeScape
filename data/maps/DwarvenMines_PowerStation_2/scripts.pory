@@ -3,7 +3,7 @@ mapscripts DwarvenMines_PowerStation_2_MapScripts {
 }
 
 //NPCs
-script NPC_DwarvenMines_PowerStationF1_1   //Dwarf - top middle
+script NPC_DwarvenMines_PowerStationF2_1   //Dwarf - top middle
 {
 	lock
 	faceplayer
@@ -15,7 +15,7 @@ script NPC_DwarvenMines_PowerStationF1_1   //Dwarf - top middle
 	end
 }
 
-script NPC_DwarvenMines_PowerStationF1_2    //Miner - top middle
+script NPC_DwarvenMines_PowerStationF2_2    //Miner - top middle
 {
 	lock
 	faceplayer
@@ -27,7 +27,7 @@ script NPC_DwarvenMines_PowerStationF1_2    //Miner - top middle
 	end
 }
 
-script NPC_DwarvenMines_PowerStationF1_3   //Dwarf - middle left
+script NPC_DwarvenMines_PowerStationF2_3   //Dwarf - middle left
 {
 	lock
 	faceplayer
@@ -39,7 +39,7 @@ script NPC_DwarvenMines_PowerStationF1_3   //Dwarf - middle left
 	end
 }
 
-script NPC_DwarvenMines_PowerStationF1_4   //Diviner - bottom
+script NPC_DwarvenMines_PowerStationF2_4   //Diviner - bottom
 {
 	lock
 	faceplayer

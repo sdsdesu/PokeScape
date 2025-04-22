@@ -8212,7 +8212,7 @@ static const struct TrainerMon sParty_DraynorSewers3_Trainer3[] = {    //Mystic
     }
 };
 
-static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {    //Fire Giant
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer1[] = {    //Fire Giant
     {
     .lvl = 40,
     .species = SPECIES_FIRE_TITAN,
@@ -8223,7 +8223,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {    //Fi
     }
 };
 
-static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {    //Fire Giant
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer2[] = {    //Fire Giant
     {
     .lvl = 40,
     .species = SPECIES_LAVA_TITAN,
@@ -8234,7 +8234,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {    //Fi
     }
 };
 
-static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //Ironman
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ironman
     {
     .lvl = 40,
     .species = SPECIES_IRON_TITAN,
@@ -8283,4 +8283,26 @@ static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer4[] = {    //Dwar
     .lvl = 40,
     .species = SPECIES_STEEL_TITAN,
     }
+};
+
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {   //MINER
+    {
+    .lvl = 40,
+    .species = SPECIES_THINGUMWUT,
+    },
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {   //FIREMAKER
+    {
+    .lvl = 40,
+    .species = SPECIES_THINGUMWUT,
+    },
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //DWARF
+    {
+    .lvl = 40,
+    .species = SPECIES_THINGUMWUT,
+    },
 };
