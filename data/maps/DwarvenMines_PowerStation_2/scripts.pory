@@ -1,1 +1,84 @@
-mapscripts DwarvenMines_PowerStation_2_MapScripts {}
+mapscripts DwarvenMines_PowerStation_2_MapScripts {
+
+}
+
+//NPCs
+script NPC_DwarvenMines_PowerStationF2_1   //Dwarf - top middle
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("We don't get many humans this far down.\pThe only ones who do visit just steal our ores and then vanish into thin air!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF2_2    //Miner - top middle
+{
+	lock
+	faceplayer
+    namebox ("ALL M1N3")
+	msgbox(format("Do you see this runite rock?\pIt is mine.\pDo not even think about trying to take this ore for yourself, you cannot possibly compete with my dragon pickaxe!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF2_3   //Dwarf - middle left
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("The fire giants over there aren't very friendly.\pI am too scared to try and squeeze past them and leave.\pI've been stuck here for hours now..."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF2_4   //Diviner - bottom
+{
+	lock
+	faceplayer
+    namebox ("Paracelsus")
+	msgbox(format("Did you know that alchemy is based on three principles?\pSulphur, being the combustible, encompassing both fire and air.\pMercurius, which is the volatile liquid.\pAnd Sal, or the solid which gives it form.\p{PAUSE 15}What do you mean all I need are fire and nature runes?!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+//TRAINERS
+
+script BATTLE_DWARVENMINES_POWERSTATION_F2_1
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_1, format("SHHHHHH"),format("KSHSHSHHS"))
+    namebox ("Jetag")
+    msgbox(format("KSHSHSHHS"))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVENMINES_POWERSTATION_F2_2
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_2, format("KHKHKHKHKH"),format("KHEEEHHH..."))
+    namebox ("Magrym")
+    msgbox(format("KHEEEHHH..."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVENMINES_POWERSTATION_F2_3
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_3, format("Think you are ready to take on an ironman of my calibre?"),format("Oh, perhaps you were..."))
+    namebox ("ToniStank")
+    msgbox(format("By restricting myself from feeling sad I can never be hurt and I get more enjoyment out of this game!\pRestrictions are the bread and butter of ironmen after all."))
+	hidenamebox
+    release
+	end
+}

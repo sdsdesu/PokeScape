@@ -5988,6 +5988,126 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DraynorSewers3_Trainer3),
     },
 
+    [TRAINER_DWARF_POWERSTATION_F1_1] = //Firemaker
+    {
+        .trainerClass = TRAINER_CLASS_FIREMAKER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_firemaking,
+        .trainerName = _("Ozai"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF1_Trainer1),
+    },
+
+    [TRAINER_DWARF_POWERSTATION_F1_2] = //Miner
+    {
+        .trainerClass = TRAINER_CLASS_MINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_miner,
+        .trainerName = _("Crypt Oes"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF1_Trainer2),
+    },
+
+    [TRAINER_DWARF_POWERSTATION_F1_3] = //Dwarf
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("Per"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF1_Trainer3),
+    },
+
+    [TRAINER_DWARF_POWERSTATION_F2_1] = //Fire Giant
+    {
+        .trainerClass = TRAINER_CLASS_FIRE_GIANT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_fire_giant,
+        .trainerName = _("Jetag"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF2_Trainer1),
+    },
+
+    [TRAINER_DWARF_POWERSTATION_F2_2] = //Fire Giant
+    {
+        .trainerClass = TRAINER_CLASS_FIRE_GIANT,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_fire_giant,
+        .trainerName = _("Magrym"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF2_Trainer2),
+    },
+
+    [TRAINER_DWARF_POWERSTATION_F2_3] = //Ironman
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("ToniStank"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF2_Trainer3),
+    },
+
+    [TRAINER_DWARVENMINES_HOUSE_1] = //Dwarf
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("Gunnar"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer1),
+    },
+
+    [TRAINER_DWARVENMINES_HOUSE_2] = //Dwarf
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("Nikolai"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer2),
+    },
+
+    [TRAINER_DWARVENMINES_HOUSE_3] = //Dwarf
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("Fredrik"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer3),
+    },
+
+    [TRAINER_DWARVENMINES_HOUSE_4] = //Dwarf   -- NEEDS A NAME
+    {
+        .trainerClass = TRAINER_CLASS_DWARF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerName = _("Erifun"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer4),
+    },
+
 /*
     #define TRAINER_HELLWIND                                445
 #define TRAINER_HYPER_STAN                              446
