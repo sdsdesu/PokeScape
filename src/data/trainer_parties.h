@@ -5444,7 +5444,7 @@ static const struct TrainerMon sParty_MELZARS_1F_TRAINER_1[] = {
 static const struct TrainerMon sParty_MELZARS_1F_TRAINER_2[] = {
     {
     .lvl = 25,
-    .species = SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM,
+    .species = SPECIES_BLOODVELD_RSHD,
     },
     {
     .lvl = 24,
@@ -6229,7 +6229,7 @@ static const struct TrainerMon sParty_GYM_LEADER_VANNAKA_1[] = {
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .ability = ABILITY_HAEMANCY,
     .lvl = 35,
-    .species = SPECIES_BLOODVELD_MUTATED_SPECIAL_FORM,
+    .species = SPECIES_BLOODVELD_INSATIABLE_SPECIAL,
     .moves = {MOVE_BLOOD_BARRAGE, MOVE_STRENGTH_SAP, MOVE_BRUTAL_SWING, MOVE_GIGA_DRAIN}
     },
     {
@@ -6859,7 +6859,7 @@ static const struct TrainerMon sParty_ROUTE33_ZAMORAK2[] = {
 static const struct TrainerMon sParty_ROUTE33_ZAMORAK3[] = {
     {
     .lvl = 41,
-    .species = SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM,
+    .species = SPECIES_BLOODVELD_INSATIABLE_PHYSICAL,
     },
     {
     .lvl = 43,

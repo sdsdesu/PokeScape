@@ -210,7 +210,7 @@ ProfNormalTree_Assistant_GiveReward_RIMMINGTON::
 
 
 ProfNormalTree_FALADOR::
-	setvar VAR_TEMP_1, 20
+	setvar VAR_TEMP_1, 30
 	buffernumberstring STR_VAR_1, VAR_TEMP_1
 	lock
 	faceplayer
@@ -230,7 +230,7 @@ ProfNormalTree_Assistant_GiveReward_FALADOR::
 
 
 ProfNormalTree_VARROCK::
-	setvar VAR_TEMP_1, 20
+	setvar VAR_TEMP_1, 40
 	buffernumberstring STR_VAR_1, VAR_TEMP_1
 	lock
 	faceplayer
@@ -250,7 +250,7 @@ ProfNormalTree_Assistant_GiveReward_VARROCK::
 
 
 ProfNormalTree_EDGEVILLE::
-	setvar VAR_TEMP_1, 20
+	setvar VAR_TEMP_1, 50
 	buffernumberstring STR_VAR_1, VAR_TEMP_1
 	lock
 	faceplayer

@@ -16938,7 +16938,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM"
+                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL"
               },
               {
                 "min_level": 5,
@@ -17007,7 +17007,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM"
+                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL"
               },
               {
                 "min_level": 5,
@@ -27815,12 +27815,12 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM"
+                "species": "SPECIES_BLOODVELD_INSATIABLE_PHYSICAL"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM"
+                "species": "SPECIES_BLOODVELD_RSHD"
               },
               {
                 "min_level": 5,

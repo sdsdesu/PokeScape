@@ -15521,28 +15521,28 @@ static const union AnimCmd sAnim_Bloodveld_1[] =
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Bloodveld_Insatiable_Physical_Form_1[] =
+static const union AnimCmd sAnim_Bloodveld_Insatiable_Physical_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Bloodveld_Insatiable_Special_Form_1[] =
+static const union AnimCmd sAnim_Bloodveld_RSHD_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Bloodveld_Mutated_Physical_Form_1[] =
+static const union AnimCmd sAnim_Bloodveld_Mutated_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Bloodveld_Mutated_Special_Form_1[] =
+static const union AnimCmd sAnim_Bloodveld_Insatiable_Special_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
@@ -17481,7 +17481,7 @@ static const union AnimCmd sAnim_Crocodile_Ukunduka_Form_1[] =
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Bloodveld_Insatiable_Mutated_Form_1[] =
+static const union AnimCmd sAnim_Bloodveld_GWD_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
@@ -22025,24 +22025,24 @@ static const union AnimCmd *const sAnims_Bloodveld[] ={
 	sAnim_Bloodveld_1,
 };
 
-static const union AnimCmd *const sAnims_Bloodveld_Insatiable_Physical_Form[] ={
+static const union AnimCmd *const sAnims_Bloodveld_Insatiable_Physical[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Bloodveld_Insatiable_Physical_Form_1,
+	sAnim_Bloodveld_Insatiable_Physical_1,
 };
 
-static const union AnimCmd *const sAnims_Bloodveld_Insatiable_Special_Form[] ={
+static const union AnimCmd *const sAnims_Bloodveld_RSHD[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Bloodveld_Insatiable_Special_Form_1,
+	sAnim_Bloodveld_RSHD_1,
 };
 
-static const union AnimCmd *const sAnims_Bloodveld_Mutated_Physical_Form[] ={
+static const union AnimCmd *const sAnims_Bloodveld_Mutated[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Bloodveld_Mutated_Physical_Form_1,
+	sAnim_Bloodveld_Mutated_1,
 };
 
-static const union AnimCmd *const sAnims_Bloodveld_Mutated_Special_Form[] ={
+static const union AnimCmd *const sAnims_Bloodveld_Insatiable_Special[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Bloodveld_Mutated_Special_Form_1,
+	sAnim_Bloodveld_Insatiable_Special_1,
 };
 
 static const union AnimCmd *const sAnims_Reaver[] ={
@@ -23425,9 +23425,9 @@ static const union AnimCmd *const sAnims_Crocodile_Ukunduka_Form[] ={
 	sAnim_Crocodile_Ukunduka_Form_1,
 };
 
-static const union AnimCmd *const sAnims_Bloodveld_Insatiable_Mutated_Form[] ={
+static const union AnimCmd *const sAnims_Bloodveld_GWD[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Bloodveld_Insatiable_Mutated_Form_1,
+	sAnim_Bloodveld_GWD_1,
 };
 
 static const union AnimCmd *const sAnims_Bloodveld_Acidic_Form[] ={

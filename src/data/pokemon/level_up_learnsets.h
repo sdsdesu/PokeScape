@@ -31580,7 +31580,7 @@ LEVEL_UP_MOVE(43, MOVE_GIGA_DRAIN),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sBloodveld_Insatiable_Physical_FormLevelUpLearnset[] = {
+static const struct LevelUpMove sBloodveld_Insatiable_PhysicalLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_ABSORB),
 LEVEL_UP_MOVE(2, MOVE_GROWL),
 LEVEL_UP_MOVE(4, MOVE_SCRATCH),
@@ -31599,7 +31599,7 @@ LEVEL_UP_MOVE(51, MOVE_GIGA_IMPACT),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sBloodveld_Insatiable_Special_FormLevelUpLearnset[] = {
+static const struct LevelUpMove sBloodveld_RSHDLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_ABSORB),
 LEVEL_UP_MOVE(2, MOVE_GROWL),
 LEVEL_UP_MOVE(4, MOVE_SCRATCH),
@@ -31618,7 +31618,7 @@ LEVEL_UP_MOVE(51, MOVE_DARK_PULSE),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sBloodveld_Mutated_Physical_FormLevelUpLearnset[] = {
+static const struct LevelUpMove sBloodveld_MutatedLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_CLOSE_COMBAT),
 LEVEL_UP_MOVE(2, MOVE_ABSORB),
 LEVEL_UP_MOVE(3, MOVE_GROWL),
@@ -31639,7 +31639,7 @@ LEVEL_UP_MOVE(55, MOVE_GIGA_IMPACT),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sBloodveld_Insatiable_Mutated_FormLevelUpLearnset[] = {
+static const struct LevelUpMove sBloodveld_GWDLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_FIRE_FANG),
 LEVEL_UP_MOVE(2, MOVE_ABSORB),
 LEVEL_UP_MOVE(3, MOVE_GROWL),
@@ -31681,7 +31681,7 @@ LEVEL_UP_MOVE(55, MOVE_DARK_PULSE),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sBloodveld_Mutated_Special_FormLevelUpLearnset[] = {
+static const struct LevelUpMove sBloodveld_Insatiable_SpecialLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_PSYCHIC_FANGS),
 LEVEL_UP_MOVE(2, MOVE_ABSORB),
 LEVEL_UP_MOVE(3, MOVE_GROWL),

@@ -4041,22 +4041,22 @@ const struct MonCoords gMonBackPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM] =
+	[SPECIES_BLOODVELD_INSATIABLE_PHYSICAL] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM] =
+	[SPECIES_BLOODVELD_RSHD] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_MUTATED_PHYSICAL_FORM] =
+	[SPECIES_BLOODVELD_MUTATED] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_MUTATED_SPECIAL_FORM] =
+	[SPECIES_BLOODVELD_INSATIABLE_SPECIAL] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
