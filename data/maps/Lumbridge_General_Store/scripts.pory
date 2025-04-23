@@ -30,13 +30,13 @@ script SHOP_TOKKUL {
     //pokemartdecoration FortreeCity_DecorationShop_PokemartDecor_Desks
     lock
 	faceplayer
-    setflag(FLAG_A_NUB_TOT_TUTORIAL)
+    //setflag(FLAG_A_NUB_TOT_TUTORIAL)
     namebox("Tz-ShopKeeps")
     msgbox(format("Welcome to the Tokkul store.\pHow may I help you?"))
 	waitmessage
 	pokemarttokkulshop (STORE_GeneralStore_4)
 	msgbox(format("TzGtfo."))
-    clearflag(FLAG_A_NUB_TOT_TUTORIAL)
+    //clearflag(FLAG_A_NUB_TOT_TUTORIAL)
 	release
 	end
     //pokemartdecoration (STORE_GeneralStore_0) 
@@ -69,6 +69,7 @@ script GeneralStore_LUMBRIDGE {
     msgbox(format("Welcome to the Lumbridge General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -80,6 +81,7 @@ script GeneralStore_DRAYNOR {
     msgbox(format("Welcome to the Draynor Markets.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -91,6 +93,7 @@ script GeneralStore_FALADOR {
     msgbox(format("Welcome to the Falador General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -102,6 +105,7 @@ script GeneralStore_VARROCK {
     msgbox(format("Welcome to the Varrock General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -113,6 +117,7 @@ script GeneralStore_PORTSARIM {
     msgbox(format("Welcome to the Port Sarim General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -124,6 +129,7 @@ script GeneralStore_RIMMINGTON {
     msgbox(format("Welcome to the Rimmington General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -135,6 +141,7 @@ script GeneralStore_ALKHARID {
     msgbox(format("Welcome to the Al-Kharid General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -146,6 +153,7 @@ script GeneralStore_MUSAPOINT {
     msgbox(format("Welcome to the Musa Point General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
@@ -156,17 +164,8 @@ script GeneralStore_MUSAPOINT_Assistant {
     msgbox(format("Hello and welcome to the Musa Point General Store.\pHow may I help you?"))
     waitmessage
     pokemart (STORE_cocktails)
+    namebox("Assistant")
     msgbox("Thank you, come again!")
-    release
-}
-script GeneralStore_TZHAAR {
-    lock
-    faceplayer
-    namebox("Tzhaar")
-    msgbox(format("JalYt, this is Tzhaar shop.\pWe sell things to assist your Kimit-zil."))
-    waitmessage
-    call(GeneralStoreShopScript)
-    msgbox("Come again.")
     release
 }
 script GeneralStore_TZHAAR_Human {
@@ -176,9 +175,60 @@ script GeneralStore_TZHAAR_Human {
     msgbox(format("It's so hot down here...\pWelcome to the Tzhaar General Store.\pHow may I help you?"))
     waitmessage
     call(GeneralStoreShopScript)
+    namebox("Clerk")
     msgbox("Thank you, come again!")
     release
 }
+script TZHAAR_SHOP_BATTLESHOP {
+    lock
+    faceplayer
+    namebox("Tzhaar")
+    msgbox(format("JalYt, this is Tzhaar shop.\pWe sell things to assist your Kimit-zil."))
+    waitmessage
+    call(SHOP_TOKKUL_BattleShop)
+    namebox("Tzhaar")
+    msgbox("Come again.")
+    release
+}
+script TZHAAR_SHOP_RUNESHOP {
+    lock
+    faceplayer
+    namebox("Tzhaar")
+    msgbox(format("JalYt, this is Runes shop.\pUse runes to evolve your Kimit-zil."))
+    waitmessage
+    call(SHOP_TOKKUL_Runes)
+    namebox("Tzhaar")
+    msgbox("Come again.")
+    release
+}
+script TZHAAR_SHOP_POUCHSHOP {
+    lock
+    faceplayer
+    namebox("Tzhaar")
+    msgbox(format("JalYt, this is Pouch shop.\pBuy pouches to catch you some Kimit-zil."))
+    waitmessage
+    call(SHOP_TOKKUL_Pouches)
+    namebox("Tzhaar")
+    msgbox("Come again.")
+    release
+}
+
+
+script SHOP_TOKKUL_Pouches {
+    pokemarttokkulshop (STORE_SpecialPouches)
+    return
+}
+script SHOP_TOKKUL_Runes {
+    pokemarttokkulshop (STORE_RuneStore_5)
+    return
+}
+script SHOP_TOKKUL_BattleShop {
+    pokemarttokkulshop (STORE_BattleShop)
+    return
+}
+
+
+
 
 
 ///STORE SCRIPTS
@@ -328,6 +378,30 @@ STORE_RuneStore_4:
     .2byte ITEM_MIST_RUNE
 	.2byte ITEM_LAVA_RUNE
     .2byte ITEM_LIFE_RUNE
+    .2byte ITEM_NONE
+    release
+    end
+`
+
+raw `
+    .align 2
+STORE_RuneStore_5:
+    .2byte ITEM_AIR_RUNE
+    .2byte ITEM_WATER_RUNE
+    .2byte ITEM_EARTH_RUNE
+	.2byte ITEM_FIRE_RUNE
+    .2byte ITEM_MIND_RUNE
+    .2byte ITEM_BODY_RUNE
+    .2byte ITEM_COSMIC_RUNE
+	.2byte ITEM_CHAOS_RUNE
+    .2byte ITEM_NATURE_RUNE
+    .2byte ITEM_LAW_RUNE
+    .2byte ITEM_ASTRAL_RUNE
+    .2byte ITEM_DEATH_RUNE
+	.2byte ITEM_BLOOD_RUNE
+    .2byte ITEM_SOUL_RUNE
+    .2byte ITEM_LIFE_RUNE
+    .2byte ITEM_SPIRIT_CHARM
     .2byte ITEM_NONE
     release
     end
@@ -596,6 +670,42 @@ STORE_cocktails:
     .2byte ITEM_FRUIT_BLAST
     .2byte ITEM_PINEAPPLE_PUNCH
     .2byte ITEM_BLUEBERRY_SPECIAL
+    .2byte ITEM_NONE
+    release
+    end
+`
+
+
+raw `
+    .align 2
+STORE_BattleShop:
+    .2byte 	ITEM_BLOODFURY
+    .2byte 	ITEM_ROCKCAKE
+    .2byte 	ITEM_EFFIGY
+    .2byte 	ITEM_DRAGON_SCIMITAR
+    .2byte 	ITEM_DRAGON_DAGGER_POISON
+    .2byte 	ITEM_DRAGON_CLAWS
+    .2byte 	ITEM_ABYSSAL_WHIP
+    .2byte 	ITEM_DFS
+    .2byte 	ITEM_FIGHTER_TORSO
+    .2byte 	ITEM_PHOENIX_NECKLACE
+    .2byte 	ITEM_DOUBLE_EYEPATCH
+    .2byte 	ITEM_TINDERBOX
+    .2byte 	ITEM_STAFF_OF_EARTH
+    .2byte 	ITEM_SARADOMIN_BREW
+    .2byte 	ITEM_OVERLOAD
+    .2byte 	ITEM_BLACK_SCALE
+    .2byte 	ITEM_BLUE_SCALE
+    .2byte 	ITEM_GREEN_SCALE
+    .2byte 	ITEM_RED_SCALE
+    .2byte 	ITEM_PURPLE_SWEETS
+    .2byte 	ITEM_STAT_BEER
+    .2byte 	ITEM_LAMP_ATT
+    .2byte 	ITEM_LAMP_DEF
+    .2byte 	ITEM_LAMP_HP
+    .2byte 	ITEM_LAMP_SPATT
+    .2byte 	ITEM_LAMP_SPDEF
+    .2byte 	ITEM_LAMP_SPEED
     .2byte ITEM_NONE
     release
     end

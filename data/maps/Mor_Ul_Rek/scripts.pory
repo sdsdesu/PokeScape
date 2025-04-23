@@ -383,17 +383,30 @@ script TZHAAR_NPC_12
 
 script TZHAAR_NPC_BANKER
 {
-    lock
+    lockall
     faceplayer
-    namebox ("Tzhaar")
-    msgbox(format("Greetings, welcome to the Bank of Tzhaar!\pWe are learning new things from this JalYt.\pWhat can I help you with today?"))
+    namebox ("Ga'Al Banker")
+    msgbox(format("Greetings, welcome to the Bank of Tzhaar!\pWe are learning new things from this JalYt.\pWhat can we help you with today?"))
+    call(BANK_OPTIONS_TZHAAR)
+    namebox ("Ga'Al Banker")
+    msgbox(format("Come again anytime."))
     closemessage
     hidenamebox
-    goto(BANK_OPTIONS)
-    release
+    releaseall
     end
 }
 
+script TZHAAR_NPC_BANKER_Human
+{
+    lock
+    faceplayer
+    namebox ("Banker")
+    msgbox(format("If you need something speak with these Tzhaar.\pThe big one will heal your monsters and the little one will help them learn moves."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
 script TZHAAR_NPC_13
 {
     faceplayer

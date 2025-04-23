@@ -39,6 +39,7 @@ const struct Item gItems[] =
     {
         .name = _("POUCH"),
         .price = 100,
+        .tokkulcost = 10,
         .description = sNormalPouchDesc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -51,7 +52,7 @@ const struct Item gItems[] =
     {
         .name = _("BRONZE POUCH"),
         .price = 100,
-        .tokkulcost = 10000,
+        .tokkulcost = 10,
         .description = sPouch_Bronze_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -64,6 +65,7 @@ const struct Item gItems[] =
     {
         .name = _("IRON POUCH"),
         .price = 150,
+        .tokkulcost = 50,
         .description = sPouch_Iron_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -88,6 +90,7 @@ const struct Item gItems[] =
     {
         .name = _("MITHRIL POUCH"),
         .price = 500,
+        .tokkulcost = 100,
         .description = sPouch_Mithril_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -100,6 +103,7 @@ const struct Item gItems[] =
     {
         .name = _("ADAMANT POUCH"),
         .price = 800,
+        .tokkulcost = 100,
         .description = sPouch_Adamant_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -172,6 +176,7 @@ const struct Item gItems[] =
     {
         .name = _("ELEMENTAL P."),
         .price = 1000,
+        .tokkulcost = 150,
         .description = sPouch_Elemental_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -184,6 +189,7 @@ const struct Item gItems[] =
     {
         .name = _("CATALYTIC P."),
         .price = 1000,
+        .tokkulcost = 150,
         .description = sPouch_Catalytic_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -208,6 +214,7 @@ const struct Item gItems[] =
     {
         .name = _("GIZMO POUCH"),
         .price = 200,
+        .tokkulcost = 100,
         .description = sPouch_Augmented_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -220,6 +227,7 @@ const struct Item gItems[] =
     {
         .name = _("ANCIENT POUCH"),
         .price = 1000,
+        .tokkulcost = 200,
         .description = sPouch_Ancient_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -244,6 +252,7 @@ const struct Item gItems[] =
     {
         .name = _("GRANITE POUCH"),
         .price = 1000,
+        .tokkulcost = 120,
         .description = sPouch_Granite_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -256,6 +265,7 @@ const struct Item gItems[] =
     {
         .name = _("BARK POUCH"),
         .price = 1000,
+        .tokkulcost = 100,
         .description = sPouch_Splitbark_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -268,6 +278,7 @@ const struct Item gItems[] =
     {
         .name = _("MYSTIC POUCH"),
         .price = 200,
+        .tokkulcost = 30,
         .description = sPouch_Mystic_Desc,
         .pocket = POCKET_POKE_BALLS,
         .type = ITEM_USE_BAG_MENU,
@@ -10665,6 +10676,7 @@ const struct Item gItems[] =
     {
         .name = _("AIR RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sAirRuneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10677,6 +10689,7 @@ const struct Item gItems[] =
     {
         .name = _("WATER RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10688,6 +10701,7 @@ const struct Item gItems[] =
     {
         .name = _("EARTH RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10699,6 +10713,7 @@ const struct Item gItems[] =
     {
         .name = _("FIRE RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10710,6 +10725,7 @@ const struct Item gItems[] =
     {
         .name = _("MIND RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10721,6 +10737,7 @@ const struct Item gItems[] =
     {
         .name = _("BODY RUNE"),
         .price = 3000,
+        .tokkulcost = 5000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10732,6 +10749,7 @@ const struct Item gItems[] =
     {
         .name = _("COSMIC RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10743,6 +10761,7 @@ const struct Item gItems[] =
     {
         .name = _("CHAOS RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10754,6 +10773,7 @@ const struct Item gItems[] =
     {
         .name = _("NATURE RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10765,6 +10785,7 @@ const struct Item gItems[] =
     {
         .name = _("DEATH RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10776,6 +10797,7 @@ const struct Item gItems[] =
     {
         .name = _("BLOOD RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10787,6 +10809,7 @@ const struct Item gItems[] =
     {
         .name = _("LAW RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10798,6 +10821,7 @@ const struct Item gItems[] =
     {
         .name = _("SOUL RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10853,6 +10877,7 @@ const struct Item gItems[] =
     {
         .name = _("LIFE RUNE"),
         .price = 50000,
+        .tokkulcost = 50000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10864,6 +10889,7 @@ const struct Item gItems[] =
     {
         .name = _("ASTRAL RUNE"),
         .price = 10000,
+        .tokkulcost = 8500,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -10875,6 +10901,7 @@ const struct Item gItems[] =
     {
         .name = _("SPIRIT CHARM"),
         .price = 2100,
+        .tokkulcost = 10000,
         .description = sEvoItemDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11154,6 +11181,7 @@ const struct Item gItems[] =
     {
         .name = _("PURPLE SWEETS"),
         .price = 10000,
+        .tokkulcost = 4500,
         .description = sPurpleSweetsDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11166,6 +11194,7 @@ const struct Item gItems[] =
     {
         .name = _("BEER"),
         .price = 9800,
+        .tokkulcost = 4500,
         .description = sPPUpDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11188,6 +11217,7 @@ const struct Item gItems[] =
     {
         .name = _("ATK LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sAtkLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11199,6 +11229,7 @@ const struct Item gItems[] =
     {
         .name = _("DEF LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sDefLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11210,6 +11241,7 @@ const struct Item gItems[] =
     {
         .name = _("HP LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sHPLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11221,6 +11253,7 @@ const struct Item gItems[] =
     {
         .name = _("SP. ATK LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sSpAtkLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11232,6 +11265,7 @@ const struct Item gItems[] =
     {
         .name = _("SP. DEF LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sSpDefLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11243,6 +11277,7 @@ const struct Item gItems[] =
     {
         .name = _("SPEED LAMP"),
         .price = 9800,
+        .tokkulcost = 2500,
         .description = sSpeedLampDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
@@ -11388,6 +11423,7 @@ const struct Item gItems[] =
     {
         .name = _("RED SCALE"),
         .price = 2100,
+        .tokkulcost = 2500,
         .description = sRedScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -11399,6 +11435,7 @@ const struct Item gItems[] =
     {
         .name = _("BLUE SCALE"),
         .price = 2100,
+        .tokkulcost = 2500,
         .description = sBlueScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -11410,6 +11447,7 @@ const struct Item gItems[] =
     {
         .name = _("BLACK SCALE"),
         .price = 2100,
+        .tokkulcost = 2500,
         .description = sBlackScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -11421,6 +11459,7 @@ const struct Item gItems[] =
     {
         .name = _("GREEN SCALE"),
         .price = 2100,
+        .tokkulcost = 2500,
         .description = sGreenScaleDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -11467,6 +11506,7 @@ const struct Item gItems[] =
     {
         .name = _("ABYSSAL WHIP"),
         .price = 100,
+        .tokkulcost = 7800,
         .holdEffect = HOLD_EFFECT_CHOICE_BAND,
         .description = sAbyssalWhipDesc,
         .pocket = POCKET_ITEMS,
@@ -11479,6 +11519,7 @@ const struct Item gItems[] =
     {
         .name = _("ARMA HELM"),
         .price = 9800,
+        .tokkulcost = 7800,
         .holdEffect = HOLD_EFFECT_FLYING_POWER,
         .holdEffectParam = 20,
         .description = sArmahelmDesc,
@@ -11492,6 +11533,7 @@ const struct Item gItems[] =
     {
         .name = _("BLOOD FURY"),
         .price = 200,
+        .tokkulcost = 10000,
         .holdEffect = HOLD_EFFECT_SHELL_BELL,
         .holdEffectParam = 4,
         .description = sBloodFuryDesc,
@@ -11551,6 +11593,7 @@ const struct Item gItems[] =
     {
         .name = _("EYEPATCHES"),
         .price = 100,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_DARK_POWER,
         .holdEffectParam = 20,
         .description = sEyePatchDesc,
@@ -11564,6 +11607,7 @@ const struct Item gItems[] =
     {
         .name = _("DRAGON CLAWS"),
         .price = 100,
+        .tokkulcost = 6000,
         .holdEffect = HOLD_EFFECT_QUICK_CLAW,
         .holdEffectParam = 50,
         .description = sDragonClawDesc,
@@ -11575,8 +11619,9 @@ const struct Item gItems[] =
 
     [ITEM_DRAGON_DAGGER_POISON] =
     {
-        .name = _("DDS"),
+        .name = _("DRAGON DAGGER"),
         .price = 100,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_POISON_POWER,
         .holdEffectParam = 20,
         .description = sDragonDaggerPoisonDesc,
@@ -11590,6 +11635,7 @@ const struct Item gItems[] =
     {
         .name = _("DRAGON SCIM"),
         .price = 100,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_DRAGON_POWER,
         .holdEffectParam = 20,
         .description = sDragonScimitarDesc,
@@ -11616,6 +11662,7 @@ const struct Item gItems[] =
     {
         .name = _("EFFIGY"),
         .price = 100,
+        .tokkulcost = 7600,
         .holdEffect = HOLD_EFFECT_WEAKNESS_POLICY,
         .description = sEffigyDesc,
         .pocket = POCKET_ITEMS,
@@ -11653,6 +11700,7 @@ const struct Item gItems[] =
     {
         .name = _("FIGHTER TORSO"),
         .price = 3000,
+        .tokkulcost = 6900,
         .holdEffect = HOLD_EFFECT_MACHO_BRACE,
         .description = sFighterTorsoDesc,
         .pocket = POCKET_ITEMS,
@@ -11665,6 +11713,7 @@ const struct Item gItems[] =
     {
         .name = _("FIRE CAPE"),
         .price = 3000,
+        .tokkulcost = 50000,
         .holdEffect = HOLD_EFFECT_FLAME_ORB,
         .description = sFireCapeDesc,
         .pocket = POCKET_ITEMS,
@@ -11853,6 +11902,7 @@ const struct Item gItems[] =
     {
         .name = _("OVERLOAD"),
         .price = 200,
+        .tokkulcost = 12050,
         .holdEffect = HOLD_EFFECT_LIFE_ORB,
         .description = sOverloadhDesc,
         .pocket = POCKET_ITEMS,
@@ -11890,6 +11940,7 @@ const struct Item gItems[] =
     {
         .name = _("ROCK CAKE"),
         .price = 100,
+        .tokkulcost = 8500,
         .holdEffect = HOLD_EFFECT_STICKY_BARB,
         .holdEffectParam = 10,
         .description = sRockCakeDesc,
@@ -11902,7 +11953,8 @@ const struct Item gItems[] =
     [ITEM_SARADOMIN_BREW] =
     {
         .name = _("SARA BREW"),
-        .price = 200,
+        .price = 4800,
+        .tokkulcost = 7200,
         .holdEffect = HOLD_EFFECT_LEFTOVERS,
         .holdEffectParam = 10,
         .description = sSaraBrewDesc,
@@ -11963,7 +12015,8 @@ const struct Item gItems[] =
     [ITEM_STAFF_OF_EARTH] =
     {
         .name = _("EARTH STAFF"),
-        .price = 100,
+        .price = 4800,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_GROUND_POWER,
         .holdEffectParam = 20,
         .description = sEarthStaffDesc,
@@ -11977,6 +12030,7 @@ const struct Item gItems[] =
     {
         .name = _("TINDERBOX"),
         .price = 100,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_FIRE_POWER,
         .holdEffectParam = 20,
         .description = sTinderboxDesc,
@@ -11990,6 +12044,7 @@ const struct Item gItems[] =
     {
         .name = _("FROST TOME"),
         .price = 100,
+        .tokkulcost = 5500,
         .holdEffect = HOLD_EFFECT_ICE_POWER,
         .holdEffectParam = 20,
         .description = sTomeOfFrostDesc,
@@ -12115,6 +12170,7 @@ const struct Item gItems[] =
         .name = _("ANTI-DRAGON"),
         .holdEffect = HOLD_EFFECT_DFS,
         .price = 0,
+        .tokkulcost = 6800,
         .description = sDFSDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,
@@ -12126,7 +12182,8 @@ const struct Item gItems[] =
         {
         .name = _("PHOENIX NECK"),
         .holdEffect = HOLD_EFFECT_FOCUS_SASH,
-        .price = 0,
+        .price = 9800,
+        .tokkulcost = 7500,
         .description = sPhoenixNeckDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,
@@ -12138,7 +12195,8 @@ const struct Item gItems[] =
         {
         .name = _("MITH SCIMITAR"),
         .holdEffect = HOLD_EFFECT_EVO_ATTACK,
-        .price = 0,
+        .price = 9800,
+        .tokkulcost = 10000,
         .description = sMithrilScimitarDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,
@@ -12150,7 +12208,8 @@ const struct Item gItems[] =
         {
         .name = _("SNOW GLOBE"),
         .holdEffect = HOLD_EFFECT_WEATHER_EXTENDER,
-        .price = 0,
+        .price = 9800,
+        .tokkulcost = 10000,
         .description = sSnowGlobeDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_FIELD,

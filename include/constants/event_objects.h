@@ -622,9 +622,10 @@
 #define OBJ_EVENT_GFX_SPIDER_BLUE			    605
 #define OBJ_EVENT_GFX_FLESHCRAWLER			    606
 #define OBJ_EVENT_GFX_ESSENCE			        607
+#define OBJ_EVENT_GFX_TZHAAR_BANKER				608
 
 
-#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_ESSENCE + 1)
+#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_TZHAAR_BANKER + 1)
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
 // Object event graphics ids are 1 byte in size (max value of 255), and the dynamic

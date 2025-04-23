@@ -394,7 +394,7 @@ script MOVE_RELEARNER_NPC
 
 script UTILITY_NPC
 {
-    lock
+    lockall
     faceplayer
     namebox ("Druid")
     goto(UTILITY_TOOLS)
@@ -402,15 +402,15 @@ script UTILITY_NPC
 
 script UTILITY_NPC_TZHAAR
 {
-    lock
+    lockall
     faceplayer
-    namebox ("Tzhaar")
+    namebox ("Ga'Al Banker")
     goto(UTILITY_TOOLS)
 }
 
 script UTILITY_TOOLS
 {
-    msgbox(format("What would you like to do?"))
+    msgbox(format("What can I assist you with?"))
     multichoicedefault (1, 0, MULTI_UTILITY, 0, 0)
     switch (var(VAR_RESULT))
     {
@@ -424,7 +424,7 @@ script UTILITY_TOOLS
     
     closemessage
     hidenamebox
-    release
+    releaseall
     end
 }
 

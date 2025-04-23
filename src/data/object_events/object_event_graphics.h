@@ -472,6 +472,7 @@ const u32 gObjectEventPic_Barbarian_Female_2[] = INCBIN_U32("graphics/object_eve
 const u32 gObjectEventPic_Barbarian_Male_1[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/barbarian_male_1.4bpp");
 const u32 gObjectEventPic_Barbarian_Male_2[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/barbarian_male_2.4bpp");
 const u32 gObjectEventPic_Tzhaar_Ga_al[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_ga_al.4bpp");
+const u32 gObjectEventPic_Tzhaar_Banker[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_banker.4bpp");
 const u32 gObjectEventPic_Tzhaar_1[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_1.4bpp");
 const u32 gObjectEventPic_Tzhaar_2[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_2.4bpp");
 const u32 gObjectEventPic_Tzhaar_3[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_3.4bpp");

@@ -287,6 +287,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Barbarian_F
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Barbarian_Male_1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Barbarian_Male_2;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tzhaar_Ga_al;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tzhaar_Banker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tzhaar_1;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tzhaar_2;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Tzhaar_3;
@@ -910,6 +911,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BARBARIAN_MALE_1] =              &gObjectEventGraphicsInfo_Barbarian_Male_1,
     [OBJ_EVENT_GFX_BARBARIAN_MALE_2] =              &gObjectEventGraphicsInfo_Barbarian_Male_2,
     [OBJ_EVENT_GFX_TZHAAR_GA_AL] =                  &gObjectEventGraphicsInfo_Tzhaar_Ga_al,
+    [OBJ_EVENT_GFX_TZHAAR_BANKER] =                  &gObjectEventGraphicsInfo_Tzhaar_Banker,
     [OBJ_EVENT_GFX_TZHAAR_1] =                      &gObjectEventGraphicsInfo_Tzhaar_1,
     [OBJ_EVENT_GFX_TZHAAR_2] =                      &gObjectEventGraphicsInfo_Tzhaar_2,
     [OBJ_EVENT_GFX_TZHAAR_3] =                      &gObjectEventGraphicsInfo_Tzhaar_3,
