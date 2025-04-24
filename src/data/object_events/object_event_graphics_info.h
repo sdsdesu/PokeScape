@@ -10902,7 +10902,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_oddenstein = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_cabinboy = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_SAILING,
+    .paletteTag = OBJ_EVENT_PAL_PIRATE_SHIP,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,

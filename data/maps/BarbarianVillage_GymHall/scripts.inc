@@ -25,6 +25,7 @@ BarbarianVillage_GYM_STATE::
 	case 5, BarbarianVillage_GYM_STATE_3
 	case 2, BarbarianVillage_GYM_STATE_4
 	case 3, BarbarianVillage_GYM_STATE_5
+	case 6, BarbarianVillage_GYM_STATE_5
 	return
 
 BarbarianVillage_GYM_STATE_2:

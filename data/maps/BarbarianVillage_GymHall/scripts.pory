@@ -153,6 +153,7 @@ script BarbarianVillage_GYM_STATE{
                 return
 
         case 3: 
+        case 6:
                 removeobject(OBJ_EVENT_ID_LITARA)
                 removeobject(OBJ_EVENT_ID_MITHRILMAN)
                 setflag(FLAG_TEMP_1)

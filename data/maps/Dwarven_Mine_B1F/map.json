@@ -811,7 +811,7 @@
   "warp_events": [
     {
       "x": 33,
-      "y": 4,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_DWARVEN_MINES",
       "dest_warp_id": "0"
@@ -915,6 +915,14 @@
       "elevation": 0,
       "item": "ITEM_PURPLE_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_DWARVEN_MINES_4"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "POWER_STATION_DOOR"
     }
   ],
   "has_night_table": false

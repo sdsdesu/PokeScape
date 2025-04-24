@@ -1936,6 +1936,23 @@ const u8 gText_RenameMon[] =_("RENAME A MONSTER");
 const u8 gText_ReLearnMove[] =_("FORGET A MOVE");
 const u8 gText_ForgetMove[] =_("RELEARN A MOVE");
 
+const u8 gText_BEGINNING[] =_("BEGINNING");
+const u8 gText_Pre_WIZARDSTOWER[] =_("PRE WIZARDS TOWER");
+const u8 gText_Post_DRAYNORMANOR[] =_("POST DRAYNOR MANOR");
+const u8 gText_Post_MELZARSMAZE[] =_("POST MELZARS MAZE");
+const u8 gText_Pre_Crandor[] =_("PRE CRANDOR");
+const u8 gText_Pre_BKF[] =_("PRE BLACK KNIGHTS FORTRESS");
+const u8 gText_Post_BKF[] =_("POST BLACK KNIGHTS FORTRESS");
+
+
+
+
+
+
+
+
+
+
 //misc
 const u8 gText_NextMenu[] =_("Next");
 const u8 gText_YouAlreadyHaveThis[] =_("You already have this item.{PAUSE_UNTIL_PRESS}");

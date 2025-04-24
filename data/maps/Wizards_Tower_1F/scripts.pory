@@ -853,6 +853,10 @@ script STORYMODE_VAR_CHECK {
 	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
     msgbox(format("STORYMODE_PROGRESS: {STR_VAR_1}.\nVAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
 	closemessage
+	buffernumberstring(STR_VAR_1, VAR_POKESCAPE_WIZARDS_TOWER_STATE)
+	buffernumberstring(STR_VAR_2, VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE)
+    msgbox(format("VAR_POKESCAPE_WIZARDS_TOWER_STATE: {STR_VAR_1}.\pVAR_POKESCAPE_BARBARIAN_VILLAGE_STATE: {STR_VAR_2}."))
+	closemessage
 	msgbox(format("Would you like to edit these?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
@@ -872,26 +876,6 @@ script STORYMODE_VAR_CHECK {
     end
 }
 script STORYMODE_VAR_EDIT {
-	msgbox(format("Set custom story-test values?"), MSGBOX_YESNO)
-    if (var(VAR_RESULT))
-    {
-		//setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130) // CRANDOR SCENE
-
-		call(FOLLOWER_REMOVE)
-		setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
-		warp(MAP_ROUTE26, 24, 17)
-		waitstate
-
-		//setflag(FLAG_BADGE04_GET) // BKF START
-        //setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 160) // BKF START
-
-        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
-        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
-		closemessage
-		release
-		end
-    }
-
 
 	//STORYMODE
     buffernumberstring(STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS)
@@ -1028,4 +1012,115 @@ script TOGGLE_BATTLE_SPEED {
 		release
 		end
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script STORYMODE_SAVESTATE {
+	msgbox(format("Would you like to edit your save file?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		closemessage
+		multichoicedefault (1, 0, MULTI_STORYMODE_STATE, 0, 0)
+		switch (var(VAR_RESULT))
+		{
+			case 0:
+				goto(STORYMODE_SAVESTATE_GAME_START)
+			case 1:
+				goto(STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER)
+			case 2:
+				goto(STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR)
+			case 3:
+				goto(STORYMODE_SAVESTATE_POST_MELZARS_MAZE)
+			case 4:
+				goto(STORYMODE_SAVESTATE_PRE_CRANDOR)
+			case 5:
+				goto(STORYMODE_SAVESTATE_POST_BARBARIANGYM)
+			case 6:
+				goto(STORYMODE_SAVESTATE_POST_BKF)
+		}
+    }
+}
+
+script STORYMODE_SAVESTATE_GAME_START { 
+	call(FOLLOWER_REMOVE)
+	clearflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET) 
+	clearflag(FLAG_BADGE03_GET) 
+	clearflag(FLAG_BADGE04_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 0)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 0)
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 0)
+}
+script STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 0)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 15)
+	warp(MAP_WIZARDS_TOWER, 0, 0, 0)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	//
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
+}
+script STORYMODE_SAVESTATE_POST_MELZARS_MAZE { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 10)
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
+}
+script STORYMODE_SAVESTATE_PRE_CRANDOR { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130) // CRANDOR SCENE
+	warp(MAP_PORT_SARIM, 35, 34)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_BARBARIANGYM { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setflag(FLAG_BADGE03_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	//
+	setflag(FLAG_BADGE04_GET) 
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 160) 
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3) //Sets Barbarian Gym & Town to be post gym.
+	warp(MAP_BARBARIAN_VILLAGE, 0, 0, 0)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_BKF {
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setflag(FLAG_BADGE03_GET) 
+	setflag(FLAG_BADGE04_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3) 
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
+	warp(MAP_ROUTE26, 24, 17)
+	waitstate
 }

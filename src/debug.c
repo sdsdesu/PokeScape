@@ -466,7 +466,7 @@ static const u8 sDebugText_Util_Script_4[] =               _("TOKKUL");
 static const u8 sDebugText_Util_Script_5[] =               _("TOGGLE BATTLE SPEED");
 static const u8 sDebugText_Util_Script_6[] =               _("FRIENDSHIP CHECKER");
 static const u8 sDebugText_Util_Script_7[] =               _("GNOMEBOY KEVIN");
-static const u8 sDebugText_Util_Script_8[] =               _("Script 8");
+static const u8 sDebugText_Util_Script_8[] =               _("SAVE FILE - EDIT");
 // Util Menu
 static const u8 sDebugText_Util_FlyToMap[] =                 _("Fly to map…{CLEAR_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Util_WarpToMap[] =                _("Warp to map warp…{CLEAR_TO 110}{RIGHT_ARROW}");

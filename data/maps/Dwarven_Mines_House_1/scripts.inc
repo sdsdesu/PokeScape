@@ -126,12 +126,34 @@ NPC_Dwarven_Mines_House_11::
 NPC_Dwarven_Mines_House_12::
 	lock
 	faceplayer
-	namebox NPC_Dwarven_Mines_House_12_Text_0
-	msgbox NPC_Dwarven_Mines_House_12_Text_1
-	waitmessage
+	compare VAR_DWARVEN_MINES_STATE, 0
+	goto_if_eq NPC_Dwarven_Mines_House_12_2
+	compare VAR_DWARVEN_MINES_STATE, 5
+	goto_if_eq NPC_Dwarven_Mines_House_12_3
+	compare VAR_DWARVEN_MINES_STATE, 10
+	goto_if_eq NPC_Dwarven_Mines_House_12_4
+NPC_Dwarven_Mines_House_12_1:
+	closemessage
 	hidenamebox
 	release
 	end
+
+NPC_Dwarven_Mines_House_12_2:
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_1
+	msgbox NPC_Dwarven_Mines_House_12_Text_2
+	msgbox NPC_Dwarven_Mines_House_12_Text_3
+	msgbox NPC_Dwarven_Mines_House_12_Text_4
+	setvar VAR_DWARVEN_MINES_STATE, 5
+	goto NPC_Dwarven_Mines_House_12_1
+
+NPC_Dwarven_Mines_House_12_3:
+	msgbox NPC_Dwarven_Mines_House_12_Text_5
+	goto NPC_Dwarven_Mines_House_12_1
+
+NPC_Dwarven_Mines_House_12_4:
+	msgbox NPC_Dwarven_Mines_House_12_Text_6
+	goto NPC_Dwarven_Mines_House_12_1
 
 
 NPC_BABY_DRAGON::
@@ -268,9 +290,9 @@ BATTLE_DWARVEN_MINES_HOUSE_3::
 
 
 BATTLE_DWARVEN_MINES_HOUSE_4::
-	trainerbattle_single TRAINER_DWARVENMINES_HOUSE_4, BATTLE_DWARVEN_MINES_HOUSE_4_Text_0, BATTLE_DWARVEN_MINES_HOUSE_4_Text_0
-	namebox BATTLE_DWARVEN_MINES_HOUSE_4_Text_1
-	msgbox BATTLE_DWARVEN_MINES_HOUSE_4_Text_0
+	trainerbattle_single TRAINER_DWARVENMINES_HOUSE_4, BATTLE_DWARVEN_MINES_HOUSE_4_Text_0, BATTLE_DWARVEN_MINES_HOUSE_4_Text_1
+	namebox BATTLE_DWARVEN_MINES_HOUSE_4_Text_2
+	msgbox BATTLE_DWARVEN_MINES_HOUSE_4_Text_3
 	hidenamebox
 	release
 	end
@@ -303,10 +325,10 @@ NPC_Dwarven_Mines_House_3_Text_1:
 	.string "and tame an adult dragon?!$"
 
 NPC_Dwarven_Mines_House_4_Text_0:
-	.string "Through this door is where we forge the\n"
-	.string "multicannons.\p"
-	.string "I am sorry but it is off-limits to\n"
-	.string "humans.$"
+	.string "Sorry this elevator is currently under\n"
+	.string "repair.\p"
+	.string "Those blasted scorpions have damaged\n"
+	.string "the wiring!$"
 
 NPC_Dwarven_Mines_House_5_Text_0:
 	.string "Unfortunately, these forges don't get\n"
@@ -317,8 +339,8 @@ NPC_Dwarven_Mines_House_5_Text_0:
 
 NPC_Dwarven_Mines_House_6_Text_0:
 	.string "It is a bit scary working side by side\n"
-	.string "with dragons...\p"
-	.string "but these babies can't fly, so I am safe\n"
+	.string "with dragons…\p"
+	.string "But these babies can't fly, so I am safe\n"
 	.string "as long as I work up here!$"
 
 NPC_Dwarven_Mines_House_7_Text_0:
@@ -358,13 +380,41 @@ NPC_Dwarven_Mines_House_12_Text_0:
 	.string "Nulodion$"
 
 NPC_Dwarven_Mines_House_12_Text_1:
-	.string "Oh bother.\p"
-	.string "I once bred scorpions for target\n"
-	.string "practice for my multicannons, but now\l"
-	.string "they terrorise the dwarves down in the\l"
-	.string "mines.\p"
-	.string "It's too dangerous to set up a cannon\n"
-	.string "down there to clear them out too...$"
+	.string "Urgh, just what I needed another\n"
+	.string "inconvenience.\p"
+	.string "If only I had someone capable of\n"
+	.string "getting rid of those scorpions…$"
+
+NPC_Dwarven_Mines_House_12_Text_2:
+	.string "What's this mate?\p"
+	.string "You reckon you could handle some little\n"
+	.string "scorpions?\p"
+	.string "Bahaha be my guest, if you can get rid\n"
+	.string "of them, then I will reward you.\p"
+	.string "You can find them on the lowest floor\n"
+	.string "of our power station.$"
+
+NPC_Dwarven_Mines_House_12_Text_3:
+	.string "Here take this.$"
+
+NPC_Dwarven_Mines_House_12_Text_4:
+	.string "That key will grant you access to the\n"
+	.string "backdoor in the Dwarven Mines below us.\p"
+	.string "I would usually send workers down our\n"
+	.string "elevator but that is out of order, so\l"
+	.string "you'll have to take the long way around.$"
+
+NPC_Dwarven_Mines_House_12_Text_5:
+	.string "You'll have to go through the\n"
+	.string "underground mines to get to the\l"
+	.string "backdoor for the powerstation.\p"
+	.string "There is a ladder outside that will take\n"
+	.string "you down.$"
+
+NPC_Dwarven_Mines_House_12_Text_6:
+	.string "So you found the backdoor, fantastic!\n"
+	.string "ow all you need to do is go get rid of\l"
+	.string "those scorpions.$"
 
 NPC_BABY_DRAGON_Text_0:
 	.string "Baby Dragon$"
@@ -446,7 +496,15 @@ BATTLE_DWARVEN_MINES_HOUSE_3_Text_3:
 	.string "Otherwise people will see you are bald.$"
 
 BATTLE_DWARVEN_MINES_HOUSE_4_Text_0:
-	.string "I am a Cupholder.$"
+	.string "Watch out mate, this is a work place!$"
 
 BATTLE_DWARVEN_MINES_HOUSE_4_Text_1:
+	.string "This is why we need more safety\n"
+	.string "regulations!$"
+
+BATTLE_DWARVEN_MINES_HOUSE_4_Text_2:
 	.string "Erifun$"
+
+BATTLE_DWARVEN_MINES_HOUSE_4_Text_3:
+	.string "I swear there are like a million safety\n"
+	.string "regulations being broken here.$"

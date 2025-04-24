@@ -242,7 +242,7 @@ script SIGN_ICE_MOUNTAIN_DOOR
 
 script TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY {
 	lockall
-	//check for outfit.
+	//check for outfit. if yes, owen says he doesnt have one and why does it look so clean they wont accept clean armour
 	if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181) || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)) {
 		playse(SE_PIN)
 		applymovement (BKGUARD_1_ID,movement_BK_FORT_GUARD_right)

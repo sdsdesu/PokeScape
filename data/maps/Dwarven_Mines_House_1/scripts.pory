@@ -44,7 +44,8 @@ script NPC_Dwarven_Mines_House_4   //Dwarf - top middle
 	lock
 	faceplayer
     namebox ("Dwarf")
-	msgbox(format("Through this door is where we forge the multicannons.\pI am sorry but it is off-limits to humans."))
+	msgbox(format("Sorry this elevator is currently under repair.\pThose blasted scorpions have damaged the wiring!"))
+	//msgbox(format("Through this door is where we forge the multicannons.\pI am sorry but it is off-limits to humans."))
     waitmessage
     hidenamebox
 	release
@@ -68,7 +69,7 @@ script NPC_Dwarven_Mines_House_6     //Smith - top right
 	lock
 	faceplayer
     namebox ("Smith")
-	msgbox(format("It is a bit scary working side by side with dragons...\pbut these babies can't fly, so I am safe as long as I work up here!"))
+	msgbox(format("It is a bit scary working side by side with dragons…\pBut these babies can't fly, so I am safe as long as I work up here!"))
     waitmessage
     hidenamebox
 	release
@@ -139,9 +140,25 @@ script NPC_Dwarven_Mines_House_12        //Overseer in office
 {
 	lock
 	faceplayer
-    namebox ("Nulodion")
-	msgbox(format("Oh bother.\pI once bred scorpions for target practice for my multicannons, but now they terrorise the dwarves down in the mines.\pIt's too dangerous to set up a cannon down there to clear them out too..."))
-    waitmessage
+	namebox ("Nulodion")
+	if (var(VAR_DWARVEN_MINES_STATE) == 0) {
+		msgbox(format("Urgh, just what I needed another inconvenience.\pIf only I had someone capable of getting rid of those scorpions…"))
+		//faceplayer
+		msgbox(format("What's this mate?\pYou reckon you could handle some little scorpions?\pBahaha be my guest, if you can get rid of them, then I will reward you.\pYou can find them on the lowest floor of our power station."))
+		//face up face down
+		msgbox(format("Here take this."))
+		//give key
+		msgbox(format("That key will grant you access to the backdoor in the Dwarven Mines below us.\pI would usually send workers down our elevator but that is out of order, so you'll have to take the long way around."))
+		//miniquest start.
+		setvar(VAR_DWARVEN_MINES_STATE, 5)
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 5) {
+		msgbox(format("You'll have to go through the underground mines to get to the backdoor for the powerstation.\pThere is a ladder outside that will take you down."))
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 10) {
+		msgbox(format("So you found the backdoor, fantastic!\Now all you need to do is go get rid of those scorpions."))
+	}
+	closemessage
     hidenamebox
 	release
 	end
@@ -269,9 +286,9 @@ script BATTLE_DWARVEN_MINES_HOUSE_3
 
 script BATTLE_DWARVEN_MINES_HOUSE_4
 {
-    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_4, format("I am a Cupholder."),format("I am a Cupholder."))
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_4, format("Watch out mate, this is a work place!"),format("This is why we need more safety regulations!"))
     namebox ("Erifun")
-    msgbox(format("I am a Cupholder."))
+    msgbox(format("I swear there are like a million safety regulations being broken here."))
 	hidenamebox
     release
 	end

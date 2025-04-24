@@ -44,3 +44,31 @@ script BARBARIAN_VILLAGE_Banker {
 	waitmessage
     goto(BANK_OPTIONS)
 }
+
+script DWARVENMINES_Banker {
+    lock
+	faceplayer
+    namebox ("Banker")
+    msgbox(format("Hmm… I wonder if we should turn this building into a bank…\pOh hello there, how may I help you today?"))
+    waitmessage
+    goto(BANK_OPTIONS)
+}
+script DWARVENMINES_Plans {
+    msgbox(format("There are a bunch of scribbles on the board.\pYou think you can make out the words 'expansion' and 'out of scope' but everything else looks crossed out."))
+    closemessage
+    end
+}
+script DWARVENMINES_Sign {
+    msgbox(format("Dwarven Mines."))
+    closemessage
+    end
+}
+script DWARVENMINES_OreShop {
+    lock
+	faceplayer
+    namebox ("Dwarf")
+    msgbox(format("Greetings!\pWe usually sell Ores here, but we have recently run into some supply issues.\pCome back later."))
+    closemessage
+    release
+    end
+}

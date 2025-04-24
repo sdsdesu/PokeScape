@@ -43,6 +43,38 @@ BARBARIAN_VILLAGE_Banker::
 	return
 
 
+DWARVENMINES_Banker::
+	lock
+	faceplayer
+	namebox BARBARIAN_VILLAGE_Banker_Text_0
+	msgbox DWARVENMINES_Banker_Text_0
+	waitmessage
+	goto BANK_OPTIONS
+	return
+
+
+DWARVENMINES_Plans::
+	msgbox DWARVENMINES_Plans_Text_0
+	closemessage
+	end
+
+
+DWARVENMINES_Sign::
+	msgbox DWARVENMINES_Sign_Text_0
+	closemessage
+	end
+
+
+DWARVENMINES_OreShop::
+	lock
+	faceplayer
+	namebox DWARVENMINES_OreShop_Text_0
+	msgbox DWARVENMINES_OreShop_Text_1
+	closemessage
+	release
+	end
+
+
 NPC_BARBARIANVILLAGE_NPC7_Text_0:
 	.string "Barbarian$"
 
@@ -67,3 +99,28 @@ BARBARIAN_VILLAGE_Banker_Text_1:
 	.string "I'm still here to look after your items\n"
 	.string "and monsters for you though.\p"
 	.string "How may I help you today?$"
+
+DWARVENMINES_Banker_Text_0:
+	.string "Hmm… I wonder if we should turn this\n"
+	.string "building into a bank…\p"
+	.string "Oh hello there, how may I help you\n"
+	.string "today?$"
+
+DWARVENMINES_Plans_Text_0:
+	.string "There are a bunch of scribbles on the\n"
+	.string "board.\p"
+	.string "You think you can make out the words\n"
+	.string "'expansion' and 'out of scope' but\l"
+	.string "everything else looks crossed out.$"
+
+DWARVENMINES_Sign_Text_0:
+	.string "Dwarven Mines.$"
+
+DWARVENMINES_OreShop_Text_0:
+	.string "Dwarf$"
+
+DWARVENMINES_OreShop_Text_1:
+	.string "Greetings!\p"
+	.string "We usually sell Ores here, but we have\n"
+	.string "recently run into some supply issues.\p"
+	.string "Come back later.$"

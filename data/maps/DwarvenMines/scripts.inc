@@ -46,6 +46,17 @@ NPC_DWARVENMINES_NPC4::
 	end
 
 
+NPC_DWARVENMINES_NPC9::
+	lock
+	faceplayer
+	namebox NPC_DWARVENMINES_NPC2_Text_0
+	msgbox NPC_DWARVENMINES_NPC9_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 NPC_DWARVENMINES_NULODION::
 	lock
 	faceplayer
@@ -123,16 +134,11 @@ NPC_DWARVENMINES_NPC1_Text_0:
 	.string "Apprentice$"
 
 NPC_DWARVENMINES_NPC1_Text_1:
-	.string "Inside here is Nulodion's multicannon\n"
-	.string "store!\p"
-	.string "The only place in Gielinor that you can\n"
-	.string "find the esteemed dwarf multicannon\l"
-	.string "for sale.\p"
-	.string "Don't tell him I told you this, but it's\n"
-	.string "actually cheaper if you buy the full set\l"
-	.string "from him instead of individual parts!\p"
-	.string "{PAUSE 15}Maybe you could spare some of the\n"
-	.string "extra coin you save for me…?$"
+	.string "This is the Dwarven Manufacturing and\n"
+	.string "Power Generating Station!\p"
+	.string "Which happens to be the only place in\n"
+	.string "Gielinor that you can find the esteemed\l"
+	.string "Dwarf Multicannon for sale.$"
 
 NPC_DWARVENMINES_NPC2_Text_0:
 	.string "Dwarf$"
@@ -151,13 +157,12 @@ NPC_DWARVENMINES_NPC3_Text_0:
 	.string "What could be causing them?$"
 
 NPC_DWARVENMINES_NPC4_Text_0:
+	.string "Yer look tired mate, why not take a rest\n"
+	.string "in our rest hall.$"
+
+NPC_DWARVENMINES_NPC9_Text_0:
 	.string "Ores!\p"
-	.string "Get 'yer ores here!{PAUSE 15}\p"
-	.string "Hmm, maybe I need a new slogan as that\n"
-	.string "sounds a lot like we're selling\l"
-	.string "something else!\p"
-	.string "Maybe that would be more profitable\n"
-	.string "though..$"
+	.string "Get 'yer ores here!$"
 
 NPC_DWARVENMINES_NULODION_Text_0:
 	.string "Nulodion$"
@@ -168,26 +173,26 @@ NPC_DWARVENMINES_NULODION_Text_1:
 	.string "anyone!\p"
 	.string "They're a closely guarded secret.\p"
 	.string "Perhaps if you'd done something to help\n"
-	.string "the dwarves I could consider it...$"
+	.string "the dwarves I could consider it…$"
 
 NPC_DWARVENMINES_NPC5_Text_0:
 	.string "This is a rest hall for weary miners to\n"
 	.string "have power naps in after long shifts.\p"
-	.string "{PAUSE 15}You can use one of the beds to rest\n"
+	.string "You can use one of the beds to rest\n"
 	.string "too, if you'd like.\p"
 	.string "Just try not to break them!$"
 
 NPC_DWARVENMINES_NPC6_Text_0:
 	.string "I heard somewhere that it was good to\n"
-	.string "whistle while you work...\p"
-	.string "but all that did was make the other\n"
+	.string "whistle while you work…\p"
+	.string "But all that did was make the other\n"
 	.string "miners grumpy!\p"
 	.string "Doing it makes me happy, but I'm too\n"
 	.string "bashful to deal with the arguments.$"
 
 NPC_DWARVENMINES_NPC7_Text_0:
 	.string "Time for work again already?\p"
-	.string "Ugh, no, please...\p"
+	.string "Ugh, no, please…\p"
 	.string "Just five more minutes in bed!$"
 
 NPC_DWARVENMINES_ENGINEER_Text_0:
@@ -196,10 +201,11 @@ NPC_DWARVENMINES_ENGINEER_Text_0:
 NPC_DWARVENMINES_ENGINEER_Text_1:
 	.string "It's hard work repairing these\n"
 	.string "multicannons all day long.\p"
-	.string "I don't know why they only run for 25\n"
+	.string "I don't know why adventurers are\n"
+	.string "reporting that they only run for 25\l"
 	.string "minutes at a time before they break!\p"
 	.string "Dwarven engineering usually is much\n"
-	.string "more reliable than that, I swear..!$"
+	.string "more reliable than that, I swear!$"
 
 GeneralStore_DWARVENMINES_Text_0:
 	.string "Clerk$"
