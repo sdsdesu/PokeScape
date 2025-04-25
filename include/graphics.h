@@ -564,6 +564,9 @@ extern const u32 gTrainerFrontPic_tzhaar_ket[];
 extern const u32 gTrainerFrontPic_sandwich_lady[];
 extern const u32 gTrainerFrontPic_guard_varrock_pose[];
 extern const u32 gTrainerFrontPic_tzhaar_ket_hd[];
+extern const u32 gTrainerFrontPic_zemouregal[];
+extern const u32 gTrainerFrontPic_lord_daquarius[];
+extern const u32 gTrainerFrontPic_elite_black_knight[];
 
 //POKESCAPE PALETTES
 extern const u32 gTrainerPalette_a_nub_tot[];
@@ -736,6 +739,9 @@ extern const u32 gTrainerPalette_tzhaar_ket[];
 extern const u32 gTrainerPalette_sandwich_lady[];
 extern const u32 gTrainerPalette_guard_varrock_pose[];
 extern const u32 gTrainerPalette_tzhaar_ket_hd[];
+extern const u32 gTrainerPalette_zemouregal[];
+extern const u32 gTrainerPalette_lord_daquarius[];
+extern const u32 gTrainerPalette_elite_black_knight[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];

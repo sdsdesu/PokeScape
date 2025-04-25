@@ -258,6 +258,9 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     [TRAINER_PIC_sandwich_lady] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_guard_varrock_pose] = {.size = 8, .y_offset = 1},
     [TRAINER_PIC_tzhaar_ket_hd] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_zemouregal] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_lord_daquarius] = {.size = 8, .y_offset = 1},
+    [TRAINER_PIC_elite_black_knight] = {.size = 8, .y_offset = 1},
 };
 
 #define TRAINER_SPRITE(trainerPic, sprite, size) [TRAINER_PIC_##trainerPic] = {sprite, size, TRAINER_PIC_##trainerPic}
@@ -522,6 +525,9 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(sandwich_lady, gTrainerFrontPic_sandwich_lady, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(guard_varrock_pose, gTrainerFrontPic_guard_varrock_pose, TRAINER_PIC_SIZE),
     TRAINER_SPRITE(tzhaar_ket_hd, gTrainerFrontPic_tzhaar_ket_hd, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(zemouregal, gTrainerFrontPic_zemouregal, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(lord_daquarius, gTrainerFrontPic_lord_daquarius, TRAINER_PIC_SIZE),
+    TRAINER_SPRITE(elite_black_knight, gTrainerFrontPic_elite_black_knight, TRAINER_PIC_SIZE),
 };
 
 #define TRAINER_PAL(trainerPic, pal) [TRAINER_PIC_##trainerPic] = {pal, TRAINER_PIC_##trainerPic}
@@ -786,4 +792,7 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(sandwich_lady, gTrainerPalette_sandwich_lady),
     TRAINER_PAL(guard_varrock_pose, gTrainerPalette_guard_varrock_pose),
     TRAINER_PAL(tzhaar_ket_hd, gTrainerPalette_tzhaar_ket_hd),
+    TRAINER_PAL(zemouregal, gTrainerPalette_zemouregal),
+    TRAINER_PAL(lord_daquarius, gTrainerPalette_lord_daquarius),
+    TRAINER_PAL(elite_black_knight, gTrainerPalette_elite_black_knight),
 };

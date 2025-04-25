@@ -413,6 +413,9 @@ script EVENT_ICE_MOUNTAIN_GUARDS {
 	hidenamebox
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	//change outfit
+	//map refresh
+	setmetatile(34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE) 
+	special(DrawWholeMapView) 
 	//make guards nude
 	removeobject(6)
 	removeobject(9)
@@ -420,10 +423,6 @@ script EVENT_ICE_MOUNTAIN_GUARDS {
 	addobject(10)
 	addobject(11)
 	clearflag(FLAG_TEMP_1F)
-
-	setmetatile(34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE) 
-	special(DrawWholeMapView) 
-	//map refresh
 	fadescreenswapbuffers(FADE_FROM_BLACK)
 	namebox ("Sir Owen")
 	msgbox(format("Right, this should get us through the gate.\pAlthough I do feel a bit bad for leaving them out in the cold..."))
