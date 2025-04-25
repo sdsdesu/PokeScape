@@ -62,15 +62,11 @@ script ITEM_ROUTE11_ITEM_2
 
 script ITEM_ROUTE11_ITEM_3
 {
-    finditem(ITEM_POUCH_CRYSTAL)
+    finditem(ITEM_LAMP_DEF)
     end
 }
 
-script ITEM_ROUTE11_ITEM_4
-{
-    finditem(ITEM_TM54)
-    end
-}
+
 
 script ITEM_ROUTE11_ITEM_5
 {

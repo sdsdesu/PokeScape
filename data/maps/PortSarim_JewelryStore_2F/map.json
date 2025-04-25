@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_GRUMS_HOUSE",
-      "flag": "FLAG_ITEM_GRUMS_HOUSE"
+      "flag": "FLAG_ITEM_PORTSARIM_5"
     }
   ],
   "warp_events": [

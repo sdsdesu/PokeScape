@@ -1,25 +1,11 @@
 mapscripts Mill_Lane_Mill_MapScripts {
 
     MAP_SCRIPT_ON_TRANSITION{
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_1)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_2)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_3)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_4)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_5)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_6)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_7)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_8)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_9)
-    setvar(VAR_EVOLUTION_MAP_STATE, 1) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
-    
+        setvar(VAR_EVOLUTION_MAP_STATE, 1) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
     } 
-
-    
 	MAP_SCRIPT_ON_LOAD {
         call(PURO_PURO_EVENT)
     }
-    
-    
 }
 
 
@@ -135,10 +121,10 @@ script MillLaneMill_Item_PURPLE_SWEETS
 
 script MillLaneMill_Item_WHEAT1{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_1)){
+	if(!flag(FLAG_TEMP_1)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_1)
+        setflag(FLAG_TEMP_1)
 		release
 		end
 	}
@@ -152,10 +138,10 @@ script MillLaneMill_Item_WHEAT1{
 
 script MillLaneMill_Item_WHEAT2{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_2)){
+	if(!flag(FLAG_TEMP_2)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_2)
+        setflag(FLAG_TEMP_2)
 		release
 		end
 	}
@@ -169,10 +155,10 @@ script MillLaneMill_Item_WHEAT2{
 
 script MillLaneMill_Item_WHEAT3{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_3)){
+	if(!flag(FLAG_TEMP_3)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_3)
+        setflag(FLAG_TEMP_3)
 		release
 		end
 	}
@@ -186,10 +172,10 @@ script MillLaneMill_Item_WHEAT3{
 
 script MillLaneMill_Item_WHEAT4{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_4)){
+	if(!flag(FLAG_TEMP_4)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_4)
+        setflag(FLAG_TEMP_4)
 		release
 		end
 	}
@@ -203,10 +189,10 @@ script MillLaneMill_Item_WHEAT4{
 
 script MillLaneMill_Item_WHEAT5{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_5)){
+	if(!flag(FLAG_TEMP_5)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_5)
+        setflag(FLAG_TEMP_5)
 		release
 		end
 	}

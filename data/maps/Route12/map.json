@@ -300,7 +300,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE12_EGG",
-      "flag": "FLAG_ITEM_ROUTE12_EGG"
+      "flag": "FLAG_ITEM_ROUTE12_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -313,7 +313,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE12_WIZARDS_BLIZZARD",
-      "flag": "FLAG_ITEM_ROUTE12_WIZARDS_BLIZZARD"
+      "flag": "FLAG_ITEM_ROUTE12_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -326,7 +326,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE12_ATTACK_POTION",
-      "flag": "FLAG_ITEM_ROUTE12_ATTACK_POTION"
+      "flag": "FLAG_ITEM_ROUTE12_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -339,7 +339,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE12_CABBAGE",
-      "flag": "FLAG_ITEM_ROUTE12_CABBAGE"
+      "flag": "FLAG_ITEM_ROUTE12_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -352,7 +352,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE12_BREAD",
-      "flag": "FLAG_ITEM_ROUTE12_BREAD"
+      "flag": "FLAG_ITEM_ROUTE12_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",

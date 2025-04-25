@@ -53,12 +53,7 @@ ITEM_ROUTE11_ITEM_2::
 
 
 ITEM_ROUTE11_ITEM_3::
-	finditem ITEM_POUCH_CRYSTAL
-	end
-
-
-ITEM_ROUTE11_ITEM_4::
-	finditem ITEM_TM54
+	finditem ITEM_LAMP_DEF
 	end
 
 

@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE_35_BREAD",
-      "flag": "FLAG_ITEM_ROUTE_35_BREAD"
+      "flag": "FLAG_ITEM_ROUTE35_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE_35_CABBAGE",
-      "flag": "FLAG_ITEM_ROUTE_35_CABBAGE"
+      "flag": "FLAG_ITEM_ROUTE35_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE_35_MITHRIL_POUCH",
-      "flag": "FLAG_ITEM_ROUTE_35_MITHRIL_POUCH"
+      "flag": "FLAG_ITEM_ROUTE35_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MINER",

@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_KARAMJA_VOLCANO_4",
-      "flag": "FLAG_ITEM_KARAMJA_VOLCANO_4"
+      "flag": "FLAG_ITEM_CRANDORVOLCANO_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_KARAMJA_VOLCANO_2",
-      "flag": "FLAG_ITEM_KARAMJA_VOLCANO_2"
+      "flag": "FLAG_ITEM_CRANDORVOLCANO_2"
     }
   ],
   "warp_events": [

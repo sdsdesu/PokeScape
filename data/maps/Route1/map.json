@@ -287,7 +287,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_WATER_RUNE",
-      "flag": "FLAG_ITEM_ROUTE1_WATER_RUNE"
+      "flag": "FLAG_ITEM_ROUTE1_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
@@ -313,7 +313,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_CHOCOLATE_SUNDAY",
-      "flag": "FLAG_ITEM_ROUTE1_CHOCOLATE_SUNDAY"
+      "flag": "FLAG_ITEM_ROUTE1_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NOOB",
@@ -404,7 +404,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_BREAD",
-      "flag": "FLAG_ITEM_ROUTE1_BREAD"
+      "flag": "FLAG_ITEM_ROUTE1_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -417,7 +417,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_BALL_OF_WOOL",
-      "flag": "FLAG_ITEM_ROUTE1_BALL_OF_WOOL"
+      "flag": "FLAG_ITEM_ROUTE1_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
@@ -482,7 +482,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_CHOC_SUNDAY",
-      "flag": "FLAG_ITEM_ROUTE1_CHOC_SUNDAY"
+      "flag": "FLAG_ITEM_ROUTE1_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILING_5",

@@ -290,7 +290,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGE_STEEL_POUCH",
-      "flag": "FLAG_ITEM_LUMBRIDGE_STEEL_POUCH"
+      "flag": "FLAG_ITEM_LUMBRIDGE_6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -303,7 +303,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGE_DRUNK_DRAGON",
-      "flag": "FLAG_ITEM_LUMBRIDGE_DRUNK_DRAGON"
+      "flag": "FLAG_ITEM_LUMBRIDGE_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",

@@ -38,7 +38,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ALKHARID_INDOOR_1",
-      "flag": "0"
+      "flag": "FLAG_ITEM_ALKHARID_3"
     }
   ],
   "warp_events": [

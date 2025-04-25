@@ -126,6 +126,7 @@ NPC_Dwarven_Mines_House_11::
 NPC_Dwarven_Mines_House_12::
 	lock
 	faceplayer
+	namebox NPC_Dwarven_Mines_House_12_Text_0
 	compare VAR_DWARVEN_MINES_STATE, 0
 	goto_if_eq NPC_Dwarven_Mines_House_12_2
 	compare VAR_DWARVEN_MINES_STATE, 5
@@ -139,7 +140,6 @@ NPC_Dwarven_Mines_House_12_1:
 	end
 
 NPC_Dwarven_Mines_House_12_2:
-	namebox NPC_Dwarven_Mines_House_12_Text_0
 	msgbox NPC_Dwarven_Mines_House_12_Text_1
 	msgbox NPC_Dwarven_Mines_House_12_Text_2
 	msgbox NPC_Dwarven_Mines_House_12_Text_3

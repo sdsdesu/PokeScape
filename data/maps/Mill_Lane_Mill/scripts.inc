@@ -4,15 +4,6 @@ Mill_Lane_Mill_MapScripts::
 	.byte 0
 
 Mill_Lane_Mill_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_1
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_2
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_3
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_4
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_5
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_6
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_7
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_8
-	clearflag FLAG_ITEM_REPEATABLE_ITEM_9
 	setvar VAR_EVOLUTION_MAP_STATE, 1
 	return
 
@@ -114,7 +105,7 @@ MillLaneMill_Item_PURPLE_SWEETS::
 
 MillLaneMill_Item_WHEAT1::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
-	goto_if_unset FLAG_ITEM_REPEATABLE_ITEM_1, MillLaneMill_Item_WHEAT1_1
+	goto_if_unset FLAG_TEMP_1, MillLaneMill_Item_WHEAT1_1
 	msgbox MillLaneMill_Item_WHEAT1_Text_1
 	release
 	end
@@ -122,14 +113,14 @@ MillLaneMill_Item_WHEAT1::
 MillLaneMill_Item_WHEAT1_1:
 	lock
 	giveitem ITEM_WHEAT
-	setflag FLAG_ITEM_REPEATABLE_ITEM_1
+	setflag FLAG_TEMP_1
 	release
 	end
 
 
 MillLaneMill_Item_WHEAT2::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
-	goto_if_unset FLAG_ITEM_REPEATABLE_ITEM_2, MillLaneMill_Item_WHEAT2_1
+	goto_if_unset FLAG_TEMP_2, MillLaneMill_Item_WHEAT2_1
 	msgbox MillLaneMill_Item_WHEAT1_Text_1
 	release
 	end
@@ -137,14 +128,14 @@ MillLaneMill_Item_WHEAT2::
 MillLaneMill_Item_WHEAT2_1:
 	lock
 	giveitem ITEM_WHEAT
-	setflag FLAG_ITEM_REPEATABLE_ITEM_2
+	setflag FLAG_TEMP_2
 	release
 	end
 
 
 MillLaneMill_Item_WHEAT3::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
-	goto_if_unset FLAG_ITEM_REPEATABLE_ITEM_3, MillLaneMill_Item_WHEAT3_1
+	goto_if_unset FLAG_TEMP_3, MillLaneMill_Item_WHEAT3_1
 	msgbox MillLaneMill_Item_WHEAT1_Text_1
 	release
 	end
@@ -152,14 +143,14 @@ MillLaneMill_Item_WHEAT3::
 MillLaneMill_Item_WHEAT3_1:
 	lock
 	giveitem ITEM_WHEAT
-	setflag FLAG_ITEM_REPEATABLE_ITEM_3
+	setflag FLAG_TEMP_3
 	release
 	end
 
 
 MillLaneMill_Item_WHEAT4::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
-	goto_if_unset FLAG_ITEM_REPEATABLE_ITEM_4, MillLaneMill_Item_WHEAT4_1
+	goto_if_unset FLAG_TEMP_4, MillLaneMill_Item_WHEAT4_1
 	msgbox MillLaneMill_Item_WHEAT1_Text_1
 	release
 	end
@@ -167,14 +158,14 @@ MillLaneMill_Item_WHEAT4::
 MillLaneMill_Item_WHEAT4_1:
 	lock
 	giveitem ITEM_WHEAT
-	setflag FLAG_ITEM_REPEATABLE_ITEM_4
+	setflag FLAG_TEMP_4
 	release
 	end
 
 
 MillLaneMill_Item_WHEAT5::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
-	goto_if_unset FLAG_ITEM_REPEATABLE_ITEM_5, MillLaneMill_Item_WHEAT5_1
+	goto_if_unset FLAG_TEMP_5, MillLaneMill_Item_WHEAT5_1
 	msgbox MillLaneMill_Item_WHEAT1_Text_1
 	release
 	end
@@ -182,7 +173,7 @@ MillLaneMill_Item_WHEAT5::
 MillLaneMill_Item_WHEAT5_1:
 	lock
 	giveitem ITEM_WHEAT
-	setflag FLAG_ITEM_REPEATABLE_ITEM_5
+	setflag FLAG_TEMP_5
 	release
 	end
 

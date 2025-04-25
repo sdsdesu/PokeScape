@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM4",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM4"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_19"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM3"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_17"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -168,7 +168,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM2"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_16"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM5",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM5"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_18"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -194,7 +194,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM1"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_15"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
@@ -220,7 +220,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_4F_ITEM6",
-      "flag": "FLAG_ITEM_BKFORT_4F_ITEM6"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_20"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",

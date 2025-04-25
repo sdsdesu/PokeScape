@@ -288,8 +288,8 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 4,
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 5,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -298,7 +298,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_3F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM3"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -311,7 +311,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_3F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM2"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -324,7 +324,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_3F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM1"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_5"
     }
   ],
   "warp_events": [

@@ -51,7 +51,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_SINKHOLE_1",
-      "flag": "FLAG_ITEM_SINKHOLE_1"
+      "flag": "FLAG_ITEM_SINKHOLEICE_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEHEMOTH",
@@ -77,7 +77,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_SINKHOLE_2",
-      "flag": "FLAG_ITEM_SINKHOLE_2"
+      "flag": "FLAG_ITEM_SINKHOLEICE_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -90,7 +90,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_SINKHOLE_3",
-      "flag": "FLAG_ITEM_SINKHOLE_3"
+      "flag": "FLAG_ITEM_SINKHOLEICE_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUNGEONEERING_1",

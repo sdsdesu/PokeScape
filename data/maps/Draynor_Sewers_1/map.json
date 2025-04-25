@@ -76,8 +76,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DRAYNORSEWERS_TM50",
-      "flag": "FLAG_ITEM_DRAYNORSEWERS_TM50"
+      "script": "ITEM_RECEIVED_TM50",
+      "flag": "FLAG_RECEIVED_TM50"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",

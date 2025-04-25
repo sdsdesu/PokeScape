@@ -63,11 +63,6 @@ Movement_WallBeast:
 	jump_in_place_up
 	step_end
 
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_1::
-	finditem ITEM_TM21_TOXIC
-	end
-
-
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_2::
 	finditem ITEM_WATER_RUNE
 	end

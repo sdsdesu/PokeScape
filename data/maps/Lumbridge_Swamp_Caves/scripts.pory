@@ -81,11 +81,7 @@ movement Movement_WallBeast
 
 //ITEMS
 
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_1
-{
-    finditem(ITEM_TM21_TOXIC)
-    end
-}
+
 
 script ITEM_LUMBRIDGESWAMPCAVE_ITEM_2
 {

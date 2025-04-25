@@ -389,7 +389,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM5",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM5"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_14"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -402,7 +402,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM4",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM4"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_10"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -415,7 +415,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM1"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -428,7 +428,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM3"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_9"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -441,7 +441,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM2"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_8"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -454,7 +454,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM6",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM6"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -467,7 +467,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM7",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM7"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -480,7 +480,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_2F_ITEM8",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM8"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_13"
     }
   ],
   "warp_events": [

@@ -231,11 +231,7 @@ script ITEM_ROUTE1_CHOCOLATE_SUNDAY
     end
 }
 
-script ITEM_MILLLANEMILL_TM05
-{
-    finditem(ITEM_TM05_TAILWIND)
-    end
-}
+
 
 script ITEM_MILLLANEMILL_MITHRIL_POUCH
 {
@@ -261,11 +257,7 @@ script ITEM_DRAYNOR_DEFENCE_POTION
     end
 }
 
-script ITEM_DRAYNORSEWERS_TM50
-{
-    finditem(ITEM_TM50_POISON_JAB)
-    end
-}
+
 
 script ITEM_DRAYNORSEWERS_BEER
 {
@@ -351,11 +343,7 @@ script ITEM_ROUTE12_PRAYER_POTION
 
 //DRAYNOR MANOR
 
-script ITEM_DRAYNORMANOR_TM55_HEX
-{
-    finditem(ITEM_TM55_HEX)
-    end
-}
+
 script ITEM_DRAYNORMANOR_TEA_2
 {
     finditem(ITEM_REPEL_TEA_1)
