@@ -30,7 +30,8 @@ script POST_WARP_BKF_EVENT {
     closemessage
     hidenamebox
     giveitem(ITEM_STRENGTH_TOOL)
-    msgbox(format("Hopefully you will find a use for it on your adventures.\pCUPHOLDER!"))
+    namebox("Sir Owen")
+    msgbox(format("Hopefully you will find a use for it on your adventures.\pSee you around {PLAYER}!"))
     closemessage
     hidenamebox
     waitmovement(0)
@@ -51,7 +52,7 @@ movement movement_BlackKnights_POST_WARP_BKF_EVENT {
 }
 movement movement_SirOwen_POST_WARP_BKF_EVENT {
     walk_down
-    walk_right * 5
+    walk_right * 4
     walk_down * 6
 }
 

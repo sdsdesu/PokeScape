@@ -8134,7 +8134,7 @@
     {
       "id": "LAYOUT_EDGEVILLE_HOUSE_2",
       "name": "Edgeville_House_2_Layout",
-      "width": 7,
+      "width": 14,
       "height": 11,
       "primary_tileset": "gTileset_PokeScapeIndoors",
       "secondary_tileset": "gTileset_IndoorTowns1",
@@ -8185,7 +8185,7 @@
       "id": "LAYOUT_EDGEVILLE_GENERAL_STORE_2F",
       "name": "Edgeville_General_Store_2F_Layout",
       "width": 11,
-      "height": 8,
+      "height": 9,
       "primary_tileset": "gTileset_PokeScapeIndoors",
       "secondary_tileset": "gTileset_IndoorTowns1",
       "border_filepath": "data/layouts/Edgeville_General_Store_2F/border.bin",

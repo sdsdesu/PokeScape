@@ -198,11 +198,11 @@ script NPC_EDGEVILLE_15
 }
 
 //MISCELLANEOUS
-script EDGEVILLE_SIGN_1
+script EDGEVILLE_SIGN_3
 {
 	lock
 	faceplayer
-	msgbox(format("North to Edgeville.\pWest to the Monastery and Dwarven Mountain."))
+	msgbox(format("East to Edgeville.\pNorth to the Monastery.\pWest to Ice Mountain and the Dwarven Mines."))
 	release
 	end
 }
@@ -216,7 +216,14 @@ script EDGEVILLE_SIGN_2
 	end
 }
 
-
+script EDGEVILLE_SIGN_1
+{
+	lock
+	faceplayer
+	msgbox(format("Edgeville.\nPreviously known as Ghost Town."))
+	release
+	end
+}
 
 
 
@@ -553,9 +560,20 @@ script NPC_EDGEVILLE_HOUSE_NPC_6 {
 	lock
 	faceplayer
     namebox ("Oziach")
-	msgbox(format("Aye, 'tis a fair day my friend.\pMay the gods walk by yer side.\pNow leave me alone, I'm all outta rune platebodies."))
+	msgbox(format("Aye… Another adventurer…\pI suppose you too wish to wear thee legendary Rune platemail like myself.\pWell as I told the other adventurers I will only let ye wear it if ye… Tame the dragon of Crandor!"))
+	msgbox(format("Come back when ye have tamed her."))
     closemessage
     hidenamebox
+	//msgbox(format("Have ye tamed that dragon yet?"))
+	//msgbox(format("Yahaha!\pI didn't think so, be off with ye!"))
+	//msgbox(format("Yarahaha!\pI didn't think so-"))
+	//shocked movement
+	//msgbox(format("Yeewhaat?!"))
+	//jump
+	//msgbox(format("You actually did it?\pI underestimated ye, adventurer.\pI apologise…\pHere as promised I grant thee legendary Rune platemail!"))
+	//msgbox(format("Wear it proudly!"))
+
+	//msgbox(format("Good to see you again my mighty dragon-taming friend!"))
 	release
 	end
 }
