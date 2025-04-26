@@ -15,12 +15,24 @@ script NPC_DwarvenMines_PowerStationF1_1   //Dwarf - top middle
 	end
 }
 
+script NPC_DwarvenMines_PowerStationF1_Inventor  
+{
+	lock
+	faceplayer
+    namebox ("Inventor")
+	msgbox(format("Through here leads to the Invention Guild.\pBut it's for VIP members only, so no entry for you!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
 script NPC_DwarvenMines_PowerStationF1_2    //Smith - top right
 {
 	lock
 	faceplayer
     namebox ("Smith")
-	msgbox(format("You wanted to use this furnace to smelt some ore?\pSorry, but only dwarves may use these furnaces.\pIt became too costly for us to keep letting adventurers waste our coal."))
+	msgbox(format("Strykewyrms adapt to their environments even during a battle!\pIf the terrain changes they too will change!\pSuch interesting creatures."))
     waitmessage
     hidenamebox
 	release
