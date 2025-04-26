@@ -15,6 +15,11 @@ static const u8 sText_OutfitDesc_HAM[] = _(
     "Pink and stylish!\nWith this anyone\nwould mistake you\nas a H.A.M member.");
 #endif
 
+
+static const u16 sRegionMapPlayerIcon_Gfx_HAM_F[] = INCBIN_U16("graphics/pokenav/region_map/costumes/ham_f_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_Gfx_HAM_M[] = INCBIN_U16("graphics/pokenav/region_map/costumes/ham_m_icon.4bpp");
+
+
 static const u16 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon.4bpp");
 
 static const u16 sRegionMapPlayerIcon_RSBrendanGfx[] = INCBIN_U16("graphics/pokenav/region_map/rs_brendan_icon.4bpp");
@@ -221,7 +226,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
                 [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_MAY_FIELD_MOVE
             },
         },
-        .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
+        .iconsRM = { sRegionMapPlayerIcon_Gfx_HAM_M, sRegionMapPlayerIcon_Gfx_HAM_F },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
     },
     [OUTFIT_BRONZE_ARMOUR] = {
