@@ -378,7 +378,7 @@ script HAM_EVENT_DraynorManor_Ariane{
     lock
 	faceplayer
 	namebox("Ariane")
-    msgbox(format("I can not do this!\pThat manor is 2sp00ky4me!"))
+    msgbox(format("I can not do this!\pThat manor is too spooky for me!"))
     hidenamebox
 	closemessage
 	release

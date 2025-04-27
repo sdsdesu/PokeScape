@@ -600,7 +600,7 @@ script NPC_ROUTE12_BRONZEMAN {
     lock
 	faceplayer
 	namebox("Br0nzem4n")
-    msgbox(format("Everyone kept saying that to battle, I had to catch a monster.\pBut no matter how much I run after it, I can't seem to keep this cow still long enough!{PAUSE 15}Wait, what's a pouch..?"))
+    msgbox(format("Everyone kept saying that to battle, I had to catch a monster.\pBut no matter how much I run after it, I can't seem to keep this cow still long enough!\p{PAUSE 15}Wait, what's a pouch..?"))
     hidenamebox
 	closemessage
 	release
