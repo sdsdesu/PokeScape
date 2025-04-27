@@ -4975,7 +4975,7 @@ static const u8 sScroll_05_Desc[] = _(
 static const u8 sScroll_06_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Nitro Charge)");
+    "(Flame Charge)");
 
 static const u8 sScroll_07_Desc[] = _(
     "This Scroll\n"
@@ -4990,22 +4990,22 @@ static const u8 sScroll_08_Desc[] = _(
 static const u8 sScroll_09_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Grass Terrain)");
+    "(Mighty Cleave)");
 
 static const u8 sScroll_10_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Electric Terrain)");
+    "(Triple Arrows)");
 
 static const u8 sScroll_11_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Psychic Terrain)");
+    "(Eerie Spell)");
 
 static const u8 sScroll_12_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Misty Terrain)");
+    "(Stone Axe)");
 
 static const u8 sScroll_13_Desc[] = _(
     "This Scroll\n"
@@ -5170,7 +5170,7 @@ static const u8 sScroll_44_Desc[] = _(
 static const u8 sScroll_45_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Spectral Theif)");
+    "(Spectral Thief)");
 
 static const u8 sScroll_46_Desc[] = _(
     "This Scroll\n"
@@ -5280,7 +5280,7 @@ static const u8 sScroll_66_Desc[] = _(
 static const u8 sScroll_67_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Protect)");
+    "(Parting Shot)");
 
 static const u8 sScroll_68_Desc[] = _(
     "This Scroll\n"
@@ -5295,12 +5295,12 @@ static const u8 sScroll_69_Desc[] = _(
 static const u8 sScroll_70_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Reflect)");
+    "(Jaw Lock)");
 
 static const u8 sScroll_71_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Light Screen)");
+    "(Terrain Pulse)");
 
 static const u8 sScroll_72_Desc[] = _(
     "This Scroll\n"
@@ -5316,142 +5316,6 @@ static const u8 sScroll_74_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
     "(Ceaseless Edge)");
-
-static const u8 sScroll_75_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Triple Arrows)");
-
-static const u8 sScroll_76_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Eerie Spell)");
-
-static const u8 sScroll_77_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Victory Dance)");
-
-static const u8 sScroll_78_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Parting Shot)");
-    
-static const u8 sScroll_79_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Snipe Shot)");
-    
-static const u8 sScroll_80_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Jaw Lock)");
-    
-static const u8 sScroll_81_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Teatime)");
-    
-static const u8 sScroll_82_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(No Retreat)");
-    
-static const u8 sScroll_83_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Dragon Darts)");
-                
-static const u8 sScroll_84_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Glacial Lance)");
-    
-static const u8 sScroll_85_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Psyshield Bash)");
-    
-static const u8 sScroll_86_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Stone Axe)");
-
-static const u8 sScroll_87_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Terrain Pulse)");
-    
-static const u8 sScroll_88_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Armor Cannon)");
-        
-static const u8 sScroll_89_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Bitter Blade)");
-        
-static const u8 sScroll_90_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Gigaton Hammer)");
-        
-static const u8 sScroll_91_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Rage Fist)");
-        
-static const u8 sScroll_92_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Glaive Rush)");
-        
-static const u8 sScroll_93_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Mighty Cleave)");
-                    
-static const u8 sScroll_94_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Pounce)");
-        
-static const u8 sScroll_95_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Make It Rain)");
-        
-static const u8 sScroll_96_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Burning Jealousy)");
-
-static const u8 sScroll_97_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Obstruct)");
-            
-static const u8 sScroll_98_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Sword Strike)");
-            
-static const u8 sScroll_99_Desc[] = _(
-    "This Scroll\n"
-    "contains the move:\n"
-    "(Trump Card)");
-
-
-
-
-
-
-
-
-
-
-
 
 //END -- SCROLLS
 
