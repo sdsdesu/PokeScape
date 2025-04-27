@@ -594,8 +594,9 @@
 #define OBJ_EVENT_GFX_EVIL_DAVE                 577
 #define OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT        578
 #define OBJ_EVENT_GFX_ODDENSTEIN                579
+#define OBJ_EVENT_GFX_BIKE_HAM                  580
 
-#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_ODDENSTEIN + 1)
+#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_BIKE_HAM + 1)
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
 // Object event graphics ids are 1 byte in size (max value of 255), and the dynamic

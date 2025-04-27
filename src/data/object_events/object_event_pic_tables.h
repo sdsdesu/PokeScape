@@ -5858,7 +5858,17 @@ static const struct SpriteFrameImage sPicTable_oddenstein[] = {
     overworld_frame(gObjectEventPic_oddenstein, 2, 4, 8),
 };
 
-
+static const struct SpriteFrameImage sPicTable_bike_ham[] = {
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 0),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 1),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 2),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 3),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 4),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 5),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 6),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 7),
+    overworld_frame(gObjectEventPic_bike_ham, 4, 4, 8),
+};
 
 
 

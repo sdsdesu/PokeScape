@@ -767,7 +767,7 @@ const u32 gObjectEventPic_sandwich_lady[] = INCBIN_U32("graphics/object_events/p
 const u32 gObjectEventPic_evildave[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/evildave.4bpp");
 const u32 gObjectEventPic_eliteblack[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/eliteblack.4bpp");
 const u32 gObjectEventPic_oddenstein[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/oddenstein.4bpp");
-
+const u32 gObjectEventPic_bike_ham[] = INCBIN_U32("graphics/object_events/pics/costumes/bike_ham.4bpp");
 //POKESCAPE PALETTES
 /*
 const u16 gObjectEventPalette_Skeleton_1[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/skeleton_1.gbapal");

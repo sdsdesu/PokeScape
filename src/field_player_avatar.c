@@ -34,6 +34,7 @@
 #include "data.h"
 #include "field_control_avatar.h"
 #include "link.h"
+#include "item_menu.h"
 
 #define NUM_FORCED_MOVEMENTS 18
 #define NUM_ACRO_BIKE_COLLISIONS 5
@@ -89,6 +90,7 @@ static void DoPlayerAvatarTransition(void);
 static void PlayerAvatarTransition_Dummy(struct ObjectEvent *);
 static void PlayerAvatarTransition_Normal(struct ObjectEvent *);
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *);
+
 //static void PlayerAvatarTransition_Surfing(struct ObjectEvent *); // qol_field_moves
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *);
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *);
@@ -226,6 +228,7 @@ static void (*const sPlayerAvatarTransitionFuncs[])(struct ObjectEvent *) =
     [PLAYER_AVATAR_STATE_BIKE]         = PlayerAvatarTransition_Bike,
     [PLAYER_AVATAR_STATE_SURFING]      = PlayerAvatarTransition_Surfing,
     [PLAYER_AVATAR_STATE_UNDERWATER]   = PlayerAvatarTransition_Underwater,
+    [PLAYER_AVATAR_STATE_BIKE_2]       = PlayerAvatarTransition_Bike,
     [PLAYER_AVATAR_STATE_CONTROLLABLE] = PlayerAvatarTransition_ReturnToField,
     [PLAYER_AVATAR_STATE_FORCED]       = PlayerAvatarTransition_Dummy,
     [PLAYER_AVATAR_STATE_DASH]         = PlayerAvatarTransition_Dummy,
@@ -259,12 +262,13 @@ static const u16 sRSAvatarGfxIds[GENDER_COUNT] =
     [FEMALE] = OBJ_EVENT_GFX_LINK_RS_MAY
 };
 
-static const u8 sPlayerAvatarGfxToStateFlag[4] =
+static const u8 sPlayerAvatarGfxToStateFlag[5] =
 {
     [PLAYER_AVATAR_STATE_NORMAL]     = PLAYER_AVATAR_FLAG_ON_FOOT,
     [PLAYER_AVATAR_STATE_BIKE]       = PLAYER_AVATAR_FLAG_BIKE,
     [PLAYER_AVATAR_STATE_SURFING]    = PLAYER_AVATAR_FLAG_SURFING,
     [PLAYER_AVATAR_STATE_UNDERWATER] = PLAYER_AVATAR_FLAG_UNDERWATER,
+    [PLAYER_AVATAR_STATE_BIKE_2]     = PLAYER_AVATAR_FLAG_BIKE,
 };
 
 static bool8 (*const sPushBoulderFuncs[])(struct Task *, struct ObjectEvent *, struct ObjectEvent *) =
@@ -836,7 +840,7 @@ void SetPlayerAvatarTransitionFlags(u16 transitionFlags)
 static void DoPlayerAvatarTransition(void)
 {
     u8 i;
-    u8 flags = gPlayerAvatar.transitionFlags;
+    u16 flags = gPlayerAvatar.transitionFlags;
 
     if (flags != 0)
     {
@@ -868,9 +872,15 @@ static void PlayerAvatarTransition_Normal(struct ObjectEvent *objEvent)
 
 static void PlayerAvatarTransition_Bike(struct ObjectEvent *objEvent)
 {
-    SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_BIKE);
-    BikeClearState(0, 0);
-    Bike_HandleBumpySlopeJump();
+    if (gSaveBlock2Ptr->playerBike == MACH_BIKE) {
+        SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_BIKE_2);
+        BikeClearState(0, 0);
+    }
+    else {
+        SetPlayerAvatarTransitionState(objEvent, PLAYER_AVATAR_STATE_BIKE);
+        BikeClearState(0, 0);
+        Bike_HandleBumpySlopeJump();
+    }
 }
 
 // Start qol_field_moves
@@ -1230,12 +1240,12 @@ void MovePlayerToMapCoords(s16 x, s16 y)
     MoveObjectEventToMapCoords(&gObjectEvents[gPlayerAvatar.objectEventId], x, y);
 }
 
-u8 TestPlayerAvatarFlags(u8 flag)
+u16 TestPlayerAvatarFlags(u16 flag)
 {
     return gPlayerAvatar.flags & flag;
 }
 
-u8 GetPlayerAvatarFlags(void)
+u16 GetPlayerAvatarFlags(void)
 {
     return gPlayerAvatar.flags;
 }
@@ -1281,7 +1291,7 @@ u16 GetPlayerAnimGraphicsIdByOutfitStateIdAndGender(u8 outfit, u8 state, u8 gend
     return GetPlayerAvatarGraphicsIdByOutfitStateIdGenderAndIsAnim(outfit, state, gender, TRUE);
 }
 
-u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender)
+u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u16 state, u8 gender)
 {
     return sRivalAvatarGfxIds[state][gender];
 }
@@ -1301,7 +1311,7 @@ u16 GetRSAvatarGraphicsIdByGender(u8 gender)
     return sRSAvatarGfxIds[gender];
 }
 
-u16 GetPlayerAvatarGraphicsIdByStateId(u8 state)
+u16 GetPlayerAvatarGraphicsIdByStateId(u16 state)
 {
     return GetPlayerAvatarGraphicsIdByStateIdAndGender(state, gSaveBlock2Ptr->playerGender);
 }
@@ -1371,13 +1381,13 @@ void ClearPlayerAvatarInfo(void)
     memset(&gPlayerAvatar, 0, sizeof(struct PlayerAvatar));
 }
 
-void SetPlayerAvatarStateMask(u8 flags)
+void SetPlayerAvatarStateMask(u16 flags)
 {
     gPlayerAvatar.flags &= (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_FORCED_MOVE | PLAYER_AVATAR_FLAG_CONTROLLABLE);
     gPlayerAvatar.flags |= flags;
 }
 
-static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId)
+static u16 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId)
 {
     u32 i;
 
@@ -1391,8 +1401,8 @@ static u8 GetPlayerAvatarStateTransitionByGraphicsId(u16 graphicsId)
 
 u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
 {
-    u8 i;
-    u8 flags = gPlayerAvatar.flags;
+    u16 i;
+    u16 flags = gPlayerAvatar.flags;
 
     for (i = 0; i < ARRAY_COUNT(sPlayerAvatarGfxToStateFlag); i++)
     {
@@ -1402,9 +1412,9 @@ u16 GetPlayerAvatarGraphicsIdByCurrentState(void)
     return 0;
 }
 
-void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
+void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u16 transitionFlag)
 {
-    u8 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId);
+    u16 stateFlag = GetPlayerAvatarStateTransitionByGraphicsId(graphicsId);
 
     gPlayerAvatar.transitionFlags |= stateFlag | transitionFlag;
     DoPlayerAvatarTransition();

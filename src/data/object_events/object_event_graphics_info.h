@@ -10916,3 +10916,22 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_oddenstein = {
     .images = sPicTable_oddenstein,
     .affineAnims = gDummySpriteAffineAnimTable
 };
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bike_ham = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_HAM,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = 0,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_bike_ham,
+    .affineAnims = gDummySpriteAffineAnimTable
+};
