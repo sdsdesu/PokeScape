@@ -7523,10 +7523,28 @@ static const struct TrainerMon sParty_ARIANE_1[] = {
     {
     .lvl = 18,
     .species = SPECIES_ANIMATED_BOOK,
+    .ev = TRAINER_PARTY_EVS(0, 0, 124, 124, 124, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_LEVITATE,
+    .moves = {MOVE_EERIE_SPELL, MOVE_SNARE, MOVE_SHADOW_BURST, MOVE_WIND_STRIKE}
     },
     {
     .lvl = 19,
     .species = SPECIES_RUNE,
+    .ev = TRAINER_PARTY_EVS(0, 0, 252, 125, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_LEVITATE,
+    .gender = TRAINER_MON_FEMALE,
+    .moves = {MOVE_ICE_BURST, MOVE_BLOOD_BURST, MOVE_PSYBEAM, MOVE_CONFUSE}
+    },
+    {
+    .lvl = 18,
+    .species = SPECIES_ESSLING,
+    .ev = TRAINER_PARTY_EVS(4, 0, 252, 124, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ability = ABILITY_MAGIC_GUARD,
+    .gender = TRAINER_MON_MALE,
+    .moves = {MOVE_WIND_STRIKE, MOVE_PSYBEAM, MOVE_TELE_BLOCK, MOVE_ICE_BURST}
     }
 };
 
