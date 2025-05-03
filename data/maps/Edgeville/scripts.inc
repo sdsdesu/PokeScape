@@ -188,10 +188,10 @@ NPC_EDGEVILLE_15::
 	end
 
 
-EDGEVILLE_SIGN_1::
+EDGEVILLE_SIGN_3::
 	lock
 	faceplayer
-	msgbox EDGEVILLE_SIGN_1_Text_0
+	msgbox EDGEVILLE_SIGN_3_Text_0
 	release
 	end
 
@@ -200,6 +200,14 @@ EDGEVILLE_SIGN_2::
 	lock
 	faceplayer
 	msgbox EDGEVILLE_SIGN_2_Text_0
+	release
+	end
+
+
+EDGEVILLE_SIGN_1::
+	lock
+	faceplayer
+	msgbox EDGEVILLE_SIGN_1_Text_0
 	release
 	end
 
@@ -495,6 +503,7 @@ NPC_EDGEVILLE_HOUSE_NPC_6::
 	faceplayer
 	namebox NPC_EDGEVILLE_HOUSE_NPC_6_Text_0
 	msgbox NPC_EDGEVILLE_HOUSE_NPC_6_Text_1
+	msgbox NPC_EDGEVILLE_HOUSE_NPC_6_Text_2
 	closemessage
 	hidenamebox
 	release
@@ -788,15 +797,20 @@ NPC_EDGEVILLE_15_Text_1:
 	.string "I've sailed around Gielinor and haven't\n"
 	.string "been able to catch a single one!$"
 
-EDGEVILLE_SIGN_1_Text_0:
-	.string "North to Edgeville.\p"
-	.string "West to the Monastery and Dwarven\n"
-	.string "Mountain.$"
+EDGEVILLE_SIGN_3_Text_0:
+	.string "East to Edgeville.\p"
+	.string "North to the Monastery.\p"
+	.string "West to Ice Mountain and the Dwarven\n"
+	.string "Mines.$"
 
 EDGEVILLE_SIGN_2_Text_0:
 	.string "COMING SOON: a route to the Grand\n"
 	.string "Exchange.\p"
 	.string "Courtesy of King Roald III of Varrock.$"
+
+EDGEVILLE_SIGN_1_Text_0:
+	.string "Edgeville.\n"
+	.string "Previously known as Ghost Town.$"
 
 NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0:
 	.string "Vannaka$"
@@ -942,10 +956,15 @@ NPC_EDGEVILLE_HOUSE_NPC_6_Text_0:
 	.string "Oziach$"
 
 NPC_EDGEVILLE_HOUSE_NPC_6_Text_1:
-	.string "Aye, 'tis a fair day my friend.\p"
-	.string "May the gods walk by yer side.\p"
-	.string "Now leave me alone, I'm all outta rune\n"
-	.string "platebodies.$"
+	.string "Aye… Another adventurer…\p"
+	.string "I suppose you too wish to wear thee\n"
+	.string "legendary Rune platemail like myself.\p"
+	.string "Well as I told the other adventurers I\n"
+	.string "will only let ye wear it if ye… Tame the\l"
+	.string "dragon of Crandor!$"
+
+NPC_EDGEVILLE_HOUSE_NPC_6_Text_2:
+	.string "Come back when ye have tamed her.$"
 
 NPC_EDGEVILLE_HOUSE_NPC_7_Text_0:
 	.string "RUMadBr0$"

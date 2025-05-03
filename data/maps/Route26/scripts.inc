@@ -30,6 +30,7 @@ POST_WARP_BKF_EVENT::
 	closemessage
 	hidenamebox
 	giveitem ITEM_STRENGTH_TOOL
+	namebox POST_WARP_BKF_EVENT_Text_0
 	msgbox POST_WARP_BKF_EVENT_Text_2
 	closemessage
 	hidenamebox
@@ -69,7 +70,6 @@ movement_BlackKnights_POST_WARP_BKF_EVENT:
 
 movement_SirOwen_POST_WARP_BKF_EVENT:
 	walk_down
-	walk_right
 	walk_right
 	walk_right
 	walk_right
@@ -316,7 +316,7 @@ POST_WARP_BKF_EVENT_Text_1:
 POST_WARP_BKF_EVENT_Text_2:
 	.string "Hopefully you will find a use for it on\n"
 	.string "your adventures.\p"
-	.string "CUPHOLDER!$"
+	.string "See you around {PLAYER}!$"
 
 TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0:
 	.string "{PLAYER}! Mind lending me a hand?\p"

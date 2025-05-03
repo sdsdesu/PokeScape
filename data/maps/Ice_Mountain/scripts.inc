@@ -445,14 +445,14 @@ EVENT_ICE_MOUNTAIN_GUARDS::
 	closemessage
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
+	setmetatile 34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE
+	special DrawWholeMapView
 	removeobject 6
 	removeobject 9
 	setflag FLAG_TEMP_1E
 	addobject 10
 	addobject 11
 	clearflag FLAG_TEMP_1F
-	setmetatile 34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE
-	special DrawWholeMapView
 	fadescreenswapbuffers FADE_FROM_BLACK
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_6
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_7
