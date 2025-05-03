@@ -1,5 +1,115 @@
 Black_Knights_Fortress_3_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_LOAD
+	map_script MAP_SCRIPT_ON_TRANSITION, Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
+
+Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call BKF_HEAL_ZONE
+	return
+
+Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call CHECK_JAILED
+	return
+
+Black_Knights_Fortress_3_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_TEMP_B, 1, BKF_WHITEOUT
+	.2byte 0
+
+
+BKF_HEAL_ZONE::
+	setrespawn HEAL_LOCATION_BKF_JAIL
+	end
+
+
+CHECK_JAILED::
+	removeobject 25
+	setflag FLAG_TEMP_1F
+	goto_if_set FLAG_BKF_JAILED, CHECK_JAILED_2
+CHECK_JAILED_1:
+	end
+
+CHECK_JAILED_2:
+	addobject 25
+	clearflag FLAG_TEMP_1F
+	setvar VAR_TEMP_B, 1
+	goto CHECK_JAILED_1
+
+
+BKF_WHITEOUT::
+	lock
+	delay 60
+	namebox BKF_WHITEOUT_Text_0
+	applymovement 25, MOVEMENT_INTERACT_UP
+	msgbox BKF_WHITEOUT_Text_1
+	waitmovement 0
+	closemessage
+	hidenamebox
+	applymovement 25, movement_BKF_lockup_leave
+	waitmovement 0
+	removeobject 25
+	setflag FLAG_TEMP_1F
+	setvar VAR_TEMP_B, 2
+	clearflag FLAG_BKF_JAILED
+	release
+	end
+
+
+movement_BKF_lockup_leave:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	set_invisible
+	step_end
+
+BKF_GATE::
+	compare VAR_TEMP_C, 0
+	goto_if_eq BKF_GATE_2
+BKF_GATE_1:
+	end
+
+BKF_GATE_2:
+	lock
+	msgbox BKF_GATE_Text_0
+	closemessage
+	playse SE_TRUCK_DOOR
+	msgbox BKF_GATE_Text_1
+	closemessage
+	setmetatile 14, 5, METATILE_IndoorTowns3_JAILDOOR_OPEN_TOP, 0
+	setmetatile 14, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_BOTTOM, 1
+	setmetatile 15, 5, METATILE_IndoorTowns3_BKF_FLOOR, 0
+	setmetatile 15, 6, METATILE_IndoorTowns3_BKF_FLOOR, 0
+	setmetatile 16, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_SIDE, 1
+	special DrawWholeMapView
+	facefollower
+	namebox BKF_GATE_Text_2
+	msgbox BKF_GATE_Text_3
+	closemessage
+	hidenamebox
+	setvar VAR_TEMP_C, 1
+	release
+	goto BKF_GATE_1
+
+
+BKF_Banker::
+	faceplayer
+	namebox BKF_Banker_Text_0
+	msgbox BKF_Banker_Text_1
+	waitmessage
+	call BANK_OPTIONS
+	namebox BKF_Banker_Text_0
+	msgbox BKF_Banker_Text_2
+	closemessage
+	hidenamebox
+	release
+	end
 
 
 BKFORT_3F_NPC_1::
@@ -112,8 +222,8 @@ BKFORT_3F_NPC_10::
 BKFORT_3F_NPC_11::
 	lock
 	faceplayer
-	namebox BKFORT_3F_NPC_11_Text_0
-	msgbox BKFORT_3F_NPC_11_Text_1
+	namebox BKF_WHITEOUT_Text_0
+	msgbox BKFORT_3F_NPC_11_Text_0
 	closemessage
 	hidenamebox
 	release
@@ -123,7 +233,7 @@ BKFORT_3F_NPC_11::
 BKFORT_3F_NPC_12::
 	lock
 	faceplayer
-	namebox BKFORT_3F_NPC_11_Text_0
+	namebox BKF_WHITEOUT_Text_0
 	msgbox BKFORT_3F_NPC_12_Text_0
 	closemessage
 	hidenamebox
@@ -186,7 +296,7 @@ MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT:
 
 BKFORT_3F_NPC_15::
 	lock
-	namebox BKFORT_3F_NPC_11_Text_0
+	namebox BKF_WHITEOUT_Text_0
 	msgbox BKFORT_3F_NPC_15_Text_0
 	closemessage
 	hidenamebox
@@ -197,7 +307,7 @@ BKFORT_3F_NPC_15::
 BKFORT_3F_NPC_16::
 	lock
 	faceplayer
-	namebox BKFORT_3F_NPC_11_Text_0
+	namebox BKF_WHITEOUT_Text_0
 	msgbox BKFORT_3F_NPC_16_Text_0
 	closemessage
 	hidenamebox
@@ -219,7 +329,7 @@ BKFORT_3F_NPC_17::
 BKFORT_3F_NPC_18::
 	lock
 	faceplayer
-	namebox BKFORT_3F_NPC_11_Text_0
+	namebox BKF_WHITEOUT_Text_0
 	msgbox BKFORT_3F_NPC_18_Text_0
 	closemessage
 	hidenamebox
@@ -230,7 +340,7 @@ BKFORT_3F_NPC_18::
 BKFORT_3F_NPC_19::
 	lock
 	faceplayer
-	namebox BKFORT_3F_NPC_11_Text_0
+	namebox BKF_WHITEOUT_Text_0
 	msgbox BKFORT_3F_NPC_19_Text_0
 	closemessage
 	hidenamebox
@@ -263,6 +373,44 @@ ITEM_BKFORT_3F_ITEM3::
 	finditem ITEM_POUCH_BLACK
 	end
 
+
+BKF_WHITEOUT_Text_0:
+	.string "Guard$"
+
+BKF_WHITEOUT_Text_1:
+	.string "Bwhauhuhaha!\p"
+	.string "You will now rot in this cage until the\n"
+	.string "end of your days!$"
+
+BKF_GATE_Text_0:
+	.string "You attempt to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\n"
+	.string "But the guard forgot to lock the door…$"
+
+BKF_GATE_Text_1:
+	.string "The door opens.$"
+
+BKF_GATE_Text_2:
+	.string "Sir Owen$"
+
+BKF_GATE_Text_3:
+	.string "They're joking right?\p"
+	.string "Man, someone is gonna get fired.\p"
+	.string "Anyways lets get back to our mission\n"
+	.string "and try this again!$"
+
+BKF_Banker_Text_0:
+	.string "Banker$"
+
+BKF_Banker_Text_1:
+	.string "The Black Knights have got me locked up\n"
+	.string "so they can have quick and easy access\l"
+	.string "for their banks.\p"
+	.string "They didn't say you couldn't use the\n"
+	.string "bank though, so how many I help you?$"
+
+BKF_Banker_Text_2:
+	.string "I wonder if I'll ever get out to see my\n"
+	.string "wife and children again…$"
 
 BKFORT_3F_NPC_1_Text_0:
 	.string "Black Knight$"
@@ -362,9 +510,6 @@ BKFORT_3F_NPC_10_Text_1:
 	.string "dungeons back home.$"
 
 BKFORT_3F_NPC_11_Text_0:
-	.string "Guard$"
-
-BKFORT_3F_NPC_11_Text_1:
 	.string "It might not look like much, but this is\n"
 	.string "one of the best assignments you can\l"
 	.string "get in this place.\p"

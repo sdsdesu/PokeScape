@@ -4,17 +4,7 @@ PacifidlogTown_House2_MapScripts::
 PacifidlogTown_House2_EventScript_FanClubYoungerBrother::
 	lock
 	faceplayer
-	dotimebasedevents
-	call PacifidlogTown_House2_EventScript_UpdateFanClubTMFlag
-	goto_if_set FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK, PacifidlogTown_House2_EventScript_ComeBackInXDays
-	call_if_set FLAG_MET_FANCLUB_YOUNGER_BROTHER, PacifidlogTown_House2_EventScript_MonAssessment
-	call_if_unset FLAG_MET_FANCLUB_YOUNGER_BROTHER, PacifidlogTown_House2_EventScript_FirstMonAssessment
-	setflag FLAG_MET_FANCLUB_YOUNGER_BROTHER
-	specialvar VAR_RESULT, GetLeadMonFriendshipScore
-	goto_if_ge VAR_RESULT, 4, PacifidlogTown_House2_EventScript_GiveReturn
-	specialvar VAR_RESULT, GetLeadMonFriendshipScore
-	goto_if_ge VAR_RESULT, 2, PacifidlogTown_House2_EventScript_PutInEffort
-	goto PacifidlogTown_House2_EventScript_GiveFrustration
+
 	end
 
 PacifidlogTown_House2_EventScript_UpdateFanClubTMFlag::
@@ -30,7 +20,6 @@ PacifidlogTown_House2_EventScript_FirstMonAssessment::
 	return
 
 PacifidlogTown_House2_EventScript_ClearReceivedFanClubTM::
-	clearflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
 	return
 
 PacifidlogTown_House2_EventScript_GiveReturn::

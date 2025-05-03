@@ -1,6 +1,107 @@
 mapscripts Black_Knights_Fortress_3_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        call(BKF_HEAL_ZONE)
+    }
+    MAP_SCRIPT_ON_TRANSITION {
+        call(CHECK_JAILED)
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_B, 1: BKF_WHITEOUT
+    ]
 }
+
+
+
+script BKF_HEAL_ZONE {
+    setrespawn(HEAL_LOCATION_BKF_JAIL)
+    end
+}
+
+script CHECK_JAILED {
+    removeobject(25)
+    setflag(FLAG_TEMP_1F)
+    if (flag(FLAG_BKF_JAILED) == TRUE) {
+        addobject(25)
+        clearflag(FLAG_TEMP_1F)
+        setvar(VAR_TEMP_B, 1)
+    }
+    end
+}
+
+
+script BKF_WHITEOUT
+{
+	lock
+    delay(60)
+    namebox ("Guard")
+    //randomised dialogue
+    //if sir owen is with you more randomised dialogue. (if I can get him spawning right away next to you.)
+    applymovement(25, MOVEMENT_INTERACT_UP)
+    msgbox(format("Bwhauhuhaha!\pYou will now rot in this cage until the end of your days!"))
+    waitmovement(0)
+    closemessage
+    hidenamebox
+    applymovement(25, movement_BKF_lockup_leave)
+    waitmovement(0)
+    removeobject(25)
+    setflag(FLAG_TEMP_1F)
+    //sir owen talks to you about trying to get out.
+    setvar(VAR_TEMP_B, 2)
+    clearflag(FLAG_BKF_JAILED)
+    release
+    end
+}
+
+movement movement_BKF_lockup_leave {
+    walk_right * 7
+    walk_up * 3
+    set_invisible
+    step_end
+}
+
+script BKF_GATE
+{
+    if (var(VAR_TEMP_C) == 0) {
+        lock
+        msgbox(format("You attempt to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\nBut the guard forgot to lock the door…"))
+        closemessage
+        playse(SE_TRUCK_DOOR)
+        msgbox(format("The door opens."))
+        closemessage
+        // set meta tiles open gate
+        setmetatile(14, 5, METATILE_IndoorTowns3_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(14, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(15, 5, METATILE_IndoorTowns3_BKF_FLOOR, 0)
+        setmetatile(15, 6, METATILE_IndoorTowns3_BKF_FLOOR, 0)
+        setmetatile(16, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_SIDE, 1)
+        special(DrawWholeMapView) 
+        //if sir owen is with you.
+        facefollower
+        namebox ("Sir Owen")
+        msgbox(format("They're joking right?\pMan, someone is gonna get fired.\pAnyways lets get back to our mission and try this again!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_TEMP_C, 1)
+        release
+    }
+    end
+}
+
+script BKF_Banker {
+    
+	faceplayer
+    namebox ("Banker")
+    msgbox(format("The Black Knights have got me locked up so they can have quick and easy access for their banks.\pThey didn't say you couldn't use the bank though, so how many I help you?"))
+	waitmessage
+    call(BANK_OPTIONS)
+    namebox ("Banker")
+    msgbox(format("I wonder if I'll ever get out to see my wife and children again…"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
 
 //NPCS
 

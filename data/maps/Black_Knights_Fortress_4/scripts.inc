@@ -1,6 +1,11 @@
 Black_Knights_Fortress_4_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Black_Knights_Fortress_4_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_TRANSITION, Black_Knights_Fortress_4_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Black_Knights_Fortress_4_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call BKF_HEAL_ZONE
+	return
 
 Black_Knights_Fortress_4_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	call STORYMODE_STATE_BKFORT_4F
@@ -521,6 +526,8 @@ TRIGGER_BLACK_KNIGHT_4F_FINAL::
 	msgbox TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_20
 	closemessage
 	hidenamebox
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11
+	addvar VAR_GAMEMODE_LEVEL_CAP, 5
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 200
 	call FOLLOWER_REMOVE
 	warp MAP_ROUTE26, 24, 17

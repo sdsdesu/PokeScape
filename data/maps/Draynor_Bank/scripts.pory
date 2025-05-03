@@ -125,27 +125,43 @@ script ProfNormalTree_Assistant {
 	//msgbox(format("VAR_TEMP_1 is {STR_VAR_2}.\nVAR_0x8009 is {STR_VAR_3}."))
 	compare(VAR_0x8009, VAR_TEMP_1)
 	call_if_ge(ProfNormalTree_Assistant_GiveReward) //if greater or equal to
-	call_if_lt(ProfNormalTree_Assistant_Info) //if less than
+	call_if_lt(ProfNormalTree_Assistant_YouOnlyHaveXmons) //if less than
 	return
 }
 
 script ProfNormalTree_Assistant_GiveReward {
-	//GetCurrentMap()
-	//if current map lumbridge
-	call(ProfNormalTree_Assistant_GiveReward_Lumbridge)
-	// if current map fal
+	specialvar (VAR_RESULT, GetCurrentMap)
+	switch (var(VAR_RESULT)) {
+		case MAP_FALADOR_BANK_EAST:
+			call(ProfNormalTree_Assistant_GiveReward_FALADOR)
+		case MAP_VARROCK_BANK_EAST:
+			call(ProfNormalTree_Assistant_GiveReward_VARROCK)
+		case MAP_LUMBRIDGE_BANK:
+			call(ProfNormalTree_Assistant_GiveReward_Lumbridge)
+		case MAP_RIMMINGTON_BANK:
+			call(ProfNormalTree_Assistant_GiveReward_RIMMINGTON)
+		case MAP_EDGEVILLE_BANK:
+			call(ProfNormalTree_Assistant_GiveReward_EDGEVILLE)
+	}
+	namebox("Assistant")
+	msgbox(format("I look forward to seeing how many you'll find!"))
+	closemessage
+	hidenamebox
 	return
 }
-
+script ProfNormalTree_Assistant_YouOnlyHaveXmons
+{
+	msgbox(format("Hmm… It appears you have only registered {STR_VAR_3} monsters."))
+	call(ProfNormalTree_Assistant_Info)
+	return
+}
 //Prof Normal Tree Assistants
 script ProfNormalTree_Assistant_Info
 {
-	msgbox(format("Hmm… It appears you have only registered {STR_VAR_3} monsters."))
-	
 	random(8)
 	switch (var(VAR_RESULT)) {
 	case 0:
-		msgbox(format("The difference between Identifing and Registering a monster depends on if you have caught it."))
+		msgbox(format("Did you know the difference between Identifing and Registering a monster depends on if you have caught it."))
 	case 1:
 		msgbox(format("Have you tried using a fishing net?"))
 	case 2:
@@ -174,8 +190,15 @@ script ProfNormalTree_LUMBRIDGE {
 	lock
     faceplayer
     namebox("Assistant")
-	msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
-	call(ProfNormalTree_Assistant)
+	if (flag(FLAG_NORMALTREE_ASSISTANT_1) == TRUE) 
+	{
+		msgbox(format("Good to see you again, I hope you've been finding new monsters!"))
+		call(ProfNormalTree_Assistant_Info)
+	}
+	else {
+		msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
+		call(ProfNormalTree_Assistant)
+	}
 	closemessage
 	hidenamebox
 	release
@@ -184,6 +207,7 @@ script ProfNormalTree_LUMBRIDGE {
 script ProfNormalTree_Assistant_GiveReward_Lumbridge {
 	msgbox(format("Fantastic!\pYou've registered {STR_VAR_3} monsters!\pPlease take these as a reward."))
 	giveitem(ITEM_EXP_CANDY_M, 5)
+	setflag(FLAG_NORMALTREE_ASSISTANT_1)
 	return
 }
 
@@ -193,8 +217,15 @@ script ProfNormalTree_RIMMINGTON {
 	lock
     faceplayer
     namebox("Assistant")
-	msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
-	call(ProfNormalTree_Assistant)
+	if (flag(FLAG_NORMALTREE_ASSISTANT_2) == TRUE) 
+	{
+		msgbox(format("Good to see you again, I hope you've been finding new monsters!"))
+		call(ProfNormalTree_Assistant_Info)
+	}
+	else {
+		msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
+		call(ProfNormalTree_Assistant)
+	}
 	closemessage
 	hidenamebox
 	release
@@ -203,6 +234,7 @@ script ProfNormalTree_RIMMINGTON {
 script ProfNormalTree_Assistant_GiveReward_RIMMINGTON {
 	msgbox(format("Fantastic!\pYou've registered {STR_VAR_3} monsters!\pPlease take these as a reward."))
 	giveitem(ITEM_EXP_CANDY_M, 5)
+	setflag(FLAG_NORMALTREE_ASSISTANT_2)
 	return
 }
 
@@ -213,8 +245,15 @@ script ProfNormalTree_FALADOR {
 	lock
     faceplayer
     namebox("Assistant")
-	msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
-	call(ProfNormalTree_Assistant)
+	if (flag(FLAG_NORMALTREE_ASSISTANT_3) == TRUE) 
+	{
+		msgbox(format("Good to see you again, I hope you've been finding new monsters!"))
+		call(ProfNormalTree_Assistant_Info)
+	}
+	else {
+		msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
+		call(ProfNormalTree_Assistant)
+	}
 	closemessage
 	hidenamebox
 	release
@@ -223,6 +262,7 @@ script ProfNormalTree_FALADOR {
 script ProfNormalTree_Assistant_GiveReward_FALADOR {
 	msgbox(format("Fantastic!\pYou've registered {STR_VAR_3} monsters!\pPlease take these as a reward."))
 	giveitem(ITEM_EXP_CANDY_M, 5)
+	setflag(FLAG_NORMALTREE_ASSISTANT_3)
 	return
 }
 
@@ -233,8 +273,15 @@ script ProfNormalTree_VARROCK {
 	lock
     faceplayer
     namebox("Assistant")
-	msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
-	call(ProfNormalTree_Assistant)
+	if (flag(FLAG_NORMALTREE_ASSISTANT_4) == TRUE) 
+	{
+		msgbox(format("Good to see you again, I hope you've been finding new monsters!"))
+		call(ProfNormalTree_Assistant_Info)
+	}
+	else {
+		msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
+		call(ProfNormalTree_Assistant)
+	}
 	closemessage
 	hidenamebox
 	release
@@ -243,6 +290,7 @@ script ProfNormalTree_VARROCK {
 script ProfNormalTree_Assistant_GiveReward_VARROCK {
 	msgbox(format("Fantastic!\pYou've registered {STR_VAR_3} monsters!\pPlease take these as a reward."))
 	giveitem(ITEM_EXP_CANDY_M, 5)
+	setflag(FLAG_NORMALTREE_ASSISTANT_4)
 	return
 }
 
@@ -253,8 +301,15 @@ script ProfNormalTree_EDGEVILLE {
 	lock
     faceplayer
     namebox("Assistant")
-	msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
-	call(ProfNormalTree_Assistant)
+	if (flag(FLAG_NORMALTREE_ASSISTANT_5) == TRUE) 
+	{
+		msgbox(format("Good to see you again, I hope you've been finding new monsters!"))
+		call(ProfNormalTree_Assistant_Info)
+	}
+	else {
+		msgbox(format("I'm one of Professor Normal Tree's Assistants.\pI've been instructed to review the Bestiary's of MvM participants."))
+		call(ProfNormalTree_Assistant)
+	}
 	closemessage
 	hidenamebox
 	release
@@ -263,5 +318,6 @@ script ProfNormalTree_EDGEVILLE {
 script ProfNormalTree_Assistant_GiveReward_EDGEVILLE {
 	msgbox(format("Fantastic!\pYou've registered {STR_VAR_3} monsters!\pPlease take these as a reward."))
 	giveitem(ITEM_EXP_CANDY_M, 5)
+	setflag(FLAG_NORMALTREE_ASSISTANT_5)
 	return
 }

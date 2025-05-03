@@ -108,17 +108,49 @@ ProfNormalTree_Assistant::
 	msgbox ProfNormalTree_Assistant_Text_2
 	compare VAR_0x8009, VAR_TEMP_1
 	call_if_ge ProfNormalTree_Assistant_GiveReward
-	call_if_lt ProfNormalTree_Assistant_Info
+	call_if_lt ProfNormalTree_Assistant_YouOnlyHaveXmons
 	return
 
 
 ProfNormalTree_Assistant_GiveReward::
+	specialvar VAR_RESULT, GetCurrentMap
+	switch VAR_RESULT
+	case MAP_FALADOR_BANK_EAST, ProfNormalTree_Assistant_GiveReward_3
+	case MAP_VARROCK_BANK_EAST, ProfNormalTree_Assistant_GiveReward_4
+	case MAP_LUMBRIDGE_BANK, ProfNormalTree_Assistant_GiveReward_5
+	case MAP_RIMMINGTON_BANK, ProfNormalTree_Assistant_GiveReward_6
+	case MAP_EDGEVILLE_BANK, ProfNormalTree_Assistant_GiveReward_7
+ProfNormalTree_Assistant_GiveReward_1:
+	return
+
+ProfNormalTree_Assistant_GiveReward_3:
+	call ProfNormalTree_Assistant_GiveReward_FALADOR
+	goto ProfNormalTree_Assistant_GiveReward_1
+
+ProfNormalTree_Assistant_GiveReward_4:
+	call ProfNormalTree_Assistant_GiveReward_VARROCK
+	goto ProfNormalTree_Assistant_GiveReward_1
+
+ProfNormalTree_Assistant_GiveReward_5:
 	call ProfNormalTree_Assistant_GiveReward_Lumbridge
+	goto ProfNormalTree_Assistant_GiveReward_1
+
+ProfNormalTree_Assistant_GiveReward_6:
+	call ProfNormalTree_Assistant_GiveReward_RIMMINGTON
+	goto ProfNormalTree_Assistant_GiveReward_1
+
+ProfNormalTree_Assistant_GiveReward_7:
+	call ProfNormalTree_Assistant_GiveReward_EDGEVILLE
+	goto ProfNormalTree_Assistant_GiveReward_1
+
+
+ProfNormalTree_Assistant_YouOnlyHaveXmons::
+	msgbox ProfNormalTree_Assistant_YouOnlyHaveXmons_Text_0
+	call ProfNormalTree_Assistant_Info
 	return
 
 
 ProfNormalTree_Assistant_Info::
-	msgbox ProfNormalTree_Assistant_Info_Text_0
 	random 8
 	switch VAR_RESULT
 	case 0, ProfNormalTree_Assistant_Info_3
@@ -135,37 +167,37 @@ ProfNormalTree_Assistant_Info_1:
 	return
 
 ProfNormalTree_Assistant_Info_3:
-	msgbox ProfNormalTree_Assistant_Info_Text_1
+	msgbox ProfNormalTree_Assistant_Info_Text_0
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_4:
-	msgbox ProfNormalTree_Assistant_Info_Text_2
+	msgbox ProfNormalTree_Assistant_Info_Text_1
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_5:
-	msgbox ProfNormalTree_Assistant_Info_Text_3
+	msgbox ProfNormalTree_Assistant_Info_Text_2
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_6:
-	msgbox ProfNormalTree_Assistant_Info_Text_4
+	msgbox ProfNormalTree_Assistant_Info_Text_3
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_7:
-	msgbox ProfNormalTree_Assistant_Info_Text_5
+	msgbox ProfNormalTree_Assistant_Info_Text_4
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_8:
-	msgbox ProfNormalTree_Assistant_Info_Text_6
+	msgbox ProfNormalTree_Assistant_Info_Text_5
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_9:
-	msgbox ProfNormalTree_Assistant_Info_Text_7
+	msgbox ProfNormalTree_Assistant_Info_Text_6
 	goto ProfNormalTree_Assistant_Info_1
 
 ProfNormalTree_Assistant_Info_10:
-	msgbox ProfNormalTree_Assistant_Info_Text_8
+	msgbox ProfNormalTree_Assistant_Info_Text_7
 	giveitem ITEM_POUCH, 10
-	msgbox ProfNormalTree_Assistant_Info_Text_9
+	msgbox ProfNormalTree_Assistant_Info_Text_8
 	goto ProfNormalTree_Assistant_Info_1
 
 
@@ -175,17 +207,25 @@ ProfNormalTree_LUMBRIDGE::
 	lock
 	faceplayer
 	namebox ProfNormalTree_LUMBRIDGE_Text_0
-	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	goto_if_set FLAG_NORMALTREE_ASSISTANT_1, ProfNormalTree_LUMBRIDGE_2
+	msgbox ProfNormalTree_LUMBRIDGE_Text_2
 	call ProfNormalTree_Assistant
+ProfNormalTree_LUMBRIDGE_1:
 	closemessage
 	hidenamebox
 	release
 	end
 
+ProfNormalTree_LUMBRIDGE_2:
+	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	call ProfNormalTree_Assistant_Info
+	goto ProfNormalTree_LUMBRIDGE_1
+
 
 ProfNormalTree_Assistant_GiveReward_Lumbridge::
 	msgbox ProfNormalTree_Assistant_GiveReward_Lumbridge_Text_0
 	giveitem ITEM_EXP_CANDY_M, 5
+	setflag FLAG_NORMALTREE_ASSISTANT_1
 	return
 
 
@@ -195,17 +235,25 @@ ProfNormalTree_RIMMINGTON::
 	lock
 	faceplayer
 	namebox ProfNormalTree_LUMBRIDGE_Text_0
-	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	goto_if_set FLAG_NORMALTREE_ASSISTANT_2, ProfNormalTree_RIMMINGTON_2
+	msgbox ProfNormalTree_LUMBRIDGE_Text_2
 	call ProfNormalTree_Assistant
+ProfNormalTree_RIMMINGTON_1:
 	closemessage
 	hidenamebox
 	release
 	end
 
+ProfNormalTree_RIMMINGTON_2:
+	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	call ProfNormalTree_Assistant_Info
+	goto ProfNormalTree_RIMMINGTON_1
+
 
 ProfNormalTree_Assistant_GiveReward_RIMMINGTON::
 	msgbox ProfNormalTree_Assistant_GiveReward_Lumbridge_Text_0
 	giveitem ITEM_EXP_CANDY_M, 5
+	setflag FLAG_NORMALTREE_ASSISTANT_2
 	return
 
 
@@ -215,17 +263,25 @@ ProfNormalTree_FALADOR::
 	lock
 	faceplayer
 	namebox ProfNormalTree_LUMBRIDGE_Text_0
-	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	goto_if_set FLAG_NORMALTREE_ASSISTANT_3, ProfNormalTree_FALADOR_2
+	msgbox ProfNormalTree_LUMBRIDGE_Text_2
 	call ProfNormalTree_Assistant
+ProfNormalTree_FALADOR_1:
 	closemessage
 	hidenamebox
 	release
 	end
 
+ProfNormalTree_FALADOR_2:
+	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	call ProfNormalTree_Assistant_Info
+	goto ProfNormalTree_FALADOR_1
+
 
 ProfNormalTree_Assistant_GiveReward_FALADOR::
 	msgbox ProfNormalTree_Assistant_GiveReward_Lumbridge_Text_0
 	giveitem ITEM_EXP_CANDY_M, 5
+	setflag FLAG_NORMALTREE_ASSISTANT_3
 	return
 
 
@@ -235,17 +291,25 @@ ProfNormalTree_VARROCK::
 	lock
 	faceplayer
 	namebox ProfNormalTree_LUMBRIDGE_Text_0
-	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	goto_if_set FLAG_NORMALTREE_ASSISTANT_4, ProfNormalTree_VARROCK_2
+	msgbox ProfNormalTree_LUMBRIDGE_Text_2
 	call ProfNormalTree_Assistant
+ProfNormalTree_VARROCK_1:
 	closemessage
 	hidenamebox
 	release
 	end
 
+ProfNormalTree_VARROCK_2:
+	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	call ProfNormalTree_Assistant_Info
+	goto ProfNormalTree_VARROCK_1
+
 
 ProfNormalTree_Assistant_GiveReward_VARROCK::
 	msgbox ProfNormalTree_Assistant_GiveReward_Lumbridge_Text_0
 	giveitem ITEM_EXP_CANDY_M, 5
+	setflag FLAG_NORMALTREE_ASSISTANT_4
 	return
 
 
@@ -255,17 +319,25 @@ ProfNormalTree_EDGEVILLE::
 	lock
 	faceplayer
 	namebox ProfNormalTree_LUMBRIDGE_Text_0
-	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	goto_if_set FLAG_NORMALTREE_ASSISTANT_5, ProfNormalTree_EDGEVILLE_2
+	msgbox ProfNormalTree_LUMBRIDGE_Text_2
 	call ProfNormalTree_Assistant
+ProfNormalTree_EDGEVILLE_1:
 	closemessage
 	hidenamebox
 	release
 	end
 
+ProfNormalTree_EDGEVILLE_2:
+	msgbox ProfNormalTree_LUMBRIDGE_Text_1
+	call ProfNormalTree_Assistant_Info
+	goto ProfNormalTree_EDGEVILLE_1
+
 
 ProfNormalTree_Assistant_GiveReward_EDGEVILLE::
 	msgbox ProfNormalTree_Assistant_GiveReward_Lumbridge_Text_0
 	giveitem ITEM_EXP_CANDY_M, 5
+	setflag FLAG_NORMALTREE_ASSISTANT_5
 	return
 
 
@@ -341,49 +413,49 @@ ProfNormalTree_Assistant_Text_1:
 ProfNormalTree_Assistant_Text_2:
 	.string "You have IDENTIFIED {STR_VAR_2} monsters\nand REGISTERED {STR_VAR_3} monsters.$"
 
-ProfNormalTree_Assistant_Info_Text_0:
+ProfNormalTree_Assistant_YouOnlyHaveXmons_Text_0:
 	.string "Hmm… It appears you have only\n"
 	.string "registered {STR_VAR_3} monsters.$"
 
-ProfNormalTree_Assistant_Info_Text_1:
-	.string "The difference between Identifing and\n"
-	.string "Registering a monster depends on if you\l"
-	.string "have caught it.$"
+ProfNormalTree_Assistant_Info_Text_0:
+	.string "Did you know the difference between\n"
+	.string "Identifing and Registering a monster\l"
+	.string "depends on if you have caught it.$"
 
-ProfNormalTree_Assistant_Info_Text_2:
+ProfNormalTree_Assistant_Info_Text_1:
 	.string "Have you tried using a fishing net?$"
 
-ProfNormalTree_Assistant_Info_Text_3:
+ProfNormalTree_Assistant_Info_Text_2:
 	.string "Some unique monsters can only be found\n"
 	.string "in dungeon sinkholes, you should try\l"
 	.string "exploring some.$"
 
-ProfNormalTree_Assistant_Info_Text_4:
+ProfNormalTree_Assistant_Info_Text_3:
 	.string "Did you know that different monsters\n"
 	.string "appear in wheat fields compared to the\l"
 	.string "grass?$"
 
-ProfNormalTree_Assistant_Info_Text_5:
+ProfNormalTree_Assistant_Info_Text_4:
 	.string "You should try evolving some of your\n"
 	.string "monsters.\p"
 	.string "There are many branching evolution\n"
 	.string "methods, no two monsters are the same.$"
 
-ProfNormalTree_Assistant_Info_Text_6:
+ProfNormalTree_Assistant_Info_Text_5:
 	.string "Have you found any of those hidden\n"
 	.string "grottos?\p"
 	.string "A hint is to look for differences in the\n"
 	.string "trees.$"
 
-ProfNormalTree_Assistant_Info_Text_7:
+ProfNormalTree_Assistant_Info_Text_6:
 	.string "Maybe you should do some more quests,\n"
 	.string "as you may be rewarded with a monster.$"
 
-ProfNormalTree_Assistant_Info_Text_8:
+ProfNormalTree_Assistant_Info_Text_7:
 	.string "Do you need some pouches?\n"
 	.string "Here have some.$"
 
-ProfNormalTree_Assistant_Info_Text_9:
+ProfNormalTree_Assistant_Info_Text_8:
 	.string "Now you have no excuse not to capture\n"
 	.string "some monsters!$"
 
@@ -391,6 +463,10 @@ ProfNormalTree_LUMBRIDGE_Text_0:
 	.string "Assistant$"
 
 ProfNormalTree_LUMBRIDGE_Text_1:
+	.string "Good to see you again, I hope you've\n"
+	.string "been finding new monsters!$"
+
+ProfNormalTree_LUMBRIDGE_Text_2:
 	.string "I'm one of Professor Normal Tree's\n"
 	.string "Assistants.\p"
 	.string "I've been instructed to review the\n"

@@ -128,8 +128,6 @@ script BANK_HEAL_TZHAAR {
 
 
 
-
-
 	//msgbox(format("Would you like to access your Bank Account?"), MSGBOX_YESNO)
 	//while (var(VAR_RESULT) != 1) {
     //    msgbox(format("Very well, come again soon."))	

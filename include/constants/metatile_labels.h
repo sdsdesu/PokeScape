@@ -338,6 +338,12 @@
 #define METATILE_Ice_Mountain_SNOW_LOGFIRE_ON   0x2B4
 #define METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT  0x2B5
 
+// gTileset_IndoorTowns3
+#define METATILE_IndoorTowns3_BKF_FLOOR             0x201
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_BOTTOM  0x2FD
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_SIDE    0x2C5
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_TOP     0x2F5
+
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
 #define METATILE_InsideOfTruck_DoorClosedFloor_Mid     0x215

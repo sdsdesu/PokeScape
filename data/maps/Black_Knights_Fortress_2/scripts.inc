@@ -1,5 +1,10 @@
 Black_Knights_Fortress_2_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Black_Knights_Fortress_2_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
+
+Black_Knights_Fortress_2_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call BKF_HEAL_ZONE
+	return
 
 
 TRIGGER_BLACK_KNIGHT_QUIZ_3::

@@ -1,5 +1,7 @@
 mapscripts Black_Knights_Fortress_4_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        call(BKF_HEAL_ZONE)
+    }
     MAP_SCRIPT_ON_TRANSITION {
         call(STORYMODE_STATE_BKFORT_4F)
     }
@@ -548,7 +550,8 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         msgbox(format("You have the gall to ask me?\pVery well, I will tell you if you leave my fortress.\pH.A.M wants power, and there is an ancient power belonging to my lord up north.\pSigmund and his cronies wishes to unearth that power, and use it to show the world just how bad a monster can be.\pThen the world will, in his word, turn on the monsters.\pAs he uses the power of chaos itself to turn this world as he sees fit.\pI would call him mad if it did not serve my purpose.\pNow begone, get out, I have had it with you two!"))
         closemessage
         hidenamebox 
-        
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)
+        addvar(VAR_GAMEMODE_LEVEL_CAP, 5) //Level 50 cap.
         setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
         call(FOLLOWER_REMOVE)
         //warp outside.
@@ -684,4 +687,7 @@ movement Movement_STORY_BKFORT_4F_3_Lord_D {
 movement movement_BKF_Questionmarks {
     emote_question_mark
 }
+
+
+
 
