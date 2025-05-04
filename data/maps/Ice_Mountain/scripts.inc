@@ -43,6 +43,10 @@ ICEMOUNTAIN_STATE_2:
 	removeobject 6
 	removeobject 9
 	setflag FLAG_TEMP_1E
+	setobjectxy 11, 33, 14
+	setobjectxyperm 11, 33, 14
+	setobjectxy 10, 35, 14
+	setobjectxyperm 10, 35, 14
 	addobject 10
 	addobject 11
 	clearflag FLAG_TEMP_1F
@@ -431,6 +435,9 @@ TRIGGER_STORYMODE_EVENT_ICE_MOUNTAIN_GUARDS::
 
 
 EVENT_ICE_MOUNTAIN_GUARDS::
+	addobject 10
+	addobject 11
+	clearflag FLAG_TEMP_1F
 	namebox EVENT_ICE_MOUNTAIN_GUARDS_Text_0
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_1
 	closemessage
@@ -445,14 +452,18 @@ EVENT_ICE_MOUNTAIN_GUARDS::
 	closemessage
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
-	setmetatile 34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE
-	special DrawWholeMapView
 	removeobject 6
 	removeobject 9
 	setflag FLAG_TEMP_1E
-	addobject 10
-	addobject 11
-	clearflag FLAG_TEMP_1F
+	setobjectxy 11, 33, 14
+	setobjectxyperm 11, 33, 14
+	setobjectxy 10, 35, 14
+	setobjectxyperm 10, 35, 14
+	setmetatile 34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE
+	special DrawWholeMapView
+	delay 60
+	playse SE_CONTEST_CURTAIN_FALL
+	waitse
 	fadescreenswapbuffers FADE_FROM_BLACK
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_6
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_7

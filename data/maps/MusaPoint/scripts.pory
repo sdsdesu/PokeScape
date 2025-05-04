@@ -1299,6 +1299,8 @@ script SetFollower_SirOwen {
 	msgbox(format("Oh… I see.\nThat's a bit disappointing.\pThought we had a heroic thing going here…"))
     hidenamebox
     closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+	waitmovement(0)
     releaseall
     end
 }

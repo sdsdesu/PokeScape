@@ -1362,6 +1362,8 @@ SetFollower_SirOwen::
 	msgbox SetFollower_SirOwen_Text_3
 	hidenamebox
 	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
+	waitmovement 0
 	releaseall
 	end
 
