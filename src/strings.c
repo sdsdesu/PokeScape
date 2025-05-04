@@ -1943,7 +1943,7 @@ const u8 gText_Post_MELZARSMAZE[] =_("POST MELZARS MAZE");
 const u8 gText_Pre_Crandor[] =_("PRE CRANDOR");
 const u8 gText_Pre_BKF[] =_("PRE BLACK KNIGHTS FORTRESS");
 const u8 gText_Post_BKF[] =_("POST BLACK KNIGHTS FORTRESS");
-
+const u8 gText_Post_FALADORGYM[] =_("POST FALADOR GYM");
 
 
 

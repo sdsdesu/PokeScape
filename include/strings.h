@@ -3143,6 +3143,7 @@ extern const u8 gText_BEGINNING[];
 extern const u8 gText_Pre_WIZARDSTOWER[];
 extern const u8 gText_Post_DRAYNORMANOR[];
 extern const u8 gText_Post_MELZARSMAZE[];
+extern const u8 gText_Post_FALADORGYM[];
 extern const u8 gText_Pre_Crandor[];
 extern const u8 gText_Pre_BKF[];
 extern const u8 gText_Post_BKF[];
