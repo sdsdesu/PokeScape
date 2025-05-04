@@ -19794,18 +19794,19 @@ static const union AnimCmd sAnim_Spirit_Scout_1[] =
 	ANIMCMD_FRAME(0, 5),
 	ANIMCMD_END,
 };
-static const union AnimCmd sAnim_Spirit_Knight_1[] =
-{
-	ANIMCMD_FRAME(1, 40),
-	ANIMCMD_FRAME(0, 5),
-	ANIMCMD_END,
-};
 static const union AnimCmd sAnim_Spirit_Warmage_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
 	ANIMCMD_END,
 };
+static const union AnimCmd sAnim_Spirit_Knight_1[] =
+{
+	ANIMCMD_FRAME(1, 40),
+	ANIMCMD_FRAME(0, 5),
+	ANIMCMD_END,
+};
+
 
 static const union AnimCmd sAnim_Pomapoo_1[] =
 {
@@ -25080,15 +25081,17 @@ static const union AnimCmd *const sAnims_Spirit_Scout[] ={
 	sAnim_Spirit_Scout_1,
 };
 
+static const union AnimCmd *const sAnims_Spirit_Warmage[] ={
+	sAnim_GeneralFrame0,
+	sAnim_Spirit_Warmage_1,
+};
+
 static const union AnimCmd *const sAnims_Spirit_Knight[] ={
 	sAnim_GeneralFrame0,
 	sAnim_Spirit_Knight_1,
 };
 
-static const union AnimCmd *const sAnims_Spirit_Warmage[] ={
-	sAnim_GeneralFrame0,
-	sAnim_Spirit_Warmage_1,
-};
+
 
 static const union AnimCmd *const sAnims_Pomapoo[] ={
 	sAnim_GeneralFrame0,
