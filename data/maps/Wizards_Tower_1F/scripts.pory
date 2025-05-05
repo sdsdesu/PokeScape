@@ -961,7 +961,7 @@ script RUNE_EVOLUTIONS_NOTES {
                 release
 		end
             case 2: 
-                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pIt appears that puppies have some of the most runic evolutions of any monster I have encountered.\pThese also vary depending on the type of dog you expose to the stone.\pFor example, a pup exposed to an Air Rune evolves into a Labrador.\pHowever, if you expose a mutt to the same rune?\pIt turns into a Greyhound.\pCompletely different!."))
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pIt appears that puppies have some of the most runic evolutions of any monster I have encountered.\pThese also vary depending on the type of dog you expose to the stone.\pFor example, a pup exposed to an Air Rune evolves into a Labrador.\pHowever, if you expose a mutt to the same rune?\pIt turns into a Greyhound.\pCompletely different!"))
                 release
 		end
             case 3: 
@@ -1047,10 +1047,12 @@ script STORYMODE_SAVESTATE {
 			case 3:
 				goto(STORYMODE_SAVESTATE_POST_MELZARS_MAZE)
 			case 4:
-				goto(STORYMODE_SAVESTATE_PRE_CRANDOR)
+				goto(STORYMODE_SAVESTATE_POST_FALADOR_GYM)
 			case 5:
-				goto(STORYMODE_SAVESTATE_POST_BARBARIANGYM)
+				goto(STORYMODE_SAVESTATE_PRE_CRANDOR)
 			case 6:
+				goto(STORYMODE_SAVESTATE_POST_BARBARIANGYM)
+			case 7:
 				goto(STORYMODE_SAVESTATE_POST_BKF)
 		}
     }
@@ -1069,6 +1071,7 @@ script STORYMODE_SAVESTATE_GAME_START {
 script STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER { 
 	call(FOLLOWER_REMOVE)
 	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
 	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 0)
 	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 15)
 	warp(MAP_WIZARDS_TOWER, 0, 0, 0)
@@ -1077,6 +1080,7 @@ script STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER {
 script STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR { 
 	call(FOLLOWER_REMOVE)
 	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
 	//
 	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
 	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
@@ -1084,9 +1088,20 @@ script STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR {
 script STORYMODE_SAVESTATE_POST_MELZARS_MAZE { 
 	call(FOLLOWER_REMOVE)
 	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
 	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 10)
 	//
 	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
+}
+script STORYMODE_SAVESTATE_POST_FALADOR_GYM { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 10)
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 115)
+	warp(MAP_FALADOR_CASTLE_3F, 0, 0, 0)
+	waitstate
 }
 script STORYMODE_SAVESTATE_PRE_CRANDOR { 
 	call(FOLLOWER_REMOVE)

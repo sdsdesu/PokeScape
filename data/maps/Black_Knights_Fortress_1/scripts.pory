@@ -1,5 +1,7 @@
 mapscripts Black_Knights_Fortress_1_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        call(BKF_HEAL_ZONE)
+    }
 }
 
 script ITEM_BLACKKNIGHTS_FORTRESS_1

@@ -13,6 +13,17 @@ NPC_DwarvenMines_PowerStationF1_1::
 	end
 
 
+NPC_DwarvenMines_PowerStationF1_Inventor::
+	lock
+	faceplayer
+	namebox NPC_DwarvenMines_PowerStationF1_Inventor_Text_0
+	msgbox NPC_DwarvenMines_PowerStationF1_Inventor_Text_1
+	waitmessage
+	hidenamebox
+	release
+	end
+
+
 NPC_DwarvenMines_PowerStationF1_2::
 	lock
 	faceplayer
@@ -93,16 +104,24 @@ NPC_DwarvenMines_PowerStationF1_1_Text_1:
 	.string "only.\p"
 	.string "I can't let you past.$"
 
+NPC_DwarvenMines_PowerStationF1_Inventor_Text_0:
+	.string "Inventor$"
+
+NPC_DwarvenMines_PowerStationF1_Inventor_Text_1:
+	.string "Through here leads to the Invention\n"
+	.string "Guild.\p"
+	.string "But it's for VIP members only, so no\n"
+	.string "entry for you!$"
+
 NPC_DwarvenMines_PowerStationF1_2_Text_0:
 	.string "Smith$"
 
 NPC_DwarvenMines_PowerStationF1_2_Text_1:
-	.string "You wanted to use this furnace to smelt\n"
-	.string "some ore?\p"
-	.string "Sorry, but only dwarves may use these\n"
-	.string "furnaces.\p"
-	.string "It became too costly for us to keep\n"
-	.string "letting adventurers waste our coal.$"
+	.string "Strykewyrms adapt to their\n"
+	.string "environments even during a battle!\p"
+	.string "If the terrain changes they too will\n"
+	.string "change!\p"
+	.string "Such interesting creatures.$"
 
 NPC_DwarvenMines_PowerStationF1_3_Text_0:
 	.string "My parents would never let me have\n"

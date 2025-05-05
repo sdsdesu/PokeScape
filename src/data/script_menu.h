@@ -912,6 +912,7 @@ static const struct MenuAction MultichoiceList_STORYMODE_STATE[] =
     {gText_Pre_WIZARDSTOWER},
     {gText_Post_DRAYNORMANOR},
     {gText_Post_MELZARSMAZE},
+    {gText_Post_FALADORGYM},
     {gText_Pre_Crandor},
     {gText_Pre_BKF},
     {gText_Post_BKF},

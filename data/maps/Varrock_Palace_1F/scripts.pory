@@ -227,7 +227,7 @@ script VARROCK_GYM_RELDO
         }     
         if (var(VAR_POKESCAPE_VARROCK_GYM_QUEST) == 26)
         {
-            msgbox(format("Congratulations on winning the MvM battle against King Roald!."))
+            msgbox(format("Congratulations on winning the MvM battle against King Roald!"))
         }   
     }
     else

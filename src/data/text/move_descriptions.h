@@ -3339,7 +3339,7 @@ const u8 gNotDoneYetDescription[] = _(
 // Pokescape
 static const u8 sChaoticRiftDescription[] = _(
     "Opens a chaotic rift.\n"
-    "Type matchups get weird!.");
+    "Type matchups get weird!");
 
 static const u8 sSwordStrikeDescription[] = _(
     "Strike forth with a mighty blade.\n"

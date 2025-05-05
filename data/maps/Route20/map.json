@@ -230,7 +230,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE20_BLOCKADE_SOUTH",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILING_2",
@@ -242,7 +242,7 @@
       "movement_range_y": 10,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "BATTLE_ROUTE20_TRAINER_1",
+      "script": "BATTLE_ROUTE20_TRAINER_2",
       "flag": "0"
     },
     {
@@ -268,7 +268,7 @@
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "BATTLE_ROUTE20_TRAINER_2",
+      "script": "BATTLE_ROUTE20_TRAINER_1",
       "flag": "0"
     },
     {
@@ -282,7 +282,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE20_BLOCKADE_NORTH",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILING_2",
@@ -314,7 +314,7 @@
       "y": 37,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
@@ -323,7 +323,7 @@
       "y": 37,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
@@ -332,7 +332,7 @@
       "y": 37,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_SOUTH"
     },
     {
@@ -341,7 +341,7 @@
       "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_NORTH"
     },
     {
@@ -350,7 +350,7 @@
       "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_NORTH"
     },
     {
@@ -359,7 +359,7 @@
       "y": 2,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "ROUTE20_BLOCKADE_NORTH"
     }
   ],

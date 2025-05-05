@@ -22,7 +22,14 @@ script ROUTE27_STATE {
 		addobject(8)
 		addobject(9)
     }
-    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
+    if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175) 
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 186)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195))
     {
         clearflag(FLAG_TEMP_1F)
 		addobject(8)

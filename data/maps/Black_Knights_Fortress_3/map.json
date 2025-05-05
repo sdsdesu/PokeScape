@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HILL_GIANT",
-      "x": 9,
+      "x": 5,
       "y": 4,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
-      "x": 15,
+      "x": 11,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -211,7 +211,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
-      "x": 11,
+      "x": 7,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -250,7 +250,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_WHITE_M",
-      "x": 13,
+      "x": 9,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -288,19 +288,6 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 5,
-      "y": 4,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_3F_ITEM3",
-      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_7"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
       "x": 14,
       "y": 13,
@@ -325,6 +312,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_3F_ITEM1",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BANKER_M",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BKF_Banker",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_F",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1F"
     }
   ],
   "warp_events": [
@@ -340,7 +353,14 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BKF_GATE"
+    }
   ],
   "has_night_table": false
 }

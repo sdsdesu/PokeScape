@@ -363,6 +363,7 @@ STORY_FALADORCASTLE_3F_SIRAMIKVARZE_REPORTING_BACK::
 	closemessage
 	addvar VAR_GAMEMODE_LEVEL_CAP, 2
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 160
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10
 	release
 	end
 
@@ -373,15 +374,21 @@ LEVEL_CAP_INCREASE::
 	msgbox LEVEL_CAP_INCREASE_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne LEVEL_CAP_INCREASE_2
-LEVEL_CAP_INCREASE_1:
 	msgbox LEVEL_CAP_INCREASE_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne LEVEL_CAP_INCREASE_5
-LEVEL_CAP_INCREASE_4:
 	msgbox LEVEL_CAP_INCREASE_Text_3, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne LEVEL_CAP_INCREASE_8
-LEVEL_CAP_INCREASE_7:
+	msgbox LEVEL_CAP_INCREASE_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne LEVEL_CAP_INCREASE_11
+	msgbox LEVEL_CAP_INCREASE_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne LEVEL_CAP_INCREASE_14
+	msgbox LEVEL_CAP_INCREASE_Text_6, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne LEVEL_CAP_INCREASE_17
 	closemessage
 	release
 	end
@@ -390,19 +397,49 @@ LEVEL_CAP_INCREASE_2:
 	addvar VAR_GAMEMODE_LEVEL_CAP, 1
 	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
 	msgbox LEVEL_CAP_INCREASE_Text_0
-	goto LEVEL_CAP_INCREASE_1
+	closemessage
+	release
+	end
 
 LEVEL_CAP_INCREASE_5:
+	addvar VAR_GAMEMODE_LEVEL_CAP, 5
+	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
+	msgbox LEVEL_CAP_INCREASE_Text_0
+	closemessage
+	release
+	end
+
+LEVEL_CAP_INCREASE_8:
 	addvar VAR_GAMEMODE_LEVEL_CAP, 10
 	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
 	msgbox LEVEL_CAP_INCREASE_Text_0
-	goto LEVEL_CAP_INCREASE_4
+	closemessage
+	release
+	end
 
-LEVEL_CAP_INCREASE_8:
+LEVEL_CAP_INCREASE_11:
+	addvar VAR_GAMEMODE_LEVEL_CAP, 50
+	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
+	msgbox LEVEL_CAP_INCREASE_Text_0
+	closemessage
+	release
+	end
+
+LEVEL_CAP_INCREASE_14:
+	setvar VAR_GAMEMODE_LEVEL_CAP, 120
+	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
+	msgbox LEVEL_CAP_INCREASE_Text_0
+	closemessage
+	release
+	end
+
+LEVEL_CAP_INCREASE_17:
 	setvar VAR_GAMEMODE_LEVEL_CAP, 0
 	buffernumberstring 0, VAR_GAMEMODE_LEVEL_CAP
 	msgbox LEVEL_CAP_INCREASE_Text_0
-	goto LEVEL_CAP_INCREASE_7
+	closemessage
+	release
+	end
 
 
 QUEST_FALADORCASTLE_EVENT_AFTER_GYM_Text_0:
@@ -564,7 +601,16 @@ LEVEL_CAP_INCREASE_Text_1:
 	.string "Increase level cap by 1?$"
 
 LEVEL_CAP_INCREASE_Text_2:
-	.string "Increase level cap by 10?$"
+	.string "Increase level cap by 5?$"
 
 LEVEL_CAP_INCREASE_Text_3:
+	.string "Increase level cap by 10?$"
+
+LEVEL_CAP_INCREASE_Text_4:
+	.string "Increase level cap by 50?$"
+
+LEVEL_CAP_INCREASE_Text_5:
+	.string "Increase level cap to 120?$"
+
+LEVEL_CAP_INCREASE_Text_6:
 	.string "Reset level cap to 0?$"

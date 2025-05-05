@@ -1943,7 +1943,7 @@ const u8 gText_Post_MELZARSMAZE[] =_("POST MELZARS MAZE");
 const u8 gText_Pre_Crandor[] =_("PRE CRANDOR");
 const u8 gText_Pre_BKF[] =_("PRE BLACK KNIGHTS FORTRESS");
 const u8 gText_Post_BKF[] =_("POST BLACK KNIGHTS FORTRESS");
-
+const u8 gText_Post_FALADORGYM[] =_("POST FALADOR GYM");
 
 
 
@@ -2147,6 +2147,10 @@ const u8 gText_SubQuest_Main_Story_Name9[] = _("Dragon Sailor");
 const u8 gText_SubQuest_Main_Story_Desc9[] = _("You found a captain for the boat.\nAll that's left to do now is to set sail!");
 const u8 gText_SubQuest_Main_Story_Name10[] = _("Close one!");
 const u8 gText_SubQuest_Main_Story_Desc10[] = _("You escaped from the volcano just in\ntime. Best report back to the\nWhite Knights of Falador.");
+const u8 gText_SubQuest_Main_Story_Name11[] = _("Mission complete?");
+const u8 gText_SubQuest_Main_Story_Desc11[] = _("You reported the mission summary to\nSir Amik Varze, but what will\nhappen to Ned and the Cabin boy.");
+const u8 gText_SubQuest_Main_Story_Name12[] = _("What lies below");
+const u8 gText_SubQuest_Main_Story_Desc12[] = _("You and Sir Owen infiltrated the\nBlack Knights Fortress and found\ninformation about a mural.");
 
 const u8 gText_MapName_DraynorManor[] = _("Draynor Manor");
 const u8 gText_MapName_LumbridgeForest[] = _("Lumbridge Forest");
@@ -2154,6 +2158,7 @@ const u8 gText_MapName_PortSarim[] = _("Port Sarim");
 const u8 gText_MapName_MelzarsMaze[] = _("Melzars Maze");
 const u8 gText_MapName_DwarvenMines[] = _("Dwarven Mines");
 const u8 gText_MapName_Crandor[] = _("Crandor");
+const u8 gText_MapName_IceMountain[] = _("Ice Mountain");
 
 const u8 gText_SideQuestName_MithrilmanQuest[] = _("Mithrilman Quest");
 const u8 gText_SideQuestDesc_MithrilmanQuest[] = _("Follow the story of Mithrilman.");

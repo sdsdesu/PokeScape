@@ -5702,9 +5702,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROUTE20_TRAINER_5] =
     {
-        .trainerClass = TRAINER_CLASS_FISHER,
+        .trainerClass = TRAINER_CLASS_QUESTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_fisher,
+        .trainerPic = TRAINER_PIC_quester,
         .trainerName = _("BaitNSwitch"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,

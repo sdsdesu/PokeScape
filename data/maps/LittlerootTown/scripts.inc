@@ -52,7 +52,6 @@ LittlerootTown_EventScript_HideMapNamePopup::
 	return
 
 LittlerootTown_EventScript_SetRivalLeftForRoute103::
-	setflag FLAG_RIVAL_LEFT_FOR_ROUTE103
 	return
 
 LittlerootTown_EventScript_MoveRivalFromOldale::

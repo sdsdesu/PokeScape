@@ -30,6 +30,7 @@ POST_WARP_BKF_EVENT::
 	closemessage
 	hidenamebox
 	giveitem ITEM_STRENGTH_TOOL
+	namebox POST_WARP_BKF_EVENT_Text_0
 	msgbox POST_WARP_BKF_EVENT_Text_2
 	closemessage
 	hidenamebox
@@ -73,7 +74,6 @@ movement_SirOwen_POST_WARP_BKF_EVENT:
 	walk_right
 	walk_right
 	walk_right
-	walk_right
 	walk_down
 	walk_down
 	walk_down
@@ -98,6 +98,18 @@ ROUTE26_STATE_4:
 ROUTE26_STATE_7:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 180
 	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 181
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 185
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 186
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 190
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 195
+	goto_if_eq ROUTE26_STATE_11
 ROUTE26_STATE_10:
 	return
 
@@ -114,22 +126,22 @@ ROUTE26_STATE_5:
 	goto ROUTE26_STATE_4
 
 ROUTE26_STATE_8:
-	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_14
-ROUTE26_STATE_13:
+	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_26
+ROUTE26_STATE_25:
 	clearflag FLAG_TEMP_1F
 	addobject 6
 	goto ROUTE26_STATE_7
 
 ROUTE26_STATE_11:
-	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_16
+	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_28
 	goto ROUTE26_STATE_10
 
-ROUTE26_STATE_14:
+ROUTE26_STATE_26:
 	clearflag FLAG_TEMP_1E
 	addobject 13
-	goto ROUTE26_STATE_13
+	goto ROUTE26_STATE_25
 
-ROUTE26_STATE_16:
+ROUTE26_STATE_28:
 	clearflag FLAG_TEMP_1E
 	addobject 13
 	setobjectxyperm 13, 8, 7
@@ -316,7 +328,7 @@ POST_WARP_BKF_EVENT_Text_1:
 POST_WARP_BKF_EVENT_Text_2:
 	.string "Hopefully you will find a use for it on\n"
 	.string "your adventures.\p"
-	.string "CUPHOLDER!$"
+	.string "See you around {PLAYER}!$"
 
 TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0:
 	.string "{PLAYER}! Mind lending me a hand?\p"

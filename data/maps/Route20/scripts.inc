@@ -15,10 +15,28 @@ ROUTE20_STATE::
 	removeobject 11
 	removeobject 12
 	removeobject 13
+	removeobject 18
+	removeobject 14
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 160
 	goto_if_eq ROUTE20_STATE_2
 ROUTE20_STATE_1:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 165
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 175
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 180
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 181
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 185
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 186
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 190
+	goto_if_eq ROUTE20_STATE_4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 195
 	goto_if_eq ROUTE20_STATE_4
 	return
 
@@ -30,12 +48,18 @@ ROUTE20_STATE_2:
 	addobject 11
 	addobject 12
 	addobject 13
+	addobject 18
+	addobject 14
+	setvar VAR_TEMP_0, 1
 	goto ROUTE20_STATE_1
 
 ROUTE20_STATE_4:
 	clearflag FLAG_TEMP_1E
 	addobject 11
 	addobject 12
+	addobject 18
+	addobject 14
+	setvar VAR_TEMP_0, 1
 	return
 
 

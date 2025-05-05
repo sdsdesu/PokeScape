@@ -1098,6 +1098,7 @@ QUEST_TESTER_4:
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 9
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11
 	startquest QUEST_MITHRILMAN_QUEST
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 0
 	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 1
@@ -1361,6 +1362,8 @@ SetFollower_SirOwen::
 	msgbox SetFollower_SirOwen_Text_3
 	hidenamebox
 	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
+	waitmovement 0
 	releaseall
 	end
 

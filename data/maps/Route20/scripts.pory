@@ -13,6 +13,8 @@ script ROUTE20_STATE {
     removeobject(11)
     removeobject(12)
     removeobject(13)
+    removeobject(18)
+    removeobject(14)
     
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 160)
     {
@@ -23,12 +25,26 @@ script ROUTE20_STATE {
         addobject(11)
         addobject(12)
         addobject(13)
+        addobject(18)
+        addobject(14)
+        setvar(VAR_TEMP_0, 1)
     }
-    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 165)
+    if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 165) 
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 186)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195))
     {
         clearflag(FLAG_TEMP_1E)
         addobject(11)
         addobject(12)
+        addobject(18)
+        addobject(14)
+        setvar(VAR_TEMP_0, 1)
     }
 }
 
