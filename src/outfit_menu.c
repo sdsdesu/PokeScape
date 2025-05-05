@@ -805,7 +805,7 @@ static inline void PrintDialogueBoxWithDescWin(const u8 *str, bool32 expandPlace
 
 static void Task_PrintCantChangeOutfit(u8 taskId)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
         StringCopy(gStringVar1, sText_OutfitError_Cycling);
     else if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
         StringCopy(gStringVar1, sText_OutfitError_Surfing);

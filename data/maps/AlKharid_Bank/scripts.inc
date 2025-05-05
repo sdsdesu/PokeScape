@@ -14,7 +14,7 @@ AlKharid_Bank_OnTransition::
 
 Outfits::
 	giveitem ITEM_OUTFIT_BOX, 1
-	unlockoutfit 3
+	unlockoutfit OUTFIT_HAM
 	unlockoutfit 4
 	closemessage
 	release
@@ -60,8 +60,7 @@ EventScript_ChangeOutfit_2:
 
     .align 2
 STORE_clothes:
-	.2byte OUTFIT_USUAL_GREEN
-    .2byte OUTFIT_UNUSUAL_RED
+	.2byte OUTFIT_DEFAULT
     .2byte OUTFIT_HAM
     .2byte OUTFIT_BRONZE_ARMOUR
     .2byte OUTFIT_GUARD

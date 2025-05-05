@@ -268,7 +268,7 @@ static const u8 sPlayerAvatarGfxToStateFlag[5] =
     [PLAYER_AVATAR_STATE_BIKE]       = PLAYER_AVATAR_FLAG_BIKE,
     [PLAYER_AVATAR_STATE_SURFING]    = PLAYER_AVATAR_FLAG_SURFING,
     [PLAYER_AVATAR_STATE_UNDERWATER] = PLAYER_AVATAR_FLAG_UNDERWATER,
-    [PLAYER_AVATAR_STATE_BIKE_2]     = PLAYER_AVATAR_FLAG_BIKE,
+    [PLAYER_AVATAR_STATE_BIKE_2]     = PLAYER_AVATAR_FLAG_BIKE_2,
 };
 
 static bool8 (*const sPushBoulderFuncs[])(struct Task *, struct ObjectEvent *, struct ObjectEvent *) =
@@ -364,7 +364,7 @@ static void npc_clear_strange_bits(struct ObjectEvent *objEvent)
 
 static void MovePlayerAvatarUsingKeypadInput(u8 direction, u16 newKeys, u16 heldKeys)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
         MovePlayerOnBike(direction, newKeys, heldKeys);
     else
         MovePlayerNotOnBike(direction, heldKeys);

@@ -192,6 +192,11 @@ static void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegist
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_DadsAdvice);
 }
 
+static void OutfitCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
+{
+    DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_OutfitCannotUseItemMessage);
+}
+
 static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
 {
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_CantDismountBike);
@@ -268,7 +273,10 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
         DisplayCannotDismountBikeMessage(taskId, tUsingRegisteredKeyItem);
     else
     {
-        if (Overworld_IsBikingAllowed() == TRUE && IsBikingDisallowedByPlayer() == 0 && FollowerCanBike())
+        if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+            OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+        }
+        else if (Overworld_IsBikingAllowed() == TRUE && IsBikingDisallowedByPlayer() == 0 && FollowerCanBike())
         {
             sItemUseOnFieldCB = ItemUseOnFieldCB_Bike;
             SetUpItemUseOnFieldCallback(taskId);
@@ -348,8 +356,7 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
     gUnusedBikeCameraAheadPanback = FALSE;
 
-    //gSaveBlock2Ptr->playerBike = MACH_BIKE;
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
     {
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
         Overworld_ClearSavedMusic();
@@ -358,7 +365,12 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     else
     {
         gSaveBlock2Ptr->playerBike = ItemId_GetSecondaryId(gSpecialVar_ItemId);
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
+        if (ItemId_GetSecondaryId(gSpecialVar_ItemId) == MACH_BIKE) {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE_2);
+        } 
+        else {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
+        }
         Overworld_SetSavedMusic(MUS_PS_TERRORBIRD);
         Overworld_ChangeMusicTo(MUS_PS_TERRORBIRD);
     }
@@ -404,7 +416,10 @@ static bool32 CanFish(void)
 
 void ItemUseOutOfBattle_Rod(u8 taskId)
 {
-    if (CanFish() == TRUE)
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (CanFish() == TRUE)
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_Rod;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1620,7 +1635,10 @@ static void ItemUseOnFieldCB_SurfTool(u8 taskId)
 
 void ItemUseOutOfBattle_SurfTool(u8 taskId)
 {
-    if (IsPlayerFacingSurfableFishableWater())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (IsPlayerFacingSurfableFishableWater())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_SurfTool;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1687,7 +1705,10 @@ static void ItemUseOnFieldCB_WaterfallTool(u8 taskId)
 
 void ItemUseOutOfBattle_WaterfallTool(u8 taskId)
 {
-    if (CanUseWaterfallTool())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (CanUseWaterfallTool())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_WaterfallTool;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1705,7 +1726,10 @@ static void ItemUseOnFieldCB_DiveTool(u8 taskId)
 
 void ItemUseOutOfBattle_DiveTool(u8 taskId)
 {
-    if (TrySetDiveWarp())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (TrySetDiveWarp())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_DiveTool;
         SetUpItemUseOnFieldCallback(taskId);

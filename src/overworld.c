@@ -934,6 +934,8 @@ void StoreInitialPlayerAvatarState(void)
 
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE;
+    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE_2))
+    sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE_2;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_SURFING;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_UNDERWATER))
@@ -966,6 +968,8 @@ static u16 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pl
         return PLAYER_AVATAR_FLAG_ON_FOOT;
     else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_BIKE)
         return PLAYER_AVATAR_FLAG_BIKE;
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_BIKE_2)
+        return PLAYER_AVATAR_FLAG_BIKE_2;
     else
         return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
@@ -1235,7 +1239,7 @@ static void TransitionMapMusic(void)
         }
         if (newMusic != currentMusic)
         {
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
+            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
                 FadeOutAndFadeInNewMapMusic(newMusic, 4, 4);
             else
                 FadeOutAndPlayNewMapMusic(newMusic, 8);

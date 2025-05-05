@@ -1024,7 +1024,7 @@ static void Bike_SetBikeStill(void)
 
 s16 GetPlayerSpeed(void)
 {
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
     {
         if (gSaveBlock2Ptr->playerBike == MACH_BIKE)
         {

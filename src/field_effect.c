@@ -1379,7 +1379,9 @@ static void Task_UseFly(u8 taskId)
         if ((int)gFieldEffectArguments[0] > PARTY_SIZE - 1)
             gFieldEffectArguments[0] = 0;
 
-        FieldEffectStart(FLDEFF_USE_FLY);
+        if (gSaveBlock2Ptr->currOutfitId == DEFAULT_OUTFIT) { // Only does animation for the default outfit.
+            FieldEffectStart(FLDEFF_USE_FLY);
+        }
         task->data[0]++;
     }
     if (!FieldEffectActiveListContains(FLDEFF_USE_FLY))
@@ -1397,7 +1399,10 @@ static void FieldCallback_FlyIntoMap(void)
     Overworld_PlaySpecialMapMusic();
     FadeInFromBlack();
     CreateTask(Task_FlyIntoMap, 0);
-    gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    if (gSaveBlock2Ptr->currOutfitId == DEFAULT_OUTFIT) { // Only does animation for the default outfit.
+        gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    }
+
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
         ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_WEST);
@@ -1417,7 +1422,9 @@ static void Task_FlyIntoMap(u8 taskId)
         {
             return;
         }
-        FieldEffectStart(FLDEFF_FLY_IN);
+        if (gSaveBlock2Ptr->currOutfitId == DEFAULT_OUTFIT) { // Only does animation for the default outfit.
+            FieldEffectStart(FLDEFF_FLY_IN);
+        }
         task->data[0]++;
     }
     if (!FieldEffectActiveListContains(FLDEFF_FLY_IN))

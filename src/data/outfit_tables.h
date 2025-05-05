@@ -63,7 +63,8 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
     [OUTFIT_NONE] = {
         .isHidden = TRUE
     },
-    [OUTFIT_USUAL_GREEN] = {
+    
+    [OUTFIT_DEFAULT] = {
         //! DESC: if sets to TRUE, it will not be shown in the OUTFIT menu if it's locked.
         .isHidden = FALSE,
         //
@@ -108,7 +109,8 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
                [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_MAY_NORMAL,
                [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_MAY_ACRO_BIKE,
                [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MAY_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER,
+               [PLAYER_AVATAR_STATE_BIKE_2] =     OBJ_EVENT_GFX_BRENDAN_MACH_BIKE
            },
         },
 
@@ -138,55 +140,11 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         //! note that frontier pass needs to be in one sprite instead of two,
         //! unlike region map. (probably should split them tbh)
         .iconsFP = sFrontierPassPlayerIcons_BrendanMay_Gfx,
+
+        //If False the player cannot use the Bike, Fishing, Flying or field effects.
+        .hasExtraAnims = TRUE,
     },
-    [OUTFIT_UNUSUAL_RED] = {
-        .isHidden = TRUE,
-        .hasRunAnims = FALSE,
-        .prices = { 200, 500 },
-        #if MODERN == 1
-        .name = COMPOUND_STRING("UNUSUAL RED"),
-        .desc = COMPOUND_STRING("Rather unusual,\nbut still basic\nOUTFIT."),
-        #else
-        .name = sText_OutfitName_UnusualRed,
-        .desc = sText_OutfitDesc_UnusualRed,
-        #endif
-        .trainerPics = {
-            [MALE]   = {TRAINER_PIC_RS_BRENDAN, TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN},
-            [FEMALE] = {TRAINER_PIC_RS_MAY, TRAINER_BACK_PIC_RUBY_SAPPHIRE_MAY}
-        },
-        .avatarGfxIds = {
-           [MALE] = {
-               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_NORMAL,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_ACRO_BIKE,
-               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_UNDERWATER
-           },
-           [FEMALE] = {
-               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_OUTFIT_RS_MAY_NORMAL,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_OUTFIT_RS_MAY_ACRO_BIKE,
-               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_OUTFIT_RS_MAY_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_OUTFIT_RS_MAY_UNDERWATER
-           },
-        },
-        .animGfxIds = {
-            [MALE] = {
-                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_FIELD_MOVE,
-                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_FISHING,
-                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_WATERING,
-                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_DECORATING,
-                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_OUTFIT_RS_BRENDAN_FIELD_MOVE
-            },
-            [FEMALE] = {
-                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_OUTFIT_RS_MAY_FIELD_MOVE,
-                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_OUTFIT_RS_MAY_FISHING,
-                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_OUTFIT_RS_MAY_WATERING,
-                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_OUTFIT_RS_MAY_DECORATING,
-                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_OUTFIT_RS_MAY_FIELD_MOVE
-            },
-        },
-        .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
-        .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
-    },
+
     [OUTFIT_HAM] = {
         .isHidden = FALSE,
         .hasRunAnims = FALSE,
@@ -198,19 +156,21 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
             [FEMALE] = { TRAINER_PIC_ham_grunt_f, TRAINER_BACK_PIC_MAY, },
         },
         .avatarGfxIds = {
-           [MALE] = {
+            
+            [MALE] = {
                [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_HAM_GRUNT_M,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_BIKE_HAM,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,
                [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_BRENDAN_SURFING,
                [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_BRENDAN_UNDERWATER,
                [PLAYER_AVATAR_STATE_BIKE_2] =     OBJ_EVENT_GFX_BIKE_HAM
-           },
-           [FEMALE] = {
-               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_HAM_GRUNT_F,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_TERRORBIRD_1,
-               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MAY_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER
-           },
+            },
+            [FEMALE] = {
+                [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_HAM_GRUNT_F,
+                [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_MAY_ACRO_BIKE,
+                [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MAY_SURFING,
+                [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER,
+                [PLAYER_AVATAR_STATE_BIKE_2] =     OBJ_EVENT_GFX_BIKE_HAM
+            },
         },
         .animGfxIds = {
             [MALE] = {
@@ -230,50 +190,9 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_Gfx_HAM_M, sRegionMapPlayerIcon_Gfx_HAM_F },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = TRUE,
     },
-    [OUTFIT_BRONZE_ARMOUR] = {
-        .isHidden = FALSE,
-        .hasRunAnims = FALSE,
-        .prices = { 1000, 500 },
-        .name = COMPOUND_STRING("BRONZE ARMOUR"),
-        .desc = COMPOUND_STRING("Only noobs wear\nthis."),
-        .trainerPics = {
-            [MALE] =   { TRAINER_PIC_lukien, TRAINER_BACK_PIC_BRENDAN, },
-            [FEMALE] = { TRAINER_PIC_lukien, TRAINER_BACK_PIC_MAY, },
-        },
-        .avatarGfxIds = {
-           [MALE] = {
-               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_LUKIENLIGHT,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_BRENDAN_ACRO_BIKE,
-               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_BRENDAN_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_BRENDAN_UNDERWATER
-           },
-           [FEMALE] = {
-               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_LUKIENLIGHT,
-               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_MAY_ACRO_BIKE,
-               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MAY_SURFING,
-               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER
-           },
-        },
-        .animGfxIds = {
-            [MALE] = {
-                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,
-                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_BRENDAN_FISHING,
-                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_BRENDAN_WATERING,
-                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_BRENDAN_DECORATING,
-                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE
-            },
-            [FEMALE] = {
-                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_MAY_FIELD_MOVE,
-                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_MAY_FISHING,
-                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_MAY_WATERING,
-                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_MAY_DECORATING,
-                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_MAY_FIELD_MOVE
-            },
-        },
-        .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
-        .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
-    },
+
     [OUTFIT_GUARD] = {
         .isHidden = FALSE,
         .hasRunAnims = FALSE,
@@ -316,7 +235,51 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
+
+    [OUTFIT_BRONZE_ARMOUR] = {
+        .isHidden = FALSE,
+        .hasRunAnims = FALSE,
+        .prices = { 1000, 500 },
+        .name = COMPOUND_STRING("BRONZE ARMOUR"),
+        .desc = COMPOUND_STRING("Only noobs wear\nthis."),
+        .trainerPics = {
+            [MALE] =   { TRAINER_PIC_lukien, TRAINER_BACK_PIC_BRENDAN, },
+            [FEMALE] = { TRAINER_PIC_lukien, TRAINER_BACK_PIC_MAY, },
+        },
+        .avatarGfxIds = {
+           [MALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_LUKIENLIGHT,
+           },
+           [FEMALE] = {
+               [PLAYER_AVATAR_STATE_NORMAL] =     OBJ_EVENT_GFX_LUKIENLIGHT,
+               [PLAYER_AVATAR_STATE_BIKE] =       OBJ_EVENT_GFX_MAY_ACRO_BIKE,
+               [PLAYER_AVATAR_STATE_SURFING] =    OBJ_EVENT_GFX_MAY_SURFING,
+               [PLAYER_AVATAR_STATE_UNDERWATER] = OBJ_EVENT_GFX_MAY_UNDERWATER
+           },
+        },
+        .animGfxIds = {
+            [MALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_BRENDAN_FISHING,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_BRENDAN_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_BRENDAN_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE
+            },
+            [FEMALE] = {
+                [PLAYER_AVATAR_GFX_FIELD_MOVE] = OBJ_EVENT_GFX_MAY_FIELD_MOVE,
+                [PLAYER_AVATAR_GFX_FISHING] =    OBJ_EVENT_GFX_MAY_FISHING,
+                [PLAYER_AVATAR_GFX_WATERING] =   OBJ_EVENT_GFX_MAY_WATERING,
+                [PLAYER_AVATAR_GFX_DECORATING] = OBJ_EVENT_GFX_MAY_DECORATING,
+                [PLAYER_AVATAR_GFX_VSSEEKER] =   OBJ_EVENT_GFX_MAY_FIELD_MOVE
+            },
+        },
+        .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
+        .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
+    },
+    
     [OUTFIT_ZANIK] = {
         .isHidden = FALSE,
         .hasRunAnims = FALSE,
@@ -359,6 +322,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_ARIANE] = {
         .isHidden = FALSE,
@@ -402,6 +366,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_BARBARIAN] = {
         .isHidden = FALSE,
@@ -445,6 +410,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_FARMER] = {
         .isHidden = FALSE,
@@ -488,6 +454,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_RSMV] = {
         .isHidden = FALSE,
@@ -531,6 +498,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_WIZARD] = {
         .isHidden = FALSE,
@@ -574,6 +542,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_DEMONHEADGE] = {
         .isHidden = FALSE,
@@ -617,6 +586,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_HYPERSTAN] = {
         .isHidden = FALSE,
@@ -660,6 +630,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
     [OUTFIT_TWISTED_SMILE] = {
         .isHidden = FALSE,
@@ -703,6 +674,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         },
         .iconsRM = { sRegionMapPlayerIcon_RSBrendanGfx, sRegionMapPlayerIcon_RSMayGfx },
         .iconsFP = sFrontierPassPlayerIcons_RSBrendanMay_Gfx,
+        .hasExtraAnims = FALSE,
     },
 };
 

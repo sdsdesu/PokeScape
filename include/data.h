@@ -144,6 +144,7 @@ struct Outfit
     //! region map & frontier pass
     const void *iconsRM[GENDER_COUNT]; //! region map
     const void *iconsFP; //! frontier pass
+    u8 hasExtraAnims:1;
 };
 
 extern const struct Outfit gOutfits[OUTFIT_COUNT];

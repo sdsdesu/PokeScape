@@ -34,6 +34,7 @@
 #include "item_menu.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
+#include "data.h"
 
 static u8 CreateUseToolTask(void);
 static void Task_UseTool_Init(u8);
@@ -181,7 +182,10 @@ u32 CanUseSurf(s16 x, s16 y, u8 collision)
     bool32 playerHasBadge = FlagGet(FLAG_BADGE05_GET);
     bool32 collisionHasMismatch = (collision == COLLISION_ELEVATION_MISMATCH);
 
-    if (IsPlayerFacingSurfableFishableWater()
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) { // If outfit doesn't have a surf animation.
+        return FIELD_MOVE_FAIL;
+    }
+    else if (IsPlayerFacingSurfableFishableWater()
         && collisionHasMismatch
         && (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         && GetObjectEventIdByPosition(x, y, 1) == OBJECT_EVENTS_COUNT
