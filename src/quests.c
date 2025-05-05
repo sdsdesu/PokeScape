@@ -815,6 +815,24 @@ static const struct SubQuest sSubQuests_MAIN_STORY[QUEST_MAIN_STORY_SUB_COUNT] =
 	      OBJECT,
 	      sText_Delivered
 	),
+	sub_quest(
+		52,
+		gText_SubQuest_Main_Story_Name11,
+		gText_SubQuest_Main_Story_Desc11,
+		gText_MapName_Falador,
+		OBJ_EVENT_GFX_GYMLEADER_SIR_AMIK_VARZE,
+		OBJECT,
+		sText_Delivered
+  	),
+	sub_quest(
+		53,
+		gText_SubQuest_Main_Story_Name12,
+		gText_SubQuest_Main_Story_Desc12,
+		gText_MapName_IceMountain,
+		OBJ_EVENT_GFX_KNIGHT_BLACK_DAQUARIUS,
+		OBJECT,
+		sText_Delivered
+  	),
 };
 
 

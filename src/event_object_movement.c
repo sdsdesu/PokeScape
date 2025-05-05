@@ -694,6 +694,12 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_DUNGEONEERING_2   0x121B
 #define OBJ_EVENT_PAL_GREYPAL           0x121F
 #define OBJ_EVENT_PAL_ELITEBLACK        0x1151
+#define OBJ_EVENT_PAL_SAILING           0x1153
+#define OBJ_EVENT_PAL_GORAJO            0x1218
+#define OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW    0x1176
+#define OBJ_EVENT_PAL_MONSTERS_RED_GREY             0x123A
+
+
 
 
 #define OBJ_EVENT_PAL_TAG_LIGHT                   0x8001
@@ -1049,9 +1055,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_CHICKENS, OBJ_EVENT_PAL_CHICKENS},
     {gObjectEventPalette_GREYPAL, OBJ_EVENT_PAL_GREYPAL},
     {gObjectEventPalette_ELITEBLACK, OBJ_EVENT_PAL_ELITEBLACK},
-    
-
-    
+    {gObjectEventPalette_SAILING, OBJ_EVENT_PAL_SAILING},
+    {gObjectEventPalette_GORAJO, OBJ_EVENT_PAL_GORAJO},
+    {gObjectEventPalette_MONSTERS_GREEN_BLUE_YELLOW, OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW},
+    {gObjectEventPalette_MONSTERS_RED_GREY, OBJ_EVENT_PAL_MONSTERS_RED_GREY},
     
     
     

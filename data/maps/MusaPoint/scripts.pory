@@ -1003,6 +1003,7 @@ script QUEST_TESTER {
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 9)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)
 
 	startquest (QUEST_MITHRILMAN_QUEST)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 0)
@@ -1228,37 +1229,37 @@ script FOLLOWER_REMOVE {
 
 
 script CHECK_FOLLOWER_SIROWEN {
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180) {
-		checkfollower
-		if (var(VAR_RESULT)) {
-			lockall
-			namebox("Sir Owen")
-			msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
-			if (var(VAR_RESULT))
-			{ 
-				msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
-				closemessage
-				hidenamebox
-				call(FOLLOWER_REMOVE)
-				clearflag(FLAG_TEMP_1E)
-				addobject(13)
-				applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
-				waitmovement(0)
-			}
-			else {
-				closemessage
-				hidenamebox
-				applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
-				applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
-				waitmovement(0)
-			}
-			releaseall
+	checkfollower
+	if (var(VAR_RESULT)) {
+		lockall
+		namebox("Sir Owen")
+		msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{ 
+			msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
+			closemessage
+			hidenamebox
+			call(FOLLOWER_REMOVE)
+			clearflag(FLAG_TEMP_1E)
+			addobject(13)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+			waitmovement(0)
 		}
 		else {
-			goto(SetFollower_SirOwen)
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+			waitmovement(0)
 		}
+		releaseall
 	}
-	end
+	else {
+		applymovement (13, Movement_InteractFACEDOWN)
+		waitmovement(0)
+		goto(SetFollower_SirOwen)
+	}
+	return
 }
 
 
@@ -1298,6 +1299,8 @@ script SetFollower_SirOwen {
 	msgbox(format("Oh… I see.\nThat's a bit disappointing.\pThought we had a heroic thing going here…"))
     hidenamebox
     closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+	waitmovement(0)
     releaseall
     end
 }
@@ -1306,7 +1309,28 @@ script SetFollower_SirOwen {
 script FOLLOWING_SirOwen {
     namebox("Sir Owen")
     facefollower 
-//It is more common for special dialogue than this common dialogue. 1/5
+
+	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
+		case 181:
+			msgbox(format("Is that a Black Knight Fortress?!"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 186:
+			msgbox(format("We should go say hello to those guards up on the mountain."))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 187:
+			msgbox(format("I cannot believe we just did that…\pI guess we should try to enter the fortress, now that we look the part."))
+			hidenamebox
+			closemessage
+			release
+			end
+	}
+	//It is more common for special dialogue than this common dialogue. 1/5
 	random(5)
 	switch (var(VAR_RESULT)) {
 		case 0:
@@ -1318,7 +1342,16 @@ script FOLLOWING_SirOwen {
 				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
 			}
 			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS)
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
 			}
 			else {
 				goto(SIR_OWEN_DIALOGUE_COMMON)
@@ -1383,7 +1416,7 @@ script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
 	release
 	end
 }
-script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1 {
 	random(8)
 	switch (var(VAR_RESULT)) {
 	case 0:
@@ -1402,6 +1435,68 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
 		msgbox(format("These Black knights dont know when to quit."))
 	case 7:
 		msgbox(format("We know of another hideout for the Black Knights, it is actually deep underground.\pThis is just an outpost compared to that."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2 {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These Kinshra seem obsessed with their history."))
+	case 1:
+		msgbox(format("I cannot believe that they are having a feast in here while people in nearby towns are starving..."))
+	case 2:
+		msgbox(format("Sir Tiffy is not going to be pleased when he hears how many Black Knights are here."))
+	case 3:
+		msgbox(format("How big is this place?\pIf I was in charge, I'd probably want to be right at the very top."))
+	case 4:
+		msgbox(format("I can hear the chanting of hymns.\pI cannot believe that there are still people openly worshipping Zamorak in Gielinor."))
+	case 5:
+		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
+	case 6:
+		msgbox(format("Did you know Kinshra means 'the ones that spark the fire'?\pAll these people know are death and destruction."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3 {
+	random(4)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These dungeons are full of prisoners.\pI wish we could free them all."))
+	case 1:
+		msgbox(format("The Kinshra often fill up their armies with slaves.\pI bet these poor people are some of them, ready for whatever war they start next."))
+	case 2:
+		msgbox(format("Can you hear that sound?\pThey've got more than just humans down here..."))
+	case 3:
+		msgbox(format("That sound!\pThey're training!\p{PAUSE 15}We need to find out what they're up to and stop them quickly!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4 {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I can feel it {PLAYER}, we're getting close now."))
+	case 1:
+		msgbox(format("Can you hear the whispering?\pThere's an important meeting going on up here.\pIt cost me dearly, but if I could go back I would do it all over again."))
+	case 2:
+		msgbox(format("The Kinshra despise me for what I did to Iban."))
+	case 3:
+		msgbox(format("Whilst some may not approve of the tactics I use, I know without a doubt that Saradomin himself guides my hand."))
+	case 4:
+		msgbox(format("When we find Lord Daquarius, we may need to be prepared for a fierce battle."))
 	}
 	hidenamebox
 	closemessage

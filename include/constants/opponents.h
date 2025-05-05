@@ -508,8 +508,8 @@
 #define TRAINER_BLACKKNIGHT_TAIM                        502
 #define TRAINER_BLACKKNIGHT_LAIF                        503
 #define TRAINER_BLACKKNIGHT_FALL                        504
-#define TRAINER_BLACKKNIGHT_SKOOL                       505 //Not currently in use
-#define TRAINER_BLACKKNIGHT_SIFT                        506 //Not currently in use
+#define TRAINER_BLACKKNIGHT_SKOOL                       505
+#define TRAINER_BLACKKNIGHT_SIFT                        506
 #define TRAINER_BLACKKNIGHT_NECRO_1                     507
 #define TRAINER_BLACKKNIGHT_NECRO_2                     508
 #define TRAINER_BLACKKNIGHT_ELITE_1                     509
@@ -523,13 +523,44 @@
 #define TRAINER_ROUTE26_BLACK_KNIGHT                    517
 #define TRAINER_ICE_MOUNTAIN_GUARD_1                    518
 #define TRAINER_ICE_MOUNTAIN_GUARD_2                    519
-
+#define TRAINER_ROUTE21_TRAINER_3                       520
+#define TRAINER_ROUTE22_TRAINER_2                       521
+#define TRAINER_BLACKKNIGHT_ELITE_2                     522
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_1           523
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_2           524
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_3           525
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_1           526
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_2           527
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_3           528
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_1           529
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_2           530
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_3           531
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_4           532
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_5           533
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_1           534
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_2           535
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_3           536
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_4           537
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_1               538
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_2               539
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_3               540
+#define TRAINER_BLACKKNIGHT_TEE                         541
+#define TRAINER_DWARF_POWERSTATION_F1_1                 542
+#define TRAINER_DWARF_POWERSTATION_F1_2                 543
+#define TRAINER_DWARF_POWERSTATION_F1_3                 544
+#define TRAINER_DWARF_POWERSTATION_F2_1                 545
+#define TRAINER_DWARF_POWERSTATION_F2_2                 546
+#define TRAINER_DWARF_POWERSTATION_F2_3                 547
+#define TRAINER_DWARVENMINES_HOUSE_1                    548
+#define TRAINER_DWARVENMINES_HOUSE_2                    549
+#define TRAINER_DWARVENMINES_HOUSE_3                    550
+#define TRAINER_DWARVENMINES_HOUSE_4                    551
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_DRAYNORMANOR_HAM + 1)
+#define TRAINERS_COUNT                      (TRAINER_DWARVENMINES_HOUSE_4 + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -90,21 +90,29 @@ script BARBARIANVILLAGE_STORYMODE_EVENT
     setobjectxy(OBJ_EVENT_ID_BLACK_KNIGHT, 12, 29)
     applymovement(OBJ_EVENT_ID_BLACK_KNIGHT, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3)
     delay(60)
-    applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACELEFT)
-    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
-    waitmovement(OBJ_EVENT_ID_BLACK_KNIGHT)
-    //remove knight
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 12) {
-        applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACERIGHT)
-        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_5)
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_Barbmovement_4)
     }
     elif (var(VAR_TEMP_1) == 11) {
-        applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACELEFT)
-        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_2)
+        applymovement(OBJ_EVENT_ID_LITARA, Movement_Barbmovement_1)
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_3)
     }
+    waitmovement(OBJ_EVENT_ID_BLACK_KNIGHT)
+    //remove knight
+    waitmovement(0)
     namebox("Litara")
     msgbox(format("Who was that, they weren't allowed in there!"))
+    hidenamebox
+    closemessage
+    applymovement(OBJ_EVENT_ID_LITARA, Movement_InteractFACEUP)
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)
+    waitmovement(0)
+    namebox("Litara")
+    msgbox(format("Sorry, I know you're itching to give our stronghold a shot, but could you chase that knight and find out what he was doing down here."))
     hidenamebox
     closemessage
     setvar(VAR_TEMP_B, 0)
@@ -114,6 +122,34 @@ script BARBARIANVILLAGE_STORYMODE_EVENT
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 165)
     release
     end
+}
+movement Movement_Barbmovement_1 {
+    face_left
+    delay_4
+    walk_fast_left
+    walk_fast_down
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_2 {
+    lock_facing_direction
+    walk_up
+    unlock_facing_direction
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_3 {
+    walk_down
+    step_end
+}
+movement Movement_Barbmovement_4 {
+    walk_fast_down
+    face_left
+    step_end
+}
+movement Movement_Barbmovement_5 {
+    walk_left
+    step_end
 }
 
 movement MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1 {
@@ -162,12 +198,15 @@ script STORYMODE_STATE_BARBARIAN_VILLAGE {
         case 2:
             return
         case 3:
+            if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 205) && (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 3)) { 
+                setvar(VAR_TEMP_C, 1)
+            }
+        case 6:
             //Allows access to the Stronghold.
             setobjectxyperm(OBJ_EVENT_ID_LITARA,13,27)
 			setobjectmovementtype(OBJ_EVENT_ID_LITARA,MOVEMENT_TYPE_FACE_UP)
             return
     }
-
 
 }
 script OPENWORLDMODE_STATE_BARBARIAN_VILLAGE {
@@ -178,11 +217,47 @@ script OPENWORLDMODE_STATE_BARBARIAN_VILLAGE {
         return
     }
 }
+
+            
     
-
-
-
-
+script TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS {
+    lock
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_2) == 30) {
+        setobjectxy(OBJ_EVENT_ID_LITARA,15,30)
+        setobjectxyperm(OBJ_EVENT_ID_LITARA,15,30)
+    }
+    else
+    {
+        setobjectxy(OBJ_EVENT_ID_LITARA,15,31)
+        setobjectxyperm(OBJ_EVENT_ID_LITARA,15,31)
+    }
+    addobject(OBJ_EVENT_ID_LITARA)
+    applymovement(OBJ_EVENT_ID_LITARA, movement_STORYMODE_POST_BKF_GRANTS_ACCESS)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+    waitmovement(0)
+    goto(STORYMODE_POST_BKF_GRANTS_ACCESS)
+}
+script STORYMODE_POST_BKF_GRANTS_ACCESS {
+    namebox ("Litara")
+    msgbox(format("Hey {PLAYER}!\pGood to see you again, may I ask did you find out anything about that outsider that was in our stronghold?\p…\pI see… So they were a Black Knight.\pI must inform our Chieftain of this at once.\pOh and don't worry, you are free to use our stronhold anytime.\pSee you!"))
+    hidenamebox
+    closemessage
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 6)
+    setvar(VAR_TEMP_C, 0)
+    setobjectxyperm(OBJ_EVENT_ID_LITARA,13,27)
+    setobjectmovementtype(OBJ_EVENT_ID_LITARA,MOVEMENT_TYPE_FACE_UP)
+    removeobject(OBJ_EVENT_ID_LITARA)
+    setflag(FLAG_TEMP_3)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    release
+    end
+}
+movement movement_STORYMODE_POST_BKF_GRANTS_ACCESS {
+    walk_right * 7
+}
 
 
 
@@ -246,7 +321,7 @@ script NPC_BARB_BLOCKADE_1
     {
         msgbox(format("We knew you would be struggling but good luck on your gym challenge."))
     }
-    if (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 3)
+    if ((var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 3) || (var(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE) == 6))
     {
         msgbox(format("You defeated our Chieftain!\pWe are impressed, well done!"))
     }
@@ -310,14 +385,39 @@ script NPC_BARBARIANVILLAGE_DUNGEONGIRL
     lock
     faceplayer
     namebox("Litara")
-    if (flag(FLAG_BADGE06_GET)) 
+
+    if ((var(VAR_TEMP_C) == 1)) { 
+        goto(STORYMODE_POST_BKF_GRANTS_ACCESS)
+    }
+
+    if (flag(FLAG_BADGE04_GET)) 
     {
+        switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) { 
+            case 165: 
+            case 170:
+            case 175:
+            case 180:
+            case 181:
+            case 185:
+            case 186:
+            case 187:
+            case 190:
+            case 195:
+            case 200:
+                msgbox(format("This is not good, somehow an outsider got access to our stronghold!\pDid you find out where they went?"))
+                closemessage
+                hidenamebox
+                release
+                end
+        }
+
         msgbox(format("You have proved yourself a barbarian in name and spirit!\pI grant you access to use our stronghold for training.\pThe monsters found within are very strong, so have fun training!"))
     }
     else
     {
-        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our dungeon for training."))
+        msgbox(format("Only once you have proved yourself a barbarian are you allowed to use our stronghold for training."))
     }
+    closemessage
     hidenamebox
     release
     end

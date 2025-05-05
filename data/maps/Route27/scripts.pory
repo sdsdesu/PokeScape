@@ -22,7 +22,14 @@ script ROUTE27_STATE {
 		addobject(8)
 		addobject(9)
     }
-    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
+    if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175) 
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 186)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195))
     {
         clearflag(FLAG_TEMP_1F)
 		addobject(8)
@@ -42,18 +49,23 @@ script TRIGGER_STORYMODE_EVENT_ROUTE27 {
     msgbox(format("Oh {PLAYER}, that was quick.\pSir Tiffy Cashien just informed me by Commorb that you were tagging along on this mission."))
     closemessage
     hidenamebox
-	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_2)
-	waitmovement (0)
+
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_2) == 30) {
+		applymovement (SIR_OWEN_ID,movement_SIR_OWEN_2_up)
+	}
+	elif (var(VAR_TEMP_2) == 31) {
+		applymovement (SIR_OWEN_ID,movement_SIR_OWEN_2_down)
+	}
+	waitmovement(0)
+
     namebox ("Sir Owen")
     msgbox(format("Let's go, we must make haste to Ice Mountain."))
     closemessage
-    hidenamebox
-	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_3)
-	waitmovement (0)
-    namebox ("Sir Owen")
     msgbox(format("I shall scout ahead and make sure there's not an ambush waiting for us.\pDon't keep me waiting too long!"))
     closemessage
-	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_4)
+    hidenamebox
+	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_3)
 	waitmovement (0)
 
 	setflag(FLAG_TEMP_1E) //Hide only sir owen
@@ -68,17 +80,17 @@ movement movement_SIR_OWEN_1
 	face_left
 }
 
-movement movement_SIR_OWEN_2
+movement movement_SIR_OWEN_2_up
 {
+	walk_left
+}
+movement movement_SIR_OWEN_2_down
+{
+    walk_down
 	walk_left
 }
 
 movement movement_SIR_OWEN_3
-{
-	face_up
-}
-
-movement movement_SIR_OWEN_4
 {
     walk_fast_up * 6
 }

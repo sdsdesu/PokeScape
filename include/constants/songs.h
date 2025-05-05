@@ -622,8 +622,10 @@
 #define	MUS_PS_GODSLAYER	        671
 #define	MUS_PS_LUMBRIDGE_CASTLE	    672
 #define	MUS_PS_TZHAAR	            673
+#define	MUS_PS_ICE_MOUNTAIN	        674
 
-#define END_MUS                     MUS_PS_TZHAAR
+
+#define END_MUS                     MUS_PS_ICE_MOUNTAIN
 
 
 

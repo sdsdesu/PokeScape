@@ -69,11 +69,6 @@ ITEM_FALADOR_1::
 	end
 
 
-ITEM_FALADOR_2::
-	finditem ITEM_TM26_KINGS_SHIELD
-	end
-
-
 FALADOR_SIGN::
 	lock
 	msgbox FALADOR_SIGN_Text_0

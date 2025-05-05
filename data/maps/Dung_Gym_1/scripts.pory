@@ -1,0 +1,124 @@
+mapscripts Dung_Gym_1_MapScripts {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Novite warrior Yudura
+script BATTLE_DAEMONHEIM_GYM_1 
+{
+    trainerbattle_single(TRAINER_SINKHOLE_NPC_FORGOTTENWARRIOR_1, format("Stand back challenger, these dungeons belong to us!"),format(""))
+    msgbox(format(""))
+	hidenamebox
+    release
+	end
+}
+//Gorjo
+script BATTLE_DAEMONHEIM_GYM_2
+{
+    trainerbattle_single(TRAINER_SINKHOLE_NPC_FORGOTTENWARRIOR_1, format("Churrah!\pThok Bloodrager's power is immense challenger.\pDo you truly believe yourself to be his equal?"),format("Your power is also immense!"))
+    msgbox(format("Thok Bloodrager always gives me a weird look.\pDoes he not like being in my company?"))
+	hidenamebox
+    release
+	end
+}
+//Dungeoneer DrgnRush
+script BATTLE_DAEMONHEIM_GYM_3 
+{
+    trainerbattle_single(TRAINER_SINKHOLE_NPC_FORGOTTENWARRIOR_1, format("Got lost? No worries, let us battle!"),format("Still lost? Gatekey teleport! You dont have one? Wow you are bad at this my friend."))
+    msgbox(format("Still lost?\nGatekey teleport!\pYou dont have one?\pWow you are bad at this my friend."))
+	hidenamebox
+    release
+	end
+}
+//Novite warrior  Ionia
+script BATTLE_DAEMONHEIM_GYM_4 
+{
+    trainerbattle_single(TRAINER_SINKHOLE_NPC_FORGOTTENWARRIOR_1, format("Beyond here lies warriors far stronger than you are capable, turn back."),format("Maybe you have what it takes, or maybe you will die.\pRegardless, I don't care for you."))
+    msgbox(format("Maybe you have what it takes, or maybe you will die.\pRegardless, I don't care for you."))
+	hidenamebox
+    release
+	end
+}
+//Marmaros (?) warrior Nadir
+script BATTLE_DAEMONHEIM_GYM_5 
+{
+    trainerbattle_single(TRAINER_SINKHOLE_NPC_FORGOTTENWARRIOR_1, format("We have trained our entire lives to protect these dungeons.\pYou will not intrude!"),format("All those years of training, wasted…"))
+    msgbox(format("All those years of training, wasted.\pYou have crushed our very existence down to this existencial insignificance.\pHave you no shame?"))
+	hidenamebox
+    release
+	end
+}
+
+
+
+
+
+script NPC_DAEMONHEIM_GYM_1
+{
+    faceplayer
+    namebox ("Skinweaver")
+    msgbox(format("You think you are ready to face Thok Bloodrager?\pI once saw him take out a Gulega.\pWith his fists.\pWe Gorajo fears one like him, and you would be wise to be careful too."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script NPC_DAEMONHEIM_GYM_2
+{
+    faceplayer
+    namebox ("Choob")
+    msgbox(format("Thok has beaten me about 70 times by now, but I have hope this time.\pMe and my trusted pigeon will beat him and his rock types on the 71st try!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script NPC_DAEMONHEIM_GYM_3
+{
+    faceplayer
+    namebox ("Warrior")
+    msgbox(format("Bilrach told me to make sure people who challenged Thok would not open the door by placing the boulder on the pressure pad.\pHe really had the audacity to use our dungeon to build a gym and Bilrach is furious about it."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script NPC_DAEMONHEIM_GYM_4
+{
+    faceplayer
+    namebox ("Frozen Warrior")
+    msgbox(format("I moved to this corner and can no longer get out!\pMy feet hurt…\pI'm cold…\pIt's so chilly here…\pI wish I could get out of here…"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script NPC_DAEMONHEIM_GYM_5
+{
+    faceplayer
+    namebox ("Summoner")
+    msgbox(format("Well, I have lost a lot to Thok.\pBut my next plan is to summon a bloodrager and make it and Thok duke it out.\p…\pThat doesnt count as an MvM battle?\pAnd Thok would win anyway?\pWell why don't you mind your own business!"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+

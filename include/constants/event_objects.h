@@ -594,7 +594,37 @@
 #define OBJ_EVENT_GFX_EVIL_DAVE                 577
 #define OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT        578
 #define OBJ_EVENT_GFX_ODDENSTEIN                579
-#define OBJ_EVENT_GFX_BIKE_HAM                  580
+#define OBJ_EVENT_GFX_CABINBOY                  580
+#define OBJ_EVENT_GFX_SAILING_1                 581
+#define OBJ_EVENT_GFX_SAILING_2                 582
+#define OBJ_EVENT_GFX_SAILING_3                 583
+#define OBJ_EVENT_GFX_SAILING_4                 584
+#define OBJ_EVENT_GFX_SAILING_5                 585
+#define OBJ_EVENT_GFX_SAILING_6                 586
+#define OBJ_EVENT_GFX_GUARD_NUDE		        587
+#define OBJ_EVENT_GFX_BABY_DRAGON_BLACK			588
+#define OBJ_EVENT_GFX_BABY_DRAGON_RED			589
+#define OBJ_EVENT_GFX_BABY_DRAGON_GREEN			590
+#define OBJ_EVENT_GFX_BABY_DRAGON_BLUE			591
+#define OBJ_EVENT_GFX_BAT_GREY			        592
+#define OBJ_EVENT_GFX_BEAR_BLACK			    593
+#define OBJ_EVENT_GFX_BEAR_BROWN			    594
+#define OBJ_EVENT_GFX_CHINCHOMPA_GREY			595
+#define OBJ_EVENT_GFX_CHINCHOMPA_RED			596
+#define OBJ_EVENT_GFX_CHINCHOMPA_YELLOW			597
+#define OBJ_EVENT_GFX_CHINCHOMPA_BLUE			598
+#define OBJ_EVENT_GFX_CHINCHOMPA_GREEN			599
+#define OBJ_EVENT_GFX_DAGANNOTH			        600
+#define OBJ_EVENT_GFX_CRAB_RED			        601
+#define OBJ_EVENT_GFX_SPIDER_GREEN			    602
+#define OBJ_EVENT_GFX_SPIDER_BROWN			    603
+#define OBJ_EVENT_GFX_SPIDER_RED			    604
+#define OBJ_EVENT_GFX_SPIDER_BLUE			    605
+#define OBJ_EVENT_GFX_FLESHCRAWLER			    606
+#define OBJ_EVENT_GFX_ESSENCE			        607
+#define OBJ_EVENT_GFX_TZHAAR_BANKER				608
+#define OBJ_EVENT_GFX_BIKE_HAM                  609
+
 
 #define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_BIKE_HAM + 1)
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.

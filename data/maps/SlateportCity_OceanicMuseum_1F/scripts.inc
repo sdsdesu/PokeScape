@@ -137,23 +137,7 @@ SlateportCity_OceanicMuseum_1F_EventScript_MuseumPatron4::
 
 SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGrunt::
 	lock
-	faceplayer
-	delay 8
-	playse SE_PIN
-	applymovement LOCALID_FAMILIAR_GRUNT, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_FAMILIAR_GRUNT, Common_Movement_Delay48
-	waitmovement 0
-	msgbox SlateportCity_OceanicMuseum_1F_Text_RememberMeTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM46
-	goto_if_eq VAR_RESULT, 0, SlateportCity_OceanicMuseum_1F_EventScript_NoRoomForThief
-	setflag FLAG_RECEIVED_TM46
-	msgbox SlateportCity_OceanicMuseum_1F_Text_HopeINeverSeeYouAgain, MSGBOX_DEFAULT
-	closemessage
-	goto_if_eq VAR_FACING, DIR_NORTH, SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExitNorth
-	goto_if_eq VAR_FACING, DIR_SOUTH, SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExitSouth
-	goto_if_eq VAR_FACING, DIR_WEST, SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExitWestEast
-	goto_if_eq VAR_FACING, DIR_EAST, SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExitWestEast
+	
 	end
 
 SlateportCity_OceanicMuseum_1F_EventScript_FamiliarGruntExitNorth::

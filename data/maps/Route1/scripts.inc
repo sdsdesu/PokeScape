@@ -255,6 +255,42 @@ NPC_CHICKEN::
 	end
 
 
+NPC_CHINCHOMPA::
+	lock
+	faceplayer
+	namebox NPC_CHINCHOMPA_Text_0
+	playmoncry SPECIES_CHINCHOMPA_GREY_FORM, 0
+	msgbox NPC_CHINCHOMPA_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_ESSENCE::
+	lock
+	faceplayer
+	namebox NPC_ESSENCE_Text_0
+	playmoncry SPECIES_PURE, 0
+	msgbox NPC_ESSENCE_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_BEAR::
+	lock
+	faceplayer
+	namebox NPC_BEAR_Text_0
+	playmoncry SPECIES_BEAR_NORMAL_FORM, 0
+	msgbox NPC_BEAR_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
 SIGN_ROUTE1_1::
 	lock
 	msgbox SIGN_ROUTE1_1_Text_0
@@ -347,6 +383,72 @@ ROUTE1_FarmerFred::
 	end
 
 
+ROUTE1_FARMER_NPC::
+	lock
+	faceplayer
+	namebox BLOCK_ROUTE1_FARMER_Text_0
+	random 4
+	switch VAR_RESULT
+	case 0, ROUTE1_FARMER_NPC_3
+	case 1, ROUTE1_FARMER_NPC_4
+	case 2, ROUTE1_FARMER_NPC_5
+	case 3, ROUTE1_FARMER_NPC_6
+ROUTE1_FARMER_NPC_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+ROUTE1_FARMER_NPC_3:
+	msgbox ROUTE1_FARMER_NPC_Text_0
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_4:
+	msgbox ROUTE1_FARMER_NPC_Text_1
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_5:
+	msgbox ROUTE1_FARMER_NPC_Text_2
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_6:
+	msgbox ROUTE1_FARMER_NPC_Text_3
+	goto ROUTE1_FARMER_NPC_1
+
+
+ROUTE1_BOAT_1::
+	lock
+	faceplayer
+	namebox ROUTE1_BOAT_1_Text_0
+	msgbox ROUTE1_BOAT_1_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+ROUTE1_BOAT_2::
+	lock
+	faceplayer
+	namebox ROUTE1_BOAT_2_Text_0
+	msgbox ROUTE1_BOAT_2_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+ROUTE1_BOAT_3::
+	lock
+	faceplayer
+	namebox ROUTE1_BOAT_3_Text_0
+	msgbox ROUTE1_BOAT_3_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
 Wartfoot_Route1_Battle::
 	trainerbattle_single TRAINER_GOBLIN_1_ROUTE1, Wartfoot_Route1_Battle_Text_0, Wartfoot_Route1_Battle_Text_1
 	msgbox Wartfoot_Route1_Battle_Text_2
@@ -383,7 +485,7 @@ MudbeardBattle::
 
 Route1FarmerBattle::
 	trainerbattle_single TRAINER_FARMER_ROUTE1, Route1FarmerBattle_Text_0, Route1FarmerBattle_Text_1
-	msgbox Route1FarmerBattle_Text_2
+	msgbox Route1FarmerBattle_Text_1
 	hidenamebox
 	release
 	return
@@ -911,6 +1013,24 @@ NPC_CHICKEN_Text_0:
 NPC_CHICKEN_Text_1:
 	.string "Bwak Bwak!$"
 
+NPC_CHINCHOMPA_Text_0:
+	.string "Chinchompa$"
+
+NPC_CHINCHOMPA_Text_1:
+	.string "Squeep!$"
+
+NPC_ESSENCE_Text_0:
+	.string "Essence$"
+
+NPC_ESSENCE_Text_1:
+	.string "Whhiiirll!$"
+
+NPC_BEAR_Text_0:
+	.string "Bear$"
+
+NPC_BEAR_Text_1:
+	.string "Grraugh!$"
+
 SIGN_ROUTE1_1_Text_0:
 	.string "Fred's Farm.$"
 
@@ -1013,6 +1133,64 @@ ROUTE1_FarmerFred_Text_1:
 	.string "Maybe you could try it and see what\n"
 	.string "happens?$"
 
+ROUTE1_FARMER_NPC_Text_0:
+	.string "Did you know that pigs use mud to\n"
+	.string "regulate their temperature?\p"
+	.string "That's a fun fact to help you remember\n"
+	.string "that all pigs are GROUND type.$"
+
+ROUTE1_FARMER_NPC_Text_1:
+	.string "Although they're too heavy to do it for\n"
+	.string "long distances, chickens can flap their\l"
+	.string "wings to fly for short distances.\p"
+	.string "All chickens are FLYING type.$"
+
+ROUTE1_FARMER_NPC_Text_2:
+	.string "Cows are constantly moving while\n"
+	.string "grazing, and can cover huge distances\l"
+	.string "in one day.\p"
+	.string "Although they love to eat grass,\n"
+	.string "remember that all cows are GROUND type\l"
+	.string "so they don't fare well against it in\l"
+	.string "battle!$"
+
+ROUTE1_FARMER_NPC_Text_3:
+	.string "Unlike humans, sheep have rectangular\n"
+	.string "pupils allowing them to see almost\l"
+	.string "everything around them without turning\l"
+	.string "their head.\p"
+	.string "Although this is very strange, almost\n"
+	.string "all sheep are NORMAL type.$"
+
+ROUTE1_BOAT_1_Text_0:
+	.string "Awenix$"
+
+ROUTE1_BOAT_1_Text_1:
+	.string "I love spending time on the water like\n"
+	.string "this.\p"
+	.string "It helps me escape from life's\n"
+	.string "responsibilities for a moment.\p"
+	.string "Like my wife and children.\p"
+	.string "{PAUSE 15}Don't tell them you found me here!$"
+
+ROUTE1_BOAT_2_Text_0:
+	.string "Gelo Ball$"
+
+ROUTE1_BOAT_2_Text_1:
+	.string "I am a Cupholder$"
+
+ROUTE1_BOAT_3_Text_0:
+	.string "Trickool$"
+
+ROUTE1_BOAT_3_Text_1:
+	.string "Different routes seem to have\n"
+	.string "different fish in them.\p"
+	.string "If you're looking for a specific type,\n"
+	.string "try sailing around in different\l"
+	.string "locations.\p"
+	.string "I've heard that some are only available\n"
+	.string "underground!$"
+
 Wartfoot_Route1_Battle_Text_0:
 	.string "Brown armour best!$"
 
@@ -1056,9 +1234,6 @@ Route1FarmerBattle_Text_0:
 	.string "lands!$"
 
 Route1FarmerBattle_Text_1:
-	.string "Its not really my lands yet.$"
-
-Route1FarmerBattle_Text_2:
 	.string "It's not really my lands yet.$"
 
 FeetfingersBattle_Text_0:

@@ -14,7 +14,7 @@ mapscripts Varrock_MapScripts {
     }
 
     MAP_SCRIPT_ON_LOAD { //ON LOAD FOR MAP TILES
-		if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
+		if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 1) //if OPENWORLD
 		{
 			call(VARROCK_STATE)
 		}

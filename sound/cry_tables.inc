@@ -5201,10 +5201,10 @@ cry Cry_Salamander_Augmented_Form
 cry Cry_Gecko
 cry Cry_Chameleon
 cry Cry_Bloodveld
-cry Cry_Bloodveld_Insatiable_Physical_Form
-cry Cry_Bloodveld_Insatiable_Special_Form
-cry Cry_Bloodveld_Mutated_Physical_Form
-cry Cry_Bloodveld_Mutated_Special_Form
+cry Cry_Bloodveld_Insatiable_Physical
+cry Cry_Bloodveld_RSHD
+cry Cry_Bloodveld_Mutated
+cry Cry_Bloodveld_Insatiable_Special
 cry Cry_Reaver
 cry Cry_Armaling
 cry Cry_Armabird
@@ -5481,7 +5481,7 @@ cry Cry_Crocodile_Normal_Form
 cry Cry_Crocodile_Mutadile_Form
 cry Cry_Crocodile_Ankh_Form
 cry Cry_Crocodile_Ukunduka_Form
-cry Cry_Bloodveld_Insatiable_Mutated_Form
+cry Cry_Bloodveld_GWD
 cry Cry_Bloodveld_Acidic_Form
 cry Cry_Bloodveld_Vampiric_Form
 cry Cry_Bloodveld_RS3_Form
@@ -6241,10 +6241,10 @@ cry_reverse Cry_Salamander_Augmented_Form
 cry_reverse Cry_Gecko
 cry_reverse Cry_Chameleon
 cry_reverse Cry_Bloodveld
-cry_reverse Cry_Bloodveld_Insatiable_Physical_Form
-cry_reverse Cry_Bloodveld_Insatiable_Special_Form
-cry_reverse Cry_Bloodveld_Mutated_Physical_Form
-cry_reverse Cry_Bloodveld_Mutated_Special_Form
+cry_reverse Cry_Bloodveld_Insatiable_Physical
+cry_reverse Cry_Bloodveld_RSHD
+cry_reverse Cry_Bloodveld_Mutated
+cry_reverse Cry_Bloodveld_Insatiable_Special
 cry_reverse Cry_Reaver
 cry_reverse Cry_Armaling
 cry_reverse Cry_Armabird
@@ -6521,7 +6521,7 @@ cry_reverse Cry_Crocodile_Normal_Form
 cry_reverse Cry_Crocodile_Mutadile_Form
 cry_reverse Cry_Crocodile_Ankh_Form
 cry_reverse Cry_Crocodile_Ukunduka_Form
-cry_reverse Cry_Bloodveld_Insatiable_Mutated_Form
+cry_reverse Cry_Bloodveld_GWD
 cry_reverse Cry_Bloodveld_Acidic_Form
 cry_reverse Cry_Bloodveld_Vampiric_Form
 cry_reverse Cry_Bloodveld_RS3_Form

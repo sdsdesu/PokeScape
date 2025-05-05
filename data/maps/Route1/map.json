@@ -47,6 +47,11 @@
       "map": "MAP_ROUTE22",
       "offset": 48,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE36",
+      "offset": 2,
+      "direction": "right"
     }
   ],
   "object_events": [
@@ -282,7 +287,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_WATER_RUNE",
-      "flag": "FLAG_ITEM_ROUTE1_WATER_RUNE"
+      "flag": "FLAG_ITEM_ROUTE1_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
@@ -308,7 +313,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_CHOCOLATE_SUNDAY",
-      "flag": "FLAG_ITEM_ROUTE1_CHOCOLATE_SUNDAY"
+      "flag": "FLAG_ITEM_ROUTE1_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NOOB",
@@ -351,10 +356,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_THIEF",
-      "x": 68,
-      "y": 28,
+      "x": 67,
+      "y": 26,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -364,8 +369,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 30,
-      "y": 23,
+      "x": 32,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -399,7 +404,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_BREAD",
-      "flag": "FLAG_ITEM_ROUTE1_BREAD"
+      "flag": "FLAG_ITEM_ROUTE1_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -412,7 +417,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_BALL_OF_WOOL",
-      "flag": "FLAG_ITEM_ROUTE1_BALL_OF_WOOL"
+      "flag": "FLAG_ITEM_ROUTE1_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
@@ -477,7 +482,59 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE1_CHOC_SUNDAY",
-      "flag": "FLAG_ITEM_ROUTE1_CHOC_SUNDAY"
+      "flag": "FLAG_ITEM_ROUTE1_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_5",
+      "x": 75,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ROUTE1_BOAT_3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_6",
+      "x": 70,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
+      "movement_range_x": 8,
+      "movement_range_y": 8,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ROUTE1_BOAT_1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SAILING_6",
+      "x": 73,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_UP_AND_DOWN",
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ROUTE1_BOAT_2",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FARMER_F",
+      "x": 49,
+      "y": 27,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 5,
+      "movement_range_y": 5,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ROUTE1_FARMER_NPC",
+      "flag": "0"
     }
   ],
   "warp_events": [

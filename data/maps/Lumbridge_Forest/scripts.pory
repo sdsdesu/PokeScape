@@ -194,11 +194,8 @@ script BATTLE_LUMBRIDGEFOREST_TRAINER_3
 
 
 //ITEMS
-script ITEM_LUMBRIDGEFOREST_TM49_SNARL //FLAG_ITEM_LUMBRIDGEFOREST_1
-{
-    finditem(ITEM_TM49_SNARL)
-    end
-}
+
+
 script ITEM_LUMBRIDGEFOREST_BREAD //FLAG_ITEM_LUMBRIDGEFOREST_2
 {
     finditem(ITEM_BREAD)
@@ -225,3 +222,84 @@ script NPC_LUMBRIDGE_FOREST_HAM_1
 	release
 	end
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//TM ITEMS
+script ITEM_RECEIVED_TM21
+{
+    finditem(ITEM_TM21_TOXIC)
+    end
+}
+
+script ITEM_RECEIVED_TM49 
+{
+    finditem(ITEM_TM49_SNARL)
+    end
+}
+
+script ITEM_RECEIVED_TM05
+{
+    finditem(ITEM_TM05_TAILWIND)
+    end
+}
+
+script ITEM_RECEIVED_TM50
+{
+    finditem(ITEM_TM50_POISON_JAB)
+    end
+}
+
+script ITEM_RECEIVED_TM38
+{
+    finditem(ITEM_TM38_ROCK_TOMB)
+    end
+}
+
+script ITEM_RECEIVED_TM54
+{
+    finditem(ITEM_TM54_MUD_BOMB)
+    end
+}
+
+script ITEM_RECEIVED_TM42
+{
+    finditem(ITEM_TM42_POLLEN_PUFF)
+    end
+}
+
+script ITEM_RECEIVED_TM33
+{
+    finditem(ITEM_TM33_DRAGON_BREATH)
+    end
+}
+
+script ITEM_RECEIVED_TM26
+{
+    finditem(ITEM_TM26_KINGS_SHIELD)
+    end
+}
+
+script ITEM_RECEIVED_TM55
+{
+    finditem(ITEM_TM55_HEX)
+    end
+}
+
+

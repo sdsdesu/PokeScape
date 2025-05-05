@@ -46514,7 +46514,7 @@ static const u16 sBloodveldTeachableLearnset[] = {
 	MOVE_BRUTAL_SWING,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sBloodveld_Insatiable_Physical_FormTeachableLearnset[] = {
+static const u16 sBloodveld_Insatiable_PhysicalTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_PSYCHIC_TERRAIN,
 	MOVE_VOLT_TACKLE,
@@ -46535,7 +46535,7 @@ static const u16 sBloodveld_Insatiable_Physical_FormTeachableLearnset[] = {
 	MOVE_BRUTAL_SWING,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sBloodveld_Insatiable_Special_FormTeachableLearnset[] = {
+static const u16 sBloodveld_RSHDTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_PSYCHIC_TERRAIN,
 	MOVE_VOLT_TACKLE,
@@ -46556,7 +46556,7 @@ static const u16 sBloodveld_Insatiable_Special_FormTeachableLearnset[] = {
 	MOVE_BRUTAL_SWING,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sBloodveld_Mutated_Physical_FormTeachableLearnset[] = {
+static const u16 sBloodveld_MutatedTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_PSYCHIC_TERRAIN,
 	MOVE_MISTY_TERRAIN,
@@ -46580,7 +46580,7 @@ static const u16 sBloodveld_Mutated_Physical_FormTeachableLearnset[] = {
 	MOVE_BRUTAL_SWING,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sBloodveld_Mutated_Special_FormTeachableLearnset[] = {
+static const u16 sBloodveld_Insatiable_SpecialTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_PSYCHIC_TERRAIN,
 	MOVE_MISTY_TERRAIN,
@@ -52694,7 +52694,7 @@ static const u16 sCrocodile_Ukunduka_FormTeachableLearnset[] = {
 	MOVE_BRUTAL_SWING,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sBloodveld_Insatiable_Mutated_FormTeachableLearnset[] = {
+static const u16 sBloodveld_GWDTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_PSYCHIC_TERRAIN,
 	MOVE_MISTY_TERRAIN,

@@ -10606,7 +10606,7 @@ static void Cmd_various(void)
         u8 leftToDefeat = VarGet(VAR_SLAYER_LEFT_TO_DEFEAT);
         s32 enemySpecies = GetMonData(&gEnemyParty[0],MON_DATA_SPECIES);
 
-        if ((VarGet(VAR_SLAYER_ASSIGNMENT) == 1) && (enemySpecies == SPECIES_BLOODVELD || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM)) {
+        if ((VarGet(VAR_SLAYER_ASSIGNMENT) == 1) && (enemySpecies == SPECIES_BLOODVELD || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_PHYSICAL || enemySpecies == SPECIES_BLOODVELD_RSHD)) {
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 leftToDefeat--;
             if ((leftToDefeat <= 0))

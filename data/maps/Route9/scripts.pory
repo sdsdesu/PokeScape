@@ -79,11 +79,6 @@ script ITEM_ROUTE9_EARTH_RUNE
     end
 }
 
-script ITEM_ROUTE9_TM54_MUD_BOMB
-{
-    finditem(ITEM_TM54_MUD_BOMB)
-    end
-}
 
 
 

@@ -89,12 +89,15 @@ Debug_EventScript_Script_5::
 	end
 
 Debug_EventScript_Script_6::
+	goto(Friendship_Checker_Pikkupstix)
 	end
 
 Debug_EventScript_Script_7::
+	goto(GnomeBoi_Kevin)
 	end
 
 Debug_EventScript_Script_8::
+	goto(STORYMODE_SAVESTATE)
 	end
 
 Debug_CheckSaveBlock::

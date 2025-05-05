@@ -1,0 +1,295 @@
+mapscripts Dwarven_Mines_House_1_MapScripts {
+}
+
+
+//NPCs
+script NPC_Dwarven_Mines_House_1   //Miner - top left
+{
+	lock
+	faceplayer
+    namebox ("Miner")
+	msgbox(format("Nulodion's office is through here."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_2    //Smith - top left
+{
+	lock
+	faceplayer
+    namebox ("Smith")
+	msgbox(format("For a long time, people used to think that runite was the best metal available in Gielinor.\pHowever, with more recent discoveries there are even more types of ore to smelt bars from."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_3   //Dwarf - top left
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("We harness the fire from baby dragons to fuel our forges.\p{PAUSE 15}Do you know how difficult it is to try and tame an adult dragon?!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_4   //Dwarf - top middle
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Sorry this elevator is currently under repair.\pThose blasted scorpions have damaged the wiring!"))
+	//msgbox(format("Through this door is where we forge the multicannons.\pI am sorry but it is off-limits to humans."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_5    //Dwarf - top right
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Unfortunately, these forges don't get quite as hot as the Blast Furnace in Keldagrim.\pThey involve a lot less manual labour though!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_6     //Smith - top right
+{
+	lock
+	faceplayer
+    namebox ("Smith")
+	msgbox(format("It is a bit scary working side by side with dragons…\pBut these babies can't fly, so I am safe as long as I work up here!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_7     //Dwarf - middle left
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("We work hard repairing broken multicannons here.\pConsidering how good dwarven engineering is, they break surprisingly often.\pI guess that's the drawback of such intricate machinery."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_8    //Miner - middle right
+{
+	lock
+	faceplayer
+    namebox ("Miner")
+	msgbox(format("I used to spend all day in the Motherlode Mine, but Nulodion recruited me to help provide the ores for his workshop."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_9   //Dwarf - middle left
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("There are rumours of an ancient civilization of dwarves that used to live in these mountains, but I've lived here my whole life and never seen anyone but us!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_10      //Dwarf -- second from bottom right
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Why are dwarves only ever smiths or miners?\pI've always wanted to be a famous chef..."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_11    //Dwarf -- Bottom right
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Training to be a dwarf engineer sure beats spending every day down in the mines."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_Dwarven_Mines_House_12        //Overseer in office
+{
+	lock
+	faceplayer
+	namebox ("Nulodion")
+	if (var(VAR_DWARVEN_MINES_STATE) == 0) {
+		msgbox(format("Urgh, just what I needed another inconvenience.\pIf only I had someone capable of getting rid of those scorpions…"))
+		//faceplayer
+		msgbox(format("What's this mate?\pYou reckon you could handle some little scorpions?\pBahaha be my guest, if you can get rid of them, then I will reward you.\pYou can find them on the lowest floor of our power station."))
+		//face up face down
+		msgbox(format("Here take this."))
+		//give key
+		msgbox(format("That key will grant you access to the backdoor in the Dwarven Mines below us.\pI would usually send workers down our elevator but that is out of order, so you'll have to take the long way around."))
+		//miniquest start.
+		setvar(VAR_DWARVEN_MINES_STATE, 5)
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 5) {
+		msgbox(format("You'll have to go through the underground mines to get to the backdoor for the powerstation.\pThere is a ladder outside that will take you down."))
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 10) {
+		msgbox(format("So you found the backdoor, fantastic!\Now all you need to do is go get rid of those scorpions."))
+	}
+	closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_BABY_DRAGON {
+    random(6)
+        switch (var(VAR_RESULT)) {
+            case 0: 
+                lock
+    		    faceplayer
+		        namebox("Baby Dragon")
+                msgbox(format("Hiss!"))
+                hidenamebox
+		        release
+		        end
+            case 1: 
+                lock
+    		    faceplayer
+		        namebox("Baby Dragon")
+                msgbox(format("GrrrRRRR!"))
+                hidenamebox
+		        release
+		        end
+            case 2: 
+                lock
+    		    faceplayer
+		        namebox("Baby Dragon")
+                msgbox(format("Raaaah!"))
+                hidenamebox
+		        release
+		        end
+            case 3: 
+                lock
+    		    faceplayer
+                msgbox(format("The baby dragon tries to breath fire on you, but can't quite manage it."))
+		        release
+		        end
+            case 4: 
+                lock
+    		    faceplayer
+                msgbox(format("The baby dragon lets out a high pitched screech that you can feel in your bones."))
+		        release
+		        end
+            case 5: 
+                lock
+    		    faceplayer
+                msgbox(format("The baby dragon growls aggressively at you and bares its teeth."))
+		        release
+		        end
+        }
+	release
+	end
+}
+
+script NPC_CLOCKWORK_CAT {
+    random(4)
+        switch (var(VAR_RESULT)) {
+            case 0: 
+                lock
+    		    faceplayer
+		        namebox("Clockwork Cat")
+                msgbox(format("Click!"))
+                hidenamebox
+		        release
+		        end
+            case 1: 
+                lock
+    		    faceplayer
+		        namebox("Clockwork Cat")
+                msgbox(format("Click click!"))
+                hidenamebox
+		        release
+		        end
+            case 2: 
+                lock
+    		    faceplayer
+		        namebox("Clockwork Cat")
+                msgbox(format("Whirrr!"))
+                hidenamebox
+		        release
+		        end
+            case 3: 
+                lock
+    		    faceplayer
+                msgbox(format("You can hear the ticking of the clockwork mechanism inside the cat."))
+		        release
+		        end
+        }
+	release
+	end
+}
+
+//TRAINERS
+
+script BATTLE_DWARVEN_MINES_HOUSE_1
+{
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_1, format("You here to entertain me in my break?"),format("It's over already?"))
+    namebox ("Gunnar")
+    msgbox(format("My break is up, leave the premises."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVEN_MINES_HOUSE_2
+{
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_2, format("Ima workin' 'ere!"),format("Get outta 'ere!"))
+    namebox ("Nikolai")
+    msgbox(format("Outta 'ere! Ima workin' 'ere!"))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVEN_MINES_HOUSE_3
+{
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_3, format("Hey! You're not even wearing a helmet!"),format("Even a helmet couldn't save me..."))
+    namebox ("Fredrik")
+    msgbox(format("You have to wear a helmet when you are in the factory.\pOtherwise people will see you are bald."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVEN_MINES_HOUSE_4
+{
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_4, format("Watch out mate, this is a work place!"),format("This is why we need more safety regulations!"))
+    namebox ("Erifun")
+    msgbox(format("I swear there are like a million safety regulations being broken here."))
+	hidenamebox
+    release
+	end
+}

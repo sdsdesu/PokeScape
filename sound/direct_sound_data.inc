@@ -7692,19 +7692,19 @@ Cry_Bloodveld::
 	.incbin "sound/direct_sound_samples/cries/anorith.bin"
 
 	.align 2
-Cry_Bloodveld_Insatiable_Physical_Form::
+Cry_Bloodveld_Insatiable_Physical::
 	.incbin "sound/direct_sound_samples/cries/armaldo.bin"
 
 	.align 2
-Cry_Bloodveld_Insatiable_Special_Form::
+Cry_Bloodveld_RSHD::
 	.incbin "sound/direct_sound_samples/cries/armaldo.bin"
 
 	.align 2
-Cry_Bloodveld_Mutated_Physical_Form::
+Cry_Bloodveld_Mutated::
 	.incbin "sound/direct_sound_samples/cries/lunatone.bin"
 
 	.align 2
-Cry_Bloodveld_Mutated_Special_Form::
+Cry_Bloodveld_Insatiable_Special::
 	.incbin "sound/direct_sound_samples/cries/lunatone.bin"
 
 	.align 2
@@ -8812,7 +8812,7 @@ Cry_Crocodile_Ukunduka_Form::
 	.incbin "sound/direct_sound_samples/cries/feraligatr.bin"
 
 	.align 2
-Cry_Bloodveld_Insatiable_Mutated_Form::
+Cry_Bloodveld_GWD::
 	.incbin "sound/direct_sound_samples/cries/lunatone.bin"
 
 	.align 2

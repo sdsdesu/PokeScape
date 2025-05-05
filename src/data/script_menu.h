@@ -906,7 +906,18 @@ static const struct MenuAction MultichoiceList_UTILITY[] =
     {gText_ForgetMove},
     {gText_Exit},
 };
-
+static const struct MenuAction MultichoiceList_STORYMODE_STATE[] =
+{
+    {gText_BEGINNING},
+    {gText_Pre_WIZARDSTOWER},
+    {gText_Post_DRAYNORMANOR},
+    {gText_Post_MELZARSMAZE},
+    {gText_Post_FALADORGYM},
+    {gText_Pre_Crandor},
+    {gText_Pre_BKF},
+    {gText_Post_BKF},
+    {gText_Exit},
+};
 
 
 
@@ -1055,6 +1066,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SANDWICH]			       = MULTICHOICE(MultichoiceList_SANDWICH),
     [MULTI_TZHAAR_FIGHTCAVES]		   = MULTICHOICE(MultichoiceList_TZHAAR_FIGHTCAVES),
     [MULTI_UTILITY]		               = MULTICHOICE(MultichoiceList_UTILITY),
+    [MULTI_STORYMODE_STATE]            = MULTICHOICE(MultichoiceList_STORYMODE_STATE),
+    
 };
 
 const u8 *const gStdStrings[] =

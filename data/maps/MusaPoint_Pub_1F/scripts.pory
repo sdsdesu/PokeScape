@@ -52,18 +52,6 @@ script NPC_MUSA_POINT_Pub_BarCrawl
 	release
 	end
 }
-script NPC_MUSA_POINT_Pub_Sailer
-{
-	lock
-	faceplayer
-    namebox ("Sailor")
-	msgbox(format(""))
-    closemessage
-    hidenamebox
-	release
-	end
-}
-
 
 script NPC_MUSA_POINT_Pub_Sailor
 { 

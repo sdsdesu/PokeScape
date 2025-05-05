@@ -166,7 +166,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE0_SWEETS",
-      "flag": "FLAG_ITEM_ROUTE0_SWEETS"
+      "flag": "FLAG_ITEM_DAEMONHEIM_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -179,7 +179,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE0_TINDERBOX",
-      "flag": "FLAG_ITEM_ROUTE0_TINDERBOX"
+      "flag": "FLAG_ITEM_DAEMONHEIM_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHICKEN",

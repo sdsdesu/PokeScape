@@ -98,7 +98,7 @@ script NPC_EDGEVILLE_7
 {
 	lock
 	faceplayer
-    namebox ("PVMer")
+    namebox ("Ironman")
 	msgbox(format("I hear some monsters only evolve in certain areas.\pFor instance, one of my chickens evolved differently while I was on Karamja!"))
     closemessage
     hidenamebox
@@ -138,13 +138,71 @@ script NPC_EDGEVILLE_10
 	release
 	end
 }
-
-//MISCELLANEOUS
-script EDGEVILLE_SIGN_1
+script NPC_EDGEVILLE_11
 {
 	lock
 	faceplayer
-	msgbox(format("North to Edgeville.\pWest to the Monastery and Dwarven Mountain."))
+    namebox ("Noob")
+	msgbox(format("My canoe sank when I got here and I don't know how to make a new one."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+script NPC_EDGEVILLE_12
+{
+	lock
+	faceplayer
+    namebox ("xXPKChampXx")
+	msgbox(format("There used to be a lever here to teleport you deep into the Wilderness!\pIt was amazing, you could catch noobs off guard and teleblock them so they couldn't escape.\pSadly Vannaka decided it was too dangerous and had it removed."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_EDGEVILLE_13
+{
+	lock
+	faceplayer
+    namebox ("Alistair")
+	msgbox(format("I finally got my hands on the Book o' Piracy by Cap'n Hook-Hand Morrisane.\pI've never been like the other pirates and was hoping it would help me to fit in, but I don't understand a single word of this!\pWhat does 'Cap'n, the gunners be a bunch of scurvy dogs' mean?\pI'll never be a real pirate at this rate."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_EDGEVILLE_14
+{
+	lock
+	faceplayer
+    namebox ("Pegasos9")
+	msgbox(format("Have you heard of a pub called The Pandemonium?\pI met an adventurer in Port Sarim who said they were doing a delivery for them and they came across a bright pink troll.\pOr was it purple?\pEither way, I bet it was a shiny!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_EDGEVILLE_15
+{
+	lock
+	faceplayer
+    namebox ("Got Minnows")
+	msgbox(format("Where are all the minnows?\pI've sailed around Gielinor and haven't been able to catch a single one!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+//MISCELLANEOUS
+script EDGEVILLE_SIGN_3
+{
+	lock
+	faceplayer
+	msgbox(format("East to Edgeville.\pNorth to the Monastery.\pWest to Ice Mountain and the Dwarven Mines."))
 	release
 	end
 }
@@ -158,7 +216,14 @@ script EDGEVILLE_SIGN_2
 	end
 }
 
-
+script EDGEVILLE_SIGN_1
+{
+	lock
+	faceplayer
+	msgbox(format("Edgeville.\nPreviously known as Ghost Town."))
+	release
+	end
+}
 
 
 
@@ -444,7 +509,7 @@ script ITEM_EDGEVILLE_INDOOR_2
 script NPC_EDGEVILLE_HOUSE_NPC_1 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
+    namebox ("Man")
 	msgbox(format("Some dude asked me if I wanted his stuff, all I had to do is follow him to the Wilderness.\pI was tempted, but that would require way too much effort..."))
     closemessage
     hidenamebox
@@ -454,7 +519,7 @@ script NPC_EDGEVILLE_HOUSE_NPC_1 {
 script NPC_EDGEVILLE_HOUSE_NPC_2 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
+    namebox ("Man")
 	msgbox(format("Why are all of us dudes together in this weird barn?\pI have no idea, I was told there would be Beer..."))
     closemessage
     hidenamebox
@@ -464,7 +529,7 @@ script NPC_EDGEVILLE_HOUSE_NPC_2 {
 script NPC_EDGEVILLE_HOUSE_NPC_3 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
+    namebox ("Man")
 	msgbox(format("Living so close to the Wilderness can be scary, especially when you don't train monsters yourself, but I don't mind."))
     closemessage
     hidenamebox
@@ -474,7 +539,7 @@ script NPC_EDGEVILLE_HOUSE_NPC_3 {
 script NPC_EDGEVILLE_HOUSE_NPC_4 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
+    namebox ("Man")
 	msgbox(format("How often do you think about the Zarosian Empire?"))
     closemessage
     hidenamebox
@@ -484,7 +549,7 @@ script NPC_EDGEVILLE_HOUSE_NPC_4 {
 script NPC_EDGEVILLE_HOUSE_NPC_5 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
+    namebox ("Man")
 	msgbox(format("Did you know there something are useful things in boxes?\p{PAUSE 15}These meet your Crate expectations!"))
     closemessage
     hidenamebox
@@ -495,9 +560,20 @@ script NPC_EDGEVILLE_HOUSE_NPC_6 {
 	lock
 	faceplayer
     namebox ("Oziach")
-	msgbox(format("Aye, 'tis a fair day my friend.\pMay the gods walk by yer side.\pNow leave me alone, I'm all outta rune platebodies."))
+	msgbox(format("Aye… Another adventurer…\pI suppose you too wish to wear thee legendary Rune platemail like myself.\pWell as I told the other adventurers I will only let ye wear it if ye… Tame the dragon of Crandor!"))
+	msgbox(format("Come back when ye have tamed her."))
     closemessage
     hidenamebox
+	//msgbox(format("Have ye tamed that dragon yet?"))
+	//msgbox(format("Yahaha!\pI didn't think so, be off with ye!"))
+	//msgbox(format("Yarahaha!\pI didn't think so-"))
+	//shocked movement
+	//msgbox(format("Yeewhaat?!"))
+	//jump
+	//msgbox(format("You actually did it?\pI underestimated ye, adventurer.\pI apologise…\pHere as promised I grant thee legendary Rune platemail!"))
+	//msgbox(format("Wear it proudly!"))
+
+	//msgbox(format("Good to see you again my mighty dragon-taming friend!"))
 	release
 	end
 }
@@ -524,8 +600,8 @@ script NPC_EDGEVILLE_HOUSE_NPC_8 {
 script NPC_EDGEVILLE_HOUSE_NPC_9 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
-	msgbox(format("Hello, I am a Cupholder."))
+    namebox ("Engineer")
+	msgbox(format("Sorry, the furnace is currently broken.\pToo many adventurers were trying to dump ores in at the same time.\pA furnace needs to be significantly hotter to smelt gold than bronze!\pWhen will they learn..."))
     closemessage
     hidenamebox
 	release
@@ -534,8 +610,8 @@ script NPC_EDGEVILLE_HOUSE_NPC_9 {
 script NPC_EDGEVILLE_HOUSE_NPC_10 {
 	lock
 	faceplayer
-    //namebox ("Cupholder")
-	msgbox(format("Hello, I am a Cupholder."))
+    namebox ("SitnSkill")
+	msgbox(format("Aw man, how am I meant to smelt more ores now?\pI can't cast Superheat Item..."))
     closemessage
     hidenamebox
 	release

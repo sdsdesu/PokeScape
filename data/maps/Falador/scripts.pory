@@ -87,11 +87,7 @@ script ITEM_FALADOR_1
     finditem(ITEM_POUCH_ADAMANT)
     end
 }
-script ITEM_FALADOR_2
-{
-    finditem(ITEM_TM26_KINGS_SHIELD)
-    end
-}
+
 
 
 

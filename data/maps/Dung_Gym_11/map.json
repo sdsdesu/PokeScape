@@ -1,0 +1,53 @@
+{
+  "id": "MAP_DUNG_GYM_11",
+  "name": "Dung_Gym_11",
+  "layout": "LAYOUT_DUNG_GYM_11",
+  "music": "MUS_PS_VICTORY_ROAD",
+  "region_map_section": "MAPSEC_DAEMONHEIM",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_DUNG_GYM_10",
+      "offset": 0,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_DUNG_GYM_12",
+      "offset": 0,
+      "direction": "up"
+    }
+  ],
+  "object_events": [
+
+  ],
+  "warp_events": [
+    {
+      "x": 7,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_DUNG_GYM_10",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_DUNG_GYM_12",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ],
+  "has_night_table": false
+}

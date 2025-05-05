@@ -49,15 +49,7 @@ CaveOfOrigin_B1F_EventScript_DontRemember::
 	goto CaveOfOrigin_B1F_EventScript_WheresRayquaza
 
 CaveOfOrigin_B1F_EventScript_AtSkyPillar::
-	msgbox CaveOfOrigin_B1F_Text_WellHeadToSkyPillar, MSGBOX_DEFAULT
-	closemessage
-	playse SE_EXIT
-	fadescreenspeed FADE_TO_BLACK, 4
-	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
-	setvar VAR_SOOTOPOLIS_CITY_STATE, 3
-	removeobject LOCALID_WALLACE
-	clearflag FLAG_HIDE_SKY_PILLAR_WALLACE
-	fadescreen FADE_FROM_BLACK
+
 	release
 	end
 

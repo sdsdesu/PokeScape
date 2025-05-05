@@ -383,17 +383,30 @@ script TZHAAR_NPC_12
 
 script TZHAAR_NPC_BANKER
 {
-    lock
+    lockall
     faceplayer
-    namebox ("Tzhaar")
-    msgbox(format("Greetings, welcome to the Bank of Tzhaar!\pWe are learning new things from this JalYt.\pWhat can I help you with today?"))
+    namebox ("Ga'Al Banker")
+    msgbox(format("Greetings, welcome to the Bank of Tzhaar!\pWe are learning new things from this JalYt.\pWhat can we help you with today?"))
+    call(BANK_OPTIONS_TZHAAR)
+    namebox ("Ga'Al Banker")
+    msgbox(format("Come again anytime."))
     closemessage
     hidenamebox
-    goto(BANK_OPTIONS)
-    release
+    releaseall
     end
 }
 
+script TZHAAR_NPC_BANKER_Human
+{
+    lock
+    faceplayer
+    namebox ("Banker")
+    msgbox(format("If you need something speak with these Tzhaar.\pThe big one will heal your monsters and the little one will help them learn moves."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
 script TZHAAR_NPC_13
 {
     faceplayer
@@ -567,7 +580,7 @@ movement Movement_Tzhaar_Mithrilman_2 {
 script Mithrilman_TZHAAR1 {
     playbgm (MUS_ENCOUNTER_MAY, 1)
     namebox("Mithrilman")
-    msgbox(format("Fromst the scorching heats of the dunes to a pleasant vaction I see knave.\pGreetings.\pThoust must be here to battle the Tzhaar?\pAllow thine to grant yee some knowledge as thoust superior in battle provesst.\pFirst of thoust shouldn't use iron inside a volcano.\pIt would smelts and yee would end in malfigured armour.\pNot for the goodst of thoust body, mayhaps a battle helps thoust?\pWell yee should show thine your provess then, beware, for the heat of this battle will be nothing like the volcano!"))
+    msgbox(format("Fromst the scorching heats of the dunes to a pleasant vacation I see knave.\pGreetings.\pThoust must be here to battle the Tzhaar?\pAllow thine to grant yee some knowledge as thoust superior in battle provesst.\pFirst of thoust shouldn't use iron inside a volcano.\pIt would smelts and yee would end in malfigured armour.\pNot for the goodst of thoust body, mayhaps a battle helps thoust?\pWell yee should show thine your provess then, beware, for the heat of this battle will be nothing like the volcano!"))
     trainerbattle_no_intro(TRAINER_MITHRILMAN3,format("…"))
     namebox("Mithrilman")
     msgbox(format("Thoust battle fair?\pJokest thine not, the heat from the volcano has malfigured mine gracious Mithril armour.\pWe shalt call this a draw for now, whilst thine seek a smith to fix thine armour.\pFare thoust less than well,\pKnave!"))

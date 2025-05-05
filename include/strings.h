@@ -1028,6 +1028,7 @@ extern const u8 gText_AnythingElseICanHelp[];
 extern const u8 gText_QuitShopping[];
 extern const u8 gText_PokedollarVar1[];
 extern const u8 gText_YouDontHaveMoney[];
+extern const u8 gText_YouDontHaveTokkul[];
 extern const u8 gText_Var1CertainlyHowMany2[];
 extern const u8 gText_Var1CertainlyHowMany[];
 extern const u8 gText_Var1IsItThatllBeVar2[];
@@ -3141,6 +3142,15 @@ extern const u8 gText_RenameMon[];
 extern const u8 gText_ReLearnMove[];
 extern const u8 gText_ForgetMove[];
 
+extern const u8 gText_BEGINNING[];
+extern const u8 gText_Pre_WIZARDSTOWER[];
+extern const u8 gText_Post_DRAYNORMANOR[];
+extern const u8 gText_Post_MELZARSMAZE[];
+extern const u8 gText_Post_FALADORGYM[];
+extern const u8 gText_Pre_Crandor[];
+extern const u8 gText_Pre_BKF[];
+extern const u8 gText_Post_BKF[];
+
 //pokescape cheat menu
 extern const u8 gText_CheatEvolutionShop[];
 extern const u8 gText_CheatPouchShop[];
@@ -3314,6 +3324,7 @@ extern const u8 gText_MapName_PortSarim[];
 extern const u8 gText_MapName_MelzarsMaze[];
 extern const u8 gText_MapName_DwarvenMines[];
 extern const u8 gText_MapName_Crandor[];
+extern const u8 gText_MapName_IceMountain[];
 
 extern const u8 gText_SideQuestName_Main_Story[];
 extern const u8 gText_SideQuestDesc_Main_Story[];
@@ -3337,6 +3348,10 @@ extern const u8 gText_SubQuest_Main_Story_Name9[];
 extern const u8 gText_SubQuest_Main_Story_Desc9[];
 extern const u8 gText_SubQuest_Main_Story_Name10[];
 extern const u8 gText_SubQuest_Main_Story_Desc10[];
+extern const u8 gText_SubQuest_Main_Story_Name11[];
+extern const u8 gText_SubQuest_Main_Story_Desc11[];
+extern const u8 gText_SubQuest_Main_Story_Name12[];
+extern const u8 gText_SubQuest_Main_Story_Desc12[];
 
 extern const u8 gText_SideQuestName_MithrilmanQuest[];
 extern const u8 gText_SideQuestDesc_MithrilmanQuest[];

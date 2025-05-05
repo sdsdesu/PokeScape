@@ -128,8 +128,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_1",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_1"
+      "script": "ITEM_RECEIVED_TM21",
+      "flag": "FLAG_RECEIVED_TM21"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_5",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_5"
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_6",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_6"
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -168,7 +168,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_3",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_3"
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_2",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_2"
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -194,7 +194,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_4",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_ITEM_4"
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZANIK",
@@ -312,6 +312,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_SLIME",
       "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DAGANNOTH",
+      "x": 9,
+      "y": 37,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_DAGANNOTH",
+      "flag": "FLAG_TEMP_A"
     }
   ],
   "warp_events": [

@@ -254,11 +254,7 @@ script ITEM_RimmingtonMines_2
     end
 }
 
-script ITEM_RimmingtonMines_3
-{
-    finditem(ITEM_TM33_DRAGON_BREATH)
-    end
-}
+
 
 
 

@@ -7,8 +7,25 @@ mapscripts Route39_MapScripts{
         setvar(VAR_EVOLUTION_MAP_STATE, 15) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
 		call(PENGUIN_EVENT)
         call(WEATHER_CHANGE_AREA_MUSAPOINT)
+        call(RANDOM_EVENT_SPAWNS_ROUTE39)
 	}
 }
+
+script RANDOM_EVENT_SPAWNS_ROUTE39 {
+	random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_5)
+		addobject(26)
+	}
+	else {
+		setflag(FLAG_TEMP_5)
+		removeobject(26)
+	}
+	return
+}
+
+
+
 
 script ENCOUNTER_PENGUIN_BARREL_ROUTE39 {
 	lock

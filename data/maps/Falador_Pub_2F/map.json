@@ -116,7 +116,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_FALADORPUB_1",
-      "flag": "FLAG_ITEM_FALADORPUB_1"
+      "flag": "FLAG_ITEM_FALADOR_3"
     }
   ],
   "warp_events": [

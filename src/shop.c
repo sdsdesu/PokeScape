@@ -1066,9 +1066,13 @@ static void Task_BuyMenu(u8 taskId)
 
             if ((ItemId_GetImportance(itemId) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1))) || GetOutfitStatus(itemId))
                 BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, BuyMenuReturnToItemList);
-            else if ((!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_NORMAL) || (!IsEnoughTokkul(gSaveBlock1Ptr->tokkul, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_TOKKUL))
+            else if ((!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_NORMAL))
             {
                 BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
+            }
+            else if ((!IsEnoughTokkul(gSaveBlock1Ptr->tokkul, sShopData->totalCost) && sMartInfo.martType == MART_TYPE_TOKKUL))
+            {
+                BuyMenuDisplayMessage(taskId, gText_YouDontHaveTokkul, BuyMenuReturnToItemList);
             }
             else
             {

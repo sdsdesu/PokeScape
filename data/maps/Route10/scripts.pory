@@ -96,27 +96,65 @@ script ROUTE10_WhiteKnight_2
     end
 }
 
+script ROUTE10_WhiteKnight_3
+{
+    lock
+    faceplayer
+    namebox ("Sir Acknis")
+    msgbox(format("Go no further adventurer!\pGhastly, smelly worm monsters have been attacking folks around this area.\pWe have been dispatched here to secure the area for the time being."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script ROUTE10_SirAcknis {
+    lock
+    faceplayer
+    namebox("Sir Acknis")
+    random(7)
+    switch (var(VAR_RESULT)) {
+        case 0: 
+            msgbox(format("Have you heard of Sir Owen Sonde?\pWhen he was young, his mother was captured by a Kinshra raiding party.\pDespite being so young, he tried to protect her and got a scar in the process..\pHis bravery inspired me to become a White Knight myself!"))
+        case 1: 
+            msgbox(format("Our leader, Sir Amik Varze, also manages the Kingdom of Asgarnia.\pHow he has time to run the Falador gym too is beyond me!"))
+        case 2: 
+            msgbox(format("There was a White Knight called Sir Theodore who grew up south-west of here in Rimmington.\pNobody is quite sure what happened to him though."))
+        case 3: 
+            msgbox(format("If you're ever in Falador, please visit the park.\pOur head of recruitment can be found sitting on a bench there, drinking cups of tea.\pI've never seen anybody refill his cup though...\pI wonder if it's enchanted..."))
+            case 4: 
+            msgbox(format("You can tell what rank a White Knight is by the colour cloth on our armour.\pFor example, mine is blue because I am a Partisan.\pWe also have some Proselytes with us today for training and their cloth is yellow."))
+        case 5: 
+            msgbox(format("Our armourer, Sir Vyvin, lost his eye to some lunatic that lived in the Wilderness while defending Falador!\pSupposedly they fought with sharp teeth and nails rather than monsters!"))
+        case 6: 
+            msgbox(format("The Herald, Sir Renitee, focuses more on people's family heritage and painting now than anything combat related.\pNow that I think about it, I'm not even sure how that makes him qualified to be a White Knight..."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
 
 
 //BATTLE TRAINERS
 
 script BATTLE_ROUTE10_MONK{
     trainerbattle_single(TRAINER_ROUTE10_MONK, format("You don't seem to be dead…\pWe might be able arrange something to fix that."),format("Oh you prefer to live?\pThat too is an option."))
-    //namebox ("Hoenheim")
+    namebox ("Hoenheim")
     msgbox(format("Did you know Death Runes make certain monsters evolve?\pDo you think there are Life Runes too?\pIt really makes you think."))
     release
 }
 
 script BATTLE_ROUTE10_GOBLIN_1{
     trainerbattle_single(TRAINER_ROUTE10_GOBLIN_1, format("HUMAN!\pMe not let you pass!\pThis is goblin road!"),format("Ok human can pass!"))
-    //namebox ("FEETSTOMPER")
+    namebox ("Feetstomper")
     msgbox(format("Me sorry for causing trouble for human!\pDon't hurt goblin!"))
     release
 }
 
 script BATTLE_ROUTE10_GOBLIN_2{
     trainerbattle_single(TRAINER_ROUTE10_GOBLIN_2, format("Me want to visit graves but stupid humans won't let me!"),format("Me just want to see friend…"))
-    //namebox ("WINDBURSTER")
+    namebox ("Dirthead")
     msgbox(format("Me friend is spider.\pMe accidently sat on him.\pMe want to visit grave and say sorry…"))
     release
 }
@@ -124,11 +162,7 @@ script BATTLE_ROUTE10_GOBLIN_2{
 
 //ITEMS
 //HIDDEN ITEMS:  ITEM_MINT_CAKE ,  ITEM_LAMP_SPDEF
-script ITEM_ROUTE10_TM38_ROCKTOMB
-{
-    finditem(ITEM_TM38)
-    end
-}
+
 
 script ITEM_ROUTE10_PINEAPPLE_PUNCH
 {

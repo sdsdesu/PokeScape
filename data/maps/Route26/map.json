@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE26",
   "name": "Route26",
   "layout": "LAYOUT_ROUTE26",
-  "music": "MUS_PS_ROUTE_ASGARNIA",
+  "music": "MUS_PS_ICE_MOUNTAIN",
   "region_map_section": "MAPSEC_ROUTE_26",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -108,7 +108,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE26_SUPER_PRAYER_POTION",
-      "flag": "FLAG_ROUTE26_SUPER_PRAYER_POTION"
+      "flag": "FLAG_ITEM_ROUTE26_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
@@ -134,7 +134,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash_POKESCAPE",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -147,7 +147,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash_POKESCAPE",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -160,7 +160,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE26_ADAMANT_POUCH",
-      "flag": "FLAG_ROUTE26_ADAMANT_POUCH"
+      "flag": "FLAG_ITEM_ROUTE26_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -173,7 +173,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash_POKESCAPE",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DND",
@@ -213,6 +213,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "FOLLOWING_SirOwen",
       "flag": "FLAG_TEMP_1E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT",
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT",
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SIR_OWEN",
+      "x": 23,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1D"
     }
   ],
   "warp_events": [
@@ -228,22 +267,22 @@
     },
     {
       "type": "weather",
-      "x": 11,
-      "y": 27,
+      "x": 9,
+      "y": 26,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
     },
     {
       "type": "weather",
-      "x": 11,
+      "x": 9,
       "y": 25,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "trigger",
-      "x": 8,
-      "y": 9,
+      "x": 4,
+      "y": 8,
       "elevation": 0,
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "175",
@@ -256,7 +295,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "CHECK_FOLLOWER_SIROWEN"
+      "script": "TRIGGER_STORYMODE_EVENT_ROUTE26"
     },
     {
       "type": "weather",

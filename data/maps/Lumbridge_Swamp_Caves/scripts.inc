@@ -63,11 +63,6 @@ Movement_WallBeast:
 	jump_in_place_up
 	step_end
 
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_1::
-	finditem ITEM_TM21_TOXIC
-	end
-
-
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_2::
 	finditem ITEM_WATER_RUNE
 	end
@@ -84,7 +79,7 @@ ITEM_LUMBRIDGESWAMPCAVE_ITEM_4::
 
 
 ITEM_LUMBRIDGESWAMPCAVE_ITEM_5::
-	finditem ITEM_SPIRIT_SHARD
+	finditem ITEM_TALISMAN_WATER
 	end
 
 
@@ -135,6 +130,17 @@ BATTLE_LUMBRIDGESWAMPCAVE_5::
 BATTLE_LUMBRIDGESWAMPCAVE_6::
 	trainerbattle_single TRAINER_LUMBRIDGESWAMPCAVE_6, BATTLE_LUMBRIDGESWAMPCAVE_6_Text_0, BATTLE_LUMBRIDGESWAMPCAVE_6_Text_1
 	msgbox BATTLE_LUMBRIDGESWAMPCAVE_6_Text_1
+	hidenamebox
+	release
+	end
+
+
+LUMBRIDGESWAMPCAVE_ZANIK::
+	lock
+	faceplayer
+	namebox LUMBRIDGESWAMPCAVE_ZANIK_Text_0
+	msgbox LUMBRIDGESWAMPCAVE_ZANIK_Text_1
+	closemessage
 	hidenamebox
 	release
 	end
@@ -208,3 +214,11 @@ BATTLE_LUMBRIDGESWAMPCAVE_6_Text_0:
 
 BATTLE_LUMBRIDGESWAMPCAVE_6_Text_1:
 	.string "Kill all the slimes!!$"
+
+LUMBRIDGESWAMPCAVE_ZANIK_Text_0:
+	.string "Zanik$"
+
+LUMBRIDGESWAMPCAVE_ZANIK_Text_1:
+	.string "I'm afraid that it's too dangerous for\n"
+	.string "humans to take this route.\p"
+	.string "Only goblins are able to pass through!$"

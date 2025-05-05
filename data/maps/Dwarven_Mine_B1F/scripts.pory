@@ -9,7 +9,6 @@ const OBJ_EVENT_ID_QUEST_HAM_2 = 33
 mapscripts Dwarven_Mine_B1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 43) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 43-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA, 
-    
         if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
     	{
             goto(DWARVENMINES_QUEST_STATE)
@@ -19,7 +18,20 @@ mapscripts Dwarven_Mine_B1F_MapScripts {
 			call(OPENWORLD_STATE_DWARVENMINES)
 		}
     }
+    MAP_SCRIPT_ON_LOAD 
+    {
+        call(DWARVENMINES_METATILES)
+    }
 }
+
+script DWARVENMINES_METATILES {
+    if (var(VAR_DWARVEN_MINES_STATE) >= 10) {
+        setmetatile(9, 6, 121, 0)
+    }
+}
+
+
+
 
 script OPENWORLD_STATE_DWARVENMINES {
 		removeobject(OBJ_EVENT_ID_QUEST_KNIGHT)
@@ -612,7 +624,7 @@ script NPC_DWARVENMINES_DWARF_8
     lock
     faceplayer
     namebox ("Dwarf")
-	msgbox(format("That pickaxe you have there…\pThat looks like one of mine.\pHow did you get it?"))
+	msgbox(format("Ay mate, this is the backdoor to our Power Station.\pI'll have to ask you to stay clear for saftey reasons."))
     closemessage
     hidenamebox
 	release
@@ -623,7 +635,7 @@ script NPC_DWARVENMINES_DWARF_9
 {
 	lock
 	faceplayer
-    namebox ("DWARF")
+    namebox ("Dwarf")
 	msgbox(format("If you are dealing with less than adamantite, then you can just keep walking human."))
     hidenamebox
 	release
@@ -634,7 +646,7 @@ script NPC_DWARVENMINES_DWARF_10
 {
 	lock
 	faceplayer
-    namebox ("DWARF")
+    namebox ("Dwarf")
 	msgbox(format("I've seen humans down here mining ores, then using magic to smelt them into bars!\pBlasphemy!\pIt has taken dwaves centuries to find the perfect temperatures for our forges, there's no way humans can just bypass that...\pRight?? "))
     hidenamebox
 	release
@@ -645,7 +657,7 @@ script NPC_DWARVENMINES_DWARF_11
 {
 	lock
 	faceplayer
-    namebox ("DWARF")
+    namebox ("Dwarf")
 	msgbox(format("Heigh ho!\pWe dig dig dig dig dig dig dig from early morn till night...\pWe dig dig dig dig dig dig dig up everything in sight...\pHeigh ho!"))
     hidenamebox
 	release
@@ -661,4 +673,30 @@ script NPC_DWARVENMINES_HURA
     hidenamebox
 	release
 	end
+}
+
+
+
+
+
+
+script POWER_STATION_DOOR
+{
+    if (var(VAR_DWARVEN_MINES_STATE) == 0) {
+        msgbox(format("The door is locked."))
+        closemessage
+    }
+    elif (var(VAR_DWARVEN_MINES_STATE) == 5) {
+        msgbox(format("The key unlocks the door!"))
+        playse(SE_SWITCH)
+        waitse
+        delay(30)
+        setmetatile(9, 6, 121, 0)
+        special(DrawWholeMapView) 
+        playse(SE_TRUCK_DOOR)
+        msgbox(format("The door opens."))
+        closemessage
+        setvar(VAR_DWARVEN_MINES_STATE, 10)
+    }
+    end
 }

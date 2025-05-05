@@ -15,7 +15,7 @@ Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	return
 
 Varrock_MapScripts_MAP_SCRIPT_ON_LOAD:
-	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
+	compare VAR_POKESCAPE_GAMEMODE_STATE, 1
 	goto_if_eq Varrock_MapScripts_MAP_SCRIPT_ON_LOAD_1
 	return
 

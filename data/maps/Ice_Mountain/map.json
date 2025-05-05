@@ -2,10 +2,10 @@
   "id": "MAP_ICE_MOUNTAIN",
   "name": "Ice_Mountain",
   "layout": "LAYOUT_ICE_MOUNTAIN",
-  "music": "MUS_CAVE_OF_ORIGIN",
-  "region_map_section": "MAPSEC_DWARVEN_MINES",
+  "music": "MUS_PS_ICE_MOUNTAIN",
+  "region_map_section": "MAPSEC_ICE_MOUNTAIN",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_SNOW",
   "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -111,7 +111,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GUARD_M",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
@@ -123,7 +123,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -136,7 +136,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_2"
     },
     {
@@ -150,6 +150,58 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "GUARD_F",
+      "flag": "FLAG_TEMP_1E"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_NUDE",
+      "x": 32,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GUARD_M",
+      "flag": "FLAG_TEMP_1F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_NUDE",
+      "x": 32,
+      "y": 0,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GUARD_F",
+      "flag": "FLAG_TEMP_1F"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BLUE",
+      "x": 14,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_ICE",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_NUDE",
+      "x": 14,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
       "flag": "0"
     }
   ],
@@ -202,7 +254,7 @@
     {
       "type": "trigger",
       "x": 41,
-      "y": 11,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "180",
@@ -211,7 +263,7 @@
     {
       "type": "trigger",
       "x": 42,
-      "y": 11,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "180",
@@ -220,7 +272,7 @@
     {
       "type": "trigger",
       "x": 43,
-      "y": 11,
+      "y": 9,
       "elevation": 0,
       "var": "VAR_POKESCAPE_STORYMODE_PROGRESS",
       "var_value": "180",

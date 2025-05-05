@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_F",
       "x": 17,
       "y": 5,
       "elevation": 0,
@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BLACK_KNIGHT_QUIZ_2",
-      "flag": "0"
+      "script": "NPC_BLACK_KNIGHT_QUIZ_2",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
@@ -102,8 +102,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "BLACK_KNIGHT_QUIZ_2",
-      "flag": "0"
+      "script": "NPC_BLACK_KNIGHT_QUIZ_2",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAC_BLKWITCH",
@@ -115,7 +115,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "BKFORT_1F_LENSIG",
       "flag": "0"
     },
     {
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_1",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DOG_GUARD",
@@ -181,7 +181,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BKFORT_DOG",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DOG_GUARD",
@@ -194,7 +194,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BKFORT_DOG",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -207,7 +207,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_1F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_1F_ITEM2"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -220,7 +220,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_1F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_1F_ITEM3"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -233,7 +233,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BLACKKNIGHTS_FORTRESS_1",
-      "flag": "FLAG_ITEM_BLACKKNIGHTS_FORTRESS_1"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -246,7 +246,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_BKFORT_1F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_1F_ITEM1"
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_FALADOR",
@@ -302,29 +302,29 @@
     {
       "type": "trigger",
       "x": 15,
-      "y": 25,
+      "y": 29,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "TRIGGER_BKF_SIROWEN_INTRO"
     },
     {
       "type": "trigger",
       "x": 16,
-      "y": 25,
+      "y": 29,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "TRIGGER_BKF_SIROWEN_INTRO"
     },
     {
       "type": "trigger",
       "x": 17,
-      "y": 25,
+      "y": 29,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "TRIGGER_BKF_SIROWEN_INTRO"
     },
     {
       "type": "trigger",
@@ -352,6 +352,51 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "TRIGGER_BLACK_KNIGHT_QUIZ_1"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "TRIGGER_BKF_SIROWEN_BEDS"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "TRIGGER_BKF_SIROWEN_BEDS"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "TRIGGER_BKF_SIROWEN_BEDS"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "TRIGGER_BKF_SIROWEN_BEDS"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_3",
+      "var_value": "0",
+      "script": "TRIGGER_BKF_SIROWEN_BEDS"
     }
   ],
   "bg_events": [

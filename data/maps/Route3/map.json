@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE3_CORN",
-      "flag": "FLAG_ITEM_ROUTE3_CORN"
+      "flag": "FLAG_ITEM_ROUTE3_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAT_PURPLE",
@@ -259,7 +259,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ROUTE3_REPEL_TEA",
-      "flag": "FLAG_ITEM_ROUTE3_REPEL_TEA"
+      "flag": "FLAG_ITEM_ROUTE3_2"
     }
   ],
   "warp_events": [

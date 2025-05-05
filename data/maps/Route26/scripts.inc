@@ -1,5 +1,6 @@
 Route26_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route26_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route26_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 Route26_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -9,78 +10,192 @@ Route26_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	call PENGUIN_EVENT
 	return
 
+Route26_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
+	map_script_2 VAR_POKESCAPE_STORYMODE_PROGRESS, 200, POST_WARP_BKF_EVENT
+	.2byte 0
+
+
+POST_WARP_BKF_EVENT::
+	applymovement 16, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	waitmovement 0
+	delay 90
+	applymovement 14, movement_BlackKnights_POST_WARP_BKF_EVENT
+	applymovement 15, movement_BlackKnights_POST_WARP_BKF_EVENT
+	applymovement 16, Movement_InteractFACERIGHT
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	waitmovement 0
+	namebox POST_WARP_BKF_EVENT_Text_0
+	msgbox POST_WARP_BKF_EVENT_Text_1
+	closemessage
+	hidenamebox
+	giveitem ITEM_STRENGTH_TOOL
+	namebox POST_WARP_BKF_EVENT_Text_0
+	msgbox POST_WARP_BKF_EVENT_Text_2
+	closemessage
+	hidenamebox
+	waitmovement 0
+	applymovement 16, movement_SirOwen_POST_WARP_BKF_EVENT
+	waitmovement 0
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 205
+	removeobject 16
+	removeobject 14
+	removeobject 15
+	setflag FLAG_TEMP_1D
+	return
+
+
+movement_BlackKnights_POST_WARP_BKF_EVENT:
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+movement_SirOwen_POST_WARP_BKF_EVENT:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 ROUTE26_STATE::
-	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_2
+	removeobject 14
+	removeobject 15
+	setflag FLAG_TEMP_1D
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 200
+	goto_if_eq ROUTE26_STATE_2
 ROUTE26_STATE_1:
+	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_5
+ROUTE26_STATE_4:
 	setflag FLAG_TEMP_1F
 	removeobject 6
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 175
-	goto_if_eq ROUTE26_STATE_5
-ROUTE26_STATE_4:
-	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 180
 	goto_if_eq ROUTE26_STATE_8
 ROUTE26_STATE_7:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 180
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 181
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 185
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 186
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 190
+	goto_if_eq ROUTE26_STATE_11
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 195
+	goto_if_eq ROUTE26_STATE_11
+ROUTE26_STATE_10:
 	return
 
 ROUTE26_STATE_2:
-	setflag FLAG_TEMP_1E
-	removeobject 13
+	addobject 14
+	addobject 15
+	addobject 16
+	clearflag FLAG_TEMP_1D
 	goto ROUTE26_STATE_1
 
 ROUTE26_STATE_5:
-	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_11
-ROUTE26_STATE_10:
-	clearflag FLAG_TEMP_1F
-	addobject 6
+	setflag FLAG_TEMP_1E
+	removeobject 13
 	goto ROUTE26_STATE_4
 
 ROUTE26_STATE_8:
-	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_13
+	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_26
+ROUTE26_STATE_25:
+	clearflag FLAG_TEMP_1F
+	addobject 6
 	goto ROUTE26_STATE_7
 
 ROUTE26_STATE_11:
-	clearflag FLAG_TEMP_1E
-	addobject 13
+	goto_if_unset FLAG_PARTNER_BATTLE, ROUTE26_STATE_28
 	goto ROUTE26_STATE_10
 
-ROUTE26_STATE_13:
+ROUTE26_STATE_26:
+	clearflag FLAG_TEMP_1E
+	addobject 13
+	goto ROUTE26_STATE_25
+
+ROUTE26_STATE_28:
 	clearflag FLAG_TEMP_1E
 	addobject 13
 	setobjectxyperm 13, 8, 7
-	goto ROUTE26_STATE_7
+	goto ROUTE26_STATE_10
 
 
 TRIGGER_STORYMODE_EVENT_ROUTE26::
+	switch VAR_POKESCAPE_STORYMODE_PROGRESS
+	case 175, TRIGGER_STORYMODE_EVENT_ROUTE26_3
+	case 180, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 181, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 185, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 186, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 187, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 190, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+	case 195, TRIGGER_STORYMODE_EVENT_ROUTE26_4
+TRIGGER_STORYMODE_EVENT_ROUTE26_1:
+	setvar VAR_TEMP_0, 1
+	releaseall
+	end
+
+TRIGGER_STORYMODE_EVENT_ROUTE26_3:
 	lockall
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
 	applymovement 13, Movement_InteractFACEDOWN
 	waitmovement 0
-	namebox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_1, MSGBOX_YESNO
+	namebox POST_WARP_BKF_EVENT_Text_0
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_eq TRIGGER_STORYMODE_EVENT_ROUTE26_2
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_3
+	goto_if_eq TRIGGER_STORYMODE_EVENT_ROUTE26_6
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_2
 	applymovement 13, MOVEMENT_FACE_UP
+	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	setflag FLAG_PARTNER_BATTLE
 	setvar VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1
 	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN
-	trainerbattle_no_intro TRAINER_ROUTE26_BLACK_KNIGHT, TRIGGER_STORYMODE_EVENT_ROUTE26_Text_4
+	trainerbattle_no_intro TRAINER_ROUTE26_BLACK_KNIGHT, TRIGGER_STORYMODE_EVENT_ROUTE26_Text_3
 	applymovement 6, movement_BLACKKNIGHT_1
 	waitmovement 0
 	setflag FLAG_TEMP_1F
 	removeobject 6
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_5
+	applymovement 13, MOVEMENT_FACE_DOWN
+	waitmovement 0
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_4
 	closemessage
 	hidenamebox
 	playfanfare MUS_OBTAIN_SYMBOL
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_6
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_5
 	waitfanfare
 	closemessage
-	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	loadword 0, FOLLOWING_SirOwen
 	setfollower 13, 0x80
-	namebox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_7
+	namebox POST_WARP_BKF_EVENT_Text_0
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_6
 	closemessage
 	hidenamebox
 	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP
@@ -90,8 +205,12 @@ TRIGGER_STORYMODE_EVENT_ROUTE26::
 	releaseall
 	end
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_2:
-	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_2
+TRIGGER_STORYMODE_EVENT_ROUTE26_4:
+	goto CHECK_FOLLOWER_SIROWEN
+	goto TRIGGER_STORYMODE_EVENT_ROUTE26_1
+
+TRIGGER_STORYMODE_EVENT_ROUTE26_6:
+	msgbox TRIGGER_STORYMODE_EVENT_ROUTE26_Text_1
 	closemessage
 	hidenamebox
 	applymovement 13, Movement_InteractFACEUP
@@ -193,34 +312,49 @@ ROUTE26_ADAMANT_POUCH::
 	end
 
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0:
+POST_WARP_BKF_EVENT_Text_0:
 	.string "Sir Owen$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_1:
+POST_WARP_BKF_EVENT_Text_1:
+	.string "This is not good, hopefully its a big\n"
+	.string "ball of nothing.\p"
+	.string "Either way I should probably report our\n"
+	.string "findings back to Sir Tiffy Cashien.\p"
+	.string "{PLAYER}, thank you for your help we\n"
+	.string "couldn't have done this without you.\p"
+	.string "On behalf of the Temple Knights, please\n"
+	.string "accept this as a token of our thanks.$"
+
+POST_WARP_BKF_EVENT_Text_2:
+	.string "Hopefully you will find a use for it on\n"
+	.string "your adventures.\p"
+	.string "See you around {PLAYER}!$"
+
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_0:
 	.string "{PLAYER}! Mind lending me a hand?\p"
 	.string "This guy is not playing fair!$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_2:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_1:
 	.string "Call for backup while I hold them off!$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_3:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_2:
 	.string "Let us fight him fairly then!$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_4:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_3:
 	.string "Urgh, I could have stopped one of you\n"
 	.string "but not both...$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_5:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_4:
 	.string "Thank you {PLAYER}.\p"
 	.string "I think it would be wise for us to\n"
 	.string "continue on foot together in case we\l"
 	.string "encounter any more enemy resistance.$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_6:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_5:
 	.string "Lead the charge!\n"
 	.string "Sir Owen Sonde is on your side!$"
 
-TRIGGER_STORYMODE_EVENT_ROUTE26_Text_7:
+TRIGGER_STORYMODE_EVENT_ROUTE26_Text_6:
 	.string "May Saradomin guide us!$"
 
 ENCOUNTER_PENGUIN_BOX_ROUTE26_Text_0:
