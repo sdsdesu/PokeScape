@@ -1232,14 +1232,32 @@ script CHECK_FOLLOWER_SIROWEN {
 	checkfollower
 	if (var(VAR_RESULT)) {
 		lockall
+		facefollower
 		namebox("Sir Owen")
 		msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 		{ 
 			msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
+			
+			iswearingoutfit(OUTFIT_GUARD)
+			if (var(VAR_RESULT) == TRUE) {
+				namebox("Sir Owen")
+				msgbox(format("Oh pass me that outfit real quick, I'll keep it safe until you return."))
+			}
 			closemessage
 			hidenamebox
-			call(FOLLOWER_REMOVE)
+			
+			iswearingoutfit(OUTFIT_GUARD)
+			if (var(VAR_RESULT) == TRUE) {
+				fadescreenswapbuffers(FADE_TO_BLACK)
+				call(FOLLOWER_REMOVE)
+				setvar(VAR_0x8004, OUTFIT_DEFAULT)
+				special(WearOutfit)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
+			}
+			else {
+				call(FOLLOWER_REMOVE)
+			}
 			clearflag(FLAG_TEMP_1E)
 			addobject(13)
 			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
@@ -1265,6 +1283,7 @@ script CHECK_FOLLOWER_SIROWEN {
 
 
 
+
 script SetFollower_SirOwen {
     lockall
     faceplayer
@@ -1283,13 +1302,39 @@ script SetFollower_SirOwen {
 		setflag(FLAG_PARTNER_BATTLE)
 		setvar (VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1)
 		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN)
-		loadword(0, FOLLOWING_SirOwen)
-		setfollower(13, 0x80)
 
-		namebox("Sir Owen")
-		msgbox(format("May Saradomin guide us!"))
-		closemessage
-		hidenamebox
+		//check if guard outfit
+		if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 187) {
+			namebox("Sir Owen")
+			msgbox(format("Hold on {PLAYER}, we should put these disguises back on."))
+			closemessage
+			hidenamebox
+
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			addobject(17)
+    		clearflag(FLAG_TEMP_1C)
+			removeobject(13)
+    		setflag(FLAG_TEMP_1E)
+			destroyfollower
+			loadword(0, FOLLOWING_SirOwen)
+			setfollower(17, 0x80)
+			setvar(VAR_0x8004, OUTFIT_GUARD)
+			special(WearOutfit)
+			delay(20)
+			namebox("Sir Owen")
+			msgbox(format("That's better.\pMay Saradomin guide us!"))
+			closemessage
+			hidenamebox
+		}
+		else {
+			loadword(0, FOLLOWING_SirOwen)
+			setfollower(13, 0x80)
+			namebox("Sir Owen")
+			msgbox(format("May Saradomin guide us!"))
+			closemessage
+			hidenamebox
+		}
+		
 		applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
 		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
 		waitmovement(0)

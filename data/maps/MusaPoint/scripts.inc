@@ -1327,6 +1327,7 @@ CHECK_FOLLOWER_SIROWEN_1:
 
 CHECK_FOLLOWER_SIROWEN_2:
 	lockall
+	facefollower
 	namebox multipartnerBattle_SirOwen_Text_0
 	msgbox CHECK_FOLLOWER_SIROWEN_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 0
@@ -1342,14 +1343,35 @@ CHECK_FOLLOWER_SIROWEN_5:
 
 CHECK_FOLLOWER_SIROWEN_6:
 	msgbox CHECK_FOLLOWER_SIROWEN_Text_1
+	iswearingoutfit OUTFIT_GUARD
+	compare VAR_RESULT, TRUE
+	goto_if_eq CHECK_FOLLOWER_SIROWEN_10
+CHECK_FOLLOWER_SIROWEN_9:
 	closemessage
 	hidenamebox
+	iswearingoutfit OUTFIT_GUARD
+	compare VAR_RESULT, TRUE
+	goto_if_eq CHECK_FOLLOWER_SIROWEN_13
 	call FOLLOWER_REMOVE
+CHECK_FOLLOWER_SIROWEN_12:
 	clearflag FLAG_TEMP_1E
 	addobject 13
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
 	waitmovement 0
 	goto CHECK_FOLLOWER_SIROWEN_5
+
+CHECK_FOLLOWER_SIROWEN_10:
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox CHECK_FOLLOWER_SIROWEN_Text_2
+	goto CHECK_FOLLOWER_SIROWEN_9
+
+CHECK_FOLLOWER_SIROWEN_13:
+	fadescreenswapbuffers FADE_TO_BLACK
+	call FOLLOWER_REMOVE
+	setvar VAR_0x8004, OUTFIT_DEFAULT
+	special WearOutfit
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto CHECK_FOLLOWER_SIROWEN_12
 
 
 SetFollower_SirOwen::
@@ -1359,7 +1381,7 @@ SetFollower_SirOwen::
 	msgbox SetFollower_SirOwen_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne SetFollower_SirOwen_2
-	msgbox SetFollower_SirOwen_Text_3
+	msgbox SetFollower_SirOwen_Text_5
 	hidenamebox
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
@@ -1378,17 +1400,42 @@ SetFollower_SirOwen_2:
 	setflag FLAG_PARTNER_BATTLE
 	setvar VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1
 	setvar VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
+	goto_if_ge SetFollower_SirOwen_5
 	loadword 0, FOLLOWING_SirOwen
 	setfollower 13, 0x80
 	namebox multipartnerBattle_SirOwen_Text_0
-	msgbox SetFollower_SirOwen_Text_2
+	msgbox SetFollower_SirOwen_Text_4
 	closemessage
 	hidenamebox
+SetFollower_SirOwen_4:
 	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP
 	waitmovement 0
 	releaseall
 	end
+
+SetFollower_SirOwen_5:
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox SetFollower_SirOwen_Text_2
+	closemessage
+	hidenamebox
+	fadescreenswapbuffers FADE_TO_BLACK
+	addobject 17
+	clearflag FLAG_TEMP_1C
+	removeobject 13
+	setflag FLAG_TEMP_1E
+	destroyfollower
+	loadword 0, FOLLOWING_SirOwen
+	setfollower 17, 0x80
+	setvar VAR_0x8004, OUTFIT_GUARD
+	special WearOutfit
+	delay 20
+	namebox multipartnerBattle_SirOwen_Text_0
+	msgbox SetFollower_SirOwen_Text_3
+	closemessage
+	hidenamebox
+	goto SetFollower_SirOwen_4
 
 
 FOLLOWING_SirOwen::
@@ -2380,6 +2427,10 @@ CHECK_FOLLOWER_SIROWEN_Text_1:
 	.string "Very well, you take a quick retreat and\n"
 	.string "I will stand guard here.$"
 
+CHECK_FOLLOWER_SIROWEN_Text_2:
+	.string "Oh pass me that outfit real quick, I'll\n"
+	.string "keep it safe until you return.$"
+
 SetFollower_SirOwen_Text_0:
 	.string "What do you say me and you team up and\n"
 	.string "show these Black Knights just what we\l"
@@ -2390,9 +2441,17 @@ SetFollower_SirOwen_Text_1:
 	.string "Sir Owen Sonde is on your side!$"
 
 SetFollower_SirOwen_Text_2:
-	.string "May Saradomin guide us!$"
+	.string "Hold on {PLAYER}, we should put these\n"
+	.string "disguises back on.$"
 
 SetFollower_SirOwen_Text_3:
+	.string "That's better.\p"
+	.string "May Saradomin guide us!$"
+
+SetFollower_SirOwen_Text_4:
+	.string "May Saradomin guide us!$"
+
+SetFollower_SirOwen_Text_5:
 	.string "Oh… I see.\n"
 	.string "That's a bit disappointing.\p"
 	.string "Thought we had a heroic thing going\n"

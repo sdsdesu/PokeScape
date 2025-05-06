@@ -1,5 +1,6 @@
 const BKGUARD_1_ID = 4
 const BKGUARD_2_ID = 5
+const OBJ_EVENT_ID_SIR_OWEN_GUARD = 13
 
 mapscripts Ice_Mountain_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION {
@@ -315,22 +316,31 @@ script TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY {
 		setvar(VAR_TEMP_0, 1)
 	}
 	else {
-		//check outfit
-		applymovement (BKGUARD_1_ID,movement_BK_FORT_GUARD_right)
-		applymovement (BKGUARD_2_ID,movement_BK_FORT_GUARD_left)
-		applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
-		waitmovement(0)
-		namebox ("Guard B")
-		msgbox(format("Hello fellow guard!\pYou may pass!"))
-		closemessage
-		hidenamebox
-		applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
-		waitmovement(0)
-		namebox ("Guard D")
-		msgbox(format("Remember to keep an eye out for those pesky White Knights!"))
-		closemessage
-		hidenamebox
-		setvar(VAR_TEMP_0, 1)
+		//check outfit 
+		iswearingoutfit(OUTFIT_GUARD)
+        if (var(VAR_RESULT) == FALSE) {
+			namebox ("Guard D")
+			msgbox(format("You are not one of us, get lost!"))
+			closemessage
+			hidenamebox
+        }
+		else {
+			applymovement (BKGUARD_1_ID,movement_BK_FORT_GUARD_right)
+			applymovement (BKGUARD_2_ID,movement_BK_FORT_GUARD_left)
+			applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+			waitmovement(0)
+			namebox ("Guard B")
+			msgbox(format("Hello fellow guard!\pYou may pass!"))
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+			waitmovement(0)
+			namebox ("Guard D")
+			msgbox(format("Remember to keep an eye out for those pesky White Knights!"))
+			closemessage
+			hidenamebox
+			setvar(VAR_TEMP_0, 1)
+		}
 	}
 	applymovement (BKGUARD_1_ID,MOVEMENT_FACE_DOWN)
 	applymovement (BKGUARD_2_ID,MOVEMENT_FACE_DOWN)
@@ -405,6 +415,8 @@ script EVENT_ICE_MOUNTAIN_GUARDS {
 	addobject(10)
 	addobject(11)
 	clearflag(FLAG_TEMP_1F)
+	addobject(13)
+    clearflag(FLAG_TEMP_1C)
 	namebox ("Guard M")
 	msgbox(format("Hey, who are you two?\pWait you're a White Knight!"))
 	closemessage
@@ -414,12 +426,19 @@ script EVENT_ICE_MOUNTAIN_GUARDS {
 	closemessage
 	hidenamebox
 	trainerbattle_two_trainers(TRAINER_ICE_MOUNTAIN_GUARD_1, msgbox(format("Guard: W-what are you doing with that sword?")), TRAINER_ICE_MOUNTAIN_GUARD_2, msgbox(format("Guard: OW! My head!")))
+	facefollower
 	namebox ("Sir Owen")
 	msgbox(format("Quick let's take their gear before they wake up."))
 	closemessage
 	hidenamebox
+	
 	fadescreenswapbuffers(FADE_TO_BLACK)
-	//change outfit
+	setobjectxy(13, 34, 15)
+	setobjectxyperm(13, 34, 15)
+	
+	destroyfollower
+	loadword(0, FOLLOWING_SirOwen)
+	setfollower(13, 0x80)
 	
 	//make guards nude
 	removeobject(6)
@@ -432,10 +451,17 @@ script EVENT_ICE_MOUNTAIN_GUARDS {
 	//map refresh
 	setmetatile(34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE) 
 	special(DrawWholeMapView) 
-	delay(60)
 	playse(SE_CONTEST_CURTAIN_FALL)
 	waitse
-	fadescreenswapbuffers(FADE_FROM_BLACK)
+	playse(SE_M_DOUBLE_TEAM)
+	waitse
+	delay(60)
+	facefollower
+	setvar(VAR_0x8004, OUTFIT_GUARD)
+	special(WearOutfit)
+	delay(30)
+	//fadescreenswapbuffers(FADE_FROM_BLACK)
+	
 	namebox ("Sir Owen")
 	msgbox(format("Right, this should get us through the gate.\pAlthough I do feel a bit bad for leaving them out in the cold..."))
 	closemessage
@@ -487,4 +513,11 @@ script CAMDOZAAL_BLOCK
     msgbox(format("There is a solid chunk of ice blocking the cave entrance.\pYou see no way to climb over or around it, and it's too tough for your pickaxe to break it."))
     closemessage
     end
+}
+
+script SetFollower_SirOwen_GuardDisguise {
+	destroyfollower
+	loadword(0, FOLLOWING_SirOwen)
+	setfollower(OBJ_EVENT_ID_SIR_OWEN_GUARD, 0x80)
+	return
 }

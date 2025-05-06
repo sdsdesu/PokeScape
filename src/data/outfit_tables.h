@@ -79,7 +79,7 @@ const struct Outfit gOutfits[OUTFIT_COUNT] =
         //! agbcc doesnt like COMPOUND_STRING on my end
         //! DESC: outfit's name
         #if MODERN == 1
-        .name = COMPOUND_STRING("USUAL GREEN"),
+        .name = COMPOUND_STRING("DEFAULT NOOB"),
         #else
         .name = sText_OutfitName_UsualGreen,
         #endif

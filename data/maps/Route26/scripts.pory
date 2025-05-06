@@ -1,6 +1,7 @@
 const OBJ_EVENT_ID_PENGUIN_DND = 11
 const OBJ_EVENT_ID_PENGUIN = 12
 const BLACKKNIGHT_ID = 6
+const OBJ_EVENT_ID_SIR_OWEN_GUARD = 17
 
 mapscripts Route26_MapScripts{
 	MAP_SCRIPT_ON_TRANSITION {
@@ -60,6 +61,8 @@ script ROUTE26_STATE {
     removeobject(14)
     removeobject(15)
     setflag(FLAG_TEMP_1D)
+    removeobject(17)
+    setflag(FLAG_TEMP_1C)
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 200)
     {
         addobject(14)
@@ -71,6 +74,13 @@ script ROUTE26_STATE {
         setflag(FLAG_TEMP_1E)
         removeobject(13)
     }
+    elif (flag(FLAG_PARTNER_BATTLE)) {
+        iswearingoutfit(OUTFIT_GUARD)
+        if (var(VAR_RESULT) == TRUE) {
+            setflag(FLAG_TEMP_1E)
+            removeobject(13)
+        }
+    }
     setflag(FLAG_TEMP_1F)
     removeobject(6)
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
@@ -79,6 +89,13 @@ script ROUTE26_STATE {
             clearflag(FLAG_TEMP_1E)
             addobject(13)
         }
+        elif (flag(FLAG_PARTNER_BATTLE)) {
+            iswearingoutfit(OUTFIT_GUARD)
+            if (var(VAR_RESULT) == TRUE) {
+                setflag(FLAG_TEMP_1E)
+                removeobject(13)
+            }
+    }
         clearflag(FLAG_TEMP_1F)
 		addobject(6)
     }

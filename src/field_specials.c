@@ -4925,6 +4925,7 @@ void OutfitMenu(void)
         OpenOutfitMenu(CB2_ReturnToField);
     }
 }
+
 void MakeoverMage(void)
 {
     if (gSaveBlock2Ptr->playerGender == MALE)
@@ -4935,6 +4936,14 @@ void MakeoverMage(void)
     CB2_ReturnToField();
 }
 
-
-
-
+void WearOutfit(void)
+{
+    u16 outfitId = gSpecialVar_0x8004;
+    gSaveBlock2Ptr->currOutfitId = outfitId;
+    SetMainCallback2(CB2_ReturnToFieldContinueScript);
+    //CB2_ReturnToField();
+    //ScriptContext_Enable();
+    //DrawWholeMapView();
+    //SetMainCallback1(CB1_Overworld);
+    //SetMainCallback2(CB2_Overworld);
+}

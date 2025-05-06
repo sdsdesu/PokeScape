@@ -571,6 +571,7 @@ gSpecials::
 	def_special GetSeededResultLessRandom
 	def_special OutfitMenu
 	def_special MakeoverMage
+	def_special WearOutfit
 
 
 

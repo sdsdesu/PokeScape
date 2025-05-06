@@ -281,6 +281,10 @@ TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY::
 	goto_if_eq TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_2
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
 	goto_if_eq TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_3
+	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_0x8004, OUTFIT_GUARD
+	special WearOutfit
+	fadescreenswapbuffers FADE_FROM_BLACK
 	applymovement 4, movement_BK_FORT_GUARD_right
 	applymovement 5, movement_BK_FORT_GUARD_left
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
@@ -438,6 +442,8 @@ EVENT_ICE_MOUNTAIN_GUARDS::
 	addobject 10
 	addobject 11
 	clearflag FLAG_TEMP_1F
+	addobject 13
+	clearflag FLAG_TEMP_1C
 	namebox EVENT_ICE_MOUNTAIN_GUARDS_Text_0
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_1
 	closemessage
@@ -447,11 +453,17 @@ EVENT_ICE_MOUNTAIN_GUARDS::
 	closemessage
 	hidenamebox
 	trainerbattle_two_trainers TRAINER_ICE_MOUNTAIN_GUARD_1, EVENT_ICE_MOUNTAIN_GUARDS_Text_4, TRAINER_ICE_MOUNTAIN_GUARD_2, EVENT_ICE_MOUNTAIN_GUARDS_Text_5
+	facefollower
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_6
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_6
 	closemessage
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
+	setobjectxy 13, 34, 15
+	setobjectxyperm 13, 34, 15
+	destroyfollower
+	loadword 0, FOLLOWING_SirOwen
+	setfollower 13, 0x80
 	removeobject 6
 	removeobject 9
 	setflag FLAG_TEMP_1E
@@ -461,10 +473,15 @@ EVENT_ICE_MOUNTAIN_GUARDS::
 	setobjectxyperm 10, 35, 14
 	setmetatile 34, 14, METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT, TRUE
 	special DrawWholeMapView
-	delay 60
 	playse SE_CONTEST_CURTAIN_FALL
 	waitse
-	fadescreenswapbuffers FADE_FROM_BLACK
+	playse SE_M_DOUBLE_TEAM
+	waitse
+	delay 60
+	facefollower
+	setvar VAR_0x8004, OUTFIT_GUARD
+	special WearOutfit
+	delay 30
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_6
 	msgbox EVENT_ICE_MOUNTAIN_GUARDS_Text_7
 	closemessage
@@ -526,6 +543,13 @@ CAMDOZAAL_BLOCK::
 	msgbox CAMDOZAAL_BLOCK_Text_0
 	closemessage
 	end
+
+
+SetFollower_SirOwen_GuardDisguise::
+	destroyfollower
+	loadword 0, FOLLOWING_SirOwen
+	setfollower 13, 0x80
+	return
 
 
 NPC_ORACLE_Text_0:
