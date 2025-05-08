@@ -11,36 +11,6 @@ mapscripts Route3_MapScripts{
 
 //ITEMS
 
-script ITEM_ROUTE3_CORN
-{
-    finditem(ITEM_CORN)
-    end
-}
-
-script ITEM_ROUTE3_REPEL_TEA
-{
-    finditem(ITEM_REPEL_TEA_1)
-    end
-}
-
-script ITEM_BARBARIAN_VILLAGE_1
-{
-    finditem(ITEM_BODY_RUNE)
-    end
-}
-
-script ITEM_BARBARIAN_VILLAGE_2
-{
-    finditem(ITEM_POUCH_ANCIENT)
-    end
-}
-
-script ITEM_BARBARIAN_VILLAGE_3
-{
-    finditem(ITEM_REPEL_TEA_2)
-    end
-}
-
 script ITEM_MUDSKIPPER_SOUND_1
 {
     finditem(ITEM_SPIRIT_CHARM)

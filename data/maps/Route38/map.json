@@ -110,7 +110,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE_38_PRAYER_POTION",
+      "script": "FIND_ITEM_SUPER_PRAYER_POTION",
       "flag": "FLAG_ITEM_ROUTE38_3"
     },
     {
@@ -123,7 +123,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_DEATH_RUNE",
       "flag": "FLAG_ITEM_ROUTE38_1"
     },
     {
@@ -136,7 +136,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE_38_CAKE",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_ROUTE38_2"
     },
     {

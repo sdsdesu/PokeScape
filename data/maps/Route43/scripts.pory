@@ -48,19 +48,6 @@ script BATTLE_ROUTE_43_TRAINER_4
 }
 
 
-//ITEMS
-script ITEM_ROUTE_43_MOONLIGHT_MEAD
-{
-    finditem(ITEM_STAT_MOONLIGHT_MEAD)
-    end
-}
-
-script ITEM_ROUTE_43_SPEED_LAMP
-{
-    finditem(ITEM_LAMP_SPEED)
-    end
-}
-
 //MISCELLANEOUS
 script ROUTE_43_SIGN_1
 {

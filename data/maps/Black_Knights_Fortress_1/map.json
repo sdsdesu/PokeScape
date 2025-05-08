@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_1F_ITEM2",
+      "script": "FIND_ITEM_DEATH_RUNE",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_2"
     },
     {
@@ -219,7 +219,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_1F_ITEM3",
+      "script": "FIND_ITEM_ONIONS",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_4"
     },
     {
@@ -232,7 +232,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BLACKKNIGHTS_FORTRESS_1",
+      "script": "FIND_ITEM_CABBAGE",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_3"
     },
     {
@@ -245,7 +245,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_1F_ITEM1",
+      "script": "FIND_ITEM_DEF_POTION",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_1"
     },
     {

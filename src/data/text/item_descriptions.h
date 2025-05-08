@@ -5414,6 +5414,11 @@ static const u8 sPokeScapeReviveDesc[] = _(
     "Monster with half\n"
     "its HP.");
 
+static const u8 sPokeScapeMaxReviveDesc[] = _(
+    "Revives a fainted\n"
+    "Monster with all\n"
+    "its HP.");
+
 static const u8 sRingOfKinship_Desc[] = _(
     "A ring that\n"
     "will teleport you\n"

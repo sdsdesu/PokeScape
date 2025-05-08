@@ -224,7 +224,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE13_2",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_ROUTE13_2"
     },
     {
@@ -237,7 +237,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE13_1",
+      "script": "FIND_ITEM_SUPER_PRAYER_POTION",
       "flag": "FLAG_ITEM_ROUTE13_1"
     },
     {
@@ -250,7 +250,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE13_3",
+      "script": "FIND_ITEM_LAW_RUNE",
       "flag": "FLAG_ITEM_ROUTE13_3"
     },
     {

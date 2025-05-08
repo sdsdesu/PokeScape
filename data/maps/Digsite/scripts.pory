@@ -134,26 +134,6 @@ script SIGN_DIGSITE_MISC
 	end
 }
 
-//ITEMS
-
-script ITEM_DIGSITE_ITEM_1
-{
-    finditem(ITEM_TM_SHADOW_BONE)
-    end
-}
-
-script ITEM_DIGSITE_ITEM_2
-{
-    finditem(ITEM_BOOK_OF_ZAROS)
-    end
-}
-
-script ITEM_DIGSITE_ITEM_3
-{
-    finditem(ITEM_SPIRIT_CHARM)
-    end
-}
-
 script DIGSITE_ANIMAL_SKULLS
 {
 	lock

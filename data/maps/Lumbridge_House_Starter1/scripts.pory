@@ -159,41 +159,943 @@ script CHEAT_ITEM_PULSE_CORE
     end
 }
 
-script ITEM_LUMBRIDGE_BREAD_1
+//HEALING ITEMS
+
+script FIND_ITEM_BREAD
 {
-    finditem(ITEM_BREAD)
+    finditem(ITEM_BREAD, 5)
     end
 }
 
-script ITEM_LUMBRIDGE_STEEL_POUCH
+script FIND_ITEM_CAKE
 {
-    finditem(ITEM_POUCH_MITHRIL)
+    finditem(ITEM_CAKE)
     end
 }
 
-script ITEM_LUMBRIDGE_DRUNK_DRAGON
+script FIND_ITEM_CHOCOLATE_CAKE
+{
+    finditem(ITEM_CHOCOLATE_CAKE)
+    end
+}
+
+script FIND_ITEM_CABBAGE
+{
+    finditem(ITEM_CABBAGE)
+    end
+}
+
+script FIND_ITEM_EASTER_EGG
+{
+    finditem(ITEM_EASTER_EGG)
+    end
+}
+
+script FIND_ITEM_PRAYER_POTION
+{
+    finditem(ITEM_PRAYER_POTION)
+    end
+}
+
+script FIND_ITEM_SUPER_PRAYER_POTION
+{
+    finditem(ITEM_SUPER_PRAYER_POTION)
+    end
+}
+
+script FIND_ITEM_BEER
+{
+    finditem(ITEM_STAT_BEER)
+    end
+}
+
+script FIND_ITEM_MOONLIGHT_MEAD
+{
+    finditem(ITEM_STAT_MOONLIGHT_MEAD)
+    end
+}
+
+script FIND_ITEM_DONUT
+{
+    finditem(ITEM_DONUT_SANDWICH)
+    end
+}
+
+script FIND_ITEM_TRIANGLE_SANDWICH
+{
+    finditem(ITEM_TRIANGLE_SANDWICH)
+    end
+}
+
+script FIND_ITEM_SQUARE_SANDWICH
+{
+    finditem(ITEM_SQUARE_SANDWICH)
+    end
+}
+
+script FIND_ITEM_MEAT_PIE_SANDWICH
+{
+    finditem(ITEM_MEAT_PIE_SANDWICH)
+    end
+}
+
+//BERRIES
+
+script FIND_ITEM_APPLES
+{
+    finditem(ITEM_APPLE, 5)
+    end
+}
+
+script FIND_ITEM_BANANAS
+{
+    finditem(ITEM_BANANA, 5)
+    end
+}
+
+script FIND_ITEM_CADAVABERRIES
+{
+    finditem(ITEM_CADAVABERRY, 5)
+    end
+}
+
+script FIND_ITEM_COCONUTS
+{
+    finditem(ITEM_COCONUT, 5)
+    end
+}
+
+script FIND_ITEM_CORN
+{
+    finditem(ITEM_CORN, 5)
+    end
+}
+
+script FIND_ITEM_GARLIC
+{
+    finditem(ITEM_GARLIC, 5)
+    end
+}
+
+script FIND_ITEM_GRAPES
+{
+    finditem(ITEM_GRAPES, 5)
+    end
+}
+
+script FIND_ITEM_JANGERBERRIES
+{
+    finditem(ITEM_JANGERBERRY, 5)
+    end
+}
+
+script FIND_ITEM_LEMONS
+{
+    finditem(ITEM_LEMON, 5)
+    end
+}
+
+script FIND_ITEM_ONIONS
+{
+    finditem(ITEM_ONION, 5)
+    end
+}
+
+script FIND_ITEM_ORANGES
+{
+    finditem(ITEM_ORANGE, 5)
+    end
+}
+
+script FIND_ITEM_PINEAPPLES
+{
+    finditem(ITEM_PINEAPPLE, 5)
+    end
+}
+
+script FIND_ITEM_POTATOES
+{
+    finditem(ITEM_POTATO, 5)
+    end
+}
+
+script FIND_ITEM_REDBERRIES
+{
+    finditem(ITEM_REDBERRY, 5)
+    end
+}
+
+script FIND_ITEM_STRAWBERRIES
+{
+    finditem(ITEM_STRAWBERRY, 5)
+    end
+}
+
+script FIND_ITEM_TOMATOES
+{
+    finditem(ITEM_TOMATO, 5)
+    end
+}
+
+script FIND_ITEM_TURNIPS
+{
+    finditem(ITEM_TURNIP, 5)
+    end
+}
+
+script FIND_ITEM_WATERMELONS
+{
+    finditem(ITEM_WATERMELON, 5)
+    end
+}
+
+script FIND_ITEM_WHITEBERRIES
+{
+    finditem(ITEM_WHITEBERRY, 5)
+    end
+}
+
+script FIND_ITEM_PAPAYA
+{
+    finditem(ITEM_PAPAYA, 5)
+    end
+}
+
+script FIND_ITEM_DWELLBERRIES
+{
+    finditem(ITEM_DWELLBERRY, 5)
+    end
+}
+
+script FIND_ITEM_COFFEEBEANS
+{
+    finditem(ITEM_COFFEEBEAN, 5)
+    end
+}
+
+script FIND_ITEM_POISON_IVY_BERRIES
+{
+    finditem(ITEM_POISON_IVY, 5)
+    end
+}
+
+script FIND_ITEM_BLUEBERRIES
+{
+    finditem(ITEM_BLUEBERRY, 5)
+    end
+}
+
+script FIND_ITEM_CHEESES
+{
+    finditem(ITEM_CHEESE, 5)
+    end
+}
+
+script FIND_ITEM_GLOOP_SOUPS
+{
+    finditem(ITEM_GLOOP_SOUP, 5)
+    end
+}
+
+script FIND_ITEM_FINGERS
+{
+    finditem(ITEM_FINGERS, 5)
+    end
+}
+script FIND_ITEM_BAT_SHISHES
+{
+    finditem(ITEM_BAT_SHISH, 5)
+    end
+}
+
+script FIND_ITEM_FROGBURGERS
+{
+    finditem(ITEM_FROGBURGER, 5)
+    end
+}
+
+script FIND_ITEM_EEL_SUSHI
+{
+    finditem(ITEM_EEL_SUSHI, 5)
+    end
+}
+
+//GNOME COCKTAILS
+
+script FIND_ITEM_DRUNK_DRAGON
 {
     finditem(ITEM_DRUNK_DRAGON)
     end
 }
 
-script ITEM_LUMBRIDGE_BREAD_2
+script FIND_ITEM_CHOCOLATE_SUNDAY
 {
-    finditem(ITEM_BREAD)
+    finditem(ITEM_CHOCOLATE_SUNDAY)
     end
 }
 
-script ITEM_ROUTE1_BALL_OF_WOOL
+script FIND_ITEM_WIZARDS_BLIZZARD
+{
+    finditem(ITEM_WIZARDS_BLIZZARD)
+    end
+}
+
+script FIND_ITEM_FRUIT_BLAST
+{
+    finditem(ITEM_FRUIT_BLAST)
+    end
+}
+
+script FIND_ITEM_PINEAPPLE_PUNCH
+{
+    finditem(ITEM_PINEAPPLE_PUNCH)
+    end
+}
+
+script FIND_ITEM_BLUEBERRY_SPECIAL
+{
+    finditem(ITEM_BLUEBERRY_SPECIAL)
+    end
+}
+
+//POUCHES
+
+script FIND_ITEM_POUCHES
+{
+    finditem(ITEM_POUCH, 5)
+    end
+}
+
+script FIND_ITEM_BRONZE_POUCHES
+{
+    finditem(ITEM_POUCH_BRONZE, 5)
+    end
+}
+
+script FIND_ITEM_IRON_POUCHES
+{
+    finditem(ITEM_POUCH_IRON, 5)
+    end
+}
+
+script FIND_ITEM_STEEL_POUCHES
+{
+    finditem(ITEM_POUCH_STEEL, 5)
+    end
+}
+
+script FIND_ITEM_MITHRIL_POUCHES
+{
+    finditem(ITEM_POUCH_MITHRIL, 5)
+    end
+}
+
+script FIND_ITEM_ADAMANT_POUCHES
+{
+    finditem(ITEM_POUCH_ADAMANT, 5)
+    end
+}
+
+script FIND_ITEM_RUNE_POUCHES
+{
+    finditem(ITEM_POUCH_RUNE, 5)
+    end
+}
+
+script FIND_ITEM_DRAGON_POUCH                          //I deliberately only included 1 with it being a guaranteed catch
+{
+    finditem(ITEM_POUCH_DRAGON)
+    end
+}
+
+script FIND_ITEM_CRYSTAL_POUCHES
+{
+    finditem(ITEM_POUCH_CRYSTAL, 5)
+    end
+}
+
+script FIND_ITEM_BLACK_POUCHES
+{
+    finditem(ITEM_POUCH_BLACK, 5)
+    end
+}
+
+script FIND_ITEM_WHITE_POUCHES
+{
+    finditem(ITEM_POUCH_WHITE, 5)
+    end
+}
+
+script FIND_ITEM_ELEMENTAL_POUCHES
+{
+    finditem(ITEM_POUCH_ELEMENTAL, 5)
+    end
+}
+
+script FIND_ITEM_CATALYTIC_POUCHES
+{
+    finditem(ITEM_POUCH_CATALYTIC, 5)
+    end
+}
+
+script FIND_ITEM_BANE_POUCHES
+{
+    finditem(ITEM_POUCH_BANE, 5)
+    end
+}
+
+script FIND_ITEM_AUGMENTED_POUCHES
+{
+    finditem(ITEM_POUCH_AUGMENTED, 5)
+    end
+}
+
+script FIND_ITEM_ANCIENT_POUCHES
+{
+    finditem(ITEM_POUCH_ANCIENT, 5)
+    end
+}
+
+script FIND_ITEM_BARROWS_POUCHES
+{
+    finditem(ITEM_POUCH_BARROWS, 5)
+    end
+}
+
+script FIND_ITEM_GRANITE_POUCHES
+{
+    finditem(ITEM_POUCH_GRANITE, 5)
+    end
+}
+
+script FIND_ITEM_SPLITBARK_POUCHES
+{
+    finditem(ITEM_POUCH_SPLITBARK, 5)
+    end
+}
+
+script FIND_ITEM_MYSTIC_POUCHES
+{
+    finditem(ITEM_POUCH_MYSTIC, 5)
+    end
+}
+
+//EVOLUTION ITEMS
+
+script FIND_ITEM_RUNE_ESSENCE
+{
+    finditem(ITEM_RUNE_ESSENCE)
+    end
+}
+
+script FIND_ITEM_AIR_RUNE
+{
+    finditem(ITEM_AIR_RUNE)
+    end
+}
+
+script FIND_ITEM_WATER_RUNE
+{
+    finditem(ITEM_WATER_RUNE)
+    end
+}
+
+script FIND_ITEM_EARTH_RUNE
+{
+    finditem(ITEM_EARTH_RUNE)
+    end
+}
+
+script FIND_ITEM_FIRE_RUNE
+{
+    finditem(ITEM_FIRE_RUNE)
+    end
+}
+
+script FIND_ITEM_MIND_RUNE
+{
+    finditem(ITEM_MIND_RUNE)
+    end
+}
+
+script FIND_ITEM_CHAOS_RUNE
+{
+    finditem(ITEM_CHAOS_RUNE)
+    end
+}
+
+script FIND_ITEM_DEATH_RUNE
+{
+    finditem(ITEM_DEATH_RUNE)
+    end
+}
+
+script FIND_ITEM_BLOOD_RUNE
+{
+    finditem(ITEM_BLOOD_RUNE)
+    end
+}
+
+script FIND_ITEM_BODY_RUNE
+{
+    finditem(ITEM_BODY_RUNE)
+    end
+}
+
+script FIND_ITEM_COSMIC_RUNE
+{
+    finditem(ITEM_COSMIC_RUNE)
+    end
+}
+
+script FIND_ITEM_NATURE_RUNE
+{
+    finditem(ITEM_NATURE_RUNE)
+    end
+}
+
+script FIND_ITEM_LAW_RUNE
+{
+    finditem(ITEM_LAW_RUNE)
+    end
+}
+
+script FIND_ITEM_SOUL_RUNE
+{
+    finditem(ITEM_SOUL_RUNE)
+    end
+}
+
+script FIND_ITEM_ASTRAL_RUNE
+{
+    finditem(ITEM_ASTRAL_RUNE)
+    end
+}
+
+script FIND_ITEM_LIFE_RUNE
+{
+    finditem(ITEM_LIFE_RUNE)
+    end
+}
+
+script FIND_ITEM_MUD_RUNE
+{
+    finditem(ITEM_MUD_RUNE)
+    end
+}
+script FIND_ITEM_MIST_RUNE
+{
+    finditem(ITEM_MIST_RUNE)
+    end
+}
+script FIND_ITEM_DUST_RUNE
+{
+    finditem(ITEM_DUST_RUNE)
+    end
+}
+script FIND_ITEM_LAVA_RUNE
+{
+    finditem(ITEM_LAVA_RUNE)
+    end
+}
+
+script FIND_ITEM_SPIRIT_CHARM
+{
+    finditem(ITEM_SPIRIT_CHARM)
+    end
+}
+
+//REPELS
+
+script FIND_ITEM_REPEL_TEA_1
+{
+    finditem(ITEM_REPEL_TEA_1, 3)
+    end
+}
+
+script FIND_ITEM_REPEL_TEA_2
+{
+    finditem(ITEM_REPEL_TEA_2, 3)
+    end
+}
+
+script FIND_ITEM_REPEL_TEA_3
+{
+    finditem(ITEM_REPEL_TEA_3, 3)
+    end
+}
+
+//LAMPS
+
+script FIND_ITEM_ATT_LAMP
+{
+    finditem(ITEM_LAMP_ATT)
+    end
+}
+
+script FIND_ITEM_DEF_LAMP
+{
+    finditem(ITEM_LAMP_DEF)
+    end
+}
+
+script FIND_ITEM_HP_LAMP
+{
+    finditem(ITEM_LAMP_HP)
+    end
+}
+
+script FIND_ITEM_SPATT_LAMP
+{
+    finditem(ITEM_LAMP_SPATT)
+    end
+}
+
+script FIND_ITEM_SPDEF_LAMP
+{
+    finditem(ITEM_LAMP_SPDEF)
+    end
+}
+
+script FIND_ITEM_SPEED_LAMP
+{
+    finditem(ITEM_LAMP_SPEED)
+    end
+}
+
+//POTIONS
+
+script FIND_ITEM_ACC_POTION
+{
+    finditem(ITEM_POTION_ACC)
+    end
+}
+
+script FIND_ITEM_ATT_POTION
+{
+    finditem(ITEM_POTION_ATT)
+    end
+}
+
+script FIND_ITEM_DEF_POTION
+{
+    finditem(ITEM_POTION_DEF)
+    end
+}
+
+script FIND_ITEM_SPATT_POTION
+{
+    finditem(ITEM_POTION_SPATT)
+    end
+}
+
+script FIND_ITEM_SPDEF_POTION
+{
+    finditem(ITEM_POTION_SPDEF)
+    end
+}
+
+script FIND_ITEM_SPEED_POTION
+{
+    finditem(ITEM_POTION_SPEED)
+    end
+}
+
+//SELLABLE ITEMS
+
+script FIND_ITEM_FLAX
+{
+    finditem(ITEM_FLAX)
+    end
+}
+
+script FIND_ITEM_SPIRIT_SHARD
+{
+    finditem(ITEM_SPIRIT_SHARD)
+    end
+}
+
+script FIND_ITEM_MINT_CAKE
+{
+    finditem(ITEM_MINT_CAKE)
+    end
+}
+
+script FIND_ITEM_HWEEN_MASK
+{
+    finditem(ITEM_HWEEN_MASK)
+    end
+}
+
+script FIND_ITEM_SANTA_HAT
+{
+    finditem(ITEM_SANTA_HAT)
+    end
+}
+
+//MISCELLANEOUS
+
+script FIND_ITEM_PURPLE_SWEETS_1
+{
+    finditem(ITEM_PURPLE_SWEETS)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS_2
+{
+    finditem(ITEM_PURPLE_SWEETS, 2)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS_5
+{
+    finditem(ITEM_PURPLE_SWEETS, 5)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS_10
+{
+    finditem(ITEM_PURPLE_SWEETS, 10)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS_13
+{
+    finditem(ITEM_PURPLE_SWEETS, 13)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS_15
+{
+    finditem(ITEM_PURPLE_SWEETS, 15)
+    end
+}
+
+script FIND_ITEM_BALL_OF_WOOL
 {
     finditem(ITEM_WOOLBALL)
     end
 }
 
-script ITEM_LUMBRIDGE_CAKE
+script FIND_ITEM_ROCKCAKE
 {
-    finditem(ITEM_CAKE)
+    finditem(ITEM_ROCKCAKE)
     end
 }
+
+script FIND_ITEM_SARADOMIN_BREW
+{
+    finditem(ITEM_SARADOMIN_BREW)
+    end
+}
+
+script FIND_ITEM_FIGHTER_BOOTS
+{
+    finditem(ITEM_FIGHTER_BOOTS)
+    end
+}
+
+script FIND_ITEM_FANCY_BOOTS
+{
+    finditem(ITEM_FANCY_BOOTS)
+    end
+}
+
+script FIND_ITEM_BRONZE_HELMET
+{
+    finditem(ITEM_BRONZEHELMET)
+    end
+}
+
+script FIND_ITEM_IRONMAN_HELMET
+{
+    finditem(ITEM_IRONMAN_HELMET)
+    end
+}
+
+script FIND_ITEM_PHOENIX_NECKLACE
+{
+    finditem(ITEM_PHOENIX_NECKLACE)
+    end
+}
+
+script FIND_ITEM_MITHRIL_SCIMITAR
+{
+    finditem(ITEM_MITHRIL_SCIMITAR)
+    end
+}
+
+script FIND_ITEM_SPOTTED_CAPE
+{
+    finditem(ITEM_SPOTTEDCAPE)
+    end
+}
+
+script FIND_ITEM_TINDERBOX
+{
+    finditem(ITEM_TINDERBOX)
+    end
+}
+
+script FIND_ITEM_WATERSKIN
+{
+    finditem(ITEM_WATERSKIN)
+    end
+}
+
+script FIND_ITEM_EFFIGY
+{
+    finditem(ITEM_EFFIGY)
+    end
+}
+
+script FIND_ITEM_DRAGONFIRE_SHIELD
+{
+    finditem(ITEM_DFS)
+    end
+}
+
+script FIND_ITEM_STAFF_OF_EARTH
+{
+    finditem(ITEM_STAFF_OF_EARTH)
+    end
+}
+
+script FIND_ITEM_KERIS
+{
+    finditem(ITEM_KERIS)
+    end
+}
+
+script FIND_ITEM_BLUE_BOATER
+{
+    finditem(ITEM_BLUEBOATER)
+    end
+}
+
+script FIND_ITEM_BONE_CROSSBOW
+{
+    finditem(ITEM_BONECROSSBOW)
+    end
+}
+
+script FIND_ITEM_LUCKY_FOOT
+{
+    finditem(ITEM_LUCKYRABBITFOOT)
+    end
+}
+
+script FIND_ITEM_BLESSED_FOOT
+{
+    finditem(ITEM_GODRABBITFOOT)
+    end
+}
+
+script FIND_ITEM_SNELM
+{
+    finditem(ITEM_SNELM)
+    end
+}
+
+script FIND_ITEM_GUTHANS_SPEAR
+{
+    finditem(ITEM_GUTHANSPEAR)
+    end
+}
+
+script FIND_ITEM_TORAGS_HAMMERS
+{
+    finditem(ITEM_TORAGHAMMER)
+    end
+}
+
+script FIND_ITEM_AHRIMS_STAFF
+{
+    finditem(ITEM_AHRIMSTAFF)
+    end
+}
+
+script FIND_ITEM_VERACS_FLAIL
+{
+    finditem(ITEM_VERACS_FLAIL)
+    end
+}
+
+script FIND_ITEM_FIGHTER_TORSO
+{
+    finditem(ITEM_FIGHTER_TORSO)
+    end
+}
+
+script FIND_ITEM_DOUBLE_EYEPATCH
+{
+    finditem(ITEM_DOUBLE_EYEPATCH)
+    end
+}
+
+script FIND_ITEM_ABYSSAL_WHIP
+{
+    finditem(ITEM_ABYSSAL_WHIP)
+    end
+}
+
+script FIND_ITEM_WIZARDS_HAT
+{
+    finditem(ITEM_WIZARDS_HAT)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_GUTHIX
+{
+    finditem(ITEM_BOOK_OF_GUTHIX)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_SARADOMIN
+{
+    finditem(ITEM_BOOK_OF_SARADOMIN)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_ARMADYL
+{
+    finditem(ITEM_BOOK_OF_ARMADYL)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_BANDOS
+{
+    finditem(ITEM_BOOK_OF_BANDOS)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_TUMEKEN
+{
+    finditem(ITEM_BOOK_OF_TUMEKEN)
+    end
+}
+
+script FIND_ITEM_BOOK_OF_ZAROS
+{
+    finditem(ITEM_BOOK_OF_ZAROS)
+    end
+}
+
+script FIND_ITEM_ROPE
+{
+    finditem(ITEM_ROPE)
+    end
+}
+
+//Need a sprite for the rope still
+
+script FIND_ITEM_SCURRIUS_CHEESE
+{
+    finditem(ITEM_SCURRIUS_CHEESE)
+    end
+}
+
+//LUMBRIDGE
 
 script ITEM_LUMBRIDGE_PRISMATIC_STAR
 {
@@ -201,215 +1103,11 @@ script ITEM_LUMBRIDGE_PRISMATIC_STAR
     end
 }
 
-script ITEM_ROUTE1_WATER_RUNE
-{
-    finditem(ITEM_EARTH_RUNE)
-    end
-}
-
-script ITEM_LUMBRIDGE_FIRE_RUNE
-{
-    finditem(ITEM_FIRE_RUNE)
-    end
-}
-
-script ITEM_ROUTE1_CHOC_SUNDAY
-{
-    finditem(ITEM_CHOCOLATE_SUNDAY)
-    end
-}
-
-script ITEM_ROUTE1_BREAD
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE1_CHOCOLATE_SUNDAY
-{
-    finditem(ITEM_DONUT_SANDWICH)
-    end
-}
-
-
-
-script ITEM_MILLLANEMILL_MITHRIL_POUCH
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}
-
-script ITEM_DRAYNORMANOR_CAKE
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
-script ITEM_DRAYNORMANOR_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-script ITEM_DRAYNOR_DEFENCE_POTION
-{
-    finditem(ITEM_POTION_DEF)
-    end
-}
-
-
-
-script ITEM_DRAYNORSEWERS_BEER
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
-
-script ITEM_ROUTE2_MAGIC_POTION
-{
-    finditem(ITEM_POTION_SPATT)
-    end
-}
-
-script ITEM_ROUTE2_RUNE_POUCH
-{
-    finditem(ITEM_POUCH_RUNE)
-    end
-}
-
-script ITEM_WIZARDSTOWER_WIZARDS_HAT
-{
-    finditem(ITEM_WIZARDS_HAT)
-    end
-}
-
-script ITEM_WIZARDSTOWER_AIR_RUNE
-{
-    finditem(ITEM_AIR_RUNE)
-    end
-}
-
-script ITEM_WIZARDSTOWER_WATER_RUNE
-{
-    finditem(ITEM_WATER_RUNE)
-    end
-}
-script ITEM_WIZARDSTOWER_EARTH_RUNE
-{
-    finditem(ITEM_EARTH_RUNE)
-    end
-}
-script ITEM_WIZARDSTOWER_FIRE_RUNE
-{
-    finditem(ITEM_FIRE_RUNE)
-    end
-}
-
-script ITEM_ROUTE12_BREAD
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE12_WIZARDS_BLIZZARD
-{
-    finditem(ITEM_CHOCOLATE_SUNDAY)
-    end
-}
-
-script ITEM_ROUTE12_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-script ITEM_ROUTE12_ATTACK_POTION
-{
-    finditem(ITEM_POTION_ATT)
-    end
-}
-
-script ITEM_ROUTE12_EGG
-{
-    finditem(ITEM_CHOCOLATE_SUNDAY)
-    end
-}
-
-script ITEM_ROUTE12_PRAYER_POTION
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-//DRAYNOR MANOR
-
-
-script ITEM_DRAYNORMANOR_TEA_2
-{
-    finditem(ITEM_REPEL_TEA_1)
-    end
-}
-
-
-//WIZARDS TOWER
-script ITEM_WIZARDSTOWER_AIR_RUNE_2
-{
-    finditem(ITEM_MIND_RUNE)
-    end
-}
-
-script ITEM_WIZARDSTOWER_RUNE_3
-{
-    finditem(ITEM_BODY_RUNE)
-    end
-}
-
-
-script ITEM_ROUTE4_FLAX
-{
-    finditem(ITEM_FLAX)
-    end
-}
-
 //PORT SARIM
-//HIDDEN:  WATER_RUNE, LAMP_SPEED
-script ITEM_PORTSARIM_BLUEBERRY_SPECIAL
-{
-    finditem(ITEM_BLUEBERRY_SPECIAL)
-    end
-}
+//HIDDEN:  WATER_RUNE, LAMP_SPEED, FLAX
 
-script ITEM_PORTSARIM_ITEM_FRUIT_BLAST
+script ITEM_PORTSARIM_RING_OF_LIFE
 {
-    finditem(ITEM_FRUIT_BLAST)
-    end
-}
-
-script ITEM_PORTSARIM_ITEM_SPIRIT_SHARD
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-//LUMBRIDGE SWAMP
-script ITEM_LUMBRIDGESWAMP_ITEM_SPIRIT_SHARD
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-
-script ITEM_LUMBRIDGE_FOREST_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-script ITEM_DRAYNORMANOR_TEA
-{
-    finditem(ITEM_REPEL_TEA_1, 3)
-    end
-}
-script ITEM_DRAYNORMANOR_POUCHES
-{
-    finditem(ITEM_POUCH, 5)
+    finditem(ITEM_RING_OF_LIFE)
     end
 }

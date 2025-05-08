@@ -398,7 +398,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_NORTH_VARROCK_1",
+      "script": "FIND_ITEM_LAW_RUNE",
       "flag": "FLAG_ITEM_VARROCK_1"
     }
   ],
@@ -556,7 +556,7 @@
     },
     {
       "type": "hidden_item",
-      "x": 20,
+      "x": 35,
       "y": 22,
       "elevation": 0,
       "item": "ITEM_PURPLE_SWEETS",

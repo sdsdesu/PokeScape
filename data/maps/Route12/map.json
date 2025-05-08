@@ -299,7 +299,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_EGG",
+      "script": "FIND_ITEM_PINEAPPLE_PUNCH",
       "flag": "FLAG_ITEM_ROUTE12_5"
     },
     {
@@ -312,7 +312,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_WIZARDS_BLIZZARD",
+      "script": "FIND_ITEM_FRUIT_BLAST",
       "flag": "FLAG_ITEM_ROUTE12_3"
     },
     {
@@ -325,7 +325,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_ATTACK_POTION",
+      "script": "FIND_ITEM_WIZARDS_BLIZZARD",
       "flag": "FLAG_ITEM_ROUTE12_2"
     },
     {
@@ -338,7 +338,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_CABBAGE",
+      "script": "FIND_ITEM_CABBAGE",
       "flag": "FLAG_ITEM_ROUTE12_1"
     },
     {
@@ -351,7 +351,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_BREAD",
+      "script": "FIND_ITEM_SPATT_LAMP",
       "flag": "FLAG_ITEM_ROUTE12_4"
     },
     {
@@ -677,7 +677,7 @@
       "x": 9,
       "y": 25,
       "elevation": 0,
-      "item": "ITEM_BREAD",
+      "item": "ITEM_CAKE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_1"
     }
   ],

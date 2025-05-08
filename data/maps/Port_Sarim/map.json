@@ -289,7 +289,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_PORTSARIM_BLUEBERRY_SPECIAL",
+      "script": "FIND_ITEM_BLUEBERRY_SPECIAL",
       "flag": "FLAG_ITEM_PORTSARIM_4"
     },
     {
@@ -302,7 +302,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_PORTSARIM_ITEM_FRUIT_BLAST",
+      "script": "FIND_ITEM_IRON_POUCHES",
       "flag": "FLAG_ITEM_PORTSARIM_2"
     },
     {
@@ -458,7 +458,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_PORTSARIM_ITEM_SPIRIT_SHARD",
+      "script": "FIND_ITEM_FLAX",
       "flag": "FLAG_ITEM_PORTSARIM_3"
     },
     {

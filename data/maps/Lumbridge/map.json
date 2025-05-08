@@ -289,7 +289,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_STEEL_POUCH",
+      "script": "FIND_ITEM_MITHRIL_POUCHES",
       "flag": "FLAG_ITEM_LUMBRIDGE_6"
     },
     {
@@ -302,7 +302,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_DRUNK_DRAGON",
+      "script": "FIND_ITEM_DRUNK_DRAGON",
       "flag": "FLAG_ITEM_LUMBRIDGE_5"
     },
     {
@@ -866,6 +866,22 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Lumbridge_GRAVEYARD_SIGN_5"
+    },
+    {
+      "type": "hidden_item",
+      "x": 48,
+      "y": 36,
+      "elevation": 0,
+      "item": "ITEM_BODY_RUNE",
+      "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_ITEM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_MIND_RUNE",
+      "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_ITEM_2"
     }
   ],
   "has_night_table": true

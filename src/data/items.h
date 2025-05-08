@@ -11098,6 +11098,19 @@ const struct Item gItems[] =
         .flingPower = 30,
     },
 
+    [ITEM_EASTER_EGG] =                                         //Needs a sprite and all GFX etc added
+    {
+        .name = _("EASTER EGG"),
+        .price = 4000,
+        .description = sPokeScapeMaxReviveDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .sort = ITEM_TYPE_HEALTH_RECOVERY,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_REVIVE,
+        .flingPower = 30,
+    },
+
     [ITEM_CHOCOLATE_SUNDAY] = //ANTIDOTE
     {
         .name = _("CHOC SUNDAY"),

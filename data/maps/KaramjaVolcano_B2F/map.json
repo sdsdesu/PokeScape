@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_KARAMJA_VOLCANO_1",
+      "script": "FIND_ITEM_WATERMELONS",
       "flag": "FLAG_ITEM_CRANDORVOLCANO_1"
     },
     {
@@ -222,7 +222,7 @@
       "x": 25,
       "y": 12,
       "elevation": 3,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_DEATH_RUNE",
       "flag": "FLAG_HIDDEN_ITEM_KARAMJA_VOLCANO_1"
     }
   ],

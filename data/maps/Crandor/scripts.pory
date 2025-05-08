@@ -152,54 +152,6 @@ script CRANDOR_BANK_HEAL {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//ITEMS
-
-script ITEM_CRANDOR_SPIRIT_SHARD
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-
-script ITEM_CRANDOR_CHOCOLATE_CAKE
-{
-    finditem(ITEM_CHOCOLATE_CAKE)
-    end
-}
-
-script ITEM_CRANDOR_RUNE_POUCH
-{
-    finditem(ITEM_POUCH_RUNE)
-    end
-}
-
-script ITEM_CRANDOR_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-
-
 //BATTLE TRAINERS
 
 script BATTLE_CRANDOR_SKELETON_1{

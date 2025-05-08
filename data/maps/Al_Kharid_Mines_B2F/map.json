@@ -180,7 +180,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_WATERSKIN",
       "flag": "FLAG_ITEM_KALPHITECAVE_2"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_STAFF_OF_EARTH",
       "flag": "FLAG_ITEM_KALPHITECAVE_1"
     },
     {
@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_KERIS",
       "flag": "FLAG_ITEM_KALPHITECAVE_3"
     }
   ],

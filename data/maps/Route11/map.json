@@ -107,8 +107,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_RECEIVED_TM38",
-      "flag": "FLAG_RECEIVED_TM38"
+      "script": "ITEM_TM13_BRINE",
+      "flag": "FLAG_RECEIVED_TM13"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -120,7 +120,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE11_ITEM_2",
+      "script": "FIND_ITEM_IRON_POUCHES",
       "flag": "FLAG_ITEM_ROUTE11_2"
     },
     {
@@ -133,7 +133,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE11_ITEM_1",
+      "script": "FIND_ITEM_STEEL_POUCHES",
       "flag": "FLAG_ITEM_ROUTE11_1"
     },
     {
@@ -185,7 +185,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE11_ITEM_5",
+      "script": "FIND_ITEM_WATER_RUNE",
       "flag": "FLAG_ITEM_ROUTE11_4"
     },
     {
@@ -224,7 +224,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE11_ITEM_3",
+      "script": "FIND_ITEM_DEF_LAMP",
       "flag": "FLAG_ITEM_ROUTE11_3"
     },
     {

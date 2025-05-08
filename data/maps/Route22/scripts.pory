@@ -23,11 +23,3 @@ script BATTLE_ROUTE22_TRAINER_2
     release
 	end
 }
-
-//ITEMS
-
-script ITEM_ROUTE22
-{
-    finditem(ITEM_POUCH_RUNE)
-    end
-}

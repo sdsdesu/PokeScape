@@ -52,36 +52,6 @@ script ENCOUNTER_PENGUIN_BARREL_ROUTE39 {
     end
 }
 
-
-
-
-
-
-
-
-//ITEMS
-script ITEM_ROUTE39_1
-{
-    finditem(ITEM_CHOCOLATE_CAKE)
-    end
-}
-script ITEM_ROUTE39_2
-{
-    finditem(ITEM_CHOCOLATE_SUNDAY)
-    end
-}
-script ITEM_ROUTE39_3
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_ROUTE39_4
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
-
-
 //TRAINERS
 script BATTLE_ROUTE39_TRAINER_1
 {

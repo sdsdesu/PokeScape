@@ -211,15 +211,6 @@ script ENCOUNTER_IMPLING_EARTH
     release
 	end
 }
-//ITEMS
-script ITEM_PURO_PURO_1
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}
-
-
-
 
 
 

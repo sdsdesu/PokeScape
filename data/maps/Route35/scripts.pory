@@ -48,26 +48,6 @@ script TAVERLEY_DUNGEON
 	end
 }
 
-
-script ITEM_ROUTE_35_MITHRIL_POUCH
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}
-
-script ITEM_ROUTE_35_BREAD
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE_35_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-
 //Battles
 script BATTLE_ROUTE_35_TRAINER_1
 {

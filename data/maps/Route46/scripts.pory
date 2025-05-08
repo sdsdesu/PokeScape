@@ -103,30 +103,6 @@ script DIGSITE_SIGN
 	end
 }
 
-script ITEM_ROUTE46_1
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE46_2
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE46_3
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE46_4
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
 script ITEM_DIGSITE_EARTH_TALISMAN
 {
     finditem(ITEM_TALISMAN_EARTH)

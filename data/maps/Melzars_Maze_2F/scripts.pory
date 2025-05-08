@@ -214,19 +214,3 @@ script BATTLE_MELZAR_2F_TRAINER_6
     release
 	end
 }
-
-
-
-//ITEMS
-script ITEM_MELZARS_2F_RUNE
-{
-    finditem(ITEM_BODY_RUNE)
-    end
-}
-
-
-script ITEM_MELZARS_2F_BREAD
-{
-    finditem(ITEM_BREAD)
-    end
-}

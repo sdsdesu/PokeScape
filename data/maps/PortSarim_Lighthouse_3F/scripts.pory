@@ -425,15 +425,3 @@ movement Movement_punchGoblin {
     walk_in_place_faster_down
 }
 
-
-
-
-
-
-
-
-script ITEM_LIGHTHOUSE_1
-{
-    finditem(ITEM_POTION_SPATT)
-    end
-}

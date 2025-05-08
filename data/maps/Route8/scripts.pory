@@ -156,34 +156,6 @@ script NPC_MAKEOVER_MAGE
 }
 
 
-//ITEMS
-
-script ITEM_ROUTE8_ITEM_POUCH_MITHRIL
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}
-
-script ITEM_ROUTE8_ITEM_FLAX
-{
-    finditem(ITEM_FLAX)
-    end
-}
-
-script ITEM_ROUTE8_ITEM_PRAYER_POTION
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-script ITEM_MAKEOVER_MAGE_ITEM_CAKE
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
-
-
 //BATTLE TRAINERS
 
 script BATTLE_ROUTE8_THIEF{

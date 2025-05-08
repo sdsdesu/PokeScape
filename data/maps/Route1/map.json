@@ -286,7 +286,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE1_WATER_RUNE",
+      "script": "FIND_ITEM_EARTH_RUNE",
       "flag": "FLAG_ITEM_ROUTE1_2"
     },
     {
@@ -312,7 +312,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE1_CHOCOLATE_SUNDAY",
+      "script": "FIND_ITEM_DONUT",
       "flag": "FLAG_ITEM_ROUTE1_5"
     },
     {
@@ -403,7 +403,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE1_BREAD",
+      "script": "FIND_ITEM_REPEL_TEA_1",
       "flag": "FLAG_ITEM_ROUTE1_1"
     },
     {
@@ -416,7 +416,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE1_BALL_OF_WOOL",
+      "script": "FIND_ITEM_BALL_OF_WOOL",
       "flag": "FLAG_ITEM_ROUTE1_4"
     },
     {
@@ -481,7 +481,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE1_CHOC_SUNDAY",
+      "script": "FIND_ITEM_CHOCOLATE_SUNDAY",
       "flag": "FLAG_ITEM_ROUTE1_3"
     },
     {

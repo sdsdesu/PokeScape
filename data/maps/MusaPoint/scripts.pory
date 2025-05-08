@@ -143,17 +143,6 @@ script SIGNPOST_BOAT_FOR_SALE
 	end
 }
 
-//ITEMS
-script ITEM_MUSA_POINT_1
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_MUSA_POINT_2
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
 
 //NPCS
 script NPC_MUSA_POINT_1

@@ -73,22 +73,3 @@ script HAMLET
 }
 
 //I put this in as I thought a cheeky reference would be funny, but can take it out if not.
-
-//ITEMS
-script ITEM_ROUTE_41_BEER
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
-
-script ITEM_ROUTE_41_CHOCOLATE_CAKE
-{
-    finditem(ITEM_CHOCOLATE_CAKE)
-    end
-}
-
-script ITEM_ROUTE_41_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
-}

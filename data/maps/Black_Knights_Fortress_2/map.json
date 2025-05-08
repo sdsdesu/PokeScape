@@ -388,7 +388,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM5",
+      "script": "FIND_ITEM_SPIRIT_CHARM",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_14"
     },
     {
@@ -401,7 +401,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM4",
+      "script": "FIND_ITEM_COSMIC_RUNE",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_10"
     },
     {
@@ -414,7 +414,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM1",
+      "script": "FIND_ITEM_BLACK_POUCHES",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_7"
     },
     {
@@ -427,7 +427,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM3",
+      "script": "FIND_ITEM_POTATOES",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_9"
     },
     {
@@ -440,7 +440,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM2",
+      "script": "FIND_ITEM_BEER",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_8"
     },
     {
@@ -453,7 +453,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM6",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_11"
     },
     {
@@ -466,7 +466,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM7",
+      "script": "FIND_ITEM_PINEAPPLES",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_12"
     },
     {
@@ -479,7 +479,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM8",
+      "script": "FIND_ITEM_BEER",
       "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_13"
     }
   ],

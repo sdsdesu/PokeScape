@@ -4,13 +4,6 @@ mapscripts Black_Knights_Fortress_1_MapScripts {
     }
 }
 
-script ITEM_BLACKKNIGHTS_FORTRESS_1
-{
-    finditem(ITEM_CABBAGE, 1)
-    closemessage
-    end
-}
-
 script CAUGHT_BY_BLACK_KNIGHTS
 {
     namebox("Sir Owen")
@@ -339,28 +332,6 @@ script BKFORT_1F_BOOK
     release
     end
 }
-
-//ITEMS
-
-script ITEM_BKFORT_1F_ITEM1
-{
-    finditem(ITEM_POTION_DEF)
-    end
-}
-
-script ITEM_BKFORT_1F_ITEM2
-{
-    finditem(ITEM_EARTH_RUNE)
-    end
-}
-
-script ITEM_BKFORT_1F_ITEM3
-{
-    finditem(ITEM_ONION)
-    end
-}
-
-
 
 script TRIGGER_BKF_SIROWEN_INTRO {
     lockall

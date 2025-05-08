@@ -149,25 +149,6 @@ script NPC_ROUTE0_RAPTOR
 
 //Possibly include some variable dialogue for The Raptor once the gym badge has been obtained, for example: "Heard you defeated Thok.\pImpressed.\pMaybe you're as good as me."
 
-//ITEMS
-script ITEM_ROUTE0_SWEETS
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
-script ITEM_ROUTE0_TINDERBOX
-{
-    finditem(ITEM_TINDERBOX)
-    end
-}
-
-
-
-
-
-
-
 
 
 

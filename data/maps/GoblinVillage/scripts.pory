@@ -17,68 +17,6 @@ mapscripts GoblinVillage_MapScripts {
 //HIDDEN ITEMS: MOONLIGHT_MEAD,  POTION_DEF
 //
 
-script ITEM_GOBLIN_VILLAGE_1
-{
-    finditem(ITEM_BOOK_OF_BANDOS) //ITEM_LAMP_ATT
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_2
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_3
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_4
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-
-
-script ITEM_ROUTE24_1
-{
-    finditem(ITEM_POUCH_MITHRIL, 5)
-    end
-}
-
-script ITEM_ROUTE24_2
-{
-    finditem(ITEM_POTION_SPATT)
-    end
-}
-
-script ITEM_ROUTE24_3
-{
-    finditem(ITEM_MIND_RUNE)
-    end
-}
-
-script ITEM_ROUTE24_4
-{
-    finditem(ITEM_MIND_RUNE)
-    end
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

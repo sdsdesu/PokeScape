@@ -456,17 +456,6 @@ script STRANDED_CABIN_BOY {
     end
 }
 
-script ITEM_CRANDOR_SEA_ROUTE_1
-{
-    finditem(ITEM_CHAOS_RUNE)
-    end
-}
-script ITEM_CRANDOR_SEA_ROUTE_2
-{
-    finditem(ITEM_CHAOS_RUNE)
-    end
-}
-
 
 script ENCOUNTER_SEA_TROLL
 {
