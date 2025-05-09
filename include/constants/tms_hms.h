@@ -10,10 +10,10 @@
     F(FLAME_CHARGE) \
     F(RAZOR_SHELL) \
     F(SOLAR_BLADE) \
-    F(GRASSY_TERRAIN) \
-    F(ELECTRIC_TERRAIN) \
-    F(PSYCHIC_TERRAIN) \
-    F(MISTY_TERRAIN) \
+    F(MIGHTY_CLEAVE) \
+    F(TRIPLE_ARROWS) \
+    F(EERIE_SPELL) \
+    F(STONE_AXE) \
     F(BRINE) \
     F(ENERGY_BALL) \
     F(LAVA_PLUME) \
@@ -68,39 +68,14 @@
     F(REVENGE) \
     F(ICE_HAMMER) \
     F(BRUTAL_SWING) \
-    F(PROTECT) \
+    F(PARTING_SHOT) \
     F(TELE_BLOCK) \
     F(OVERLOAD) \
-    F(REFLECT) \
-    F(LIGHT_SCREEN) \
+    F(JAW_LOCK) \
+    F(TERRAIN_PULSE) \
     F(FUTURE_SIGHT) \
     F(BERSERK) \
-    F(CEASELESS_EDGE) \
-    F(TRIPLE_ARROWS) \
-    F(EERIE_SPELL) \
-    F(VICTORY_DANCE) \
-    F(PARTING_SHOT) \
-    F(SNIPE_SHOT) \
-    F(JAW_LOCK) \
-    F(TEATIME) \
-    F(NO_RETREAT) \
-    F(DRAGON_DARTS) \
-    F(GLACIAL_LANCE) \
-    F(PSYSHIELD_BASH) \
-    F(STONE_AXE) \
-    F(TERRAIN_PULSE) \
-    F(ARMOR_CANNON) \
-    F(BITTER_BLADE) \
-    F(GIGATON_HAMMER) \
-    F(RAGE_FIST) \
-    F(GLAIVE_RUSH) \
-    F(MIGHTY_CLEAVE) \
-    F(POUNCE) \
-    F(MAKE_IT_RAIN) \
-    F(BURNING_JEALOUSY) \
-    F(OBSTRUCT) \
-    F(SWORD_STRIKE) \
-    F(TRUMP_CARD) 
+    F(CEASELESS_EDGE) 
 
 #define FOREACH_HM(F) \
     F(CUT) \
