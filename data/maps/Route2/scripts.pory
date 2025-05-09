@@ -332,7 +332,7 @@ script BATTLE_ROUTE2_Trainer_3
 
 script BATTLE_ROUTE2_Trainer_4
 {
-    trainerbattle_single(TRAINER_ROUTE2_TRAINER_4, format("Noobs fear me, fish fear me, pkers turns their eyes away from me as I walk."),format("No fish dare make a sound in my presence.\pI walk alone on this barren earth."))
+    trainerbattle_single(TRAINER_ROUTE2_TRAINER_4, format("Noobs fear me, fish fear me, pkers turn their eyes away from me as I walk."),format("No fish dare make a sound in my presence.\pI walk alone on this barren earth."))
     //namebox ("SlimyTem")
     msgbox(format("No fish dare make a sound in my presence.\pI walk alone on this barren earth."))
     hidenamebox

@@ -58,10 +58,3 @@ script ENCOUNTER_PURO_PURO_2
     release
 	end
 }
-
-//ITEMS
-script ITEM_PURO_PURO_2
-{
-    finditem(ITEM_POUCH_ADAMANT)
-    end
-}

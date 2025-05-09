@@ -81,35 +81,9 @@ movement Movement_WallBeast
 
 //ITEMS
 
-
-
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_2
-{
-    finditem(ITEM_WATER_RUNE)
-    end
-}
-
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_3
-{
-    finditem(ITEM_BOOK_OF_GUTHIX)
-    end
-}
-
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_4
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_5
+script ITEM_LUMBRIDGESWAMPCAVE_TALISMAN_WATER
 {
     finditem(ITEM_TALISMAN_WATER)
-    end
-}
-
-script ITEM_LUMBRIDGESWAMPCAVE_ITEM_6
-{
-    finditem(ITEM_SPIRIT_SHARD)
     end
 }
 
@@ -118,7 +92,7 @@ script ITEM_LUMBRIDGESWAMPCAVE_ITEM_6
 //BATTLES
 //Low levels
 script BATTLE_LUMBRIDGESWAMPCAVE_FISHERMAN_1{
-    trainerbattle_single(TRAINER_LUMBRIDGESWAMPCAVE_FISHERMAN_1, format("Im collecting frogspawn, don't bother me."),format("I hear somewhere in Kandarin there's a tower.\pIf you bring it a slimy eel and frog legs it will create a legendary monster."))
+    trainerbattle_single(TRAINER_LUMBRIDGESWAMPCAVE_FISHERMAN_1, format("I'm collecting frogspawn, don't bother me."),format("I hear somewhere in Kandarin there's a tower.\pIf you bring it a slimy eel and frog legs it will create a legendary monster."))
     //namebox("EELFROG330")
     msgbox(format("I hear somewhere in Kandarin there's a tower.\pIf you bring it a slimy eel and frog legs it will create a legendary monster."))
     hidenamebox

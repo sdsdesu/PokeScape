@@ -193,22 +193,6 @@ script BATTLE_LUMBRIDGEFOREST_TRAINER_3
 }
 
 
-//ITEMS
-
-
-script ITEM_LUMBRIDGEFOREST_BREAD //FLAG_ITEM_LUMBRIDGEFOREST_2
-{
-    finditem(ITEM_BREAD)
-    end
-}
-script ITEM_LUMBRIDGE_FOREST_3 
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
-
-
 
 //HAM
 script NPC_LUMBRIDGE_FOREST_HAM_1
@@ -302,4 +286,20 @@ script ITEM_RECEIVED_TM55
     end
 }
 
+script ITEM_RECEIVED_TM13
+{
+    finditem(ITEM_TM13_BRINE)
+    end
+}
 
+script ITEM_RECEIVED_TM64
+{
+    finditem(ITEM_TM64_REVENGE)
+    end
+}
+
+script ITEM_RECEIVED_TM22
+{
+    finditem(ITEM_TM22_SHADOW_BONE)
+    end
+}

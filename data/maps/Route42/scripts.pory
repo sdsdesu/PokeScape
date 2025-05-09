@@ -58,10 +58,3 @@ script ROUTE_42_NPC_1
     release
     end
 }
-
-//ITEMS
-script ITEM_ROUTE_42_EASTER_EGG
-{
-    finditem(ITEM_CABBAGE)
-    end
-}

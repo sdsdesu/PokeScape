@@ -1137,22 +1137,22 @@ ROUTE1_FARMER_NPC_Text_0:
 	.string "Did you know that pigs use mud to\n"
 	.string "regulate their temperature?\p"
 	.string "That's a fun fact to help you remember\n"
-	.string "that all pigs are GROUND type.$"
+	.string "that most pigs are GROUND type.$"
 
 ROUTE1_FARMER_NPC_Text_1:
 	.string "Although they're too heavy to do it for\n"
 	.string "long distances, chickens can flap their\l"
 	.string "wings to fly for short distances.\p"
-	.string "All chickens are FLYING type.$"
+	.string "Most chickens are FLYING type.$"
 
 ROUTE1_FARMER_NPC_Text_2:
 	.string "Cows are constantly moving while\n"
 	.string "grazing, and can cover huge distances\l"
 	.string "in one day.\p"
 	.string "Although they love to eat grass,\n"
-	.string "remember that all cows are GROUND type\l"
-	.string "so they don't fare well against it in\l"
-	.string "battle!$"
+	.string "remember that most cows are GROUND\l"
+	.string "type so they don't fare well against it\l"
+	.string "in battle!$"
 
 ROUTE1_FARMER_NPC_Text_3:
 	.string "Unlike humans, sheep have rectangular\n"

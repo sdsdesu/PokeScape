@@ -58,7 +58,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MUDSKIPPER_2",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_MUDSKIPPERSOUND_1"
     },
     {
@@ -71,7 +71,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MUDSKIPPER_3",
+      "script": "FIND_ITEM_WATERSKIN",
       "flag": "FLAG_ITEM_MUDSKIPPERSOUND_2"
     },
     {
@@ -84,7 +84,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MUDSKIPPER_1",
+      "script": "FIND_ITEM_WATER_RUNE",
       "flag": "FLAG_ITEM_MUDSKIPPERSOUND_3"
     },
     {

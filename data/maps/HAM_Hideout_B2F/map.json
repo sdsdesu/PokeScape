@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_3"
     },
     {
@@ -206,7 +206,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_2"
     },
     {
@@ -219,7 +219,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_1"
     },
     {
@@ -232,7 +232,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_6"
     },
     {
@@ -245,7 +245,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_4"
     },
     {
@@ -258,7 +258,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_5"
     },
     {
@@ -271,7 +271,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_PURPLE_SWEETS",
       "flag": "FLAG_ITEM_HAMHIDEOUT_7"
     },
     {
@@ -388,7 +388,7 @@
       "x": 34,
       "y": 11,
       "elevation": 3,
-      "item": "ITEM_NONE",
+      "item": "ITEM_NATURE_RUNE",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -396,7 +396,7 @@
       "x": 38,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_NONE",
+      "item": "ITEM_BONECROSSBOW",
       "flag": "FLAG_TEMP_1"
     },
     {
@@ -404,7 +404,7 @@
       "x": 16,
       "y": 24,
       "elevation": 3,
-      "item": "ITEM_NONE",
+      "item": "ITEM_PHOENIX_NECKLACE",
       "flag": "FLAG_TEMP_1"
     }
   ],

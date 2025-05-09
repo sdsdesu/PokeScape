@@ -93,16 +93,6 @@ Rimmington_STATE_9:
 	end
 
 
-ITEM_RIMMINGTON_4::
-	finditem ITEM_LAMP_SPATT
-	end
-
-
-ITEM_RIMMINGTON_5::
-	finditem ITEM_TRIANGLE_SANDWICH
-	end
-
-
 NPC_RIMMINGTON_CustomsOfficer::
 	lock
 	faceplayer
@@ -1117,21 +1107,6 @@ NPC_POH_RAPTOR::
 	msgbox NPC_POH_RAPTOR_Text_2
 	hidenamebox
 	release
-	end
-
-
-ITEM_RIMMINGTON_1::
-	finditem ITEM_CAKE
-	end
-
-
-ITEM_RIMMINGTON_2::
-	finditem ITEM_POTION_SPEED
-	end
-
-
-ITEM_RIMMINGTON_3::
-	finditem ITEM_LAMP_SPATT
 	end
 
 

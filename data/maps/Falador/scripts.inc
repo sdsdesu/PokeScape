@@ -64,11 +64,6 @@ MODTIMBO_STATE_3:
 	return
 
 
-ITEM_FALADOR_1::
-	finditem ITEM_POUCH_ADAMANT
-	end
-
-
 FALADOR_SIGN::
 	lock
 	msgbox FALADOR_SIGN_Text_0

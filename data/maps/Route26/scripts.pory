@@ -275,20 +275,3 @@ script BATTLE_ROUTE26_TRAINER_4
     release
     end
 }
-
-
-
-
-//Items
-
-script ROUTE26_SUPER_PRAYER_POTION
-{
-    finditem(ITEM_SUPER_PRAYER_POTION)
-    end
-}
-
-script ROUTE26_ADAMANT_POUCH
-{
-    finditem(ITEM_POUCH_ADAMANT)
-    end
-}

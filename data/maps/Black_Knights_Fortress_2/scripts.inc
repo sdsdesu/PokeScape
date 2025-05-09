@@ -611,46 +611,6 @@ NPC_ZAMOHAWK::
 	end
 
 
-ITEM_BKFORT_2F_ITEM1::
-	finditem ITEM_POTION_ATT
-	end
-
-
-ITEM_BKFORT_2F_ITEM2::
-	finditem ITEM_FRUIT_BLAST
-	end
-
-
-ITEM_BKFORT_2F_ITEM3::
-	finditem ITEM_POTATO
-	end
-
-
-ITEM_BKFORT_2F_ITEM4::
-	finditem ITEM_COSMIC_RUNE
-	end
-
-
-ITEM_BKFORT_2F_ITEM5::
-	finditem ITEM_SPIRIT_CHARM
-	end
-
-
-ITEM_BKFORT_2F_ITEM6::
-	finditem ITEM_CHOCOLATE_CAKE
-	end
-
-
-ITEM_BKFORT_2F_ITEM7::
-	finditem ITEM_PINEAPPLE
-	end
-
-
-ITEM_BKFORT_2F_ITEM8::
-	finditem ITEM_STAT_BEER
-	end
-
-
 BLACK_KNIGHT_QUIZ_3_Text_0:
 	.string "Necromancer$"
 

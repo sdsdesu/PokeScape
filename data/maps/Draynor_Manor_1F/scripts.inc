@@ -1398,7 +1398,7 @@ DraynorManor_HAM_GRUNT_Text_4:
 DraynorManor_HAM_GRUNT_Text_5:
 	.string "EEEK!\n"
 	.string "That was him!\p"
-	.string "Quick lets give chase!$"
+	.string "Quick let's give chase!$"
 
 DraynorManor_HAM_GRUNT_Text_6:
 	.string "{PLAYER} that's him!$"
@@ -1553,11 +1553,11 @@ TRIGGER_ARIANE_DRAYNORMANOR_1F_2_Text_0:
 
 TRIGGER_ARIANE_DRAYNORMANOR_1F_3_Text_0:
 	.string "I hear noises coming from the basement,\n"
-	.string "lets go look!$"
+	.string "let's go look!$"
 
 TRIGGER_ARIANE_DRAYNORMANOR_1F_4_Text_0:
 	.string "I doubt he would be outside.\p"
-	.string "Lets go look elsewhere.$"
+	.string "Let's go look elsewhere.$"
 
 TRIGGER_ARIANE_DRAYNORMANOR_1F_6_Text_0:
 	.string "Eek! I'm getting some sinister vibes\n"
@@ -1567,7 +1567,7 @@ TRIGGER_ARIANE_DRAYNORMANOR_1F_6_Text_0:
 
 TRIGGER_ARIANE_DRAYNORMANOR_1F_6_Text_1:
 	.string "Uh…{PAUSE 32} I know he ran down there, but that\n"
-	.string "basement is giving of some serious\l"
+	.string "basement is giving off some serious\l"
 	.string "sinister vibes.\p"
 	.string "I think I'll stay up here while you go\n"
 	.string "ahead.$"

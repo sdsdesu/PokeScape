@@ -66,25 +66,6 @@ script ROUTE50_MONK
     end
 }
 
-//ITEMS
-script ITEM_ROUTE_50_BREAD
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_ROUTE_50_DEF_POTION
-{
-    finditem(ITEM_POTION_DEF)
-    end
-}
-
-script ITEM_ROUTE_50_SUPER_TEA
-{
-    finditem(ITEM_REPEL_TEA_2)
-    end
-}
-
 //MISCELLANEOUS
 script ROUTE_50_LADDER
 {

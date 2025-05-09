@@ -71,10 +71,3 @@ script ENCOUNTER_PURO_PURO_3
     release
 	end
 }
-
-//ITEMS
-script ITEM_PURO_PURO_3
-{
-    finditem(ITEM_POUCH_RUNE)
-    end
-}

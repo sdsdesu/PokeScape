@@ -359,21 +359,6 @@ BKFORT_3F_NPC_20::
 	end
 
 
-ITEM_BKFORT_3F_ITEM1::
-	finditem ITEM_PRAYER_POTION
-	end
-
-
-ITEM_BKFORT_3F_ITEM2::
-	finditem ITEM_BRONZEHELMET
-	end
-
-
-ITEM_BKFORT_3F_ITEM3::
-	finditem ITEM_POUCH_BLACK
-	end
-
-
 BKF_WHITEOUT_Text_0:
 	.string "Guard$"
 

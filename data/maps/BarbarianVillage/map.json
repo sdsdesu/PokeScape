@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BARBARIAN_VILLAGE_1",
+      "script": "FIND_ITEM_ASTRAL_RUNE",
       "flag": "FLAG_ITEM_BARBARIANVILLAGE_1"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BARBARIAN_VILLAGE_3",
+      "script": "FIND_ITEM_REPEL_TEA_2",
       "flag": "FLAG_ITEM_BARBARIANVILLAGE_3"
     },
     {
@@ -258,7 +258,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BARBARIAN_VILLAGE_2",
+      "script": "FIND_ITEM_ANCIENT_POUCHES",
       "flag": "FLAG_ITEM_BARBARIANVILLAGE_2"
     },
     {

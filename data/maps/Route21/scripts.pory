@@ -33,11 +33,3 @@ script BATTLE_ROUTE21_TRAINER_3
     release
 	end
 }
-
-//ITEMS
-
-script ITEM_ROUTE21_ITEM1
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}

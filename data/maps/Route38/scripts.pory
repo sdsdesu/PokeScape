@@ -65,19 +65,6 @@ script ROUTE_38_NPC_1
     end
 }
 
-//ITEMS
-script ITEM_ROUTE_38_PRAYER_POTION
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-script ITEM_ROUTE_38_CAKE
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
 //MISCELLANEOUS
 script MORYTANIA_WARNING_SIGN
 {

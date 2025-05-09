@@ -7,12 +7,6 @@ Black_Knights_Fortress_1_MapScripts_MAP_SCRIPT_ON_LOAD:
 	return
 
 
-ITEM_BLACKKNIGHTS_FORTRESS_1::
-	finditem ITEM_CABBAGE, 1
-	closemessage
-	end
-
-
 CAUGHT_BY_BLACK_KNIGHTS::
 	namebox CAUGHT_BY_BLACK_KNIGHTS_Text_0
 	msgbox CAUGHT_BY_BLACK_KNIGHTS_Text_1
@@ -349,21 +343,6 @@ BKFORT_1F_BOOK::
 	msgbox BKFORT_1F_BOOK_Text_0
 	closemessage
 	release
-	end
-
-
-ITEM_BKFORT_1F_ITEM1::
-	finditem ITEM_POTION_DEF
-	end
-
-
-ITEM_BKFORT_1F_ITEM2::
-	finditem ITEM_EARTH_RUNE
-	end
-
-
-ITEM_BKFORT_1F_ITEM3::
-	finditem ITEM_ONION
 	end
 
 

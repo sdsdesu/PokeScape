@@ -123,7 +123,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE46_2",
+      "script": "FIND_ITEM_HP_LAMP",
       "flag": "FLAG_ITEM_DIGSITE_8"
     },
     {
@@ -136,7 +136,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE46_3",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_DIGSITE_5"
     },
     {
@@ -149,7 +149,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE46_1",
+      "script": "FIND_ITEM_SQUARE_SANDWICH",
       "flag": "FLAG_ITEM_DIGSITE_6"
     },
     {
@@ -162,7 +162,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE46_4",
+      "script": "FIND_ITEM_REPEL_TEA_3",
       "flag": "FLAG_ITEM_DIGSITE_7"
     },
     {

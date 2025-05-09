@@ -125,16 +125,6 @@ NPC_ROUTE0_RAPTOR::
 	end
 
 
-ITEM_ROUTE0_SWEETS::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
-ITEM_ROUTE0_TINDERBOX::
-	finditem ITEM_TINDERBOX
-	end
-
-
 NPC_JAMJAM::
 	lock
 	faceplayer

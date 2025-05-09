@@ -54,11 +54,6 @@ ROUTE_42_NPC_1::
 	end
 
 
-ITEM_ROUTE_42_EASTER_EGG::
-	finditem ITEM_CABBAGE
-	end
-
-
 BATTLE_ROUTE_42_TRAINER_1_Text_0:
 	.string "This is where true skill come into play.\n"
 	.string "This battle will be settled in seconds.$"

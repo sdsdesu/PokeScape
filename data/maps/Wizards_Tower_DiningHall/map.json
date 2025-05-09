@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_WIZARDSTOWER_FIRE_RUNE",
+      "script": "FIND_ITEM_FIRE_RUNE",
       "flag": "FLAG_ITEM_WIZARDSTOWER_5"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_WIZARDSTOWER_WATER_RUNE",
+      "script": "FIND_ITEM_WATER_RUNE",
       "flag": "FLAG_ITEM_WIZARDSTOWER_6"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_WIZARDSTOWER_AIR_RUNE",
+      "script": "FIND_ITEM_AIR_RUNE",
       "flag": "FLAG_ITEM_WIZARDSTOWER_7"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_WIZARDSTOWER_EARTH_RUNE",
+      "script": "FIND_ITEM_EARTH_RUNE",
       "flag": "FLAG_ITEM_WIZARDSTOWER_4"
     },
     {

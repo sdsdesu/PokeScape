@@ -9,14 +9,6 @@ mapscripts Edgeville_MapScripts {
 }
 
 
-
-//ITEMS
-script ITEM_EDGEVILLE_1
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
 script SIGNPOST_EDGEVILLE_GYM
 {
 	lock
@@ -493,18 +485,6 @@ script FIND_BRASS_KEY {
 
 
 //EDGEVILLE INDOOR 
-
-
-script ITEM_EDGEVILLE_INDOOR_1
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
-script ITEM_EDGEVILLE_INDOOR_2
-{
-    finditem(ITEM_FIRE_RUNE)
-    end
-}
 
 script NPC_EDGEVILLE_HOUSE_NPC_1 {
 	lock

@@ -7756,7 +7756,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_SOLAR_BLADE,
     },
 
-    [ITEM_TM_GRASSY_TERRAIN] =
+    [ITEM_TM_MIGHTY_CLEAVE] =
     {
         .name = _("SCROLL 09"),
         .price = 3000,
@@ -7766,10 +7766,10 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GRASSY_TERRAIN,
+        .secondaryId = MOVE_MIGHTY_CLEAVE,
     },
 
-    [ITEM_TM_ELECTRIC_TERRAIN] =
+    [ITEM_TM_TRIPLE_ARROWS] =
     {
         .name = _("SCROLL 10"),
         .price = 3000,
@@ -7779,10 +7779,10 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ELECTRIC_TERRAIN,
+        .secondaryId = MOVE_TRIPLE_ARROWS,
     },
 
-    [ITEM_TM_PSYCHIC_TERRAIN] =
+    [ITEM_TM_EERIE_SPELL] =
     {
         .name = _("SCROLL 11"),
         .price = 3000,
@@ -7792,10 +7792,10 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PSYCHIC_TERRAIN,
+        .secondaryId = MOVE_EERIE_SPELL,
     },
 
-    [ITEM_TM_MISTY_TERRAIN] =
+    [ITEM_TM_STONE_AXE] =
     {
         .name = _("SCROLL 12"),
         .price = 3000,
@@ -7805,7 +7805,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_MISTY_TERRAIN,
+        .secondaryId = MOVE_STONE_AXE,
     },
 
     [ITEM_TM_BRINE] =
@@ -8510,7 +8510,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_BRUTAL_SWING,
     },
 
-    [ITEM_TM_PROTECT] =
+    [ITEM_TM_PARTING_SHOT] =
     {
         .name = _("SCROLL 67"),
         .price = 3000,
@@ -8520,7 +8520,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PROTECT,
+        .secondaryId = MOVE_PARTING_SHOT,
     },
 
     [ITEM_TM_TELE_BLOCK] =
@@ -8549,7 +8549,7 @@ const struct Item gItems[] =
         .secondaryId = MOVE_OVERLOAD,
     },
 
-    [ITEM_TM_REFLECT] =
+    [ITEM_TM_JAW_LOCK] =
     {
         .name = _("SCROLL 70"),
         .price = 3000,
@@ -8559,10 +8559,10 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_REFLECT,
+        .secondaryId = MOVE_JAW_LOCK,
     },
 
-    [ITEM_TM_LIGHT_SCREEN] =
+    [ITEM_TM_TERRAIN_PULSE] =
     {
         .name = _("SCROLL 71"),
         .price = 3000,
@@ -8572,7 +8572,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_UNSORTABLE,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_LIGHT_SCREEN,
+        .secondaryId = MOVE_TERRAIN_PULSE,
     },
 
     [ITEM_TM_FUTURE_SIGHT] =
@@ -8614,343 +8614,6 @@ const struct Item gItems[] =
         .secondaryId = MOVE_CEASELESS_EDGE,
     },
 
-    [ITEM_TM_TRIPLE_ARROWS] =
-    {
-        .name = _("SCROLL 75"),
-        .price = 3000,
-        .description = sScroll_75_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TRIPLE_ARROWS,
-    },
-
-    [ITEM_TM_EERIE_SPELL] =
-    {
-        .name = _("SCROLL 76"),
-        .price = 3000,
-        .description = sScroll_76_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_EERIE_SPELL,
-    },
-
-    [ITEM_TM_VICTORY_DANCE] =
-    {
-        .name = _("SCROLL 77"),
-        .price = 3000,
-        .description = sScroll_77_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_VICTORY_DANCE,
-    },
-
-    [ITEM_TM_PARTING_SHOT] =
-    {
-        .name = _("SCROLL 78"),
-        .price = 3000,
-        .description = sScroll_78_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PARTING_SHOT,
-    },
-
-    [ITEM_TM_SNIPE_SHOT] =
-    {
-        .name = _("SCROLL 79"),
-        .price = 3000,
-        .description = sScroll_79_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SNIPE_SHOT,
-    },
-
-    [ITEM_TM_JAW_LOCK] =
-    {
-        .name = _("SCROLL 80"),
-        .price = 3000,
-        .description = sScroll_80_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_JAW_LOCK,
-    },
-
-    [ITEM_TM_TEATIME] =
-    {
-        .name = _("SCROLL 81"),
-        .price = 3000,
-        .description = sScroll_81_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TEATIME,
-    },
-
-    [ITEM_TM_NO_RETREAT] =
-    {
-        .name = _("SCROLL 82"),
-        .price = 3000,
-        .description = sScroll_82_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NO_RETREAT,
-    },
-
-    [ITEM_TM_DRAGON_DARTS] =
-    {
-        .name = _("SCROLL 83"),
-        .price = 3000,
-        .description = sScroll_83_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_DRAGON_DARTS,
-    },
-
-    [ITEM_TM_GLACIAL_LANCE] =
-    {
-        .name = _("SCROLL 84"),
-        .price = 3000,
-        .description = sScroll_84_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GLACIAL_LANCE,
-    },
-
-    [ITEM_TM_PSYSHIELD_BASH] =
-    {
-        .name = _("SCROLL 85"),
-        .price = 3000,
-        .description = sScroll_85_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_PSYSHIELD_BASH,
-    },
-
-    [ITEM_TM_STONE_AXE ] =
-    {
-        .name = _("SCROLL 86"),
-        .price = 3000,
-        .description = sScroll_86_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_STONE_AXE,
-    },
-
-    [ITEM_TM_TERRAIN_PULSE] =
-    {
-        .name = _("SCROLL 87"),
-        .price = 3000,
-        .description = sScroll_87_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TERRAIN_PULSE,
-    },
-
-    [ITEM_TM_ARMOR_CANNON ] =
-    {
-        .name = _("SCROLL 88"),
-        .price = 3000,
-        .description = sScroll_88_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_ARMOR_CANNON,
-    },
-
-    [ITEM_TM_BITTER_BLADE ] =
-    {
-        .name = _("TM89"),
-        .price = 3000,
-        .description = sScroll_89_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BITTER_BLADE,
-    },
-
-    [ITEM_TM_GIGATON_HAMMER] =
-    {
-        .name = _("SCROLL 90"),
-        .price = 3000,
-        .description = sScroll_90_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GIGATON_HAMMER,
-    },
-
-    [ITEM_TM_RAGE_FIST] =
-    {
-        .name = _("SCROLL 91"),
-        .price = 3000,
-        .description = sScroll_91_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_RAGE_FIST,
-    },
-
-    [ITEM_TM_GLAIVE_RUSH] =
-    {
-        .name = _("SCROLL 92"),
-        .price = 3000,
-        .description = sScroll_92_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_GLAIVE_RUSH,
-    },
-
-    [ITEM_TM_MIGHTY_CLEAVE] =
-    {
-        .name = _("SCROLL 93"),
-        .price = 3000,
-        .description = sScroll_93_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_MIGHTY_CLEAVE,
-    },
-
-    [ITEM_TM_POUNCE] =
-    {
-        .name = _("SCROLL 94"),
-        .price = 3000,
-        .description = sScroll_94_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_POUNCE,
-    },
-
-    [ITEM_TM_MAKE_IT_RAIN] =
-    {
-        .name = _("SCROLL 95"),
-        .price = 3000,
-        .description = sScroll_95_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_MAKE_IT_RAIN,
-    },
-
-    [ITEM_TM_BURNING_JEALOUSY] =
-    {
-        .name = _("SCROLL 96"),
-        .price = 3000,
-        .description = sScroll_96_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_BURNING_JEALOUSY,
-    },
-
-    [ITEM_TM_OBSTRUCT] =
-    {
-        .name = _("SCROLL 97"),
-        .price = 3000,
-        .description = sScroll_97_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_OBSTRUCT,
-    },
-
-    [ITEM_TM_SWORD_STRIKE] =
-    {
-        .name = _("SCROLL 98"),
-        .price = 3000,
-        .description = sScroll_98_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_SWORD_STRIKE,
-    },
-
-    [ITEM_TM_TRUMP_CARD] =
-    {
-        .name = _("SCROLL 99"),
-        .price = 3000,
-        .description = sScroll_99_Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_TRUMP_CARD,
-    },
-
-    [ITEM_TM100] =
-    {
-        .name = _("TM100"),
-        .price = 3000,
-        .description = sTM100Desc,
-        .importance = I_REUSABLE_TMS,
-        .pocket = POCKET_TM_HM,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_UNSORTABLE,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_NONE, // Todo
-    },
 
     [ITEM_HM_CUT] =
     {
@@ -11090,6 +10753,19 @@ const struct Item gItems[] =
         .name = _("CABBAGE"),
         .price = 2000,
         .description = sPokeScapeReviveDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .sort = ITEM_TYPE_HEALTH_RECOVERY,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_REVIVE,
+        .flingPower = 30,
+    },
+
+    [ITEM_EASTER_EGG] = 
+    {
+        .name = _("EASTER EGG"),
+        .price = 4000,
+        .description = sPokeScapeMaxReviveDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .sort = ITEM_TYPE_HEALTH_RECOVERY,

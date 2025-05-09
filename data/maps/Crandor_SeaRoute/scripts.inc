@@ -431,16 +431,6 @@ STRANDED_CABIN_BOY::
 	end
 
 
-ITEM_CRANDOR_SEA_ROUTE_1::
-	finditem ITEM_CHAOS_RUNE
-	end
-
-
-ITEM_CRANDOR_SEA_ROUTE_2::
-	finditem ITEM_CHAOS_RUNE
-	end
-
-
 ENCOUNTER_SEA_TROLL::
 	lock
 	delay 32

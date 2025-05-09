@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
       "flag": "FLAG_ITEM_BARBARIANSTRONGHOLD_6"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FIND_ITEM_SARADOMIN_BREW",
       "flag": "FLAG_ITEM_BARBARIANSTRONGHOLD_5"
     },
     {

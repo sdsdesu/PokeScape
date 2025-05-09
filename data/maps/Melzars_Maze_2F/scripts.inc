@@ -195,16 +195,6 @@ BATTLE_MELZAR_2F_TRAINER_6::
 	end
 
 
-ITEM_MELZARS_2F_RUNE::
-	finditem ITEM_BODY_RUNE
-	end
-
-
-ITEM_MELZARS_2F_BREAD::
-	finditem ITEM_BREAD
-	end
-
-
 Melzar_Maze_2F_Bookshelf_Text_0:
 	.string "You search the bookshelf and find a\n"
 	.string "key!$"

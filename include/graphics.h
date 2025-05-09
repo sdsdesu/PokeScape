@@ -4213,6 +4213,8 @@ extern const u32 gItemIcon_FlourPot[];
 extern const u32 gItemIconPalette_FlourPot[];
 extern const u32 gItemIcon_Cabbage[];
 extern const u32 gItemIconPalette_Cabbage[];
+extern const u32 gItemIcon_EasterEgg[];
+extern const u32 gItemIconPalette_EasterEgg[];
 extern const u32 gItemIcon_Cake[];
 extern const u32 gItemIconPalette_Cake[];
 

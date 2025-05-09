@@ -34,9 +34,3 @@ script NPC_BLACK_ARM_2 {
 	release
 	end
 }
-
-script ITEM_BLACK_ARM_MITH_SCIM
-{
-    finditem(ITEM_MITHRIL_SCIMITAR)
-    end
-}

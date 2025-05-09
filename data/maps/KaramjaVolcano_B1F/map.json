@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_KARAMJA_VOLCANO_4",
+      "script": "FIND_ITEM_PURPLE_SWEETS_10",
       "flag": "FLAG_ITEM_CRANDORVOLCANO_4"
     },
     {
@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_KARAMJA_VOLCANO_2",
+      "script": "FIND_ITEM_DRAGONFIRE_SHIELD",
       "flag": "FLAG_ITEM_CRANDORVOLCANO_2"
     }
   ],

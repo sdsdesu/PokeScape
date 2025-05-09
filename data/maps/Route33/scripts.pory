@@ -4,13 +4,6 @@ mapscripts Route33_MapScripts {
     }
 }
 
-//ITEMS
-script ITEM_ROUTE33_1
-{
-    finditem(ITEM_SUPER_PRAYER_POTION)
-    end
-}
-
 //NPCS
 script NPC_ROUTE33_NPC1
 {

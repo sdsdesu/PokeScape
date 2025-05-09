@@ -62,11 +62,6 @@ ENCOUNTER_PURO_PURO_2_2:
 	goto ENCOUNTER_PURO_PURO_2_1
 
 
-ITEM_PURO_PURO_2::
-	finditem ITEM_POUCH_ADAMANT
-	end
-
-
 ELNOCK_2_Text_0:
 	.string "Elnock$"
 

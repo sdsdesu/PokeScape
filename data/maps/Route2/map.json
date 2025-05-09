@@ -175,7 +175,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE2_MAGIC_POTION",
+      "script": "FIND_ITEM_SPATT_POTION",
       "flag": "FLAG_ITEM_ROUTE2_1"
     },
     {
@@ -188,7 +188,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE2_RUNE_POUCH",
+      "script": "FIND_ITEM_RUNE_POUCHES",
       "flag": "FLAG_ITEM_ROUTE2_2"
     },
     {

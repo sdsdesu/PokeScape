@@ -143,17 +143,6 @@ script SIGNPOST_BOAT_FOR_SALE
 	end
 }
 
-//ITEMS
-script ITEM_MUSA_POINT_1
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_MUSA_POINT_2
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
 
 //NPCS
 script NPC_MUSA_POINT_1
@@ -850,7 +839,7 @@ script LUTHAS_QUEST_PART_3 {
 		msgbox(format("My order is filled, thank you!\pHave this as a reward."))
 		hidenamebox
 		closemessage
-		giveitem(ITEM_TM12_MISTY_TERRAIN, 1) //replace with a banana related move.
+		giveitem(ITEM_TM14_ENERGY_BALL, 1) //replace with a banana related move.
 	}
 	hidenamebox
 	closemessage

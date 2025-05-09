@@ -17,21 +17,6 @@ BATTLE_MUDSKIPPER_MUGGER::
 	end
 
 
-ITEM_MUDSKIPPER_1::
-	finditem ITEM_BREAD
-	end
-
-
-ITEM_MUDSKIPPER_2::
-	finditem ITEM_CAKE
-	end
-
-
-ITEM_MUDSKIPPER_3::
-	finditem ITEM_WATERSKIN
-	end
-
-
 BATTLE_MUDSKIPPER_MUGGER_Text_0:
 	.string "Stand and deliver!$"
 

@@ -93,26 +93,6 @@ DIGSITE_SIGN::
 	end
 
 
-ITEM_ROUTE46_1::
-	finditem ITEM_BREAD
-	end
-
-
-ITEM_ROUTE46_2::
-	finditem ITEM_BREAD
-	end
-
-
-ITEM_ROUTE46_3::
-	finditem ITEM_BREAD
-	end
-
-
-ITEM_ROUTE46_4::
-	finditem ITEM_BREAD
-	end
-
-
 ITEM_DIGSITE_EARTH_TALISMAN::
 	finditem ITEM_TALISMAN_EARTH
 	end

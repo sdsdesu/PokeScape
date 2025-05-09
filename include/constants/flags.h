@@ -561,10 +561,10 @@
 #define FLAG_HIDDEN_ITEM_GoblinVillage_2                        (FLAG_HIDDEN_ITEMS_START + 0x0C)
 #define FLAG_HIDDEN_FLAG_ITEM_RimmingtonMines_1                 (FLAG_HIDDEN_ITEMS_START + 0x15)
 #define FLAG_HIDDEN_FLAG_ITEM_RimmingtonMines_2                 (FLAG_HIDDEN_ITEMS_START + 0x16)
-#define FLAG_HIDDEN_ITEM_ROUTE8_1                               (FLAG_HIDDEN_ITEMS_START + 0x17)
-#define FLAG_HIDDEN_ITEM_ROUTE8_2                               (FLAG_HIDDEN_ITEMS_START + 0x18)
-#define FLAG_HIDDEN_ITEM_ROUTE8_3                               (FLAG_HIDDEN_ITEMS_START + 0x19)
-#define FLAG_HIDDEN_ITEM_ROUTE8_4                               (FLAG_HIDDEN_ITEMS_START + 0x1A)
+#define FLAG_HIDDEN_ITEM_ROUTE9_1                               (FLAG_HIDDEN_ITEMS_START + 0x17)
+#define FLAG_HIDDEN_ITEM_ROUTE9_2                               (FLAG_HIDDEN_ITEMS_START + 0x18)
+#define FLAG_HIDDEN_ITEM_ROUTE9_3                               (FLAG_HIDDEN_ITEMS_START + 0x19)
+#define FLAG_HIDDEN_ITEM_ROUTE9_4                               (FLAG_HIDDEN_ITEMS_START + 0x1A)
 #define FLAG_HIDDEN_ITEM_ROUTE29_1                              (FLAG_HIDDEN_ITEMS_START + 0x1C)
 #define FLAG_HIDDEN_ITEM_ROUTE29_2                              (FLAG_HIDDEN_ITEMS_START + 0x00)
 //LeAVE THESE KEYS
@@ -1033,10 +1033,11 @@
 #define FLAG_UNUSED3                                                0x3D5
 #define FLAG_UNUSED4                                                0x3D6
 #define FLAG_UNUSED5                                                0x3D7
-#define FLAG_UNUSED6                                                0x3D8
-#define FLAG_UNUSED7                                                0x3D9
-#define FLAG_UNUSED8                                                0x3DA
+
 //TMS
+#define FLAG_RECEIVED_TM64                                         0x3D8
+#define FLAG_RECEIVED_TM22                                         0x3D9
+#define FLAG_RECEIVED_TM13                                         0x3DA
 #define FLAG_RECEIVED_TM51                                         0x3DB
 #define FLAG_RECEIVED_TM26                                         0x3DC
 #define FLAG_RECEIVED_TM63                                         0x3DD
@@ -1089,7 +1090,7 @@
 #define FLAG_ITEM_DRAYNORMANOR_4                                   0x40A
 #define FLAG_ITEM_DRAYNORMANOR_5                                   0x40B
 #define FLAG_ITEM_DRAYNOR_1                                        0x40C
-#define FLAG_ITEM_DRAYNOR_2                                        0x40D
+#define FLAG_ITEM_DRAYNORSEWERS_1                                  0x40D
 #define FLAG_ITEM_ROUTE2_1                                         0x40E
 #define FLAG_ITEM_ROUTE2_2                                         0x40F
 #define FLAG_ITEM_WIZARDSTOWER_1                                   0x410
@@ -1108,7 +1109,7 @@
 #define FLAG_ITEM_PORTSARIM_3                                      0x41D
 #define FLAG_ITEM_PORTSARIM_4                                      0x41E
 #define FLAG_ITEM_PORTSARIM_5                                      0x41F
-#define FLAG_ITEM_PORTSARIM_6                                      0x420
+#define FLAG_ITEM_PORTSARIM_LIGHTHOUSE_1                           0x420
 #define FLAG_ITEM_ROUTE10_1                                        0x421
 #define FLAG_ITEM_ROUTE11_1                                        0x422
 #define FLAG_ITEM_ROUTE11_2                                        0x423
@@ -1123,7 +1124,7 @@
 #define FLAG_ITEM_ROUTE8_1                                         0x42C
 #define FLAG_ITEM_ROUTE8_2                                         0x42D
 #define FLAG_ITEM_ROUTE8_3                                         0x42E
-#define FLAG_ITEM_ROUTE8_4                                         0x42F
+#define FLAG_ITEM_MAKEOVER_MAGE_1                                  0x42F
 #define FLAG_ITEM_ROUTE9_1                                         0x430
 #define FLAG_ITEM_ROUTE9_2                                         0x431
 #define FLAG_ITEM_RIMMINGTON_1                                     0x432
@@ -1175,28 +1176,28 @@
 #define FLAG_ITEM_BARBARIANSTRONGHOLD_8                            0x460
 #define FLAG_ITEM_BARBARIANSTRONGHOLD_9                            0x461
 #define FLAG_ITEM_BARBARIANSTRONGHOLD_10                           0x462
-#define FLAG_ITEM_ROUTE26_1                                        0x463
-#define FLAG_ITEM_ROUTE26_2                                        0x464
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_1                           0x465
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_2                           0x466
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_3                           0x467
+#define FLAG_ITEM_BARBARIANSTRONGHOLD_11                           0x463
+#define FLAG_ITEM_ROUTE26_1                                        0x464
+#define FLAG_ITEM_ROUTE26_2                                        0x465
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_1                           0x466
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_2                           0x467
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_3                           0x468 
 #define FLAG_ITEM_BLACKKNIGHTSFORTRESS_4                           0x468 
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_5                           0x468 
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_6                           0x469
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_7                           0x46A
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_8                           0x46B
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_9                           0x46C
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_10                          0x46D 
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_11                          0x46E
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_12                          0x46F
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_13                          0x470 
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_14                          0x471
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_15                          0x472 
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_16                          0x473
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_17                          0x474
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_18                          0x475
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_19                          0x476
-#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_20                          0x477
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_5                           0x469
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_6                           0x46A
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_7                           0x46B
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_8                           0x46C
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_9                           0x46D 
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_10                          0x46E
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_11                          0x46F
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_12                          0x470 
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_13                          0x471
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_14                          0x472 
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_15                          0x473
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_16                          0x474
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_17                          0x475
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_18                          0x476
+#define FLAG_ITEM_BLACKKNIGHTSFORTRESS_19                          0x477
 #define FLAG_ITEM_EDGEVILLE_1                                      0x478
 #define FLAG_ITEM_EDGEVILLE_2                                      0x479 
 #define FLAG_ITEM_EDGEVILLE_3                                      0x47A

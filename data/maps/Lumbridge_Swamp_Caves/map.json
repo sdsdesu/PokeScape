@@ -141,7 +141,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_5",
+      "script": "ITEM_LUMBRIDGESWAMPCAVE_TALISMAN_WATER",
       "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_5"
     },
     {
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_6",
+      "script": "FIND_ITEM_MINT_CAKE",
       "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_1"
     },
     {
@@ -167,7 +167,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_3",
+      "script": "FIND_ITEM_BOOK_OF_GUTHIX",
       "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_3"
     },
     {
@@ -180,7 +180,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_2",
+      "script": "FIND_ITEM_WATER_RUNE",
       "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_2"
     },
     {
@@ -193,7 +193,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMPCAVE_ITEM_4",
+      "script": "FIND_ITEM_HWEEN_MASK",
       "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_4"
     },
     {
@@ -325,6 +325,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_DAGANNOTH",
       "flag": "FLAG_TEMP_A"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
+      "x": 32,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FIND_ITEM_TRIANGLE_SANDWICH",
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMPCAVE_6"
     }
   ],
   "warp_events": [

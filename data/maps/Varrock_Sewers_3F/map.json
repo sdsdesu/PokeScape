@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_VARROCK_SEWERS_9",
+      "script": "FIND_ITEM_SPIRIT_CHARM",
       "flag": "FLAG_ITEM_VARROCKSEWERS_9"
     },
     {
@@ -63,7 +63,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_VARROCK_SEWERS_7",
+      "script": "FIND_ITEM_SPIRIT_SHARD",
       "flag": "FLAG_ITEM_VARROCKSEWERS_7"
     },
     {
@@ -76,7 +76,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_VARROCK_SEWERS_8",
+      "script": "FIND_ITEM_DEATH_RUNE",
       "flag": "FLAG_ITEM_VARROCKSEWERS_8"
     },
     {
@@ -89,7 +89,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_VARROCK_SEWERS_6",
+      "script": "FIND_ITEM_EASTER_EGG",
       "flag": "FLAG_ITEM_VARROCKSEWERS_6"
     },
     {
@@ -269,7 +269,7 @@
       "x": 26,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_CHAOS_RUNE",
       "flag": "FLAG_HIDDEN_ITEM_VARROCK_SEWER_1"
     },
     {

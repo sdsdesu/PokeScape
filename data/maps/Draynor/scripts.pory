@@ -505,7 +505,7 @@ script NPC_Draynor_Skiller{
 	lock
 	faceplayer
     namebox("Ch1nchawmpa")
-	msgbox(format("Chinchompa's are really hard to train, but if you put the effort in they are a force to be reckoned with!"))
+	msgbox(format("Chinchompas are really hard to train, but if you put the effort in they are a force to be reckoned with!"))
     hidenamebox
     release
 	end

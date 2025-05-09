@@ -37,8 +37,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DRAYNORSEWERS_BEER",
-      "flag": "FLAG_ITEM_DRAYNOR_2"
+      "script": "FIND_ITEM_BEER",
+      "flag": "FLAG_ITEM_DRAYNORSEWERS_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",

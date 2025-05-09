@@ -127,7 +127,7 @@ script DraynorManor_HAM_GRUNT {
                 applymovement(18, Movement_DraynorManor_Chase_12)
                 
                 namebox("Ariane")
-                msgbox(format("EEEK!\nThat was him!\pQuick lets give chase!"))
+                msgbox(format("EEEK!\nThat was him!\pQuick let's give chase!"))
                 hidenamebox
                 closemessage
                 waitmovement(0)
@@ -766,7 +766,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_3 {
         delay(32)
         facefollower
         namebox("Ariane")
-        msgbox(format("I hear noises coming from the basement, lets go look!"))
+        msgbox(format("I hear noises coming from the basement, let's go look!"))
         closemessage
         hidenamebox
         setvar(VAR_TEMP_E, 1)
@@ -779,7 +779,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_4 {
     if (var(VAR_RESULT)) {
         facefollower
         namebox("Ariane")
-        msgbox(format("I doubt he would be outside.\pLets go look elsewhere."))
+        msgbox(format("I doubt he would be outside.\pLet's go look elsewhere."))
         closemessage
         hidenamebox
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
@@ -821,7 +821,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_6 {
             release
             end
         }
-        msgbox(format("Uh…{PAUSE 32} I know he ran down there, but that basement is giving of some serious sinister vibes.\pI think I'll stay up here while you go ahead."))
+        msgbox(format("Uh…{PAUSE 32} I know he ran down there, but that basement is giving off some serious sinister vibes.\pI think I'll stay up here while you go ahead."))
         closemessage
         hidenamebox
         applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_RIGHT)

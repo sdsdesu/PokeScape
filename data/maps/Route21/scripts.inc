@@ -29,11 +29,6 @@ BATTLE_ROUTE21_TRAINER_3::
 	end
 
 
-ITEM_ROUTE21_ITEM1::
-	finditem ITEM_POUCH_MITHRIL
-	end
-
-
 BATTLE_ROUTE21_TRAINER_1_Text_0:
 	.string "Well then, looks like someone is about\n"
 	.string "to get the axe!$"

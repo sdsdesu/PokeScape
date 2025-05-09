@@ -242,7 +242,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_1",
+      "script": "FIND_ITEM_PURPLE_SWEETS_15",
       "flag": "FLAG_ITEM_ROUTE15_1"
     },
     {
@@ -255,7 +255,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_2",
+      "script": "FIND_ITEM_AUGMENTED_POUCHES",
       "flag": "FLAG_ITEM_ROUTE15_2"
     },
     {
@@ -268,7 +268,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_3",
+      "script": "FIND_ITEM_EASTER_EGG",
       "flag": "FLAG_ITEM_ROUTE15_3"
     },
     {
@@ -281,7 +281,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_4",
+      "script": "FIND_ITEM_PRAYER_POTION",
       "flag": "FLAG_ITEM_ROUTE15_4"
     },
     {

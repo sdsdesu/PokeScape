@@ -299,23 +299,6 @@ script BATTLE_MELZARS_1F_TRAINER_3
 
 
 
-//ITEMS
-script ITEM_MELZARS_1F_ROPE
-{
-    finditem(ITEM_ROPE)
-    end
-}
-
-//Need a sprite for the rope still
-
-
-
-
-
-
-
-
-
 //Route 19 Grunts
 
 

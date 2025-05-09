@@ -197,16 +197,6 @@ SHANTYPASS_NPC_3::
 	end
 
 
-ITEM_ALKHARID_INDOOR_1::
-	finditem ITEM_NONE
-	end
-
-
-ITEM_ALKHARID_INDOOR_2::
-	finditem ITEM_NONE
-	end
-
-
 ALKHARID_INDOOR_NPC_1::
 	faceplayer
 	msgbox ALKHARID_INDOOR_NPC_1_Text_0

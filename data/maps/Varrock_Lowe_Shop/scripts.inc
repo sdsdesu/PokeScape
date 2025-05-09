@@ -40,11 +40,6 @@ LOWESBOOK_2:
 	goto LOWESBOOK_1
 
 
-LOWES_BONE_CROSSBOW::
-	finditem ITEM_SPIRIT_SHARD
-	end
-
-
 NPC_TRAININGROOM_NOOB::
 	lock
 	faceplayer

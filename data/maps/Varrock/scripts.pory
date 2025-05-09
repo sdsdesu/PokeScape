@@ -1352,24 +1352,6 @@ script VARROCK_POTIONSTORE_BOOK
 	end
 }
 
-script ITEM_VARROCK_POTIONSTORE
-{
-    finditem(ITEM_POTION_ATT)
-    end
-}
-
-script ITEM_VARROCK_CLOTHESSTORE
-{
-    finditem(ITEM_POUCH_ELEMENTAL)
-    end
-}
-
-script ITEM_NORTH_VARROCK_1
-{
-    finditem(ITEM_EARTH_RUNE)
-    end
-}
-
 script VARROCK_NPC_FROGEELBURGER
 {
     faceplayer

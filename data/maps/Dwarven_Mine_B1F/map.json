@@ -453,7 +453,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_4",
+      "script": "FIND_ITEM_REPEL_TEA_2",
       "flag": "FLAG_ITEM_DWARVENMINES_4"
     },
     {
@@ -466,7 +466,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_3",
+      "script": "FIND_ITEM_DEATH_RUNE",
       "flag": "FLAG_ITEM_DWARVENMINES_3"
     },
     {
@@ -492,7 +492,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_5",
+      "script": "FIND_ITEM_PURPLE_SWEETS_10",
       "flag": "FLAG_ITEM_DWARVENMINES_5"
     },
     {
@@ -544,7 +544,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_2",
+      "script": "FIND_ITEM_GRANITE_POUCHES",
       "flag": "FLAG_ITEM_DWARVENMINES_2"
     },
     {
@@ -609,7 +609,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_1",
+      "script": "FIND_ITEM_ROCKCAKE",
       "flag": "FLAG_ITEM_DWARVENMINES_1"
     },
     {
@@ -905,7 +905,7 @@
       "x": 32,
       "y": 9,
       "elevation": 0,
-      "item": "ITEM_EARTH_RUNE",
+      "item": "ITEM_NATURE_RUNE",
       "flag": "FLAG_HIDDEN_ITEM_DWARVEN_MINES_3"
     },
     {

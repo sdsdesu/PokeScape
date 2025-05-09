@@ -7,11 +7,6 @@ Route33_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-ITEM_ROUTE33_1::
-	finditem ITEM_SUPER_PRAYER_POTION
-	end
-
-
 NPC_ROUTE33_NPC1::
 	lock
 	faceplayer
