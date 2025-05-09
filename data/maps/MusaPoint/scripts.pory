@@ -807,8 +807,9 @@ script LUTHAS_QUEST_PART_2 {
 		closemessage
 		hidenamebox
 	}
-	giveitem(ITEM_MANY_SWEETS,5)
-	giveitem(ITEM_PINEAPPLE,1)
+	giveitem(ITEM_EXP_CANDY_M, 5)
+	giveitem(ITEM_NATURE_RUNE, 1)
+	giveitem(ITEM_PINEAPPLE, 1)
 	//QUEST COMPPLETE.
 	questmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_BANANA_BOAT)
 	setvar(VAR_BANANA_BOAT_QUEST, 10) //Quest complete
@@ -839,7 +840,7 @@ script LUTHAS_QUEST_PART_3 {
 		msgbox(format("My order is filled, thank you!\pHave this as a reward."))
 		hidenamebox
 		closemessage
-		giveitem(ITEM_TM14_ENERGY_BALL, 1) //replace with a banana related move.
+		giveitem(ITEM_TM14_ENERGY_BALL, 1)
 	}
 	hidenamebox
 	closemessage

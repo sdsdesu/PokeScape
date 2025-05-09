@@ -62,7 +62,7 @@
       "x": 5,
       "y": 2,
       "elevation": 0,
-      "item": "ITEM_MANY_SWEETS",
+      "item": "ITEM_EXP_CANDY_M",
       "flag": "FLAG_HIDDEN_ITEM_VARROCK_3"
     },
     {
@@ -70,7 +70,7 @@
       "x": 7,
       "y": 7,
       "elevation": 0,
-      "item": "ITEM_MANY_SWEETS",
+      "item": "ITEM_EXP_CANDY_L",
       "flag": "FLAG_HIDDEN_ITEM_VARROCK_4"
     },
     {

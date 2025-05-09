@@ -834,7 +834,7 @@ QUEST_Cooks_Assistant_STATE_4:
 	closemessage
 	giveitem ITEM_BREAD, 5
 	giveitem ITEM_CAKE, 1
-	giveitem ITEM_MANY_SWEETS, 2
+	giveitem ITEM_EXP_CANDY_XS, 15
 	namebox Lumbridge_Castle_COOKS_TRIGGER_celler_Text_0
 	msgbox QUEST_Cooks_Assistant_STATE_Text_14
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0

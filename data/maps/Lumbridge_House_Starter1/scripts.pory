@@ -163,7 +163,7 @@ script CHEAT_ITEM_PULSE_CORE
 
 script FIND_ITEM_BREAD
 {
-    finditem(ITEM_BREAD, 5)
+    finditem(ITEM_BREAD)
     end
 }
 
@@ -508,9 +508,9 @@ script FIND_ITEM_DRAGON_POUCH                          //I deliberately only inc
     end
 }
 
-script FIND_ITEM_CRYSTAL_POUCHES
+script FIND_ITEM_CRYSTAL_POUCH
 {
-    finditem(ITEM_POUCH_CRYSTAL, 5)
+    finditem(ITEM_POUCH_CRYSTAL)
     end
 }
 
@@ -709,7 +709,7 @@ script FIND_ITEM_SPIRIT_CHARM
 
 script FIND_ITEM_REPEL_TEA_1
 {
-    finditem(ITEM_REPEL_TEA_1, 3)
+    finditem(ITEM_REPEL_TEA_1)
     end
 }
 
@@ -834,6 +834,36 @@ script FIND_ITEM_SANTA_HAT
 }
 
 //MISCELLANEOUS
+
+script FIND_ITEM_WHITE_SWEETS
+{
+    finditem(ITEM_EXP_CANDY_XS)
+    end
+}
+
+script FIND_ITEM_YELLOW_SWEETS
+{
+    finditem(ITEM_EXP_CANDY_S)
+    end
+}
+
+script FIND_ITEM_ORANGE_SWEETS
+{
+    finditem(ITEM_EXP_CANDY_M)
+    end
+}
+
+script FIND_ITEM_RED_SWEETS
+{
+    finditem(ITEM_EXP_CANDY_L)
+    end
+}
+
+script FIND_ITEM_PURPLE_SWEETS
+{
+    finditem(ITEM_EXP_CANDY_XL)
+    end
+}
 
 script FIND_ITEM_MANY_SWEETS
 {

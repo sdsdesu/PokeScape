@@ -481,7 +481,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FIND_ITEM_CHOCOLATE_SUNDAY",
+      "script": "FIND_ITEM_DEF_POTION",
       "flag": "FLAG_ITEM_ROUTE1_3"
     },
     {

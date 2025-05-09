@@ -317,15 +317,15 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 36,
-      "y": 21,
+      "x": 10,
+      "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FIND_ITEM_WIZARDS_BLIZZARD",
+      "script": "FIND_ITEM_IRON_POUCHES",
       "flag": "FLAG_ITEM_ROUTE12_2"
     },
     {
