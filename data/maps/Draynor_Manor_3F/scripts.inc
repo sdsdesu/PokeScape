@@ -501,6 +501,7 @@ NPC_DraynorManor_Oddenstein_7:
 	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_ERNEST_THE_CHICKEN
 	hidenamebox
 	giveitem ITEM_MINT_CAKE, 2
+	giveitem ITEM_EXP_CANDY_S, 10
 	setvar VAR_POKESCAPE_ERNEST_QUEST_STATE, 6
 	closemessage
 	hidenamebox

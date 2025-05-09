@@ -370,16 +370,9 @@ void DoWhiteOut(void)
     if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_3) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_3)) {
         SetLastHealLocationWarp(HEAL_LOCATION_DWARVEN_MINES);
     }
-        
-
-
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_1)
-        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_1)
-        || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_2)
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_1)
         || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_2)
-        || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_3)
         || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_3)
-        || gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_4)
         || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_4)) {
             SetLastHealLocationWarp(HEAL_LOCATION_BKF_JAIL);
             FlagSet(FLAG_BKF_JAILED);

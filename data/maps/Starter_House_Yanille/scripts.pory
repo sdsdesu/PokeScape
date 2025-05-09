@@ -52,7 +52,7 @@ script Follower_Frogeel {
     if (var(VAR_RESULT))
     { 
         loadword(0, Following_Frogeel)
-        setfollower(VAR_LAST_TALKED, 0x100)
+        setfollower(2, 0x100)
         msgbox(format("AAAAAAAAAAAAAAAAAAA!"))
         msgbox(format("Frogeel is now following you."))
     }

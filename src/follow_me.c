@@ -157,7 +157,13 @@ void FollowMe_TryRemoveFollowerOnWhiteOut(void)
 {
     if (gSaveBlock2Ptr->follower.inProgress)
     {
-        if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT) {
+        if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_1)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_2)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_3)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_4)) {
+            FollowMe_WarpSetEnd();
+        }
+        else if (gSaveBlock2Ptr->follower.flags & FOLLOWER_FLAG_CLEAR_ON_WHITE_OUT) {
             gSaveBlock2Ptr->follower.inProgress = FALSE;
             PartnerBattle_TryRemovePartnerBattleOnWhiteOut(); //Clear the partner battle.
         }
