@@ -835,7 +835,7 @@ script FIND_ITEM_SANTA_HAT
 
 //MISCELLANEOUS
 
-script FIND_ITEM_PURPLE_SWEETS_1
+script FIND_ITEM_PURPLE_SWEETS
 {
     finditem(ITEM_PURPLE_SWEETS)
     end
@@ -1017,7 +1017,7 @@ script FIND_ITEM_AHRIMS_STAFF
 
 script FIND_ITEM_VERACS_FLAIL
 {
-    finditem(ITEM_VERACS_FLAIL)
+    finditem(ITEM_VERACFLAIL)
     end
 }
 

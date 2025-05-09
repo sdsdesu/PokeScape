@@ -108,16 +108,6 @@ LumSwampSign::
 	end
 
 
-ITEM_LUMBRIDGESWAMP_ITEM_2::
-	finditem ITEM_POUCH_MITHRIL
-	end
-
-
-ITEM_LUMBRIDGESWAMP_ITEM_3::
-	finditem ITEM_CHOCOLATE_SUNDAY
-	end
-
-
 LUMBRIDGESWAMP_CANDLESELLER::
 	lock
 	faceplayer

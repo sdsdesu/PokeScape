@@ -20,11 +20,6 @@ BATTLE_ROUTE22_TRAINER_2::
 	end
 
 
-ITEM_ROUTE22::
-	finditem ITEM_POUCH_RUNE
-	end
-
-
 BATTLE_ROUTE22_TRAINER_1_Text_0:
 	.string "I can squeeze in a quick battle.$"
 

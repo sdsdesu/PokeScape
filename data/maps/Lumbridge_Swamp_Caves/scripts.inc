@@ -63,28 +63,8 @@ Movement_WallBeast:
 	jump_in_place_up
 	step_end
 
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_2::
-	finditem ITEM_WATER_RUNE
-	end
-
-
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_3::
-	finditem ITEM_BOOK_OF_GUTHIX
-	end
-
-
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_4::
-	finditem ITEM_SPIRIT_SHARD
-	end
-
-
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_5::
+ITEM_LUMBRIDGESWAMPCAVE_TALISMAN_WATER::
 	finditem ITEM_TALISMAN_WATER
-	end
-
-
-ITEM_LUMBRIDGESWAMPCAVE_ITEM_6::
-	finditem ITEM_SPIRIT_SHARD
 	end
 
 
@@ -163,7 +143,7 @@ LumbridgeSwampCaves_WallBeasts_Text_4:
 	.string "A small hand falls out of the rubble!$"
 
 BATTLE_LUMBRIDGESWAMPCAVE_FISHERMAN_1_Text_0:
-	.string "Im collecting frogspawn, don't bother\n"
+	.string "I'm collecting frogspawn, don't bother\n"
 	.string "me.$"
 
 BATTLE_LUMBRIDGESWAMPCAVE_FISHERMAN_1_Text_1:

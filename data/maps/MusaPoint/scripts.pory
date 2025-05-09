@@ -839,7 +839,7 @@ script LUTHAS_QUEST_PART_3 {
 		msgbox(format("My order is filled, thank you!\pHave this as a reward."))
 		hidenamebox
 		closemessage
-		giveitem(ITEM_TM12_MISTY_TERRAIN, 1) //replace with a banana related move.
+		giveitem(ITEM_TM14_ENERGY_BALL, 1) //replace with a banana related move.
 	}
 	hidenamebox
 	closemessage

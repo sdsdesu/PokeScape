@@ -44,16 +44,6 @@ BATTLE_ROUTE_43_TRAINER_4::
 	end
 
 
-ITEM_ROUTE_43_MOONLIGHT_MEAD::
-	finditem ITEM_STAT_MOONLIGHT_MEAD
-	end
-
-
-ITEM_ROUTE_43_SPEED_LAMP::
-	finditem ITEM_LAMP_SPEED
-	end
-
-
 ROUTE_43_SIGN_1::
 	lock
 	faceplayer

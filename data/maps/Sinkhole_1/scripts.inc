@@ -7,21 +7,6 @@ Sinkhole_1_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-ITEM_SINKHOLE_1::
-	finditem ITEM_STAT_MOONLIGHT_MEAD
-	end
-
-
-ITEM_SINKHOLE_2::
-	finditem ITEM_HWEEN_MASK
-	end
-
-
-ITEM_SINKHOLE_3::
-	finditem ITEM_SPIRIT_SHARD
-	end
-
-
 BOOK_SMUGGLERS_JOURNAL_1::
 	msgbox BOOK_SMUGGLERS_JOURNAL_1_Text_0
 	closemessage

@@ -62,26 +62,6 @@ FALADORCASTLE_QUEST_STATE_4:
 	return
 
 
-ITEM_FALADOR_COURTYARD_1::
-	finditem ITEM_SPIRIT_CHARM
-	end
-
-
-ITEM_FALADOR_COURTYARD_2::
-	finditem ITEM_BOOK_OF_SARADOMIN
-	end
-
-
-ITEM_SHANTY_PASS_1::
-	finditem ITEM_BOOK_OF_TUMEKEN
-	end
-
-
-ITEM_ROUTE_7::
-	finditem ITEM_BOOK_OF_ARMADYL
-	end
-
-
 NPC_FALADORCASTLE_QUEST_PART_1::
 	lock
 	namebox NPC_FALADORCASTLE_QUEST_PART_1_Text_0
@@ -1030,11 +1010,6 @@ NPC_FALADORCASTLE_QUESTER::
 	closemessage
 	hidenamebox
 	release
-	end
-
-
-ITEM_FALADOR_CASTLE_1::
-	finditem ITEM_FIRE_RUNE
 	end
 
 

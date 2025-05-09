@@ -86,11 +86,6 @@ YANILLE_DOG::
 	end
 
 
-ITEM_YANILLE_PRAYER_POTION::
-	finditem ITEM_PRAYER_POTION
-	end
-
-
 NPC_YANILLE_1_Text_0:
 	.string "Colonel Radick$"
 

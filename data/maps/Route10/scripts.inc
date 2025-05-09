@@ -170,11 +170,6 @@ BATTLE_ROUTE10_GOBLIN_2::
 	return
 
 
-ITEM_ROUTE10_PINEAPPLE_PUNCH::
-	finditem ITEM_SQUARE_SANDWICH
-	end
-
-
 ROUTE10_Gravestone_1::
 	msgbox ROUTE10_Gravestone_1_Text_0
 	closemessage

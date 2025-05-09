@@ -9,11 +9,6 @@ Edgeville_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-ITEM_EDGEVILLE_1::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
 SIGNPOST_EDGEVILLE_GYM::
 	lock
 	msgbox SIGNPOST_EDGEVILLE_GYM_Text_0
@@ -430,16 +425,6 @@ FIND_BRASS_KEY::
 	waitfanfare
 	closemessage
 	release
-	end
-
-
-ITEM_EDGEVILLE_INDOOR_1::
-	finditem ITEM_STAT_BEER
-	end
-
-
-ITEM_EDGEVILLE_INDOOR_2::
-	finditem ITEM_FIRE_RUNE
 	end
 
 

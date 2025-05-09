@@ -2,16 +2,6 @@ PortKhazard_MapScripts::
 	.byte 0
 
 
-ITEM_PORTKHAZARD_ATTACK_LAMP::
-	finditem ITEM_LAMP_ATT
-	end
-
-
-ITEM_PORTKHAZARD_PURPLE_SWEETS::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
 NPC_PORTKHAZARD_1::
 	lock
 	faceplayer

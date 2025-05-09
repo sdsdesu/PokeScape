@@ -63,23 +63,3 @@ KaramjaVolcano_STATE2_4:
 	release
 	end
 
-
-ITEM_KARAMJA_VOLCANO_1::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
-ITEM_KARAMJA_VOLCANO_2::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
-ITEM_KARAMJA_VOLCANO_3::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
-ITEM_KARAMJA_VOLCANO_4::
-	finditem ITEM_PURPLE_SWEETS
-	end
-

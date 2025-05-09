@@ -57,21 +57,6 @@ ROUTE50_MONK::
 	end
 
 
-ITEM_ROUTE_50_BREAD::
-	finditem ITEM_BREAD
-	end
-
-
-ITEM_ROUTE_50_DEF_POTION::
-	finditem ITEM_POTION_DEF
-	end
-
-
-ITEM_ROUTE_50_SUPER_TEA::
-	finditem ITEM_REPEL_TEA_2
-	end
-
-
 ROUTE_50_LADDER::
 	lock
 	faceplayer

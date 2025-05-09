@@ -169,16 +169,6 @@ QBDLAIR_4::
 	end
 
 
-ITEM_RimmingtonMines_1::
-	finditem ITEM_EARTH_RUNE
-	end
-
-
-ITEM_RimmingtonMines_2::
-	finditem ITEM_EARTH_RUNE
-	end
-
-
 BATTLE_RimmingtonMines_Miner::
 	trainerbattle_single TRAINER_RimmingtonMines_Miner, BATTLE_RimmingtonMines_Miner_Text_0, BATTLE_RimmingtonMines_Miner_Text_1
 	namebox BATTLE_RimmingtonMines_Miner_Text_2

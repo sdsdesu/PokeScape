@@ -144,11 +144,6 @@ ROUTE20_VARROCK_GUARD_2::
 	end
 
 
-ITEM_ROUTE20::
-	finditem ITEM_WOOLBALL
-	end
-
-
 BATTLE_ROUTE20_TRAINER_1_Text_0:
 	.string "Hey, does this canoe lead to a\n"
 	.string "runecrafting altar?$"

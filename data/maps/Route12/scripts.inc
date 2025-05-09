@@ -824,7 +824,8 @@ NPC_ROUTE12_BRONZEMAN_Text_1:
 	.string "had to catch a monster.\p"
 	.string "But no matter how much I run after it, I\n"
 	.string "can't seem to keep this cow still long\l"
-	.string "enough!{PAUSE 15}Wait, what's a pouch..?$"
+	.string "enough!\p"
+	.string "{PAUSE 15}Wait, what's a pouch..?$"
 
 NPC_ROUTE12_NOOB_Text_0:
 	.string "Big Nub56$"

@@ -141,16 +141,6 @@ SIGNPOST_BOAT_FOR_SALE::
 	end
 
 
-ITEM_MUSA_POINT_1::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
-ITEM_MUSA_POINT_2::
-	finditem ITEM_STAT_BEER
-	end
-
-
 NPC_MUSA_POINT_1::
 	lock
 	namebox NPC_MUSA_POINT_1_Text_0
@@ -940,7 +930,7 @@ LUTHAS_QUEST_PART_3_2:
 	msgbox LUTHAS_QUEST_PART_3_Text_2
 	hidenamebox
 	closemessage
-	giveitem ITEM_TM12_MISTY_TERRAIN, 1
+	giveitem ITEM_TM14_ENERGY_BALL, 1
 	goto LUTHAS_QUEST_PART_3_1
 
 LUTHAS_QUEST_PART_3_5:

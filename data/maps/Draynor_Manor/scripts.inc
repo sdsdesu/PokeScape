@@ -512,7 +512,7 @@ HAM_EVENT_DraynorManor_TRIGGER_1_Text_0:
 
 HAM_EVENT_DraynorManor_Ariane_Text_0:
 	.string "I can not do this!\p"
-	.string "That manor is 2sp00ky4me!$"
+	.string "That manor is too spooky for me!$"
 
 ENCOUNTER_DeadTree_Text_0:
 	.string "The tree attacked!$"

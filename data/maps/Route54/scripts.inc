@@ -20,11 +20,6 @@ BATTLE_ROUTE_54_TRAINER_2::
 	end
 
 
-ITEM_ROUTE_54_PURPLE_SWEETS::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
 BATTLE_ROUTE_54_TRAINER_1_Text_0:
 	.string "I spent so long on that damn trawler\n"
 	.string "getting this outfit that I don't think\l"

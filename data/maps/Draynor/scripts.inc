@@ -755,7 +755,7 @@ NPC_Draynor_Skiller_Text_0:
 	.string "Ch1nchawmpa$"
 
 NPC_Draynor_Skiller_Text_1:
-	.string "Chinchompa's are really hard to train,\n"
+	.string "Chinchompas are really hard to train,\n"
 	.string "but if you put the effort in they are a\l"
 	.string "force to be reckoned with!$"
 

@@ -2,11 +2,6 @@ Falador_Pub_1F_MapScripts::
 	.byte 0
 
 
-ITEM_FALADORPUB_1::
-	finditem ITEM_STAT_BEER
-	end
-
-
 NPC_FALADORPUB_BARMAID_1::
 	lock
 	faceplayer

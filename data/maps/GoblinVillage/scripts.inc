@@ -7,46 +7,6 @@ GoblinVillage_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-ITEM_GOBLIN_VILLAGE_1::
-	finditem ITEM_BOOK_OF_BANDOS
-	end
-
-
-ITEM_GOBLIN_VILLAGE_2::
-	finditem ITEM_CAKE
-	end
-
-
-ITEM_GOBLIN_VILLAGE_3::
-	finditem ITEM_PRAYER_POTION
-	end
-
-
-ITEM_GOBLIN_VILLAGE_4::
-	finditem ITEM_CABBAGE
-	end
-
-
-ITEM_ROUTE24_1::
-	finditem ITEM_POUCH_MITHRIL, 5
-	end
-
-
-ITEM_ROUTE24_2::
-	finditem ITEM_POTION_SPATT
-	end
-
-
-ITEM_ROUTE24_3::
-	finditem ITEM_MIND_RUNE
-	end
-
-
-ITEM_ROUTE24_4::
-	finditem ITEM_MIND_RUNE
-	end
-
-
 NPC_GOBLINVILLAGE_GOBLIN_1::
 	lock
 	faceplayer
