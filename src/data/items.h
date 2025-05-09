@@ -11098,7 +11098,7 @@ const struct Item gItems[] =
         .flingPower = 30,
     },
 
-    [ITEM_EASTER_EGG] =                                         //Needs a sprite and all GFX etc added
+    [ITEM_EASTER_EGG] = 
     {
         .name = _("EASTER EGG"),
         .price = 4000,

@@ -2353,6 +2353,9 @@ const u32 gItemIconPalette_Map[] = INCBIN_U32("graphics/items/pokescape_icon_pal
  const u32 gItemIcon_Cabbage[] = INCBIN_U32("graphics/items/pokescape_icons/cabbage.4bpp.lz");
  const u32 gItemIconPalette_Cabbage[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/cabbage.gbapal.lz");
 
+ const u32 gItemIcon_EasterEgg[] = INCBIN_U32("graphics/items/pokescape_icons/easter_egg.4bpp.lz");
+ const u32 gItemIconPalette_EasterEgg[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/easter_egg.gbapal.lz");
+
  const u32 gItemIcon_Cake[] = INCBIN_U32("graphics/items/pokescape_icons/cake.4bpp.lz");
  const u32 gItemIconPalette_Cake[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/cake.gbapal.lz");
 

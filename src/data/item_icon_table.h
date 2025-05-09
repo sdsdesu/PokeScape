@@ -934,6 +934,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
 	[ITEM_EMPTY_POT] = {gItemIcon_EmptyPot, gItemIconPalette_EmptyPot},
 	[ITEM_FLOUR_POT] = {gItemIcon_FlourPot, gItemIconPalette_FlourPot},
 	[ITEM_CABBAGE] = {gItemIcon_Cabbage, gItemIconPalette_Cabbage},
+    [ITEM_EASTER_EGG] = {gItemIcon_EasterEgg, gItemIconPalette_EasterEgg},
     [ITEM_CAKE] = {gItemIcon_Cake, gItemIconPalette_Cake},
     [ITEM_10TH_SQUAD_SIGIL] = {gItemIcon_10th_squad_sigil, gItemIconPalette_10th_squad_sigil},
     [ITEM_ABYSSAL_WHIP] = {gItemIcon_abyssal_whip, gItemIconPalette_abyssal_whip},
