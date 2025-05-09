@@ -165,7 +165,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FIND_ITEM_PURPLE_SWEETS_15",
+      "script": "FIND_ITEM_MANY_SWEETS_15",
       "flag": "FLAG_ITEM_DAEMONHEIM_1"
     },
     {
@@ -265,7 +265,7 @@
       "x": 32,
       "y": 14,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_TEMP_1"
     },
     {

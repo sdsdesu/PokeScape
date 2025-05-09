@@ -680,7 +680,7 @@ STORE_BattleShop:
     .2byte 	ITEM_BLUE_SCALE
     .2byte 	ITEM_GREEN_SCALE
     .2byte 	ITEM_RED_SCALE
-    .2byte 	ITEM_PURPLE_SWEETS
+    .2byte 	ITEM_MANY_SWEETS
     .2byte 	ITEM_STAT_BEER
     .2byte 	ITEM_LAMP_ATT
     .2byte 	ITEM_LAMP_DEF

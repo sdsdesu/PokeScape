@@ -152,7 +152,7 @@ script NPC_DUKE_1{
                 msgbox(format("What's that?\nMysterious Altars?\pHow fascinating! I'll have to keep my ears out for more information regarding these.\pThank you for looking into this for me.\pHere I would like to reward you with these."))  
                 closemessage
                 hidenamebox
-                giveitem(ITEM_PURPLE_SWEETS, 5)
+                giveitem(ITEM_MANY_SWEETS, 5)
                 giveitem(ITEM_EARTH_RUNE, 1)
                 giveitem(ITEM_POUCH_GRANITE, 5)
                 namebox("Duke Horacio")

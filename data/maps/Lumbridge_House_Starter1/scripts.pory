@@ -835,39 +835,39 @@ script FIND_ITEM_SANTA_HAT
 
 //MISCELLANEOUS
 
-script FIND_ITEM_PURPLE_SWEETS
+script FIND_ITEM_MANY_SWEETS
 {
-    finditem(ITEM_PURPLE_SWEETS)
+    finditem(ITEM_MANY_SWEETS)
     end
 }
 
-script FIND_ITEM_PURPLE_SWEETS_2
+script FIND_ITEM_MANY_SWEETS_2
 {
-    finditem(ITEM_PURPLE_SWEETS, 2)
+    finditem(ITEM_MANY_SWEETS, 2)
     end
 }
 
-script FIND_ITEM_PURPLE_SWEETS_5
+script FIND_ITEM_MANY_SWEETS_5
 {
-    finditem(ITEM_PURPLE_SWEETS, 5)
+    finditem(ITEM_MANY_SWEETS, 5)
     end
 }
 
-script FIND_ITEM_PURPLE_SWEETS_10
+script FIND_ITEM_MANY_SWEETS_10
 {
-    finditem(ITEM_PURPLE_SWEETS, 10)
+    finditem(ITEM_MANY_SWEETS, 10)
     end
 }
 
-script FIND_ITEM_PURPLE_SWEETS_13
+script FIND_ITEM_MANY_SWEETS_13
 {
-    finditem(ITEM_PURPLE_SWEETS, 13)
+    finditem(ITEM_MANY_SWEETS, 13)
     end
 }
 
-script FIND_ITEM_PURPLE_SWEETS_15
+script FIND_ITEM_MANY_SWEETS_15
 {
-    finditem(ITEM_PURPLE_SWEETS, 15)
+    finditem(ITEM_MANY_SWEETS, 15)
     end
 }
 

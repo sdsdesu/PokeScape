@@ -243,10 +243,6 @@ LittlerootTown_EventScript_Boy::
 LittlerootTown_EventScript_Twin::
 	lock
 	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, LittlerootTown_EventScript_GoodLuck
-	goto_if_set FLAG_RECEIVED_SPLITBARK, LittlerootTown_EventScript_YouSavedBirch
-	goto_if_ne VAR_POKESCAPE_MUSIC_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
 	release
 	end
 

@@ -109,9 +109,9 @@ script Trainer1_MillLaneMill_Battle
 
 
 
-script MillLaneMill_Item_PURPLE_SWEETS
+script MillLaneMill_ITEM_MANY_SWEETS
 {
-    finditem(ITEM_PURPLE_SWEETS)
+    finditem(ITEM_MANY_SWEETS)
     end
 }
 

@@ -424,7 +424,7 @@ NPC_WIZARDSTOWER_Traiborn::
 NPC_WIZARDSTOWER_Jalarast::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_SPLITBARK, NPC_WIZARDSTOWER_Jalarast_2
+	goto_if_unset FLAG_RECEIVED_WIZARDSHAT, NPC_WIZARDSTOWER_Jalarast_2
 NPC_WIZARDSTOWER_Jalarast_1:
 	namebox NPC_WIZARDSTOWER_Jalarast_Text_0
 	msgbox NPC_WIZARDSTOWER_Jalarast_Text_2
@@ -437,10 +437,10 @@ NPC_WIZARDSTOWER_Jalarast_2:
 	namebox NPC_WIZARDSTOWER_Jalarast_Text_0
 	msgbox NPC_WIZARDSTOWER_Jalarast_Text_1
 	hidenamebox
-	giveitem ITEM_SPLITBARK, 1
+	giveitem ITEM_WIZARDS_HAT, 1
 	waitmessage
 	closemessage
-	setflag FLAG_RECEIVED_SPLITBARK
+	setflag FLAG_RECEIVED_WIZARDSHAT
 	goto NPC_WIZARDSTOWER_Jalarast_1
 
 
@@ -1251,7 +1251,7 @@ NPC_WIZARDSTOWER_Jalarast_Text_1:
 	.string "Here you should have this!$"
 
 NPC_WIZARDSTOWER_Jalarast_Text_2:
-	.string "Splitbark has amazing Magical\n"
+	.string "Wizard Hat's have amazing Magical\n"
 	.string "properties!\p"
 	.string "It can enhance a Psychic Type's power.$"
 

@@ -265,8 +265,8 @@
       "x": 1,
       "y": 22,
       "elevation": 3,
-      "item": "ITEM_PURPLE_SWEETS",
-      "flag": "FLAG_HIDDEN_ITEM_DRAYNORMANOR_ITEM_PURPLE_SWEETS"
+      "item": "ITEM_MANY_SWEETS",
+      "flag": "FLAG_HIDDEN_ITEM_DRAYNORMANOR_ITEM_MANY_SWEETS"
     },
     {
       "type": "hidden_item",

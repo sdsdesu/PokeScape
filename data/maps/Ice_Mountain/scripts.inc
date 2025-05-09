@@ -281,22 +281,21 @@ TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY::
 	goto_if_eq TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_2
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
 	goto_if_eq TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_3
-	fadescreenswapbuffers FADE_TO_BLACK
-	setvar VAR_0x8004, OUTFIT_GUARD
-	special WearOutfit
-	fadescreenswapbuffers FADE_FROM_BLACK
+	iswearingoutfit OUTFIT_GUARD
+	compare VAR_RESULT, FALSE
+	goto_if_eq TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_9
 	applymovement 4, movement_BK_FORT_GUARD_right
 	applymovement 5, movement_BK_FORT_GUARD_left
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
 	waitmovement 0
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_0
-	msgbox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_12
+	msgbox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_13
 	closemessage
 	hidenamebox
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
 	waitmovement 0
 	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_2
-	msgbox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_13
+	msgbox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_14
 	closemessage
 	hidenamebox
 	setvar VAR_TEMP_0, 1
@@ -374,6 +373,13 @@ TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_3:
 	closemessage
 	hidenamebox
 	setvar VAR_TEMP_0, 1
+	goto TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_1
+
+TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_9:
+	namebox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_2
+	msgbox TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_12
+	closemessage
+	hidenamebox
 	goto TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_1
 
 
@@ -709,10 +715,13 @@ TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_11:
 	.string "you'll be fine, though.$"
 
 TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_12:
+	.string "You are not one of us, get lost!$"
+
+TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_13:
 	.string "Hello fellow guard!\p"
 	.string "You may pass!$"
 
-TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_13:
+TRIGGER_BLACK_KNIGHTS_FORTRESS_ENTRY_Text_14:
 	.string "Remember to keep an eye out for those\n"
 	.string "pesky White Knights!$"
 

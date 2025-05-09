@@ -65,7 +65,7 @@ script Script_Maggie_1
 	trainerbattle_no_intro(TRAINER_MAGGIE,format("What?! How couldcha!"))
 	msgbox(format("That was quite amusing don'tcha know.\pI have had far too many sweets, here."))
 	hidenamebox
-	giveitem (ITEM_PURPLE_SWEETS, 1)
+	giveitem (ITEM_MANY_SWEETS, 1)
 	namebox("Maggie")
 	msgbox(format("Come back to visit whenever!"))
     closemessage

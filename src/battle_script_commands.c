@@ -1076,7 +1076,7 @@ static const struct PickupItem sPickupTable[] =
     { ITEM_REPEL_TEA_3,         {   _,   3,   3,   4,   4,   9,   8,   8,  30,   _, } },
     { ITEM_DAGONHAIHAT,         {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
     { ITEM_BLUEBOATER,          {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
-    { ITEM_PURPLE_SWEETS,       {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
+    { ITEM_MANY_SWEETS,       {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
     { ITEM_SANTA_HAT,           {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
     { ITEM_MINT_CAKE,           {   _,   _,   3,   4,   4,   4,   8,   8,   9,  30, } },
     { ITEM_MINT_CAKE,           {   _,   _,   1,   1,   4,   4,   4,   _,   _,   _, } },
@@ -1108,12 +1108,12 @@ static const u16 sPickupItems[] =
     ITEM_CABBAGE,
     ITEM_POUCH_RUNE,
     ITEM_CHOCOLATE_CAKE,
-    ITEM_PURPLE_SWEETS,
+    ITEM_MANY_SWEETS,
     ITEM_LAMP_ATT,
-    ITEM_PURPLE_SWEETS, //EASTER EGG (MAX REIVIE)
+    ITEM_MANY_SWEETS, //EASTER EGG (MAX REIVIE)
     ITEM_LAMP_HP,
     ITEM_BLOOD_RUNE,
-    ITEM_PURPLE_SWEETS, //WISE OLD MAN SOCK
+    ITEM_MANY_SWEETS, //WISE OLD MAN SOCK
     ITEM_DAGONHAIHAT,
     ITEM_BLUEBOATER,
 };

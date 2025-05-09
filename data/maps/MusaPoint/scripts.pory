@@ -807,7 +807,7 @@ script LUTHAS_QUEST_PART_2 {
 		closemessage
 		hidenamebox
 	}
-	giveitem(ITEM_PURPLE_SWEETS,5)
+	giveitem(ITEM_MANY_SWEETS,5)
 	giveitem(ITEM_PINEAPPLE,1)
 	//QUEST COMPPLETE.
 	questmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_BANANA_BOAT)

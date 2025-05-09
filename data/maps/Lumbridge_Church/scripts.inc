@@ -150,7 +150,7 @@ GnomeBoi_Kevin_9:
 GnomeBoi_Kevin_10:
 	msgbox GnomeBoi_Kevin_Text_8
 	additem ITEM_PULSE_CORE, 6
-	additem ITEM_PURPLE_SWEETS, 100
+	additem ITEM_MANY_SWEETS, 100
 	additem ITEM_FRAGMENT_OF_JAS, 5
 	release
 	goto GnomeBoi_Kevin_1
@@ -254,7 +254,7 @@ Cheat_Menu_Shop_Medicine:
     .2byte ITEM_PRAYER_POTION
     .2byte ITEM_SUPER_PRAYER_POTION //MAX-ELIXER
 
-	.2byte ITEM_PURPLE_SWEETS
+	.2byte ITEM_MANY_SWEETS
 
 	.2byte ITEM_STAT_BEER //PP-UP
 	.2byte ITEM_STAT_MOONLIGHT_MEAD //PP-MAX

@@ -174,7 +174,7 @@ NPC_DUKE_1_9:
 	msgbox NPC_DUKE_1_Text_1
 	closemessage
 	hidenamebox
-	giveitem ITEM_PURPLE_SWEETS, 5
+	giveitem ITEM_MANY_SWEETS, 5
 	giveitem ITEM_EARTH_RUNE, 1
 	giveitem ITEM_POUCH_GRANITE, 5
 	namebox TRIGGER_GYM_DUKE_Text_0

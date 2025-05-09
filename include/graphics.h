@@ -4604,6 +4604,17 @@ extern const u32 gItemIcon_dwellberry[];
 extern const u32 gItemIconPalette_dwellberry[];
 extern const u32 gItemIcon_COMMORB[];
 extern const u32 gItemIconPalette_COMMORB[];
+extern const u32 gItemIcon_sweets[];
+extern const u32 gItemIconPalette_sweets_white[];
+extern const u32 gItemIconPalette_sweets_yellow[];
+extern const u32 gItemIconPalette_sweets_orange[];
+extern const u32 gItemIconPalette_sweets_red[];
+extern const u32 gItemIconPalette_sweets_purple[];
+extern const u32 gItemIcon_sweets_many[];
+extern const u32 gItemIconPalette_sweets_many[];
+
+
+
 
 // pokescape crops
 extern const u32 gBerryPic_Cabbage[];

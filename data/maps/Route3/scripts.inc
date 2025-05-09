@@ -47,7 +47,7 @@ Script_Maggie_1::
 	trainerbattle_no_intro TRAINER_MAGGIE, Script_Maggie_1_Text_4
 	msgbox Script_Maggie_1_Text_5
 	hidenamebox
-	giveitem ITEM_PURPLE_SWEETS, 1
+	giveitem ITEM_MANY_SWEETS, 1
 	namebox Script_Maggie_1_Text_0
 	msgbox Script_Maggie_1_Text_6
 	closemessage

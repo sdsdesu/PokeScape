@@ -1261,59 +1261,72 @@ const struct Item gItems[] =
         .description = sExpCandyXSDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_CANDIES,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
 
     [ITEM_EXP_CANDY_S] =
     {
-        .name = _("Yellow Sweets"),
+        .name = _("YELLOW SWEETS"),
         .price = 240,
         .holdEffectParam = EXP_800,
         .description = sExpCandySDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_CANDIES,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
 
     [ITEM_EXP_CANDY_M] =
     {
-        .name = _("Orange Sweets"),
+        .name = _("ORANGE SWEETS"),
         .price = 1000,
         .holdEffectParam = EXP_3000,
         .description = sExpCandyMDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_CANDIES,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
 
     [ITEM_EXP_CANDY_L] =
     {
-        .name = _("Red Sweets"),
+        .name = _("RED SWEETS"),
         .price = 3000,
         .holdEffectParam = EXP_10000,
         .description = sExpCandyLDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_CANDIES,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
 
     [ITEM_EXP_CANDY_XL] =
     {
-        .name = _("Purple Sweets"),
+        .name = _("PURPLE SWEETS"),
         .price = 10000,
         .holdEffectParam = EXP_30000,
         .description = sExpCandyXLDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_CANDIES,
+        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .flingPower = 30,
+    },
+
+    [ITEM_MANY_SWEETS] =
+    {
+        .name = _("SWEETS"),
+        .price = 10000,
+        .tokkulcost = 4500,
+        .description = sPurpleSweetsDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .sort = ITEM_TYPE_CANDIES,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
@@ -1325,7 +1338,7 @@ const struct Item gItems[] =
         .description = sDynamaxCandyDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
+        .sort = ITEM_TYPE_STAT_BOOST,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 30,
     },
@@ -10734,20 +10747,6 @@ const struct Item gItems[] =
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
     },
 
-    
-
-    [ITEM_FROGEEL_BURGER] =
-    {
-        .name = _("F.BURGER"),
-        .price = 1500,
-        .description = sFrogeelBurgerDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_HEALTH_RECOVERY,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_RESTORE_HP,
-    },
-
     [ITEM_CABBAGE] =
     {
         .name = _("CABBAGE"),
@@ -10772,6 +10771,18 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_REVIVE,
         .flingPower = 30,
+    },
+
+    [ITEM_FROGEEL_BURGER] =
+    {
+        .name = _("F.BURGER"),
+        .price = 1500,
+        .description = sFrogeelBurgerDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .sort = ITEM_TYPE_HEALTH_RECOVERY,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = EFFECT_ITEM_RESTORE_HP,
     },
 
     [ITEM_CHOCOLATE_SUNDAY] = //ANTIDOTE
@@ -10849,20 +10860,6 @@ const struct Item gItems[] =
         .sort = ITEM_TYPE_STATUS_RECOVERY,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
-        .flingPower = 30,
-    },
-
-
-    [ITEM_PURPLE_SWEETS] =
-    {
-        .name = _("PURPLE SWEETS"),
-        .price = 10000,
-        .tokkulcost = 4500,
-        .description = sPurpleSweetsDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU,
-        .sort = ITEM_TYPE_FIELD_USE,
-        .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
     },
 

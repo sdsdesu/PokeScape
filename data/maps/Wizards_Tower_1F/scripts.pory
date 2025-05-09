@@ -442,17 +442,17 @@ script NPC_WIZARDSTOWER_Jalarast
 {
 	lock
 	faceplayer
-	if (!flag(FLAG_RECEIVED_SPLITBARK)){
+	if (!flag(FLAG_RECEIVED_WIZARDSHAT)){
 		namebox ("Jalarast")
 		msgbox(format("Here you should have this!"))
 		hidenamebox
-		giveitem (ITEM_SPLITBARK, 1)
+		giveitem (ITEM_WIZARDS_HAT, 1)
 		waitmessage
 		closemessage
-		setflag(FLAG_RECEIVED_SPLITBARK)
+		setflag(FLAG_RECEIVED_WIZARDSHAT)
 		}
 	namebox ("Jalarast")
-	msgbox(format("Splitbark has amazing Magical properties!\pIt can enhance a Psychic Type's power."))
+	msgbox(format("Wizard Hat's have amazing Magical properties!\pIt can enhance a Psychic Type's power."))
 	waitmessage
 	hidenamebox
 	release

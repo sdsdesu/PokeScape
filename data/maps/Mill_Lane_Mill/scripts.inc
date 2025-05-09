@@ -98,8 +98,8 @@ Trainer1_MillLaneMill_Battle::
 	end
 
 
-MillLaneMill_Item_PURPLE_SWEETS::
-	finditem ITEM_PURPLE_SWEETS
+MillLaneMill_ITEM_MANY_SWEETS::
+	finditem ITEM_MANY_SWEETS
 	end
 
 

@@ -492,7 +492,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "FIND_ITEM_PURPLE_SWEETS_10",
+      "script": "FIND_ITEM_MANY_SWEETS_10",
       "flag": "FLAG_ITEM_DWARVENMINES_5"
     },
     {
@@ -889,7 +889,7 @@
       "x": 12,
       "y": 8,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_DWARVEN_MINES_1"
     },
     {
@@ -897,7 +897,7 @@
       "x": 61,
       "y": 57,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_DWARVEN_MINES_2"
     },
     {
@@ -913,7 +913,7 @@
       "x": 14,
       "y": 47,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_DWARVEN_MINES_4"
     },
     {
