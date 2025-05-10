@@ -108,17 +108,6 @@ script Trainer1_MillLaneMill_Battle
 }
 
 
-
-script MillLaneMill_Item_PURPLE_SWEETS
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
-
-
-
-
 script MillLaneMill_Item_WHEAT1{
     msgbox(format("You search the sack…\p…"))
 	if(!flag(FLAG_TEMP_1)){

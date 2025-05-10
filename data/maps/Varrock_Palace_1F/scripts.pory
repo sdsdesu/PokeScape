@@ -768,7 +768,7 @@ script BATTLE_VARROCK_GYM_TRAINER_1
 
 script BATTLE_VARROCK_GYM_TRAINER_2
 { //Guard dog, labrador
-	trainerbattle_single(TRAINER_VARROCK_GYM_2, format("You look shady.\pGet out of the sleeping quaters!"),format("You may pass shady person.") )
+	trainerbattle_single(TRAINER_VARROCK_GYM_2, format("You look shady.\pGet out of the sleeping quarters!"),format("You may pass shady person.") )
     switch (var(VAR_POKESCAPE_VARROCK_GYM_QUEST)){ 
 		case 0: 
         case 5: 

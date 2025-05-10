@@ -414,7 +414,7 @@ script BKFORT_2F_NPC_11 //First of two guards in main hall
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("I tried to hit on the girl over there, but she said guard is hardly an occupation.\pGuess I need a promotion before I can settle down."))
+    msgbox(format("I tried to hit on the girl over there, but she said being a guard is hardly an occupation.\pGuess I need a promotion before I can settle down."))
     closemessage
     hidenamebox
     release

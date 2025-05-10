@@ -2265,12 +2265,12 @@ static const struct TrainerMon sParty_ROUTE24_GOBLIN_1[] = {
 
 static const struct TrainerMon sParty_ROUTE24_GOBLIN_2[] = {
     {
-    .lvl = 38,
-    .species = SPECIES_ALBINO_BAT,
-    },
-    {
     .lvl = 39,
     .species = SPECIES_BAT_BOX_FORM,
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_ALBINO_BAT,
     }
 };
 
@@ -3149,17 +3149,27 @@ static const struct TrainerMon sParty_Prezleek[] = {
 
 static const struct TrainerMon sParty_NYCHANNEL[] = {
     {
-    .lvl = 34,
-    .species = SPECIES_DEAD_TREE,
+    .lvl = 40,
+    .species = SPECIES_GECKO,
     },
     {
-    .lvl = 32,
+    .lvl = 40,
+    .species = SPECIES_CHAMELEON,
+    },
+    {
+    .lvl = 38,
     .species = SPECIES_PIKE,
     },
     {
-    .lvl = 32,
+    .lvl = 41,
     .species = SPECIES_BEAR_CUB,
-    }
+    },
+    {
+    .lvl = 65,
+    .species = SPECIES_SALAMANDER_GREEN_FORM,
+    .gender = TRAINER_MON_MALE,
+    .nickname = COMPOUND_STRING("George"),
+    },
 };
 
 static const struct TrainerMon sParty_GERTRUDE[] = {
@@ -3558,7 +3568,7 @@ static const struct TrainerMon sParty_ROUTE27_TRAINER_2[] = {
     .species = SPECIES_BIRD_NEST,
     },
     {
-    .lvl = 41,
+    .lvl = 43,
     .species = SPECIES_PIGEON,
     },
     {
@@ -3566,7 +3576,7 @@ static const struct TrainerMon sParty_ROUTE27_TRAINER_2[] = {
     .species = SPECIES_ROCLING,
     },
     {
-    .lvl = 40,
+    .lvl = 42,
     .species = SPECIES_DREADFOWL,
     }
 };
@@ -3576,7 +3586,7 @@ static const struct TrainerMon sParty_ROUTE27_TRAINER_3[] = {
     .species = SPECIES_ROCK_POLISHED_FORM,
     },
     {
-    .lvl = 40,
+    .lvl = 41,
     .species = SPECIES_SPOOKAXE,
     },
 };
@@ -3632,7 +3642,7 @@ static const struct TrainerMon sParty_ROUTE25_TRAINER_1[] = {
     },
     {
     .lvl = 40,
-    .species = SPECIES_ZAMOHAWK,
+    .species = SPECIES_MACAW,
     },
 };
 static const struct TrainerMon sParty_ROUTE25_TRAINER_2[] = {
@@ -4183,13 +4193,13 @@ static const struct TrainerMon sParty_BARBARIAN_GYM_GUNTHOR[] = {
     .lvl = 41,
     .species = SPECIES_BEAR_ANGRY_FORM,
     .nature = NATURE_IMPISH,
-    .moves = {MOVE_BERSERK, MOVE_SUPERPOWER, MOVE_THRASH, MOVE_FINAL_GAMBIT}
+    .moves = {MOVE_BERSERK, MOVE_SUPERPOWER, MOVE_THRASH, MOVE_FIRE_FANG}
     },
     {
     //.ev = TRAINER_PARTY_EVS(252, 252, 4, 0, 0, 0),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 0, 31),
     .ability = ABILITY_INTIMIDATE,
-    .lvl = 42,
+    .lvl = 43,
     .species = SPECIES_KENDALL,
     .nature = NATURE_NAIVE,
     .moves = {MOVE_SLASH, MOVE_BERSERK, MOVE_DRAIN_PUNCH, MOVE_VOLT_TACKLE}
@@ -5771,11 +5781,11 @@ static const struct TrainerMon sParty_ROUTE26_TRAINER_2[] = {
 
 static const struct TrainerMon sParty_ROUTE26_TRAINER_3[] = {
     {
-    .lvl = 42,
+    .lvl = 43,
     .species = SPECIES_ROOSTER_VARROCK_FORM,
     },
     {
-    .lvl = 41,
+    .lvl = 42,
     .species = SPECIES_SUPER_COW,
     },
     {
@@ -7636,7 +7646,7 @@ static const struct TrainerMon sParty_ModestSamuel[] = {
     .species = SPECIES_SPIDERLING,
     .nature = NATURE_MODEST,
     .isShiny = TRUE,
-    .nickname = COMPOUND_STRING("Ryxku"),    
+    .nickname = COMPOUND_STRING("Samuel"),    
     }
 };
 
@@ -7845,7 +7855,7 @@ static const struct TrainerMon sParty_BlackKnight_Elite2[] = {
     },
     {
     .lvl = 43,
-    .species = SPECIES_DEMON_GREATER_OSRS_FORM,
+    .species = SPECIES_DEMON_PUMMELER_FORM,
     },
     {
     .lvl = 43,
@@ -7998,7 +8008,7 @@ static const struct TrainerMon sParty_IceMountain_Guard2[] = {
     },
     {
     .lvl = 43,
-    .species = SPECIES_GOAT_BILLY_FORM,
+    .species = SPECIES_GOAT_DESERT_FORM,
     },
     {
     .lvl = 44,
@@ -8240,42 +8250,6 @@ static const struct TrainerMon sParty_DraynorSewers3_Trainer3[] = {    //Mystic
     }
 };
 
-static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer1[] = {    //Fire Giant
-    {
-    .lvl = 40,
-    .species = SPECIES_FIRE_TITAN,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_FIRE_TITAN,
-    }
-};
-
-static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer2[] = {    //Fire Giant
-    {
-    .lvl = 40,
-    .species = SPECIES_LAVA_TITAN,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_SPIDER_LAVA_FORM,                    //Should be a Lava Monster, replace when they are added
-    }
-};
-
-static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ironman
-    {
-    .lvl = 40,
-    .species = SPECIES_IRON_TITAN,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_BASILISK_RS3_FORM,
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
-    }
-};
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer1[] = {    //Dwarf
     {
@@ -8286,11 +8260,11 @@ static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer1[] = {    //Dwar
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer2[] = {    //Dwarf
     {
-    .lvl = 40,
+    .lvl = 41,
     .species = SPECIES_SCORPION_KING_FORM,
     },
     {
-    .lvl = 40,
+    .lvl = 42,
     .species = SPECIES_ROCKTAIL,
     }
 };
@@ -8304,33 +8278,82 @@ static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer3[] = {    //Dwar
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer4[] = {    //Dwarf
     {
-    .lvl = 40,
+    .lvl = 42,
     .species = SPECIES_SPOOKAXE,
     },
     {
-    .lvl = 40,
+    .lvl = 43,
     .species = SPECIES_STEEL_TITAN,
     }
 };
 
 
-static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {   //MINER
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {   //FIREMAKER
     {
-    .lvl = 40,
-    .species = SPECIES_THINGUMWUT,
+    .lvl = 41,
+    .species = SPECIES_PYREFIEND,
     },
+    {
+    .lvl = 41,
+    .species = SPECIES_PYREFIEND,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_PYREFIEND,
+    }
 };
 
-static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {   //FIREMAKER
+static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer2[] = {   //MINER
     {
-    .lvl = 40,
-    .species = SPECIES_THINGUMWUT,
-    },
+    .lvl = 43,
+    .species = SPECIES_MINOTAUR_RUNE_FORM,
+    }
 };
 
 static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //DWARF
     {
-    .lvl = 40,
-    .species = SPECIES_THINGUMWUT,
+    .lvl = 42,
+    .species = SPECIES_ROCK_CRAB_AMMONITE_FORM,
     },
+    {
+    .lvl = 43,
+    .species = SPECIES_IMPLING_CRYSTAL_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer1[] = {    //Fire Giant
+    {
+    .lvl = 40,
+    .species = SPECIES_FIRE_TITAN,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FIRE_TITAN,
+    }
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer2[] = {    //Fire Giant
+    {
+    .lvl = 42,
+    .species = SPECIES_LAVA_TITAN,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SPIDER_LAVA_FORM,                    //Add an additional Lava Monster when they are added
+    }
+};
+
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ironman
+    {
+    .lvl = 42,
+    .species = SPECIES_IRON_TITAN,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_BASILISK_RS3_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
+    }
 };

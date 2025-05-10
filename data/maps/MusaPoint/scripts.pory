@@ -1387,11 +1387,11 @@ script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
 	case 0:
 		msgbox(format("Brrr… It's quite cold."))
 	case 1:
-		msgbox(format("We are looking for any suspicious behavour keep your eyes peeled!"))
+		msgbox(format("We are looking for any suspicious behaviour. Keep your eyes peeled!"))
 	case 2:
-		msgbox(format("I think there is something atop of that mountain."))
+		msgbox(format("I think there is something atop that mountain."))
 	case 3:
-		msgbox(format("They say the Orcale is located somewhere on this mountain."))
+		msgbox(format("They say the Oracle is located somewhere on this mountain."))
 	case 4:
 		msgbox(format("Watch out, we don't want to fall down these cliffs."))
 	case 5:
@@ -1421,7 +1421,7 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1 {
 	case 5:
 		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
 	case 6:
-		msgbox(format("These Black knights dont know when to quit."))
+		msgbox(format("These Black Knights dont know when to quit."))
 	case 7:
 		msgbox(format("We know of another hideout for the Black Knights, it is actually deep underground.\pThis is just an outpost compared to that."))
 	}

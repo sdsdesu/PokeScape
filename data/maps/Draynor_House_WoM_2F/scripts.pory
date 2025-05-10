@@ -37,3 +37,21 @@ movement movement_WOM_BED_BOTTOM {
     jump_special_down
     face_up
 }
+
+script WOM_BED_CORNER
+{
+	lock
+	msgbox(format("It's a fairly ordinary bed, but..."))
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 2) {
+        applymovement (OBJ_EVENT_ID_PLAYER, movement_WOM_BED_BOTTOM)
+    	waitmovement(0)
+    }
+    elif (var(VAR_TEMP_1) == 3) {
+        applymovement (OBJ_EVENT_ID_PLAYER, movement_WOM_BED_RIGHT)
+    	waitmovement(0)
+    }
+	msgbox(format("Was that a hand!?\p{PAUSE 15}You decide it's best not to try to sleep in this bed."))
+	release
+	end
+}

@@ -356,7 +356,7 @@ script BATTLE_BLACKKNIGHT_SKOOL
 
 script BATTLE_BLACKKNIGHT_SIFT
 {
-    trainerbattle_single(TRAINER_BLACKKNIGHT_SIFT, format("I have a dream.\pTo chop down every single tree in Gielinor."),format("Oh, I am definitely getting fired for this!"))
+    trainerbattle_single(TRAINER_BLACKKNIGHT_SIFT, format("I can't let you through here."),format("Oh, I am definitely getting fired for this!"))
     namebox ("Black Knight")
     msgbox(format("Maybe I should take some of this loot for myself and blame it on you..."))
 	hidenamebox
@@ -499,11 +499,11 @@ script TRIGGER_BLACK_KNIGHT_4F_FINAL {
         hidenamebox 
 
         namebox("Daquarius")
-        msgbox(format("Incase you a wondering, my alliance stands, and I am true to my words.\pOn behalf of the black knights, we will end you two right here.\pNow Perish!"))
+        msgbox(format("In case you are wondering, my alliance stands, and I am true to my words.\pOn behalf of the Black Knights, we will end you two right here.\pNow Perish!"))
         closemessage
         hidenamebox 
 
-        trainerbattle_two_trainers(TRAINER_LORD_DAQUARIUS, msgbox(format("Daquarius: That darn Sigmund and his Saradomist ilk.\pLeaving me with the dirty work…")), TRAINER_BLACKKNIGHT_ELITE_1, msgbox(format("Elite Knight: I'm sorry sir.")))
+        trainerbattle_two_trainers(TRAINER_LORD_DAQUARIUS, msgbox(format("Daquarius: That darn Sigmund and his Saradominist ilk.\pLeaving me with the dirty work…")), TRAINER_BLACKKNIGHT_ELITE_1, msgbox(format("Elite Knight: I'm sorry sir.")))
 
         
         namebox("Sir Owen")
