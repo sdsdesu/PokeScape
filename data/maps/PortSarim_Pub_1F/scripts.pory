@@ -69,7 +69,46 @@ script BattlePub_CHECKCARD {
 	}
 	return
 }
-
+script PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON { 
+	setflag (FLAG_TZHAAR_RANDOM) // SET TO BE ABLE TO HAVE THE RANDOMISED BATTLES.
+	setflag(FLAG_POKESCAPE_USECUSTOM_POOL_LEVEL) //Enable this if using the randomised WAVE levels.
+	call(PUBCRAWL_RANDOMISED_PARTY_SIZE)
+	call(PUBCRAWL_RANDOMISED_LEVELS)
+	return
+}
+script PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF { 
+	clearflag (FLAG_TZHAAR_RANDOM) // ALWAYS UNSET AFTER THE RANDOMISED BATTLES.
+	clearflag(FLAG_POKESCAPE_USECUSTOM_POOL_LEVEL)
+	return
+}
+script PUBCRAWL_RANDOMISED_PARTY_SIZE {
+	random(6)
+	switch (var(VAR_RESULT)) { 
+		case 0: 
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 1)
+		case 1:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 2)
+		case 2:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 3)
+		case 3:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 4)
+		case 4:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 5)
+		case 5:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 6)
+	}
+	return
+}
+script PUBCRAWL_RANDOMISED_LEVELS {  
+	//30 - 35
+	setvar(VAR_TEMP_A, 30) //base level.
+	setvar(VAR_TEMP_B, 6)  //amount of randomness 0,1,2,3,4,5
+	random(VAR_TEMP_B) 
+	copyvar(VAR_CUSTOM_TRAINERPOOL_LEVEL, VAR_RESULT) //Copy it out of TEMP_A to be used elsewhere.
+	addvar(VAR_CUSTOM_TRAINERPOOL_LEVEL, VAR_TEMP_A) // Add A + B(result) = The intended Level. into TEMP_A.
+	return
+}
+//Turn all of this into level scaling function later instead of poryscript.
 
 
 
@@ -116,13 +155,21 @@ script NPC_PortSarimPub_NPC_1 {
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
-				hidenamebox
 				setflag(FLAG_PUB_TRAINER_3)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_3, msgbox(format("…")))
-				namebox("Sailor")
-				msgbox(format("This round is on me."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_SAILOR, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("Sailor")
+					msgbox(format("This round is on me."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
 			}
 	}
 	closemessage
@@ -142,13 +189,21 @@ script NPC_PortSarimPub_Pirate_1 { // PUB TRAINER 1
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
-				hidenamebox
 				setflag(FLAG_PUB_TRAINER_1)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
-				namebox("PIRATE GIBBS")
-				msgbox(format("I guess I owe you this."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_1, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("PIRATE GIBBS")
+					msgbox(format("I guess I owe you this."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
 			}
 	}
     hidenamebox
@@ -170,21 +225,26 @@ script NPC_PortSarimPub_Pirate_2 {	// PUB TRAINER 2
 		if (var(VAR_RESULT))
 			{
 				setflag(FLAG_PUB_TRAINER_2)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_2, msgbox(format("…")))
-				namebox("AyePatch")
-				msgbox(format("Yaarr, take this."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("AyePatch")
+					msgbox(format("Yaarr, take this."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
 			}
 	}
     hidenamebox
     release
 	end
 }
-
-
-
-
 
 
 
@@ -197,18 +257,31 @@ script NPC_PortSarimPub_PUBCRAWL {
     namebox("Barbarian")
 	msgbox(format("YAARRGHH!\pI am the strongest of this YAAARR BATTLE PUB!"))
     call(BattlePub_CHECKCARD)
-	if ((flag(FLAG_PUB_TRAINER_1) == true) && (flag(FLAG_PUB_TRAINER_2) == true) && (flag(FLAG_PUB_TRAINER_3) == true)) {
+	// Check if all Trainers in the battle pub have been defeated.
+	if ((flag(FLAG_PUB_TRAINER_1) == true) && (flag(FLAG_PUB_TRAINER_2) == true) && (flag(FLAG_PUB_TRAINER_3) == true)) { 
 		msgbox(format("YARHAHA! I have observed your potential.\pI would like to test you!"))
+		hidenamebox
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 		{
 			setflag(FLAG_PUB_TRAINER_3) // Barbarian 
-			trainerbattle_no_intro(TRAINER_PUB_SARIM_3, msgbox(format("…")))
-			namebox("Barbarian")
-			msgbox(format("This round is on me."))
-			hidenamebox
-			call(GIVE_RANDOM_ITEM)  //give better item
-			//set quest if beaten.
+
+			call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+			trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, "I lost, you win.")
+			call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+			specialvar (VAR_RESULT, GetBattleOutcome)
+			if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+				special (HealPlayerParty)
+				msgbox ("You lost! Suck it!")
+			}
+			else {
+				msgbox ("You defeated me.")
+				namebox("Barbarian")
+				msgbox(format("This round is on me."))
+				hidenamebox
+				call(GIVE_RANDOM_ITEM)  //give better item
+				//set quest if beaten.
+			}
 		}
 	}
 	else {

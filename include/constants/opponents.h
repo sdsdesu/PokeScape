@@ -145,9 +145,9 @@
 #define TRAINER_MUDSKIPPERPOINT_FISHERMAN_2				141
 #define TRAINER_DEMONHEADGE					            142
 #define TRAINER_ROUTE40_DIVINER					        143
-#define TRAINER_PUB_SARIM_1					            144
-#define TRAINER_PUB_SARIM_2					            145
-#define TRAINER_PUB_SARIM_3					            146
+#define TRAINER_POOL_PORTSARIM_PUB_SAILOR				144 //POOL
+#define TRAINER_POOL_PORTSARIM_PUB_PIRATE_1				145 //POOL
+#define TRAINER_POOL_PORTSARIM_PUB_PIRATE_2				146 //POOL
 #define TRAINER_RimmingtonMines_Miner					147
 #define TRAINER_RimmingtonMines_Ironman					148
 #define TRAINER_RimmingtonMines_Slayer					149

@@ -252,7 +252,6 @@ NPC_VarrockPub_Trainer_2_2:
 NPC_VarrockPub_Trainer_2_4:
 	hidenamebox
 	setflag FLAG_PUB_TRAINER_9
-	trainerbattle_no_intro TRAINER_PUB_SARIM_1, NPC_VarrockPub_NPC8_Text_1
 	namebox NPC_VarrockPub_Trainer_2_Text_0
 	msgbox NPC_VarrockPub_Trainer_2_Text_2
 	hidenamebox

@@ -1743,41 +1743,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_ROUTE40_DIVINER),
     },
 
-    [TRAINER_PUB_SARIM_1] =
-    {
-        .trainerClass = TRAINER_CLASS_PIRATE,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
-        .trainerPic = TRAINER_PIC_pirate,
-        .trainerName = _("GIBBS"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
-        .party = TRAINER_PARTY(sParty_PUB_SARIM_1),
-    },
-
-    [TRAINER_PUB_SARIM_2] =
-    {
-        .trainerClass = TRAINER_CLASS_PIRATE,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
-        .trainerPic = TRAINER_PIC_pirate,
-        .trainerName = _("AyePatch"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
-        .party = TRAINER_PARTY(sParty_PUB_SARIM_2),
-    },
-
-    [TRAINER_PUB_SARIM_3] =
-    {
-        .trainerClass = TRAINER_CLASS_DWARF,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_dwarf_m,
-        .trainerName = _("Brehan"),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
-        .party = TRAINER_PARTY(sParty_PUB_SARIM_3),
-    },
+    
 
     [TRAINER_RimmingtonMines_Miner] =
     {
@@ -6257,13 +6223,45 @@ const struct TrainerFightCaves gTrainersFightCaves[] = {
         .poolSize = 38, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
     },
 
+//BATTLE PUBS
+[TRAINER_POOL_PORTSARIM_PUB_PIRATE_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PIRATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_pirate,
+        .trainerName = _("Gibbs"), 
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
+        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+    },
 
+[TRAINER_POOL_PORTSARIM_PUB_PIRATE_2] =
+    {
+        .trainerClass = TRAINER_CLASS_PIRATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_pirate,
+        .trainerName = _("AyePatch"), 
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
+        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+    },
 
-
-
-
-
-
+[TRAINER_POOL_PORTSARIM_PUB_SAILOR] =
+    {
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_sailor,
+        .trainerName = _("Cupholder"), 
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
+        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+    },
 
 
 

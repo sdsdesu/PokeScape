@@ -8383,3 +8383,50 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ir
     .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
     }
 };
+
+
+//TZHAAR GYM CHALLENGE POOL
+static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
+    {
+    .lvl = 1,
+    .species = SPECIES_TZ_KIH,
+    .heldItem = ITEM_NONE,
+    .moves = {MOVE_HEAT_WAVE, MOVE_SMOKESCREEN, MOVE_STEALTH_ROCK, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_ZAMATRICE,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 3,
+    .species = SPECIES_KALPHITE_GUARDIAN_FORM,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 4,
+    .species = SPECIES_TROUT_LEAPING_FORM,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_SHARK_GOLDEN_FORM,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+    {
+    .lvl = 7,
+    .species = SPECIES_TALONBEAST_NAIL_FORM,
+    .heldItem = ITEM_TINDERBOX,
+    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    },
+};

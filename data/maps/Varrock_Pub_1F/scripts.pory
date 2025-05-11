@@ -241,7 +241,7 @@ script NPC_VarrockPub_Trainer_2 { // PUB TRAINER 8
 			{
 				hidenamebox
 				setflag(FLAG_PUB_TRAINER_9)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
+				//trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
 				namebox("Cook")
 				msgbox(format("This is on me."))
 				hidenamebox
