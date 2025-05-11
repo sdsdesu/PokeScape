@@ -1946,6 +1946,7 @@ const u8 gText_Pre_BKF[] =_("PRE BLACK KNIGHTS FORTRESS");
 const u8 gText_Post_BKF[] =_("POST BLACK KNIGHTS FORTRESS");
 const u8 gText_Post_FALADORGYM[] =_("POST FALADOR GYM");
 
+const u8 gText_PubCrawlInfo[] =_("PUB CRAWL INFO");
 
 
 

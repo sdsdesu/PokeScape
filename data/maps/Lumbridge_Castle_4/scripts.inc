@@ -102,7 +102,7 @@ GYMLEADER_DUKE_BATTLEWON_Text_2:
 	.string "Also have this, it is my favourite move.$"
 
 GYMLEADER_DUKE_BATTLEWON_Text_3:
-	.string "That move is called Slack off, which is\n"
+	.string "That move is called Slack Off, which is\n"
 	.string "exactly what I love to do on my days\l"
 	.string "off.\p"
 	.string "Hopefully it will help you on your\n"

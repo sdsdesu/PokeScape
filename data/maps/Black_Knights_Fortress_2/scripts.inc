@@ -856,7 +856,7 @@ BKFORT_2F_NPC_10_Text_0:
 
 BKFORT_2F_NPC_11_Text_0:
 	.string "I tried to hit on the girl over there,\n"
-	.string "but she said guard is hardly an\l"
+	.string "but she said being a guard is hardly an\l"
 	.string "occupation.\p"
 	.string "Guess I need a promotion before I can\n"
 	.string "settle down.$"

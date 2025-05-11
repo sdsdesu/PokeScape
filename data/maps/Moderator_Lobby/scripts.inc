@@ -82,7 +82,7 @@ ModeratorLobby_JMOD_OWLY::
 	namebox ModeratorLobby_JMOD_OWLY_Text_0
 	msgbox ModeratorLobby_JMOD_OWLY_Text_1
 	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x93B, ModeratorLobby_JMOD_OWLY_2
+	goto_if_unset FLAG_TEMP_1, ModeratorLobby_JMOD_OWLY_2
 ModeratorLobby_JMOD_OWLY_1:
 	hidenamebox
 	release
@@ -96,7 +96,7 @@ ModeratorLobby_JMOD_OWLY_2:
 
 ModeratorLobby_JMOD_OWLY_4:
 	hidenamebox
-	setflag FLAG_UNUSED_0x93B
+	setflag FLAG_TEMP_1
 	trainerbattle_no_intro TRAINER_JMOD_OWLY, ModeratorLobby_JMOD_OWLY_Text_3
 	namebox ModeratorLobby_JMOD_OWLY_Text_0
 	msgbox ModeratorLobby_JMOD_OWLY_Text_4

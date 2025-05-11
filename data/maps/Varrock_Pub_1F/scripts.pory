@@ -2,57 +2,55 @@ mapscripts Varrock_Pub_1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION { 
         call(PUB_EVENT_STATE)   
     }
-    MAP_SCRIPT_ON_FRAME_TABLE [
-		VAR_POKESCAPE_GOLDENGNOMES, 15: GOLDENGNOME_EVENT_END
-    ]
+    //MAP_SCRIPT_ON_FRAME_TABLE [
+	//	VAR_POKESCAPE_GOLDENGNOMES, 15: GOLDENGNOME_EVENT_END
+    //]
 }
 
 
 
 script PUB_EVENT_STATE {
-
-    random(3)
-        switch (var(VAR_RESULT)) 
-        {
-            case 0:
-                addobject(13)
-                addobject(14)
-                addobject(15)
-                addobject(16)
-                addobject(17)
-                addobject(18)
-                addobject(19)
-                addobject(20)
-                clearflag(FLAG_TEMP_2)
-                removeobject(2)
-                removeobject(9)
-                removeobject(7)
-                removeobject(8)
-                removeobject(6)
-                removeobject(11)
-                setflag(FLAG_TEMP_1)
-                return
-            case 1:
-            case 2:
-                removeobject(13)
-                removeobject(14)
-                removeobject(15)
-                removeobject(16)
-                removeobject(17)
-                removeobject(18)
-                removeobject(19)
-                removeobject(20)
-                setflag(FLAG_TEMP_2)
-                addobject(2)
-                addobject(9)
-                addobject(7)
-                addobject(8)
-                addobject(6)
-                addobject(11)
-                clearflag(FLAG_TEMP_1)
-                return
-        }
-	
+    special(GetTimeOfDaySpecial)
+	switch (var(VAR_RESULT)) {
+		case 0: //NIGHT - RAC EVENT
+			addobject(13)
+            addobject(14)
+            addobject(15)
+            addobject(16)
+            addobject(17)
+            addobject(18)
+            addobject(19)
+            addobject(20)
+            clearflag(FLAG_TEMP_2)
+            removeobject(2)
+            removeobject(9)
+            removeobject(7)
+            removeobject(8)
+            removeobject(6)
+            removeobject(11)
+            setflag(FLAG_TEMP_1)
+            return
+		case 1: // MORNING
+		case 2: // DAY
+		case 3: //EVENING
+            removeobject(13)
+            removeobject(14)
+            removeobject(15)
+            removeobject(16)
+            removeobject(17)
+            removeobject(18)
+            removeobject(19)
+            removeobject(20)
+            setflag(FLAG_TEMP_2)
+            addobject(2)
+            addobject(9)
+            addobject(7)
+            addobject(8)
+            addobject(6)
+            addobject(11)
+            clearflag(FLAG_TEMP_1)
+            return
+    }
 }
 
 
@@ -74,7 +72,8 @@ script NPC_VarrockPub_BARBARIAN
     lock
     faceplayer
     namebox("Barbarian")
-    msgbox(format("YAARRG, Do yer want a Pub Crawl battle?!")) 
+    //msgbox(format("YAARRG, Do yer want a Pub Crawl battle?!")) 
+    msgbox(format("If yer wish to participate in a Pub Crawl Battle, then yer should get a Pub Crawl battle card!\pYou can get one from the Jolly Boar pub.")) 
     hidenamebox
     release
     end
@@ -84,7 +83,7 @@ script NPC_VarrockPub_NPC1
 {
     lock
     faceplayer
-    //namebox(".")
+    namebox("Drunken Man")
     msgbox(format("Did you know that many players have named themselves after Pokemons?\pThere is one player named Evil Lucario who is really good at PvM.\pMany people agree that a Pokemon RSN is awesome, if you wanna see some, seek out u/Zarmos on Reddit, who took screenshots of over 380 Pokemon RSNs!\pThough it did take him almost 2 years to capture them all!"))
     //msgbox(format("Woops I am talking to much, here is a <Item> to make up for it!"))
     hidenamebox
@@ -93,11 +92,11 @@ script NPC_VarrockPub_NPC1
 }
 
 script NPC_VarrockPub_NPC2
-{
+{ // At night meteor goes to visit the barrows brothers. 
     lock
     faceplayer
-    //namebox(".")
-    msgbox(format("Sometimes people from the Runescape Art Community come to party here.\pThey are amazing, fun, talented and they are simply awesome!\pI am not a artist but I love to see their masterpieces.")) 
+    namebox("Meteor")
+    msgbox(format("At night people from the Runescape Art Community come to party here.\pThey are amazing, fun, talented and they are simply awesome!")) 
     hidenamebox
     release
     end
@@ -165,11 +164,11 @@ script NPC_VarrockPub_NPC6
 }
 
 script NPC_VarrockPub_NPC7
-{
+{ // Implement day skipping here. 
     lock
     faceplayer
     namebox("Bartender")
-    msgbox(format("Can I get you something to drink?"))
+    msgbox(format("Can I get you something to drink?\pOr perhaps you'd like to stay a night in our Inn?"))
     hidenamebox
     release
     end
@@ -209,14 +208,14 @@ script NPC_VarrockPub_Trainer_1 { // PUB TRAINER 7
     namebox("Jonny")
 	msgbox(format("Did the gang send you?"))
 	hidenamebox
-	if (flag(FLAG_UNUSED_0x93B) == false) 
+	if (flag(FLAG_PUB_TRAINER_8) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_UNUSED_0x93B)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
+				setflag(FLAG_PUB_TRAINER_8)
+				trainerbattle_no_intro(TRAINER_PUB_VARROCK_1, msgbox(format("…")))
 				namebox("Jonny")
 				msgbox(format("Here have this."))
 				hidenamebox
@@ -235,13 +234,13 @@ script NPC_VarrockPub_Trainer_2 { // PUB TRAINER 8
     namebox("Cook")
 	msgbox(format("It is exhausting work cooking food for so many people.\pI will be on my five minute break soon, so I have that to look forward to."))
 	hidenamebox
-	if (flag(FLAG_UNUSED_0x93C) == false) 
+	if (flag(FLAG_PUB_TRAINER_9) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_UNUSED_0x93C)
+				setflag(FLAG_PUB_TRAINER_9)
 				trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
 				namebox("Cook")
 				msgbox(format("This is on me."))
@@ -360,7 +359,7 @@ script RAC_Spriggan
     lock
     faceplayer
     namebox ("Spriggan")
-    msgbox(format("Hello."))
+    msgbox(format("There's something so peaceful about night wouldn't you agree?\pSo many different monsters come out that you don't see turning the day."))
     hidenamebox
     closemessage
     release
@@ -372,7 +371,7 @@ script RAC_Enkoro
     lock
     faceplayer
     namebox ("Enkoro")
-    msgbox(format("Hello."))
+    msgbox(format("Heya, we usually come here every night for a few drinks.\pSay why don't you sit down and join us?"))
     hidenamebox
     closemessage
     release
@@ -384,9 +383,29 @@ script RAC_LegendArts
     lock
     faceplayer
     namebox ("LegendArts")
-    msgbox(format("Hello."))
+    msgbox(format("Howsit!\pWatch how fast I can draw monsters!"))
+    //msgbox(format("Howsit!\pWatch how fast I can draw your monsters!"))
     hidenamebox
     closemessage
+    //Draws contest pictures of monsters.
+    playse (SE_BRIDGE_WALK)
+    random(3)
+    switch (var(VAR_RESULT)) {
+		case 0:
+            showmonpic (SPECIES_FROGEEL, 10, 3)
+            msgbox(format("I title this picture, 'The Prince of AAA!'"))
+        case 1:
+            showmonpic (SPECIES_FROGEEL, 10, 3)
+            msgbox(format("I title this picture, 'The Princess of AAA!'"))
+        case 2:
+            showmonpic (SPECIES_FROGEEL, 10, 3)
+            msgbox(format("I title this picture, 'AAAAAAAAAA!'"))
+    }
+    
+    hidemonpic
+    //setvar (VAR_CONTEST_TYPE, CONTEST_TYPE_NPC_MASTER)
+    //fadescreen (FADE_TO_BLACK)
+	//showcontestpainting (CONTEST_WINNER_MUSEUM_SMART)
     release
 	end	
 }
@@ -432,9 +451,61 @@ script RAC_Snow
     lock
     faceplayer
     namebox ("Seakara")
-    msgbox(format("Hello."))
+    msgbox(format("You should visit the party room in Falador, they hold contests their regularly to show off your monsters."))
     hidenamebox
     closemessage
     release
 	end	
+}
+
+
+
+
+script NPC_VarrockPub_NYChannel {
+	lock
+	faceplayer
+    namebox("NyChannel")
+	msgbox(format("Hey there!"))
+	hidenamebox
+	if (flag(FLAG_PUB_TRAINER_10) == false) 
+	{
+		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+			{
+				hidenamebox
+				setflag(FLAG_PUB_TRAINER_10)
+				trainerbattle_no_intro(TRAINER_NYCHANNEL, msgbox(format("…")))
+				namebox("NyChannel")
+				msgbox(format("Looks like I lost…"))
+				hidenamebox
+				call(GIVE_RANDOM_ITEM)
+			}
+	}
+    hidenamebox
+    release
+	end
+}
+script NPC_VarrockPub_Prezleek {
+	lock
+	faceplayer
+    namebox("Prezleek")
+	msgbox(format("Hey there!"))
+	hidenamebox
+	if (flag(FLAG_PUB_TRAINER_11) == false) 
+	{
+		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+			{
+				hidenamebox
+				setflag(FLAG_PUB_TRAINER_11)
+				trainerbattle_no_intro(TRAINER_PREZLEEK, msgbox(format("…")))
+				namebox("NyChannel")
+				msgbox(format("Looks like I lost…"))
+				hidenamebox
+				call(GIVE_RANDOM_ITEM)
+			}
+	}
+    hidenamebox
+    release
+	end
 }

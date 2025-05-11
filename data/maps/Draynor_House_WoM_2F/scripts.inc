@@ -34,6 +34,30 @@ movement_WOM_BED_BOTTOM:
 	face_up
 	step_end
 
+WOM_BED_CORNER::
+	lock
+	msgbox WOM_BED_RIGHT_Text_0
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 2
+	goto_if_eq WOM_BED_CORNER_2
+	compare VAR_TEMP_1, 3
+	goto_if_eq WOM_BED_CORNER_3
+WOM_BED_CORNER_1:
+	msgbox WOM_BED_RIGHT_Text_1
+	release
+	end
+
+WOM_BED_CORNER_2:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_WOM_BED_BOTTOM
+	waitmovement 0
+	goto WOM_BED_CORNER_1
+
+WOM_BED_CORNER_3:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_WOM_BED_RIGHT
+	waitmovement 0
+	goto WOM_BED_CORNER_1
+
+
 WOM_BED_RIGHT_Text_0:
 	.string "It's a fairly ordinary bed, but...$"
 

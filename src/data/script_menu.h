@@ -918,7 +918,12 @@ static const struct MenuAction MultichoiceList_STORYMODE_STATE[] =
     {gText_Post_BKF},
     {gText_Exit},
 };
-
+static const struct MenuAction MultichoiceList_PUB[] =
+{
+    {gText_Rest},
+    {gText_PubCrawlInfo},
+    {gText_Exit},
+};
 
 
 static const struct MenuAction MultichoiceList_Exit[] =
@@ -1067,6 +1072,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_TZHAAR_FIGHTCAVES]		   = MULTICHOICE(MultichoiceList_TZHAAR_FIGHTCAVES),
     [MULTI_UTILITY]		               = MULTICHOICE(MultichoiceList_UTILITY),
     [MULTI_STORYMODE_STATE]            = MULTICHOICE(MultichoiceList_STORYMODE_STATE),
+    [MULTI_PUB]                        = MULTICHOICE(MultichoiceList_PUB),
     
 };
 

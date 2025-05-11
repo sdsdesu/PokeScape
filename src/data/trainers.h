@@ -3061,7 +3061,7 @@ const struct Trainer gTrainers[] = {
     //swamp cave
     [TRAINER_LUMBRIDGESWAMPCAVE_4] =
     {
-        .trainerClass = TRAINER_CLASS_POKESCAPER,
+        .trainerClass = TRAINER_CLASS_SLAYER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
         .trainerPic = TRAINER_PIC_slayer,
         .trainerName = _("XxSlayexX"),
@@ -3073,7 +3073,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGESWAMPCAVE_5] =
     {
-        .trainerClass = TRAINER_CLASS_POKESCAPER,
+        .trainerClass = TRAINER_CLASS_FISHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_fisher,
         .trainerName = _("D33pL0n3r"),
@@ -3085,7 +3085,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGESWAMPCAVE_6] =
     {
-        .trainerClass = TRAINER_CLASS_POKESCAPER,
+        .trainerClass = TRAINER_CLASS_SLAYER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
         .trainerPic = TRAINER_PIC_slayer,
         .trainerName = _("BCPKing420"),
@@ -4648,7 +4648,7 @@ const struct Trainer gTrainers[] = {
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_gunthor,
         .trainerName = _("Gunthor"),
-        .items = {ITEM_CHOCOLATE_CAKE, ITEM_CHOCOLATE_CAKE, ITEM_BLUEBERRY_SPECIAL, ITEM_POTION_ATT},
+        .items = {ITEM_CHOCOLATE_CAKE, ITEM_CHOCOLATE_CAKE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_BARBARIAN_GYM_GUNTHOR),
@@ -5471,7 +5471,7 @@ const struct Trainer gTrainers[] = {
         .trainerClass = TRAINER_CLASS_SLAYER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_slayer,
-        .trainerName = _("Samuel"),
+        .trainerName = _("Ryxku"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
@@ -6050,9 +6050,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_DWARF_POWERSTATION_F2_3] = //Ironman
     {
-        .trainerClass = TRAINER_CLASS_DWARF,
+        .trainerClass = TRAINER_CLASS_IRONMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_dwarf_m,
+        .trainerPic = TRAINER_PIC_ironman,
         .trainerName = _("ToniStank"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -6096,7 +6096,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer3),
     },
 
-    [TRAINER_DWARVENMINES_HOUSE_4] = //Dwarf   -- NEEDS A NAME
+    [TRAINER_DWARVENMINES_HOUSE_4] = //Dwarf
     {
         .trainerClass = TRAINER_CLASS_DWARF,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
@@ -6106,6 +6106,30 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer4),
+    },
+
+    [TRAINER_PUB_VARROCK_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PIRATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_pirate,
+        .trainerName = _("Jonny"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_PUB_VARROCK_1),
+    },
+
+    [TRAINER_PUB_VARROCK_2] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SKILLER,
+        .trainerPic = TRAINER_PIC_cook,
+        .trainerName = _("Cook"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_PUB_VARROCK_2),
     },
 
 /*

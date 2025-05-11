@@ -1600,43 +1600,42 @@
 #define FLAG_DAILY_SOOTOPOLIS_RECEIVED_BERRY        (DAILY_FLAGS_START + 0x12)
 #define FLAG_UNUSED_0x933                           (DAILY_FLAGS_START + 0x13) // Unused Flag
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
-
-#define FLAG_UNUSED_0x935                           (DAILY_FLAGS_START + 0x15) // PUB TRAINER 1
-#define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // PUB TRAINER 2
-#define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // PUB TRAINER 3
-#define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // PUB TRAINER 4
-#define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // PUB TRAINER 5
-#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // PUB TRAINER 6
-#define FLAG_UNUSED_0x93B                           (DAILY_FLAGS_START + 0x1B) // PUB TRAINER 7
-#define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // PUB TRAINER 8
-#define FLAG_GOODIE_BAG                             (DAILY_FLAGS_START + 0x1D) // NIGHTMARERH GOODIE BAG
-#define FLAG_HIDDEN_GROTTO_1                        (DAILY_FLAGS_START + 0x1E) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_2                        (DAILY_FLAGS_START + 0x1F) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_3                        (DAILY_FLAGS_START + 0x20) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_4                        (DAILY_FLAGS_START + 0x21) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_5                        (DAILY_FLAGS_START + 0x22) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_6                        (DAILY_FLAGS_START + 0x23) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_7                        (DAILY_FLAGS_START + 0x24) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_8                        (DAILY_FLAGS_START + 0x25) // Unused Flag
-#define FLAG_PUB_TRAINER_9                          (DAILY_FLAGS_START + 0x26) // Unused Flag
-#define FLAG_PUB_TRAINER_10                         (DAILY_FLAGS_START + 0x27) // Unused Flag
-#define FLAG_PUB_TRAINER_11                         (DAILY_FLAGS_START + 0x28) // Unused Flag
-#define FLAG_PUB_TRAINER_12                         (DAILY_FLAGS_START + 0x29) // Unused Flag
-#define FLAG_PUB_TRAINER_13                         (DAILY_FLAGS_START + 0x2A) // Unused Flag
-#define FLAG_PUB_TRAINER_14                         (DAILY_FLAGS_START + 0x2B) // Unused Flag
-#define FLAG_PUB_TRAINER_15                         (DAILY_FLAGS_START + 0x2C) // Unused Flag
-#define FLAG_PUB_TRAINER_16                         (DAILY_FLAGS_START + 0x2D) // Unused Flag
-#define FLAG_PUB_TRAINER_17                         (DAILY_FLAGS_START + 0x2E) // Unused Flag
-#define FLAG_PUB_TRAINER_18                         (DAILY_FLAGS_START + 0x2F) // Unused Flag
-#define FLAG_PUB_TRAINER_19                         (DAILY_FLAGS_START + 0x30) // Unused Flag
-#define FLAG_PUB_TRAINER_20                         (DAILY_FLAGS_START + 0x31) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_9                        (DAILY_FLAGS_START + 0x32) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_10                       (DAILY_FLAGS_START + 0x33) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_11                       (DAILY_FLAGS_START + 0x34) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_12                       (DAILY_FLAGS_START + 0x35) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_13                       (DAILY_FLAGS_START + 0x36) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_14                       (DAILY_FLAGS_START + 0x37) // Unused Flag
-#define FLAG_HIDDEN_GROTTO_15                       (DAILY_FLAGS_START + 0x38) // Unused Flag
+#define FLAG_GOODIE_BAG                             (DAILY_FLAGS_START + 0x15) // NIGHTMARERH GOODIE BAG  // FLAG_UNUSED_0x935
+#define FLAG_HIDDEN_GROTTO_1                        (DAILY_FLAGS_START + 0x16) 
+#define FLAG_HIDDEN_GROTTO_2                        (DAILY_FLAGS_START + 0x17) 
+#define FLAG_HIDDEN_GROTTO_3                        (DAILY_FLAGS_START + 0x18) 
+#define FLAG_HIDDEN_GROTTO_4                        (DAILY_FLAGS_START + 0x19) 
+#define FLAG_HIDDEN_GROTTO_5                        (DAILY_FLAGS_START + 0x1A) 
+#define FLAG_HIDDEN_GROTTO_6                        (DAILY_FLAGS_START + 0x1B) 
+#define FLAG_HIDDEN_GROTTO_7                        (DAILY_FLAGS_START + 0x1C) 
+#define FLAG_HIDDEN_GROTTO_8                        (DAILY_FLAGS_START + 0x1D) 
+#define FLAG_HIDDEN_GROTTO_9                        (DAILY_FLAGS_START + 0x1E) 
+#define FLAG_HIDDEN_GROTTO_10                       (DAILY_FLAGS_START + 0x1F) 
+#define FLAG_HIDDEN_GROTTO_11                       (DAILY_FLAGS_START + 0x20) 
+#define FLAG_HIDDEN_GROTTO_12                       (DAILY_FLAGS_START + 0x21) 
+#define FLAG_HIDDEN_GROTTO_13                       (DAILY_FLAGS_START + 0x22) 
+#define FLAG_HIDDEN_GROTTO_14                       (DAILY_FLAGS_START + 0x23) 
+#define FLAG_HIDDEN_GROTTO_15                       (DAILY_FLAGS_START + 0x24) 
+#define FLAG_PUB_TRAINER_1                          (DAILY_FLAGS_START + 0x25) 
+#define FLAG_PUB_TRAINER_2                          (DAILY_FLAGS_START + 0x26) 
+#define FLAG_PUB_TRAINER_3                          (DAILY_FLAGS_START + 0x27) 
+#define FLAG_PUB_TRAINER_4                          (DAILY_FLAGS_START + 0x28) 
+#define FLAG_PUB_TRAINER_5                          (DAILY_FLAGS_START + 0x29) 
+#define FLAG_PUB_TRAINER_6                          (DAILY_FLAGS_START + 0x2A) 
+#define FLAG_PUB_TRAINER_7                          (DAILY_FLAGS_START + 0x2B) 
+#define FLAG_PUB_TRAINER_8                          (DAILY_FLAGS_START + 0x2C) 
+#define FLAG_PUB_TRAINER_9                          (DAILY_FLAGS_START + 0x2D) 
+#define FLAG_PUB_TRAINER_10                         (DAILY_FLAGS_START + 0x2E) 
+#define FLAG_PUB_TRAINER_11                         (DAILY_FLAGS_START + 0x2F) 
+#define FLAG_PUB_TRAINER_12                         (DAILY_FLAGS_START + 0x30) 
+#define FLAG_PUB_TRAINER_13                         (DAILY_FLAGS_START + 0x31) 
+#define FLAG_PUB_TRAINER_14                         (DAILY_FLAGS_START + 0x32) 
+#define FLAG_PUB_TRAINER_15                         (DAILY_FLAGS_START + 0x33) 
+#define FLAG_PUB_TRAINER_16                         (DAILY_FLAGS_START + 0x34) 
+#define FLAG_PUB_TRAINER_17                         (DAILY_FLAGS_START + 0x35) 
+#define FLAG_PUB_TRAINER_18                         (DAILY_FLAGS_START + 0x36) 
+#define FLAG_PUB_TRAINER_19                         (DAILY_FLAGS_START + 0x37) 
+#define FLAG_PUB_TRAINER_20                         (DAILY_FLAGS_START + 0x38) 
 #define FLAG_UNUSED_0x959                           (DAILY_FLAGS_START + 0x39) // Unused Flag
 #define FLAG_UNUSED_0x95A                           (DAILY_FLAGS_START + 0x3A) // Unused Flag
 #define FLAG_UNUSED_0x95B                           (DAILY_FLAGS_START + 0x3B) // Unused Flag

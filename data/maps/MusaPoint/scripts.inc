@@ -2516,14 +2516,14 @@ SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_0:
 
 SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_1:
 	.string "We are looking for any suspicious\n"
-	.string "behavour keep your eyes peeled!$"
+	.string "behaviour. Keep your eyes peeled!$"
 
 SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_2:
-	.string "I think there is something atop of that\n"
+	.string "I think there is something atop that\n"
 	.string "mountain.$"
 
 SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_3:
-	.string "They say the Orcale is located\n"
+	.string "They say the Oracle is located\n"
 	.string "somewhere on this mountain.$"
 
 SIR_OWEN_DIALOGUE_ICE_MOUNTAIN_Text_4:
@@ -2561,7 +2561,7 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_5:
 	.string "We'll find some information eventually.$"
 
 SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_6:
-	.string "These Black knights dont know when to\n"
+	.string "These Black Knights dont know when to\n"
 	.string "quit.$"
 
 SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1_Text_7:

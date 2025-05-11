@@ -1333,7 +1333,7 @@ BATTLE_VARROCK_GYM_TRAINER_1_Text_3:
 
 BATTLE_VARROCK_GYM_TRAINER_2_Text_0:
 	.string "You look shady.\p"
-	.string "Get out of the sleeping quaters!$"
+	.string "Get out of the sleeping quarters!$"
 
 BATTLE_VARROCK_GYM_TRAINER_2_Text_1:
 	.string "You may pass shady person.$"

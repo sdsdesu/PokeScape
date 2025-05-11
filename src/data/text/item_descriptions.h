@@ -5605,3 +5605,8 @@ static const u8 sCOMMORB_Desc[] = _(
     "An orb that contacts\n"
     "the White Knights.\n"
     "");
+
+static const u8 sBARCRAWLCARD_Desc[] = _(
+    "Allows you to\n"
+    "partipate in battles\n"
+    "within Battle Pubs.");

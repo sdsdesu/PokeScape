@@ -65,7 +65,7 @@ NPC_MUSA_POINT_Pub_Sailor::
 	namebox NPC_MUSA_POINT_Pub_Sailor_Text_0
 	msgbox NPC_MUSA_POINT_Pub_Sailor_Text_1
 	hidenamebox
-	goto_if_unset FLAG_PUB_TRAINER_12, NPC_MUSA_POINT_Pub_Sailor_2
+	goto_if_unset FLAG_PUB_TRAINER_7, NPC_MUSA_POINT_Pub_Sailor_2
 NPC_MUSA_POINT_Pub_Sailor_1:
 	hidenamebox
 	release
@@ -79,7 +79,7 @@ NPC_MUSA_POINT_Pub_Sailor_2:
 
 NPC_MUSA_POINT_Pub_Sailor_4:
 	hidenamebox
-	setflag FLAG_PUB_TRAINER_12
+	setflag FLAG_PUB_TRAINER_7
 	trainerbattle_no_intro TRAINER_PUB_MUSA_1, NPC_MUSA_POINT_Pub_Sailor_Text_3
 	namebox NPC_MUSA_POINT_Pub_Sailor_Text_0
 	msgbox NPC_MUSA_POINT_Pub_Sailor_Text_4

@@ -860,9 +860,7 @@ BATTLE_BLACKKNIGHT_SKOOL_Text_2:
 	.string "legs off!$"
 
 BATTLE_BLACKKNIGHT_SIFT_Text_0:
-	.string "I have a dream.\p"
-	.string "To chop down every single tree in\n"
-	.string "Gielinor.$"
+	.string "I can't let you through here.$"
 
 BATTLE_BLACKKNIGHT_SIFT_Text_1:
 	.string "Oh, I am definitely getting fired for\n"
@@ -953,15 +951,15 @@ TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_15:
 	.string "join me.$"
 
 TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_16:
-	.string "Incase you a wondering, my alliance\n"
+	.string "In case you are wondering, my alliance\n"
 	.string "stands, and I am true to my words.\p"
-	.string "On behalf of the black knights, we will\n"
+	.string "On behalf of the Black Knights, we will\n"
 	.string "end you two right here.\p"
 	.string "Now Perish!$"
 
 TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_17:
 	.string "Daquarius: That darn Sigmund and his\n"
-	.string "Saradomist ilk.\p"
+	.string "Saradominist ilk.\p"
 	.string "Leaving me with the dirty work…$"
 
 TRIGGER_BLACK_KNIGHT_4F_FINAL_Text_18:

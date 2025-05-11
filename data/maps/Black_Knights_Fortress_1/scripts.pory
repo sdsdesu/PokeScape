@@ -356,7 +356,7 @@ script TRIGGER_BKF_SIROWEN_BEDS {
     if (var(VAR_RESULT)) {
         facefollower
         namebox("Sir Owen")
-        msgbox(format("This must be their sleeping quaters.\pWe might as well make use of it ourselves if our monsters are feeling weak."))
+        msgbox(format("This must be their sleeping quarters.\pWe might as well make use of it ourselves if our monsters are feeling weak."))
         closemessage
         hidenamebox
     }

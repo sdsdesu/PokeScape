@@ -50,16 +50,8 @@
       "x": 2,
       "y": 3,
       "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "WOM_BED_BOTTOM"
-    },
-    {
-      "type": "sign",
-      "x": 2,
-      "y": 3,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_WEST",
-      "script": "WOM_BED_RIGHT"
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "WOM_BED_CORNER"
     },
     {
       "type": "sign",
