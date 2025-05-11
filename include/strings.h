@@ -3148,6 +3148,9 @@ extern const u8 gText_Pre_Crandor[];
 extern const u8 gText_Pre_BKF[];
 extern const u8 gText_Post_BKF[];
 
+extern const u8 gText_PubCrawlInfo[];
+
+
 //pokescape cheat menu
 extern const u8 gText_CheatEvolutionShop[];
 extern const u8 gText_CheatPouchShop[];

@@ -1158,6 +1158,7 @@ const u32 *const gItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_FROGBURGER] = {gItemIcon_BerserkGene, gItemIconPalette_BerserkGene},
     [ITEM_EEL_SUSHI] = {gItemIcon_BerserkGene, gItemIconPalette_BerserkGene},
     [ITEM_COMMORB] = {gItemIcon_COMMORB, gItemIconPalette_COMMORB},
+    [ITEM_BAR_CRAWL_BATTLE_CARD] = {gItemIcon_CardKey, gItemIconPalette_CardKey},
 
 
     // End Pokescape items

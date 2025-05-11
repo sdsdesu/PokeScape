@@ -98,11 +98,6 @@ Trainer1_MillLaneMill_Battle::
 	end
 
 
-MillLaneMill_Item_PURPLE_SWEETS::
-	finditem ITEM_PURPLE_SWEETS
-	end
-
-
 MillLaneMill_Item_WHEAT1::
 	msgbox MillLaneMill_Item_WHEAT1_Text_0
 	goto_if_unset FLAG_TEMP_1, MillLaneMill_Item_WHEAT1_1

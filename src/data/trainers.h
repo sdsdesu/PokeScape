@@ -6108,6 +6108,30 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer4),
     },
 
+    [TRAINER_PUB_VARROCK_1] =
+    {
+        .trainerClass = TRAINER_CLASS_PIRATE,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_pirate,
+        .trainerName = _("Jonny"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_PUB_VARROCK_1),
+    },
+
+    [TRAINER_PUB_VARROCK_2] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_SKILLER,
+        .trainerPic = TRAINER_PIC_cook,
+        .trainerName = _("Cook"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_PUB_VARROCK_2),
+    },
+
 /*
     #define TRAINER_HELLWIND                                445
 #define TRAINER_HYPER_STAN                              446

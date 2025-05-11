@@ -13764,6 +13764,17 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Function,
     },
 
+    [ITEM_BAR_CRAWL_BATTLE_CARD] =
+    {
+        .name = _("BARCRAWL CARD"),
+        .price = 0,
+        .description = sBARCRAWLCARD_Desc,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .sort = ITEM_TYPE_KEY_ITEM,
+        .fieldUseFunc = ItemUseOutOfBattle_Function,
+    },
     
 
 

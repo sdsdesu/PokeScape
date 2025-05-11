@@ -1428,8 +1428,9 @@
 #define ITEM_EEL_SUSHI              (FINAL_VANILLA_ITEM + 286 )
 #define ITEM_COMMORB                (FINAL_VANILLA_ITEM + 287 )
 #define ITEM_EASTER_EGG		        (FINAL_VANILLA_ITEM + 288 )
+#define ITEM_BAR_CRAWL_BATTLE_CARD	(FINAL_VANILLA_ITEM + 289 )
 
-#define ITEMS_COUNT 1104
+#define ITEMS_COUNT 1105
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

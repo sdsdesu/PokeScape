@@ -1221,6 +1221,7 @@ script CHECK_FOLLOWER_SIROWEN {
 	checkfollower
 	if (var(VAR_RESULT)) {
 		lockall
+		facefollower
 		namebox("Sir Owen")
 		msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))

@@ -99,13 +99,13 @@ script ModeratorLobby_JMOD_OWLY {
     namebox("Mod Owly")
 	msgbox(format("Wooo are you?"))
 	hidenamebox
-	if (flag(FLAG_UNUSED_0x93B) == false) 
+	if (flag(FLAG_TEMP_1) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_UNUSED_0x93B)
+				setflag(FLAG_TEMP_1)
 				trainerbattle_no_intro(TRAINER_JMOD_OWLY, msgbox(format("…")))
 				namebox("Mod Owly")
 				msgbox(format("Here have this."))

@@ -2,22 +2,99 @@ PortSarim_Pub_1F_MapScripts::
 	.byte 0
 
 
-NPC_PortSarimPub_BARTENDER::
-	lock
-	faceplayer
-	namebox NPC_PortSarimPub_BARTENDER_Text_0
-	msgbox NPC_PortSarimPub_BARTENDER_Text_1
+BattlePub_INFO::
+	msgbox BattlePub_INFO_Text_0
+	multichoicedefault 1, 0, MULTI_PUB, 0, 0
+	switch VAR_RESULT
+	case 0, BattlePub_INFO_3
+	case 1, BattlePub_INFO_4
+	case 2, BattlePub_INFO_5
+BattlePub_INFO_1:
+	return
+
+BattlePub_INFO_3:
+	call BattlePub_REST
+	goto BattlePub_INFO_1
+
+BattlePub_INFO_4:
+	checkitem ITEM_BAR_CRAWL_BATTLE_CARD, 1
+	compare VAR_RESULT, 0
+	goto_if_eq BattlePub_INFO_6
+	call BattlePub_RULES
+	goto BattlePub_INFO_1
+
+BattlePub_INFO_5:
+	return
+
+BattlePub_INFO_6:
+	call BattlePub_SIGNUP
+	goto BattlePub_INFO_1
+
+
+BattlePub_REST::
+	msgbox BattlePub_REST_Text_0
+	special HealPlayerParty
+	return
+
+
+BattlePub_RULES::
+	msgbox BattlePub_RULES_Text_0
+	msgbox BattlePub_RULES_Text_1
+	return
+
+
+BattlePub_SIGNUP::
+	msgbox BattlePub_SIGNUP_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne BattlePub_SIGNUP_2
+	msgbox BattlePub_SIGNUP_Text_5
+BattlePub_SIGNUP_1:
+	closemessage
+	hidenamebox
+	release
+	end
+
+BattlePub_SIGNUP_2:
+	msgbox BattlePub_SIGNUP_Text_1
+	msgbox BattlePub_SIGNUP_Text_2
+	giveitem ITEM_BAR_CRAWL_BATTLE_CARD, 1
+	msgbox BattlePub_SIGNUP_Text_3
+	call BattlePub_RULES
+	msgbox BattlePub_SIGNUP_Text_4
+	goto BattlePub_SIGNUP_1
+
+
+BattlePub_CHECKCARD::
+	checkitem ITEM_BAR_CRAWL_BATTLE_CARD, 1
+	compare VAR_RESULT, 0
+	goto_if_eq BattlePub_CHECKCARD_2
+	return
+
+BattlePub_CHECKCARD_2:
+	msgbox BattlePub_CHECKCARD_Text_0
+	closemessage
 	hidenamebox
 	release
 	end
 
 
-NPC_PortSarimPub_NPC_1::
+NPC_PortSarimPub_BARTENDER::
 	lock
 	faceplayer
-	namebox NPC_PortSarimPub_NPC_1_Text_0
-	msgbox NPC_PortSarimPub_NPC_1_Text_1
-	hidenamebox
+	namebox NPC_PortSarimPub_BARTENDER_Text_0
+	msgbox NPC_PortSarimPub_BARTENDER_Text_1
+	call BattlePub_INFO
+	msgbox NPC_PortSarimPub_BARTENDER_Text_2
+	release
+	end
+
+
+NPC_PortSarimPub_BARMAID::
+	lock
+	faceplayer
+	namebox NPC_PortSarimPub_BARMAID_Text_0
+	msgbox NPC_PortSarimPub_BARMAID_Text_1
+	closemessage
 	release
 	end
 
@@ -32,30 +109,61 @@ NPC_PortSarimPub_NPC_2::
 	end
 
 
+NPC_PortSarimPub_NPC_1::
+	lock
+	faceplayer
+	namebox NPC_PortSarimPub_NPC_1_Text_0
+	msgbox NPC_PortSarimPub_NPC_1_Text_1
+	call BattlePub_CHECKCARD
+	hidenamebox
+	goto_if_unset FLAG_PUB_TRAINER_3, NPC_PortSarimPub_NPC_1_2
+NPC_PortSarimPub_NPC_1_1:
+	closemessage
+	release
+	end
+
+NPC_PortSarimPub_NPC_1_2:
+	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_PortSarimPub_NPC_1_4
+	goto NPC_PortSarimPub_NPC_1_1
+
+NPC_PortSarimPub_NPC_1_4:
+	hidenamebox
+	setflag FLAG_PUB_TRAINER_3
+	trainerbattle_no_intro TRAINER_PUB_SARIM_3, NPC_PortSarimPub_NPC_1_Text_3
+	namebox NPC_PortSarimPub_NPC_1_Text_0
+	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	hidenamebox
+	call GIVE_RANDOM_ITEM
+	goto NPC_PortSarimPub_NPC_1_1
+
+
 NPC_PortSarimPub_Pirate_1::
 	lock
 	faceplayer
 	namebox NPC_PortSarimPub_Pirate_1_Text_0
 	msgbox NPC_PortSarimPub_Pirate_1_Text_1
+	call BattlePub_CHECKCARD
 	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x935, NPC_PortSarimPub_Pirate_1_2
+	goto_if_unset FLAG_PUB_TRAINER_1, NPC_PortSarimPub_Pirate_1_2
 NPC_PortSarimPub_Pirate_1_1:
 	hidenamebox
 	release
 	end
 
 NPC_PortSarimPub_Pirate_1_2:
-	msgbox NPC_PortSarimPub_Pirate_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_Pirate_1_4
 	goto NPC_PortSarimPub_Pirate_1_1
 
 NPC_PortSarimPub_Pirate_1_4:
 	hidenamebox
-	setflag FLAG_UNUSED_0x935
-	trainerbattle_no_intro TRAINER_PUB_SARIM_1, NPC_PortSarimPub_Pirate_1_Text_3
-	namebox NPC_PortSarimPub_Pirate_1_Text_0
-	msgbox NPC_PortSarimPub_Pirate_1_Text_4
+	setflag FLAG_PUB_TRAINER_1
+	trainerbattle_no_intro TRAINER_PUB_SARIM_1, NPC_PortSarimPub_NPC_1_Text_3
+	namebox NPC_PortSarimPub_Pirate_1_Text_2
+	msgbox NPC_PortSarimPub_Pirate_1_Text_3
 	hidenamebox
 	call GIVE_RANDOM_ITEM
 	goto NPC_PortSarimPub_Pirate_1_1
@@ -66,23 +174,23 @@ NPC_PortSarimPub_Pirate_2::
 	faceplayer
 	namebox NPC_PortSarimPub_Pirate_2_Text_0
 	msgbox NPC_PortSarimPub_Pirate_2_Text_1
+	call BattlePub_CHECKCARD
 	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x936, NPC_PortSarimPub_Pirate_2_2
+	goto_if_unset FLAG_PUB_TRAINER_2, NPC_PortSarimPub_Pirate_2_2
 NPC_PortSarimPub_Pirate_2_1:
 	hidenamebox
 	release
 	end
 
 NPC_PortSarimPub_Pirate_2_2:
-	msgbox NPC_PortSarimPub_Pirate_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_Pirate_2_4
 	goto NPC_PortSarimPub_Pirate_2_1
 
 NPC_PortSarimPub_Pirate_2_4:
-	hidenamebox
-	setflag FLAG_UNUSED_0x936
-	trainerbattle_no_intro TRAINER_PUB_SARIM_2, NPC_PortSarimPub_Pirate_1_Text_3
+	setflag FLAG_PUB_TRAINER_2
+	trainerbattle_no_intro TRAINER_PUB_SARIM_2, NPC_PortSarimPub_NPC_1_Text_3
 	namebox NPC_PortSarimPub_Pirate_2_Text_0
 	msgbox NPC_PortSarimPub_Pirate_2_Text_2
 	hidenamebox
@@ -90,43 +198,44 @@ NPC_PortSarimPub_Pirate_2_4:
 	goto NPC_PortSarimPub_Pirate_2_1
 
 
-NPC_PortSarimPub_Dwarf::
-	lock
-	faceplayer
-	namebox NPC_PortSarimPub_Dwarf_Text_0
-	msgbox NPC_PortSarimPub_Dwarf_Text_1
-	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x937, NPC_PortSarimPub_Dwarf_2
-NPC_PortSarimPub_Dwarf_1:
-	hidenamebox
-	release
-	end
-
-NPC_PortSarimPub_Dwarf_2:
-	msgbox NPC_PortSarimPub_Pirate_1_Text_2, MSGBOX_YESNO
-	compare VAR_RESULT, 0
-	goto_if_ne NPC_PortSarimPub_Dwarf_4
-	goto NPC_PortSarimPub_Dwarf_1
-
-NPC_PortSarimPub_Dwarf_4:
-	hidenamebox
-	setflag FLAG_UNUSED_0x937
-	trainerbattle_no_intro TRAINER_PUB_SARIM_3, NPC_PortSarimPub_Pirate_1_Text_3
-	namebox NPC_PortSarimPub_Dwarf_Text_0
-	msgbox NPC_PortSarimPub_Dwarf_Text_2
-	hidenamebox
-	call GIVE_RANDOM_ITEM
-	goto NPC_PortSarimPub_Dwarf_1
-
-
 NPC_PortSarimPub_PUBCRAWL::
 	lock
 	faceplayer
 	namebox NPC_PortSarimPub_PUBCRAWL_Text_0
 	msgbox NPC_PortSarimPub_PUBCRAWL_Text_1
+	call BattlePub_CHECKCARD
+	goto_if_set FLAG_PUB_TRAINER_1, NPC_PortSarimPub_PUBCRAWL_4
+NPC_PortSarimPub_PUBCRAWL_3:
+	msgbox NPC_PortSarimPub_PUBCRAWL_Text_3
+NPC_PortSarimPub_PUBCRAWL_1:
 	hidenamebox
+	closemessage
 	release
 	end
+
+NPC_PortSarimPub_PUBCRAWL_2:
+	msgbox NPC_PortSarimPub_PUBCRAWL_Text_2
+	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_PortSarimPub_PUBCRAWL_9
+	goto NPC_PortSarimPub_PUBCRAWL_1
+
+NPC_PortSarimPub_PUBCRAWL_4:
+	goto_if_set FLAG_PUB_TRAINER_2, NPC_PortSarimPub_PUBCRAWL_6
+	goto NPC_PortSarimPub_PUBCRAWL_3
+
+NPC_PortSarimPub_PUBCRAWL_6:
+	goto_if_set FLAG_PUB_TRAINER_3, NPC_PortSarimPub_PUBCRAWL_2
+	goto NPC_PortSarimPub_PUBCRAWL_3
+
+NPC_PortSarimPub_PUBCRAWL_9:
+	setflag FLAG_PUB_TRAINER_3
+	trainerbattle_no_intro TRAINER_PUB_SARIM_3, NPC_PortSarimPub_NPC_1_Text_3
+	namebox NPC_PortSarimPub_PUBCRAWL_Text_0
+	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	hidenamebox
+	call GIVE_RANDOM_ITEM
+	goto NPC_PortSarimPub_PUBCRAWL_1
 
 
 GIVE_RANDOM_ITEM::
@@ -299,19 +408,101 @@ RING_OF_KINSHIP_TELEPORT_2:
 	end
 
 
+NPC_PortSarimPub_Dwarf::
+	lock
+	faceplayer
+	namebox NPC_PortSarimPub_Dwarf_Text_0
+	msgbox NPC_PortSarimPub_Dwarf_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+BattlePub_INFO_Text_0:
+	.string "How may I serve you today?$"
+
+BattlePub_REST_Text_0:
+	.string "Sorry, we have no beds left.\p"
+	.string "The best I can do is heal your monsters\n"
+	.string "for you.$"
+
+BattlePub_RULES_Text_0:
+	.string "The rules for the Bar Crawl Pub Battles\n"
+	.string "are as follows…$"
+
+BattlePub_RULES_Text_1:
+	.string "You may only challenge someone to a\n"
+	.string "battle once per day.\p"
+	.string "The loser of the battle must pay the\n"
+	.string "winner.\p"
+	.string "If any damage is inflicted upon the pub\n"
+	.string "itself, compensation must be made.\p"
+	.string "Your wins and losses will be shown on\n"
+	.string "your Pub Crawl Battle Card.$"
+
+BattlePub_SIGNUP_Text_0:
+	.string "You're a new face, I don't think I've\n"
+	.string "seen you around these parts.\p"
+	.string "Are you interested in signing up for the\n"
+	.string "Bar Crawl Battles?$"
+
+BattlePub_SIGNUP_Text_1:
+	.string "Great, gimme yer name and I'll write it\n"
+	.string "on this card.$"
+
+BattlePub_SIGNUP_Text_2:
+	.string "Right, here you go buddy.$"
+
+BattlePub_SIGNUP_Text_3:
+	.string "That card will allow you to participate\n"
+	.string "in Bar Crawl Battles.$"
+
+BattlePub_SIGNUP_Text_4:
+	.string "Hope you have fun and remember to be\n"
+	.string "respectful to other battlers.$"
+
+BattlePub_SIGNUP_Text_5:
+	.string "Ay, come back if you change yer mind.$"
+
+BattlePub_CHECKCARD_Text_0:
+	.string "Oh I noticed that you don't have a Pub\n"
+	.string "Crawl Battle Card.\p"
+	.string "You should speak to the bartender for\n"
+	.string "one.$"
+
 NPC_PortSarimPub_BARTENDER_Text_0:
-	.string "BARTENDER$"
+	.string "Bartender$"
 
 NPC_PortSarimPub_BARTENDER_Text_1:
+	.string "Welcome to the Port Sarim Battle Pub!$"
+
+NPC_PortSarimPub_BARTENDER_Text_2:
+	.string "Take care, don't be a stranger!$"
+
+NPC_PortSarimPub_BARMAID_Text_0:
+	.string "Barmaid$"
+
+NPC_PortSarimPub_BARMAID_Text_1:
 	.string "Here at the Battle Pub, adventurers can\n"
 	.string "challenge each other to battles.\p"
 	.string "The loser must pay for their meals.\p"
-	.string "I would say that it is making me profit,\n"
+	.string "I would say that it is making us profit,\n"
 	.string "but the amount of damage that they\l"
-	.string "cause makes me break about even.$"
+	.string "cause makes us break about even.$"
+
+NPC_PortSarimPub_NPC_2_Text_0:
+	.string "Pirate$"
+
+NPC_PortSarimPub_NPC_2_Text_1:
+	.string "I heard that the Falador party room\n"
+	.string "holds contests to show off the beauty\l"
+	.string "of monsters instead of battling with\l"
+	.string "them.\p"
+	.string "Disgusting!$"
 
 NPC_PortSarimPub_NPC_1_Text_0:
-	.string "SAILOR$"
+	.string "Sailor$"
 
 NPC_PortSarimPub_NPC_1_Text_1:
 	.string "There is an unspoken rule where you can\n"
@@ -321,18 +512,18 @@ NPC_PortSarimPub_NPC_1_Text_1:
 	.string "many drunks lost all of their gold\l"
 	.string "pieces.$"
 
-NPC_PortSarimPub_NPC_2_Text_0:
-	.string "PIRATE$"
+NPC_PortSarimPub_NPC_1_Text_2:
+	.string "Do you wish to challenge them to a\n"
+	.string "battle?$"
 
-NPC_PortSarimPub_NPC_2_Text_1:
-	.string "I heard that far off to the east they\n"
-	.string "hold contests to show off the beauty\l"
-	.string "of monsters instead of battling with\l"
-	.string "them.\p"
-	.string "Disgusting!$"
+NPC_PortSarimPub_NPC_1_Text_3:
+	.string "…$"
+
+NPC_PortSarimPub_NPC_1_Text_4:
+	.string "This round is on me.$"
 
 NPC_PortSarimPub_Pirate_1_Text_0:
-	.string "PIRATE GIBBS$"
+	.string "Gibbs$"
 
 NPC_PortSarimPub_Pirate_1_Text_1:
 	.string "The customs officer confiscates all\n"
@@ -341,46 +532,37 @@ NPC_PortSarimPub_Pirate_1_Text_1:
 	.string "gone.$"
 
 NPC_PortSarimPub_Pirate_1_Text_2:
-	.string "Do you wish to challenge them to a\n"
-	.string "battle?$"
+	.string "PIRATE GIBBS$"
 
 NPC_PortSarimPub_Pirate_1_Text_3:
-	.string "…$"
-
-NPC_PortSarimPub_Pirate_1_Text_4:
 	.string "I guess I owe you this.$"
 
 NPC_PortSarimPub_Pirate_2_Text_0:
 	.string "AyePatch$"
 
 NPC_PortSarimPub_Pirate_2_Text_1:
-	.string "AYE!\p"
-	.string "This is Port Sarim's Battle Pub.$"
+	.string "Aye come to this pub daily, yer should\n"
+	.string "too.$"
 
 NPC_PortSarimPub_Pirate_2_Text_2:
 	.string "Yaarr, take this.$"
 
-NPC_PortSarimPub_Dwarf_Text_0:
-	.string "BREHAN$"
-
-NPC_PortSarimPub_Dwarf_Text_1:
-	.string "Outrageous!\p"
-	.string "The barmaid does not want to sell me\n"
-	.string "drinks because I am a miner!$"
-
-NPC_PortSarimPub_Dwarf_Text_2:
-	.string "This round is on me.$"
-
 NPC_PortSarimPub_PUBCRAWL_Text_0:
-	.string "BARBARIAN$"
+	.string "Barbarian$"
 
 NPC_PortSarimPub_PUBCRAWL_Text_1:
-	.string "Are you here for the Pubcrawl\n"
-	.string "challenge?\p"
-	.string "No?\p"
-	.string "If you are interested in signing up you\n"
-	.string "should go to Barbarian Village and talk\l"
-	.string "to our champion about it.$"
+	.string "YAARRGHH!\p"
+	.string "I am the strongest of this YAAARR\n"
+	.string "BATTLE PUB!$"
+
+NPC_PortSarimPub_PUBCRAWL_Text_2:
+	.string "YARHAHA! I have observed your\n"
+	.string "potential.\p"
+	.string "I would like to test you!$"
+
+NPC_PortSarimPub_PUBCRAWL_Text_3:
+	.string "I do not battle weaklings, come back\n"
+	.string "when you've shown potential!$"
 
 NPC_PortSarim_Church_Monk_1_Text_0:
 	.string "Monk$"
@@ -433,3 +615,11 @@ WHISTLE_TELEPORT_Text_1:
 RING_OF_KINSHIP_TELEPORT_Text_0:
 	.string "Would you like to teleport to\n"
 	.string "Daemonheim?$"
+
+NPC_PortSarimPub_Dwarf_Text_0:
+	.string "Brehan$"
+
+NPC_PortSarimPub_Dwarf_Text_1:
+	.string "Outrageous!\p"
+	.string "The barmaid does not want to sell me\n"
+	.string "drinks because I am a miner!$"

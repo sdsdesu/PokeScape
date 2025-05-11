@@ -3138,30 +3138,33 @@ static const struct TrainerMon sParty_ROUTE17_TRAINER_2[] = {
 
 static const struct TrainerMon sParty_Prezleek[] = {
     {
-    .lvl = 34,
+    .lvl = 50,
     .species = SPECIES_YAK_PACK_FORM,
+    .nickname = COMPOUND_STRING("Baroo"),
     },
     {
-    .lvl = 32,
+    .lvl = 50,
     .species = SPECIES_MONTY,
+    },
+    {
+    .lvl = 65,
+    .species = SPECIES_BEAGLE, //replace with lola when implmented.
+    .gender = TRAINER_MON_FEMALE,
+    .nickname = COMPOUND_STRING("Lola"),
     }
 };
 
 static const struct TrainerMon sParty_NYCHANNEL[] = {
     {
-    .lvl = 40,
-    .species = SPECIES_GECKO,
+    .lvl = 50,
+    .species = SPECIES_DEAD_TREE,
     },
     {
-    .lvl = 40,
-    .species = SPECIES_CHAMELEON,
-    },
-    {
-    .lvl = 38,
+    .lvl = 50,
     .species = SPECIES_PIKE,
     },
     {
-    .lvl = 41,
+    .lvl = 50,
     .species = SPECIES_BEAR_CUB,
     },
     {
@@ -7286,6 +7289,29 @@ static const struct TrainerMon sParty_POOL_1_GymChallenge[] = {
 //Musa Point Pub
 
 static const struct TrainerMon sParty_TRAINER_PUB_MUSA_1[] = {
+    {
+    .lvl = 37,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    }
+};
+
+//Varrock Pub 
+static const struct TrainerMon sParty_TRAINER_PUB_VARROCK_1[] = {
+    {
+    .lvl = 37,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_PUB_VARROCK_2[] = {
     {
     .lvl = 37,
     .species = SPECIES_LOBSTER_NORMAL_FORM,

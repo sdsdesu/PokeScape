@@ -603,7 +603,7 @@ TRIGGER_BKF_SIROWEN_INTRO_Text_0:
 	.string "trouble.$"
 
 TRIGGER_BKF_SIROWEN_BEDS_Text_0:
-	.string "This must be their sleeping quaters.\p"
+	.string "This must be their sleeping quarters.\p"
 	.string "We might as well make use of it\n"
 	.string "ourselves if our monsters are feeling\l"
 	.string "weak.$"
