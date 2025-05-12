@@ -8389,44 +8389,1033 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ir
 static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     {
     .lvl = 1,
-    .species = SPECIES_TZ_KIH,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_HEAT_WAVE, MOVE_SMOKESCREEN, MOVE_STEALTH_ROCK, MOVE_WILL_O_WISP}
+    .species = SPECIES_FROGEEL,
     },
     {
     .lvl = 2,
-    .species = SPECIES_ZAMATRICE,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_VITAL_SPIRIT,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_CEASELESS_EDGE, MOVE_BODY_SLAM, MOVE_CLOSE_COMBAT}
     },
     {
     .lvl = 3,
-    .species = SPECIES_KALPHITE_GUARDIAN_FORM,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_VITAL_SPIRIT,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_CEASELESS_EDGE, MOVE_SWORD_STRIKE, MOVE_CLOSE_COMBAT}
     },
     {
     .lvl = 4,
-    .species = SPECIES_TROUT_LEAPING_FORM,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_FOUL_PLAY, MOVE_SWORD_STRIKE, MOVE_BODY_SLAM}
     },
     {
     .lvl = 5,
-    .species = SPECIES_SHARK_GOLDEN_FORM,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_THIEF, MOVE_VENGEANCE, MOVE_CURSE, MOVE_SWAGGER}
     },
     {
     .lvl = 6,
-    .species = SPECIES_SHEEP_PIRATE_FORM,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_IMPLING_YOUNG_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    .moves = {MOVE_MIND_READER, MOVE_HURRICANE, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 7,
-    .species = SPECIES_TALONBEAST_NAIL_FORM,
-    .heldItem = ITEM_TINDERBOX,
-    .moves = {MOVE_TZ_TOK_ZEK, MOVE_POWER_GEM, MOVE_LAVA_PLUME, MOVE_WILL_O_WISP}
+    .species = SPECIES_IMPLING_PIRATE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    .moves = {MOVE_BULK_UP, MOVE_DIVE, MOVE_CEASELESS_EDGE, MOVE_TOXIC}
     },
+    {
+    .lvl = 8,
+    .species = SPECIES_IMPLING_YOUNG_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    .moves = {MOVE_CONFIDE, MOVE_FOUL_PLAY, MOVE_TRI_ATTACK, MOVE_NONE}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_IMPLING_PIRATE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_CEASELESS_EDGE, MOVE_SWORD_STRIKE, MOVE_FOUL_PLAY}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_IMPLING_YOUNG_FORM,
+    .ability = ABILITY_PICKUP,
+    .moves = {MOVE_TRI_ATTACK, MOVE_HURRICANE, MOVE_FOUL_PLAY, MOVE_NONE}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_IMPLING_PIRATE_FORM,
+    .ability = ABILITY_RECKLESS,
+    .moves = {MOVE_WAVE_CRASH, MOVE_DOUBLE_EDGE, MOVE_CEASELESS_EDGE, MOVE_TRI_ATTACK}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_IMPLING_YOUNG_FORM,
+    .ability = ABILITY_PICKUP,
+    .moves = {MOVE_SNARL, MOVE_THIEF, MOVE_HURRICANE, MOVE_TRI_ATTACK}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_IMPLING_PIRATE_FORM,
+    .ability = ABILITY_RECKLESS,
+    .moves = {MOVE_WAVE_CRASH, MOVE_DOUBLE_EDGE, MOVE_CEASELESS_EDGE, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SEAGULL_NORMAL_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_BLIZZARD, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_PELICAN,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_ICE_BEAM, MOVE_HURRICANE, MOVE_BUG_BITE, MOVE_ROAR}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_ALBATROSS,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_ICE_BEAM, MOVE_HURRICANE, MOVE_BUG_BITE, MOVE_ROAR}
+    },
+    {
+    .lvl = 17,
+    .species = SPECIES_SEAGULL_HATTENKRAPPER_FORM,
+    .ability = ABILITY_ROCKY_PAYLOAD,
+    .moves = {MOVE_ANCHOR_SHOT, MOVE_CHIP_AWAY, MOVE_BULLET_PUNCH, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 18,
+    .species = SPECIES_SEAGULL_KOPPENPLOPPEN_FORM,
+    .ability = ABILITY_MERCILESS,
+    .moves = {MOVE_NOBLE_ROAR, MOVE_GUNK_SHOT, MOVE_DIRE_CLAW, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 19,
+    .species = SPECIES_SEAGULL_STEVEN_FORM,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_BULK_UP, MOVE_GLACIATE, MOVE_CLOSE_COMBAT, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 20,
+    .species = SPECIES_SEAGULL_NORMAL_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_ICY_WIND, MOVE_ROOST, MOVE_SNARL, MOVE_ROAR}
+    },
+    {
+    .lvl = 21,
+    .species = SPECIES_PELICAN,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_STOCKPILE, MOVE_SPIT_UP, MOVE_SWALLOW, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 22,
+    .species = SPECIES_ALBATROSS,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_STOCKPILE, MOVE_SPIT_UP, MOVE_SWALLOW, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 23,
+    .species = SPECIES_SEAGULL_HATTENKRAPPER_FORM,
+    .ability = ABILITY_ROCKY_PAYLOAD,
+    .moves = {MOVE_GIGATON_HAMMER, MOVE_ROCK_SLIDE, MOVE_BRAVE_BIRD, MOVE_BULLET_PUNCH}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_SEAGULL_KOPPENPLOPPEN_FORM,
+    .ability = ABILITY_MERCILESS,
+    .moves = {MOVE_TOXIC, MOVE_DIRE_CLAW, MOVE_BRAVE_BIRD, MOVE_BUG_BITE}
+    },
+    {
+    .lvl = 25,
+    .species = SPECIES_SEAGULL_STEVEN_FORM,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_WAVE_CRASH, MOVE_GLACIATE, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 26,
+    .species = SPECIES_SEAGULL_NORMAL_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_ROAR, MOVE_ROOST, MOVE_BUG_BITE, MOVE_ICY_WIND}
+    },
+    {
+    .lvl = 27,
+    .species = SPECIES_PELICAN,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_STOCKPILE, MOVE_ROOST, MOVE_SOAK, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 28,
+    .species = SPECIES_ALBATROSS,
+    .ability = ABILITY_GALE_WINGS,
+    .moves = {MOVE_ROOST, MOVE_WHIRLWIND, MOVE_HURRICANE, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 29,
+    .species = SPECIES_SEAGULL_HATTENKRAPPER_FORM,
+    .ability = ABILITY_STEELWORKER,
+    .moves = {MOVE_SUNSTEEL_STRIKE, MOVE_ROCK_SLIDE, MOVE_GIGATON_HAMMER, MOVE_BULLET_PUNCH}
+    },
+    {
+    .lvl = 30,
+    .species = SPECIES_SEAGULL_KOPPENPLOPPEN_FORM,
+    .ability = ABILITY_AERILATE,
+    .moves = {MOVE_BRAVE_BIRD, MOVE_SLUDGE_WAVE, MOVE_BUG_BITE, MOVE_ROOST}
+    },
+    {
+    .lvl = 31,
+    .species = SPECIES_SEAGULL_STEVEN_FORM,
+    .ability = ABILITY_REFRIGERATE,
+    .moves = {MOVE_FLYING_PRESS, MOVE_DOUBLE_EDGE, MOVE_BUG_BITE, MOVE_BRAVE_BIRD}
+    },
+    /*{
+    .lvl = 32,
+    .species = SPECIES_SEAGUTRICE,
+    .ability = ABILITY_PETRIFY,
+    .moves = {MOVE_DRILL_PECK, MOVE_HEAD_SMASH, MOVE_FEATHER_DANCE, MOVE_GLACIATE}
+    },
+    {
+    .lvl = 33,
+    .species = SPECIES_SEAGUTRICE,
+    .ability = ABILITY_PETRIFY,
+    .moves = {MOVE_GLARE, MOVE_ICY_WIND, MOVE_FEATHER_DANCE, MOVE_DRILL_PECK}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_SEAGUTRICE,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_COIL, MOVE_DRILL_PECK, MOVE_GLACIATE, MOVE_ROCK_TOMB}
+    },*/
+    {
+    .lvl = 35,
+    .species = SPECIES_IBIS,
+    .ability = ABILITY_BIG_PECKS,
+    .moves = {MOVE_AQUA_RING, MOVE_SCALD, MOVE_DIVE, MOVE_ROAR}
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_IBIS,
+    .ability = ABILITY_BIG_PECKS,
+    .moves = {MOVE_ROOST, MOVE_AQUA_RING, MOVE_SCALD, MOVE_DIVE}
+    },
+    {
+    .lvl = 37,
+    .species = SPECIES_IBIS,
+    .ability = ABILITY_SHEER_FORCE,
+    .moves = {MOVE_TRIPLE_DIVE, MOVE_BEAK_BLAST, MOVE_BUG_BITE, MOVE_BRAVE_BIRD}
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_SWORDCHICK,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SWORD_STRIKE, MOVE_LIQUIDATION, MOVE_DRILL_PECK}
+    },
+    {
+    .lvl = 39,
+    .species = SPECIES_SWORDCHICK,
+    .ability = ABILITY_INTREPID_SWORD,
+    .moves = {MOVE_ROOST, MOVE_SLASH, MOVE_RAZOR_SHELL, MOVE_DRILL_PECK}
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_BRINE_RAT,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_CEASELESS_EDGE, MOVE_DIVE, MOVE_FISHIOUS_REND, MOVE_SMACK_DOWN}
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_BRINE_RAT,
+    .ability = ABILITY_STRONG_JAW,
+    .moves = {MOVE_CRUNCH, MOVE_HYPER_FANG, MOVE_FISHIOUS_REND, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_GIANT_RAT_NORMAL_FORM,
+    .ability = ABILITY_GUTS,
+    .heldItem = ITEM_FIRECAPE,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_POWER_TRIP, MOVE_POISON_FANG, MOVE_AGILITY}
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_GIANT_RAT_NORMAL_FORM,
+    .ability = ABILITY_STRONG_JAW,
+    .moves = {MOVE_CRUNCH, MOVE_POISON_FANG, MOVE_HYPER_FANG, MOVE_SUPER_FANG}
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_TROUT_NORMAL_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_SWORDFISH,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_AQUA_CUTTER, MOVE_SACRED_SWORD, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_TROUT_LEAPING_FORM,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_STURGEON,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_LIQUIDATION, MOVE_BRUTAL_SWING, MOVE_SWORDS_DANCE, MOVE_NONE}
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_TROUT_TROPICAL_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 49,
+    .species = SPECIES_SAILFISH,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_FLOATY_FALL, MOVE_AQUA_CUTTER, MOVE_AQUA_JET, MOVE_SACRED_SWORD}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_TROUT_NORMAL_FORM,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 51,
+    .species = SPECIES_SWORDFISH,
+    .ability = ABILITY_SHARPNESS,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_FLYING_PRESS, MOVE_SWORD_STRIKE, MOVE_AERIAL_ACE}
+    },
+    {
+    .lvl = 52,
+    .species = SPECIES_TROUT_LEAPING_FORM,
+    .ability = ABILITY_UNBURDEN,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 53,
+    .species = SPECIES_STURGEON,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_BANANA,
+    .moves = {MOVE_FLIP_TURN, MOVE_SWORD_STRIKE, MOVE_DOUBLE_EDGE, MOVE_CRUNCH}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_TROUT_TROPICAL_FORM,
+    .ability = ABILITY_RAIN_DISH,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_SAILFISH,
+    .ability = ABILITY_SPEED_BOOST,
+    .heldItem = ITEM_PAPAYA,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SACRED_SWORD, MOVE_LIQUIDATION, MOVE_ACROBATICS}
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_BASS,
+    },
+    {
+    .lvl = 57,
+    .species = SPECIES_SALMON_NORMAL_FORM,
+    },
+    {
+    .lvl = 58,
+    .species = SPECIES_SHARK_NORMAL_FORM,
+    },
+    {
+    .lvl = 59,
+    .species = SPECIES_FURY_SHARK,
+    },
+    {
+    .lvl = 60,
+    .species = SPECIES_SALMON_LEAPING_FORM,
+    },
+    {
+    .lvl = 61,
+    .species = SPECIES_SHARK_GREATWHITE_FORM,
+    },
+    {
+    .lvl = 62,
+    .species = SPECIES_SHARK_TIGER_FORM,
+    },
+    {
+    .lvl = 63,
+    .species = SPECIES_MACKEREL,
+    },
+    {
+    .lvl = 64,
+    .species = SPECIES_CATFISH,
+    },
+    {
+    .lvl = 65,
+    .species = SPECIES_SHARK_BARON_FORM,
+    },
+    {
+    .lvl = 66,
+    .species = SPECIES_TARPON,
+    },
+    {
+    .lvl = 67,
+    .species = SPECIES_SEERFISH,
+    },
+    {
+    .lvl = 68,
+    .species = SPECIES_DESERTSOLE,
+    },
+    {
+    .lvl = 69,
+    .species = SPECIES_SILLAGO,
+    },
+    {
+    .lvl = 70,
+    .species = SPECIES_WOBBEGONG,
+    },
+    {
+    .lvl = 71,
+    .species = SPECIES_KARAMBWANJ,
+    },
+    {
+    .lvl = 72,
+    .species = SPECIES_KARAMBWAN,
+    },
+    {
+    .lvl = 73,
+    .species = SPECIES_WHITEFISH,
+    },
+    {
+    .lvl = 74,
+    .species = SPECIES_BELTFISH,
+    },
+    {
+    .lvl = 75,
+    .species = SPECIES_MANTA_RAY,
+    },
+    {
+    .lvl = 76,
+    .species = SPECIES_COD,
+    },
+    {
+    .lvl = 77,
+    .species = SPECIES_RAINBOW,
+    },
+    {
+    .lvl = 78,
+    .species = SPECIES_SHARK_GOLDEN_FORM,
+    },
+    {
+    .lvl = 79,
+    .species = SPECIES_PIKE,
+    },
+    {
+    .lvl = 80,
+    .species = SPECIES_MONKFISH_NORMAL_FORM,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_ANGLERFISH,
+    },
+    {
+    .lvl = 82,
+    .species = SPECIES_GIANT_CARP,
+    },
+    {
+    .lvl = 83,
+    .species = SPECIES_MONKFISH_FRESH_FORM,
+    },
+    {
+    .lvl = 84,
+    .species = SPECIES_MONKFISH_GOLDEN_FORM,
+    },
+    {
+    .lvl = 85,
+    .species = SPECIES_BASS,
+    },
+    {
+    .lvl = 86,
+    .species = SPECIES_SALMON_NORMAL_FORM,
+    },
+    {
+    .lvl = 87,
+    .species = SPECIES_SHARK_NORMAL_FORM,
+    },
+    {
+    .lvl = 88,
+    .species = SPECIES_FURY_SHARK,
+    },
+    {
+    .lvl = 89,
+    .species = SPECIES_SALMON_LEAPING_FORM,
+    },
+    {
+    .lvl = 90,
+    .species = SPECIES_SHARK_GREATWHITE_FORM,
+    },
+    {
+    .lvl = 91,
+    .species = SPECIES_SHARK_TIGER_FORM,
+    },
+    {
+    .lvl = 92,
+    .species = SPECIES_MACKEREL,
+    },
+    {
+    .lvl = 93,
+    .species = SPECIES_CATFISH,
+    },
+    {
+    .lvl = 94,
+    .species = SPECIES_SHARK_BARON_FORM,
+    },
+    {
+    .lvl = 95,
+    .species = SPECIES_TARPON,
+    },
+    {
+    .lvl = 96,
+    .species = SPECIES_SEERFISH,
+    },
+    {
+    .lvl = 97,
+    .species = SPECIES_DESERTSOLE,
+    },
+    {
+    .lvl = 98,
+    .species = SPECIES_SILLAGO,
+    },
+    {
+    .lvl = 99,
+    .species = SPECIES_WOBBEGONG,
+    },
+    {
+    .lvl = 100,
+    .species = SPECIES_KARAMBWANJ,
+    },
+    {
+    .lvl = 101,
+    .species = SPECIES_KARAMBWAN,
+    },
+    {
+    .lvl = 102,
+    .species = SPECIES_WHITEFISH,
+    },
+    {
+    .lvl = 103,
+    .species = SPECIES_BELTFISH,
+    },
+    {
+    .lvl = 104,
+    .species = SPECIES_MANTA_RAY,
+    },
+    {
+    .lvl = 105,
+    .species = SPECIES_COD,
+    },
+    {
+    .lvl = 106,
+    .species = SPECIES_RAINBOW,
+    },
+    {
+    .lvl = 107,
+    .species = SPECIES_SHARK_GOLDEN_FORM,
+    },
+    {
+    .lvl = 108,
+    .species = SPECIES_PIKE,
+    },
+    {
+    .lvl = 109,
+    .species = SPECIES_MONKFISH_NORMAL_FORM,
+    },
+    {
+    .lvl = 110,
+    .species = SPECIES_ANGLERFISH,
+    },
+    {
+    .lvl = 111,
+    .species = SPECIES_GIANT_CARP,
+    },
+    {
+    .lvl = 112,
+    .species = SPECIES_MONKFISH_FRESH_FORM,
+    },
+    {
+    .lvl = 113,
+    .species = SPECIES_MONKFISH_GOLDEN_FORM,
+    },
+    {
+    .lvl = 114,
+    .species = SPECIES_EEL_MOTTLED_FORM,
+    },
+    {
+    .lvl = 115,
+    .species = SPECIES_EEL_MOTTLED_FORM,
+    },
+    {
+    .lvl = 116,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    },
+    {
+    .lvl = 117,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    },
+    {
+    .lvl = 118,
+    .species = SPECIES_PENGUIN,
+    },
+    {
+    .lvl = 119,
+    .species = SPECIES_THE_THING,
+    },
+    {
+    .lvl = 120,
+    .species = SPECIES_THE_THING,
+    },
+    {
+    .lvl = 121,
+    .species = SPECIES_EXEXPARROT,
+    },
+    {
+    .lvl = 122,
+    .species = SPECIES_EXEXPARROT,
+    },
+    {
+    .lvl = 123,
+    .species = SPECIES_EXEXPARROT,
+    },
+    {
+    .lvl = 124,
+    .species = SPECIES_PENGATRICE,
+    },
+    {
+    .lvl = 125,
+    .species = SPECIES_PENGATRICE,
+    },
+    {
+    .lvl = 126,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    },
+    {
+    .lvl = 127,
+    .species = SPECIES_LOBSTER_GOLDEN_FORM,
+    },
+    {
+    .lvl = 128,
+    .species = SPECIES_LOBSTER_GIANT_FORM,
+    },
+    {
+    .lvl = 129,
+    .species = SPECIES_LOBSTER_HEIM_FORM,
+    },
+    {
+    .lvl = 130,
+    .species = SPECIES_LOBSTER_OBSIDIAN_FORM,
+    },
+    {
+    .lvl = 131,
+    .species = SPECIES_CRAB_RED_FORM,
+    },
+    {
+    .lvl = 132,
+    .species = SPECIES_GIANT_CRAB_RED_FORM,
+    },
+    {
+    .lvl = 133,
+    .species = SPECIES_CRAB_MOSS_FORM,
+    },
+    {
+    .lvl = 134,
+    .species = SPECIES_GIANT_CRAB_MOSS_FORM,
+    },
+    {
+    .lvl = 135,
+    .species = SPECIES_CRAB_RUMPUMPED_FORM,
+    },
+    {
+    .lvl = 136,
+    .species = SPECIES_GIANT_CRAB_RUMPUMPED_FORM,
+    },
+    {
+    .lvl = 137,
+    .species = SPECIES_CRAB_DARK_FORM,
+    },
+    {
+    .lvl = 138,
+    .species = SPECIES_GIANT_CRAB_DARK_FORM,
+    },
+    {
+    .lvl = 139,
+    .species = SPECIES_CRAB_GREY_FORM,
+    },
+    {
+    .lvl = 140,
+    .species = SPECIES_GIANT_CRAB_GREY_FORM,
+    },
+    {
+    .lvl = 141,
+    .species = SPECIES_KNIFE_CRAB,
+    },
+    {
+    .lvl = 142,
+    .species = SPECIES_HEIM_CRAB,
+    },
+    {
+    .lvl = 143,
+    .species = SPECIES_WEBSNIPPER,
+    },
+    {
+    .lvl = 144,
+    .species = SPECIES_BLUE_CRAB,
+    },
+    {
+    .lvl = 145,
+    .species = SPECIES_CRABLET_FIRST_FORM,
+    },
+    {
+    .lvl = 146,
+    .species = SPECIES_CRABLET_SECOND_FORM,
+    },
+    {
+    .lvl = 147,
+    .species = SPECIES_CRABLET_THIRD_FORM,
+    },
+    {
+    .lvl = 148,
+    .species = SPECIES_CRABLET_FORTH_FORM,
+    },
+    {
+    .lvl = 149,
+    .species = SPECIES_CRABLET_FIFTH_FORM,
+    },
+    {
+    .lvl = 150,
+    .species = SPECIES_LOBSTER_NORMAL_FORM,
+    },
+    {
+    .lvl = 151,
+    .species = SPECIES_LOBSTER_GOLDEN_FORM,
+    },
+    {
+    .lvl = 152,
+    .species = SPECIES_LOBSTER_GIANT_FORM,
+    },
+    {
+    .lvl = 153,
+    .species = SPECIES_LOBSTER_HEIM_FORM,
+    },
+    {
+    .lvl = 154,
+    .species = SPECIES_LOBSTER_OBSIDIAN_FORM,
+    },
+    {
+    .lvl = 155,
+    .species = SPECIES_CRAB_RED_FORM,
+    },
+    {
+    .lvl = 156,
+    .species = SPECIES_GIANT_CRAB_RED_FORM,
+    },
+    {
+    .lvl = 157,
+    .species = SPECIES_CRAB_MOSS_FORM,
+    },
+    {
+    .lvl = 158,
+    .species = SPECIES_GIANT_CRAB_MOSS_FORM,
+    },
+    {
+    .lvl = 159,
+    .species = SPECIES_CRAB_RUMPUMPED_FORM,
+    },
+    {
+    .lvl = 160,
+    .species = SPECIES_GIANT_CRAB_RUMPUMPED_FORM,
+    },
+    {
+    .lvl = 161,
+    .species = SPECIES_CRAB_DARK_FORM,
+    },
+    {
+    .lvl = 162,
+    .species = SPECIES_GIANT_CRAB_DARK_FORM,
+    },
+    {
+    .lvl = 163,
+    .species = SPECIES_CRAB_GREY_FORM,
+    },
+    {
+    .lvl = 164,
+    .species = SPECIES_GIANT_CRAB_GREY_FORM,
+    },
+    {
+    .lvl = 165,
+    .species = SPECIES_KNIFE_CRAB,
+    },
+    {
+    .lvl = 166,
+    .species = SPECIES_HEIM_CRAB,
+    },
+    {
+    .lvl = 167,
+    .species = SPECIES_WEBSNIPPER,
+    },
+    {
+    .lvl = 168,
+    .species = SPECIES_BLUE_CRAB,
+    },
+    {
+    .lvl = 169,
+    .species = SPECIES_SEA_TURTLE,
+    },
+    {
+    .lvl = 170,
+    .species = SPECIES_SEA_TURTLE_TREASURE_FORM,
+    },
+    {
+    .lvl = 171,
+    .species = SPECIES_SEA_TURTLE,
+    },
+    {
+    .lvl = 172,
+    .species = SPECIES_SEA_TURTLE_TREASURE_FORM,
+    },
+    {
+    .lvl = 173,
+    .species = SPECIES_POLAR_BEAR_NORMAL_FORM,
+    },
+    {
+    .lvl = 174,
+    .species = SPECIES_POLAR_BEAR_PBJ_AGENT_FORM,
+    },
+    {
+    .lvl = 175,
+    .species = SPECIES_POLAR_BEAR_NORMAL_FORM,
+    },
+    {
+    .lvl = 176,
+    .species = SPECIES_POLAR_BEAR_PBJ_AGENT_FORM,
+    },
+    {
+    .lvl = 177,
+    .species = SPECIES_DRAGONLING_BLUE_FORM,
+    },
+    {
+    .lvl = 178,
+    .species = SPECIES_DRAGON_BLUE_FORM,
+    },
+    {
+    .lvl = 179,
+    .species = SPECIES_DRAGON_BRUTAL_BLUE_FORM,
+    },
+    {
+    .lvl = 180,
+    .species = SPECIES_DRAGONLING_BLUE_FORM,
+    },
+    {
+    .lvl = 181,
+    .species = SPECIES_DRAGON_BLUE_FORM,
+    },
+    {
+    .lvl = 182,
+    .species = SPECIES_DRAGON_BRUTAL_BLUE_FORM,
+    },
+    {
+    .lvl = 183,
+    .species = SPECIES_SPIDER_FEVER_FORM,
+    },
+    {
+    .lvl = 184,
+    .species = SPECIES_SPIDER_FEVER_FORM,
+    },
+    {
+    .lvl = 185,
+    .species = SPECIES_VOID_LEECH,
+    },
+    {
+    .lvl = 186,
+    .species = SPECIES_VOID_TORCHER,
+    },
+    {
+    .lvl = 187,
+    .species = SPECIES_VOID_SHIFTER,
+    },
+    {
+    .lvl = 188,
+    .species = SPECIES_VOID_BRAWLER,
+    },
+    {
+    .lvl = 189,
+    .species = SPECIES_VOID_DEFILER,
+    },
+    {
+    .lvl = 190,
+    .species = SPECIES_VOID_SPLATTER,
+    },
+    {
+    .lvl = 191,
+    .species = SPECIES_VOID_RAVAGER,
+    },
+    {
+    .lvl = 192,
+    .species = SPECIES_VOID_SPINNER,
+    },
+    {
+    .lvl = 193,
+    .species = SPECIES_VOID_DRONE,
+    },
+    {
+    .lvl = 194,
+    .species = SPECIES_VOID_LEECH,
+    },
+    {
+    .lvl = 195,
+    .species = SPECIES_VOID_TORCHER,
+    },
+    {
+    .lvl = 196,
+    .species = SPECIES_VOID_SHIFTER,
+    },
+    {
+    .lvl = 197,
+    .species = SPECIES_VOID_BRAWLER,
+    },
+    {
+    .lvl = 198,
+    .species = SPECIES_VOID_DEFILER,
+    },
+    {
+    .lvl = 199,
+    .species = SPECIES_VOID_SPLATTER,
+    },
+    {
+    .lvl = 200,
+    .species = SPECIES_VOID_RAVAGER,
+    },
+    {
+    .lvl = 201,
+    .species = SPECIES_VOID_SPINNER,
+    },
+    {
+    .lvl = 202,
+    .species = SPECIES_VOID_DRONE,
+    },
+    {
+    .lvl = 203,
+    .species = SPECIES_ANCHOVY,
+    },
+    {
+    .lvl = 204,
+    .species = SPECIES_ANCHOVY_PIZZA_FORM,
+    },
+    {
+    .lvl = 205,
+    .species = SPECIES_RED_EYE,
+    },
+    {
+    .lvl = 206,
+    .species = SPECIES_FLATFISH,
+    },
+    {
+    .lvl = 207,
+    .species = SPECIES_BOULDABASS,
+    },
+    {
+    .lvl = 208,
+    .species = SPECIES_MUDSKIPPER,
+    },
+    {
+    .lvl = 209,
+    .species = SPECIES_ANCHOVY,
+    },
+    {
+    .lvl = 210,
+    .species = SPECIES_ANCHOVY_PIZZA_FORM,
+    },
+    {
+    .lvl = 211,
+    .species = SPECIES_RED_EYE,
+    },
+    {
+    .lvl = 212,
+    .species = SPECIES_FLATFISH,
+    },
+    {
+    .lvl = 213,
+    .species = SPECIES_BOULDABASS,
+    },
+    {
+    .lvl = 214,
+    .species = SPECIES_MUDSKIPPER,
+    },
+    {
+    .lvl = 215,
+    .species = SPECIES_ABYSSAL_DEEPSEA_WALKER,
+    },
+    {
+    .lvl = 216,
+    .species = SPECIES_ABYSSAL_DEEPSEA_LEECH,
+    },
+    {
+    .lvl = 217,
+    .species = SPECIES_ABYSSAL_DEEPSEA_GUARDIAN,
+    },
+    {
+    .lvl = 218,
+    .species = SPECIES_ABYSSAL_DEEPSEA_WALKER,
+    },
+    {
+    .lvl = 219,
+    .species = SPECIES_ABYSSAL_DEEPSEA_LEECH,
+    },
+    {
+    .lvl = 220,
+    .species = SPECIES_ABYSSAL_DEEPSEA_GUARDIAN,
+    },
+    {
+    .lvl = 221,
+    .species = SPECIES_TORTLE,
+    },
+    {
+    .lvl = 222,
+    .species = SPECIES_TORTLE,
+    },
+    {
+    .lvl = 223,
+    .species = SPECIES_SEASLUG,
+    },
+    {
+    .lvl = 224,
+    .species = SPECIES_SEASLUG_PRINCE,
+    },
+    {
+    .lvl = 225,
+    .species = SPECIES_SEASLUG,
+    },
+    {
+    .lvl = 226,
+    .species = SPECIES_SEASLUG_PRINCE,
+    },
+    /*{
+    .lvl = 227,
+    .species = SPECIES_CPT.MARLIN,
+    },
+    {
+    .lvl = 228,
+    .species = SPECIES_CPT.MARLIN,
+    },
+    {
+    .lvl = 229,
+    .species = SPECIES_BARRELCHEST,
+    },
+    {
+    .lvl = 230,
+    .species = SPECIES_BARRELCHEST,
+    },*/
 };

@@ -6234,7 +6234,7 @@ const struct TrainerFightCaves gTrainersFightCaves[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
-        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+        .poolSize = 230, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
     },
 
 [TRAINER_POOL_PORTSARIM_PUB_PIRATE_2] =
@@ -6247,7 +6247,7 @@ const struct TrainerFightCaves gTrainersFightCaves[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
-        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+        .poolSize = 230, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
     },
 
 [TRAINER_POOL_PORTSARIM_PUB_SAILOR] =
@@ -6260,7 +6260,7 @@ const struct TrainerFightCaves gTrainersFightCaves[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .pool = TRAINER_PARTY_FIGHT_CAVES(sParty_POOL_PortSarim_Pub), //There should always be more than 6 mons in the pool.
-        .poolSize = 7, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
+        .poolSize = 230, //The pool size must always be more than 6. (That way if there are 6 mons in the party it will have mons to pull from. Otherwise it will crash.)
     },
 
 
