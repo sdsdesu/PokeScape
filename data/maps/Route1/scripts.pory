@@ -365,30 +365,7 @@ script SIGN_ROUTE1_3
 }
 
 
-script NPC_FISHERMAN_1
-{
-	lock
-	faceplayer
-    namebox("Fisherman")
-	msgbox(format("I love to fish in this pond.\pIt is so peaceful, with the ducks that keep me company.\pI cannot imagine anything bad to happen here."))
-    checkitem(ITEM_SMALL_NET, 1)
-        if (!var(VAR_RESULT)){
-            msgbox(format("You seem like someone who would also enjoy fishing in this pond.\pHere take this!"))
-            hidenamebox
-            giveitem(ITEM_SMALL_NET)
-            namebox("Fisherman")
-            msgbox(format("It is only a small net but I'm sure there are plenty of things you could fish up with it!"))
-            release
-            end
-        }
-        else {
-            msgbox(format("How are you finding fishing in the pond?\pHave you caught anything yet?{PAUSE 15}\pDid you know that a crayfish evolves into a shrimp?\pOr that a shrimp then evolves into a lobster?\pApparently lobsters can then evolve again if you level them up under extreme weather conditions like rain, sunshine, or hail.\pBut it's so peaceful here, I've never managed to evolve one myself."))
-            release
-            end
-        }
-	release
-	end
-}
+
 
 
 

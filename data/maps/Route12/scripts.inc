@@ -338,17 +338,6 @@ NPC_LASSIE::
 	end
 
 
-NPC_ROUTE12_Fisherman::
-	lock
-	faceplayer
-	namebox NPC_ROUTE12_Fisherman_Text_0
-	msgbox NPC_ROUTE12_Fisherman_Text_1
-	hidenamebox
-	closemessage
-	release
-	end
-
-
 NPC_ROUTE12_Goblin_2::
 	lock
 	faceplayer
@@ -730,13 +719,6 @@ NPC_LASSIE_Text_0:
 
 NPC_LASSIE_Text_1:
 	.string "WOOF!$"
-
-NPC_ROUTE12_Fisherman_Text_0:
-	.string "Fisherman$"
-
-NPC_ROUTE12_Fisherman_Text_1:
-	.string "We once had a wooden bridge here, but\n"
-	.string "some firemakers burnt it down…$"
 
 NPC_ROUTE12_Goblin_2_Text_0:
 	.string "Me fishing.$"

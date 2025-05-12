@@ -312,31 +312,6 @@ SIGN_ROUTE1_3::
 	end
 
 
-NPC_FISHERMAN_1::
-	lock
-	faceplayer
-	namebox NPC_FISHERMAN_1_Text_0
-	msgbox NPC_FISHERMAN_1_Text_1
-	checkitem ITEM_SMALL_NET, 1
-	compare VAR_RESULT, 0
-	goto_if_eq NPC_FISHERMAN_1_2
-	msgbox NPC_FISHERMAN_1_Text_4
-	release
-	end
-
-	release
-	end
-
-NPC_FISHERMAN_1_2:
-	msgbox NPC_FISHERMAN_1_Text_2
-	hidenamebox
-	giveitem ITEM_SMALL_NET
-	namebox NPC_FISHERMAN_1_Text_0
-	msgbox NPC_FISHERMAN_1_Text_3
-	release
-	end
-
-
 BLOCK_ROUTE1_FARMER::
 	lock
 	faceplayer
@@ -1044,40 +1019,6 @@ SIGN_ROUTE1_3_Text_0:
 	.string "WEST to FALADOR\p"
 	.string "EAST to LUMBRIDGE\p"
 	.string "SOUTH to DRAYNOR$"
-
-NPC_FISHERMAN_1_Text_0:
-	.string "Fisherman$"
-
-NPC_FISHERMAN_1_Text_1:
-	.string "I love to fish in this pond.\p"
-	.string "It is so peaceful, with the ducks that\n"
-	.string "keep me company.\p"
-	.string "I cannot imagine anything bad to\n"
-	.string "happen here.$"
-
-NPC_FISHERMAN_1_Text_2:
-	.string "You seem like someone who would also\n"
-	.string "enjoy fishing in this pond.\p"
-	.string "Here take this!$"
-
-NPC_FISHERMAN_1_Text_3:
-	.string "It is only a small net but I'm sure there\n"
-	.string "are plenty of things you could fish up\l"
-	.string "with it!$"
-
-NPC_FISHERMAN_1_Text_4:
-	.string "How are you finding fishing in the pond?\p"
-	.string "Have you caught anything yet?{PAUSE 15}\p"
-	.string "Did you know that a crayfish evolves\n"
-	.string "into a shrimp?\p"
-	.string "Or that a shrimp then evolves into a\n"
-	.string "lobster?\p"
-	.string "Apparently lobsters can then evolve\n"
-	.string "again if you level them up under\l"
-	.string "extreme weather conditions like rain,\l"
-	.string "sunshine, or hail.\p"
-	.string "But it's so peaceful here, I've never\n"
-	.string "managed to evolve one myself.$"
 
 BLOCK_ROUTE1_FARMER_Text_0:
 	.string "Farmer$"

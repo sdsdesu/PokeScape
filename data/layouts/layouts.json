@@ -8990,6 +8990,16 @@
       "secondary_tileset": "gTileset_DwarvenMines",
       "border_filepath": "data/layouts/DwarvenMines_PowerStation_2/border.bin",
       "blockdata_filepath": "data/layouts/DwarvenMines_PowerStation_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_LUMBRIDGE_FISHING_STORE",
+      "name": "Lumbridge_FishingStore_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Rimmington",
+      "border_filepath": "data/layouts/Lumbridge_FishingStore/border.bin",
+      "blockdata_filepath": "data/layouts/Lumbridge_FishingStore/map.bin"
     }
   ]
 }

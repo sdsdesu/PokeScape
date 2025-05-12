@@ -426,16 +426,7 @@ script NPC_LASSIE
 	end
 }
 
-script NPC_ROUTE12_Fisherman{
-    lock
-	faceplayer
-	namebox("Fisherman")
-    msgbox(format("We once had a wooden bridge here, but some firemakers burnt it down…"))
-    hidenamebox
-	closemessage
-	release
-	end
-}
+
 
 script NPC_ROUTE12_Goblin_2{
     lock
