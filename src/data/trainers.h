@@ -6134,7 +6134,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FROGEEL_RIVAL_1] =
     {
-        .trainerClass = TRAINER_CLASS_THIEF,         //Need some custom stuff for him?
+        .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_mugger,
         .trainerName = _("Angrenouille"),
