@@ -66,6 +66,10 @@ script STORYMODE_STATE_ROUTE1{
         setobjectxyperm(13, 43, 12)
         setobjectmovementtype(13,MOVEMENT_TYPE_FACE_DOWN)
     }
+    if (!(var(VAR_FROGEEL_RIVAL) == 0)) {
+        removeobject(24)
+        setflag(FLAG_TEMP_1F) //Angrenouille
+    }
     return
 }
 
@@ -1033,4 +1037,70 @@ script PURO_PURO_EVENT_ROUTE1 {
     setmetatile(54, 9, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0)
 
 	return
+}
+
+
+
+script FROGEEL_RIVAL_1 {
+    lock 
+    faceplayer
+    namebox("???")
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 15) {    //Only battleable after first gym, given he has a level 15 Frogeel
+        msgbox(format("Hello there.\p{PAUSE 15}Sorry if I seem wet.\pI just swam across the river here, evading..."))
+        hidenamebox
+        closemessage
+        applymovement (24, MOVEMENT_EXCLAMATIONMARK_JUMP_DOWN)
+        waitmovement(0)
+        msgbox(format("I mean practising my swimming skills."))
+        namebox("Angrenouille")
+        msgbox(format("Names Angrenouille.\pI dream of one day becoming a frog prince.\pI still wait for the day the Frog Princess of my dreams will call me to the Land of the Frogs to ask for a kiss from yours truly.\p{PAUSE 15}Aaah, love."))
+        hidenamebox
+        closemessage
+        applymovement (24, MOVEMENT_EXCLAMATIONMARK_JUMP_DOWN)
+        waitmovement(0)
+        namebox("Angrenouille")
+        msgbox(format("What?\p{PAUSE 15}I look shady?\p{PAUSE 15}My, you sure do have some gall to call ME a thief?"))
+        hidenamebox
+        closemessage
+        applymovement (24, MOVEMENT_QUESTIONMARK)
+        namebox("Angrenouille")
+        msgbox(format("You didn't?\p{PAUSE 15}No... I am not a thief!\pI swear!\p{PAUSE 15}Well whatever, you're wrong, and I have nothing to prove to you."))
+        hidenamebox
+        closemessage
+        namebox("Angrenouille")
+        msgbox(format("......\p{PAUSE 15}Let's fight just to keep you silent."))
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_1, format("Seeya!"))
+        namebox("Angrenouille")
+        msgbox(format("A\p{PAUSE 15}AAA\p{PAUSE 15}AAAAAAA"))
+        hidenamebox
+        closemessage
+        applymovement(24, MOVEMENT_FROGEEL_RIVAL_ROUTE1)
+        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1)
+        waitmovement(0)
+        msgbox(format("It seems Angrenouille dropped something while running off."))
+        giveitem(ITEM_SPIRIT_CHARM, 1)
+        removeobject(24)
+        setflag(FLAG_TEMP_1F) //Angrenouille
+        setvar(VAR_FROGEEL_RIVAL, 5)
+    }
+    else {
+        msgbox(format("Hello there.\pThieves Guild?\pNever heard of it.{PAUSE 15}Come back when you've beat the Duke and we'll talk then."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ROUTE1 {
+    walk_fast_down
+    walk_fast_left * 6
+    walk_fast_up * 6
+    delay_8
+    walk_fast_down * 12
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1 {
+    walk_fast_down
+    face_left
 }

@@ -8383,3 +8383,10 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ir
     .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
     }
 };
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    
+    {
+    .lvl = 15,
+    .species = SPECIES_FROGEEL,
+    }
+};
