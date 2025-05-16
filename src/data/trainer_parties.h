@@ -6918,6 +6918,34 @@ static const struct TrainerMon sParty_Lopendebank[] = {
     }
 };
 
+static const struct TrainerMon sParty_Orchy[] = {
+    {
+    .lvl = 43,
+    .ability = ABILITY_ILLUSION,
+    .species = SPECIES_CAMEL_WARRIOR_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SHADOW_HOUND,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_EEL_DUSK_FORM,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_AIRUT,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_CROCODILE_ANKH_FORM,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_ANCHOVY_PIZZA_FORM,
+    }
+};
+
 static const struct TrainerMon sParty_ROUTE2_TRAINER_8[] = {
     {
     .lvl = 13,

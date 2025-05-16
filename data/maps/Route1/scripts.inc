@@ -17,12 +17,26 @@ Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 0
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	call ROUTE1_STATE
 	call OPENWORLD_STATE_ROUTE1
 	return
 
 Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	call ROUTE1_STATE
 	call STORYMODE_STATE_ROUTE1
 	return
+
+
+ROUTE1_STATE::
+	compare VAR_FROGEEL_RIVAL, 0
+	goto_if_ne ROUTE1_STATE_2
+ROUTE1_STATE_1:
+	return
+
+ROUTE1_STATE_2:
+	removeobject 24
+	setflag FLAG_TEMP_1F
+	goto ROUTE1_STATE_1
 
 
 OPENWORLD_STATE_ROUTE1::
@@ -922,6 +936,93 @@ PURO_PURO_EVENT_ROUTE1::
 	return
 
 
+FROGEEL_RIVAL_1::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_1_Text_0
+	goto_if_set FLAG_BADGE01_GET, FROGEEL_RIVAL_1_2
+	msgbox FROGEEL_RIVAL_1_Text_11
+FROGEEL_RIVAL_1_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+FROGEEL_RIVAL_1_2:
+	msgbox FROGEEL_RIVAL_1_Text_1
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_0
+	msgbox FROGEEL_RIVAL_1_Text_2
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_4
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_5
+	hidenamebox
+	closemessage
+	applymovement 24, MOVEMENT_QUESTIONMARK
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_6
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_7
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_1, FROGEEL_RIVAL_1_Text_8
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_9
+	hidenamebox
+	closemessage
+	playse SE_FLEE
+	applymovement 24, MOVEMENT_FROGEEL_RIVAL_ROUTE1
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1
+	waitmovement 0
+	delay 60
+	msgbox FROGEEL_RIVAL_1_Text_10
+	giveitem ITEM_SPIRIT_CHARM, 1
+	removeobject 24
+	setflag FLAG_TEMP_1F
+	setvar VAR_FROGEEL_RIVAL, 5
+	goto FROGEEL_RIVAL_1_1
+
+
+MOVEMENT_FROGEEL_RIVAL_ROUTE1:
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	delay_8
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1:
+	walk_fast_down
+	face_left
+	step_end
+
 NPC_DOG_Text_0:
 	.string "Dog$"
 
@@ -1333,3 +1434,64 @@ BATTLE_AREA_TRAINER_3_Text_1:
 
 BATTLE_AREA_TRAINER_3_Text_2:
 	.string "Big high war god is god of goblins.$"
+
+FROGEEL_RIVAL_1_Text_0:
+	.string "???$"
+
+FROGEEL_RIVAL_1_Text_1:
+	.string "Hello there…{PAUSE 30}\n"
+	.string "Sorry if I seem wet.\p"
+	.string "I just swam across the river here,\n"
+	.string "evading…$"
+
+FROGEEL_RIVAL_1_Text_2:
+	.string "…{PAUSE 15}… I mean practising my swimming skills.$"
+
+FROGEEL_RIVAL_1_Text_3:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_1_Text_4:
+	.string "Names Angrenouille.\p"
+	.string "I dream of one day becoming a frog\n"
+	.string "prince.\p"
+	.string "I still wait for the day the Frog\n"
+	.string "Princess of my dreams will call me to the\l"
+	.string "Land of the Frogs to ask for a kiss from\l"
+	.string "yours truly.\p"
+	.string "Aaah, love.$"
+
+FROGEEL_RIVAL_1_Text_5:
+	.string "What?{PAUSE 60}\n"
+	.string "I look shady?\p"
+	.string "My, you sure do have some gall to call ME\n"
+	.string "a thief?$"
+
+FROGEEL_RIVAL_1_Text_6:
+	.string "You didn't?{PAUSE 60}\n"
+	.string "No… I am not a thief!\p"
+	.string "I swear!\p"
+	.string "Well whatever, you're wrong, and I have\n"
+	.string "nothing to prove to you.$"
+
+FROGEEL_RIVAL_1_Text_7:
+	.string "…{PAUSE 15}\n"
+	.string "Let's fight just to keep you silent.$"
+
+FROGEEL_RIVAL_1_Text_8:
+	.string "Seeya!$"
+
+FROGEEL_RIVAL_1_Text_9:
+	.string "A…{PAUSE 60}\n"
+	.string "AAA…{PAUSE 60}\l"
+	.string "AAAAAAA!$"
+
+FROGEEL_RIVAL_1_Text_10:
+	.string "It seems Angrenouille dropped\n"
+	.string "something while running off.$"
+
+FROGEEL_RIVAL_1_Text_11:
+	.string "Hello there…{PAUSE 30}\n"
+	.string "Thieves Guild?\p"
+	.string "Never heard of it…\p"
+	.string "Come back when you've beat the Duke\n"
+	.string "and we'll talk then.$"

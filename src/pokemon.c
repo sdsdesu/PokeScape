@@ -6944,6 +6944,11 @@ u16 GetBattleBGM(void)
         else
             trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
 
+        if (gTrainerBattleOpponent_A == TRAINER_ORCHY)
+        {
+            return MUS_PS_VS_ORCHY;
+        }
+
         switch (trainerClass)
         {
         case TRAINER_CLASS_WISE_OLD_MAN: 

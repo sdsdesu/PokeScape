@@ -208,6 +208,103 @@ NPC_AMBER::
 	end
 
 
+POKESCAPER_ORCHY::
+	lock
+	faceplayer
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox POKESCAPER_ORCHY_Text_1
+	closemessage
+	hidenamebox
+	goto BATTLE_ORCHY
+	release
+	end
+
+
+BATTLE_ORCHY::
+	playse SE_PIN
+	applymovement 6, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox BATTLE_ORCHY_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne BATTLE_ORCHY_2
+	msgbox BATTLE_ORCHY_Text_4
+BATTLE_ORCHY_1:
+	hidenamebox
+	closemessage
+	applymovement 6, Movement_InteractFACERIGHT
+	waitmovement 0
+	random 11
+	switch VAR_RESULT
+	case 0, BATTLE_ORCHY_7
+	case 1, BATTLE_ORCHY_8
+	case 2, BATTLE_ORCHY_9
+	case 3, BATTLE_ORCHY_10
+	case 4, BATTLE_ORCHY_11
+	case 5, BATTLE_ORCHY_12
+	case 6, BATTLE_ORCHY_13
+	case 7, BATTLE_ORCHY_14
+	case 8, BATTLE_ORCHY_15
+	case 9, BATTLE_ORCHY_16
+	case 10, BATTLE_ORCHY_17
+BATTLE_ORCHY_5:
+	release
+	end
+
+BATTLE_ORCHY_2:
+	msgbox BATTLE_ORCHY_Text_1
+	closemessage
+	hidenamebox
+	trainerbattle_no_intro TRAINER_ORCHY, BATTLE_ORCHY_Text_2
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox BATTLE_ORCHY_Text_3
+	goto BATTLE_ORCHY_1
+
+BATTLE_ORCHY_7:
+	playbgm MUS_PS_WISE_OLD_MAN_THEME, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_8:
+	playbgm MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_9:
+	playbgm MUS_PS_GODSLAYER, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_10:
+	playbgm MUS_PS_VS_CHAOS_TUNNELS, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_11:
+	playbgm MUS_PS_VS_ORCHY, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_12:
+	playbgm MUS_PS_VS_POKESCAPERS, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_13:
+	playbgm MUS_PS_VS_CHAOS_ELEMENTAL, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_14:
+	playbgm MUS_PS_VS_LEGENDARY, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_15:
+	playbgm MUS_PS_ROUTE_DESERT, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_16:
+	playbgm MUS_PS_SURFING, 1
+	goto BATTLE_ORCHY_5
+
+BATTLE_ORCHY_17:
+	playbgm MUS_PS_GENERAL_STORE, 1
+	goto BATTLE_ORCHY_5
+
+
 NPC_GOBLINVILLAGE_GOBLIN_1_Text_0:
 	.string "Dulleyes$"
 
@@ -375,3 +472,33 @@ NPC_AMBER_Text_0:
 
 NPC_AMBER_Text_1:
 	.string "Yip, Yiip!$"
+
+POKESCAPER_ORCHY_Text_0:
+	.string "Orchy$"
+
+POKESCAPER_ORCHY_Text_1:
+	.string "Hey!\p"
+	.string "I'm Runescape Reorchestrated, you can\n"
+	.string "call me Orchy for short.\p"
+	.string "I made all the music for this game.$"
+
+BATTLE_ORCHY_Text_0:
+	.string "Oh, by any chance are you looking for a\n"
+	.string "battle?$"
+
+BATTLE_ORCHY_Text_1:
+	.string "Alright, then let us let the bodies hit\n"
+	.string "the floor!$"
+
+BATTLE_ORCHY_Text_2:
+	.string "Can you hear that?\n"
+	.string "It's the sound of my defeat.$"
+
+BATTLE_ORCHY_Text_3:
+	.string "As a member of team PokerScaper, I must\n"
+	.string "say be sure to keep your eyes out as we\l"
+	.string "are everywhere.$"
+
+BATTLE_ORCHY_Text_4:
+	.string "That's alright, you can just listen to\n"
+	.string "me playing some music.$"

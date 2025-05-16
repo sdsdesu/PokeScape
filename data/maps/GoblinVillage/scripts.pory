@@ -226,6 +226,68 @@ script NPC_AMBER
 
 
 
+script POKESCAPER_ORCHY
+{
+    lock
+    faceplayer
+    namebox ("Orchy")
+    msgbox(format("Hey!\pI'm Runescape Reorchestrated, you can call me Orchy for short.\pI made all the music for this game."))
+    closemessage
+    hidenamebox
+    goto(BATTLE_ORCHY)
+    release
+    end
+}
+script BATTLE_ORCHY {
+    playse(SE_PIN)
+    applymovement(6, MOVEMENT_EXCLAMATIONMARK)
+    waitmovement(0)
+    namebox("Orchy")
+    msgbox(format("Oh, by any chance are you looking for a battle?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Alright, then let us let the bodies hit the floor!"))
+        closemessage
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_ORCHY, msgbox(format("Can you hear that?\nIt's the sound of my defeat.")))
+        namebox ("Orchy")
+        msgbox(format("As a member of team PokerScaper, I must say be sure to keep your eyes out as we are everywhere."))
+    }
+    else {
+        msgbox(format("That's alright, you can just listen to me playing some music."))
+    }
+    hidenamebox
+	closemessage
+    applymovement(6, Movement_InteractFACERIGHT)
+    waitmovement(0)
+    random(11)
+    switch (var(VAR_RESULT)){ 
+            case 0: 
+                playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
+            case 1: 
+                playbgm (MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1)
+            case 2: 
+                playbgm (MUS_PS_GODSLAYER, 1)
+            case 3: 
+                playbgm (MUS_PS_VS_CHAOS_TUNNELS, 1)
+            case 4: 
+                playbgm (MUS_PS_VS_ORCHY, 1)
+            case 5: 
+                playbgm (MUS_PS_VS_POKESCAPERS, 1)
+            case 6: 
+                playbgm (MUS_PS_VS_CHAOS_ELEMENTAL, 1)
+            case 7: 
+                playbgm (MUS_PS_VS_LEGENDARY, 1)
+            case 8: 
+                playbgm (MUS_PS_ROUTE_DESERT, 1)
+            case 9: 
+                playbgm (MUS_PS_SURFING, 1)
+            case 10: 
+                playbgm (MUS_PS_GENERAL_STORE, 1)
+    }
+    release
+    end
+}
+
 
 
 
