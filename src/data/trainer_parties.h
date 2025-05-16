@@ -9419,3 +9419,10 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     .species = SPECIES_BARRELCHEST,
     },*/
 };
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    
+    {
+    .lvl = 15,
+    .species = SPECIES_FROGEEL,
+    }
+};
