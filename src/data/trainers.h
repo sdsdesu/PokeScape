@@ -6132,6 +6132,42 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_1),
     },
 
+    [TRAINER_FROGEEL_RIVAL_2_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_mugger,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_2_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_2_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_mugger,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_2_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_2_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_mugger,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_2_WATER),
+    },
+
 /*
     #define TRAINER_HELLWIND                                445
 #define TRAINER_HYPER_STAN                              446

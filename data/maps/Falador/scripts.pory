@@ -23,10 +23,12 @@ mapscripts Falador_MapScripts {
 		if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
 		{
 			call(FALADOR_QUEST_STATE)
+			call(FROGEEL_RIVAL_STATE)
 		}
 		else 
 		{
-			call(OPENWORLD_STATE_FALADOR) 
+			call(OPENWORLD_STATE_FALADOR)
+			call(FROGEEL_RIVAL_STATE) 
 		}
 
     }
@@ -74,7 +76,13 @@ script MODTIMBO_STATE{
 }
 
 
-
+script FROGEEL_RIVAL_STATE {
+    if (!(var(VAR_FROGEEL_RIVAL) == 5)) {
+        removeobject(53)
+        setflag(FLAG_TEMP_10) //Angrenouille
+    }
+    return
+}
 
 
 
@@ -1533,5 +1541,110 @@ script Mithrilman_FALADOR1{
 //-----------------------------
 
 
+script FROGEEL_RIVAL_2 {
+    lock 
+    faceplayer
+    namebox("Angrenouille")
+	msgbox(format("Phew, evaded pursuit once again."))
+    hidenamebox
+    closemessage
+	applymovement (53, MOVEMENT_EXCLAMATIONMARK)
+    namebox("Angrenouille")
+	msgbox(format("Oh hi there, {PLAYER} was it?\nYes I know your name, I know a lot of things.\nLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
+    if (!var(VAR_RESULT))
+    { 
+        msgbox(format("I knew you and I'd be pals. One day when I am King of The Land of the Frogs, you can be in my court."))
+    	closemessage
+    	hidenamebox
+	}
+	msgbox(format("Well I guess we just have to solve it the good old fashioned way then don't we?"))
+    closemessage
+    hidenamebox
+		if (flag(FLAG_STARTER1)){ //Grass
+			trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_GRASS, format("Seeya!"))
+		}
+		elif (flag(FLAG_STARTER2)) { //Fire
+			trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_FIRE, format("Seeya!"))
+		}
+		elif (flag(FLAG_STARTER3)) { //Water
+			trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_WATER, format("Seeya!"))
+		}
+    ("Angrenouille")
+	msgbox(format("A\nAAA\nAAAAAAA\nAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAA!"))
+	removeflag(FLAG_TEMP_1D) //White Knight
+	removeflag(FLAG_TEMP_1F) //White Knight
+	playse(SE_FLEE)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 60){
+		applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+		applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1)
+		} else {
+       	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1)
+		}
+    applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1)
+	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2)
+	waitmovement(0)
+	applymovement(53, MOVEMENT_EXCLAMATIONMARK)
+	applymovement(52, MOVEMENT_EXCLAMATIONMARK)
+	applymovement(43, MOVEMENT_EXCLAMATIONMARK)
+	waitmovement(0)
+	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2)
+	applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3)
+	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4)
+    waitmovement(0)
+    return
+	delay(60)
+    msgbox(format("It seems that some of Angrenouille's loot fell from his pocket as he ran off."))
+    giveitem(ITEM_MIND_RUNE, 1)
+    removeobject(53)
+    removeobject(52)
+    removeobject(43)
+    setflag(FLAG_TEMP_10) //Angrenouille
+	setflag(FLAG_TEMP_1D) //White Knight
+	setflag(FLAG_TEMP_1F) //White Knight
+    setvar(VAR_FROGEEL_RIVAL, 10)
+    }
 
+movement MOVEMENT_EXCLAMATIONMARK {
+    emote_exclamation_mark
+    step_end
+}
 
+movement MOVEMENT_FROGEEL_RIVAL_FALADOR_1 {
+    walk_fast_right * 7
+    walk_fast_down * 6
+    walk_fast_left * 11
+	walk_fast_up * 4
+	walk_fast_left * 2
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_FALADOR_2 {
+    walk_fast_right * 2
+    walk_fast_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1 {
+    delay_8
+	walk_right * 13
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2 {
+	walk_down
+	walk_right * 14
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3 {
+	walk_fast_right * 4
+	walk_fast_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4 {
+	walk_fast_right * 3
+	walk_fast_down * 7
+    step_end
+}
