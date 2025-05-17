@@ -6435,56 +6435,108 @@ static const struct TrainerMon sParty_CHAMPION_WISE_OLD_MAN_1[] = {
 
 static const struct TrainerMon sParty_EDGEVILLE_GYM_1[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 48,
+    .species = SPECIES_SPIDER_NIGHT_FORM,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_BLOODVELD_INSATIABLE_SPECIAL,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_DARK_BEAST_NORMAL_FORM,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_2[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 47,
+    .species = SPECIES_SCORPION_CORRUPTED_FORM,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_DEMON_GREATER_BLACK_FORM,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_REVENANT_IMP,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_ZOMBIE_RAT,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_3[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 49,
+    .species = SPECIES_TERROR_DOG,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_4[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 46,
+    .species = SPECIES_WALL_BEAST,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_GORAK,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_DARK_BEAST_PUP_FORM,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_5[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 47,
+    .species = SPECIES_GIANT_GRAB_DARK_FORM,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_EVILTURNIP,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_6[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 48,
+    .species = SPECIES_RAT_FUNGAL_FORM,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_7[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 47,
+    .species = SPECIES_CORXATRICE,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SHARK_GREATWHITE_FORM,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_8[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 47,
+    .species = SPECIES_WOLF_DIRE_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_TALONBEAST_NAIL_FORM,
+    },
+    {
+    .lvl = 49,
+    .species = SPECIES_DEATHWING,
     }
 };
+
 static const struct TrainerMon sParty_EDGEVILLE_GYM_9[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_FROGEEL,
+    .lvl = 49,
+    .species = SPECIES_DRAGON_BLACK_FORM,
     }
 };
 

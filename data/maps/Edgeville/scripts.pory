@@ -660,6 +660,7 @@ script NPC_EDGEVILLE_HOUSE_NPC_10 {
 script BATTLE_EDGEVILLE_GYM_1
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_1, format("My current slayer task is Skeletons.\pYou're one of those right?!"),format("Woah, calm down it was a joke."))
+    namebox ("OfD3mons")
     msgbox(format("I got a task from Vannaka, did you?"))
 	hidenamebox
     release
@@ -669,6 +670,7 @@ script BATTLE_EDGEVILLE_GYM_1
 script BATTLE_EDGEVILLE_GYM_2
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_2, format("Brrraaaiiinnnsss…"),format("Guh?"))
+    namebox ("Vauverra")
     msgbox(format("Heh, sorry I just needed some brains so I can summon more conjures."))
 	hidenamebox
     release
@@ -699,7 +701,7 @@ script BATTLE_EDGEVILLE_GYM_4
 script BATTLE_EDGEVILLE_GYM_5
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_5, format("Wooosh!"),format("Wooo…sh…"))
-	namebox ("MOSS GIANT")
+	namebox ("Moss Giant")
     msgbox(format("wooshing sounds"))
 	hidenamebox
     release
@@ -719,7 +721,7 @@ script BATTLE_EDGEVILLE_GYM_6
 script BATTLE_EDGEVILLE_GYM_7
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_7, format("LITTLE HUMAN.\nWHAT ARE YOU DOING HERE?!"),format("OW! WHY…"))
-	namebox ("HILL GIANT")
+	namebox ("Hill Giant")
     msgbox(format("WHY IS LITTLE HUMAN HERE?"))
 	hidenamebox
     release
@@ -729,7 +731,7 @@ script BATTLE_EDGEVILLE_GYM_7
 script BATTLE_EDGEVILLE_GYM_8
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_8, format("OH! SECOND DINNER!"),format("ARGH REFLUX!"))
-	namebox ("HILL GIANT")
+	namebox ("Hill Giant")
     msgbox(format("ME WAS HUNGRY. HUMAN NOT GOOD DINNER."))
 	hidenamebox
     release
@@ -739,7 +741,7 @@ script BATTLE_EDGEVILLE_GYM_8
 script BATTLE_EDGEVILLE_GYM_9
 {
     trainerbattle_single(TRAINER_EDGEVILLE_GYM_9, format("OI WHAT ARE YOU DOING IN ME CAVE?!"),format("GET OUT OF ME CAVE…"))
-	namebox ("HILL GIANT")
+	namebox ("Hill Giant")
     msgbox(format("GET OUT OF ME CAVE…"))
 	hidenamebox
     release

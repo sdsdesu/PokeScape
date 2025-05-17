@@ -13438,7 +13438,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
     [MOVE_CEASELESS_EDGE] =
     {
         .effect = EFFECT_HIT_SET_ENTRY_HAZARD,
-        .power = 65,
+        .power = 75,
         .type = TYPE_DARK,
         .accuracy = 90,
         .pp = 15,

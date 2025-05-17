@@ -4715,100 +4715,111 @@ const struct Trainer gTrainers[] = {
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_CHAMPION_WISE_OLD_MAN_1),
     },
+
+//Edgeville Gym Trainers
+
     [TRAINER_EDGEVILLE_GYM_1] =
     {
         .trainerClass = TRAINER_CLASS_SLAYER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
         .trainerPic = TRAINER_PIC_slayer,
-        .trainerName = _(""),
+        .trainerName = _("OfD3mons"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_1),
     },
+
     [TRAINER_EDGEVILLE_GYM_2] =
     {
         .trainerClass = TRAINER_CLASS_NECROMANCER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_necromancer,
-        .trainerName = _(""),
+        .trainerName = _("Vauverra"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_2),
     },
+
     [TRAINER_EDGEVILLE_GYM_3] =
 	{
         .trainerClass = TRAINER_CLASS_SKELETON,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_skeleton,
-        .trainerName = _(""),
+        .trainerName = _("Capitulum"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_3),
     },
+
     [TRAINER_EDGEVILLE_GYM_4] =
 	{
         .trainerClass = TRAINER_CLASS_SKELETON,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_skeleton,
-        .trainerName = _(""),
+        .trainerName = _("Trochlea"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_4),
     },
+
     [TRAINER_EDGEVILLE_GYM_5] =
     {
         .trainerClass = TRAINER_CLASS_MOSS_GIANT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_moss_giant,
-        .trainerName = _(""),
+        .trainerName = _("Hiflor"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_5),
     },
+
     [TRAINER_EDGEVILLE_GYM_6] =
 	{
         .trainerClass = TRAINER_CLASS_SKELETON,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_skeleton,
-        .trainerName = _(""),
+        .trainerName = _("Sacrum"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_6),
     },
+
     [TRAINER_EDGEVILLE_GYM_7] =
     {
         .trainerClass = TRAINER_CLASS_HILL_GIANT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_hill_giant,
-        .trainerName = _(""),
+        .trainerName = _("Karg"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_7),
     },
+
     [TRAINER_EDGEVILLE_GYM_8] =
     {
         .trainerClass = TRAINER_CLASS_HILL_GIANT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_hill_giant,
-        .trainerName = _(""),
+        .trainerName = _("Ulkk"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_EDGEVILLE_GYM_8),
     },
+
     [TRAINER_EDGEVILLE_GYM_9] =
     {
         .trainerClass = TRAINER_CLASS_HILL_GIANT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_hill_giant,
-        .trainerName = _(""),
+        .trainerName = _("Halnd"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
