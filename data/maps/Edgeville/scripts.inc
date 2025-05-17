@@ -659,9 +659,10 @@ NPC_EDGEVILLE_3_Text_0:
 	.string "Choob$"
 
 NPC_EDGEVILLE_3_Text_1:
-	.string "Welcome to Edgeville.\p"
-	.string "Are you looking for Vannaka? He's just\n"
-	.string "south of here.. in that creepy dungeon!$"
+	.string "Welcome to Edgeville.{PAUSE 15}\n"
+	.string "Are you looking for Vannaka?\p"
+	.string "He's just south of here…{PAUSE 30}\n"
+	.string "in that creepy dungeon!$"
 
 NPC_EDGEVILLE_4_Text_0:
 	.string "PVMer$"
@@ -697,11 +698,11 @@ NPC_EDGEVILLE_7_Text_0:
 	.string "Ironman$"
 
 NPC_EDGEVILLE_7_Text_1:
-	.string "I hear some monsters only evolve in\n"
-	.string "certain areas.\p"
-	.string "For instance, one of my chickens\n"
-	.string "evolved differently while I was on\l"
-	.string "Karamja!$"
+	.string "Huh, what gives my Glacor evolved?\p"
+	.string "I didn't do anything special I only had\n"
+	.string "a Chinchompa in my party.\p"
+	.string "I guess some monsters evolve when\n"
+	.string "there are other monsters around them.$"
 
 NPC_EDGEVILLE_8_Text_0:
 	.string "Man$"

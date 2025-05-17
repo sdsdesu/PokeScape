@@ -34,7 +34,7 @@ ROUTE1_STATE_1:
 	return
 
 ROUTE1_STATE_2:
-	removeobject 24
+	removeobject 38
 	setflag FLAG_TEMP_1F
 	goto ROUTE1_STATE_1
 
@@ -962,7 +962,7 @@ FROGEEL_RIVAL_1_2:
 	msgbox FROGEEL_RIVAL_1_Text_5
 	hidenamebox
 	closemessage
-	applymovement 24, MOVEMENT_QUESTIONMARK
+	applymovement 38, MOVEMENT_QUESTIONMARK
 	namebox FROGEEL_RIVAL_1_Text_3
 	msgbox FROGEEL_RIVAL_1_Text_6
 	hidenamebox
@@ -975,13 +975,13 @@ FROGEEL_RIVAL_1_2:
 	hidenamebox
 	closemessage
 	playse SE_FLEE
-	applymovement 24, MOVEMENT_FROGEEL_RIVAL_ROUTE1
+	applymovement 38, MOVEMENT_FROGEEL_RIVAL_ROUTE1
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1
 	waitmovement 0
 	delay 60
 	msgbox FROGEEL_RIVAL_1_Text_10
 	giveitem ITEM_SPIRIT_CHARM, 1
-	removeobject 24
+	removeobject 38
 	setflag FLAG_TEMP_1F
 	setvar VAR_FROGEEL_RIVAL, 5
 	goto FROGEEL_RIVAL_1_1

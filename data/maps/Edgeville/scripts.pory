@@ -25,7 +25,7 @@ script NPC_EDGEVILLE_1
 	lock
 	faceplayer
     namebox ("Mugger")
-	msgbox(format("Beyond here is the Wilderness.\pI'd suggest steering clear of it if I were you.\pSomeone might mug you and take your stuff.."))
+	msgbox(format("Beyond here is the Wilderness.\pI'd suggest steering clear of it if I were you.\pSomeone might mug you and take your stuff…"))
     closemessage
     hidenamebox
 	release
@@ -47,7 +47,7 @@ script NPC_EDGEVILLE_3
 	lock
 	faceplayer
     namebox ("Choob")
-	msgbox(format("Welcome to Edgeville.\pAre you looking for Vannaka? He's just south of here.. in that creepy dungeon!"))
+	msgbox(format("Welcome to Edgeville.\nAre you looking for Vannaka?\pHe's just south of here…{PAUSE 30} in that creepy dungeon!"))
     closemessage
     hidenamebox
 	release
@@ -91,7 +91,8 @@ script NPC_EDGEVILLE_7
 	lock
 	faceplayer
     namebox ("Ironman")
-	msgbox(format("I hear some monsters only evolve in certain areas.\pFor instance, one of my chickens evolved differently while I was on Karamja!"))
+	msgbox(format("Huh, what gives my Glacor evolved?\pI didn't do anything special I only had a Chinchompa in my party.\pI guess some monsters evolve when there are other monsters around them."))
+	//msgbox(format("I hear some monsters only evolve in certain areas.\pFor instance, one of my chickens evolved differently while I was on Karamja!"))
     closemessage
     hidenamebox
 	release
@@ -183,6 +184,17 @@ script NPC_EDGEVILLE_15
 	faceplayer
     namebox ("Got Minnows")
 	msgbox(format("Where are all the minnows?\pI've sailed around Gielinor and haven't been able to catch a single one!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+script NPC_EDGEVILLE_16
+{
+	lock
+	faceplayer
+    namebox ("Rusher")
+	msgbox(format("Did you know Mithril pouches are the best for catching monsters?\pYou just throw one and it works!\pIf it doesn't you just run away and try again!"))
     closemessage
     hidenamebox
 	release

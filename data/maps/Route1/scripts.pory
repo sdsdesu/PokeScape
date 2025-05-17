@@ -41,7 +41,7 @@ mapscripts Route1_MapScripts {
 
 script ROUTE1_STATE {
     if (!(var(VAR_FROGEEL_RIVAL) == 0)) {
-        removeobject(24)
+        removeobject(38)
         setflag(FLAG_TEMP_1F) //Angrenouille
     }
     return
@@ -1045,7 +1045,7 @@ script FROGEEL_RIVAL_1 {
         msgbox(format("What?{PAUSE 60}\nI look shady?\pMy, you sure do have some gall to call ME a thief?"))
         hidenamebox
         closemessage
-        applymovement (24, MOVEMENT_QUESTIONMARK)
+        applymovement (38, MOVEMENT_QUESTIONMARK)
         namebox("Angrenouille")
         msgbox(format("You didn't?{PAUSE 60}\nNo… I am not a thief!\pI swear!\pWell whatever, you're wrong, and I have nothing to prove to you."))
         hidenamebox
@@ -1058,13 +1058,13 @@ script FROGEEL_RIVAL_1 {
         hidenamebox
         closemessage
         playse(SE_FLEE)
-        applymovement(24, MOVEMENT_FROGEEL_RIVAL_ROUTE1)
+        applymovement(38, MOVEMENT_FROGEEL_RIVAL_ROUTE1)
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1)
         waitmovement(0)
         delay(60)
         msgbox(format("It seems Angrenouille dropped something while running off."))
         giveitem(ITEM_SPIRIT_CHARM, 1)
-        removeobject(24)
+        removeobject(38)
         setflag(FLAG_TEMP_1F) //Angrenouille
         setvar(VAR_FROGEEL_RIVAL, 5)
     }
