@@ -183,6 +183,17 @@ NPC_EDGEVILLE_15::
 	end
 
 
+NPC_EDGEVILLE_16::
+	lock
+	faceplayer
+	namebox NPC_EDGEVILLE_16_Text_0
+	msgbox NPC_EDGEVILLE_16_Text_1
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 EDGEVILLE_SIGN_3::
 	lock
 	faceplayer
@@ -212,8 +223,7 @@ NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER::
 	faceplayer
 	namebox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0
 	questmenu QUEST_MENU_CHECK_COMPLETE, QUEST_KOUREND_SLAYER
-	compare VAR_RESULT, 0
-	goto_if_eq NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_2
+	goto_if_unset FLAG_BADGE07_GET, NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_2
 	msgbox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_1
 	closemessage
 	hidenamebox
@@ -246,31 +256,43 @@ EDGEVILLE_GYM_START_2:
 	msgbox EDGEVILLE_GYM_START_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne EDGEVILLE_GYM_START_8
-	msgbox EDGEVILLE_GYM_START_Text_2
+	msgbox EDGEVILLE_GYM_START_Text_3
 EDGEVILLE_GYM_START_7:
 	return
 
 EDGEVILLE_GYM_START_5:
-	msgbox EDGEVILLE_GYM_START_Text_3
+	msgbox EDGEVILLE_GYM_START_Text_4
 	return
 
 EDGEVILLE_GYM_START_8:
 	msgbox EDGEVILLE_GYM_START_Text_1
-	startquest QUEST_KOUREND_SLAYER
+	closemessage
+	hidenamebox
 	setvar VAR_POKESCAPE_EDGEVILLE_GYM_QUEST, 5
+	playse SE_UNLOCK
+	setmetatile 1, 15, METATILE_PokeScape_Sewers_GATE_OPEN_UP, 0
+	setmetatile 1, 16, METATILE_PokeScape_Sewers_GATE_OPEN_DOWN, 1
+	setmetatile 2, 15, METATILE_PokeScape_Sewers_SEWER_FLOOR_ENCOUNTERS, 0
+	setmetatile 2, 16, METATILE_PokeScape_Sewers_SEWER_FLOOR_ENCOUNTERS, 0
+	special DrawWholeMapView
+	waitse
+	namebox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0
+	msgbox EDGEVILLE_GYM_START_Text_2
+	closemessage
+	hidenamebox
 	goto EDGEVILLE_GYM_START_7
 
 EDGEVILLE_GYM_START_12:
-	msgbox EDGEVILLE_GYM_START_Text_4
+	msgbox EDGEVILLE_GYM_START_Text_5
 	return
 
 EDGEVILLE_GYM_START_15:
-	msgbox EDGEVILLE_GYM_START_Text_5
+	msgbox EDGEVILLE_GYM_START_Text_6
 	call EDGEVILLE_GYM_BATTLE_VANNAKA
 	return
 
 EDGEVILLE_GYM_START_17:
-	msgbox EDGEVILLE_GYM_START_Text_6
+	msgbox EDGEVILLE_GYM_START_Text_7
 	call EDGEVILLE_GYM_BATTLE_VANNAKA
 	return
 
@@ -310,7 +332,6 @@ EDGEVILLE_GYM_BATTLE_VANNAKA::
 	msgbox EDGEVILLE_GYM_BATTLE_VANNAKA_Text_6
 	closemessage
 	hidenamebox
-	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_KOUREND_SLAYER
 	release
 	return
 
@@ -328,6 +349,7 @@ BATTLE_BASILISK_GYM::
 	waitmoncry
 	hidenamebox
 	closemessage
+	setvar VAR_POKESCAPE_EDGEVILLE_GYM_QUEST, 10
 	delay 1
 	setwildbattle SPECIES_BASILISK, 45, ITEM_NONE
 	dowildbattleNoCatch
@@ -431,8 +453,8 @@ FIND_BRASS_KEY::
 NPC_EDGEVILLE_HOUSE_NPC_1::
 	lock
 	faceplayer
-	namebox NPC_EDGEVILLE_8_Text_0
-	msgbox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
+	namebox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
+	msgbox NPC_EDGEVILLE_HOUSE_NPC_1_Text_1
 	closemessage
 	hidenamebox
 	release
@@ -442,7 +464,7 @@ NPC_EDGEVILLE_HOUSE_NPC_1::
 NPC_EDGEVILLE_HOUSE_NPC_2::
 	lock
 	faceplayer
-	namebox NPC_EDGEVILLE_8_Text_0
+	namebox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
 	msgbox NPC_EDGEVILLE_HOUSE_NPC_2_Text_0
 	closemessage
 	hidenamebox
@@ -453,7 +475,7 @@ NPC_EDGEVILLE_HOUSE_NPC_2::
 NPC_EDGEVILLE_HOUSE_NPC_3::
 	lock
 	faceplayer
-	namebox NPC_EDGEVILLE_8_Text_0
+	namebox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
 	msgbox NPC_EDGEVILLE_HOUSE_NPC_3_Text_0
 	closemessage
 	hidenamebox
@@ -464,7 +486,7 @@ NPC_EDGEVILLE_HOUSE_NPC_3::
 NPC_EDGEVILLE_HOUSE_NPC_4::
 	lock
 	faceplayer
-	namebox NPC_EDGEVILLE_8_Text_0
+	namebox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
 	msgbox NPC_EDGEVILLE_HOUSE_NPC_4_Text_0
 	closemessage
 	hidenamebox
@@ -475,7 +497,7 @@ NPC_EDGEVILLE_HOUSE_NPC_4::
 NPC_EDGEVILLE_HOUSE_NPC_5::
 	lock
 	faceplayer
-	namebox NPC_EDGEVILLE_8_Text_0
+	namebox NPC_EDGEVILLE_HOUSE_NPC_1_Text_0
 	msgbox NPC_EDGEVILLE_HOUSE_NPC_5_Text_0
 	closemessage
 	hidenamebox
@@ -641,7 +663,7 @@ NPC_EDGEVILLE_1_Text_1:
 	.string "I'd suggest steering clear of it if I\n"
 	.string "were you.\p"
 	.string "Someone might mug you and take your\n"
-	.string "stuff..$"
+	.string "stuff…$"
 
 NPC_EDGEVILLE_2_Text_0:
 	.string "Fisherman$"
@@ -659,33 +681,31 @@ NPC_EDGEVILLE_3_Text_0:
 	.string "Choob$"
 
 NPC_EDGEVILLE_3_Text_1:
-	.string "Welcome to Edgeville.{PAUSE 15}\n"
+	.string "Welcome to Edgeville.\n"
 	.string "Are you looking for Vannaka?\p"
-	.string "He's just south of here…{PAUSE 30}\n"
-	.string "in that creepy dungeon!$"
+	.string "He's is just inside…{PAUSE 30} that spooky crypt!$"
 
 NPC_EDGEVILLE_4_Text_0:
 	.string "PVMer$"
 
 NPC_EDGEVILLE_4_Text_1:
-	.string "If you go south into the dungeon you\n"
-	.string "can face a bunch of monsters.\p"
-	.string "Adventurers come from all over Gielinor\n"
-	.string "to murder hill giants there for their\l"
-	.string "bones.\p"
-	.string "It's quite fun actually.$"
+	.string "Do you know Vannaka?\p"
+	.string "He taught me when I was just starting\n"
+	.string "out.\p"
+	.string "Who would have thought that one day he\n"
+	.string "would have become a MvM leader.$"
 
 NPC_EDGEVILLE_5_Text_0:
 	.string "SkillSpecs$"
 
 NPC_EDGEVILLE_5_Text_1:
 	.string "Argh! I nearly smited an AGS but the guy\n"
-	.string "I was fighting tele'd away..\p"
+	.string "I was fighting tele'd away…\p"
 	.string "I'm going to restock and then head\n"
 	.string "north again.\p"
 	.string "I better not find you up in the\n"
 	.string "Wilderness without your most expensive\l"
-	.string "items..$"
+	.string "items…$"
 
 NPC_EDGEVILLE_6_Text_0:
 	.string "Hanannie$"
@@ -705,7 +725,7 @@ NPC_EDGEVILLE_7_Text_1:
 	.string "there are other monsters around them.$"
 
 NPC_EDGEVILLE_8_Text_0:
-	.string "Man$"
+	.string "Bruce$"
 
 NPC_EDGEVILLE_8_Text_1:
 	.string "Edgeville was recently rebuilt.\p"
@@ -725,9 +745,10 @@ NPC_EDGEVILLE_9_Text_1:
 	.string "much about it.$"
 
 NPC_EDGEVILLE_10_Text_0:
-	.string "Let this be a fair warning. If you cause\n"
-	.string "any trouble, we will lock you up and only\l"
-	.string "feed you bread and water.$"
+	.string "Let this be a fair warning.\p"
+	.string "If you cause any trouble, we will lock\n"
+	.string "you up and only feed you bread and\l"
+	.string "water.$"
 
 NPC_EDGEVILLE_11_Text_0:
 	.string "Noob$"
@@ -783,6 +804,16 @@ NPC_EDGEVILLE_15_Text_1:
 	.string "I've sailed around Gielinor and haven't\n"
 	.string "been able to catch a single one!$"
 
+NPC_EDGEVILLE_16_Text_0:
+	.string "Rusher$"
+
+NPC_EDGEVILLE_16_Text_1:
+	.string "Did you know Mithril pouches are the\n"
+	.string "best for catching monsters?\p"
+	.string "You just throw one and it works!\p"
+	.string "If it doesn't you just run away and try\n"
+	.string "again!$"
+
 EDGEVILLE_SIGN_3_Text_0:
 	.string "East to Edgeville.\p"
 	.string "North to the Monastery.\p"
@@ -815,27 +846,33 @@ EDGEVILLE_GYM_START_Text_0:
 	.string "Are you up for the challenge?$"
 
 EDGEVILLE_GYM_START_Text_1:
-	.string "Excellent, I shall open the gate for\n"
-	.string "you.\p"
-	.string "You current Slayer Assignment is to\n"
-	.string "slay 1 Basilisk within this Dungeon.$"
+	.string "Excellent, your current Slayer\n"
+	.string "Assignment is to slay 1 Basilisk within\l"
+	.string "this Dungeon.\p"
+	.string "But as you would expect it won't be\n"
+	.string "that simple, there are Hill Giants and\l"
+	.string "Skeletons everywhere.\p"
+	.string "Here I'll open the gate for you.$"
 
 EDGEVILLE_GYM_START_Text_2:
-	.string "Come back if you wish to challenge me.$"
+	.string "Good luck on your task!$"
 
 EDGEVILLE_GYM_START_Text_3:
+	.string "Come back if you wish to challenge me.$"
+
+EDGEVILLE_GYM_START_Text_4:
 	.string "You can find a Basilisk deep within this\n"
 	.string "dungeon.\p"
 	.string "Feel free to show off to those pesky\n"
-	.string "hill giants.$"
+	.string "Hill Giants while you're at it.$"
 
-EDGEVILLE_GYM_START_Text_4:
+EDGEVILLE_GYM_START_Text_5:
 	.string "You lost to the Basilisk?\p"
 	.string "Maybe you're not as strong as I thought\n"
 	.string "you were.\p"
 	.string "Go give it another try.$"
 
-EDGEVILLE_GYM_START_Text_5:
+EDGEVILLE_GYM_START_Text_6:
 	.string "Well done in defeating that Basilisk.\p"
 	.string "It looks like you even got slayer points\n"
 	.string "from defeating it!\p"
@@ -848,7 +885,7 @@ EDGEVILLE_GYM_START_Text_5:
 	.string "Edgeville to accept your challenge.\p"
 	.string "Very well, show me what you've got!$"
 
-EDGEVILLE_GYM_START_Text_6:
+EDGEVILLE_GYM_START_Text_7:
 	.string "Back for more?\p"
 	.string "Lets go!$"
 
@@ -912,6 +949,9 @@ FIND_BRASS_KEY_Text_0:
 	.string "{PLAYER} obtained the BRASS KEY.$"
 
 NPC_EDGEVILLE_HOUSE_NPC_1_Text_0:
+	.string "Man$"
+
+NPC_EDGEVILLE_HOUSE_NPC_1_Text_1:
 	.string "Some dude asked me if I wanted his\n"
 	.string "stuff, all I had to do is follow him to\l"
 	.string "the Wilderness.\p"

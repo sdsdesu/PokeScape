@@ -6222,52 +6222,49 @@ static const struct TrainerMon sParty_GYM_LEADER_TZHAAR_CHAMPION_1[] = {
 
 static const struct TrainerMon sParty_GYM_LEADER_VANNAKA_1[] = {
     {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
+    .ev = TRAINER_PARTY_EVS(252, 252, 4, 0, 0, 0),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .ability = ABILITY_STRONG_JAW,
-    .lvl = 35,
+    .lvl = 48,
+    .nature = NATURE_IMPISH,
     .species = SPECIES_BRINE_RAT,
-    .moves = {MOVE_CRUNCH, MOVE_AQUA_TAIL, MOVE_HYPER_FANG, MOVE_POWER_TRIP}
+    .moves = {MOVE_FISHIOUS_REND, MOVE_CEASELESS_EDGE, MOVE_SMACK_DOWN, MOVE_NONE}
     },
     {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
+    .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 0, 242),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ability = ABILITY_INTIMIDATE,
-    .lvl = 35,
+    .ability = ABILITY_GUARD_DOG,
+    .lvl = 48,
+    .nature = NATURE_CAREFUL,
     .species = SPECIES_HELLHOUND,
-    .moves = {MOVE_FLARE_BLITZ, MOVE_BRUTAL_SWING, MOVE_DIG, MOVE_SLICE_DICE}
+    .moves = {MOVE_FLARE_BLITZ, MOVE_CEASELESS_EDGE, MOVE_ROAR, MOVE_PLAY_ROUGH}
     },
     {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ability = ABILITY_HAEMANCY,
-    .lvl = 35,
-    .species = SPECIES_BLOODVELD_INSATIABLE_SPECIAL,
-    .moves = {MOVE_BLOOD_BARRAGE, MOVE_STRENGTH_SAP, MOVE_BRUTAL_SWING, MOVE_GIGA_DRAIN}
+    .ability = ABILITY_AVERNIC,
+    .lvl = 47,
+    .nature = NATURE_BRAVE,
+    .species = SPECIES_DEMON_KALGERION_FORM,
+    .moves = {MOVE_PSYCHO_CUT, MOVE_PARTING_SHOT, MOVE_CIRCLE_THROW, MOVE_CEASELESS_EDGE}
     },
     {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .ability = ABILITY_INTIMIDATE,
-    .lvl = 35,
+    .lvl = 49,
+    .nature = NATURE_RELAXED,
     .species = SPECIES_DRAGON_BRUTAL_BLACK_FORM,
-    .moves = {MOVE_DRAGON_DANCE, MOVE_DRAGON_RUSH, MOVE_BRUTAL_SWING, MOVE_FOCUS_ENERGY}
+    .moves = {MOVE_LAVA_PLUME, MOVE_DRAGON_TAIL, MOVE_CEASELESS_EDGE, MOVE_STEEL_WING}
     },
     {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
     //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ability = ABILITY_HUNTER,
-    .lvl = 35,
-    .species = SPECIES_WOLF_DIRE_FORM,
-    .moves = {MOVE_RETALIATE, MOVE_ICE_FANG, MOVE_BRUTAL_SWING, MOVE_REVENGE}
-    },
-    {
-    //.ev = TRAINER_PARTY_EVS(10, 252, 0, 0, 4, 242),
-    //.iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .ability = ABILITY_SNIPER,
-    .lvl = 35,
-    .species = SPECIES_DEMON_RIPPER_FORM,
-    .moves = {MOVE_FURY_SWIPES, MOVE_CRUSH_CLAW, MOVE_BRUTAL_SWING, MOVE_SCREECH}
+    .ability = ABILITY_DARK_AURA,
+    .lvl = 50,
+    .nature = NATURE_SERIOUS,
+    .species = SPECIES_DARK_BEAST_SOTETSEG_FORM,
+    .moves = {MOVE_CEASELESS_EDGE, MOVE_MEGAHORN, MOVE_VOLT_TACKLE, MOVE_PSYCHO_CUT}
     }
 };
 

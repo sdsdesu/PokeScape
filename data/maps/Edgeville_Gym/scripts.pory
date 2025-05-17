@@ -1,0 +1,23 @@
+
+
+mapscripts Edgeville_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+		
+	}
+	MAP_SCRIPT_ON_LOAD 
+    {
+		setrespawn(HEAL_LOCATION_EDGEVILLE)
+        call(EDGEVILLE_GYM_METATILES)
+    }
+}
+
+script EDGEVILLE_GYM_METATILES {
+	if (var(VAR_POKESCAPE_EDGEVILLE_GYM_QUEST) >= 5) {
+		setmetatile(1, 15, METATILE_PokeScape_Sewers_GATE_OPEN_UP, 0) 
+		setmetatile(1, 16, METATILE_PokeScape_Sewers_GATE_OPEN_DOWN, 1) 
+		setmetatile(2, 15, METATILE_PokeScape_Sewers_SEWER_FLOOR_ENCOUNTERS, 0) 
+		setmetatile(2, 16, METATILE_PokeScape_Sewers_SEWER_FLOOR_ENCOUNTERS, 0) 
+		//special(DrawWholeMapView)  // DO NOT USE WITH : ON_LOAD
+	}
+	return
+}

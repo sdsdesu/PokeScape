@@ -65,11 +65,10 @@ NPC_EDGEVILLE_BANK_1_Text_0:
 	.string "K A B o0 M$"
 
 NPC_EDGEVILLE_BANK_1_Text_1:
-	.string "Beyond here is the Wilderness.\p"
-	.string "I'd suggest steering clear of it if I\n"
-	.string "were you.\p"
-	.string "Someone might mug you and take your\n"
-	.string "stuff..$"
+	.string "Dude my monster leveled up in battle\n"
+	.string "but then someone PKed it…\p"
+	.string "After the battle all that was left was a\n"
+	.string "pile of bones…$"
 
 NPC_EDGEVILLE_BANK_2_Text_0:
 	.string "Ry4nInnit$"
@@ -88,9 +87,8 @@ NPC_EDGEVILLE_BANK_3_Text_0:
 NPC_EDGEVILLE_BANK_3_Text_1:
 	.string "Have you visited any of the\n"
 	.string "Runecrafting Altars yet?\p"
-	.string "There are ones both to the west AND\n"
-	.string "east of here!\p"
-	.string "Which one should I visit first?$"
+	.string "There is supposedly nearby!\p"
+	.string "I wonder where it is…$"
 
 NPC_EDGEVILLE_BANK_4_Text_0:
 	.string "Kifek$"

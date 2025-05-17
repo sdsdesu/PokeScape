@@ -15,7 +15,7 @@ script NPC_EDGEVILLE_BANK_1 //DHAROKER
 	lock
 	faceplayer
     namebox ("K A B o0 M")
-	msgbox(format("Beyond here is the Wilderness.\pI'd suggest steering clear of it if I were you.\pSomeone might mug you and take your stuff.."))
+	msgbox(format("Dude my monster leveled up in battle but then someone PKed it…\pAfter the battle all that was left was a pile of bones…"))
     closemessage
     hidenamebox
 	release
@@ -39,7 +39,7 @@ script NPC_EDGEVILLE_BANK_3 //Runecrafter
 	lock
 	faceplayer
     namebox ("AltarCarbon")
-	msgbox(format("Have you visited any of the Runecrafting Altars yet?\pThere are ones both to the west AND east of here!\pWhich one should I visit first?"))
+	msgbox(format("Have you visited any of the Runecrafting Altars yet?\pThere is supposedly nearby!\pI wonder where it is…"))
     closemessage
     hidenamebox
 	release
