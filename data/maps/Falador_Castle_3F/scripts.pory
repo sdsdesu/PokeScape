@@ -154,9 +154,11 @@ movement movement_falador_postgym_9 {
 }
 movement MOVEMENT_EXCLAMATIONMARK {
     emote_exclamation_mark
+    step_end
 }
 movement MOVEMENT_QUESTIONMARK {
     emote_question_mark
+    step_end
 }
 
 

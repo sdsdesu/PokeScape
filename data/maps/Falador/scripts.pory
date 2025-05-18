@@ -1550,7 +1550,7 @@ script FROGEEL_RIVAL_2 {
     closemessage
 	applymovement (53, MOVEMENT_EXCLAMATIONMARK)
     namebox("Angrenouille")
-	msgbox(format("Oh hi there, {PLAYER} was it?\nYes I know your name, I know a lot of things.\nLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
+	msgbox(format("Oh hi there, {PLAYER} was it?\nYes I know your name, I know a lot of things.\pLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT))
     { 
         msgbox(format("I knew you and I'd be pals. One day when I am King of The Land of the Frogs, you can be in my court."))
@@ -1569,10 +1569,20 @@ script FROGEEL_RIVAL_2 {
 		elif (flag(FLAG_STARTER3)) { //Water
 			trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_WATER, format("Seeya!"))
 		}
-    ("Angrenouille")
-	msgbox(format("A\nAAA\nAAAAAAA\nAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAA!"))
-	removeflag(FLAG_TEMP_1D) //White Knight
-	removeflag(FLAG_TEMP_1F) //White Knight
+    namebox("Angrenouille")
+	msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
+	closemessage
+	hidenamebox
+
+	setobjectxy(52, 51, 17)
+	setobjectxy(43, 51, 18)
+	setobjectxyperm(52, 51, 17)
+	setobjectxyperm(43, 51, 18)
+	clearflag(FLAG_TEMP_1D) //White Knight
+	clearflag(FLAG_TEMP_1F) //White Knight
+	addobject(52)
+	addobject(43)
+
 	playse(SE_FLEE)
 	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 60){
@@ -1592,10 +1602,11 @@ script FROGEEL_RIVAL_2 {
 	applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3)
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4)
     waitmovement(0)
-    return
 	delay(60)
     msgbox(format("It seems that some of Angrenouille's loot fell from his pocket as he ran off."))
+	closemessage
     giveitem(ITEM_MIND_RUNE, 1)
+	closemessage
     removeobject(53)
     removeobject(52)
     removeobject(43)
@@ -1604,11 +1615,6 @@ script FROGEEL_RIVAL_2 {
 	setflag(FLAG_TEMP_1F) //White Knight
     setvar(VAR_FROGEEL_RIVAL, 10)
     }
-
-movement MOVEMENT_EXCLAMATIONMARK {
-    emote_exclamation_mark
-    step_end
-}
 
 movement MOVEMENT_FROGEEL_RIVAL_FALADOR_1 {
     walk_fast_right * 7

@@ -224,6 +224,10 @@ NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER::
 	namebox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0
 	questmenu QUEST_MENU_CHECK_COMPLETE, QUEST_KOUREND_SLAYER
 	goto_if_unset FLAG_BADGE07_GET, NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_2
+	checkitem ! ITEM_SLAYER_GEM, 1
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_6
+NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_5:
 	msgbox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_1
 	closemessage
 	hidenamebox
@@ -237,6 +241,22 @@ NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_1:
 NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_2:
 	call EDGEVILLE_GYM_START
 	goto NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_1
+
+NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_6:
+	call GIVEPLAYERSLAYERGEM
+	goto NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_5
+
+
+GIVEPLAYERSLAYERGEM::
+	msgbox GIVEPLAYERSLAYERGEM_Text_0
+	closemessage
+	hidenamebox
+	giveitem ITEM_SLAYER_GEM, 1
+	namebox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0
+	msgbox GIVEPLAYERSLAYERGEM_Text_1
+	closemessage
+	hidenamebox
+	return
 
 
 EDGEVILLE_GYM_START::
@@ -563,7 +583,8 @@ NPC_EDGEVILLE_HOUSE_NPC_10::
 
 BATTLE_EDGEVILLE_GYM_1::
 	trainerbattle_single TRAINER_EDGEVILLE_GYM_1, BATTLE_EDGEVILLE_GYM_1_Text_0, BATTLE_EDGEVILLE_GYM_1_Text_1
-	msgbox BATTLE_EDGEVILLE_GYM_1_Text_2
+	namebox BATTLE_EDGEVILLE_GYM_1_Text_2
+	msgbox BATTLE_EDGEVILLE_GYM_1_Text_3
 	hidenamebox
 	release
 	end
@@ -571,7 +592,8 @@ BATTLE_EDGEVILLE_GYM_1::
 
 BATTLE_EDGEVILLE_GYM_2::
 	trainerbattle_single TRAINER_EDGEVILLE_GYM_2, BATTLE_EDGEVILLE_GYM_2_Text_0, BATTLE_EDGEVILLE_GYM_2_Text_1
-	msgbox BATTLE_EDGEVILLE_GYM_2_Text_2
+	namebox BATTLE_EDGEVILLE_GYM_2_Text_2
+	msgbox BATTLE_EDGEVILLE_GYM_2_Text_3
 	hidenamebox
 	release
 	end
@@ -835,6 +857,17 @@ NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0:
 NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_1:
 	.string "Hello {PLAYER}, what can I do for you?$"
 
+GIVEPLAYERSLAYERGEM_Text_0:
+	.string "Say no more {PLAYER}, I know you are\n"
+	.string "interested in a Slayer task but first\l"
+	.string "take this…$"
+
+GIVEPLAYERSLAYERGEM_Text_1:
+	.string "That's a Slayer Gem, it will allow us to\n"
+	.string "stay in contact and let you check what\l"
+	.string "your current slayer task is.\p"
+	.string "Now then…$"
+
 EDGEVILLE_GYM_START_Text_0:
 	.string "Welcome to the Edgeville Gym.\p"
 	.string "I am Vannaka, I suppose you want this\n"
@@ -1037,6 +1070,9 @@ BATTLE_EDGEVILLE_GYM_1_Text_1:
 	.string "Woah, calm down it was a joke.$"
 
 BATTLE_EDGEVILLE_GYM_1_Text_2:
+	.string "OfD3mons$"
+
+BATTLE_EDGEVILLE_GYM_1_Text_3:
 	.string "I got a task from Vannaka, did you?$"
 
 BATTLE_EDGEVILLE_GYM_2_Text_0:
@@ -1046,6 +1082,9 @@ BATTLE_EDGEVILLE_GYM_2_Text_1:
 	.string "Guh?$"
 
 BATTLE_EDGEVILLE_GYM_2_Text_2:
+	.string "Vauverra$"
+
+BATTLE_EDGEVILLE_GYM_2_Text_3:
 	.string "Heh, sorry I just needed some brains so\n"
 	.string "I can summon more conjures.$"
 
@@ -1077,7 +1116,7 @@ BATTLE_EDGEVILLE_GYM_5_Text_1:
 	.string "Wooo…sh…$"
 
 BATTLE_EDGEVILLE_GYM_5_Text_2:
-	.string "MOSS GIANT$"
+	.string "Moss Giant$"
 
 BATTLE_EDGEVILLE_GYM_5_Text_3:
 	.string "wooshing sounds$"
@@ -1100,7 +1139,7 @@ BATTLE_EDGEVILLE_GYM_7_Text_1:
 	.string "OW! WHY…$"
 
 BATTLE_EDGEVILLE_GYM_7_Text_2:
-	.string "HILL GIANT$"
+	.string "Hill Giant$"
 
 BATTLE_EDGEVILLE_GYM_7_Text_3:
 	.string "WHY IS LITTLE HUMAN HERE?$"

@@ -6492,7 +6492,7 @@ static const struct TrainerMon sParty_EDGEVILLE_GYM_4[] = {
 static const struct TrainerMon sParty_EDGEVILLE_GYM_5[] = {
     {
     .lvl = 47,
-    .species = SPECIES_GIANT_GRAB_DARK_FORM,
+    .species = SPECIES_GIANT_CRAB_DARK_FORM,
     },
     {
     .lvl = 48,
