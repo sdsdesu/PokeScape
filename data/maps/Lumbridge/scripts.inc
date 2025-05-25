@@ -36,7 +36,7 @@ LUMBRIDGE_STATE_2:
 OPENWORLD_STATE_LUMBRIDGE::
 	setobjectxyperm 14, 43, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
@@ -74,7 +74,7 @@ STORYMODE_STATE_LUMBRIDGE_2:
 STORYMODE_STATE_LUMBRIDGE_5:
 	setobjectxyperm 14, 41, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
@@ -93,7 +93,7 @@ STORYMODE_STATE_LUMBRIDGE_5:
 STORYMODE_STATE_LUMBRIDGE_10:
 	setobjectxyperm 14, 43, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT

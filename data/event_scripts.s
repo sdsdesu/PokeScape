@@ -1552,3 +1552,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DwarvenMines_PowerStation_2/scripts.inc"
 
 	.include "data/maps/Lumbridge_FishingStore/scripts.inc"
+
+	.include "data/maps/Digsite_Exam_Centre/scripts.inc"

@@ -11582,6 +11582,7 @@ const struct Item gItems[] =
         .type = ITEM_USE_BAG_MENU,
         .sort = ITEM_TYPE_HELD_ITEM,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 30,
     },
 
     [ITEM_RING_OF_LIFE] =

@@ -1,0 +1,30 @@
+mapscripts Digsite_Exam_Centre_MapScripts {}
+
+
+script NPC_EXAMCENTRE_HALZEMERE
+{
+    lock
+    faceplayer
+    namebox ("???")
+    msgbox(format("Ip eto qui undri.\pMi irno har arpos."))
+    //you will guard the land
+    //I will translate old rocks
+    closemessage
+    hidenamebox
+    msgbox(format("You suddenly get a headache and feel that should leave the gnome to drink his tea in peace."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script NPC_EXAMCENTRE_MODSTU {
+    lock
+    faceplayer
+    namebox ("Mod Stu")
+    msgbox(format("Ah, nothing like a nice cuppa tea."))
+    closemessage
+    hidenamebox
+    release
+    end
+}

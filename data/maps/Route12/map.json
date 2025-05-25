@@ -235,7 +235,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SHEEP",
@@ -248,7 +248,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",
@@ -261,7 +261,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLOCK_Route12_Farmer",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_F",
@@ -640,7 +640,7 @@
       "x": 31,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE12",
+      "dest_map": "MAP_PURO_PURO1",
       "dest_warp_id": "0"
     }
   ],

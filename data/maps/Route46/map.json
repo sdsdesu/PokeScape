@@ -232,7 +232,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 27,
+      "y": 22,
+      "elevation": 0,
+      "dest_map": "MAP_DIGSITE_EXAM_CENTRE",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
@@ -240,7 +246,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 27,
+      "x": 28,
       "y": 22,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

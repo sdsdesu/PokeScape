@@ -254,15 +254,15 @@
 #define FLAG_WINGULL_DELIVERED_MAIL          0xE0
 #define FLAG_RECEIVED_20_COINS               0xE1
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
-#define FLAG_RECEIVED_GOOD_ROD               0xE3
+#define FLAG_ROUTE13_BLOCK                   0xE3 // FLAG_RECEIVED_GOOD_ROD
 #define FLAG_REGI_DOORS_OPENED               0xE4
 #define FLAG_SEA_TROLL                       0xE5 //FLAG_SEA_TROLL FLAG_RECEIVED_TM27
-#define FLAG_CHEAT_ITEM_PULSE_CORE                   0xE6
-#define FLAG_ITEM_PRISMATIC_STAR                   0xE7
-#define FLAG_ITEM_DRAYNORMANOR_FISHFOOD                   0xE8
-#define FLAG_ITEM_DRAYNORMANOR_RUBBERTUBE                   0xE9
-#define FLAG_ITEM_DRAYNORMANOR_OILCAN                   0xEA
-#define FLAG_UNUSED_0xEB                   0xEB
+#define FLAG_CHEAT_ITEM_PULSE_CORE           0xE6
+#define FLAG_ITEM_PRISMATIC_STAR             0xE7
+#define FLAG_ITEM_DRAYNORMANOR_FISHFOOD      0xE8
+#define FLAG_ITEM_DRAYNORMANOR_RUBBERTUBE    0xE9
+#define FLAG_ITEM_DRAYNORMANOR_OILCAN        0xEA
+#define FLAG_UNUSED_0xEB                     0xEB
 
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
 #define FLAG_RECEIVED_SILVER_SHIELD          0xED

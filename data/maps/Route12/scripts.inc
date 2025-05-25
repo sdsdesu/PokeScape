@@ -20,26 +20,22 @@ Route12_MapScripts_MAP_SCRIPT_ON_LOAD:
 
 
 OPENWORLD_STATE_ROUTE12::
-	setobjectxyperm 16, 29, 9
-	setobjectmovementtype 16, MOVEMENT_TYPE_LOOK_AROUND
-	setobjectxyperm 14, 30, 14
-	setobjectmovementtype 14, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT
-	setobjectxyperm 15, 33, 8
-	setobjectmovementtype 15, MOVEMENT_TYPE_WANDER_AROUND
+	removeobject 14
+	removeobject 15
+	removeobject 16
+	setflag FLAG_TEMP_1
 	return
 
 
 ROUTE12_STATE::
-	goto_if_set FLAG_BADGE04_GET, ROUTE12_STATE_1
+	goto_if_set FLAG_ROUTE13_BLOCK, ROUTE12_STATE_1
 	return
 
 ROUTE12_STATE_1:
-	setobjectxyperm 16, 32, 5
-	setobjectmovementtype 16, MOVEMENT_TYPE_LOOK_AROUND
-	setobjectxyperm 14, 30, 14
-	setobjectmovementtype 14, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT
-	setobjectxyperm 15, 33, 8
-	setobjectmovementtype 15, MOVEMENT_TYPE_WANDER_AROUND
+	removeobject 14
+	removeobject 15
+	removeobject 16
+	setflag FLAG_TEMP_1
 	return
 
 
@@ -185,7 +181,7 @@ BLOCK_Route12_Farmer::
 	end
 
 BLOCK_Route12_Farmer_1:
-	goto_if_unset FLAG_BADGE04_GET, BLOCK_Route12_Farmer_5
+	goto_if_unset FLAG_ROUTE13_BLOCK, BLOCK_Route12_Farmer_5
 	msgbox BLOCK_Route12_Farmer_Text_2
 	hidenamebox
 	closemessage
