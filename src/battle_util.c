@@ -2561,7 +2561,7 @@ u8 DoFieldEndTurnEffects(void)
         case ENDTURN_CHAOTIC_RIFT:
             if (gFieldStatuses & STATUS_FIELD_CHAOTIC_RIFT && --gFieldTimers.chaoticRiftTimer == 0)
             {
-                gFieldStatuses &= ~(STATUS_FIELD_CHAOTIC_RIFT);
+                gFieldStatuses &= ~STATUS_FIELD_CHAOTIC_RIFT;
                 BattleScriptExecute(BattleScript_ChaoticRiftEnds);
                 effect++;
             }

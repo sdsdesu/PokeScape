@@ -8122,67 +8122,75 @@ static const struct TrainerMon sParty_IceMountain_Guard2[] = {
 static const struct TrainerMon sParty_BarbStrongholdB1F_Trainer1[] = {
     {
     .lvl = 44,
-    .species = SPECIES_ESSHOUND,
+    .species = SPECIES_IMPLING_ESSENCE_FORM,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_TOME_OF_MAGIC,
     },
     {
     .lvl = 45,
-    .species = SPECIES_IMPLING_ESSENCE_FORM,
+    .species = SPECIES_SPIRIT_MAGE,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB1F_Trainer2[] = {
     {
     .lvl = 44,
-    .species = SPECIES_SPIRIT_SCOUT,
+    .species = SPECIES_PENANCE_RANGER,
     },
     {
     .lvl = 45,
     .species = SPECIES_TOME_OF_RANGED,
     },
     {
-    .lvl = 45,
-    .species = SPECIES_PENANCE_RANGER,
-    }
+    .lvl = 44,
+    .species = SPECIES_SPIRIT_RANGER,
+    },
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB1F_Trainer3[] = {
     {
     .lvl = 44,
-    .species = SPECIES_HERBERT,
+    .species = SPECIES_GOAT_DESERT_FORM,
     },
     {
     .lvl = 44,
-    .species = SPECIES_PENGUIN_AGENT_FORM,
+    .species = SPECIES_TOME_OF_STRENGTH,
     },
     {
     .lvl = 45,
-    .species = SPECIES_EXPERIMENT_3_FORM,
-    }
+    .species = SPECIES_SPIRIT_WARRIOR,
+    },
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB2F_Trainer1[] = {
     {
     .lvl = 45,
-    .species = SPECIES_IMPLING_NATURE_FORM,
+    .species = SPECIES_GOAT_SACREDCLAY_FORM,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_VULTURE_OSRS_FORM,
     },
     {
     .lvl = 45,
-    .species = SPECIES_GOLEM_TITAN,
+    .species = SPECIES_TUMEKBIRD,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB2F_Trainer2[] = {
     {
     .lvl = 44,
-    .species = SPECIES_BEAR_GRIZZLY_FORM,
+    .species = SPECIES_SOURHOG,
     },
     {
     .lvl = 45,
-    .species = SPECIES_WOLF_DIRE_FORM,
+    .species = SPECIES_PENANCE_FIGHTER,
     },
     {
     .lvl = 46,
-    .species = SPECIES_WOLF_FENRIS_FORM,
+    .species = SPECIES_JADINKO_MALE_FORM,
     }
 };
 
@@ -8204,37 +8212,33 @@ static const struct TrainerMon sParty_BarbStrongholdB2F_Trainer3[] = {
 static const struct TrainerMon sParty_BarbStrongholdB3F_Trainer1[] = {
     {
     .lvl = 45,
-    .species = SPECIES_ESSLING,
+    .species = SPECIES_RUNE_GUARDIAN,
     },
     {
     .lvl = 45,
-    .species = SPECIES_RUNE,
+    .species = SPECIES_STALKER,
     },
     {
     .lvl = 46,
-    .species = SPECIES_ESSWRAITH,
+    .species = SPECIES_ESSENCE,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB3F_Trainer2[] = { 
     {
     .lvl = 47,
-    .species = SPECIES_REBORN_RANGER,
+    .species = SPECIES_SPARKY,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB3F_Trainer3[] = {
     {
     .lvl = 47,
-    .species = SPECIES_RAM_FLUFFY_FORM,
+    .species = SPECIES_COCKATRICE_OSRS_FORM,
     },
     {
-    .lvl = 47,
-    .species = SPECIES_ROOSTER_VARROCK_FORM,
-    },
-    {
-    .lvl = 47,
-    .species = SPECIES_BEAR_NORMAL_FORM,
+    .lvl = 46,
+    .species = SPECIES_MINOTAUR_RUNE_FORM,
     }
 };
 
@@ -8264,7 +8268,7 @@ static const struct TrainerMon sParty_BarbStrongholdB3F_Trainer5[] = {
     },
     {
     .lvl = 46,
-    .species = SPECIES_KARAMBWANJ,
+    .species = SPECIES_RED_EYE,
     },
     {
     .lvl = 47,
@@ -8289,29 +8293,33 @@ static const struct TrainerMon sParty_BarbStrongholdB4F_Trainer1[] = {
 
 static const struct TrainerMon sParty_BarbStrongholdB4F_Trainer2[] = { 
     {
+    .lvl = 48,
+    .species = SPECIES_JADINKO_DRACONIC,
+    },
+    {
     .lvl = 47,
-    .species = SPECIES_HELLHOUND,
+    .species = SPECIES_WYRM,
     },
     {
     .lvl = 48,
-    .species = SPECIES_DAGANNOTH_GUARDIAN_FORM,
+    .species = SPECIES_IMPLING_DRAGON_FORM,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB4F_Trainer3[] = {
     {
-    .lvl = 48,
-    .species = SPECIES_SOULGAZER,
+    .lvl = 47,
+    .species = SPECIES_ICELORD,
     },
     {
     .lvl = 48,
-    .species = SPECIES_STALKER,
+    .species = SPECIES_REVENANT_IMP,
     }
 };
 
 static const struct TrainerMon sParty_BarbStrongholdB4F_Trainer4[] = {
     {
-    .lvl = 46,
+    .lvl = 47,
     .species = SPECIES_IRON_TITAN,
     }
 };

@@ -80,7 +80,7 @@ script BATTLE_BARB_STRONGHOLD_B3F_TRAINER_2 //Ranger
 
 script BATTLE_BARB_STRONGHOLD_B3F_TRAINER_3 //Rune Armour
 {
-    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B3F_TRAINER_3, format("Not another trainer!\pI'm running out of supplies..."),format("I might have won if I could have healed my monsters more."))
+    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B3F_TRAINER_3, format("Not another trainer!\pI'm running out of supplies…"),format("I might have won if I could have healed my monsters more."))
     namebox ("Shh Llama91")
     msgbox(format("I keep going round in circles hoping I'll find some more healing items, but I haven't found any in a long time."))
     hidenamebox
@@ -102,7 +102,7 @@ script BATTLE_BARB_STRONGHOLD_B3F_TRAINER_5 //Fisherman
 {
     trainerbattle_single(TRAINER_BARB_STRONGHOLD_B3F_TRAINER_5, format("Fishing requires both patience and quiet, and thanks to you now I have neither!"),format("Now leave me be."))
     namebox ("ChonkyCorgi")
-    msgbox(format("I just want to try and catch myself some new monsters.\pPlease don't keep disturbing me..."))
+    msgbox(format("I just want to try and catch myself some new monsters.\pPlease don't keep disturbing me…"))
     hidenamebox
     release
     end

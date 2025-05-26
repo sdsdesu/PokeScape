@@ -18,10 +18,10 @@ script NPC_EXAMCENTRE_HALZEMERE
     end
 }
 
-script NPC_EXAMCENTRE_MODSTU {
+script NPC_EXAMCENTRE_MODEASTY {
     lock
     faceplayer
-    namebox ("Mod Stu")
+    namebox ("Mod Easty")
     msgbox(format("Ah, nothing like a nice cuppa tea."))
     closemessage
     hidenamebox

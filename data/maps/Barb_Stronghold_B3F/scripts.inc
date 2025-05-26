@@ -143,7 +143,7 @@ BATTLE_BARB_STRONGHOLD_B3F_TRAINER_2_Text_3:
 
 BATTLE_BARB_STRONGHOLD_B3F_TRAINER_3_Text_0:
 	.string "Not another trainer!\p"
-	.string "I'm running out of supplies...$"
+	.string "I'm running out of supplies…$"
 
 BATTLE_BARB_STRONGHOLD_B3F_TRAINER_3_Text_1:
 	.string "I might have won if I could have healed\n"
@@ -186,4 +186,4 @@ BATTLE_BARB_STRONGHOLD_B3F_TRAINER_5_Text_2:
 BATTLE_BARB_STRONGHOLD_B3F_TRAINER_5_Text_3:
 	.string "I just want to try and catch myself\n"
 	.string "some new monsters.\p"
-	.string "Please don't keep disturbing me...$"
+	.string "Please don't keep disturbing me…$"

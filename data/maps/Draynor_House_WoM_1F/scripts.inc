@@ -310,7 +310,7 @@ WOMMISCBOOK4_Text_0:
 	.string "It goes on to say that it can inflict\n"
 	.string "poison, burn, or even cause freezes!\p"
 	.string "I wonder whether it's possible to catch\n"
-	.string "such a monster...$"
+	.string "such a monster…$"
 
 WOMMISCBOOK5_Text_0:
 	.string "There is a book titled: 'If I Did it:\n"

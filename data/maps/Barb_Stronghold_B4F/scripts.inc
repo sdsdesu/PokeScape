@@ -70,14 +70,14 @@ ITEM_BARB_STRONGHOLD_B4F_2::
 
 NPC_BARB_STRONGHOLD_B4F_NPC_1_Text_0:
 	.string "The skeleton points down the hallways\n"
-	.string "and mutters in a whispering voice...$"
+	.string "and mutters in a whispering voice…$"
 
 NPC_BARB_STRONGHOLD_B4F_NPC_1_Text_1:
 	.string "Skeleton$"
 
 NPC_BARB_STRONGHOLD_B4F_NPC_1_Text_2:
-	.string "One...\p"
-	.string "Way...$"
+	.string "One…\p"
+	.string "Way…$"
 
 NPC_BARB_STRONGHOLD_B4F_NPC_2_Text_0:
 	.string "MeGoFace$"
@@ -95,15 +95,15 @@ BATTLE_BARB_STRONGHOLD_B4F_TRAINER_1_Text_0:
 	.string "summoner!$"
 
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_1_Text_1:
-	.string "Not mighty enough...$"
+	.string "Not mighty enough…$"
 
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_1_Text_2:
 	.string "Salm0n$"
 
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_1_Text_3:
-	.string "Summoning is a good skill.\p"
-	.string "Don't let oldschool tell you otherwise.\p"
-	.string "We have pets!$"
+	.string "Monsters summoned straight from the\n"
+	.string "spirit-plane tend to be more powerful\l"
+	.string "than the ones here in Gielinor.$"
 
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_2_Text_0:
 	.string "This is the death floor.\p"
@@ -135,7 +135,7 @@ BATTLE_BARB_STRONGHOLD_B4F_TRAINER_3_Text_3:
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_4_Text_0:
 	.string "The boots in this place are said to be\n"
 	.string "legen-\p"
-	.string "Wait for it...\p"
+	.string "Wait for it…\p"
 	.string "They are essential for my progress.$"
 
 BATTLE_BARB_STRONGHOLD_B4F_TRAINER_4_Text_1:

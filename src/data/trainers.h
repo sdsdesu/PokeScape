@@ -5846,9 +5846,9 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_BARB_STRONGHOLD_B3F_TRAINER_2] = //Ranger
     {
-        .trainerClass = TRAINER_CLASS_BARBARIAN,
+        .trainerClass = TRAINER_CLASS_RANGER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
-        .trainerPic = TRAINER_PIC_barbarian_m,
+        .trainerPic = TRAINER_PIC_ranger_robin,
         .trainerName = _("Lightwind"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -5920,7 +5920,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_WIZARD,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_wizard_m,
+        .trainerPic = TRAINER_PIC_mage_mystic,
         .trainerName = _("V4At1"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,

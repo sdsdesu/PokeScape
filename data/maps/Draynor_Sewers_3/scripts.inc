@@ -149,7 +149,7 @@ NPC_DRAYNOR_SEWERS_3_NPC_1_Text_0:
 
 NPC_DRAYNOR_SEWERS_3_NPC_1_Text_1:
 	.string "Be careful not to get too close to that\n"
-	.string "wall...\p"
+	.string "wall…\p"
 	.string "Something just tried attacking me!$"
 
 NPC_DRAYNOR_SEWERS_3_NPC_2_Text_0:
@@ -161,14 +161,14 @@ NPC_DRAYNOR_SEWERS_3_NPC_2_Text_1:
 	.string "And how do I move that heavy one up\n"
 	.string "there!\p"
 	.string "There's no way I could push it on my\n"
-	.string "own...$"
+	.string "own…$"
 
 NPC_DRAYNOR_SEWERS_3_NPC_3_Text_0:
 	.string "Qwesty$"
 
 NPC_DRAYNOR_SEWERS_3_NPC_3_Text_1:
 	.string "I could have sworn the quest guide\n"
-	.string "mentioned a vampyre around here...$"
+	.string "mentioned a vampyre around here…$"
 
 BATTLE_DRAYNOR_SEWERS3_1_Text_0:
 	.string "Your money, or your wife!$"
@@ -187,7 +187,7 @@ BATTLE_DRAYNOR_SEWERS3_1_Text_3:
 	.string "kindly to that and drove me to flee\l"
 	.string "down here instead.\p"
 	.string "I can't believe people would intimidate\n"
-	.string "someone like that...$"
+	.string "someone like that…$"
 
 BATTLE_DRAYNOR_SEWERS3_2_Text_0:
 	.string "These sewers used to scare me as a\n"
@@ -212,7 +212,7 @@ BATTLE_DRAYNOR_SEWERS3_3_Text_0:
 
 BATTLE_DRAYNOR_SEWERS3_3_Text_1:
 	.string "Ugh, maybe I do still have some stuff to\n"
-	.string "learn...$"
+	.string "learn…$"
 
 BATTLE_DRAYNOR_SEWERS3_3_Text_2:
 	.string "Transcended$"
@@ -221,7 +221,7 @@ BATTLE_DRAYNOR_SEWERS3_3_Text_3:
 	.string "Maybe regular magic just isn't that\n"
 	.string "strong.\p"
 	.string "Perhaps I should give necromancy a\n"
-	.string "try...$"
+	.string "try…$"
 
 TEMP_ITEM_DRAYNOR_SEWERS3_1_Text_0:
 	.string "It's empty!\p"

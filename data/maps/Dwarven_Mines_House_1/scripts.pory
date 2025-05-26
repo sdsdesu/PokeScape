@@ -117,7 +117,7 @@ script NPC_Dwarven_Mines_House_10      //Dwarf -- second from bottom right
 	lock
 	faceplayer
     namebox ("Dwarf")
-	msgbox(format("Why are dwarves only ever smiths or miners?\pI've always wanted to be a famous chef..."))
+	msgbox(format("Why are dwarves only ever smiths or miners?\pI've always wanted to be a famous chef…"))
     waitmessage
     hidenamebox
 	release
@@ -276,7 +276,7 @@ script BATTLE_DWARVEN_MINES_HOUSE_2
 
 script BATTLE_DWARVEN_MINES_HOUSE_3
 {
-    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_3, format("Hey! You're not even wearing a helmet!"),format("Even a helmet couldn't save me..."))
+    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_3, format("Hey! You're not even wearing a helmet!"),format("Even a helmet couldn't save me…"))
     namebox ("Fredrik")
     msgbox(format("You have to wear a helmet when you are in the factory.\pOtherwise people will see you are bald."))
 	hidenamebox

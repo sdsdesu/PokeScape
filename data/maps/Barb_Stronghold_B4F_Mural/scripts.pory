@@ -7,7 +7,7 @@ script NPC_BARB_STRONGHOLD_B4F_Mural_NPC
     lock
     faceplayer
     namebox("Archaeologist")
-    msgbox(format("Oh how absolutely terrible!\pSome man dressed in all black ran in here earlier, chipped a piece off the mural, and then ran off!"))
+    msgbox(format("Oh how absolutely terrible!\pSomeone has chipped a piece off the mural!"))
     hidenamebox
     release
     end
@@ -16,7 +16,7 @@ script NPC_BARB_STRONGHOLD_B4F_Mural_NPC
 script NPC_BARB_STRONGHOLD_B4F_Mural
 {
     lock
-    msgbox(format("The mural depicts a cloud like creature of immense power wreaking havoc across the land.\pThere is a small fragment of it missing.\p{PAUSE 15}This must be what the Black Knights acquired for Sigmund, but what could he possibly want with this..."))
+    msgbox(format("The mural depicts a cloud like creature of immense power wreaking havoc across the land.\pThere is a small fragment of it missing.\pThis must be what the Black Knights acquired for Sigmund, but what could he possibly want with this…"))
     hidenamebox
     release
     end

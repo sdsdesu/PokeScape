@@ -25,15 +25,14 @@ NPC_BARB_STRONGHOLD_B4F_Mural_NPC_Text_0:
 
 NPC_BARB_STRONGHOLD_B4F_Mural_NPC_Text_1:
 	.string "Oh how absolutely terrible!\p"
-	.string "Some man dressed in all black ran in\n"
-	.string "here earlier, chipped a piece off the\l"
-	.string "mural, and then ran off!$"
+	.string "Someone has chipped a piece off the\n"
+	.string "mural!$"
 
 NPC_BARB_STRONGHOLD_B4F_Mural_Text_0:
 	.string "The mural depicts a cloud like creature\n"
 	.string "of immense power wreaking havoc across\l"
 	.string "the land.\p"
 	.string "There is a small fragment of it missing.\p"
-	.string "{PAUSE 15}This must be what the Black Knights\n"
+	.string "This must be what the Black Knights\n"
 	.string "acquired for Sigmund, but what could he\l"
-	.string "possibly want with this...$"
+	.string "possibly want with this…$"

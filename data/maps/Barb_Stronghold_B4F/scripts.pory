@@ -7,9 +7,9 @@ mapscripts Barb_Stronghold_B4F_MapScripts {
 script NPC_BARB_STRONGHOLD_B4F_NPC_1
 {
     lock
-    msgbox(format("The skeleton points down the hallways and mutters in a whispering voice..."))
+    msgbox(format("The skeleton points down the hallways and mutters in a whispering voice…"))
     namebox("Skeleton")
-    msgbox(format("One...\pWay..."))
+    msgbox(format("One…\pWay…"))
     hidenamebox
     release
     end
@@ -30,9 +30,9 @@ script NPC_BARB_STRONGHOLD_B4F_NPC_2
 
 script BATTLE_BARB_STRONGHOLD_B4F_TRAINER_1 //Summoner
 {
-    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B4F_TRAINER_1, format("You think your monsters are cool?\pPrepare to face the might of a summoner!"),format("Not mighty enough..."))
+    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B4F_TRAINER_1, format("You think your monsters are cool?\pPrepare to face the might of a summoner!"),format("Not mighty enough…"))
     namebox ("Salm0n")
-    msgbox(format("Summoning is a good skill.\pDon't let oldschool tell you otherwise.\pWe have pets!"))
+    msgbox(format("Monsters summoned straight from the spirit-plane tend to be more powerful than the ones here in Gielinor."))
     hidenamebox
     release
     end
@@ -60,7 +60,7 @@ script BATTLE_BARB_STRONGHOLD_B4F_TRAINER_3 //Wizard
 
 script BATTLE_BARB_STRONGHOLD_B4F_TRAINER_4 //Ironman
 {
-    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B4F_TRAINER_4, format("The boots in this place are said to be legen-\pWait for it...\pThey are essential for my progress."),format("-dary!"))
+    trainerbattle_single(TRAINER_BARB_STRONGHOLD_B4F_TRAINER_4, format("The boots in this place are said to be legen-\pWait for it…\pThey are essential for my progress."),format("-dary!"))
     namebox ("McC0ppin")
     msgbox(format("I restrict myself to not wear boots from now on.\pRestrictions make this game more fun anyway."))
     hidenamebox

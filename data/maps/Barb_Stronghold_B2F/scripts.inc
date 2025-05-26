@@ -67,65 +67,38 @@ ENCOUNTER_FLESH_CRAWLER::
 	waitmoncry
 	hidenamebox
 	closemessage
+	call HIDDEN_GROTTO_LEVELS
 	delay 1
 	random 13
 	switch VAR_RESULT
 	case 0, ENCOUNTER_FLESH_CRAWLER_3
-	case 1, ENCOUNTER_FLESH_CRAWLER_4
-	case 2, ENCOUNTER_FLESH_CRAWLER_5
-	case 3, ENCOUNTER_FLESH_CRAWLER_6
-	case 6, ENCOUNTER_FLESH_CRAWLER_7
-	case 7, ENCOUNTER_FLESH_CRAWLER_8
-	case 9, ENCOUNTER_FLESH_CRAWLER_9
-	case 10, ENCOUNTER_FLESH_CRAWLER_10
-	setwildbattle SPECIES_FLESH_CRAWLER, 25, ITEM_NONE
+	case 1, ENCOUNTER_FLESH_CRAWLER_3
+	case 2, ENCOUNTER_FLESH_CRAWLER_3
+	case 7, ENCOUNTER_FLESH_CRAWLER_4
+	setwildbattle SPECIES_FLESH_CRAWLER, VAR_TEMP_E, ITEM_NONE
 ENCOUNTER_FLESH_CRAWLER_1:
 	dowildbattle
 	compare VAR_RESULT, B_OUTCOME_WON
-	goto_if_eq ENCOUNTER_FLESH_CRAWLER_13
+	goto_if_eq ENCOUNTER_FLESH_CRAWLER_7
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
-	goto_if_eq ENCOUNTER_FLESH_CRAWLER_13
-ENCOUNTER_FLESH_CRAWLER_12:
+	goto_if_eq ENCOUNTER_FLESH_CRAWLER_7
+ENCOUNTER_FLESH_CRAWLER_6:
 	release
 	end
 
 ENCOUNTER_FLESH_CRAWLER_3:
-	setwildbattle SPECIES_FLESH_CRAWLER, 26, ITEM_NONE
+	setwildbattle SPECIES_CAVE_BUG, VAR_TEMP_E, ITEM_NONE
 	goto ENCOUNTER_FLESH_CRAWLER_1
 
 ENCOUNTER_FLESH_CRAWLER_4:
-	setwildbattle SPECIES_FLESH_CRAWLER, 27, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_5:
-	setwildbattle SPECIES_FLESH_CRAWLER, 28, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_6:
-	setwildbattle SPECIES_FLESH_CRAWLER, 29, ITEM_NONE
+	setwildbattle SPECIES_CRAWLER_CAVE_FORM, VAR_TEMP_E, ITEM_NONE
 	goto ENCOUNTER_FLESH_CRAWLER_1
 
 ENCOUNTER_FLESH_CRAWLER_7:
-	setwildbattle SPECIES_FLESH_CRAWLER, 30, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_8:
-	setwildbattle SPECIES_FLESH_CRAWLER, 31, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_9:
-	setwildbattle SPECIES_FLESH_CRAWLER, 32, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_10:
-	setwildbattle SPECIES_FLESH_CRAWLER, 33, ITEM_NONE
-	goto ENCOUNTER_FLESH_CRAWLER_1
-
-ENCOUNTER_FLESH_CRAWLER_13:
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject VAR_LAST_TALKED
 	fadescreenswapbuffers FADE_FROM_BLACK
-	goto ENCOUNTER_FLESH_CRAWLER_12
+	goto ENCOUNTER_FLESH_CRAWLER_6
 
 
 NPC_BARB_STRONGHOLD_B2F_NPC_1_Text_0:
@@ -147,12 +120,12 @@ NPC_BARB_STRONGHOLD_B2F_NPC_2_Text_0:
 BATTLE_BARB_STRONGHOLD_B2F_TRAINER_1_Text_0:
 	.string "Ah, here we have an extraordinary\n"
 	.string "creature with imposing, jaw-like\l"
-	.string "pincers...\p"
+	.string "pincers…\p"
 	.string "Ugh, you scared it off!$"
 
 BATTLE_BARB_STRONGHOLD_B2F_TRAINER_1_Text_1:
 	.string "Fascinating, perhaps the real discovery\n"
-	.string "here is you..$"
+	.string "here is you…$"
 
 BATTLE_BARB_STRONGHOLD_B2F_TRAINER_1_Text_2:
 	.string "D Attenbr0$"
@@ -196,7 +169,7 @@ BATTLE_BARB_STRONGHOLD_B2F_TRAINER_3_Text_2:
 BATTLE_BARB_STRONGHOLD_B2F_TRAINER_3_Text_3:
 	.string "You made me lose all my momentum.\p"
 	.string "Now that stupid flesh crawler is going\n"
-	.string "to get me, and I'll lose all my coins...$"
+	.string "to get me, and I'll lose all my coins…$"
 
 ENCOUNTER_FLESH_CRAWLER_Text_0:
 	.string "Flesh Crawler$"

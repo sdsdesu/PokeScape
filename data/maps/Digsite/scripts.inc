@@ -167,7 +167,7 @@ NPC_WORKER_BLOCK_Text_1:
 	.string "until we can rescue them!$"
 
 NPC_DIGSITE_WORKER_1_Text_0:
-	.string "...{PAUSE 15}Hey, what happened to the animal skull\n"
+	.string "…{PAUSE 15}Hey, what happened to the animal skull\n"
 	.string "I found earlier!{PAUSE 15}And my specimen brush!\p"
 	.string "Do these pockets have holes in them?$"
 
@@ -212,7 +212,7 @@ NPC_CAPTAIN_ERRDO_Text_0:
 	.string "Capt. Errdo$"
 
 NPC_CAPTAIN_ERRDO_Text_1:
-	.string "How embarassing...\p"
+	.string "How embarassing…\p"
 	.string "There was a bit of a technical issue\n"
 	.string "when attempting to land and, well, I\l"
 	.string "don't think I can fix this.\p"
@@ -224,7 +224,7 @@ NPC_DIGSITE_STUDENT_Text_0:
 
 NPC_DIGSITE_STUDENT_Text_1:
 	.string "I lost my teddy.\p"
-	.string "They were my lucky mascot...\p"
+	.string "They were my lucky mascot…\p"
 	.string "{PAUSE 15}But then I caught a really cool monster\n"
 	.string "I've never seen before, so maybe they\l"
 	.string "can be my new lucky mascot instead!$"

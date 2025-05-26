@@ -44,7 +44,7 @@ script NPC_DwarvenMines_PowerStationF1_3   //Dwarf - middle left
 	lock
 	faceplayer
     namebox ("Dwarf")
-	msgbox(format("My parents would never let me have monsters and compete in the MvM Championships...\pSo I got a job down here working with the baby dragons.\pThat way I still get to have monsters of my own to look after!"))
+	msgbox(format("My parents would never let me have monsters and compete in the MvM Championships…\pSo I got a job down here working with the baby dragons.\pThat way I still get to have monsters of my own to look after!"))
     waitmessage
     hidenamebox
 	release
@@ -79,7 +79,7 @@ script NPC_DwarvenMines_PowerStationF1_5    //Dwarf - bottom middle
 
 script BATTLE_DWARVENMINES_POWERSTATION_F1_1
 {
-    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F1_1, format("To smelt iron you need to increase the forge's temperature to a high degree!\pWatch this!"),format("I guess I turned it too high and got burned..."))
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F1_1, format("To smelt iron you need to increase the forge's temperature to a high degree!\pWatch this!"),format("I guess I turned it too high and got burned…"))
     namebox ("Ozai")
     msgbox(format("Fahrenheit? Celsius?\pWhat is that supposed to mean?"))
 	hidenamebox

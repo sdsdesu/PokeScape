@@ -368,8 +368,7 @@ NPC_Dwarven_Mines_House_9_Text_0:
 NPC_Dwarven_Mines_House_10_Text_0:
 	.string "Why are dwarves only ever smiths or\n"
 	.string "miners?\p"
-	.string "I've always wanted to be a famous\n"
-	.string "chef...$"
+	.string "I've always wanted to be a famous chef…$"
 
 NPC_Dwarven_Mines_House_11_Text_0:
 	.string "Training to be a dwarf engineer sure\n"
@@ -485,7 +484,7 @@ BATTLE_DWARVEN_MINES_HOUSE_3_Text_0:
 	.string "Hey! You're not even wearing a helmet!$"
 
 BATTLE_DWARVEN_MINES_HOUSE_3_Text_1:
-	.string "Even a helmet couldn't save me...$"
+	.string "Even a helmet couldn't save me…$"
 
 BATTLE_DWARVEN_MINES_HOUSE_3_Text_2:
 	.string "Fredrik$"

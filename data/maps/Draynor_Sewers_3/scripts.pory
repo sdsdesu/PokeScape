@@ -9,7 +9,7 @@ script NPC_DRAYNOR_SEWERS_3_NPC_1
 	lock
 	faceplayer
     namebox ("Fadeddemons")
-	msgbox(format("Be careful not to get too close to that wall...\pSomething just tried attacking me!"))
+	msgbox(format("Be careful not to get too close to that wall…\pSomething just tried attacking me!"))
     hidenamebox
 	closemessage
 	release
@@ -21,7 +21,7 @@ script NPC_DRAYNOR_SEWERS_3_NPC_2
 	lock
 	faceplayer
     namebox ("PurpleDog6")
-	msgbox(format("Where do I get a pickaxe so I can break these rocks?\pAnd how do I move that heavy one up there!\pThere's no way I could push it on my own..."))
+	msgbox(format("Where do I get a pickaxe so I can break these rocks?\pAnd how do I move that heavy one up there!\pThere's no way I could push it on my own…"))
     hidenamebox
 	closemessage
 	release
@@ -35,7 +35,7 @@ script NPC_DRAYNOR_SEWERS_3_NPC_3
 	applymovement(5, movement_BKF_Questionmarks)
 	waitmovement (0)
     namebox ("Qwesty")
-	msgbox(format("I could have sworn the quest guide mentioned a vampyre around here..."))
+	msgbox(format("I could have sworn the quest guide mentioned a vampyre around here…"))
     hidenamebox
 	closemessage
 	release
@@ -48,7 +48,7 @@ script BATTLE_DRAYNOR_SEWERS3_1 //Mugger
 {
     trainerbattle_single(TRAINER_DRAYNOR_SEWERS3_TRAINER_1, format("Your money, or your wife!"),format("Oh, it's supposed to be 'life'?"))
     namebox ("Colten")
-    msgbox(format("I used to be a highwayman, you know.\pPosted at the crossroads just north of here.\pUnfortunately, people didn't take too kindly to that and drove me to flee down here instead.\pI can't believe people would intimidate someone like that..."))
+    msgbox(format("I used to be a highwayman, you know.\pPosted at the crossroads just north of here.\pUnfortunately, people didn't take too kindly to that and drove me to flee down here instead.\pI can't believe people would intimidate someone like that…"))
 	hidenamebox
     release
 	end
@@ -66,9 +66,9 @@ script BATTLE_DRAYNOR_SEWERS3_2 //Bronzeman
 
 script BATTLE_DRAYNOR_SEWERS3_3 //Mystic
 {
-    trainerbattle_single(TRAINER_DRAYNOR_SEWERS3_TRAINER_3, format("I grew tired of the limitations imposed by those in the Wizards' Tower.\pBehold the true power of a mystic!"),format("Ugh, maybe I do still have some stuff to learn..."))
+    trainerbattle_single(TRAINER_DRAYNOR_SEWERS3_TRAINER_3, format("I grew tired of the limitations imposed by those in the Wizards' Tower.\pBehold the true power of a mystic!"),format("Ugh, maybe I do still have some stuff to learn…"))
     namebox ("Transcended")
-    msgbox(format("Maybe regular magic just isn't that strong.\pPerhaps I should give necromancy a try..."))
+    msgbox(format("Maybe regular magic just isn't that strong.\pPerhaps I should give necromancy a try…"))
 	hidenamebox
     release
 	end

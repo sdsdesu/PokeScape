@@ -126,7 +126,7 @@ NPC_DwarvenMines_PowerStationF1_2_Text_1:
 NPC_DwarvenMines_PowerStationF1_3_Text_0:
 	.string "My parents would never let me have\n"
 	.string "monsters and compete in the MvM\l"
-	.string "Championships...\p"
+	.string "Championships…\p"
 	.string "So I got a job down here working with\n"
 	.string "the baby dragons.\p"
 	.string "That way I still get to have monsters\n"
@@ -156,7 +156,7 @@ BATTLE_DWARVENMINES_POWERSTATION_F1_1_Text_0:
 
 BATTLE_DWARVENMINES_POWERSTATION_F1_1_Text_1:
 	.string "I guess I turned it too high and got\n"
-	.string "burned...$"
+	.string "burned…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F1_1_Text_2:
 	.string "Ozai$"

@@ -16,11 +16,11 @@ NPC_EXAMCENTRE_HALZEMERE::
 	end
 
 
-NPC_EXAMCENTRE_MODSTU::
+NPC_EXAMCENTRE_MODEASTY::
 	lock
 	faceplayer
-	namebox NPC_EXAMCENTRE_MODSTU_Text_0
-	msgbox NPC_EXAMCENTRE_MODSTU_Text_1
+	namebox NPC_EXAMCENTRE_MODEASTY_Text_0
+	msgbox NPC_EXAMCENTRE_MODEASTY_Text_1
 	closemessage
 	hidenamebox
 	release
@@ -39,8 +39,8 @@ NPC_EXAMCENTRE_HALZEMERE_Text_2:
 	.string "that should leave the gnome to drink\l"
 	.string "his tea in peace.$"
 
-NPC_EXAMCENTRE_MODSTU_Text_0:
-	.string "Mod Stu$"
+NPC_EXAMCENTRE_MODEASTY_Text_0:
+	.string "Mod Easty$"
 
-NPC_EXAMCENTRE_MODSTU_Text_1:
+NPC_EXAMCENTRE_MODEASTY_Text_1:
 	.string "Ah, nothing like a nice cuppa tea.$"

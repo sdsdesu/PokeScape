@@ -1338,7 +1338,7 @@
 #define FLAG_ITEM_HAMHIDEOUT_7                                     0x4F9 
 #define FLAG_ITEM_ROUTE19_2                                        0x4FA 
 #define FLAG_ITEM_EDGEVILLE_4                                      0x4FB
-#define FLAG_ITEM_UNUSED14                                         0x4FC // Unused Flag
+#define FLAG_ITEM_BARBARIANSTRONGHOLD_12                           0x4FC 
 #define FLAG_ITEM_UNUSED15                                         0x4FD // Unused Flag
 #define FLAG_ITEM_UNUSED16                                         0x4FE // Unused Flag
 #define FLAG_UNUSED_0x4FF                                          0x4FF // Unused Flag
