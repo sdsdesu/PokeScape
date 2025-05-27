@@ -7636,16 +7636,16 @@ static const struct TrainerMon sParty_ARIANE_1[] = {
     {
     .lvl = 16,
     .species = SPECIES_ANIMATED_BOOK,
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 124, 0, 0),
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 16, 31, 16),
+    .ev = TRAINER_PARTY_EVS(152, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 16, 31, 16, 31, 1),
     .ability = ABILITY_LEVITATE,
     .moves = {MOVE_EERIE_SPELL, MOVE_SNARE, MOVE_SHADOW_BURST, MOVE_WIND_STRIKE}
     },
     {
     .lvl = 17,
     .species = SPECIES_RUNE,
-    .ev = TRAINER_PARTY_EVS(0, 0, 0, 124, 0, 0),
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 16, 31, 16),
+    .ev = TRAINER_PARTY_EVS(0, 0, 252, 0, 0, 126),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 10, 31, 16),
     .ability = ABILITY_LEVITATE,
     .gender = TRAINER_MON_FEMALE,
     .moves = {MOVE_ICE_BURST, MOVE_BLOOD_BURST, MOVE_PSYBEAM, MOVE_CONFUSE}
@@ -7665,10 +7665,10 @@ static const struct TrainerMon sParty_SIR_OWEN_1[] = {
     {
     .lvl = 45,
     .species = SPECIES_SPIRIT_WARRIOR,
-    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 16, 31, 31, 31, 10),
     .ability = ABILITY_SHARPNESS,
-    .moves = {MOVE_SACRED_SWORD, MOVE_SWORD_STRIKE, MOVE_BITTER_BLADE, MOVE_SARADOMIN_STRIKE}
+    .moves = {MOVE_SECRET_SWORD, MOVE_SWORD_STRIKE, MOVE_BITTER_BLADE, MOVE_SARADOMIN_STRIKE}
     },
     {
     .lvl = 45,
@@ -7682,8 +7682,8 @@ static const struct TrainerMon sParty_SIR_OWEN_1[] = {
     {
     .lvl = 45,
     .species = SPECIES_SHADOW_HOUND,
-    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
-    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 0, 252, 252),
+    .iv = TRAINER_PARTY_IVS(31, 16, 31, 31, 31, 31),
     .ability = ABILITY_GUARD_DOG,
     .gender = TRAINER_MON_MALE,
     .moves = {MOVE_THRASH, MOVE_SHADOW_FORCE, MOVE_DIG, MOVE_DOUBLE_EDGE}
