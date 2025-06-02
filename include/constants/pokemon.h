@@ -363,14 +363,18 @@
 #define EVO_LEVEL_PSYCHIC_TYPE_MON_IN_PARTY     101     // Pokémon reaches the specified level with a PSYCHIC Type Pokémon in party.
 #define EVO_LEVEL_FIGHTING_TYPE_MON_IN_PARTY    102     // Pokémon reaches the specified level with a FIGHTING Type Pokémon in party.
 //Weather
-#define EVO_LEVEL_WEATHER_ABNORMAL      103
-#define EVO_LEVEL_WEATHER_DUSTY         104
-#define EVO_LEVEL_WEATHER_COLD          105
-#define EVO_LEVEL_WEATHER_HOT           106
-#define EVO_MOVE_TYPE                   107
-#define EVO_ITEM_HOLD_MALE              108
-#define EVO_ITEM_HOLD_FEMALE            109
-#define EVO_LEVEL_WEATHER_WET           110
+#define EVO_LEVEL_WEATHER_ABNORMAL          103
+#define EVO_LEVEL_WEATHER_DUSTY             104
+#define EVO_LEVEL_WEATHER_COLD              105
+#define EVO_LEVEL_WEATHER_HOT               106
+#define EVO_MOVE_TYPE                       107
+#define EVO_ITEM_HOLD_MALE                  108
+#define EVO_ITEM_HOLD_FEMALE                109
+#define EVO_LEVEL_WEATHER_WET               110
+
+#define EVO_SPECIFIC_MON_IN_PARTY_MALE      111
+#define EVO_SPECIFIC_MON_IN_PARTY_FEMALE    112
+
 
 
 // Evolution 'modes,' for GetEvolutionTargetSpecies

@@ -9487,13 +9487,13 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     .lvl = 226,
     .species = SPECIES_SEASLUG_PRINCE,
     },
-    /*{
+    {
     .lvl = 227,
-    .species = SPECIES_CPT.MARLIN,
+    .species = SPECIES_CPT_MARLIN,
     },
     {
     .lvl = 228,
-    .species = SPECIES_CPT.MARLIN,
+    .species = SPECIES_CPT_MARLIN,
     },
     {
     .lvl = 229,
@@ -9502,7 +9502,7 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     {
     .lvl = 230,
     .species = SPECIES_BARRELCHEST,
-    },*/
+    },
 };
 
 static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    

@@ -1088,7 +1088,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(CROCODILE_MUTADILE_FORM, gMonPalette_Crocodile_Mutadile_Form),
     SPECIES_PAL(CROCODILE_ANKH_FORM, gMonPalette_Crocodile_Ankh_Form),
     SPECIES_PAL(CROCODILE_UKUNDUKA_FORM, gMonPalette_Crocodile_Ukunduka_Form),
-    SPECIES_PAL(BLOODVELD_INSATIABLE_MUTATED_FORM, gMonPalette_Bloodveld_GWD),
+    SPECIES_PAL(BLOODVELD_GWD, gMonPalette_Bloodveld_GWD),
     SPECIES_PAL(BLOODVELD_ACIDIC_FORM, gMonPalette_Bloodveld_Acidic_Form),
     SPECIES_PAL(BLOODVELD_VAMPIRIC_FORM, gMonPalette_Bloodveld_Vampiric_Form),
     SPECIES_PAL(BLOODVELD_RS3_FORM, gMonPalette_Bloodveld_RS3_Form),

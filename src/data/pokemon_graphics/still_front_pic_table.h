@@ -1091,7 +1091,7 @@ const struct CompressedSpriteSheet gMonStillFrontPicTable[] =
     SPECIES_SPRITE(CROCODILE_MUTADILE_FORM, gMonStillFrontPic_Crocodile_Mutadile_Form),
     SPECIES_SPRITE(CROCODILE_ANKH_FORM, gMonStillFrontPic_Crocodile_Ankh_Form),
     SPECIES_SPRITE(CROCODILE_UKUNDUKA_FORM, gMonStillFrontPic_Crocodile_Ukunduka_Form),
-    SPECIES_SPRITE(BLOODVELD_INSATIABLE_MUTATED_FORM, gMonStillFrontPic_Bloodveld_GWD),
+    SPECIES_SPRITE(BLOODVELD_GWD, gMonStillFrontPic_Bloodveld_GWD),
     SPECIES_SPRITE(BLOODVELD_ACIDIC_FORM, gMonStillFrontPic_Bloodveld_Acidic_Form),
     SPECIES_SPRITE(BLOODVELD_VAMPIRIC_FORM, gMonStillFrontPic_Bloodveld_Vampiric_Form),
     SPECIES_SPRITE(BLOODVELD_RS3_FORM, gMonStillFrontPic_Bloodveld_RS3_Form),

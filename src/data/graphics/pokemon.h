@@ -18368,12 +18368,12 @@ const u32 gMonShinyPalette_Richie[] = INCBIN_U32("graphics/pokescape_monsters/Ri
 const u8 gMonIcon_Richie[] = INCBIN_U8("graphics/pokescape_monsters/Richie/icon.4bpp");
 const u8 gMonFootprint_Richie[] = INCBIN_U8("graphics/pokescape_monsters/Richie/footprint.1bpp");
 
-const u32 gMonFrontPic_Cpt.Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt.Marlin/front.4bpp.lz");
-const u32 gMonPalette_Cpt.Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt.Marlin/normal.gbapal.lz");
-const u32 gMonBackPic_Cpt.Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt.Marlin/back.4bpp.lz");
-const u32 gMonShinyPalette_Cpt.Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt.Marlin/shiny.gbapal.lz");
-const u8 gMonIcon_Cpt.Marlin[] = INCBIN_U8("graphics/pokescape_monsters/Cpt.Marlin/icon.4bpp");
-const u8 gMonFootprint_Cpt.Marlin[] = INCBIN_U8("graphics/pokescape_monsters/Cpt.Marlin/footprint.1bpp");
+const u32 gMonFrontPic_Cpt_Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt_Marlin/front.4bpp.lz");
+const u32 gMonPalette_Cpt_Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt_Marlin/normal.gbapal.lz");
+const u32 gMonBackPic_Cpt_Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt_Marlin/back.4bpp.lz");
+const u32 gMonShinyPalette_Cpt_Marlin[] = INCBIN_U32("graphics/pokescape_monsters/Cpt_Marlin/shiny.gbapal.lz");
+const u8 gMonIcon_Cpt_Marlin[] = INCBIN_U8("graphics/pokescape_monsters/Cpt_Marlin/icon.4bpp");
+const u8 gMonFootprint_Cpt_Marlin[] = INCBIN_U8("graphics/pokescape_monsters/Cpt_Marlin/footprint.1bpp");
 
 const u32 gMonFrontPic_Barrelchest[] = INCBIN_U32("graphics/pokescape_monsters/Barrelchest/front.4bpp.lz");
 const u32 gMonPalette_Barrelchest[] = INCBIN_U32("graphics/pokescape_monsters/Barrelchest/normal.gbapal.lz");

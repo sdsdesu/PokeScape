@@ -5441,7 +5441,7 @@ const struct MonCoords gMonBackPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM] =
+	[SPECIES_BLOODVELD_GWD] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
