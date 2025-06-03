@@ -6124,8 +6124,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
-        .trainerName = _("Angrennouille"),
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
@@ -6136,8 +6136,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
-        .trainerName = _("Angrennouille"),
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
@@ -6148,8 +6148,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
-        .trainerName = _("Angrennouille"),
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
@@ -6160,8 +6160,8 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
-        .trainerName = _("Angrennouille"),
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
