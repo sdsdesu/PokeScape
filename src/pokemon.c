@@ -7028,7 +7028,13 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_SANDWICH:
             return MUS_PS_VS_ORCHY;
         default:
-            return MUS_PS_VS_TRAINER_P2P; //POKESCAPE
+            if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+                return MUS_PS_VS_TZHAAR;
+            }
+            else {
+                return MUS_PS_VS_TRAINER_P2P; //POKESCAPE
+            }
+            
         }
     }
     else
