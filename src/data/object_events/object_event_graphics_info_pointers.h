@@ -614,6 +614,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_spider_blue
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_fleshcrawler;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_essence;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_bike_ham;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_twisted;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_genie;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_doris;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_angrennouille;
+
+
+
+
 
 //ORES
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CopperOre;
@@ -1240,6 +1248,10 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FLESHCRAWLER] =                  &gObjectEventGraphicsInfo_fleshcrawler,
     [OBJ_EVENT_GFX_ESSENCE] =                       &gObjectEventGraphicsInfo_essence,
     [OBJ_EVENT_GFX_BIKE_HAM] =                      &gObjectEventGraphicsInfo_bike_ham,
+    [OBJ_EVENT_GFX_TWISTED] =                       &gObjectEventGraphicsInfo_twisted,
+    [OBJ_EVENT_GFX_GENIE] =                         &gObjectEventGraphicsInfo_genie,
+    [OBJ_EVENT_GFX_DORIS] =                         &gObjectEventGraphicsInfo_doris,
+    [OBJ_EVENT_GFX_ANGRENNOUILLE] =                  &gObjectEventGraphicsInfo_angrennouille,
 
     
 //ORES 

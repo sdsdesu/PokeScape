@@ -42,7 +42,7 @@ mapscripts Route1_MapScripts {
 script ROUTE1_STATE {
     if (!(var(VAR_FROGEEL_RIVAL) == 0)) {
         removeobject(38)
-        setflag(FLAG_TEMP_1F) //Angrenouille
+        setflag(FLAG_TEMP_1F) //Angrennouille
     }
     return
 }
@@ -1035,25 +1035,25 @@ script FROGEEL_RIVAL_1 {
         //waitmovement(0)
         namebox("???")
         msgbox(format("…{PAUSE 15}… I mean practising my swimming skills."))
-        namebox("Angrenouille")
-        msgbox(format("Names Angrenouille.\pI dream of one day becoming a frog prince.\pI still wait for the day the Frog Princess of my dreams will call me to the Land of the Frogs to ask for a kiss from yours truly.\pAaah, love."))
+        namebox("Angrennouille")
+        msgbox(format("Names Angrennouille.\pI dream of one day becoming a frog prince.\pI still wait for the day the Frog Princess of my dreams will call me to the Land of the Frogs to ask for a kiss from yours truly.\pAaah, love."))
         hidenamebox
         closemessage
         //applymovement (24, MOVEMENT_EXCLAMATIONMARK_JUMP_DOWN)
         //waitmovement(0)
-        namebox("Angrenouille")
+        namebox("Angrennouille")
         msgbox(format("What?{PAUSE 60}\nI look shady?\pMy, you sure do have some gall to call ME a thief?"))
         hidenamebox
         closemessage
         applymovement (38, MOVEMENT_QUESTIONMARK)
-        namebox("Angrenouille")
+        namebox("Angrennouille")
         msgbox(format("You didn't?{PAUSE 60}\nNo… I am not a thief!\pI swear!\pWell whatever, you're wrong, and I have nothing to prove to you."))
         hidenamebox
         closemessage
-        namebox("Angrenouille")
+        namebox("Angrennouille")
         msgbox(format("…{PAUSE 15}\nLet's fight just to keep you silent."))
         trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_1, format("Seeya!"))
-        namebox("Angrenouille")
+        namebox("Angrennouille")
         msgbox(format("A…{PAUSE 60}\nAAA…{PAUSE 60}\lAAAAAAA!"))
         hidenamebox
         closemessage
@@ -1062,10 +1062,10 @@ script FROGEEL_RIVAL_1 {
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1)
         waitmovement(0)
         delay(60)
-        msgbox(format("It seems Angrenouille dropped something while running off."))
+        msgbox(format("It seems Angrennouille dropped something while running off."))
         giveitem(ITEM_SPIRIT_CHARM, 1)
         removeobject(38)
-        setflag(FLAG_TEMP_1F) //Angrenouille
+        setflag(FLAG_TEMP_1F) //Angrennouille
         setvar(VAR_FROGEEL_RIVAL, 5)
     }
     else {

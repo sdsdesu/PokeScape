@@ -79,7 +79,7 @@ script MODTIMBO_STATE{
 script FROGEEL_RIVAL_STATE {
     if (!(var(VAR_FROGEEL_RIVAL) == 5)) {
         removeobject(53)
-        setflag(FLAG_TEMP_10) //Angrenouille
+        setflag(FLAG_TEMP_10) //Angrennouille
     }
     return
 }
@@ -1544,12 +1544,12 @@ script Mithrilman_FALADOR1{
 script FROGEEL_RIVAL_2 {
     lock 
     faceplayer
-    namebox("Angrenouille")
+    namebox("Angrennouille")
 	msgbox(format("Phew, evaded pursuit once again."))
     hidenamebox
     closemessage
 	applymovement (53, MOVEMENT_EXCLAMATIONMARK)
-    namebox("Angrenouille")
+    namebox("Angrennouille")
 	msgbox(format("Oh hi there, {PLAYER} was it?\nYes I know your name, I know a lot of things.\pLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT))
     { 
@@ -1569,7 +1569,7 @@ script FROGEEL_RIVAL_2 {
 		elif (flag(FLAG_STARTER3)) { //Water
 			trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_WATER, format("Seeya!"))
 		}
-    namebox("Angrenouille")
+    namebox("Angrennouille")
 	msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
 	closemessage
 	hidenamebox
@@ -1603,14 +1603,14 @@ script FROGEEL_RIVAL_2 {
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4)
     waitmovement(0)
 	delay(60)
-    msgbox(format("It seems that some of Angrenouille's loot fell from his pocket as he ran off."))
+    msgbox(format("It seems that some of Angrennouille's loot fell from his pocket as he ran off."))
 	closemessage
     giveitem(ITEM_MIND_RUNE, 1)
 	closemessage
     removeobject(53)
     removeobject(52)
     removeobject(43)
-    setflag(FLAG_TEMP_10) //Angrenouille
+    setflag(FLAG_TEMP_10) //Angrennouille
 	setflag(FLAG_TEMP_1D) //White Knight
 	setflag(FLAG_TEMP_1F) //White Knight
     setvar(VAR_FROGEEL_RIVAL, 10)
