@@ -3367,6 +3367,16 @@ extern const u8 gText_SubQuest_MithrilmanQuest_Desc3[];
 extern const u8 gText_SubQuest_MithrilmanQuest_Name4[];
 extern const u8 gText_SubQuest_MithrilmanQuest_Desc4[];
 
+extern const u8 gText_SideQuestName_QuestPowerPlantScorpions[];
+extern const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name1[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc1[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name2[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc2[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name3[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc3[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name4[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc4[];
 
 
 /*

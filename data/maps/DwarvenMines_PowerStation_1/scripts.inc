@@ -1,5 +1,29 @@
 DwarvenMines_PowerStation_1_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DwarvenMines_PowerStation_1_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+DwarvenMines_PowerStation_1_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call DwarvenMines_PowerStation_1_STATE
+	return
+
+
+DwarvenMines_PowerStation_1_STATE::
+	compare VAR_DWARVEN_MINES_STATE, 10
+	goto_if_eq DwarvenMines_PowerStation_1_STATE_2
+	removeobject 11
+	removeobject 12
+	removeobject 13
+	removeobject 14
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_4
+DwarvenMines_PowerStation_1_STATE_1:
+	return
+
+DwarvenMines_PowerStation_1_STATE_2:
+	setvar VAR_TEMP_0, 1
+	goto DwarvenMines_PowerStation_1_STATE_1
 
 
 NPC_DwarvenMines_PowerStationF1_1::

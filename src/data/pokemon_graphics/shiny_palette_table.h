@@ -1088,7 +1088,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(CROCODILE_MUTADILE_FORM, gMonShinyPalette_Crocodile_Mutadile_Form),
     SPECIES_SHINY_PAL(CROCODILE_ANKH_FORM, gMonShinyPalette_Crocodile_Ankh_Form),
     SPECIES_SHINY_PAL(CROCODILE_UKUNDUKA_FORM, gMonShinyPalette_Crocodile_Ukunduka_Form),
-    SPECIES_SHINY_PAL(BLOODVELD_INSATIABLE_MUTATED_FORM, gMonShinyPalette_Bloodveld_GWD),
+    SPECIES_SHINY_PAL(BLOODVELD_GWD, gMonShinyPalette_Bloodveld_GWD),
     SPECIES_SHINY_PAL(BLOODVELD_ACIDIC_FORM, gMonShinyPalette_Bloodveld_Acidic_Form),
     SPECIES_SHINY_PAL(BLOODVELD_VAMPIRIC_FORM, gMonShinyPalette_Bloodveld_Vampiric_Form),
     SPECIES_SHINY_PAL(BLOODVELD_RS3_FORM, gMonShinyPalette_Bloodveld_RS3_Form),

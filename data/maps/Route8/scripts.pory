@@ -571,9 +571,19 @@ script CRAFTINGGUILD_NPC_2
     lock
     faceplayer
     namebox ("Crafter")
-	msgbox(format("Hello, and welcome to the Crafting Guild!\pAccomplished crafters from all over the land come here to use our top notch workshops.\pYou don't see any workshops?\pOf course not, they're all upstairs!"))
+	msgbox(format("Hello, and welcome to the Crafting Guild!\pAccomplished crafters from all over the land come here to use our top notch workshops."))
     closemessage
     hidenamebox
+    checkitem(ITEM_TM42_POLLEN_PUFF, 1)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Oh you're an MvM participant?\pHere I was instructed to give you this."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_TM42_POLLEN_PUFF)
+        msgbox(format("That scroll contains Pollen Puff.\pI've been told it is a good move for double battles."))
+        closemessage
+        hidenamebox
+    }
 	release
 	end
 }

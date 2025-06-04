@@ -1886,3 +1886,15 @@ $(OBJEVENTGFXDIR)/pokescape_overworlds/tzhaar_banker.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/costumes/bike_ham.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokescape_overworlds/twisted.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokescape_overworlds/genie.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokescape_overworlds/doris.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
+$(OBJEVENTGFXDIR)/pokescape_overworlds/angrennouille.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4

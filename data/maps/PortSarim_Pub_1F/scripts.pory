@@ -143,6 +143,31 @@ script NPC_PortSarimPub_NPC_2 {
 	end
 }
 
+
+script NPC_PortSarimPub_BRINE
+{
+    lock
+    faceplayer
+    namebox ("Sailor")
+	checkitem(ITEM_TM13_BRINE, 1)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Aye… this used to be my favourite move.\pBut ever since I've gotten sick it's been too much for me to handle.\pHere I want you to have it."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_TM13_BRINE)
+        
+    }
+	msgbox(format("Brrrugh…"))
+	closemessage
+	hidenamebox
+	release
+	end
+}
+
+
+
+
+
 script NPC_PortSarimPub_NPC_1 { 
 	lock
 	faceplayer

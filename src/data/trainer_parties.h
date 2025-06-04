@@ -3670,11 +3670,11 @@ static const struct TrainerMon sParty_ROUTE25_TRAINER_3[] = {
     },
     {
     .lvl = 40,
-    .species = SPECIES_DRAGONLING_RED_FORM,
+    .species = SPECIES_ZYGOMITE_ARCSPORE_FORM,
     },
     {
     .lvl = 40,
-    .species = SPECIES_SNOW_IMP,
+    .species = SPECIES_ESSHOUND,
     }
 };
 //route39
@@ -8021,15 +8021,15 @@ static const struct TrainerMon sParty_Route22_Trainer_1[] = {
 static const struct TrainerMon sParty_Route22_Trainer_2[] = {
     {
     .lvl = 44,
-    .species = SPECIES_LARUPIA_NORMAL_FORM,
+    .species = SPECIES_MOTH_SUNLIGHT_FORM,
     },
     {
     .lvl = 45,
-    .species = SPECIES_GRAAHK_NORMAL_FORM,
+    .species = SPECIES_FOX_FENNEC,
     },
     {
     .lvl = 45,
-    .species = SPECIES_KYATT_NORMAL_FORM,
+    .species = SPECIES_JERBOA,
     }
 };
 
@@ -8364,8 +8364,16 @@ static const struct TrainerMon sParty_DraynorSewers3_Trainer3[] = {    //Mystic
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer1[] = {    //Dwarf
     {
+    .lvl = 41,
+    .species = SPECIES_TORTOISE_NORMAL_FORM,
+    },
+    {
     .lvl = 40,
-    .species = SPECIES_DESERTWYRM,
+    .species = SPECIES_TERRIER,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_CAVEFISH,
     }
 };
 
@@ -8376,14 +8384,18 @@ static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer2[] = {    //Dwar
     },
     {
     .lvl = 42,
-    .species = SPECIES_ROCKTAIL,
+    .species = SPECIES_ROCK_STRANGE_FORM,
     }
 };
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer3[] = {    //Dwarf
     {
+    .lvl = 41,
+    .species = SPECIES_BASILISK_BABY_FORM,
+    },
+    {
     .lvl = 40,
-    .species = SPECIES_TORTLE,
+    .species = SPECIES_SLAGILITH,
     }
 };
 
@@ -8410,7 +8422,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {   //FIR
     },
     {
     .lvl = 42,
-    .species = SPECIES_PYREFIEND,
+    .species = SPECIES_PYRELORD,
     }
 };
 
@@ -8427,8 +8439,12 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //DW
     .species = SPECIES_ROCK_CRAB_AMMONITE_FORM,
     },
     {
+    .lvl = 41,
+    .species = SPECIES_SPOOKAXE,
+    },
+    {
     .lvl = 43,
-    .species = SPECIES_IMPLING_CRYSTAL_FORM,
+    .species = SPECIES_CHINCHOMPA_MECHANIZED,
     }
 };
 
@@ -8450,7 +8466,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer2[] = {    //Fi
     },
     {
     .lvl = 43,
-    .species = SPECIES_SPIDER_LAVA_FORM,                    //Add an additional Lava Monster when they are added
+    .species = SPECIES_LAVA_MONSTER,              
     }
 };
 
@@ -8465,9 +8481,26 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ir
     },
     {
     .lvl = 43,
-    .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
+    .species = SPECIES_BRONZE_DRAGON,            
     }
 };
+
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer4[] = {    //Diviner
+    {
+    .lvl = 43,
+    .species = SPECIES_LIGHT_CREATURE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_IMPLING_DIVINE_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_MALCOLM,        
+    }
+};
+
+
 
 
 //TZHAAR GYM CHALLENGE POOL
@@ -9487,13 +9520,13 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     .lvl = 226,
     .species = SPECIES_SEASLUG_PRINCE,
     },
-    /*{
+    {
     .lvl = 227,
-    .species = SPECIES_CPT.MARLIN,
+    .species = SPECIES_CPT_MARLIN,
     },
     {
     .lvl = 228,
-    .species = SPECIES_CPT.MARLIN,
+    .species = SPECIES_CPT_MARLIN,
     },
     {
     .lvl = 229,
@@ -9502,7 +9535,7 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     {
     .lvl = 230,
     .species = SPECIES_BARRELCHEST,
-    },*/
+    },
 };
 
 static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    

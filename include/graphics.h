@@ -567,6 +567,7 @@ extern const u32 gTrainerFrontPic_tzhaar_ket_hd[];
 extern const u32 gTrainerFrontPic_zemouregal[];
 extern const u32 gTrainerFrontPic_lord_daquarius[];
 extern const u32 gTrainerFrontPic_elite_black_knight[];
+extern const u32 gTrainerFrontPic_angrennouille[];
 
 //POKESCAPE PALETTES
 extern const u32 gTrainerPalette_a_nub_tot[];
@@ -742,6 +743,7 @@ extern const u32 gTrainerPalette_tzhaar_ket_hd[];
 extern const u32 gTrainerPalette_zemouregal[];
 extern const u32 gTrainerPalette_lord_daquarius[];
 extern const u32 gTrainerPalette_elite_black_knight[];
+extern const u32 gTrainerPalette_angrennouille[];
 
 // pokeblock
 extern const u32 gMenuPokeblock_Gfx[];
@@ -4542,6 +4544,16 @@ extern const u32 gItemIcon_BookOfArmadyl[];
 extern const u32 gItemIconPalette_BookOfArmadyl[];
 extern const u32 gItemIcon_ChocolateBarSandwich[];
 extern const u32 gItemIconPalette_ChocolateBarSandwich[];
+extern const u32 gItemIcon_GloopSoup[];
+extern const u32 gItemIconPalette_GloopSoup[];
+extern const u32 gItemIcon_Fingers[];
+extern const u32 gItemIconPalette_Fingers[];
+extern const u32 gItemIcon_BatShish[];
+extern const u32 gItemIconPalette_BatShish[];
+extern const u32 gItemIcon_EelSushi[];
+extern const u32 gItemIconPalette_EelSushi[];
+
+
 
 // ernest quest
 extern const u32 gItemIcon_FishFood[];

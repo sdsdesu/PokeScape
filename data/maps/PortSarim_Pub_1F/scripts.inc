@@ -169,11 +169,33 @@ NPC_PortSarimPub_NPC_2::
 	end
 
 
+NPC_PortSarimPub_BRINE::
+	lock
+	faceplayer
+	namebox NPC_PortSarimPub_BRINE_Text_0
+	checkitem ITEM_TM13_BRINE, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_PortSarimPub_BRINE_2
+NPC_PortSarimPub_BRINE_1:
+	msgbox NPC_PortSarimPub_BRINE_Text_2
+	closemessage
+	hidenamebox
+	release
+	end
+
+NPC_PortSarimPub_BRINE_2:
+	msgbox NPC_PortSarimPub_BRINE_Text_1
+	closemessage
+	hidenamebox
+	giveitem ITEM_TM13_BRINE
+	goto NPC_PortSarimPub_BRINE_1
+
+
 NPC_PortSarimPub_NPC_1::
 	lock
 	faceplayer
-	namebox NPC_PortSarimPub_NPC_1_Text_0
-	msgbox NPC_PortSarimPub_NPC_1_Text_1
+	namebox NPC_PortSarimPub_BRINE_Text_0
+	msgbox NPC_PortSarimPub_NPC_1_Text_0
 	call BattlePub_CHECKCARD
 	hidenamebox
 	goto_if_unset FLAG_PUB_TRAINER_3, NPC_PortSarimPub_NPC_1_2
@@ -183,7 +205,7 @@ NPC_PortSarimPub_NPC_1_1:
 	end
 
 NPC_PortSarimPub_NPC_1_2:
-	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_NPC_1_4
 	goto NPC_PortSarimPub_NPC_1_1
@@ -191,20 +213,20 @@ NPC_PortSarimPub_NPC_1_2:
 NPC_PortSarimPub_NPC_1_4:
 	setflag FLAG_PUB_TRAINER_3
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON
-	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_SAILOR, NPC_PortSarimPub_NPC_1_Text_3
+	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_SAILOR, NPC_PortSarimPub_NPC_1_Text_2
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_LOST
 	goto_if_eq NPC_PortSarimPub_NPC_1_6
-	namebox NPC_PortSarimPub_NPC_1_Text_0
-	msgbox NPC_PortSarimPub_NPC_1_Text_5
+	namebox NPC_PortSarimPub_BRINE_Text_0
+	msgbox NPC_PortSarimPub_NPC_1_Text_4
 	hidenamebox
 	call GIVE_RANDOM_ITEM
 	goto NPC_PortSarimPub_NPC_1_1
 
 NPC_PortSarimPub_NPC_1_6:
 	special HealPlayerParty
-	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	msgbox NPC_PortSarimPub_NPC_1_Text_3
 	goto NPC_PortSarimPub_NPC_1_1
 
 
@@ -222,7 +244,7 @@ NPC_PortSarimPub_Pirate_1_1:
 	end
 
 NPC_PortSarimPub_Pirate_1_2:
-	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_Pirate_1_4
 	goto NPC_PortSarimPub_Pirate_1_1
@@ -230,7 +252,7 @@ NPC_PortSarimPub_Pirate_1_2:
 NPC_PortSarimPub_Pirate_1_4:
 	setflag FLAG_PUB_TRAINER_1
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON
-	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_1, NPC_PortSarimPub_NPC_1_Text_3
+	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_1, NPC_PortSarimPub_NPC_1_Text_2
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_LOST
@@ -243,7 +265,7 @@ NPC_PortSarimPub_Pirate_1_4:
 
 NPC_PortSarimPub_Pirate_1_6:
 	special HealPlayerParty
-	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	msgbox NPC_PortSarimPub_NPC_1_Text_3
 	goto NPC_PortSarimPub_Pirate_1_1
 
 
@@ -261,7 +283,7 @@ NPC_PortSarimPub_Pirate_2_1:
 	end
 
 NPC_PortSarimPub_Pirate_2_2:
-	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_Pirate_2_4
 	goto NPC_PortSarimPub_Pirate_2_1
@@ -269,7 +291,7 @@ NPC_PortSarimPub_Pirate_2_2:
 NPC_PortSarimPub_Pirate_2_4:
 	setflag FLAG_PUB_TRAINER_2
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON
-	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, NPC_PortSarimPub_NPC_1_Text_3
+	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, NPC_PortSarimPub_NPC_1_Text_2
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_LOST
@@ -282,7 +304,7 @@ NPC_PortSarimPub_Pirate_2_4:
 
 NPC_PortSarimPub_Pirate_2_6:
 	special HealPlayerParty
-	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	msgbox NPC_PortSarimPub_NPC_1_Text_3
 	goto NPC_PortSarimPub_Pirate_2_1
 
 
@@ -304,7 +326,7 @@ NPC_PortSarimPub_PUBCRAWL_1:
 NPC_PortSarimPub_PUBCRAWL_2:
 	msgbox NPC_PortSarimPub_PUBCRAWL_Text_2
 	hidenamebox
-	msgbox NPC_PortSarimPub_NPC_1_Text_2, MSGBOX_YESNO
+	msgbox NPC_PortSarimPub_NPC_1_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne NPC_PortSarimPub_PUBCRAWL_9
 	goto NPC_PortSarimPub_PUBCRAWL_1
@@ -320,21 +342,21 @@ NPC_PortSarimPub_PUBCRAWL_6:
 NPC_PortSarimPub_PUBCRAWL_9:
 	setflag FLAG_PUB_TRAINER_3
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON
-	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, NPC_PortSarimPub_NPC_1_Text_3
+	trainerbattle_no_intro_no_whiteout TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, NPC_PortSarimPub_NPC_1_Text_2
 	call PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF
 	specialvar VAR_RESULT, GetBattleOutcome
 	compare VAR_RESULT, B_OUTCOME_LOST
 	goto_if_eq NPC_PortSarimPub_PUBCRAWL_11
 	msgbox NPC_PortSarimPub_PUBCRAWL_Text_3
 	namebox NPC_PortSarimPub_PUBCRAWL_Text_0
-	msgbox NPC_PortSarimPub_NPC_1_Text_5
+	msgbox NPC_PortSarimPub_NPC_1_Text_4
 	hidenamebox
 	call GIVE_RANDOM_ITEM
 	goto NPC_PortSarimPub_PUBCRAWL_1
 
 NPC_PortSarimPub_PUBCRAWL_11:
 	special HealPlayerParty
-	msgbox NPC_PortSarimPub_NPC_1_Text_4
+	msgbox NPC_PortSarimPub_NPC_1_Text_3
 	goto NPC_PortSarimPub_PUBCRAWL_1
 
 
@@ -601,10 +623,19 @@ NPC_PortSarimPub_NPC_2_Text_1:
 	.string "them.\p"
 	.string "Disgusting!$"
 
-NPC_PortSarimPub_NPC_1_Text_0:
+NPC_PortSarimPub_BRINE_Text_0:
 	.string "Sailor$"
 
-NPC_PortSarimPub_NPC_1_Text_1:
+NPC_PortSarimPub_BRINE_Text_1:
+	.string "Aye… this used to be my favourite move.\p"
+	.string "But ever since I've gotten sick it's\n"
+	.string "been too much for me to handle.\p"
+	.string "Here I want you to have it.$"
+
+NPC_PortSarimPub_BRINE_Text_2:
+	.string "Brrrugh…$"
+
+NPC_PortSarimPub_NPC_1_Text_0:
 	.string "There is an unspoken rule where you can\n"
 	.string "only battle the same person once per\l"
 	.string "day.\p"
@@ -612,17 +643,17 @@ NPC_PortSarimPub_NPC_1_Text_1:
 	.string "many drunks lost all of their gold\l"
 	.string "pieces.$"
 
-NPC_PortSarimPub_NPC_1_Text_2:
+NPC_PortSarimPub_NPC_1_Text_1:
 	.string "Do you wish to challenge them to a\n"
 	.string "battle?$"
 
-NPC_PortSarimPub_NPC_1_Text_3:
+NPC_PortSarimPub_NPC_1_Text_2:
 	.string "I lost, you win.$"
 
-NPC_PortSarimPub_NPC_1_Text_4:
+NPC_PortSarimPub_NPC_1_Text_3:
 	.string "You lost! Suck it!$"
 
-NPC_PortSarimPub_NPC_1_Text_5:
+NPC_PortSarimPub_NPC_1_Text_4:
 	.string "This round is on me.$"
 
 NPC_PortSarimPub_Pirate_1_Text_0:

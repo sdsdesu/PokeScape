@@ -63,8 +63,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_BODY_TALISMAN",
-      "flag": "FLAG_ITEM_POWERSTATION_3"
+      "script": "FIND_ITEM_HP_LAMP",
+      "flag": "FLAG_ITEM_POWERSTATION_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DIVINER",
@@ -74,8 +74,8 @@
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "NPC_DwarvenMines_PowerStationF2_4",
       "flag": "0"
     },
@@ -146,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNE_ORE",
-      "x": 24,
-      "y": 8,
+      "x": 30,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -188,7 +188,7 @@
       "x": 16,
       "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -198,8 +198,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCORPION",
-      "x": 15,
-      "y": 9,
+      "x": 27,
+      "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
       "movement_range_x": 1,
@@ -276,8 +276,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BREAKABLE_ROCK",
-      "x": 21,
-      "y": 5,
+      "x": 30,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -312,6 +312,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCORPION",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SCORPION",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCORPION",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SCORPION",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -324,7 +350,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "1",
+      "script": "TRIGGER_SCORPIONS_DWARVEN_POWERSTATION"
+    }
   ],
   "bg_events": [
 

@@ -2888,12 +2888,17 @@ const u32 gItemIconPalette_ChocolateBarSandwich[] = INCBIN_U32("graphics/items/p
 const u32 gItemIcon_COMMORB[] = INCBIN_U32("graphics/items/pokescape_icons/commorb.4bpp.lz");
 const u32 gItemIconPalette_COMMORB[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/commorb.gbapal.lz");
 
+const u32 gItemIcon_GloopSoup[] = INCBIN_U32("graphics/items/pokescape_icons/gloop_soup.4bpp.lz");
+const u32 gItemIconPalette_GloopSoup[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/gloop_soup.gbapal.lz");
 
+const u32 gItemIcon_Fingers[] = INCBIN_U32("graphics/items/pokescape_icons/fingers.4bpp.lz");
+const u32 gItemIconPalette_Fingers[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/fingers.gbapal.lz");
 
+const u32 gItemIcon_BatShish[] = INCBIN_U32("graphics/items/pokescape_icons/bat_shish.4bpp.lz");
+const u32 gItemIconPalette_BatShish[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/bat_shish.gbapal.lz");
 
-
-
-
+const u32 gItemIcon_EelSushi[] = INCBIN_U32("graphics/items/pokescape_icons/eel_sushi.4bpp.lz");
+const u32 gItemIconPalette_EelSushi[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/eel_sushi.gbapal.lz");
 
 
 

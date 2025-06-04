@@ -6048,6 +6048,18 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DwarfPowerStationF2_Trainer3),
     },
 
+    [TRAINER_DWARF_POWERSTATION_F2_4] = //Diviner
+    {
+        .trainerClass = TRAINER_CLASS_DIVINER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_divination,
+        .trainerName = _("Paracelsus"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_DwarfPowerStationF2_Trainer4),
+    },
+
     [TRAINER_DWARVENMINES_HOUSE_1] = //Dwarf
     {
         .trainerClass = TRAINER_CLASS_DWARF,
@@ -6060,12 +6072,12 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer1),
     },
 
-    [TRAINER_DWARVENMINES_HOUSE_2] = //Dwarf
+    [TRAINER_DWARVENMINES_HOUSE_2] = 
     {
-        .trainerClass = TRAINER_CLASS_DWARF,
+        .trainerClass = TRAINER_CLASS_SMITH,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_dwarf_m,
-        .trainerName = _("Nikolai"),
+        .trainerPic = TRAINER_PIC_smith,
+        .trainerName = _("McSmelter17"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
@@ -6124,7 +6136,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
+        .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6136,7 +6148,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
+        .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6148,7 +6160,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
+        .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,
@@ -6160,7 +6172,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_CHEF,         //Need some custom stuff for him?
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_mugger,
+        .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
         .items = {},
         .doubleBattle = FALSE,

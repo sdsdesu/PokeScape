@@ -11349,12 +11349,12 @@
               {
                 "min_level": 1,
                 "max_level": 4,
-                "species": "SPECIES_SHRIMP"
+                "species": "SPECIES_CRAYFISH"
               },
               {
-                "min_level": 10,
+                "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_CRAYFISH"
+                "species": "SPECIES_SHRIMP"
               },
               {
                 "min_level": 10,
@@ -11568,12 +11568,12 @@
               {
                 "min_level": 1,
                 "max_level": 4,
-                "species": "SPECIES_SHRIMP"
+                "species": "SPECIES_CRAYFISH"
               },
               {
-                "min_level": 10,
+                "min_level": 7,
                 "max_level": 15,
-                "species": "SPECIES_CRAYFISH"
+                "species": "SPECIES_SHRIMP"
               },
               {
                 "min_level": 10,
@@ -12088,14 +12088,14 @@
             "encounter_rate": 100,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 7,
-                "species": "SPECIES_CRAYFISH"
-              },
-              {
-                "min_level": 5,
+                "min_level": 4,
                 "max_level": 7,
                 "species": "SPECIES_SARDINE"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_CRAYFISH"
               },
               {
                 "min_level": 10,
@@ -12244,7 +12244,7 @@
               {
                 "min_level": 5,
                 "max_level": 7,
-                "species": "SPECIES_CRAYFISH"
+                "species": "SPECIES_SARDINE"
               },
               {
                 "min_level": 5,
@@ -16933,7 +16933,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM"
+                "species": "SPECIES_BLOODVELD_GWD"
               },
               {
                 "min_level": 5,
@@ -17002,7 +17002,7 @@
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM"
+                "species": "SPECIES_BLOODVELD_GWD"
               },
               {
                 "min_level": 5,
@@ -29471,7 +29471,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_FERRET"
+                "species": "SPECIES_RAVEN_NORMAL_FORM"
               },
               {
                 "min_level": 31,
@@ -29540,7 +29540,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_GLACOR_ENDURING_FORM"
+                "species": "SPECIES_RAVEN_NEVERMORE_FORM"
               },
               {
                 "min_level": 31,

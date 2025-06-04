@@ -10262,8 +10262,277 @@ Cry_Mother_Mallum::
 	.incbin "sound/direct_sound_samples/cries/swinub.bin"
 
 
+	.align 2
+Cry_Lava_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
 
+	.align 2
+Cry_Frost_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
 
+	.align 2
+Cry_Dragon_Crystalline_Form::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Dragon_Corrupted_Form::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Sottlepot::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Reanimated_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_White_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Bronze_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Iron_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Steel_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Mithril_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Adamant_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Rune_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Galvek::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Celestial_Dragon::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Bandotrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Seretrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Zarotrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Tumetrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Ungotrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Armatrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Spirit_Cockatrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Seagutrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Coocatrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Pheatrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Mini_Marm::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Richie::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Cpt_Marlin::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Barrelchest::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Lava_Beast::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Lava_Monster::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Zombie_head::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Wintertoad::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Plague_Frog::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Swamp_Frog::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Cuthbert::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Zorya::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Lola::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Rabbit_Caerbannog::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chocolate_Rabbit::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Harvey::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Easter_Bunny::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_War_Bunny::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Rabbit_Stalker::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Rabbit_Elder_Stalker::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chicken_Frank::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chicken_Death::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chicken_War::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chicken_Pestilence::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Chicken_Famine::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Crystalline::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Seeker::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Corporeal::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Tzhaar::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Abyssal::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Reanimated::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Strykewyrm::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Snow::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Trial::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Melee::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Magic::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Ranged::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Sane::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Prince::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Frogeel_Princess::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Corrupted_Beast::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Molanisk::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
+
+	.align 2
+Cry_Duckatrice::
+	.incbin "sound/direct_sound_samples/cries/swinub.bin"
 
 
 
