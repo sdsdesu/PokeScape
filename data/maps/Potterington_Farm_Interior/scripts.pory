@@ -225,7 +225,7 @@ script POTTERINGTON_FARM_Lassy
 
 script SCRIPT_EGG_NOROOM
 {
-    msgbox(format("You have no space for this."))
+    msgbox(format("You have no space to take the monster EGG."))
     closemessage
     hidenamebox
     release

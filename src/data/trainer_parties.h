@@ -9556,11 +9556,11 @@ static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_GRASS[] = {
     },
     {
     .lvl = 32,
-    .species = SPECIES_GUTHLING,    //Should be a ranged Frogeel
+    .species = SPECIES_FROGEEL_RANGED,
     },
     {
     .lvl = 33,
-    .species = SPECIES_FROGEEL,    //Should be a trial Frogeel
+    .species = SPECIES_FROGEEL_TRIAL,
     }
 };
 
@@ -9575,11 +9575,11 @@ static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_FIRE[] = {
     },
     {
     .lvl = 32,
-    .species = SPECIES_ZAMLING,    //Should be a melee Frogeel
+    .species = SPECIES_FROGEEL_MELEE,
     },
     {
     .lvl = 33,
-    .species = SPECIES_FROGEEL,    //Should be a trial Frogeel
+    .species = SPECIES_FROGEEL_TRIAL,
     }
 };
 
@@ -9594,10 +9594,10 @@ static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_WATER[] = {
     },
     {
     .lvl = 32,
-    .species = SPECIES_SARALING,    //Should be a magic Frogeel
+    .species = SPECIES_FROGEEL_MAGIC,
     },
     {
     .lvl = 33,
-    .species = SPECIES_FROGEEL,    //Should be a trial Frogeel
+    .species = SPECIES_FROGEEL_TRIAL,
     }
 };

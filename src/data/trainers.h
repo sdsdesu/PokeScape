@@ -4592,7 +4592,7 @@ const struct Trainer gTrainers[] = {
         .trainerName = _("Vannaka"),
         .items = {ITEM_CHOCOLATE_CAKE, ITEM_CHOCOLATE_CAKE, ITEM_POTION_SPDEF, ITEM_BLUEBERRY_SPECIAL},
         .doubleBattle = FALSE,
-        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_ACE_POKEMON,
         .party = TRAINER_PARTY(sParty_GYM_LEADER_VANNAKA_1),
     },
     

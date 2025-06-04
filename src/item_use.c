@@ -1782,10 +1782,15 @@ static void AskPlayerTeleportTool(u8 taskId)
 
 void ItemUseOutOfBattle_TeleportTool(u8 taskId)
 {
-    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
-        AskPlayerTeleportTool(taskId);
+    if (CanUseDigOrEscapeRopeOnCurMap() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_TeleportTool;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
     else
+    {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
 static void ItemUseOnFieldCB_SweetScentTool(u8 taskId)
