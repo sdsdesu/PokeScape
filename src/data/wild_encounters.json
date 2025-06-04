@@ -29471,7 +29471,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_FERRET"
+                "species": "SPECIES_RAVEN_NORMAL_FORM"
               },
               {
                 "min_level": 31,
@@ -29540,7 +29540,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_GLACOR_ENDURING_FORM"
+                "species": "SPECIES_RAVEN_NEVERMORE_FORM"
               },
               {
                 "min_level": 31,

@@ -2176,11 +2176,11 @@ const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("");
 const u8 gText_SideQuestName_QuestPowerPlantScorpions[] = _("Dwarven Troubles");
 const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[] = _("Assist Nulodion with his\nscorpion problems.");
 const u8 gText_SubQuest_QuestPowerPlantScorpions_Name1[] = _("You got this!");
-const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc1[] = _("You accepted the quest to get\nrid of some scorpions.");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc1[] = _("You recieved a key to the\npowerstation located within the\nDwarven Mines.");
 const u8 gText_SubQuest_QuestPowerPlantScorpions_Name2[] = _("Access granted!");
-const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc2[] = _("Using the Factory Key you\ngained access to the powerplant.");
-const u8 gText_SubQuest_QuestPowerPlantScorpions_Name3[] = _("Did someone call for a hairdresser?");
-const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc3[] = _("You defeated some massive\nscorpions!");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc2[] = _("Using the Factory Key you gained\naccess to the powerplant.");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Name3[] = _("Haircut anyone?");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc3[] = _("You defeated some massive scorpions!");
 const u8 gText_SubQuest_QuestPowerPlantScorpions_Name4[] = _("Still not enough…");
 const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc4[] = _("Nulodion rewarded you with\nsome junk.");
 

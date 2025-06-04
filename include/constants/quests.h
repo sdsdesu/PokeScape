@@ -24,7 +24,6 @@
 #define QUEST_BANANA_BOAT               6   //
 #define QUEST_MITHRILMAN_QUEST          7
 #define QUEST_POWERPLANT_SCORPIONS      8
-
 #define QUEST_ARTFIGHT_JATIZSO          9   //QUEST_ARTFIGHT_JATIZSO
 #define QUEST_ARTFIGHT_NEITIZNOT        10
 

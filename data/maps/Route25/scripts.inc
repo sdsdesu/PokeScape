@@ -66,4 +66,5 @@ BATTLE_ROUTE25_TRAINER_3_Text_1:
 BATTLE_ROUTE25_TRAINER_3_Text_2:
 	.string "Even if I find the Altar I don't have\n"
 	.string "the correct Talisman for it.\p"
-	.string "I wonder where I can find it.$"
+	.string "I wonder where I can find it, it must be\n"
+	.string "somewhere in the region.$"

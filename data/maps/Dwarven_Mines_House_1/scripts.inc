@@ -112,9 +112,16 @@ NPC_Dwarven_Mines_House_11::
 	end
 
 
+OBJECT_TRASH_CAN::
+	lock
+	msgbox OBJECT_TRASH_CAN_Text_0
+	closemessage
+	release
+	end
+
+
 NPC_Dwarven_Mines_House_12::
 	lock
-	faceplayer
 	namebox NPC_Dwarven_Mines_House_12_Text_0
 	compare VAR_DWARVEN_MINES_STATE, 0
 	goto_if_eq NPC_Dwarven_Mines_House_12_2
@@ -122,6 +129,10 @@ NPC_Dwarven_Mines_House_12::
 	goto_if_eq NPC_Dwarven_Mines_House_12_3
 	compare VAR_DWARVEN_MINES_STATE, 10
 	goto_if_eq NPC_Dwarven_Mines_House_12_4
+	compare VAR_DWARVEN_MINES_STATE, 15
+	goto_if_eq NPC_Dwarven_Mines_House_12_5
+	compare VAR_DWARVEN_MINES_STATE, 20
+	goto_if_eq NPC_Dwarven_Mines_House_12_6
 NPC_Dwarven_Mines_House_12_1:
 	closemessage
 	hidenamebox
@@ -130,20 +141,77 @@ NPC_Dwarven_Mines_House_12_1:
 
 NPC_Dwarven_Mines_House_12_2:
 	msgbox NPC_Dwarven_Mines_House_12_Text_1
+	faceplayer
 	msgbox NPC_Dwarven_Mines_House_12_Text_2
 	msgbox NPC_Dwarven_Mines_House_12_Text_3
-	msgbox NPC_Dwarven_Mines_House_12_Text_4
+	hidenamebox
 	setvar VAR_DWARVEN_MINES_STATE, 5
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox NPC_Dwarven_Mines_House_12_Text_4
+	waitfanfare
+	closemessage
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_5
+	startquest QUEST_POWERPLANT_SCORPIONS
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 0
 	goto NPC_Dwarven_Mines_House_12_1
 
 NPC_Dwarven_Mines_House_12_3:
-	msgbox NPC_Dwarven_Mines_House_12_Text_5
-	goto NPC_Dwarven_Mines_House_12_1
-
-NPC_Dwarven_Mines_House_12_4:
 	msgbox NPC_Dwarven_Mines_House_12_Text_6
 	goto NPC_Dwarven_Mines_House_12_1
 
+NPC_Dwarven_Mines_House_12_4:
+	msgbox NPC_Dwarven_Mines_House_12_Text_7
+	goto NPC_Dwarven_Mines_House_12_1
+
+NPC_Dwarven_Mines_House_12_5:
+	msgbox NPC_Dwarven_Mines_House_12_Text_8
+	closemessage
+	hidenamebox
+	giveitem ITEM_EXP_CANDY_L, 3
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_9
+	closemessage
+	hidenamebox
+	giveitem ITEM_SPIRIT_SHARD, 5
+	giveitem ITEM_FROGEEL_BURGER, 1
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_10
+	closemessage
+	hidenamebox
+	applymovement 24, movement_nulo_1
+	waitmovement 0
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_11
+	closemessage
+	hidenamebox
+	giveitem ITEM_TALISMAN_BODY, 1
+	namebox NPC_Dwarven_Mines_House_12_Text_0
+	msgbox NPC_Dwarven_Mines_House_12_Text_12
+	closemessage
+	hidenamebox
+	setvar VAR_DWARVEN_MINES_STATE, 20
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 3
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS
+	release
+	end
+
+NPC_Dwarven_Mines_House_12_6:
+	msgbox NPC_Dwarven_Mines_House_12_Text_13
+	goto NPC_Dwarven_Mines_House_12_1
+
+
+movement_nulo_1:
+	walk_right
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_left
+	face_down
+	step_end
 
 NPC_BABY_DRAGON::
 	random 6
@@ -365,6 +433,11 @@ NPC_Dwarven_Mines_House_11_Text_0:
 	.string "beats spending every day down in the\l"
 	.string "mines.$"
 
+OBJECT_TRASH_CAN_Text_0:
+	.string "It's a trash can.\p"
+	.string "It contains…{PAUSE 15}…{PAUSE 15}\n"
+	.string "Nothing interesting…$"
+
 NPC_Dwarven_Mines_House_12_Text_0:
 	.string "Nulodion$"
 
@@ -387,23 +460,54 @@ NPC_Dwarven_Mines_House_12_Text_3:
 	.string "Here take this.$"
 
 NPC_Dwarven_Mines_House_12_Text_4:
+	.string "{PLAYER} obtained the FACTORY KEY.$"
+
+NPC_Dwarven_Mines_House_12_Text_5:
 	.string "That key will grant you access to the\n"
 	.string "backdoor in the Dwarven Mines below us.\p"
 	.string "I would usually send workers down our\n"
 	.string "elevator but that is out of order, so\l"
 	.string "you'll have to take the long way around.$"
 
-NPC_Dwarven_Mines_House_12_Text_5:
+NPC_Dwarven_Mines_House_12_Text_6:
 	.string "You'll have to go through the\n"
 	.string "underground mines to get to the\l"
 	.string "backdoor for the powerstation.\p"
 	.string "There is a ladder outside that will take\n"
 	.string "you down.$"
 
-NPC_Dwarven_Mines_House_12_Text_6:
-	.string "So you found the backdoor, fantastic!\n"
-	.string "ow all you need to do is go get rid of\l"
+NPC_Dwarven_Mines_House_12_Text_7:
+	.string "So you found the backdoor, fantastic!\p"
+	.string "Now all you need to do is go get rid of\n"
 	.string "those scorpions.$"
+
+NPC_Dwarven_Mines_House_12_Text_8:
+	.string "No way! I didn't think you would\n"
+	.string "actually be able to defeat those\l"
+	.string "scorpions!\p"
+	.string "That's going to make things so much\n"
+	.string "safer for the workers!\p"
+	.string "Here as promised a reward just for you.$"
+
+NPC_Dwarven_Mines_House_12_Text_9:
+	.string "What?\p"
+	.string "That's not enough of a reward?\p"
+	.string "Hang on let me check my desk…$"
+
+NPC_Dwarven_Mines_House_12_Text_10:
+	.string "Still not enough!?\p"
+	.string "My aren't you greedy.$"
+
+NPC_Dwarven_Mines_House_12_Text_11:
+	.string "There take this and nothing else!$"
+
+NPC_Dwarven_Mines_House_12_Text_12:
+	.string "Now be off with you, I am a very busy\n"
+	.string "dwarf and have a factory to run.$"
+
+NPC_Dwarven_Mines_House_12_Text_13:
+	.string "Please leave me alone, I have a bunch of\n"
+	.string "paperwork I need to finish.$"
 
 NPC_BABY_DRAGON_Text_0:
 	.string "Baby Dragon$"

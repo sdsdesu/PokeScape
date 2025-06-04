@@ -1,5 +1,30 @@
 DwarvenMines_PowerStation_2_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DwarvenMines_PowerStation_2_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+DwarvenMines_PowerStation_2_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call DwarvenMines_PowerStation_2_STATE
+	return
+
+
+DwarvenMines_PowerStation_2_STATE::
+	compare VAR_DWARVEN_MINES_STATE, 10
+	goto_if_eq DwarvenMines_PowerStation_2_STATE_2
+	removeobject 24
+	removeobject 25
+	removeobject 14
+	removeobject 15
+	removeobject 13
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+DwarvenMines_PowerStation_2_STATE_1:
+	return
+
+DwarvenMines_PowerStation_2_STATE_2:
+	setvar VAR_TEMP_0, 1
+	goto DwarvenMines_PowerStation_2_STATE_1
 
 
 NPC_DwarvenMines_PowerStationF2_1::
@@ -75,11 +100,58 @@ BATTLE_DWARVENMINES_POWERSTATION_F2_3::
 
 
 TRIGGER_SCORPIONS_DWARVEN_POWERSTATION::
+	lock
+	applymovement 24, movement_scropion_1
+	applymovement 25, movement_scropion_2
+	waitmovement 0
 	msgbox TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_0
+	closemessage
+	setwildbattle SPECIES_SCORPION_KING_FORM, 45, ITEM_NONE, SPECIES_SCORPION_GRAVE_FORM, 45, ITEM_NONE
+	dowildbattle
 	playse SE_FLEE
+	removeobject 24
+	removeobject 25
+	setflag FLAG_TEMP_5
+	delay 60
+	playmoncry SPECIES_SCORPION_SPIRIT_FORM, 1
+	waitmoncry
+	applymovement 14, movement_scropion_3
+	waitmovement 0
 	msgbox TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_1
-	return
+	closemessage
+	setwildbattle SPECIES_SCORPION_SPIRIT_FORM, 50, ITEM_NONE
+	dowildbattle
+	removeobject 14
+	setflag FLAG_TEMP_1
+	setvar VAR_DWARVEN_MINES_STATE, 15
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 2
+	setvar VAR_TEMP_0, 0
+	removeobject 24
+	removeobject 25
+	removeobject 14
+	removeobject 15
+	removeobject 13
+	setflag FLAG_TEMP_1
+	setflag FLAG_TEMP_2
+	setflag FLAG_TEMP_3
+	setflag FLAG_TEMP_5
+	release
+	end
 
+
+movement_scropion_1:
+	walk_down
+	walk_right
+	step_end
+
+movement_scropion_2:
+	walk_down
+	walk_left
+	step_end
+
+movement_scropion_3:
+	walk_slow_down
+	step_end
 
 NPC_DwarvenMines_PowerStationF2_1_Text_0:
 	.string "Dwarf$"

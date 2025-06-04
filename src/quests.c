@@ -896,7 +896,7 @@ static const struct SubQuest sSubQuests_POWERPLANT_SCORPIONS[QUEST_POWERPLANT_SC
 	      ITEM,
 	      sText_Delivered
 	),
-	sub_quest( //Did someone call for a hairdresser?
+	sub_quest( //Haircut anyone?
 	      56,
 	      gText_SubQuest_QuestPowerPlantScorpions_Name3,
 	      gText_SubQuest_QuestPowerPlantScorpions_Desc3,
@@ -1026,6 +1026,16 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      OBJECT,
 	      sSubQuests_MITHRILMAN_QUEST,
 	      QUEST_MITHRILMAN_QUEST_SUB_COUNT
+	),
+	side_quest(
+	      gText_SideQuestName_QuestPowerPlantScorpions,
+	      gText_SideQuestDesc_QuestPowerPlantScorpions,
+	      gText_SideQuestDesc_Completed_Banana_Boat,
+	      gText_MapName_DwarvenMines,
+	      OBJ_EVENT_GFX_DWARF_2,
+	      OBJECT,
+	      sSubQuests_POWERPLANT_SCORPIONS,
+	      QUEST_POWERPLANT_SCORPIONS_SUB_COUNT
 	),
 	
 

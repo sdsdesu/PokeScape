@@ -3670,11 +3670,11 @@ static const struct TrainerMon sParty_ROUTE25_TRAINER_3[] = {
     },
     {
     .lvl = 40,
-    .species = SPECIES_DRAGONLING_RED_FORM,
+    .species = SPECIES_ZYGOMITE_ARCSPORE_FORM,
     },
     {
     .lvl = 40,
-    .species = SPECIES_SNOW_IMP,
+    .species = SPECIES_ESSHOUND,
     }
 };
 //route39
