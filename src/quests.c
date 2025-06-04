@@ -876,6 +876,47 @@ static const struct SubQuest sSubQuests_MITHRILMAN_QUEST[QUEST_MITHRILMAN_QUEST_
 	),
 };
 
+static const struct SubQuest sSubQuests_POWERPLANT_SCORPIONS[QUEST_POWERPLANT_SCORPIONS_SUB_COUNT] =
+{
+	sub_quest( //You got this!
+	      54,
+	      gText_SubQuest_QuestPowerPlantScorpions_Name1,
+	      gText_SubQuest_QuestPowerPlantScorpions_Desc1,
+	      gText_MapName_DwarvenMines,
+	      OBJ_EVENT_GFX_DWARF_2,
+	      OBJECT,
+	      sText_Delivered
+	),
+	sub_quest( //Access granted!
+	      55,
+	      gText_SubQuest_QuestPowerPlantScorpions_Name2,
+	      gText_SubQuest_QuestPowerPlantScorpions_Desc2,
+	      gText_MapName_DwarvenMines,
+	      ITEM_BASEMENT_KEY,
+	      ITEM,
+	      sText_Delivered
+	),
+	sub_quest( //Did someone call for a hairdresser?
+	      56,
+	      gText_SubQuest_QuestPowerPlantScorpions_Name3,
+	      gText_SubQuest_QuestPowerPlantScorpions_Desc3,
+	      gText_MapName_DwarvenMines,
+	      SPECIES_SCORPION_SPIRIT_FORM,
+	      PKMN,
+	      sText_Delivered
+	),
+	sub_quest( //Still not enough…
+	      57,
+	      gText_SubQuest_QuestPowerPlantScorpions_Name4,
+	      gText_SubQuest_QuestPowerPlantScorpions_Desc4,
+	      gText_MapName_DwarvenMines,
+	      ITEM_TALISMAN_BODY,
+	      ITEM,
+	      sText_Delivered
+	),
+};
+
+
 
 
 

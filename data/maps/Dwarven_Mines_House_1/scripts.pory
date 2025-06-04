@@ -126,32 +126,82 @@ script NPC_Dwarven_Mines_House_11    //Dwarf -- Bottom right
 	end
 }
 
+script OBJECT_TRASH_CAN
+{
+	lock
+	msgbox(format("It's a trash can.\pIt contains…\pNothing interesting…"))
+    closemessage
+	release
+	end
+}
+
 script NPC_Dwarven_Mines_House_12        //Overseer in office
 {
 	lock
-	faceplayer
 	namebox ("Nulodion")
 	if (var(VAR_DWARVEN_MINES_STATE) == 0) {
 		msgbox(format("Urgh, just what I needed another inconvenience.\pIf only I had someone capable of getting rid of those scorpions…"))
-		//faceplayer
+		faceplayer
 		msgbox(format("What's this mate?\pYou reckon you could handle some little scorpions?\pBahaha be my guest, if you can get rid of them, then I will reward you.\pYou can find them on the lowest floor of our power station."))
 		//face up face down
+
 		msgbox(format("Here take this."))
 		//give key
+		setvar(VAR_DWARVEN_MINES_STATE, 5) //FACTORY KEY OBTAINED
+		playfanfare (MUS_OBTAIN_ITEM)
+		msgbox(format("{PLAYER} obtained the FACTORY KEY."))
+		waitfanfare
+		closemessage
+
 		msgbox(format("That key will grant you access to the backdoor in the Dwarven Mines below us.\pI would usually send workers down our elevator but that is out of order, so you'll have to take the long way around."))
 		//miniquest start.
-		setvar(VAR_DWARVEN_MINES_STATE, 5)
+		startquest (QUEST_POWERPLANT_SCORPIONS)
 	}
 	elif (var(VAR_DWARVEN_MINES_STATE) == 5) {
 		msgbox(format("You'll have to go through the underground mines to get to the backdoor for the powerstation.\pThere is a ladder outside that will take you down."))
+		subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 0)
 	}
 	elif (var(VAR_DWARVEN_MINES_STATE) == 10) {
-		msgbox(format("So you found the backdoor, fantastic!\Now all you need to do is go get rid of those scorpions."))
+		msgbox(format("So you found the backdoor, fantastic!\pNow all you need to do is go get rid of those scorpions."))
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 15) {
+		msgbox(format("No way! I didn't think you would actually be able to defeat those scorpions!\pThat's going to make things so much safer for the workers!\pHere as promised a reward just for you."))
+		giveitem(ITEM_EXP_CANDY_L, 3)
+		namebox ("Nulodion")
+		msgbox(format("What?\pThat's not enough of a reward?\pHang on let me check my desk…"))
+		giveitem(ITEM_SPIRIT_SHARD, 5)
+		giveitem(ITEM_FROGEEL_BURGER, 1)
+		namebox ("Nulodion")
+		msgbox(format("Still not enough!?\pMy aren't you greedy."))
+		applymovement(24, movement_nulo_1)
+		waitmovement(0)
+		msgbox(format("There take this and nothing else!"))
+		giveitem(ITEM_TALISMAN_BODY, 1)
+		namebox ("Nulodion")
+		msgbox(format("Now be off with you, I am a very busy dwarf and have a factory to run."))
+		closemessage
+		hidenamebox
+		setvar(VAR_DWARVEN_MINES_STATE, 20)
+		subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 3)
+		questmenu(QUEST_MENU_COMPLETE_QUEST , QUEST_POWERPLANT_SCORPIONS)
+		release
+		end
+	}
+	elif (var(VAR_DWARVEN_MINES_STATE) == 20) {
+		msgbox(format("Please leave me alone, I have a bunch of paperwork I need to finish."))
 	}
 	closemessage
     hidenamebox
 	release
 	end
+}
+
+movement movement_nulo_1 {
+	walk_left
+	delay_16 * 2
+	walk_right
+	face_down
+	step_end
 }
 
 script NPC_BABY_DRAGON {

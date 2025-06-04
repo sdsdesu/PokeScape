@@ -674,6 +674,7 @@ script POWER_STATION_DOOR
         msgbox(format("The door opens."))
         closemessage
         setvar(VAR_DWARVEN_MINES_STATE, 10)
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 1)
     }
     end
 }

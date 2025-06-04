@@ -146,8 +146,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RUNE_ORE",
-      "x": 24,
-      "y": 8,
+      "x": 30,
+      "y": 17,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -324,7 +324,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_SCORPION",
-      "flag": "FLAG_TEMP_4"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SCORPION",
@@ -356,7 +356,7 @@
       "y": 5,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var_value": "1",
       "script": "TRIGGER_SCORPIONS_DWARVEN_POWERSTATION"
     }
   ],

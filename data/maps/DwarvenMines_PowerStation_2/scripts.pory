@@ -1,6 +1,31 @@
 mapscripts DwarvenMines_PowerStation_2_MapScripts {
-
+	MAP_SCRIPT_ON_TRANSITION {
+        call(DwarvenMines_PowerStation_2_STATE)
+    }
 }
+
+script DwarvenMines_PowerStation_2_STATE {
+	if (var(VAR_DWARVEN_MINES_STATE) == 10) {
+		setvar(VAR_TEMP_0, 1)
+	}
+	else {
+		removeobject(24)
+		removeobject(25)
+		removeobject(14)
+		removeobject(15)
+		removeobject(13)
+		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_2)
+		setflag(FLAG_TEMP_3)
+		setflag(FLAG_TEMP_5)
+	}
+	return
+}
+
+
+
+
+
 
 //NPCs
 script NPC_DwarvenMines_PowerStationF2_1   //Dwarf - top middle
@@ -92,16 +117,63 @@ script BATTLE_DWARVENMINES_POWERSTATION_F2_3
 
 
 script TRIGGER_SCORPIONS_DWARVEN_POWERSTATION {
-	//2 scrops jump the player walk toward
+	lock
+	applymovement(24, movement_scropion_1)
+	applymovement(25, movement_scropion_2)
+	waitmovement(0)
 	msgbox(format("As you approach the scorpions attack!"))
-	//Wild double battle with two scoprion kings level 45.
+	closemessage
+	setwildbattle(SPECIES_SCORPION_KING_FORM, 45, ITEM_NONE, SPECIES_SCORPION_GRAVE_FORM, 45, ITEM_NONE)
+	dowildbattle
 	playse(SE_FLEE)
-	//the scorpions flee
+	removeobject(24)
+	removeobject(25)
+	setflag(FLAG_TEMP_5)
+	delay(60)
+	playmoncry(SPECIES_SCORPION_SPIRIT_FORM, 1)
+	waitmoncry
+	applymovement(14, movement_scropion_3)
+	waitmovement(0)
+
 	//spirit scorp walks towards the player.
 	msgbox(format("The Scorpion appears to be angered and attacks!"))
+	closemessage
 	//Wild battle Spirit Scorpion level 50.
+	setwildbattle(SPECIES_SCORPION_SPIRIT_FORM, 50, ITEM_NONE)
+	dowildbattle
+	removeobject(14)
+	setflag(FLAG_TEMP_1)
+	setvar(VAR_DWARVEN_MINES_STATE, 15) //SCORPIONS DEFEATED
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 2)
+	setvar(VAR_TEMP_0, 0)
 
-	//set var when defeated.
+	removeobject(24)
+	removeobject(25)
+	removeobject(14)
+	removeobject(15)
+	removeobject(13)
+	setflag(FLAG_TEMP_1)
+	setflag(FLAG_TEMP_2)
+	setflag(FLAG_TEMP_3)
+	setflag(FLAG_TEMP_5)
+
+	release
+	end
 	//go to nor for body tal
 	//clear scoprions from the power plant?
+}
+
+movement movement_scropion_1 {
+	walk_down
+	walk_right
+	step_end
+}
+movement movement_scropion_2 {
+	walk_down
+	walk_left
+	step_end
+}
+movement movement_scropion_3 {
+	walk_slow_down
+	step_end
 }
