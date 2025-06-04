@@ -13,17 +13,6 @@ NPC_Dwarven_Mines_House_1::
 	end
 
 
-NPC_Dwarven_Mines_House_2::
-	lock
-	faceplayer
-	namebox NPC_Dwarven_Mines_House_2_Text_0
-	msgbox NPC_Dwarven_Mines_House_2_Text_1
-	waitmessage
-	hidenamebox
-	release
-	end
-
-
 NPC_Dwarven_Mines_House_3::
 	lock
 	faceplayer
@@ -60,8 +49,8 @@ NPC_Dwarven_Mines_House_5::
 NPC_Dwarven_Mines_House_6::
 	lock
 	faceplayer
-	namebox NPC_Dwarven_Mines_House_2_Text_0
-	msgbox NPC_Dwarven_Mines_House_6_Text_0
+	namebox NPC_Dwarven_Mines_House_6_Text_0
+	msgbox NPC_Dwarven_Mines_House_6_Text_1
 	waitmessage
 	hidenamebox
 	release
@@ -272,9 +261,8 @@ BATTLE_DWARVEN_MINES_HOUSE_1::
 
 
 BATTLE_DWARVEN_MINES_HOUSE_2::
-	trainerbattle_single TRAINER_DWARVENMINES_HOUSE_2, BATTLE_DWARVEN_MINES_HOUSE_2_Text_0, BATTLE_DWARVEN_MINES_HOUSE_2_Text_1
-	namebox BATTLE_DWARVEN_MINES_HOUSE_2_Text_2
-	msgbox BATTLE_DWARVEN_MINES_HOUSE_2_Text_3
+	namebox BATTLE_DWARVEN_MINES_HOUSE_2_Text_0
+	msgbox BATTLE_DWARVEN_MINES_HOUSE_2_Text_1
 	hidenamebox
 	release
 	end
@@ -298,22 +286,21 @@ BATTLE_DWARVEN_MINES_HOUSE_4::
 	end
 
 
+NPC_Dwarven_Mines_House_2::
+	trainerbattle_single TRAINER_DWARVENMINES_HOUSE_2, NPC_Dwarven_Mines_House_2_Text_0, NPC_Dwarven_Mines_House_2_Text_1
+	namebox NPC_Dwarven_Mines_House_2_Text_2
+	msgbox NPC_Dwarven_Mines_House_2_Text_3
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 NPC_Dwarven_Mines_House_1_Text_0:
 	.string "Miner$"
 
 NPC_Dwarven_Mines_House_1_Text_1:
 	.string "Nulodion's office is through here.$"
-
-NPC_Dwarven_Mines_House_2_Text_0:
-	.string "Smith$"
-
-NPC_Dwarven_Mines_House_2_Text_1:
-	.string "For a long time, people used to think\n"
-	.string "that runite was the best metal\l"
-	.string "available in Gielinor.\p"
-	.string "However, with more recent discoveries\n"
-	.string "there are even more types of ore to\l"
-	.string "smelt bars from.$"
 
 NPC_Dwarven_Mines_House_3_Text_0:
 	.string "Dwarf$"
@@ -338,6 +325,9 @@ NPC_Dwarven_Mines_House_5_Text_0:
 	.string "though!$"
 
 NPC_Dwarven_Mines_House_6_Text_0:
+	.string "Smith$"
+
+NPC_Dwarven_Mines_House_6_Text_1:
 	.string "It is a bit scary working side by side\n"
 	.string "with dragons…\p"
 	.string "But these babies can't fly, so I am safe\n"
@@ -469,15 +459,9 @@ BATTLE_DWARVEN_MINES_HOUSE_1_Text_3:
 	.string "My break is up, leave the premises.$"
 
 BATTLE_DWARVEN_MINES_HOUSE_2_Text_0:
-	.string "Ima workin' 'ere!$"
-
-BATTLE_DWARVEN_MINES_HOUSE_2_Text_1:
-	.string "Get outta 'ere!$"
-
-BATTLE_DWARVEN_MINES_HOUSE_2_Text_2:
 	.string "Nikolai$"
 
-BATTLE_DWARVEN_MINES_HOUSE_2_Text_3:
+BATTLE_DWARVEN_MINES_HOUSE_2_Text_1:
 	.string "Outta 'ere! Ima workin' 'ere!$"
 
 BATTLE_DWARVEN_MINES_HOUSE_3_Text_0:
@@ -507,3 +491,21 @@ BATTLE_DWARVEN_MINES_HOUSE_4_Text_2:
 BATTLE_DWARVEN_MINES_HOUSE_4_Text_3:
 	.string "I swear there are like a million safety\n"
 	.string "regulations being broken here.$"
+
+NPC_Dwarven_Mines_House_2_Text_0:
+	.string "Stop!\p"
+	.string "It's hammer time!$"
+
+NPC_Dwarven_Mines_House_2_Text_1:
+	.string "Guess I better get back to work.$"
+
+NPC_Dwarven_Mines_House_2_Text_2:
+	.string "McSmelter17$"
+
+NPC_Dwarven_Mines_House_2_Text_3:
+	.string "For a long time, people used to think\n"
+	.string "that runite was the best metal\l"
+	.string "available in Gielinor.\p"
+	.string "However, with more recent discoveries\n"
+	.string "there are even more types of ore to\l"
+	.string "smelt bars from.$"

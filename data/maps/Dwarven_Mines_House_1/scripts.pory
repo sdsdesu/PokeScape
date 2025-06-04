@@ -15,18 +15,7 @@ script NPC_Dwarven_Mines_House_1   //Miner - top left
 	end
 }
 
-script NPC_Dwarven_Mines_House_2    //Smith - top left
-{
-	lock
-	faceplayer
-	trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_2, format("Stop!\pIt's hammer time!"),format("Guess I better get back to work."))
-	namebox ("McSmelter17")
-	msgbox(format("For a long time, people used to think that runite was the best metal available in Gielinor.\pHowever, with more recent discoveries there are even more types of ore to smelt bars from."))
-    waitmessage
-    hidenamebox
-	release
-	end
-}
+
 
 script NPC_Dwarven_Mines_House_3   //Dwarf - top left
 {
@@ -291,5 +280,16 @@ script BATTLE_DWARVEN_MINES_HOUSE_4
     msgbox(format("I swear there are like a million safety regulations being broken here."))
 	hidenamebox
     release
+	end
+}
+
+script NPC_Dwarven_Mines_House_2    //Smith - top left
+{
+	trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_2, format("Stop!\pIt's hammer time!"),format("Guess I better get back to work."))
+	namebox ("McSmelter17")
+	msgbox(format("For a long time, people used to think that runite was the best metal available in Gielinor.\pHowever, with more recent discoveries there are even more types of ore to smelt bars from."))
+    closemessage
+    hidenamebox
+	release
 	end
 }

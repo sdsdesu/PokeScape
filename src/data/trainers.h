@@ -6052,7 +6052,7 @@ const struct Trainer gTrainers[] = {
     {
         .trainerClass = TRAINER_CLASS_DIVINER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
-        .trainerPic = TRAINER_PIC_diviner,
+        .trainerPic = TRAINER_PIC_divination,
         .trainerName = _("Paracelsus"),
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
@@ -6072,7 +6072,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_DwarvenMinesHouse_Trainer1),
     },
 
-    [TRAINER_DWARVENMINES_HOUSE_2] = //Dwarf
+    [TRAINER_DWARVENMINES_HOUSE_2] = 
     {
         .trainerClass = TRAINER_CLASS_SMITH,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,

@@ -331,7 +331,7 @@ EDGEVILLE_GYM_BATTLE_VANNAKA::
 	namebox NPC_EDGEVILLE_VANNAKA_SLAYER_MASTER_Text_0
 	msgbox EDGEVILLE_GYM_BATTLE_VANNAKA_Text_2
 	hidenamebox
-	giveitem ITEM_TM48, 1
+	giveitem ITEM_TM74, 1
 	compare VAR_RESULT, FALSE
 	goto_if_eq Common_EventScript_ShowBagIsFull
 	playfanfare MUS_PS_QUEST_COMPLETE
@@ -937,9 +937,10 @@ EDGEVILLE_GYM_BATTLE_VANNAKA_Text_3:
 	.string "{PLAYER} obtained 12 Slayer Point(s).$"
 
 EDGEVILLE_GYM_BATTLE_VANNAKA_Text_4:
-	.string "That move is called Power Gem.\p"
-	.string "It sparkles just as all our precious\n"
-	.string "Gems around the palace do.$"
+	.string "That scroll contains the move\n"
+	.string "Ceaseless Edge.\p"
+	.string "It's a high crit-ratio will slash through\n"
+	.string "anyone who gets in your way.$"
 
 EDGEVILLE_GYM_BATTLE_VANNAKA_Text_5:
 	.string "Now that you've bested me you are\n"

@@ -39,7 +39,8 @@ NPC_DwarvenMines_PowerStationF2_4::
 	lock
 	faceplayer
 	namebox NPC_DwarvenMines_PowerStationF2_4_Text_0
-	msgbox NPC_DwarvenMines_PowerStationF2_4_Text_1
+	trainerbattle_single TRAINER_DWARF_POWERSTATION_F2_4, NPC_DwarvenMines_PowerStationF2_4_Text_1, NPC_DwarvenMines_PowerStationF2_4_Text_2
+	msgbox NPC_DwarvenMines_PowerStationF2_4_Text_3
 	waitmessage
 	hidenamebox
 	release
@@ -49,7 +50,7 @@ NPC_DwarvenMines_PowerStationF2_4::
 BATTLE_DWARVENMINES_POWERSTATION_F2_1::
 	trainerbattle_single TRAINER_DWARF_POWERSTATION_F2_1, BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_0, BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_1
 	namebox BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_2
-	msgbox BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_1
+	msgbox BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_3
 	hidenamebox
 	release
 	end
@@ -58,7 +59,7 @@ BATTLE_DWARVENMINES_POWERSTATION_F2_1::
 BATTLE_DWARVENMINES_POWERSTATION_F2_2::
 	trainerbattle_single TRAINER_DWARF_POWERSTATION_F2_2, BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_0, BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_1
 	namebox BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_2
-	msgbox BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_1
+	msgbox BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_3
 	hidenamebox
 	release
 	end
@@ -71,6 +72,13 @@ BATTLE_DWARVENMINES_POWERSTATION_F2_3::
 	hidenamebox
 	release
 	end
+
+
+TRIGGER_SCORPIONS_DWARVEN_POWERSTATION::
+	msgbox TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_0
+	playse SE_FLEE
+	msgbox TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_1
+	return
 
 
 NPC_DwarvenMines_PowerStationF2_1_Text_0:
@@ -103,32 +111,40 @@ NPC_DwarvenMines_PowerStationF2_4_Text_0:
 	.string "Paracelsus$"
 
 NPC_DwarvenMines_PowerStationF2_4_Text_1:
-	.string "Did you know that alchemy is based on\n"
-	.string "three principles?\p"
-	.string "Sulphur, being the combustible,\n"
-	.string "encompassing both fire and air.\p"
-	.string "Mercurius, which is the volatile liquid.\p"
-	.string "And Sal, or the solid which gives it form.\p"
-	.string "{PAUSE 15}What do you mean all I need are fire and\n"
-	.string "nature runes?!$"
+	.string "The energy flowing through this place\n"
+	.string "is red hot!$"
+
+NPC_DwarvenMines_PowerStationF2_4_Text_2:
+	.string "You drained some of my charges…$"
+
+NPC_DwarvenMines_PowerStationF2_4_Text_3:
+	.string "I assist the inventors upstairs by\n"
+	.string "providing them with divine energy that\l"
+	.string "I harvest from the anima.$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_0:
-	.string "SHHHHHH$"
+	.string "SHHIIIZZZLLE…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_1:
-	.string "KSHSHSHHS$"
+	.string "FIIIZZLE…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_2:
 	.string "Jetag$"
 
+BATTLE_DWARVENMINES_POWERSTATION_F2_1_Text_3:
+	.string "SHIIZZLE… FIZZZLE…$"
+
 BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_0:
-	.string "KHKHKHKHKH$"
+	.string "KEH… HEH… BURN…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_1:
-	.string "KHEEEHHH...$"
+	.string "KHEEEHHH…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_2:
 	.string "Magrym$"
+
+BATTLE_DWARVENMINES_POWERSTATION_F2_2_Text_3:
+	.string "KHEEEHHH… FLAMES…$"
 
 BATTLE_DWARVENMINES_POWERSTATION_F2_3_Text_0:
 	.string "Think you are ready to take on an\n"
@@ -146,3 +162,10 @@ BATTLE_DWARVENMINES_POWERSTATION_F2_3_Text_3:
 	.string "enjoyment out of this game!\p"
 	.string "Restrictions are the bread and butter\n"
 	.string "of ironmen after all.$"
+
+TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_0:
+	.string "As you approach the scorpions attack!$"
+
+TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_1:
+	.string "The Scorpion appears to be angered and\n"
+	.string "attacks!$"

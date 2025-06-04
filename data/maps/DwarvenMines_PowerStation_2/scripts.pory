@@ -44,7 +44,7 @@ script NPC_DwarvenMines_PowerStationF2_4   //Diviner - bottom
 	lock
 	faceplayer
     namebox ("Paracelsus")
-	trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_1, format("The energy flowing through this place is red hot!"),format("You drained some of my charges…"))
+	trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_4, format("The energy flowing through this place is red hot!"),format("You drained some of my charges…"))
 	msgbox(format("I assist the inventors upstairs by providing them with divine energy that I harvest from the anima."))
 	//msgbox(format("Did you know that alchemy is based on three principles?\pSulphur, being the combustible, encompassing both fire and air.\pMercurius, which is the volatile liquid.\pAnd Sal, or the solid which gives it form.\p{PAUSE 15}What do you mean all I need are fire and nature runes?!"))
     waitmessage

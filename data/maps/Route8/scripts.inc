@@ -536,8 +536,22 @@ CRAFTINGGUILD_NPC_2::
 	msgbox CRAFTINGGUILD_NPC_2_Text_0
 	closemessage
 	hidenamebox
+	checkitem ITEM_TM42_POLLEN_PUFF, 1
+	compare VAR_RESULT, 0
+	goto_if_eq CRAFTINGGUILD_NPC_2_2
+CRAFTINGGUILD_NPC_2_1:
 	release
 	end
+
+CRAFTINGGUILD_NPC_2_2:
+	msgbox CRAFTINGGUILD_NPC_2_Text_1
+	closemessage
+	hidenamebox
+	giveitem ITEM_TM42_POLLEN_PUFF
+	msgbox CRAFTINGGUILD_NPC_2_Text_2
+	closemessage
+	hidenamebox
+	goto CRAFTINGGUILD_NPC_2_1
 
 
 CRAFTINGGUILD_NPC_3::
@@ -888,9 +902,16 @@ CRAFTINGGUILD_NPC_2_Text_0:
 	.string "Guild!\p"
 	.string "Accomplished crafters from all over the\n"
 	.string "land come here to use our top notch\l"
-	.string "workshops.\p"
-	.string "You don't see any workshops?\p"
-	.string "Of course not, they're all upstairs!$"
+	.string "workshops.$"
+
+CRAFTINGGUILD_NPC_2_Text_1:
+	.string "Oh you're an MvM participant?\p"
+	.string "Here I was instructed to give you this.$"
+
+CRAFTINGGUILD_NPC_2_Text_2:
+	.string "That scroll contains Pollen Puff.\p"
+	.string "I've been told it is a good move for\n"
+	.string "double battles.$"
 
 CRAFTINGGUILD_NPC_3_Text_0:
 	.string "I came here because I heard there were\n"
