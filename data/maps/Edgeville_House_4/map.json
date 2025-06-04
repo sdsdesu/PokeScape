@@ -2,7 +2,7 @@
   "id": "MAP_EDGEVILLE_HOUSE_4",
   "name": "Edgeville_House_4",
   "layout": "LAYOUT_EDGEVILLE_HOUSE_4",
-  "music": "MUS_PS_EDGEVILLE",
+  "music": "MUS_PS_BARBARIAN_VILLAGE",
   "region_map_section": "MAPSEC_EDGEVILLE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

@@ -8021,15 +8021,15 @@ static const struct TrainerMon sParty_Route22_Trainer_1[] = {
 static const struct TrainerMon sParty_Route22_Trainer_2[] = {
     {
     .lvl = 44,
-    .species = SPECIES_LARUPIA_NORMAL_FORM,
+    .species = SPECIES_MOTH_SUNLIGHT_FORM,
     },
     {
     .lvl = 45,
-    .species = SPECIES_GRAAHK_NORMAL_FORM,
+    .species = SPECIES_FOX_FENNEC,
     },
     {
     .lvl = 45,
-    .species = SPECIES_KYATT_NORMAL_FORM,
+    .species = SPECIES_JERBOA,
     }
 };
 
