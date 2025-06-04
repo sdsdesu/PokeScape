@@ -8364,8 +8364,16 @@ static const struct TrainerMon sParty_DraynorSewers3_Trainer3[] = {    //Mystic
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer1[] = {    //Dwarf
     {
+    .lvl = 41,
+    .species = SPECIES_TORTOISE_NORMAL_FORM,
+    },
+    {
     .lvl = 40,
-    .species = SPECIES_DESERTWYRM,
+    .species = SPECIES_TERRIER,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_CAVEFISH,
     }
 };
 
@@ -8376,14 +8384,18 @@ static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer2[] = {    //Dwar
     },
     {
     .lvl = 42,
-    .species = SPECIES_ROCKTAIL,
+    .species = SPECIES_ROCK_STRANGE_FORM,
     }
 };
 
 static const struct TrainerMon sParty_DwarvenMinesHouse_Trainer3[] = {    //Dwarf
     {
+    .lvl = 41,
+    .species = SPECIES_BASILISK_BABY_FORM,
+    },
+    {
     .lvl = 40,
-    .species = SPECIES_TORTLE,
+    .species = SPECIES_SLAGILITH,
     }
 };
 
@@ -8410,7 +8422,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer1[] = {   //FIR
     },
     {
     .lvl = 42,
-    .species = SPECIES_PYREFIEND,
+    .species = SPECIES_PYRELORD,
     }
 };
 
@@ -8427,8 +8439,12 @@ static const struct TrainerMon sParty_DwarfPowerStationF1_Trainer3[] = {    //DW
     .species = SPECIES_ROCK_CRAB_AMMONITE_FORM,
     },
     {
+    .lvl = 41,
+    .species = SPECIES_SPOOKAXE,
+    },
+    {
     .lvl = 43,
-    .species = SPECIES_IMPLING_CRYSTAL_FORM,
+    .species = SPECIES_CHINCHOMPA_MECHANIZED,
     }
 };
 
@@ -8450,7 +8466,7 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer2[] = {    //Fi
     },
     {
     .lvl = 43,
-    .species = SPECIES_SPIDER_LAVA_FORM,                    //Add an additional Lava Monster when they are added
+    .species = SPECIES_LAVA_MONSTER,              
     }
 };
 
@@ -8465,9 +8481,26 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer3[] = {    //Ir
     },
     {
     .lvl = 43,
-    .species = SPECIES_MINOTAUR_REANIMATED_FORM,              //Should be a Bronze Dragon, replace when they are added
+    .species = SPECIES_BRONZE_DRAGON,            
     }
 };
+
+static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer4[] = {    //Diviner
+    {
+    .lvl = 43,
+    .species = SPECIES_LIGHT_CREATURE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_IMPLING_DIVINE_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_MALCOLM,        
+    }
+};
+
+
 
 
 //TZHAAR GYM CHALLENGE POOL

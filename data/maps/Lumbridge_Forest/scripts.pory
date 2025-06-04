@@ -226,80 +226,74 @@ script NPC_LUMBRIDGE_FOREST_HAM_1
 
 
 //TM ITEMS
-script ITEM_RECEIVED_TM21
-{
-    finditem(ITEM_TM21_TOXIC)
-    end
-}
-
-script ITEM_RECEIVED_TM49 
-{
-    finditem(ITEM_TM49_SNARL)
-    end
-}
 
 script ITEM_RECEIVED_TM05
 {
     finditem(ITEM_TM05_TAILWIND)
     end
 }
-
-script ITEM_RECEIVED_TM50
+script ITEM_RECEIVED_TM06
 {
-    finditem(ITEM_TM50_POISON_JAB)
+    finditem(ITEM_TM06_FLAME_CHARGE)
     end
 }
-
-script ITEM_RECEIVED_TM38
+script ITEM_RECEIVED_TM21
 {
-    finditem(ITEM_TM38_ROCK_TOMB)
+    finditem(ITEM_TM21_TOXIC)
     end
 }
-
-script ITEM_RECEIVED_TM54
+script ITEM_RECEIVED_TM22
 {
-    finditem(ITEM_TM54_MUD_BOMB)
+    finditem(ITEM_TM22_SHADOW_BONE)
     end
 }
-
-script ITEM_RECEIVED_TM42
-{
-    finditem(ITEM_TM42_POLLEN_PUFF)
-    end
-}
-
-script ITEM_RECEIVED_TM33
-{
-    finditem(ITEM_TM33_DRAGON_BREATH)
-    end
-}
-
 script ITEM_RECEIVED_TM26
 {
     finditem(ITEM_TM26_KINGS_SHIELD)
     end
 }
-
+script ITEM_RECEIVED_TM33
+{
+    finditem(ITEM_TM33_DRAGON_BREATH)
+    end
+}
+script ITEM_RECEIVED_TM38
+{
+    finditem(ITEM_TM38_ROCK_TOMB)
+    end
+}
+script ITEM_RECEIVED_TM40
+{
+    finditem(ITEM_TM40_VOLT_SWITCH)
+    end
+}
+script ITEM_RECEIVED_TM49 
+{
+    finditem(ITEM_TM49_SNARL)
+    end
+}
+script ITEM_RECEIVED_TM50
+{
+    finditem(ITEM_TM50_POISON_JAB)
+    end
+}
+script ITEM_RECEIVED_TM54
+{
+    finditem(ITEM_TM54_MUD_BOMB)
+    end
+}
 script ITEM_RECEIVED_TM55
 {
     finditem(ITEM_TM55_HEX)
     end
 }
-
-script ITEM_RECEIVED_TM13
+script ITEM_RECEIVED_TM62
 {
-    finditem(ITEM_TM13_BRINE)
+    finditem(ITEM_TM62_DEFOG)
     end
 }
-
 script ITEM_RECEIVED_TM64
 {
     finditem(ITEM_TM64_REVENGE)
-    end
-}
-
-script ITEM_RECEIVED_TM22
-{
-    finditem(ITEM_TM22_SHADOW_BONE)
     end
 }

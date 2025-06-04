@@ -63,8 +63,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_DWARVENMINES_BODY_TALISMAN",
-      "flag": "FLAG_ITEM_POWERSTATION_3"
+      "script": "FIND_ITEM_HP_LAMP",
+      "flag": "FLAG_ITEM_POWERSTATION_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DIVINER",
@@ -188,7 +188,7 @@
       "x": 16,
       "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -312,6 +312,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_RockSmash_POKESCAPE",
       "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCORPION",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SCORPION",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SCORPION",
+      "x": 18,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SCORPION",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
@@ -324,7 +350,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "TRIGGER_SCORPIONS_DWARVEN_POWERSTATION"
+    }
   ],
   "bg_events": [
 

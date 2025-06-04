@@ -1031,13 +1031,15 @@
 #define FLAG_UNUSED1                                                0x3D3
 #define FLAG_UNUSED2                                                0x3D4
 #define FLAG_UNUSED3                                                0x3D5
-#define FLAG_UNUSED4                                                0x3D6
-#define FLAG_UNUSED5                                                0x3D7
+
+
 
 //TMS
+#define FLAG_RECEIVED_TM06                                         0x3D6
+#define FLAG_RECEIVED_TM62                                         0x3D7
 #define FLAG_RECEIVED_TM64                                         0x3D8
 #define FLAG_RECEIVED_TM22                                         0x3D9
-#define FLAG_RECEIVED_TM13                                         0x3DA
+    #define FLAG_UNUSED_0x3DA                                         0x3DA
 #define FLAG_RECEIVED_TM51                                         0x3DB
 #define FLAG_RECEIVED_TM26                                         0x3DC
 #define FLAG_RECEIVED_TM63                                         0x3DD
@@ -1048,7 +1050,7 @@
 #define FLAG_RECEIVED_TM50                                         0x3E2 //FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
 #define FLAG_RECEIVED_TM38                                         0x3E3 //FLAG_HIDE_PETALBURG_CITY_SCOTT
 #define FLAG_RECEIVED_TM54                                         0x3E4 //FLAG_HIDE_SOOTOPOLIS_CITY_RAYQUAZA
-#define FLAG_RECEIVED_TM42                                         0x3E5 //FLAG_HIDE_SOOTOPOLIS_CITY_KYOGRE
+#define FLAG_RECEIVED_TM40                                         0x3E5 //FLAG_HIDE_SOOTOPOLIS_CITY_KYOGRE
 #define FLAG_RECEIVED_TM33                                         0x3E6 //FLAG_HIDE_SOOTOPOLIS_CITY_GROUDON
 #define FLAG_RECEIVED_TM55                                         0x3E7 //FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT
 
@@ -1152,7 +1154,7 @@
 #define FLAG_ITEM_DWARVENMINES_5                                   0x448
 #define FLAG_ITEM_POWERSTATION_1                                   0x449
 #define FLAG_ITEM_POWERSTATION_2                                   0x44A
-#define FLAG_ITEM_POWERSTATION_3                                   0x44B
+    #define FLAG_ITEM_UNUSED_0x44B                                   0x44B    //UNUSED
 #define FLAG_ITEM_ROUTE24_1                                        0x44C
 #define FLAG_ITEM_ROUTE24_2                                        0x44D
 #define FLAG_ITEM_ROUTE24_3                                        0x44E
@@ -1264,7 +1266,7 @@
 #define FLAG_ITEM_CRANDOR_2                                        0x4B0 
 #define FLAG_ITEM_CRANDOR_3                                        0x4B1 
 #define FLAG_ITEM_CRANDOR_4                                        0x4B2 
-#define FLAG_ITEM_CRANDORVOLCANO_1                                 0x4B3 
+#define FLAG_ITEM_ROUTE9_3                                         0x4B3    
 #define FLAG_ITEM_CRANDORVOLCANO_2                                 0x4B4 
 #define FLAG_ITEM_CRANDORVOLCANO_3                                 0x4B5 
 #define FLAG_ITEM_CRANDORVOLCANO_4                                 0x4B6 
@@ -1339,9 +1341,9 @@
 #define FLAG_ITEM_ROUTE19_2                                        0x4FA 
 #define FLAG_ITEM_EDGEVILLE_4                                      0x4FB
 #define FLAG_ITEM_BARBARIANSTRONGHOLD_12                           0x4FC 
-#define FLAG_ITEM_UNUSED15                                         0x4FD // Unused Flag
-#define FLAG_ITEM_UNUSED16                                         0x4FE // Unused Flag
-#define FLAG_UNUSED_0x4FF                                          0x4FF // Unused Flag
+#define FLAG_ITEM_ROUTE11_5                                        0x4FD 
+    #define FLAG_ITEM_UNUSED16                                         0x4FE // Unused Flag
+    #define FLAG_UNUSED_0x4FF                                          0x4FF // Unused Flag
 
 // Trainer Flags
 // Trainer flags occupy 0x500 - 0x85F, the last 9 of which are unused

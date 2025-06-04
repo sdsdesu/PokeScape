@@ -19,7 +19,8 @@ script NPC_Dwarven_Mines_House_2    //Smith - top left
 {
 	lock
 	faceplayer
-    namebox ("Smith")
+	trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_2, format("Stop!\pIt's hammer time!"),format("Guess I better get back to work."))
+	namebox ("McSmelter17")
 	msgbox(format("For a long time, people used to think that runite was the best metal available in Gielinor.\pHowever, with more recent discoveries there are even more types of ore to smelt bars from."))
     waitmessage
     hidenamebox
@@ -266,7 +267,6 @@ script BATTLE_DWARVEN_MINES_HOUSE_1
 
 script BATTLE_DWARVEN_MINES_HOUSE_2
 {
-    trainerbattle_single(TRAINER_DWARVENMINES_HOUSE_2, format("Ima workin' 'ere!"),format("Get outta 'ere!"))
     namebox ("Nikolai")
     msgbox(format("Outta 'ere! Ima workin' 'ere!"))
 	hidenamebox

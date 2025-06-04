@@ -44,7 +44,9 @@ script NPC_DwarvenMines_PowerStationF2_4   //Diviner - bottom
 	lock
 	faceplayer
     namebox ("Paracelsus")
-	msgbox(format("Did you know that alchemy is based on three principles?\pSulphur, being the combustible, encompassing both fire and air.\pMercurius, which is the volatile liquid.\pAnd Sal, or the solid which gives it form.\p{PAUSE 15}What do you mean all I need are fire and nature runes?!"))
+	trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_1, format("The energy flowing through this place is red hot!"),format("You drained some of my charges…"))
+	msgbox(format("I assist the inventors upstairs by providing them with divine energy that I harvest from the anima."))
+	//msgbox(format("Did you know that alchemy is based on three principles?\pSulphur, being the combustible, encompassing both fire and air.\pMercurius, which is the volatile liquid.\pAnd Sal, or the solid which gives it form.\p{PAUSE 15}What do you mean all I need are fire and nature runes?!"))
     waitmessage
     hidenamebox
 	release
@@ -55,9 +57,9 @@ script NPC_DwarvenMines_PowerStationF2_4   //Diviner - bottom
 
 script BATTLE_DWARVENMINES_POWERSTATION_F2_1
 {
-    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_1, format("SHHHHHH"),format("KSHSHSHHS"))
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_1, format("SHHIIIZZZLLE…"),format("FIIIZZLE…"))
     namebox ("Jetag")
-    msgbox(format("KSHSHSHHS"))
+    msgbox(format("SHIIZZLE… FIZZZLE…"))
 	hidenamebox
     release
 	end
@@ -65,9 +67,9 @@ script BATTLE_DWARVENMINES_POWERSTATION_F2_1
 
 script BATTLE_DWARVENMINES_POWERSTATION_F2_2
 {
-    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_2, format("KHKHKHKHKH"),format("KHEEEHHH..."))
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F2_2, format("KEH… HEH… BURN…"),format("KHEEEHHH…"))
     namebox ("Magrym")
-    msgbox(format("KHEEEHHH..."))
+    msgbox(format("KHEEEHHH… FLAMES…"))
 	hidenamebox
     release
 	end
@@ -81,4 +83,25 @@ script BATTLE_DWARVENMINES_POWERSTATION_F2_3
 	hidenamebox
     release
 	end
+}
+
+
+
+
+
+
+
+script TRIGGER_SCORPIONS_DWARVEN_POWERSTATION {
+	//2 scrops jump the player walk toward
+	msgbox(format("As you approach the scorpions attack!"))
+	//Wild double battle with two scoprion kings level 45.
+	playse(SE_FLEE)
+	//the scorpions flee
+	//spirit scorp walks towards the player.
+	msgbox(format("The Scorpion appears to be angered and attacks!"))
+	//Wild battle Spirit Scorpion level 50.
+
+	//set var when defeated.
+	//go to nor for body tal
+	//clear scoprions from the power plant?
 }
