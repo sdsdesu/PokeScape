@@ -444,40 +444,33 @@ script ROUTE1_FARMER_NPC {
     end
 }
 
-script ROUTE1_BOAT_1
+script BATTLE_ROUTE1_RIVER_TRAINER_1 
 {
-	lock
-    faceplayer
-    namebox("Awenix")
-	msgbox(format("I love spending time on the water like this.\pIt helps me escape from life's responsibilities for a moment.\pLike my wife and children.\p{PAUSE 15}Don't tell them you found me here!"))
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_1, format("No! My peace! You've ruined it!"),format("I just need an escape, okay?!"))
+    namebox ("Awenix")
+    msgbox(format("I love spending time on the water like this.\pIt helps me escape from life's responsibilities for a moment.\pLike my wife and children.\p{PAUSE 15}Don't tell them you found me here!."))
     hidenamebox
-    closemessage
-	release
-	end
+    release
+    end
+}
+script BATTLE_ROUTE1_RIVER_TRAINER_2 
+{
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_2, format("I need to get into Varrock for my quest but they've locked down access!\pArgh, I'm so mad I need to take out my anger in a battle!"),format("I lost?"))
+    namebox ("Gelo Ball")
+    msgbox(format("The guards are blocking one entrance..\pSheep are blocking another.\pMaybe I should just give up on slaying that demon."))
+    hidenamebox
+    release
+    end
 }
 
-script ROUTE1_BOAT_2
+script BATTLE_ROUTE1_RIVER_TRAINER_3 
 {
-	lock
-    faceplayer
-    namebox("Gelo Ball")
-	msgbox(format("I am a Cupholder"))
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_3, format("Did you know different routes seem to have different fish in them?\pLet's see if you've faced these before!"),format("They were no match for you."))
+    namebox ("Trickool")
+    msgbox(format("If you're looking for a specific type of fish, try sailing around in different locations.\pSome like my WebSnipper are only available underground!"))
     hidenamebox
-    closemessage
-	release
-	end
-}
-
-script ROUTE1_BOAT_3
-{
-	lock
-    faceplayer
-    namebox("Trickool")
-	msgbox(format("Different routes seem to have different fish in them.\pIf you're looking for a specific type, try sailing around in different locations.\pI've heard that some are only available underground!"))
-    hidenamebox
-    closemessage
-	release
-	end
+    release
+    end
 }
 
 

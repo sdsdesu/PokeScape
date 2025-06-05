@@ -166,7 +166,7 @@ script NPC_EDGEVILLE_13
 	end
 }
 
-script NPC_EDGEVILLE_14
+script NPC_EDGEVILLE_14              //Not currently in use
 {
 	lock
 	faceplayer
@@ -645,7 +645,15 @@ script NPC_EDGEVILLE_HOUSE_NPC_10 {
 
 
 
-
+script BATTLE_TRAINER_EDGEVILLE_RIVER_1
+{
+    trainerbattle_single(TRAINER_EDGEVILLE_RIVER_1, format("So many Quests, so little time!"),format("Aaaahhh!"))
+    namebox ("A QP Warrior")
+    msgbox(format("How many Quest Points do you have?\pHow many do you think it takes to unlock the Quest Cape?"))
+	hidenamebox
+    release
+	end
+}
 
 
 

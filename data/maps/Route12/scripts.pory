@@ -602,6 +602,26 @@ script NPC_ROUTE12_BRONZEMAN {
     msgbox(format("Everyone kept saying that to battle, I had to catch a monster.\pBut no matter how much I run after it, I can't seem to keep this cow still long enough!\p{PAUSE 15}Wait, what's a pouch..?"))
     hidenamebox
 	closemessage
+	applymovement (39,ROUTE12_BRONZEMAN)
+	release
+	end
+}
+
+movement ROUTE12_BRONZEMAN
+{
+	face_original_direction
+	step_end
+}
+
+script NPC_ROUTE12_COW {
+	lock
+	namebox("Cow")
+    playmoncry(SPECIES_COW, 0)
+	msgbox(format("MOOOOOOOO!"))
+    waitmoncry
+    hidenamebox
+    msgbox(format("This poor cow seems very distressed."))
+	closemessage
 	release
 	end
 }

@@ -3,3 +3,37 @@ mapscripts Route14_MapScripts {
         setvar(VAR_EVOLUTION_MAP_STATE, 16) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
     }
 }
+
+script NPC_CHICKEN
+{
+    lock
+    faceplayer
+    namebox("Chicken")
+	playmoncry(SPECIES_CHICKEN_NORMAL_FORM, 0)
+	msgbox(format("Bwwaak!"))
+	waitmoncry
+	hidenamebox
+    release
+    end
+}
+
+script BATTLE_ROUTE14_TRAINER_3
+{
+    trainerbattle_single(TRAINER_ROUTE14_TRAINER_3, format("You best be careful, these fish bite!"),format("Clearly they don't bite hard enough..."))
+    namebox ("Efisherate")
+    msgbox(format("Fish just aren't quite the aggressive powerhouses my team needs.\pMaybe I should consider a career change."))
+	hidenamebox
+    release
+	end
+}
+
+script NPC_ROUTE14
+{
+    lock
+    faceplayer
+    namebox("IonChamp")
+	msgbox(format("Look, I know nobody will ever believe me but I SWEAR the chicken up there used to be evil!!"))
+	hidenamebox
+    release
+    end
+}

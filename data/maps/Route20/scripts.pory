@@ -80,6 +80,16 @@ script BATTLE_ROUTE20_TRAINER_3
 	end
 }
 
+script BATTLE_ROUTE20_TRAINER_4
+{
+    trainerbattle_single(TRAINER_ROUTE20_TRAINER_8, format("I tried sailing up the river to see whether I'd have better odds of catching rare fish...\pYou better not have scared them off!"),format("My fish!!"))
+    namebox ("D Bait Err")
+    msgbox(format("Honestly, I don't think fishing here is any different to fishing on land!"))
+	hidenamebox
+    release
+	end
+}
+
 //NPCS
 
 script ROUTE20_BLOCKADE_NORTH
@@ -104,17 +114,6 @@ script ROUTE20_BLOCKADE_SOUTH
     hidenamebox
     applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
     waitmovement(0)
-    release
-    end
-}
-
-script ROUTE20_FISHERMAN
-{
-    faceplayer
-    namebox ("Fisherman")
-    msgbox(format("I tried sailing up the river to see whether I'd have better odds of catching rare fish...\pbut I don't think fishing here is any different to fishing on land!"))
-    closemessage
-    hidenamebox
     release
     end
 }

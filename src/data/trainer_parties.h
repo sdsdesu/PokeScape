@@ -8070,6 +8070,21 @@ static const struct TrainerMon sParty_Route20_Trainer_7[] = {
     }
 };
 
+static const struct TrainerMon sParty_Route20_Trainer_8[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SEA_TURTLE,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_SNAKE_SEA_FORM,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_ALBATROSS,
+    }
+};
+
 static const struct TrainerMon sParty_Route26_Black_Knight[] = {
     {
     .lvl = 42,
@@ -8500,8 +8515,80 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer4[] = {    //Di
     }
 };
 
+static const struct TrainerMon sParty_EdgevilleRiver_1[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SUBMASTYX,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_ANIMATED_BOOK,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_ZYGOMITE_MAGICAL_FORM,
+    }
+};
 
+static const struct TrainerMon sParty_Route14_Trainer_3[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_MONKFISH_FRESH_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_MONKFISH_NORMAL_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_ANGLERFISH,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_SHARK_BARON_FORM,
+    }
+};
 
+static const struct TrainerMon sParty_Route1_RiverTrainer_1[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_EEL_MOTTLED_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_CAVEFISH,
+    }
+};
+
+static const struct TrainerMon sParty_Route1_RiverTrainer_2[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SQUIRREL_GIANT_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_HONEY_BADGER,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_ROC,
+    }
+};
+
+static const struct TrainerMon sParty_Route1_RiverTrainer_3[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_WEBSNIPPER,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_BLUE_CRAB,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_IBIS,
+    }
+};
 
 //TZHAAR GYM CHALLENGE POOL
 static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
