@@ -1532,7 +1532,7 @@ script NPC_CRANDOR_VOLCANO_HAMGRUNT_5
     lock
     faceplayer
     namebox ("H.A.M Grunt")
-    msgbox(format("Yo, this guy legit looks cripsy.\pI wonder what happened to him."))
+    msgbox(format("Yo, this guy legit looks crispy.\pI wonder what happened to him."))
     hidenamebox
     closemessage
     release

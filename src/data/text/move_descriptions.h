@@ -3374,8 +3374,8 @@ static const u8 sBloodBarrageDescription[] = _(
     "Steals a large amount of health.");
 
 static const u8 sVengeanceDescription[] = _(
-    "Reflect some of the damage taken\n"
-    "back at the enemy.");
+    "Reflect some of the damage\n"
+    "taken back at the enemy.");
 
 static const u8 sArmadylStormDescription[] = _(
     "Strike the target with armadyls winds.\n"

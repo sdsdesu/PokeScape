@@ -309,3 +309,29 @@ script HANS_GYM_LUMBRIDGE {
     release
     end
 }
+
+
+script SIGMUND_DRAWERS {
+    lock
+    msgbox(format("You rummage through the drawers...\p{PAUSE 15}")) 
+    if (!flag(FLAG_BADGE03_GET)){
+        msgbox(format("and find a set of pink robes?"))
+        closemessage
+        applymovement(3, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+        waitmovement(0)
+        namebox("Sigmund")
+        msgbox(format("Get out of there, that's private!"))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+    else 
+    {
+        msgbox(format("and find a sketch of what looks like a cloud with arms and legs.\pHow strange."))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+}

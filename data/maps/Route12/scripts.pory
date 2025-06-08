@@ -382,8 +382,25 @@ script BATTLE_ROUTE12_TRAINER_1{
 	//msgbox(format("Well drat.\pMaybe I should've looked for rarer monsters around here first."))
 
 
+script BATTLE_ROUTE12_RIVER_TRAINER_1
+{
+	trainerbattle_single(TRAINER_ROUTE12_RIVER_TRAINER_1, format("The water looks very deep here, but let us not trace into a deep conversation and battle instead."),format("So deep I nearly drowned!"))
+	namebox("Ulrik")
+	msgbox(format("The perceived depth and actual depth may differ.\pThis goes for anything, water, literature...\nEven this conversation."))
+	hidenamebox
+	closemessage
+	end
+}
 
-
+script BATTLE_ROUTE12_RIVER_TRAINER_2
+{
+	trainerbattle_single(TRAINER_ROUTE12_RIVER_TRAINER_2, format("I am a Cupholder."),format("I am a Cupholder."))
+	namebox("Cupholder")
+	msgbox(format("I am a Cupholder."))
+	hidenamebox
+	closemessage
+	end
+}
 
 
 
@@ -648,7 +665,7 @@ script NPC_ROUTE12_SAILING {
 	end
 }
 
-script NPC_ROUTE12_BOAT_1 {
+//script NPC_ROUTE12_BOAT_1 {     //Not in use
     lock
 	faceplayer
 	namebox("L0st2theS3a")
@@ -659,7 +676,7 @@ script NPC_ROUTE12_BOAT_1 {
 	end
 }
 
-script NPC_ROUTE12_BOAT_2 {
+//script NPC_ROUTE12_BOAT_2 {        //Not in use
     lock
 	faceplayer
 	namebox("DaveyJay5")

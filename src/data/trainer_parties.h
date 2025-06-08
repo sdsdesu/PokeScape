@@ -8590,6 +8590,108 @@ static const struct TrainerMon sParty_Route1_RiverTrainer_3[] = {
     }
 };
 
+static const struct TrainerMon sParty_Route36_RiverTrainer_1[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SHARK_NORMAL_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_LOBSTROCITY,
+    }
+};
+
+static const struct TrainerMon sParty_Lumbridge_RiverTrainer_1[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SEASLUG,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SEASLUG,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SEASLUG,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_CPT_MARLIN,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SEASLUG_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_Lumbridge_RiverTrainer_2[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    }
+};
+
+static const struct TrainerMon sParty_Lumbridge_RiverTrainer_3[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_BRINE_RAT,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_PELICAN,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_GIANT_RAT_DUNGEON_FORM,
+    }
+    {
+    .lvl = 43,
+    .species = SPECIES_MEGA_DUCK,
+    }
+};
+
+static const struct TrainerMon sParty_Route12_RiverTrainer_1[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_SHIBA,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_IBIS,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_SEAGULL_STEVEN_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_Route12_RiverTrainer_2[] = {
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,  //placeholder
+    }
+};
+
 //TZHAAR GYM CHALLENGE POOL
 static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     {

@@ -664,7 +664,7 @@ script ENCOUNTER_RAT
 	closemessage
 	delay(1)
     specialvar (VAR_RESULT, GetCurrentMap)
-    if ((var(VAR_RESULT) == MAP_LUMBRIDGE) || (var(VAR_RESULT) == MAP_LUMBRIDGE_SWAMP) || (var(VAR_RESULT) == MAP_LUMBRIDGE_FOREST) || (var(VAR_RESULT) == MAP_DRAYNOR_MANOR_B1F)) {
+    if ((var(VAR_RESULT) == MAP_LUMBRIDGE) || (var(VAR_RESULT) == MAP_LUMBRIDGE_SWAMP) || (var(VAR_RESULT) == MAP_LUMBRIDGE_FOREST) || (var(VAR_RESULT) == MAP_DRAYNOR_MANOR_B1F) || (var(VAR_RESULT) == MAP_DRAYNOR_SEWERS_1) || (var(VAR_RESULT) == MAP_DRAYNOR_SEWERS_2)) {
         random(20) // will get rid of getcurrentmap varresult unless changed
 	    switch (var(VAR_RESULT)) { 
             case 7: 

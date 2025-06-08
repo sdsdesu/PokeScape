@@ -150,7 +150,7 @@ script CHEAT_ITEM_PULSE_CORE
         applymovement(1, Movement_InteractFACEDOWN)
         waitmovement (0)
         namebox ("Explorer Jack")
-        msgbox(format("A Pulse Core will help your monsters share a little bit of extra experience after battles.\pToggle it on in the key items."))
+        msgbox(format("A Pulse Core will help your monsters share a little bit of extra experience after battles.\pTo use it, open your BAG and toggle it on in the KEY ITEMS section."))
         closemessage
         hidenamebox
     }

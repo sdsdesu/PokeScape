@@ -568,13 +568,18 @@
 #define TRAINER_ROUTE1_RIVER_TRAINER_1                  562
 #define TRAINER_ROUTE1_RIVER_TRAINER_2                  563
 #define TRAINER_ROUTE1_RIVER_TRAINER_3                  564
-
+#define TRAINER_ROUTE36_RIVER_TRAINER_1                 565
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_1               566
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_2               567
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_3               568
+#define TRAINER_ROUTE12_RIVER_TRAINER_1                 569
+#define TRAINER_ROUTE12_RIVER_TRAINER_2                 570
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_ROUTE1_RIVER_TRAINER_3 + 1)
+#define TRAINERS_COUNT                      (TRAINER_ROUTE12_RIVER_TRAINER_2 + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

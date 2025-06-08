@@ -4051,13 +4051,13 @@ static const u8 sSweetScentToolDesc[] = _(
 //POKESCAPE
 static const u8 sAirRuneDesc[] = _(
     "Makes certain\n"
-    "species of MONSTERs\n"
-    "evolve.");
+    "species of\n"
+    "MONSTERs evolve.");
 
 static const u8 sEvoItemDesc[] = _(
     "Makes certain\n"
-    "species of MONSTERs\n"
-    "evolve.");
+    "species of\n"
+    "MONSTERs evolve.");
 	
 static const u8 sEvoLegendaryItemDesc[] = _(
     "Makes Legendary\n"
@@ -4331,7 +4331,7 @@ static const u8 sWizardsBlizzardDesc[] = _(
 
 static const u8 sPurpleSweetsDesc[] = _(
     "Raises the level\n"
-    "of a MONSTERS by\n"
+    "of a MONSTER by\n"
     "one.");
 
 //POKESCAPE FARMING ITEMS
@@ -5512,8 +5512,8 @@ static const u8 sBaguetteSandwichDesc[] = _(
     "for the active battler.");
 static const u8 sChocolateBarSandwichDesc[] = _(
     "A good battle snack\n"
-    "for those who need a\n"
-    "little energy hit.");
+    "for those who need\n"
+    "a little energy hit.");
 static const u8 sOutfitBoxDesc[] = _(
     "A box for storing\n"
     "your collections of\n"

@@ -6240,7 +6240,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Route1_RiverTrainer_2),
     },
 
-        [TRAINER_ROUTE14_TRAINER_3] =
+    [TRAINER_ROUTE1_RIVER_TRAINER_3] =
     {
         .trainerClass = TRAINER_CLASS_FISHER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
@@ -6250,6 +6250,84 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
         .party = TRAINER_PARTY(sParty_Route1_RiverTrainer_3),
+    },
+
+
+    [TRAINER_ROUTE36_RIVER_TRAINER_1] =
+    {
+        .trainerClass = TRAINER_CLASS_FISHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_fisher,
+        .trainerName = _("ManFr3nds"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Route36_RiverTrainer_1),
+    },
+
+    
+    [TRAINER_LUMBRIDGE_RIVER_TRAINER_1] =
+    {
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_sailor,
+        .trainerName = _("Chiba"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Lumbridge_RiverTrainer_1),
+    },
+
+    
+    [TRAINER_LUMBRIDGE_RIVER_TRAINER_2] =
+    {
+        .trainerClass = TRAINER_CLASS_FISHER,   //tbc
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_fisher,   //tbc
+        .trainerName = _("Cupholder"),    //Tbc
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Lumbridge_RiverTrainer_2),  //tbc
+    },
+
+    
+    [TRAINER_LUMBRIDGE_RIVER_TRAINER_3] =
+    {
+        .trainerClass = TRAINER_CLASS_FISHER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_fisher,
+        .trainerName = _("ofRats"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Lumbridge_RiverTrainer_3),
+    },
+
+    
+    [TRAINER_ROUTE12_RIVER_TRAINER_1] =
+    {
+        .trainerClass = TRAINER_CLASS_SAILOR,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_sailor,
+        .trainerName = _("Ulrik"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Route12_RiverTrainer_1),
+    },
+
+    
+    [TRAINER_ROUTE12_RIVER_TRAINER_2] =
+    {
+        .trainerClass = TRAINER_CLASS_FISHER,  //tbc
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_CHOOB,
+        .trainerPic = TRAINER_PIC_fisher, //tbc
+        .trainerName = _("Cupholder"), //tbc
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_Route12_RiverTrainer_2),    //tbc
     },
 
 /*

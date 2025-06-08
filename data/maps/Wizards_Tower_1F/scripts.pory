@@ -452,7 +452,7 @@ script NPC_WIZARDSTOWER_Jalarast
 		setflag(FLAG_RECEIVED_WIZARDSHAT)
 		}
 	namebox ("Jalarast")
-	msgbox(format("Wizard Hat's have amazing Magical properties!\pIt can enhance a Psychic Type's power."))
+	msgbox(format("Wizard Hats have amazing Magical properties!\pIt can enhance a Psychic Type's power."))
 	waitmessage
 	hidenamebox
 	release

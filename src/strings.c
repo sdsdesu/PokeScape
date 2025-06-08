@@ -1853,8 +1853,8 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POUCHES");
 const u8 gText_Berry[] = _("");
 const u8 gText_Berries[] = _("");
-const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
-const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOn[] = _("The Pulse Core has been activated and will share exp.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOff[] = _("The Pulse Core has been deactivated and will no longer share exp.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 
 //pokescape
@@ -2447,5 +2447,5 @@ const u8 gText_TrainerCardTokkul[] = _("TOKKUL:");
 const u8 gText_TrainerCardSlayerPoints[] = _("SLAYER POINTS:");
 const u8 gText_SlayerPoints[] = _("{STR_VAR_1} SP");
 const u8 gText_Tokkul[] = _("{STR_VAR_1} TKL");
-const u8 gText_YouWantedVar1OutfitThatllBeVar2[] = _("You wanted that {STR_VAR_1} OUTFIT?\nThat'll be ¥{STR_VAR_2}. Will that be okay?");
+const u8 gText_YouWantedVar1OutfitThatllBeVar2[] = _("You wanted that {STR_VAR_1} OUTFIT?\nThat'll be {STR_VAR_2} GP. Will that be okay?");
 const u8 gText_HereIsTheOutfitThankYou[] = _("Here is the OUTFIT!\nThank you very much.");

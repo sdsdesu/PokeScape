@@ -706,7 +706,7 @@ script Lumbridge_GeneralStore_NPC2
 	lock
 	faceplayer
 	namebox("H1PYRaNG3r59")
-	msgbox(format("There are a lot of goblins around these parts, you might want to stock up on some antipoisons.\pThis will prepare you for the worst."))
+	msgbox(format("There are a lot of goblins around these parts, you might want to stock up on a Chocolate Sunday or two!.\pThey can cure poison, and this will prepare you for the worst."))
 	release
 	end
 }	
@@ -778,9 +778,9 @@ script Lumbridge_House_NPC5
 {
 	lock
 	faceplayer
-	//namebox ("???")
+	namebox ("Man")
 	msgbox(format("Luckily monsters only faint.\pOtherwise we would be overstocked with funeral services."))
-	//hidenamebox
+	hidenamebox
 	release
 	end
 }
@@ -789,9 +789,9 @@ script Lumbridge_House_NPC6
 {
 	lock
 	faceplayer
-	//namebox ("???")
+	namebox ("Woman")
 	msgbox(format("If you can't rest in a bank try a bed.\pSome beds are very inviting."))
-	//hidenamebox
+	hidenamebox
 	release
 	end
 }
@@ -1021,7 +1021,7 @@ script Lumbridge_GRAVEYARD_SIGN_5
 	end
 }
 
-script Lumbridge_River_NPC1
+//script Lumbridge_River_NPC1     //Not in use
 {
 	lock
 	faceplayer
@@ -1032,7 +1032,7 @@ script Lumbridge_River_NPC1
 	end
 }
 
-script Lumbridge_River_NPC2
+//script Lumbridge_River_NPC2         //Not in use
 {
 	lock
 	faceplayer
@@ -1068,6 +1068,37 @@ script Lumbridge_River_NPC3 {
     }
     hidenamebox
     closemessage
+    release
+    end
+}
+
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_1
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_1, format("I sail this sea, this domain is mine, there is no place on Gielinor like this."),format("For the Queen!"))
+    namebox ("Chiba")
+    msgbox(format("I don't care if this is a river and not a sea.\pI don't care what you think.\pThis is my sea.\pFor the Queen!"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_2
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_2, format("I am a Cupholder."),format("I am a Cupholder."))
+    namebox ("Cupholder")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_3
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_3, format("I fell off the bridge when it got destroyed.\pPlease help me, I want to go back to land..."),format("Please!!"))
+    namebox ("ofRats")
+    msgbox(format("I said help me, not fight me!\nPlease get me to land!\nI dont know how to steer a boat.\nPlease don't leave me out here..."))
+    hidenamebox
     release
     end
 }
