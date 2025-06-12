@@ -734,11 +734,12 @@
 #define STRINGID_TZHAAR_WEATHER_2                     732
 #define STRINGID_PLAYERGOTTOKKUL                      733
 #define STRINGID_CUTHPINCREASEDSTATS                  734
+#define STRINGID_ELECTROSHOCKCHARGING                 735
 
 
 
 
-#define BATTLESTRINGS_VANILLA_END                     734
+#define BATTLESTRINGS_VANILLA_END                     735
 
 
 
@@ -804,6 +805,7 @@
 #define B_MSG_TURN1_FREEZE_SHOCK   10
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
+#define B_MSG_TURN1_ELECTRO_SHOCK  13
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0

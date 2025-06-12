@@ -12,6 +12,7 @@ ASSUMPTIONS
     ASSUME(gBattleMoves[MOVE_QUICK_GUARD].effect == EFFECT_PROTECT);
     ASSUME(gBattleMoves[MOVE_CRAFTY_SHIELD].effect == EFFECT_PROTECT);
     ASSUME(gBattleMoves[MOVE_BANEFUL_BUNKER].effect == EFFECT_PROTECT);
+    ASSUME(gBattleMoves[MOVE_BURNING_BULWARK].effect == EFFECT_PROTECT);
     ASSUME(gBattleMoves[MOVE_TACKLE].split == SPLIT_PHYSICAL);
     ASSUME(gBattleMoves[MOVE_TACKLE].makesContact);
     ASSUME(gBattleMoves[MOVE_LEER].split == SPLIT_STATUS);
