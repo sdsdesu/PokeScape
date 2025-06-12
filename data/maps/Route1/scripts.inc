@@ -405,35 +405,29 @@ ROUTE1_FARMER_NPC_6:
 	goto ROUTE1_FARMER_NPC_1
 
 
-ROUTE1_BOAT_1::
-	lock
-	faceplayer
-	namebox ROUTE1_BOAT_1_Text_0
-	msgbox ROUTE1_BOAT_1_Text_1
+BATTLE_ROUTE1_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_1, BATTLE_ROUTE1_RIVER_TRAINER_1_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_1_Text_3
 	hidenamebox
-	closemessage
 	release
 	end
 
 
-ROUTE1_BOAT_2::
-	lock
-	faceplayer
-	namebox ROUTE1_BOAT_2_Text_0
-	msgbox ROUTE1_BOAT_2_Text_1
+BATTLE_ROUTE1_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_2, BATTLE_ROUTE1_RIVER_TRAINER_2_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_2_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_2_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_2_Text_3
 	hidenamebox
-	closemessage
 	release
 	end
 
 
-ROUTE1_BOAT_3::
-	lock
-	faceplayer
-	namebox ROUTE1_BOAT_3_Text_0
-	msgbox ROUTE1_BOAT_3_Text_1
+BATTLE_ROUTE1_RIVER_TRAINER_3::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_3, BATTLE_ROUTE1_RIVER_TRAINER_3_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_3_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_3_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_3_Text_3
 	hidenamebox
-	closemessage
 	release
 	end
 
@@ -1204,34 +1198,58 @@ ROUTE1_FARMER_NPC_Text_3:
 	.string "Although this is very strange, almost\n"
 	.string "all sheep are NORMAL type.$"
 
-ROUTE1_BOAT_1_Text_0:
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_0:
+	.string "No! My peace! You've ruined it!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_1:
+	.string "I just need an escape, okay?!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_2:
 	.string "Awenix$"
 
-ROUTE1_BOAT_1_Text_1:
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_3:
 	.string "I love spending time on the water like\n"
 	.string "this.\p"
 	.string "It helps me escape from life's\n"
 	.string "responsibilities for a moment.\p"
 	.string "Like my wife and children.\p"
-	.string "{PAUSE 15}Don't tell them you found me here!$"
+	.string "{PAUSE 15}Don't tell them you found me here!.$"
 
-ROUTE1_BOAT_2_Text_0:
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_0:
+	.string "I need to get into Varrock for my quest\n"
+	.string "but they've locked down access!\p"
+	.string "Argh, I'm so mad I need to take out my\n"
+	.string "anger in a battle!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_1:
+	.string "I lost?$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_2:
 	.string "Gelo Ball$"
 
-ROUTE1_BOAT_2_Text_1:
-	.string "I am a Cupholder$"
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_3:
+	.string "The guards are blocking one entrance..\p"
+	.string "Sheep are blocking another.\p"
+	.string "Maybe I should just give up on slaying\n"
+	.string "that demon.$"
 
-ROUTE1_BOAT_3_Text_0:
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_0:
+	.string "Did you know different routes seem to\n"
+	.string "have different fish in them?\p"
+	.string "Let's see if you've faced these before!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_1:
+	.string "They were no match for you.$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_2:
 	.string "Trickool$"
 
-ROUTE1_BOAT_3_Text_1:
-	.string "Different routes seem to have\n"
-	.string "different fish in them.\p"
-	.string "If you're looking for a specific type,\n"
-	.string "try sailing around in different\l"
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_3:
+	.string "If you're looking for a specific type of\n"
+	.string "fish, try sailing around in different\l"
 	.string "locations.\p"
-	.string "I've heard that some are only available\n"
-	.string "underground!$"
+	.string "Some like my WebSnipper are only\n"
+	.string "available underground!$"
 
 Wartfoot_Route1_Battle_Text_0:
 	.string "Brown armour best!$"

@@ -432,7 +432,7 @@ TZHAAR_GYM_ROOM_POST_WIN_Text_1:
 TZHAAR_GYM_ROOM_POST_WIN_Text_2:
 	.string "If you wish to prove yourself even more\n"
 	.string "you should visit our Fight Caves in the\l"
-	.string "westside of our city.\p"
+	.string "west side of our city.\p"
 	.string "Otherwise we wish you to have glorious\n"
 	.string "battles in your future MvM Challenges.$"
 
@@ -578,7 +578,7 @@ NPC_TZHAAR_GYM_LEADER_Text_4:
 	.string "Congratulations on your victory JalYt.\p"
 	.string "If you wish to prove yourself even more\n"
 	.string "you should visit our Fight Caves in the\l"
-	.string "westside of our city.\p"
+	.string "west side of our city.\p"
 	.string "Otherwise we wish you to have glorious\n"
 	.string "battles in your future MvM Challenges.$"
 

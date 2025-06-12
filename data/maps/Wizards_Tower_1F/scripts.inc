@@ -1251,7 +1251,7 @@ NPC_WIZARDSTOWER_Jalarast_Text_1:
 	.string "Here you should have this!$"
 
 NPC_WIZARDSTOWER_Jalarast_Text_2:
-	.string "Wizard Hat's have amazing Magical\n"
+	.string "Wizard Hats have amazing Magical\n"
 	.string "properties!\p"
 	.string "It can enhance a Psychic Type's power.$"
 

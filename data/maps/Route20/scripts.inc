@@ -90,6 +90,15 @@ BATTLE_ROUTE20_TRAINER_3::
 	end
 
 
+BATTLE_ROUTE20_TRAINER_4::
+	trainerbattle_single TRAINER_ROUTE20_TRAINER_8, BATTLE_ROUTE20_TRAINER_4_Text_0, BATTLE_ROUTE20_TRAINER_4_Text_1
+	namebox BATTLE_ROUTE20_TRAINER_4_Text_2
+	msgbox BATTLE_ROUTE20_TRAINER_4_Text_3
+	hidenamebox
+	release
+	end
+
+
 ROUTE20_BLOCKADE_NORTH::
 	faceplayer
 	namebox ROUTE20_BLOCKADE_NORTH_Text_0
@@ -110,16 +119,6 @@ ROUTE20_BLOCKADE_SOUTH::
 	hidenamebox
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP
 	waitmovement 0
-	release
-	end
-
-
-ROUTE20_FISHERMAN::
-	faceplayer
-	namebox ROUTE20_FISHERMAN_Text_0
-	msgbox ROUTE20_FISHERMAN_Text_1
-	closemessage
-	hidenamebox
 	release
 	end
 
@@ -181,6 +180,22 @@ BATTLE_ROUTE20_TRAINER_3_Text_3:
 	.string "How do I summon this canoe to shore?\p"
 	.string "Please dont leave me, I am dying!$"
 
+BATTLE_ROUTE20_TRAINER_4_Text_0:
+	.string "I tried sailing up the river to see\n"
+	.string "whether I'd have better odds of\l"
+	.string "catching rare fish...\p"
+	.string "You better not have scared them off!$"
+
+BATTLE_ROUTE20_TRAINER_4_Text_1:
+	.string "My fish!!$"
+
+BATTLE_ROUTE20_TRAINER_4_Text_2:
+	.string "D Bait Err$"
+
+BATTLE_ROUTE20_TRAINER_4_Text_3:
+	.string "Honestly, I don't think fishing here is\n"
+	.string "any different to fishing on land!$"
+
 ROUTE20_BLOCKADE_NORTH_Text_0:
 	.string "Sailor$"
 
@@ -196,16 +211,6 @@ ROUTE20_BLOCKADE_SOUTH_Text_0:
 	.string "I can't let you past until I've caught\n"
 	.string "it...\p"
 	.string "{PAUSE 15}I'm comin' for ye Peggy!$"
-
-ROUTE20_FISHERMAN_Text_0:
-	.string "Fisherman$"
-
-ROUTE20_FISHERMAN_Text_1:
-	.string "I tried sailing up the river to see\n"
-	.string "whether I'd have better odds of\l"
-	.string "catching rare fish...\p"
-	.string "but I don't think fishing here is any\n"
-	.string "different to fishing on land!$"
 
 ROUTE20_VARROCK_GUARD_1_Text_0:
 	.string "Guard$"

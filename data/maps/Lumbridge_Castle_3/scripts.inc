@@ -323,6 +323,29 @@ HANS_GYM_LUMBRIDGE_2:
 	goto HANS_GYM_LUMBRIDGE_1
 
 
+SIGMUND_DRAWERS::
+	lock
+	msgbox SIGMUND_DRAWERS_Text_0
+	goto_if_unset FLAG_BADGE03_GET, SIGMUND_DRAWERS_1
+	msgbox SIGMUND_DRAWERS_Text_3
+	closemessage
+	hidenamebox
+	release
+	end
+
+SIGMUND_DRAWERS_1:
+	msgbox SIGMUND_DRAWERS_Text_1
+	closemessage
+	applymovement 3, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT
+	waitmovement 0
+	namebox LUMBRIDGE_GYM_SIGMUND_Text_0
+	msgbox SIGMUND_DRAWERS_Text_2
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 TRIGGER_GYM_DUKE_Text_0:
 	.string "Duke Horacio$"
 
@@ -446,3 +469,18 @@ HANS_GYM_LUMBRIDGE_Text_1:
 HANS_GYM_LUMBRIDGE_Text_2:
 	.string "You truly are a Completionist in the\n"
 	.string "making, good job!$"
+
+SIGMUND_DRAWERS_Text_0:
+	.string "You rummage through the drawers...\p"
+	.string "{PAUSE 15}$"
+
+SIGMUND_DRAWERS_Text_1:
+	.string "and find a set of pink robes?$"
+
+SIGMUND_DRAWERS_Text_2:
+	.string "Get out of there, that's private!$"
+
+SIGMUND_DRAWERS_Text_3:
+	.string "and find a sketch of what looks like a\n"
+	.string "cloud with arms and legs.\p"
+	.string "How strange.$"

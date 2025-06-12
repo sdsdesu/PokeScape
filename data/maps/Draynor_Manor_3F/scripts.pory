@@ -72,7 +72,7 @@ script NPC_DraynorManor_OddenstienLog{
 			msgbox(format("Log 3: An adventurer brought Ernest back to me and told me his fiancee wanted him turned back into a human.\pDoes this mean I will no longer have eggs for breakfast?"))
 			msgbox(format("Log 4: With Ernest gone only his eggs remain.\pI probably have enough supply for a week but I think I will need to find another assistant soon otherwise I will run out of eggs."))
 			msgbox(format("Log 5: Nooo!\pThis is so unfortunate, the eggs have hatched!\pNow I must eat them before they hatch so I can have my breakfast."))
-			msgbox(format("Log 6: These are some weird-looking hybrid chickens.\pI think I will name them Ernest Chickens after thier father."))
+			msgbox(format("Log 6: These are some weird-looking hybrid chickens.\pI think I will name them Ernest Chickens after their father."))
 			msgbox(format("Log 7: I wonder what will happen if I turn these Ernest Chickens into humans…"))
 			msgbox(format("End of log."))
 		}

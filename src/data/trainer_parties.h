@@ -8651,7 +8651,7 @@ static const struct TrainerMon sParty_Lumbridge_RiverTrainer_3[] = {
     {
     .lvl = 43,
     .species = SPECIES_GIANT_RAT_DUNGEON_FORM,
-    }
+    },
     {
     .lvl = 43,
     .species = SPECIES_MEGA_DUCK,

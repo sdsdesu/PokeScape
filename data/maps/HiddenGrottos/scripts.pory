@@ -82,7 +82,7 @@ script HIDDEN_GROTTO_WARP_LUMBRIDGE_SWAMP {
 
 //CHOOSE WHAT SPAWNS
 //Removed, to re-enable change object events to OBJ_EVENT_GFX_VAR_0 and give them 
-//the script HIDDEN_GROTTO_INTERACT along with thier flags FLAG_HIDDEN_GROTTO_X
+//the script HIDDEN_GROTTO_INTERACT along with their flags FLAG_HIDDEN_GROTTO_X
 script HIDDEN_GROTTO_ENTRY_SPAWNS {
     random(13)
     switch (var(VAR_RESULT)) {

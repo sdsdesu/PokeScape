@@ -296,7 +296,7 @@ script POKESCAPER_ORCHY_V2
     namebox ("Orchy")
     msgbox(format("Hey!\pI'm Runescape Reorchestrated, you can call me Orchy for short.\pI made all the music for this game."))
     closemessage
-    if (flag(FLAG_SYS_POKEMON_GET) == FALSE)
+    if (flag(FLAG_SYS_POKEMON_GET) == FALSE) {
 	    msgbox(format("What's that?\pYou still don't have any monsters of your own yet?\pWhat are you waiting for, why don't you go and visit Professor Normal Tree in Lumbridge Castle."))
         hidenamebox
         closemessage
@@ -325,35 +325,7 @@ script POKESCAPER_ORCHY_V2
     	end
     }
     else {
-    msgbox(format("Why don't you stay for a while and just listen to me playing some music."))
-    hidenamebox
-    closemessage
-    applymovement(6, Movement_InteractFACERIGHT)
-    waitmovement(0)
-    random(11)
-    switch (var(VAR_RESULT)){ 
-            case 0: 
-                playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
-            case 1: 
-                playbgm (MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1)
-            case 2: 
-                playbgm (MUS_PS_GODSLAYER, 1)
-            case 3: 
-                playbgm (MUS_PS_VS_CHAOS_TUNNELS, 1)
-            case 4: 
-                playbgm (MUS_PS_VS_ORCHY, 1)
-            case 5: 
-                playbgm (MUS_PS_VS_POKESCAPERS, 1)
-            case 6: 
-                playbgm (MUS_PS_VS_CHAOS_ELEMENTAL, 1)
-            case 7: 
-                playbgm (MUS_PS_VS_LEGENDARY, 1)
-            case 8: 
-                playbgm (MUS_PS_ROUTE_DESERT, 1)
-            case 9: 
-                playbgm (MUS_PS_SURFING, 1)
-            case 10: 
-                playbgm (MUS_PS_GENERAL_STORE, 1)
+        goto(ORCHY_MUSIC)
     }
     release
     end

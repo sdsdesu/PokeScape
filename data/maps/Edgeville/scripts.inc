@@ -581,6 +581,15 @@ NPC_EDGEVILLE_HOUSE_NPC_10::
 	end
 
 
+BATTLE_TRAINER_EDGEVILLE_RIVER_1::
+	trainerbattle_single TRAINER_EDGEVILLE_RIVER_1, BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_0, BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_1
+	namebox BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_2
+	msgbox BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_3
+	hidenamebox
+	release
+	end
+
+
 BATTLE_EDGEVILLE_GYM_1::
 	trainerbattle_single TRAINER_EDGEVILLE_GYM_1, BATTLE_EDGEVILLE_GYM_1_Text_0, BATTLE_EDGEVILLE_GYM_1_Text_1
 	namebox BATTLE_EDGEVILLE_GYM_1_Text_2
@@ -1062,6 +1071,20 @@ NPC_EDGEVILLE_HOUSE_NPC_10_Text_1:
 	.string "Aw man, how am I meant to smelt more\n"
 	.string "ores now?\p"
 	.string "I can't cast Superheat Item...$"
+
+BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_0:
+	.string "So many Quests, so little time!$"
+
+BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_1:
+	.string "Aaaahhh!$"
+
+BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_2:
+	.string "A QP Warrior$"
+
+BATTLE_TRAINER_EDGEVILLE_RIVER_1_Text_3:
+	.string "How many Quest Points do you have?\p"
+	.string "How many do you think it takes to\n"
+	.string "unlock the Quest Cape?$"
 
 BATTLE_EDGEVILLE_GYM_1_Text_0:
 	.string "My current slayer task is Skeletons.\p"

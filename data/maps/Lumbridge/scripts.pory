@@ -1021,7 +1021,7 @@ script Lumbridge_GRAVEYARD_SIGN_5
 	end
 }
 
-//script Lumbridge_River_NPC1     //Not in use
+script Lumbridge_River_NPC1     //Not in use
 {
 	lock
 	faceplayer
@@ -1032,7 +1032,7 @@ script Lumbridge_GRAVEYARD_SIGN_5
 	end
 }
 
-//script Lumbridge_River_NPC2         //Not in use
+script Lumbridge_River_NPC2         //Not in use
 {
 	lock
 	faceplayer

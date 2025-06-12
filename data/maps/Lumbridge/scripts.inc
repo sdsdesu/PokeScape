@@ -743,7 +743,9 @@ Lumbridge_House_NPC4::
 Lumbridge_House_NPC5::
 	lock
 	faceplayer
+	namebox Lumbridge_EVENT_NPC3_Text_0
 	msgbox Lumbridge_House_NPC5_Text_0
+	hidenamebox
 	release
 	end
 
@@ -751,7 +753,9 @@ Lumbridge_House_NPC5::
 Lumbridge_House_NPC6::
 	lock
 	faceplayer
+	namebox Lumbridge_House_BobsGirl_Text_0
 	msgbox Lumbridge_House_NPC6_Text_0
+	hidenamebox
 	release
 	end
 
@@ -1041,6 +1045,33 @@ Lumbridge_River_NPC3_10:
 	goto Lumbridge_River_NPC3_1
 
 
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_1, BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_3
+	hidenamebox
+	release
+	end
+
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_2, BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_1
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0
+	hidenamebox
+	release
+	end
+
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_3, BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_1
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_2
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_3
+	hidenamebox
+	release
+	end
+
+
 CUPHOLDER_NPC_Text_0:
 	.string "I am currently a Cupholder with no\n"
 	.string "dialog.$"
@@ -1294,9 +1325,10 @@ Lumbridge_GeneralStore_NPC2_Text_0:
 
 Lumbridge_GeneralStore_NPC2_Text_1:
 	.string "There are a lot of goblins around these\n"
-	.string "parts, you might want to stock up on\l"
-	.string "some antipoisons.\p"
-	.string "This will prepare you for the worst.$"
+	.string "parts, you might want to stock up on a\l"
+	.string "Chocolate Sunday or two!.\p"
+	.string "They can cure poison, and this will\n"
+	.string "prepare you for the worst.$"
 
 Lumbridge_House_BobsAxes_Text_0:
 	.string "Bob$"
@@ -1555,3 +1587,44 @@ Lumbridge_River_NPC3_Text_8:
 	.string "You think you know some better fish\n"
 	.string "puns?\p"
 	.string "I seriously trout it.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_0:
+	.string "I sail this sea, this domain is mine,\n"
+	.string "there is no place on Gielinor like this.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_1:
+	.string "For the Queen!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_2:
+	.string "Chiba$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_3:
+	.string "I don't care if this is a river and not a\n"
+	.string "sea.\p"
+	.string "I don't care what you think.\p"
+	.string "This is my sea.\p"
+	.string "For the Queen!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0:
+	.string "I am a Cupholder.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_1:
+	.string "Cupholder$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_0:
+	.string "I fell off the bridge when it got\n"
+	.string "destroyed.\p"
+	.string "Please help me, I want to go back to\n"
+	.string "land...$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_1:
+	.string "Please!!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_2:
+	.string "ofRats$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_3:
+	.string "I said help me, not fight me!\n"
+	.string "Please get me to land!\n"
+	.string "I dont know how to steer a boat.\n"
+	.string "Please don't leave me out here...$"

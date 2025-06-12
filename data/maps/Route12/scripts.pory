@@ -665,7 +665,7 @@ script NPC_ROUTE12_SAILING {
 	end
 }
 
-//script NPC_ROUTE12_BOAT_1 {     //Not in use
+script NPC_ROUTE12_BOAT_1 {     //Not in use
     lock
 	faceplayer
 	namebox("L0st2theS3a")
@@ -676,7 +676,7 @@ script NPC_ROUTE12_SAILING {
 	end
 }
 
-//script NPC_ROUTE12_BOAT_2 {        //Not in use
+script NPC_ROUTE12_BOAT_2 {        //Not in use
     lock
 	faceplayer
 	namebox("DaveyJay5")

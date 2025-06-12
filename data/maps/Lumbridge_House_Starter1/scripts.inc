@@ -1017,4 +1017,5 @@ CHEAT_ITEM_PULSE_CORE_Text_1:
 	.string "A Pulse Core will help your monsters\n"
 	.string "share a little bit of extra experience\l"
 	.string "after battles.\p"
-	.string "Toggle it on in the key items.$"
+	.string "To use it, open your BAG and toggle it\n"
+	.string "on in the KEY ITEMS section.$"

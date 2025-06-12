@@ -136,9 +136,15 @@ SIGNPOST_MUSA_POINT::
 
 
 SIGNPOST_BOAT_FOR_SALE::
+	compare VAR_BANANA_BOAT_QUEST, 10
+	goto_if_le SIGNPOST_BOAT_FOR_SALE_2
+SIGNPOST_BOAT_FOR_SALE_1:
+	end
+
+SIGNPOST_BOAT_FOR_SALE_2:
 	msgbox SIGNPOST_BOAT_FOR_SALE_Text_0
 	closemessage
-	end
+	goto SIGNPOST_BOAT_FOR_SALE_1
 
 
 NPC_MUSA_POINT_1::
@@ -1789,7 +1795,7 @@ NPC_MUSAPOINT_SAILOR_Text_4:
 	.string "Suit yourself.$"
 
 NPC_LegendArts_Text_0:
-	.string "LEGEND ARTS$"
+	.string "Legend Arts$"
 
 NPC_LegendArts_Text_1:
 	.string "What…{PAUSE 15}{PAUSE 15}…{PAUSE 15}{PAUSE 15}…\n"

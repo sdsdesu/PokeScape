@@ -305,6 +305,146 @@ BATTLE_ORCHY_17:
 	goto BATTLE_ORCHY_5
 
 
+POKESCAPER_ORCHY_V2::
+	lock
+	faceplayer
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox POKESCAPER_ORCHY_Text_1
+	closemessage
+	goto_if_unset FLAG_SYS_POKEMON_GET, POKESCAPER_ORCHY_V2_2
+	goto_if_set FLAG_BADGE01_GET, POKESCAPER_ORCHY_V2_5
+	goto_if_set FLAG_BADGE02_GET, POKESCAPER_ORCHY_V2_8
+	goto_if_set FLAG_BADGE03_GET, POKESCAPER_ORCHY_V2_11
+	goto ORCHY_MUSIC
+	release
+	end
+
+POKESCAPER_ORCHY_V2_2:
+	msgbox POKESCAPER_ORCHY_V2_Text_0
+	hidenamebox
+	closemessage
+	release
+	end
+
+POKESCAPER_ORCHY_V2_5:
+	msgbox POKESCAPER_ORCHY_V2_Text_1
+	hidenamebox
+	closemessage
+	goto ORCHY_MUSIC
+	release
+	end
+
+POKESCAPER_ORCHY_V2_8:
+	msgbox POKESCAPER_ORCHY_V2_Text_2
+	hidenamebox
+	closemessage
+	goto ORCHY_MUSIC
+	release
+	end
+
+POKESCAPER_ORCHY_V2_11:
+	goto BATTLE_ORCHY_V2
+	release
+	end
+
+
+BATTLE_ORCHY_V2::
+	playse SE_PIN
+	applymovement 6, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox BATTLE_ORCHY_V2_Text_0, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne BATTLE_ORCHY_V2_2
+	goto ORCHY_MUSIC
+	release
+	end
+
+BATTLE_ORCHY_V2_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+BATTLE_ORCHY_V2_2:
+	msgbox BATTLE_ORCHY_Text_1
+	closemessage
+	hidenamebox
+	trainerbattle_no_intro TRAINER_ORCHY, BATTLE_ORCHY_Text_2
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox BATTLE_ORCHY_Text_3
+	goto BATTLE_ORCHY_V2_1
+
+
+ORCHY_MUSIC::
+	namebox POKESCAPER_ORCHY_Text_0
+	msgbox ORCHY_MUSIC_Text_0
+	hidenamebox
+	closemessage
+	applymovement 6, Movement_InteractFACERIGHT
+	waitmovement 0
+	random 11
+	switch VAR_RESULT
+	case 0, ORCHY_MUSIC_3
+	case 1, ORCHY_MUSIC_4
+	case 2, ORCHY_MUSIC_5
+	case 3, ORCHY_MUSIC_6
+	case 4, ORCHY_MUSIC_7
+	case 5, ORCHY_MUSIC_8
+	case 6, ORCHY_MUSIC_9
+	case 7, ORCHY_MUSIC_10
+	case 8, ORCHY_MUSIC_11
+	case 9, ORCHY_MUSIC_12
+	case 10, ORCHY_MUSIC_13
+ORCHY_MUSIC_1:
+	release
+	end
+
+ORCHY_MUSIC_3:
+	playbgm MUS_PS_WISE_OLD_MAN_THEME, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_4:
+	playbgm MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_5:
+	playbgm MUS_PS_GODSLAYER, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_6:
+	playbgm MUS_PS_VS_CHAOS_TUNNELS, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_7:
+	playbgm MUS_PS_VS_ORCHY, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_8:
+	playbgm MUS_PS_VS_POKESCAPERS, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_9:
+	playbgm MUS_PS_VS_CHAOS_ELEMENTAL, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_10:
+	playbgm MUS_PS_VS_LEGENDARY, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_11:
+	playbgm MUS_PS_ROUTE_DESERT, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_12:
+	playbgm MUS_PS_SURFING, 1
+	goto ORCHY_MUSIC_1
+
+ORCHY_MUSIC_13:
+	playbgm MUS_PS_GENERAL_STORE, 1
+	goto ORCHY_MUSIC_1
+
+
 NPC_GOBLINVILLAGE_GOBLIN_1_Text_0:
 	.string "Dulleyes$"
 
@@ -495,10 +635,38 @@ BATTLE_ORCHY_Text_2:
 	.string "It's the sound of my defeat.$"
 
 BATTLE_ORCHY_Text_3:
-	.string "As a member of team PokerScaper, I must\n"
+	.string "As a member of team PokeScaper, I must\n"
 	.string "say be sure to keep your eyes out as we\l"
 	.string "are everywhere.$"
 
 BATTLE_ORCHY_Text_4:
 	.string "That's alright, you can just listen to\n"
 	.string "me playing some music.$"
+
+POKESCAPER_ORCHY_V2_Text_0:
+	.string "What's that?\p"
+	.string "You still don't have any monsters of\n"
+	.string "your own yet?\p"
+	.string "What are you waiting for, why don't you\n"
+	.string "go and visit Professor Normal Tree in\l"
+	.string "Lumbridge Castle.$"
+
+POKESCAPER_ORCHY_V2_Text_1:
+	.string "Congratulations on beating the gym!\p"
+	.string "Come back when you've got a few more\n"
+	.string "and maybe you'll be strong enough to\l"
+	.string "challenge me.$"
+
+POKESCAPER_ORCHY_V2_Text_2:
+	.string "Two badges?\p"
+	.string "Not bad, but I think you still need at\n"
+	.string "least one, maybe even two more to\l"
+	.string "compete with these melodies.$"
+
+BATTLE_ORCHY_V2_Text_0:
+	.string "Oh, do you think you're finally ready for\n"
+	.string "our battle?$"
+
+ORCHY_MUSIC_Text_0:
+	.string "Why don't you stay for a while and just\n"
+	.string "listen to me playing some music instead.$"

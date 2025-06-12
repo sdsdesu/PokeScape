@@ -119,7 +119,7 @@ script NPC_LegendArts
 {
 	lock
 	faceplayer
-    namebox ("LEGEND ARTS")
+    namebox ("Legend Arts")
 	msgbox(format("What…{PAUSE 15}{PAUSE 15}…{PAUSE 15}{PAUSE 15}…\nHow did I get here?"))
     waitmessage
     hidenamebox
@@ -138,8 +138,10 @@ script SIGNPOST_MUSA_POINT
 
 script SIGNPOST_BOAT_FOR_SALE
 {
-	msgbox(format("Boat for Sale!\pSee Luthas inside for more details."))
-    closemessage
+	if (var(VAR_BANANA_BOAT_QUEST) <= 10) {
+		msgbox(format("Boat for Sale!\pSee Luthas inside for more details."))
+    	closemessage
+	}
 	end
 }
 

@@ -289,6 +289,24 @@ BATTLE_ROUTE12_TRAINER_1::
 	end
 
 
+BATTLE_ROUTE12_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_ROUTE12_RIVER_TRAINER_1, BATTLE_ROUTE12_RIVER_TRAINER_1_Text_0, BATTLE_ROUTE12_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_ROUTE12_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_ROUTE12_RIVER_TRAINER_1_Text_3
+	hidenamebox
+	closemessage
+	end
+
+
+BATTLE_ROUTE12_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_ROUTE12_RIVER_TRAINER_2, BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0, BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0
+	namebox BATTLE_ROUTE12_RIVER_TRAINER_2_Text_1
+	msgbox BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0
+	hidenamebox
+	closemessage
+	end
+
+
 NPC_ROUTE12_Goblin_1::
 	lock
 	faceplayer
@@ -506,6 +524,24 @@ NPC_ROUTE12_BRONZEMAN::
 	msgbox NPC_ROUTE12_BRONZEMAN_Text_1
 	hidenamebox
 	closemessage
+	applymovement 39, ROUTE12_BRONZEMAN
+	release
+	end
+
+
+ROUTE12_BRONZEMAN:
+	face_original_direction
+	step_end
+
+NPC_ROUTE12_COW::
+	lock
+	namebox NPC_ROUTE12_COW_Text_0
+	playmoncry SPECIES_COW, 0
+	msgbox NPC_ROUTE12_COW_Text_1
+	waitmoncry
+	hidenamebox
+	msgbox NPC_ROUTE12_COW_Text_2
+	closemessage
 	release
 	end
 
@@ -690,6 +726,30 @@ BATTLE_ROUTE12_TRAINER_1_Text_2:
 	.string "I will have you know I went easy on you.\p"
 	.string "Just wait until you see my main.$"
 
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_0:
+	.string "The water looks very deep here, but let\n"
+	.string "us not trace into a deep conversation\l"
+	.string "and battle instead.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_1:
+	.string "So deep I nearly drowned!$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_2:
+	.string "Ulrik$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_3:
+	.string "The perceived depth and actual depth\n"
+	.string "may differ.\p"
+	.string "This goes for anything, water,\n"
+	.string "literature...\n"
+	.string "Even this conversation.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0:
+	.string "I am a Cupholder.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_2_Text_1:
+	.string "Cupholder$"
+
 NPC_ROUTE12_Goblin_1_Text_0:
 	.string "Goblin$"
 
@@ -804,6 +864,15 @@ NPC_ROUTE12_BRONZEMAN_Text_1:
 	.string "can't seem to keep this cow still long\l"
 	.string "enough!\p"
 	.string "{PAUSE 15}Wait, what's a pouch..?$"
+
+NPC_ROUTE12_COW_Text_0:
+	.string "Cow$"
+
+NPC_ROUTE12_COW_Text_1:
+	.string "MOOOOOOOO!$"
+
+NPC_ROUTE12_COW_Text_2:
+	.string "This poor cow seems very distressed.$"
 
 NPC_ROUTE12_NOOB_Text_0:
 	.string "Big Nub56$"
