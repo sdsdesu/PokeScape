@@ -11007,6 +11007,7 @@ BattleScript_EffectAuroraVeilHit:
 	goto BattleScript_MoveEnd
 
 BattleScript_ChaoticRiftEnds::
+	playanimation BS_ATTACKER, B_ANIM_RESTORE_BG
 	printstring STRINGID_CHAOTICRIFTENDS
 	waitmessage B_WAIT_TIME_LONG
 	end2
