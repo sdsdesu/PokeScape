@@ -6248,7 +6248,10 @@ static void Cmd_sethealblock(void)
     else
     {
         gStatuses3[gBattlerTarget] |= STATUS3_HEAL_BLOCK;
-        gDisableStructs[gBattlerTarget].healBlockTimer = 5;
+        if (gBattleMoves[gCurrentMove].effect == EFFECT_PSYCHIC_NOISE)
+            gDisableStructs[gBattlerTarget].healBlockTimer = 2;
+        else
+            gDisableStructs[gBattlerTarget].healBlockTimer = 5;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
@@ -14263,7 +14266,8 @@ static void Cmd_setroom(void)
         HandleRoomMove(STATUS_FIELD_MAGIC_ROOM, &gFieldTimers.magicRoomTimer, 4);
         break;
     case EFFECT_INVERSE_BATTLE:
-        HandleRoomMove(STATUS_FIELD_CHAOTIC_RIFT, &gFieldTimers.chaoticRiftTimer,6);
+        //HandleRoomMove(STATUS_FIELD_GRAVITY, &gFieldTimers.gravityTimer, 6);
+        HandleRoomMove(STATUS_FIELD_CHAOTIC_RIFT, &gFieldTimers.chaoticRiftTimer, 6);
         break;
     default:
         gBattleCommunication[MULTISTRING_CHOOSER] = 8;

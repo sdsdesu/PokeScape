@@ -456,6 +456,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSilverlight             @ EFFECT_SILVERLIGHT
 	.4byte BattleScript_EffectRandomStatDown          @ EFFECT_RANDOM_STAT_DOWN
 	.4byte BattleScript_EffectBerserk                 @ EFFECT_BERSERK
+	.4byte BattleScript_EffectPsychicNoise            @ EFFECT_PSYCHIC_NOISE
 	
 	
 
@@ -11007,7 +11008,7 @@ BattleScript_EffectAuroraVeilHit:
 
 BattleScript_ChaoticRiftEnds::
 	printstring STRINGID_CHAOTICRIFTENDS
-	waitmessage 0x40
+	waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_KarilCrossbow::
@@ -11246,4 +11247,14 @@ BattleScript_BerserkTrySpDef::
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BerserkEnd:
+	goto BattleScript_MoveEnd
+
+
+BattleScript_EffectPsychicNoise::
+	call BattleScript_EffectHit_Ret
+	tryfaintmon BS_TARGET
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
+	sethealblock BattleScript_ButItFailed
+	printstring STRINGID_PKMNPREVENTEDFROMHEALING
+	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd

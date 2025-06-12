@@ -1933,6 +1933,7 @@ enum
     ENDTURN_SNOW,
     ENDTURN_DAMAGE_NON_TYPES,
     ENDTURN_GRAVITY,
+    ENDTURN_CHAOTIC_RIFT,
     ENDTURN_WATER_SPORT,
     ENDTURN_MUD_SPORT,
     ENDTURN_TRICK_ROOM,
@@ -1950,7 +1951,6 @@ enum
     ENDTURN_RAINBOW,
     ENDTURN_SEA_OF_FIRE,
     ENDTURN_SWAMP,
-    ENDTURN_CHAOTIC_RIFT,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -2424,6 +2424,15 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_CHAOTIC_RIFT:
+            if (gFieldStatuses & STATUS_FIELD_CHAOTIC_RIFT && --gFieldTimers.chaoticRiftTimer == 0)
+            {
+                gFieldStatuses &= ~STATUS_FIELD_CHAOTIC_RIFT;
+                BattleScriptExecute(BattleScript_ChaoticRiftEnds);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
         case ENDTURN_ION_DELUGE:
             gFieldStatuses &= ~STATUS_FIELD_ION_DELUGE;
             gBattleStruct->turnCountersTracker++;
@@ -2558,15 +2567,7 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnSideTracker = 0;
             }
             break;
-        case ENDTURN_CHAOTIC_RIFT:
-            if (gFieldStatuses & STATUS_FIELD_CHAOTIC_RIFT && --gFieldTimers.chaoticRiftTimer == 0)
-            {
-                gFieldStatuses &= ~STATUS_FIELD_CHAOTIC_RIFT;
-                BattleScriptExecute(BattleScript_ChaoticRiftEnds);
-                effect++;
-            }
-            gBattleStruct->turnCountersTracker++;
-            break;
+        
         case ENDTURN_FIELD_COUNT:
             effect++;
             break;

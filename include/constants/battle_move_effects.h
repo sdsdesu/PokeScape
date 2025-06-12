@@ -435,7 +435,7 @@
 #define EFFECT_SILVERLIGHT                  426
 #define EFFECT_RANDOM_STAT_DOWN             427
 #define EFFECT_BERSERK                      428
-
+#define EFFECT_PSYCHIC_NOISE                429
 
 
 
@@ -443,6 +443,6 @@
 
 #define LAST_VANILLA_MOVE                   EFFECT_SANDSTORM_HIT //EFFECT_RAGE_FIST
 
-#define NUM_BATTLE_MOVE_EFFECTS             427
+#define NUM_BATTLE_MOVE_EFFECTS             429
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H
