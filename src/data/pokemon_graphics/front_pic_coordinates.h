@@ -5471,7 +5471,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_RACOON] =
+	[SPECIES_RACCOON] =
 	{
 		.size = 0x0,
 		.y_offset = 0,

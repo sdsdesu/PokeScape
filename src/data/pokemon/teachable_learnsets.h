@@ -56971,7 +56971,7 @@ static const u16 sGiant_BeaverTeachableLearnset[] = {
 	MOVE_GRASSY_TERRAIN,
 	MOVE_UNAVAILABLE,
 };
-static const u16 sRacoonTeachableLearnset[] = {
+static const u16 sRaccoonTeachableLearnset[] = {
 	MOVE_RAIN_DANCE,
 	MOVE_HAIL,
 	MOVE_TOXIC,

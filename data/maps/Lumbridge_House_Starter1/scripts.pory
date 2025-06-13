@@ -903,7 +903,7 @@ script FIND_ITEM_MANY_SWEETS_15
 
 script FIND_ITEM_BALL_OF_WOOL
 {
-    finditem(ITEM_WOOLBALL)
+    finditem(ITEM_BALL_OF_WOOL)
     end
 }
 

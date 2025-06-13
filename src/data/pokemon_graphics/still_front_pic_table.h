@@ -1097,7 +1097,7 @@ const struct CompressedSpriteSheet gMonStillFrontPicTable[] =
     SPECIES_SPRITE(BLOODVELD_RS3_FORM, gMonStillFrontPic_Bloodveld_RS3_Form),
     SPECIES_SPRITE(BEAVER, gMonStillFrontPic_Beaver),
     SPECIES_SPRITE(GIANT_BEAVER, gMonStillFrontPic_Giant_Beaver),
-    SPECIES_SPRITE(RACOON, gMonStillFrontPic_Racoon),
+    SPECIES_SPRITE(RACCOON, gMonStillFrontPic_Raccoon),
     SPECIES_SPRITE(RALPH, gMonStillFrontPic_Ralph),
     SPECIES_SPRITE(ROCKY, gMonStillFrontPic_Rocky),
     SPECIES_SPRITE(HONEY_BADGER, gMonStillFrontPic_Honey_Badger),

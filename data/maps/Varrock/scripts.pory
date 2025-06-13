@@ -1176,7 +1176,7 @@ script NPC_ROUTE18_MAN
 
 script GiveMon_VARROCK_KITTEN {
     setvar(VAR_TEMP_1, SPECIES_KITTEN)
-    giveshinymon (SPECIES_KITTEN, 10, ITEM_WOOLBALL, 0)
+    giveshinymon (SPECIES_KITTEN, 10, ITEM_BALL_OF_WOOL, 0)
     compare(VAR_RESULT, 0)
 	goto_if_eq(GiveMon_VARROCK_SendParty_KITTEN)
     compare(VAR_RESULT, 1)

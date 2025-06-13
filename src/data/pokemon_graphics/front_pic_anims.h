@@ -17523,7 +17523,7 @@ static const union AnimCmd sAnim_Giant_Beaver_1[] =
 	ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_Racoon_1[] =
+static const union AnimCmd sAnim_Raccoon_1[] =
 {
 	ANIMCMD_FRAME(1, 40),
 	ANIMCMD_FRAME(0, 5),
@@ -23933,9 +23933,9 @@ static const union AnimCmd *const sAnims_Giant_Beaver[] ={
 	sAnim_Giant_Beaver_1,
 };
 
-static const union AnimCmd *const sAnims_Racoon[] ={
+static const union AnimCmd *const sAnims_Raccoon[] ={
 	sAnim_GeneralFrame0,
-	sAnim_Racoon_1,
+	sAnim_Raccoon_1,
 };
 
 static const union AnimCmd *const sAnims_Ralph[] ={

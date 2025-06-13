@@ -5487,7 +5487,7 @@ cry Cry_Bloodveld_Vampiric_Form
 cry Cry_Bloodveld_RS3_Form
 cry Cry_Beaver
 cry Cry_Giant_Beaver
-cry Cry_Racoon
+cry Cry_Raccoon
 cry Cry_Ralph
 cry Cry_Rocky
 cry Cry_Honey_Badger
@@ -6595,7 +6595,7 @@ cry_reverse Cry_Bloodveld_Vampiric_Form
 cry_reverse Cry_Bloodveld_RS3_Form
 cry_reverse Cry_Beaver
 cry_reverse Cry_Giant_Beaver
-cry_reverse Cry_Racoon
+cry_reverse Cry_Raccoon
 cry_reverse Cry_Ralph
 cry_reverse Cry_Rocky
 cry_reverse Cry_Honey_Badger

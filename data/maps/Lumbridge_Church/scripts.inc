@@ -388,7 +388,7 @@ Cheat_Menu_Shop_Misc:
     .2byte ITEM_HOLY_WRENCH
     .2byte ITEM_FANCY_BOOTS
     .2byte ITEM_IRONMAN_HELMET
-    .2byte ITEM_ITEM_GNOMEBALL
+    .2byte ITEM_GNOMEBALL
     .2byte ITEM_KERIS
     .2byte ITEM_KRAKEN_TENTACLE
     .2byte ITEM_LINZAHAMMER
@@ -409,7 +409,7 @@ Cheat_Menu_Shop_Misc:
     .2byte ITEM_TOME_OF_FROST
     .2byte ITEM_WATERSKIN
     .2byte ITEM_WIZARDS_HAT
-    .2byte ITEM_WOOLBALL
+    .2byte ITEM_BALL_OF_WOOL
     .2byte ITEM_VERACFLAIL
     .2byte ITEM_DHAROKAXE
     .2byte ITEM_KARILCROSSBOW

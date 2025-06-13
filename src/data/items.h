@@ -11509,7 +11509,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_ITEM_GNOMEBALL] =
+    [ITEM_GNOMEBALL] =
     {
         .name = _("GNOMEBALL"),
         .price = 100,
@@ -11754,7 +11754,7 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
-    [ITEM_WOOLBALL] =
+    [ITEM_BALL_OF_WOOL] =
     {
         .name = _("BALL OF WOOL"),
         .price = 100,

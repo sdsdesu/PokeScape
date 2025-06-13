@@ -2454,7 +2454,7 @@
 #define SPECIES_BLOODVELD_RS3_FORM                  POKESCAPE_START + 679
 #define SPECIES_BEAVER                              POKESCAPE_START + 680
 #define SPECIES_GIANT_BEAVER                        POKESCAPE_START + 681
-#define SPECIES_RACOON                              POKESCAPE_START + 682
+#define SPECIES_RACCOON                              POKESCAPE_START + 682
 #define SPECIES_RALPH                               POKESCAPE_START + 683
 #define SPECIES_ROCKY                               POKESCAPE_START + 684
 #define SPECIES_HONEY_BADGER                        POKESCAPE_START + 685

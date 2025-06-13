@@ -8836,7 +8836,7 @@ Cry_Giant_Beaver::
 	.incbin "sound/direct_sound_samples/cries/raticate.bin"
 
 	.align 2
-Cry_Racoon::
+Cry_Raccoon::
 	.incbin "sound/direct_sound_samples/cries/zigzagoon.bin"
 
 	.align 2

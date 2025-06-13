@@ -15692,12 +15692,12 @@ const u32 gMonShinyPalette_Giant_Beaver[] = INCBIN_U32("graphics/pokescape_monst
 const u8 gMonIcon_Giant_Beaver[] = INCBIN_U8("graphics/pokescape_monsters/Giant_Beaver/icon.4bpp");
 const u8 gMonFootprint_Giant_Beaver[] = INCBIN_U8("graphics/pokescape_monsters/Giant_Beaver/footprint.1bpp");
 
-const u32 gMonFrontPic_Racoon[] = INCBIN_U32("graphics/pokescape_monsters/Racoon/anim_front.4bpp.lz");
-const u32 gMonPalette_Racoon[] = INCBIN_U32("graphics/pokescape_monsters/Racoon/normal.gbapal.lz");
-const u32 gMonBackPic_Racoon[] = INCBIN_U32("graphics/pokescape_monsters/Racoon/back.4bpp.lz");
-const u32 gMonShinyPalette_Racoon[] = INCBIN_U32("graphics/pokescape_monsters/Racoon/shiny.gbapal.lz");
-const u8 gMonIcon_Racoon[] = INCBIN_U8("graphics/pokescape_monsters/Racoon/icon.4bpp");
-const u8 gMonFootprint_Racoon[] = INCBIN_U8("graphics/pokescape_monsters/Racoon/footprint.1bpp");
+const u32 gMonFrontPic_Raccoon[] = INCBIN_U32("graphics/pokescape_monsters/Raccoon/anim_front.4bpp.lz");
+const u32 gMonPalette_Raccoon[] = INCBIN_U32("graphics/pokescape_monsters/Raccoon/normal.gbapal.lz");
+const u32 gMonBackPic_Raccoon[] = INCBIN_U32("graphics/pokescape_monsters/Raccoon/back.4bpp.lz");
+const u32 gMonShinyPalette_Raccoon[] = INCBIN_U32("graphics/pokescape_monsters/Raccoon/shiny.gbapal.lz");
+const u8 gMonIcon_Raccoon[] = INCBIN_U8("graphics/pokescape_monsters/Raccoon/icon.4bpp");
+const u8 gMonFootprint_Raccoon[] = INCBIN_U8("graphics/pokescape_monsters/Raccoon/footprint.1bpp");
 
 const u32 gMonFrontPic_Ralph[] = INCBIN_U32("graphics/pokescape_monsters/Ralph/anim_front.4bpp.lz");
 const u32 gMonPalette_Ralph[] = INCBIN_U32("graphics/pokescape_monsters/Ralph/normal.gbapal.lz");

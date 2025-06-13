@@ -34790,7 +34790,7 @@ LEVEL_UP_MOVE(50, MOVE_STONE_EDGE),
 LEVEL_UP_END
 };
 
-static const struct LevelUpMove sRacoonLevelUpLearnset[] = {
+static const struct LevelUpMove sRaccoonLevelUpLearnset[] = {
 LEVEL_UP_MOVE(1, MOVE_TACKLE),
 LEVEL_UP_MOVE(2, MOVE_LEER),
 LEVEL_UP_MOVE(4, MOVE_COVET),

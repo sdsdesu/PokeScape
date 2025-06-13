@@ -1094,7 +1094,7 @@ const struct CompressedSpritePalette gMonPaletteTable[] =
     SPECIES_PAL(BLOODVELD_RS3_FORM, gMonPalette_Bloodveld_RS3_Form),
     SPECIES_PAL(BEAVER, gMonPalette_Beaver),
     SPECIES_PAL(GIANT_BEAVER, gMonPalette_Giant_Beaver),
-    SPECIES_PAL(RACOON, gMonPalette_Racoon),
+    SPECIES_PAL(RACCOON, gMonPalette_Raccoon),
     SPECIES_PAL(RALPH, gMonPalette_Ralph),
     SPECIES_PAL(ROCKY, gMonPalette_Rocky),
     SPECIES_PAL(HONEY_BADGER, gMonPalette_Honey_Badger),

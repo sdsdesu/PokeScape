@@ -952,7 +952,7 @@ static const struct TrainerMon sParty_ROUTE2_TRAINER_6[] = {
     },
     {
     .lvl = 13,
-    .species = SPECIES_RACOON,
+    .species = SPECIES_RACCOON,
     .heldItem = ITEM_NONE
     }
 };
@@ -1074,7 +1074,7 @@ static const struct TrainerMon sParty_DRAYNOR_MANOR_TRAINER_3[] = {
     },
     {
     .lvl = 13,
-    .species = SPECIES_RACOON,
+    .species = SPECIES_RACCOON,
     .heldItem = ITEM_NONE
     },
     {
@@ -1793,7 +1793,7 @@ static const struct TrainerMon sParty_AsgarnianDungeon_MUGGER_1[] = {
     },
     {
     .lvl = 22,
-    .species = SPECIES_RACOON,
+    .species = SPECIES_RACCOON,
     .heldItem = ITEM_NONE
     },
     {
