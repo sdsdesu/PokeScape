@@ -210,6 +210,230 @@ script NPC_LUMBRIDGE_FOREST_HAM_1
 
 
 
+script TRIGGER_ALKHARID_HAM_EVENT_4
+{
+    switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)){ 
+		case 215: 
+            goto(TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction)
+        case 220: 
+            goto(CHECK_FOLLOWER_ZANIK)
+    }
+
+
+    setvar(VAR_TEMP_1, 1) //if all the events are done.
+    release
+    end
+}
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
+{
+    lockall
+    //zanik walks over to player
+    playse(SE_PIN)
+    applymovement (29, movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP)
+    waitmovement(0)
+
+    namebox ("???")
+    msgbox(format("Hey you!\pYou aren't a H.A.M member am I right?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)){
+        msgbox(format("With that lack of pink, you can't fool me human."))
+    }
+    else {
+        msgbox(format("Oh that's good.\pI know some humans are more sensible than others."))
+    }
+    namebox ("Zanik")
+    msgbox(format("I am Zanik. A hunter and scout for the Dorgeshuun goblins beneath Lumbridge.\pAnd you are?"))
+    closemessage
+    hidenamebox
+    //INTERACTS WITH ZANIK
+    applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("{PLAYER}.\pWhat a weird name…\naccording to goblin sensibilities at least.\pH.A.M has tried to exterminate us for a while, looking upon us as well…\pPests to be rid off I guess?\peading to me collaborating with the Duke who is less than pleased with his previous aid Sigmund being at the center of this.\pNow, I need to figure out what is down there and what they are planning and you probably have your own reasons right?"))
+
+    msgbox(format("So how about I lend you a disguise and we team up down there?"), MSGBOX_YESNO)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Well drat.\nI guess I'm not as persuasive as I thought…"))
+        applymovement (29, movement_ZANIK_WALKS_AWAY)
+        waitmovement(0)
+    }
+    else {
+        msgbox(format("I bet we will make a great team!"))
+        hidenamebox
+		//ZANIK JOINS THE PARTY and Follows!
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("Together nothing can beat us!\nZanik teams up!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK)
+        namebox("Zanik")
+        msgbox(format("Here put this disguise on."))
+        closemessage
+        hidenamebox
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        destroyfollower
+        loadword(0, FOLLOWING_Zanik)
+        setfollower(29, 0x80)
+        setvar(VAR_0x8004, OUTFIT_HAM)
+        special(WearOutfit)
+        delay(20)
+        namebox("Zanik")
+        msgbox(format("Perfect let us venture below!"))
+        closemessage
+        hidenamebox
+        applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+		waitmovement(0)
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 220)
+    }
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+movement movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP {
+    emote_exclamation_mark
+    delay_16 * 2
+    walk_right
+    walk_down * 2
+    step_end
+}
+movement movement_ZANIK_WALKS_AWAY {
+    walk_up * 2 
+    walk_left
+    face_down
+    step_end
+}
+
+
+script CHECK_FOLLOWER_ZANIK {
+	checkfollower
+	if (var(VAR_RESULT)) {
+		lockall
+		facefollower
+		namebox("Zanik")
+		msgbox(format("{PLAYER} do you wish to part ways?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{ 
+			msgbox(format("Don't take too long, I don't think I can do this without you."))
+			
+			iswearingoutfit(OUTFIT_HAM)
+			if (var(VAR_RESULT) == TRUE) {
+				namebox("Zanik")
+				msgbox(format("Oh pass me that disguise real quick, we need to make sure it stays pink."))
+			}
+			closemessage
+			hidenamebox
+			
+			iswearingoutfit(OUTFIT_HAM)
+			if (var(VAR_RESULT) == TRUE) {
+				fadescreenswapbuffers(FADE_TO_BLACK)
+				call(FOLLOWER_REMOVE)
+				setvar(VAR_0x8004, OUTFIT_DEFAULT)
+				special(WearOutfit)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
+			}
+			else {
+				call(FOLLOWER_REMOVE)
+			}
+			clearflag(FLAG_TEMP_1E)
+			addobject(29)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+			waitmovement(0)
+		}
+		else {
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+			waitmovement(0)
+		}
+		releaseall
+	}
+	else {
+		playse(SE_PIN)
+        applymovement (29, movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP)
+        waitmovement(0)
+		goto(SetFollower_Zanik)
+	}
+	return
+}
+
+
+
+
+script SetFollower_Zanik {
+    lockall
+    faceplayer
+    namebox("Zanik")
+	msgbox(format("You've returned!\pSo how about I lend you a disguise and we team up to take H.A.M down!?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+		msgbox(format("I bet we will make a great team!"))
+        hidenamebox
+		//ZANIK JOINS THE PARTY and Follows!
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("Together nothing can beat us!\nZanik teams up!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK)
+        namebox("Zanik")
+        msgbox(format("Here put this disguise on."))
+        closemessage
+        hidenamebox
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        destroyfollower
+        loadword(0, FOLLOWING_Zanik)
+        setfollower(29, 0x80)
+        setvar(VAR_0x8004, OUTFIT_HAM)
+        special(WearOutfit)
+        delay(20)
+        namebox("Zanik")
+        msgbox(format("Perfect let us venture below!"))
+        closemessage
+        hidenamebox
+		applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+		waitmovement(0)
+		releaseall
+		end
+    }
+	msgbox(format("Well drat.\nI guess I'm not as persuasive as I thought…"))
+    hidenamebox
+    closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+	waitmovement(0)
+    releaseall
+    end
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

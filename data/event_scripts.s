@@ -1554,3 +1554,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Lumbridge_FishingStore/scripts.inc"
 
 	.include "data/maps/Digsite_Exam_Centre/scripts.inc"
+
+	.include "data/maps/AlKharid_House_5/scripts.inc"

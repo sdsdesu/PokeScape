@@ -891,6 +891,7 @@
 #define MAP_AL_KHARID_HOUSE_4_2F    (10 | (45 << 8))
 #define MAP_AL_KHARID_GENERAL_STORE (11 | (45 << 8))
 #define MAP_AL_KHARID_TENT          (12 | (45 << 8))
+#define MAP_AL_KHARID_HOUSE_5       (13 | (45 << 8))
 
 // gMapGroup46
 #define MAP_DUNGEONEERING_1     (0 | (46 << 8))

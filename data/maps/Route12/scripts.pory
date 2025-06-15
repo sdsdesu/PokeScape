@@ -38,7 +38,7 @@ script OPENWORLD_STATE_ROUTE12 {
 	removeobject(14)
 	removeobject(15)
 	removeobject(16)
-	setflag(FLAG_TEMP_1)
+	setflag(FLAG_ROUTE13_BLOCK)
 	//setobjectxyperm(16,29,9)
 	//setobjectmovementtype(16,MOVEMENT_TYPE_LOOK_AROUND)
 	//setobjectxyperm(14,30,14)
@@ -49,19 +49,43 @@ script OPENWORLD_STATE_ROUTE12 {
 }
 
 script ROUTE12_STATE{
+	setflag(FLAG_TEMP_9)
+	removeobject(45)
+	removeobject(46)
+
 	if (flag(FLAG_ROUTE13_BLOCK)){
 		removeobject(14)
 		removeobject(15)
 		removeobject(16)
-		setflag(FLAG_TEMP_1)
 		//setobjectxyperm(16,32,5)
 		//setobjectmovementtype(16,MOVEMENT_TYPE_LOOK_AROUND)
 		//setobjectxyperm(14,30,14)
 		//setobjectmovementtype(14,MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT)
 		//setobjectxyperm(15,33,8)
 		//setobjectmovementtype(15,MOVEMENT_TYPE_WANDER_AROUND)
-		return
+		
     }
+
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 205) {
+		setobjectxyperm(27,38,54)
+		setobjectxyperm(28,38,54)
+		setobjectxy(27,38,54)
+		setobjectxy(28,38,54)
+		setobjectmovementtype(27,MOVEMENT_TYPE_LOOK_AROUND)
+		setobjectmovementtype(28,MOVEMENT_TYPE_LOOK_AROUND)
+		clearflag(FLAG_TEMP_9)
+		addobject(45)
+		addobject(46)
+	}
+	elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 210) {
+		setobjectxyperm(27,30,53)
+		setobjectxyperm(28,24,53)
+		setobjectxy(27,30,53)
+		setobjectxy(28,24,53)
+		setobjectmovementtype(27,MOVEMENT_TYPE_LOOK_AROUND)
+		setobjectmovementtype(28,MOVEMENT_TYPE_LOOK_AROUND)
+	}
+	return
 }
 
 
@@ -540,17 +564,43 @@ movement movement_BLOCK_ALKHARID_GATE_3
 	walk_left
 }
 
-script ALKHARID_GATE_GUARD
+script ALKHARID_GATE_GUARD_1
 {
 	lockall
 	faceplayer
 	namebox("Guard")
-	msgbox(format("Halt!\pOnly those whom possess the Al-Kharid Badge may enter!"))
-	closemessage
-	applymovement (OBJ_EVENT_ID_PLAYER,movement_BLOCK_ALKHARID_GATE_3)
-	applymovement (ALKHARID_GUARD_1_ID,MOVEMENT_FACE_LEFT)
-	applymovement (ALKHARID_GUARD_2_ID,MOVEMENT_FACE_LEFT)
-	waitmovement (0)
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 210) {
+		msgbox(format("Huff…{PAUSE 15} Puff…\pHe kidnapped the prince…"))
+		closemessage
+	}
+	else {
+		msgbox(format("Halt!\pOnly those whom possess the Al-Kharid Badge may enter!"))
+		closemessage
+		applymovement (OBJ_EVENT_ID_PLAYER,movement_BLOCK_ALKHARID_GATE_3)
+		applymovement (ALKHARID_GUARD_1_ID,MOVEMENT_FACE_LEFT)
+		applymovement (ALKHARID_GUARD_2_ID,MOVEMENT_FACE_LEFT)
+		waitmovement (0)
+	}
+	release
+	end
+}
+script ALKHARID_GATE_GUARD_2
+{
+	lockall
+	faceplayer
+	namebox("Guard")
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 210) {
+		msgbox(format("We must inform the palace in Al Kharid at once!"))
+		closemessage
+	}
+	else {
+		msgbox(format("Halt!\pOnly those whom possess the Al-Kharid Badge may enter!"))
+		closemessage
+		applymovement (OBJ_EVENT_ID_PLAYER,movement_BLOCK_ALKHARID_GATE_3)
+		applymovement (ALKHARID_GUARD_1_ID,MOVEMENT_FACE_LEFT)
+		applymovement (ALKHARID_GUARD_2_ID,MOVEMENT_FACE_LEFT)
+		waitmovement (0)
+	}
 	release
 	end
 }
@@ -685,4 +735,75 @@ script NPC_ROUTE12_BOAT_2 {        //Not in use
 	closemessage
 	release
 	end
+}
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_1 {
+	delay(90)
+	//Ozan "?" Looks right
+	playse(SE_PIN)
+	applymovement(45, movement_OZAN_CONFUSED)
+	waitmovement(0)
+	delay(60)
+	//Ham Runs left (with bag)
+	playse(SE_FLEE)
+	applymovement(46, movement_HAM_RUN_LEFT_WITH_SACK)	
+	//Guards give chase halfway down the bridge.
+	delay(90)
+	applymovement(28, movement_HAM_RUN_LEFT_WITH_SACK)
+	applymovement(45, Movement_InteractFACELEFT)
+	delay(60)
+	applymovement(27, movement_GUARD_CHASE_HAM_BUT_STOP)
+	waitmovement(0)
+	//1 guard stops, speaks to you and Ozan asking you to go inform the palace.
+	playse(SE_PIN)
+	applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN)
+	waitmovement(0)
+	namebox("Guard")
+    msgbox(format("In..Inform the palace…\pThe… prince…\pThe prince has been kidnapped!"))
+    hidenamebox
+	closemessage
+	//Ozan hurrys off to the palace.
+	applymovement(45, movement_OZAN_RUNS_TO_PALACE)
+	waitmovement(0)
+	//You trail behind.
+	//Ozan doesnt speak. Its a super light tease introduction of him.
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 210)
+	setvar(VAR_TEMP_0, 1) // Guards do not interact on the Block Tile.
+	setvar(VAR_TEMP_1, 1) // Story Trigger doesnt trigger.
+	setflag(FLAG_TEMP_9)
+	removeobject(45)
+	removeobject(46)
+	release
+	end
+}
+
+movement movement_HAM_RUN_LEFT_WITH_SACK {
+	walk_faster_left * 20
+	step_end
+}
+movement movement_GUARD_CHASE_HAM_BUT_STOP {
+	walk_fast_left * 8
+	walk_left * 3
+	walk_slow_left * 3
+	step_end
+}
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN {
+	face_right
+	emote_exclamation_mark
+	delay_16 * 5
+	walk_slow_right * 5
+	face_up
+	step_end
+}
+movement movement_OZAN_CONFUSED {
+	face_right
+	emote_question_mark
+	step_end
+}
+movement movement_OZAN_RUNS_TO_PALACE {
+	walk_fast_down
+	walk_fast_right * 10
+	step_end
 }

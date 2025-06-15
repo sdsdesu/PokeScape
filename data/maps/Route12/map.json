@@ -235,7 +235,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SHEEP",
@@ -248,7 +248,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",
@@ -261,7 +261,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLOCK_Route12_Farmer",
-      "flag": "FLAG_TEMP_1"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_F",
@@ -403,7 +403,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ALKHARID_GATE_GUARD",
+      "script": "ALKHARID_GATE_GUARD_1",
       "flag": "0"
     },
     {
@@ -416,7 +416,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ALKHARID_GATE_GUARD",
+      "script": "ALKHARID_GATE_GUARD_2",
       "flag": "0"
     },
     {
@@ -626,6 +626,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_ROUTE12_IRONMAN",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OZAN",
+      "x": 32,
+      "y": 52,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_9"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HAM_SACK",
+      "x": 38,
+      "y": 54,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_9"
     }
   ],
   "warp_events": [
@@ -653,6 +679,51 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "TRIGGER_ALKHARID_GATE"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 54,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
     }
   ],
   "bg_events": [
@@ -667,7 +738,7 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 51,
+      "y": 50,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SIGN_ROUTE12"

@@ -627,10 +627,11 @@
 #define OBJ_EVENT_GFX_TWISTED                   610
 #define OBJ_EVENT_GFX_GENIE                     611
 #define OBJ_EVENT_GFX_DORIS                     612
-#define OBJ_EVENT_GFX_ANGRENNOUILLE              613
+#define OBJ_EVENT_GFX_ANGRENNOUILLE             613
+#define OBJ_EVENT_GFX_HAM_SACK                  614
 
 
-#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_ANGRENNOUILLE + 1)
+#define NUM_OBJ_EVENT_GFX                       (OBJ_EVENT_GFX_HAM_SACK + 1)
 // NOTE: By default, the max value for NUM_OBJ_EVENT_GFX is 239.
 //
 // Object event graphics ids are 1 byte in size (max value of 255), and the dynamic

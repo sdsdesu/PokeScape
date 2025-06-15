@@ -445,3 +445,95 @@ script RANDOM_PARTY_SIZE {
 
 
 
+script TRIGGER_ALKHARID_HAM_EVENT_2
+{
+    lockall
+    namebox ("???")
+    msgbox(format("You've got to believe me!\pThe prince was kidnapped I must meet with Spymaster Osman!"))
+    closemessage
+    hidenamebox
+    namebox ("Guard")
+    msgbox(format("Nice try Ozan, Prince Ali is currently on the outskirts of town with our finest warriors."))
+    closemessage
+    hidenamebox
+    namebox ("Ozan")
+    msgbox(format("Please listen to me…"))
+    closemessage
+    hidenamebox
+    namebox ("Guard")
+    msgbox(format("Not with your track record, get out of here Ozan!"))
+    closemessage
+    hidenamebox
+    //Ozan gets kicked out.
+    //Thuds, locks in place facing down. jumps to push upwards.
+    //Guards take a step in facing up. and then return to their posts.
+    namebox ("Ozan")
+    msgbox(format("It's just no use…"))
+    closemessage
+    hidenamebox
+    //exclmation mark
+    namebox ("Ozan")
+    msgbox(format("Hey! It's you!\pYou saw the kidnapping too right?\pThese guards are useless.\pSay you don't have any extra information do you?"))
+    closemessage
+    hidenamebox
+    //interact with ozan
+    namebox ("Ozan")
+    msgbox(format("You mean to say there is a whole organisation that wear those ridiculous pink robes and they're called H.A.M?\pOkay that should be enough information to convince Osman!\pWhile I try to inform Osman could I trouble you to search for some clues around Lumbridge for where they could have kidnapped the prince?"))
+    closemessage
+    hidenamebox
+    //ozan walks away
+    removeobject(12)
+    setflag(FLAG_TEMP_9)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 215)
+	setvar(VAR_TEMP_1, 2)
+    release
+    end
+}
+
+
+
+// Ozan splits up and sends you to look for some hints on where HAM might be located.
+// You meet the Wise old man in Lumbridge. He sends you towards Lumbridge forest.
+// You meet Zanik just before the hideout. She says some of her kind have been captured and she is on a resuce mission and could use the help.
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_3 //PALACE BLOCK
+{
+    lockall
+    namebox ("Guard")
+    msgbox(format("Are you here for a MvM Battle?\pSorry but the prince is out at the moment, so there will be no MvM challenges until he returns."))
+    closemessage
+    hidenamebox
+    applymovement (OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    release
+    end
+}
+
+script HAM_EVENT_ALKHAIRD_WISE_OLD_MAN {
+    lock
+    faceplayer
+    namebox ("Wise Old Man")
+    checkitem(ITEM_CUT_TOOL, 1)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Why hello there {PLAYER}.\pOdd place to run into one another isnt it?\pWhat might you be up to?\pH.A.M kidnapped the prince and thus you can not battle them for your next badge?\pWell that really does stop you from progressing doesn't it?\pWhy back in my days I used to do quests like these as if they were second nature.\pBut alas this will not be my Swan Song but instead yours…\pSpeaking of such, I believe I heard reports about suspicious activity in Lumbridge forest.\pHow about you give that place a try?\pAnd take this I would imagine it would be quite useful on your quest."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_CUT_TOOL, 1)
+        msgbox(format("It's only fitting to have such a fine axe to cut trees considering you are about to enter a forest. Haha good luck on your quest {PLAYER}!"))
+        closemessage
+        hidenamebox
+    }
+    else {
+        msgbox(format("Why hello again {PLAYER}.\pAre you still on your quest to find the kidnapped prince?\pDid you find any suspicious activity in Lumbridge Forest?"))
+        closemessage
+        hidenamebox
+    }
+    release
+    end
+}
+
+
+
+
