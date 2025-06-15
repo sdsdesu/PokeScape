@@ -29436,7 +29436,7 @@
               {
                 "min_level": 27,
                 "max_level": 32,
-                "species": "SPECIES_SQUIRREL"
+                "species": "SPECIES_KEBBIT_FELDIP_WEASEL_FORM"
               },
               {
                 "min_level": 28,
@@ -29446,7 +29446,7 @@
               {
                 "min_level": 28,
                 "max_level": 33,
-                "species": "SPECIES_BEAR_NORMAL_FORM"
+                "species": "SPECIES_KEBBIT_PRICKLY_FORM"
               },
               {
                 "min_level": 29,
@@ -29466,7 +29466,7 @@
               {
                 "min_level": 30,
                 "max_level": 35,
-                "species": "SPECIES_FERRET"
+                "species": "SPECIES_RACOON"
               },
               {
                 "min_level": 30,
@@ -29525,12 +29525,12 @@
               {
                 "min_level": 29,
                 "max_level": 34,
-                "species": "SPECIES_IMP"
+                "species": "SPECIES_RABBIT"
               },
               {
                 "min_level": 29,
                 "max_level": 34,
-                "species": "SPECIES_KEBBIT_DARK_FORM"
+                "species": "SPECIES_RABBIT"
               },
               {
                 "min_level": 30,
@@ -29545,12 +29545,12 @@
               {
                 "min_level": 31,
                 "max_level": 36,
-                "species": "SPECIES_FRUIT_BAT"
+                "species": "SPECIES_SQUIRREL_AUSTRALIAN_FORM"
               },
               {
                 "min_level": 31,
                 "max_level": 36,
-                "species": "SPECIES_CAT_LAZY_FORM"
+                "species": "SPECIES_SPARKY"
               }
             ]
           }
