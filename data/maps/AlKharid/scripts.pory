@@ -18,7 +18,23 @@ MAP_SCRIPT_ON_LOAD { //ON LOAD FOR MAP TILES
 }
 
 script ALKHARID_STATE {
-    setmetatile(13, 16, METATILE_AlKharid_OPENED_DOOR, 0)
+    //setmetatile(13, 16, METATILE_AlKharid_OPENED_DOOR, 0) //Openworld Player House door.
+
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 220) {
+        setvar(VAR_TEMP_2, 1) // Block Gym Access
+    }
+    
+
+
+    setflag(FLAG_TEMP_9)
+    removeobject(12)
+
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 210) {
+        clearflag(FLAG_TEMP_9)
+        addobject(12)
+		setvar(VAR_TEMP_1, 1) //Enables Ham Event At palace.
+        
+	}
 }
 
 

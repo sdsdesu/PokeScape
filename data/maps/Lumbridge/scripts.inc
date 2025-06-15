@@ -23,14 +23,24 @@ Lumbridge_MapScripts_MAP_SCRIPT_ON_LOAD:
 LUMBRIDGE_STATE::
 	removeobject 33
 	setflag FLAG_TEMP_1F
+	removeobject 25
+	setflag FLAG_TEMP_1E
 	goto_if_unset FLAG_A_NUB_TOT_TUTORIAL, LUMBRIDGE_STATE_2
 LUMBRIDGE_STATE_1:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 215
+	goto_if_eq LUMBRIDGE_STATE_5
+LUMBRIDGE_STATE_4:
 	return
 
 LUMBRIDGE_STATE_2:
 	setmetatile 18, 8, METATILE_PokeScapeOutdoors_NOT_A_DOOR, 1
 	special DrawWholeMapView
 	goto LUMBRIDGE_STATE_1
+
+LUMBRIDGE_STATE_5:
+	addobject 25
+	clearflag FLAG_TEMP_1E
+	goto LUMBRIDGE_STATE_4
 
 
 OPENWORLD_STATE_LUMBRIDGE::

@@ -18,10 +18,10 @@ MAP_SCRIPT_ON_TRANSITION {
 script LumForest_STATE{
 	//switch (var(VAR_POKESCAPE_WIZARDS_TOWER_STATE)){ 
 		//case 0: 
-            setobjectxyperm(5, 32, 15)
-            setobjectmovementtype(5,MOVEMENT_TYPE_FACE_DOWN)
-            setobjectxyperm(4, 33, 15)
-            setobjectmovementtype(4,MOVEMENT_TYPE_FACE_DOWN)
+            //setobjectxyperm(5, 32, 15)
+            //setobjectmovementtype(5,MOVEMENT_TYPE_FACE_DOWN)
+            //setobjectxyperm(4, 33, 15)
+            //setobjectmovementtype(4,MOVEMENT_TYPE_FACE_DOWN)
 
 			return
     //}
@@ -251,7 +251,7 @@ script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
     applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
     waitmovement(0)
     namebox ("Zanik")
-    msgbox(format("{PLAYER}.\pWhat a weird name…\naccording to goblin sensibilities at least.\pH.A.M has tried to exterminate us for a while, looking upon us as well…\pPests to be rid off I guess?\peading to me collaborating with the Duke who is less than pleased with his previous aid Sigmund being at the center of this.\pNow, I need to figure out what is down there and what they are planning and you probably have your own reasons right?"))
+    msgbox(format("{PLAYER}.\pWhat a weird name…\naccording to goblin sensibilities at least.\pH.A.M has tried to exterminate us for a while, looking upon us as well…\pPests to be rid off I guess?\pLeading to me collaborating with the Duke who is less than pleased with his previous aid Sigmund being at the center of this.\pNow, I need to figure out what is down there and what they are planning and you probably have your own reasons right?"))
 
     msgbox(format("So how about I lend you a disguise and we team up down there?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT)) {
@@ -278,7 +278,7 @@ script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
         hidenamebox
         fadescreenswapbuffers(FADE_TO_BLACK)
         destroyfollower
-        loadword(0, FOLLOWING_Zanik)
+        loadword(0, Following_Zanik)
         setfollower(29, 0x80)
         setvar(VAR_0x8004, OUTFIT_HAM)
         special(WearOutfit)
@@ -301,13 +301,13 @@ script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
 movement movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP {
     emote_exclamation_mark
     delay_16 * 2
-    walk_right
+    walk_right * 2
     walk_down * 2
     step_end
 }
 movement movement_ZANIK_WALKS_AWAY {
     walk_up * 2 
-    walk_left
+    walk_left * 2
     face_down
     step_end
 }
@@ -394,7 +394,7 @@ script SetFollower_Zanik {
         hidenamebox
         fadescreenswapbuffers(FADE_TO_BLACK)
         destroyfollower
-        loadword(0, FOLLOWING_Zanik)
+        loadword(0, Following_Zanik)
         setfollower(29, 0x80)
         setvar(VAR_0x8004, OUTFIT_HAM)
         special(WearOutfit)
@@ -421,7 +421,60 @@ script SetFollower_Zanik {
 
 
 
+script Following_Zanik {
+    namebox("Zanik")
+    facefollower 
 
+	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
+		case 181:
+			msgbox(format("Is that a Black Knight Fortress?!"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 186:
+			msgbox(format("We should go say hello to those guards up on the mountain."))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 187:
+			msgbox(format("I cannot believe we just did that…\pI guess we should try to enter the fortress, now that we look the part."))
+			hidenamebox
+			closemessage
+			release
+			end
+	}
+	//It is more common for special dialogue than this common dialogue. 1/5
+	random(5)
+	switch (var(VAR_RESULT)) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			specialvar (VAR_RESULT, GetCurrentMap)
+			if (var(VAR_RESULT) == MAP_ICE_MOUNTAIN) {
+				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
+			}
+			else {
+				goto(SIR_OWEN_DIALOGUE_COMMON)
+			}
+		default:
+			goto(SIR_OWEN_DIALOGUE_COMMON)
+	}
+}
 
 
 

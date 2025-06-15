@@ -363,7 +363,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 35,
+      "x": 38,
       "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -372,7 +372,7 @@
     },
     {
       "type": "trigger",
-      "x": 36,
+      "x": 39,
       "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_0",

@@ -642,8 +642,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_SACK",
-      "x": 38,
-      "y": 54,
+      "x": 37,
+      "y": 53,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -676,8 +676,8 @@
       "x": 36,
       "y": 54,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_TEMP_3",
+      "var_value": "1",
       "script": "TRIGGER_ALKHARID_GATE"
     },
     {

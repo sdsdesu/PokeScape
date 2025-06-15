@@ -1113,7 +1113,7 @@ script multipartnerBattle_Zanik {
     end
 }
 
-script Following_Zanik {
+script Following_Chat_Toggles {
 	lock
 	facefollower
 	if (var(VAR_PARTNER_SPRITE) == TRAINER_BACK_PIC_ARIANE) { //chance to a switch case later

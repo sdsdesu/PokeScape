@@ -19,7 +19,23 @@ AlKharid_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 
 ALKHARID_STATE::
-	setmetatile 13, 16, METATILE_AlKharid_OPENED_DOOR, 0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 220
+	goto_if_le ALKHARID_STATE_2
+ALKHARID_STATE_1:
+	setflag FLAG_TEMP_9
+	removeobject 12
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ALKHARID_STATE_4
+	return
+
+ALKHARID_STATE_2:
+	setvar VAR_TEMP_2, 1
+	goto ALKHARID_STATE_1
+
+ALKHARID_STATE_4:
+	clearflag FLAG_TEMP_9
+	addobject 12
+	setvar VAR_TEMP_1, 1
 	return
 
 
@@ -371,6 +387,81 @@ RANDOM_PARTY_SIZE_8:
 	goto RANDOM_PARTY_SIZE_1
 
 
+TRIGGER_ALKHARID_HAM_EVENT_2::
+	lockall
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_0
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_1
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_3
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_5
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_6
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_7
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_8
+	closemessage
+	hidenamebox
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_9
+	closemessage
+	hidenamebox
+	removeobject 12
+	setflag FLAG_TEMP_9
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 215
+	setvar VAR_TEMP_1, 2
+	release
+	end
+
+
+TRIGGER_ALKHARID_HAM_EVENT_3::
+	lockall
+	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_3_Text_0
+	closemessage
+	hidenamebox
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	release
+	end
+
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN::
+	lock
+	faceplayer
+	namebox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_0
+	checkitem ITEM_CUT_TOOL, 1
+	compare VAR_RESULT, 0
+	goto_if_eq HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_2
+	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_3
+	closemessage
+	hidenamebox
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_1:
+	release
+	end
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_2:
+	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_1
+	closemessage
+	hidenamebox
+	giveitem ITEM_CUT_TOOL, 1
+	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_2
+	closemessage
+	hidenamebox
+	goto HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_1
+
+
 ALKHARID_GNOMEGLIDER_Text_0:
 	.string "It is a Gnome Glider.$"
 
@@ -537,3 +628,95 @@ GYM_BATTLE_VANNAKA_Text_0:
 
 RANDOM_PARTY_SIZE_Text_0:
 	.string "VAR SEEDEDRESULT is {STR_VAR_3} .$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_0:
+	.string "???$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_1:
+	.string "You've got to believe me!\p"
+	.string "The prince was kidnapped I must meet\n"
+	.string "with Spymaster Osman!$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_2:
+	.string "Guard$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_3:
+	.string "Nice try Ozan, Prince Ali is currently on\n"
+	.string "the outskirts of town with our finest\l"
+	.string "warriors.$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_4:
+	.string "Ozan$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_5:
+	.string "Please listen to me…$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_6:
+	.string "Not with your track record, get out of\n"
+	.string "here Ozan!$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_7:
+	.string "It's just no use…$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_8:
+	.string "Hey! It's you!\p"
+	.string "You saw the kidnapping too right?\p"
+	.string "These guards are useless.\p"
+	.string "Say you don't have any extra\n"
+	.string "information do you?$"
+
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_9:
+	.string "You mean to say there is a whole\n"
+	.string "organisation that wear those\l"
+	.string "ridiculous pink robes and they're called\l"
+	.string "H.A.M?\p"
+	.string "Okay that should be enough information\n"
+	.string "to convince Osman!\p"
+	.string "While I try to inform Osman could I\n"
+	.string "trouble you to search for some clues\l"
+	.string "around Lumbridge for where they could\l"
+	.string "have kidnapped the prince?$"
+
+TRIGGER_ALKHARID_HAM_EVENT_3_Text_0:
+	.string "Are you here for a MvM Battle?\p"
+	.string "Sorry but the prince is out at the\n"
+	.string "moment, so there will be no MvM\l"
+	.string "challenges until he returns.$"
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_0:
+	.string "Wise Old Man$"
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_1:
+	.string "Why hello there {PLAYER}.\p"
+	.string "Odd place to run into one another isnt\n"
+	.string "it?\p"
+	.string "What might you be up to?\p"
+	.string "H.A.M kidnapped the prince and thus you\n"
+	.string "can not battle them for your next\l"
+	.string "badge?\p"
+	.string "Well that really does stop you from\n"
+	.string "progressing doesn't it?\p"
+	.string "Why back in my days I used to do quests\n"
+	.string "like these as if they were second\l"
+	.string "nature.\p"
+	.string "But alas this will not be my Swan Song\n"
+	.string "but instead yours…\p"
+	.string "Speaking of such, I believe I heard\n"
+	.string "reports about suspicious activity in\l"
+	.string "Lumbridge forest.\p"
+	.string "How about you give that place a try?\p"
+	.string "And take this I would imagine it would\n"
+	.string "be quite useful on your quest.$"
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_2:
+	.string "It's only fitting to have such a fine\n"
+	.string "axe to cut trees considering you are\l"
+	.string "about to enter a forest. Haha good luck\l"
+	.string "on your quest {PLAYER}!$"
+
+HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_3:
+	.string "Why hello again {PLAYER}.\p"
+	.string "Are you still on your quest to find the\n"
+	.string "kidnapped prince?\p"
+	.string "Did you find any suspicious activity in\n"
+	.string "Lumbridge Forest?$"
