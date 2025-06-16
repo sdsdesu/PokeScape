@@ -437,7 +437,14 @@
 #define EFFECT_BERSERK                      428
 #define EFFECT_PSYCHIC_NOISE                429
 #define EFFECT_FICKLE_BEAM                  430
-
+#define EFFECT_DEFLECT                      431
+#define EFFECT_PIETY                        432
+#define EFFECT_TURMOIL                      433
+#define EFFECT_RIGOUR                       434
+#define EFFECT_TORMENT                      435
+#define EFFECT_AUGURY                       436
+#define EFFECT_ANGUISH                      437
+#define EFFECT_DIVINERAGE                   438
 
 
 
@@ -445,6 +452,6 @@
 
 #define LAST_VANILLA_MOVE                   EFFECT_SANDSTORM_HIT //EFFECT_RAGE_FIST
 
-#define NUM_BATTLE_MOVE_EFFECTS             430
+#define NUM_BATTLE_MOVE_EFFECTS             438
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

@@ -3613,6 +3613,31 @@ static const u8 sBerserkDescription[] = _(
     "Raises Atk, Def & Speed stats.\n"
     "Lowers SpDef.");
     
+static const u8 sDefianceDescription[] = _(
+    "Has a chance to sharply lower\n"
+    "SpDef.");
+
+static const u8 sPietyDescription[] = _(
+    "\n"
+    "");
+static const u8 sTurmoilDescription[] = _(
+    "\n"
+    "");
+static const u8 sRigourDescription[] = _(
+    "\n"
+    "");
+static const u8 sTormentDescription[] = _(
+    "\n"
+    "");
+static const u8 sDAuguryDescription[] = _(
+    "\n"
+    "");
+static const u8 sAnguishDescription[] = _(
+    "\n"
+    "");
+static const u8 sDivineRageDescription[] = _(
+    "\n"
+    "");
 
 #undef BINDING_TURNS
 
@@ -4541,5 +4566,16 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_EXCALIBUR - 1] = sExcaliburDescription,
     [MOVE_SNELM_SHOWOFF - 1] = sSnelmShowoffDescription,
     [MOVE_ENERGY_DRAIN - 1] = sEnergyDrainDescription,
-    [MOVE_BERSERK - 1] = sBerserkDescription,    
+    [MOVE_BERSERK - 1] = sBerserkDescription,  
+    [MOVE_DEFIANCE - 1] = sDefianceDescription,
+    [MOVE_PIETY - 1] = sPietyDescription,
+    [MOVE_TURMOIL - 1] = sTurmoilDescription,
+    [MOVE_RIGOUR - 1] = sRigourDescription,
+    [MOVE_TORMENT - 1] = sTormentDescription,
+    [MOVE_AUGURY - 1] = sDAuguryDescription,
+    [MOVE_ANGUISH - 1] = sAnguishDescription,
+    [MOVE_DIVINERAGE - 1] = sDivineRageDescription,
+
+
+
 };

@@ -948,7 +948,14 @@ gBattleAnims_Moves::
 	.4byte Move_SNELM_SHOWOFF
 	.4byte Move_ENERGY_DRAIN
 	.4byte Move_BERSERK
-
+	.4byte Move_DEFIANCE
+	.4byte Move_PIETY     
+	.4byte Move_TURMOIL   
+	.4byte Move_RIGOUR    
+	.4byte Move_TORMENT   
+	.4byte Move_AUGURY    
+	.4byte Move_ANGUISH   
+	.4byte Move_DIVINERAGE
 
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
@@ -34343,6 +34350,14 @@ Move_SHARKBREW:
 Move_EXCALIBUR:
 Move_SNELM_SHOWOFF:
 Move_ENERGY_DRAIN:
+Move_DEFIANCE:
+Move_PIETY:
+Move_TURMOIL:
+Move_RIGOUR:
+Move_TORMENT:
+Move_AUGURY:
+Move_ANGUISH:
+Move_DIVINERAGE:
 	goto Move_HEADBUTT
 
 Move_BERSERK:

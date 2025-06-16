@@ -923,6 +923,15 @@ const u8 gMoveNames[MOVES_COUNT_DYNAMAX][MOVE_NAME_LENGTH + 1] =
     [MOVE_SNELM_SHOWOFF] = _("Snelm Showoff"),
     [MOVE_ENERGY_DRAIN] = _("Energy Drain"),
     [MOVE_BERSERK] = _("Berserk"),
+    [MOVE_DEFIANCE] = _("Defiance"),
+    [MOVE_PIETY] = _("Piety"),
+    [MOVE_TURMOIL] = _("Turmoil"),
+    [MOVE_RIGOUR] = _("Rigour"),
+    [MOVE_TORMENT] = _("Torment"),
+    [MOVE_AUGURY] = _("Augury"),
+    [MOVE_ANGUISH] = _("Anguish"),
+    [MOVE_DIVINERAGE] = _("DivineRage"),
+    
     // Max Moves
     [MOVE_MAX_GUARD] = _("Max Guard"),
     [MOVE_MAX_STRIKE] = _("Max Strike"),
