@@ -3626,7 +3626,7 @@ static const u8 sTurmoilDescription[] = _(
 static const u8 sRigourDescription[] = _(
     "\n"
     "");
-static const u8 sTormentDescription[] = _(
+static const u8 sTormentPrayerDescription[] = _(
     "\n"
     "");
 static const u8 sDAuguryDescription[] = _(
@@ -4571,7 +4571,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PIETY - 1] = sPietyDescription,
     [MOVE_TURMOIL - 1] = sTurmoilDescription,
     [MOVE_RIGOUR - 1] = sRigourDescription,
-    [MOVE_TORMENT - 1] = sTormentDescription,
+    [MOVE_TORMENT_PRAYER - 1] = sTormentPrayerDescription,
     [MOVE_AUGURY - 1] = sDAuguryDescription,
     [MOVE_ANGUISH - 1] = sAnguishDescription,
     [MOVE_DIVINERAGE - 1] = sDivineRageDescription,

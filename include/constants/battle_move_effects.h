@@ -441,7 +441,7 @@
 #define EFFECT_PIETY                        432
 #define EFFECT_TURMOIL                      433
 #define EFFECT_RIGOUR                       434
-#define EFFECT_TORMENT                      435
+#define EFFECT_TORMENT_PRAYER               435
 #define EFFECT_AUGURY                       436
 #define EFFECT_ANGUISH                      437
 #define EFFECT_DIVINERAGE                   438

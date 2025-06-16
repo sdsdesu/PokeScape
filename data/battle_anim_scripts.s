@@ -949,6 +949,7 @@ gBattleAnims_Moves::
 	.4byte Move_ENERGY_DRAIN
 	.4byte Move_BERSERK
 	.4byte Move_DEFIANCE
+	.4byte Move_DEFLECT
 	.4byte Move_PIETY     
 	.4byte Move_TURMOIL   
 	.4byte Move_RIGOUR    
@@ -34351,14 +34352,16 @@ Move_EXCALIBUR:
 Move_SNELM_SHOWOFF:
 Move_ENERGY_DRAIN:
 Move_DEFIANCE:
+	goto Move_HEADBUTT
+Move_DEFLECT:
 Move_PIETY:
 Move_TURMOIL:
 Move_RIGOUR:
-Move_TORMENT:
+Move_TORMENT_PRAYER:
 Move_AUGURY:
 Move_ANGUISH:
 Move_DIVINERAGE:
-	goto Move_HEADBUTT
+	goto Move_HEALING_WISH
 
 Move_BERSERK:
 

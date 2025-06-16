@@ -17096,9 +17096,9 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .snatchAffected = TRUE,
     },
    
-    [MOVE_TORMENT] =
+    [MOVE_TORMENT_PRAYER] =
     {
-        .effect = EFFECT_TORMENT,
+        .effect = EFFECT_TORMENT_PRAYER,
         .power = 0,
         .type = TYPE_ELECTRIC,
         .accuracy = 0,

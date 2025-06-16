@@ -15,10 +15,6 @@ Lumbridge_Forest_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 
 
 LumForest_STATE::
-	setobjectxyperm 5, 32, 15
-	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 4, 33, 15
-	setobjectmovementtype 4, MOVEMENT_TYPE_FACE_DOWN
 	return
 
 
@@ -272,6 +268,7 @@ movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP:
 	delay_16
 	delay_16
 	walk_right
+	walk_right
 	walk_down
 	walk_down
 	step_end
@@ -279,6 +276,7 @@ movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP:
 movement_ZANIK_WALKS_AWAY:
 	walk_up
 	walk_up
+	walk_left
 	walk_left
 	face_down
 	step_end
@@ -390,6 +388,79 @@ SetFollower_Zanik_2:
 	waitmovement 0
 	releaseall
 	end
+
+
+Following_Zanik::
+	namebox TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_4
+	facefollower
+	switch VAR_POKESCAPE_STORYMODE_PROGRESS
+	case 181, Following_Zanik_3
+	case 186, Following_Zanik_4
+	case 187, Following_Zanik_5
+	random 5
+	switch VAR_RESULT
+	case 0, Following_Zanik_7
+	case 1, Following_Zanik_7
+	case 2, Following_Zanik_7
+	case 3, Following_Zanik_7
+	goto SIR_OWEN_DIALOGUE_COMMON
+	return
+
+Following_Zanik_3:
+	msgbox Following_Zanik_Text_0
+	hidenamebox
+	closemessage
+	release
+	end
+
+Following_Zanik_4:
+	msgbox Following_Zanik_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+Following_Zanik_5:
+	msgbox Following_Zanik_Text_2
+	hidenamebox
+	closemessage
+	release
+	end
+
+Following_Zanik_7:
+	specialvar VAR_RESULT, GetCurrentMap
+	compare VAR_RESULT, MAP_ICE_MOUNTAIN
+	goto_if_eq Following_Zanik_9
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_1
+	goto_if_eq Following_Zanik_10
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_2
+	goto_if_eq Following_Zanik_11
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_3
+	goto_if_eq Following_Zanik_12
+	compare VAR_RESULT, MAP_BLACK_KNIGHTS_FORTRESS_4
+	goto_if_eq Following_Zanik_13
+	goto SIR_OWEN_DIALOGUE_COMMON
+	return
+
+Following_Zanik_9:
+	goto SIR_OWEN_DIALOGUE_ICE_MOUNTAIN
+	return
+
+Following_Zanik_10:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1
+	return
+
+Following_Zanik_11:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2
+	return
+
+Following_Zanik_12:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3
+	return
+
+Following_Zanik_13:
+	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4
+	return
 
 
 ITEM_RECEIVED_TM05::
@@ -630,7 +701,7 @@ TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_6:
 	.string "H.A.M has tried to exterminate us for a\n"
 	.string "while, looking upon us as well…\p"
 	.string "Pests to be rid off I guess?\p"
-	.string "eading to me collaborating with the\n"
+	.string "Leading to me collaborating with the\n"
 	.string "Duke who is less than pleased with his\l"
 	.string "previous aid Sigmund being at the\l"
 	.string "center of this.\p"
@@ -676,3 +747,15 @@ SetFollower_Zanik_Text_0:
 	.string "You've returned!\p"
 	.string "So how about I lend you a disguise and\n"
 	.string "we team up to take H.A.M down!?$"
+
+Following_Zanik_Text_0:
+	.string "Is that a Black Knight Fortress?!$"
+
+Following_Zanik_Text_1:
+	.string "We should go say hello to those guards\n"
+	.string "up on the mountain.$"
+
+Following_Zanik_Text_2:
+	.string "I cannot believe we just did that…\p"
+	.string "I guess we should try to enter the\n"
+	.string "fortress, now that we look the part.$"

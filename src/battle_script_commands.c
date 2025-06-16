@@ -14736,7 +14736,7 @@ static void Cmd_setprayeractivatedbit(void)
 {
     CMD_ARGS();
 
-    gBattleMons[gBattlerAttacker].status2 |= STATUS_PRAYER_ACTIVATED; // STATUS2_DEFENSE_CURL
+    gBattleMons[gBattlerAttacker].status2 |= STATUS2_DEFENSE_CURL; //  STATUS2_PRAYER_ACTIVATED
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

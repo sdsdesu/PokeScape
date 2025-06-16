@@ -988,7 +988,7 @@
 #define MOVE_PIETY              (MOVES_COUNT_GEN9 + 75)
 #define MOVE_TURMOIL            (MOVES_COUNT_GEN9 + 76)
 #define MOVE_RIGOUR             (MOVES_COUNT_GEN9 + 77)
-#define MOVE_TORMENT            (MOVES_COUNT_GEN9 + 78)
+#define MOVE_TORMENT_PRAYER     (MOVES_COUNT_GEN9 + 78)
 #define MOVE_AUGURY             (MOVES_COUNT_GEN9 + 79)
 #define MOVE_ANGUISH            (MOVES_COUNT_GEN9 + 80)
 #define MOVE_DIVINERAGE         (MOVES_COUNT_GEN9 + 81)

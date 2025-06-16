@@ -1201,48 +1201,48 @@ multipartnerBattle_Zanik_2:
 	end
 
 
-Following_Zanik::
+Following_Chat_Toggles::
 	lock
 	facefollower
 	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ARIANE
-	goto_if_eq Following_Zanik_2
+	goto_if_eq Following_Chat_Toggles_2
 	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK
-	goto_if_eq Following_Zanik_3
-	namebox Following_Zanik_Text_0
-Following_Zanik_1:
-	msgbox Following_Zanik_Text_1, MSGBOX_YESNO
+	goto_if_eq Following_Chat_Toggles_3
+	namebox Following_Chat_Toggles_Text_0
+Following_Chat_Toggles_1:
+	msgbox Following_Chat_Toggles_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne Following_Zanik_8
-	msgbox Following_Zanik_Text_2, MSGBOX_YESNO
+	goto_if_ne Following_Chat_Toggles_8
+	msgbox Following_Chat_Toggles_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne Following_Zanik_11
-Following_Zanik_10:
+	goto_if_ne Following_Chat_Toggles_11
+Following_Chat_Toggles_10:
 	hidenamebox
 	closemessage
 	release
 	end
 
-Following_Zanik_2:
+Following_Chat_Toggles_2:
 	namebox multipartnerBattle_Zanik_Text_0
-	goto Following_Zanik_1
+	goto Following_Chat_Toggles_1
 
-Following_Zanik_3:
+Following_Chat_Toggles_3:
 	namebox multipartnerBattle_Zanik_Text_0
-	goto Following_Zanik_1
+	goto Following_Chat_Toggles_1
 
-Following_Zanik_8:
+Following_Chat_Toggles_8:
 	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	hidenamebox
 	closemessage
 	release
 	end
 
-Following_Zanik_11:
-	msgbox Following_Zanik_Text_3
+Following_Chat_Toggles_11:
+	msgbox Following_Chat_Toggles_Text_3
 	clearflag FLAG_PARTNER_BATTLE
 	clearflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	destroyfollower
-	goto Following_Zanik_10
+	goto Following_Chat_Toggles_10
 
 
 multipartnerBattle_Ariane::
@@ -2387,18 +2387,18 @@ multipartnerBattle_Zanik_Text_2:
 multipartnerBattle_Zanik_Text_3:
 	.string "Maybe some other time then…$"
 
-Following_Zanik_Text_0:
+Following_Chat_Toggles_Text_0:
 	.string "???$"
 
-Following_Zanik_Text_1:
+Following_Chat_Toggles_Text_1:
 	.string "Did you want to encounter two wild\n"
 	.string "monsters at once?$"
 
-Following_Zanik_Text_2:
+Following_Chat_Toggles_Text_2:
 	.string "What's wrong {PLAYER}?\p"
 	.string "Did you want to stop our adventure?$"
 
-Following_Zanik_Text_3:
+Following_Chat_Toggles_Text_3:
 	.string "Oh, that's a shame I was having so much\n"
 	.string "fun…\p"
 	.string "See you around…$"
