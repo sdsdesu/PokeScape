@@ -1420,7 +1420,7 @@ script SIR_OWEN_DIALOGUE_COMMON {
 		case 8:
 			msgbox(format("My arm? It is a long story.\pMaybe someday we will have time."))
 		case 9:
-			msgbox(format("My arm?\nNo I dont know a troll like that."))
+			msgbox(format("My arm?\nNo I don't know a troll like that."))
 		case 10:
 			msgbox(format("Stand with me {PLAYER}.\pWe will prevail!"))
 	}

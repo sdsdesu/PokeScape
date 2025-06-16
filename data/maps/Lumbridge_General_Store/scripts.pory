@@ -308,7 +308,7 @@ script SHOP_SPECIAL_POUCHES
 {
 	lock
 	faceplayer
-    namebox ("???")
+    namebox ("Ranael")
 	msgbox(format("Welcome to my store, I have pouches that you cannot buy anywhere else!\pHow may I help you today?"))
     waitmessage
     hidenamebox

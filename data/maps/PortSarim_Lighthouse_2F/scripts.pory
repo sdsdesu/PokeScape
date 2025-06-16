@@ -79,7 +79,7 @@ script LIGHTHOUSE_2F_NPC_3
     else {
         lock
         faceplayer
-        msgbox(format("Your one of those MvM guys right?\pWe were approached by the MvM organization to see if we could adapt our jail into a gym.\pBut our captain didn't like the idea of the pirate Redbeard Frank being the gym leader."))
+        msgbox(format("Your one of those MvM guys right?\pWe were approached by the MvM organisation to see if we could adapt our jail into a gym.\pBut our captain didn't like the idea of the pirate Redbeard Frank being the gym leader."))
     }
     closemessage
     hidenamebox

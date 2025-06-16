@@ -574,6 +574,13 @@
 #define TRAINER_LUMBRIDGE_RIVER_TRAINER_3               568
 #define TRAINER_ROUTE12_RIVER_TRAINER_1                 569
 #define TRAINER_ROUTE12_RIVER_TRAINER_2                 570
+#define TRAINER_LUMBRIDGEFOREST_HAM_1                   571
+#define TRAINER_LUMBRIDGEFOREST_HAM_2                   572
+#define TRAINER_LUMBRIDGEFOREST_HAM_3                   573
+#define TRAINER_LUMBRIDGEFOREST_HAM_4                   574
+#define TRAINER_ROUTE200_TRAINER_1                      575
+#define TRAINER_ROUTE200_TRAINER_2                      576
+#define TRAINER_ROUTE200_TRAINER_3                      577
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

@@ -7623,12 +7623,28 @@ static const struct TrainerMon sParty_MUDSKIPPERSOUND2_TRAINER_3[] = {
 
 static const struct TrainerMon sParty_ZANIK_HAM[] = {
     {
-    .lvl = 36,
+    .lvl = 44,
     .species = SPECIES_EEL_SACRED_FORM,
+    .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 0, 252),
+    .nature = NATURE_TIMID,
+    .ability = ABILITY_PERISH_BODY,
+    .moves = {MOVE_SHADOW_BALL, MOVE_PARABOLIC_CHARGE, MOVE_WATER_PULSE, MOVE_THUNDER_WAVE}         //Replace Water Pulse with Defiance when implemented
     },
     {
-    .lvl = 35,
-    .species = SPECIES_TOME_OF_RANGED,
+    .lvl = 45,
+    .species = SPECIES_MONKFISH_GOLDEN_FORM,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
+    .nature = NATURE_ADAMANT,
+    .ability = ABILITY_STATIC,
+    .moves = {MOVE_DIVE, MOVE_THUNDER_FANG, MOVE_CRUNCH, MOVE_RAIN_DANCE}                           //Replace Rain Dance with Defiance when implemented
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_KRYKET_BAT,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 0, 252),
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_JUSTIFIED,
+    .moves = {MOVE_BOLT_STRIKE, MOVE_AIR_SLASH, MOVE_SUPERSONIC, MOVE_THUNDERCLAP}                    //Replace Thunderclap with Defiance when implemented
     }
 };
 
@@ -8689,6 +8705,115 @@ static const struct TrainerMon sParty_Route12_RiverTrainer_2[] = {
     {
     .lvl = 43,
     .species = SPECIES_FROGEEL,  //placeholder
+    }
+};
+
+static const struct TrainerMon sParty_LumbridgeForest_Ham_1[] = {
+    {
+    .lvl = 45,
+    .species = SPECIES_COW_DAIRY_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SOURHOG,
+    }
+};
+
+static const struct TrainerMon sParty_LumbridgeForest_Ham_2[] = {
+    {
+    .lvl = 45,
+    .species = SPECIES_SUPER_COW,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_HERBIBOAR,
+    }
+};
+
+static const struct TrainerMon sParty_LumbridgeForest_Ham_3[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_PIGZILLA,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_ANTELOPE_MOONLIGHT_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_PUG,
+    }
+};
+
+static const struct TrainerMon sParty_LumbridgeForest_Ham_4[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_HUSKIE,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SPIDER_TEMPLE_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SHIBA,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SPIDER_CORPSE_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_Route200_Trainer_1[] = {
+    {
+    .lvl = 45,
+    .species = SPECIES_SPIDER_CRYPT_FORM,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_WARPED_RAT,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_RAT_FUNGAL_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_GRIFOLAROO,
+    }
+};
+
+static const struct TrainerMon sParty_Route200_Trainer_2[] = {
+    {
+    .lvl = 45,
+    .species = SPECIES_BABOON_MAGE_FORM,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_CAT_PURPLE_FORM,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_GLACOR,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_BLACK_WARLOCK,
+    }
+};
+
+static const struct TrainerMon sParty_Route200_Trainer_3[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_WATERLORD,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_IMPLING_NINJA_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_HARPY_EAGLE,
     }
 };
 
