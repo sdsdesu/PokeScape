@@ -8817,6 +8817,204 @@ static const struct TrainerMon sParty_Route200_Trainer_3[] = {
     }
 };
 
+static const struct TrainerMon sParty_HAMHideout_Grunt_1[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_CORGI,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_COW_STRAWBERRY_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_2[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_STRAY_DOG,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_COW_DAIRY_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_RAM_FLUFFY_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_3[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_SHEEPDOG,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SHEEP_BLACK_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_RAM_SHAGGY_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SHEEP_WHITE_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_4[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_BULLDOG,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_CAT_WILY_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_5[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_CHICKEN_VARROCK_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SHEEP_PLAGUE_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_GREYHOUND,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_6[] = {
+    {
+    .lvl = 47,
+    .species = SPECIES_LABRADOR,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_7[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_COW_DAIRY_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SHIBA,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SUPER_COW,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_8[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_BEAGLE,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_CAT_POST_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_COW_STRAWBERRY_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SPIDER_DEADLYRED_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_CHICKEN_PESTILENCE_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_9[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_CHICKEN_DIVING_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    }
+    {
+    .lvl = 47,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Grunt_10[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_ROOSTER_VARROCK_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_HUSKIE,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_TURKEY_FEMALE_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_TURKEY_MALE_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_SirTheo_Edgeville[] = {
+    {
+    .lvl = 47,
+    .species = SPECIES_DALMATIAN,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_OWN_TEMPO,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .heldItem = ITEM_PAPAYA,
+    .moves = {MOVE_FLIP_TURN, MOVE_NATURAL_GIFT, MOVE_THRASH, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_BIG_SNAKE_SEA_FORM,
+    .nature = NATURE_RELAXED,
+    .ability = ABILITY_MERCILESS,
+    .ev = TRAINER_PARTY_EVS(252, 4, 252, 0, 0, 0),
+    .heldItem = ITEM_REDBERRY,
+    .moves = {MOVE_TOXIC, MOVE_DIVE, MOVE_POISON_JAB, MOVE_JAW_LOCK}
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_JADINKO_SARADOMIN,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_RIPEN,
+    .ev = TRAINER_PARTY_EVS(124, 0, 124, 0, 0, 252),
+    .heldItem = ITEM_GRAPES,
+    .moves = {MOVE_SARADOMIN_STRIKE, MOVE_AGILITY, MOVE_DRAGON_PULSE, MOVE_ENERGY_BALL}
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_STURGEON,
+    .nature = NATURE_JOLLY,
+    .ability = ABILITY_UNBURDEN,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .heldItem = ITEM_BANANA,
+    .moves = {MOVE_SWORD_STRIKE, MOVE_LIQUIDATION, MOVE_SACRED_SWORD, MOVE_SWORDS_DANCE}
+    },
+    {
+    .lvl = 49,
+    .species = SPECIES_SAILFISH,
+    .nature = NATURE_ADAMANT,
+    .ability = ABILITY_SPEED_BOOST,
+    .ev = TRAINER_PARTY_EVS(252, 252, 4, 0, 0, 0),
+    .heldItem = ITEM_GARLIC,
+    .moves = {MOVE_PROTECT, MOVE_AQUA_CUTTER, MOVE_SWORD_STRIKE, MOVE_SACRED_SWORD}
+    }
+};
+
 //TZHAAR GYM CHALLENGE POOL
 static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     {

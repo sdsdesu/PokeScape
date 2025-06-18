@@ -766,3 +766,98 @@ script GOBLIN_EDGEVILLE_GYM {
 	release
 	end
 }
+
+
+//WIP - needs some flags added and a map drawn up. Also needs some adjusting to make sure it works correctly.
+
+script SIR_THEO_EDGEVILLE {
+    if (!flag(TBC)) {   //Flag for if you've not beat him
+	    if (!flag(TBC)) {   //Flag for if you spoke to him and declined the battle initially spoken to him
+        	lock 
+    		faceplayer
+   			namebox("Sir Theo")
+			msgbox(format("{PLAYER}? Fancy meeting you here!"))
+	    	msgbox(format("Me? Due to the Black Knight Fortress incident I have been stationed here by Sir Amik to keep peace in this area."))
+	   		msgbox(format("I recently got this Witch right here arrested for causing chaos."))
+        	hidenamebox
+			closemessage
+			//applymovement (Krystilia, MOVEMENT_EXCLAMATIONMARK)
+			//waitmovement(0)
+			namebox("Krystilia")
+       		msgbox(format("I can get out anytime I want, don't you worry about me Theodore."))
+        	hidenamebox
+        	closemessage
+			namebox("Sir Theo")
+        	msgbox(format("Or so she says, but she has not left just yet."))
+        	msgbox(format("Either way {PLAYER}, I don't want to get rusty in my battle prowess. Would you care to spar with me?"), MSGBOX_YESNO)
+    		if (var(VAR_RESULT)) {
+				goto(BATTLE_SIR_THEO)
+			}
+			else {
+			//setflag to say that you declined the battle
+			msgbox(format("Well, that is a shame."))
+			hidenamebox
+        	closemessage
+			namebox("Krystilia")
+       		msgbox(format("Suuuuuuch a shame.\pDo you want to hear more about my homemade hat then?"))
+			hidenamebox
+        	closemessage
+			namebox("Sir Theo")
+        	msgbox(format("I am obligated to hear you out..."))
+			closemessage
+    		hidenamebox
+			release
+			end
+			}
+		else {
+			lock 
+    		faceplayer
+			namebox("Sir Theo")
+		    msgbox(format("Do you feel like giving me a break from this witch to have a little kerfuffle?"), MSGBOX_YESNO)
+    		if (var(VAR_RESULT)) {
+				goto(BATTLE_SIR_THEO)
+			}
+			else {
+			closemessage
+    		hidenamebox
+			release
+			end	
+			}
+		}
+	lock 
+    namebox("Krystilia")
+	msgbox(format("And thats how I make so much stuff that I am now running out of room.\pI am considering filling another cell with just my hats."))
+	closemessage
+    hidenamebox
+   	namebox("Sir Theo")
+	msgbox(format("Again... back to the point...\pWhat do your hats have to do with the Wilderness?"))
+	closemessage
+    hidenamebox
+	release
+	end
+	}
+}
+}
+
+
+script BATTLE_SIR_THEO {
+	namebox("Sir Theo")
+	msgbox(format("Excellent, let us fight!"))
+    closemessage
+    hidenamebox
+	trainerbattle_no_intro(TRAINER_SIR_THEO_EDGEVILLE, format("A worthy defeat."))
+	//setflag to confirm trainer beaten
+	namebox("Sir Theo")
+	msgbox(format("Well as expected, I am no match for you.\pNo wonder Sir Owen and Sir Tiffy Cashien holds you in high regard.\nHere's a little something from me as a thank you."))
+	closemessage
+    hidenamebox
+	giveitem (ITEM_TM28, 1)
+    compare(VAR_RESULT, FALSE)
+	goto_if_eq(Common_EventScript_ShowBagIsFull)
+	namebox("Sir Theo")
+	msgbox(format("That's a move used by us knights, but some monsters can learn it too.\pHopefully you can put it to good use.\nHope I get to see you after I am done here."))
+	closemessage
+    hidenamebox
+	release
+	end
+}

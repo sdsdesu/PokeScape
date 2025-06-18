@@ -581,12 +581,23 @@
 #define TRAINER_ROUTE200_TRAINER_1                      575
 #define TRAINER_ROUTE200_TRAINER_2                      576
 #define TRAINER_ROUTE200_TRAINER_3                      577
+#define TRAINER_HAM_HIDEOUT_GRUNT_1                     578
+#define TRAINER_HAM_HIDEOUT_GRUNT_2                     579
+#define TRAINER_HAM_HIDEOUT_GRUNT_3                     580
+#define TRAINER_HAM_HIDEOUT_GRUNT_4                     581
+#define TRAINER_HAM_HIDEOUT_GRUNT_5                     582
+#define TRAINER_HAM_HIDEOUT_GRUNT_6                     583
+#define TRAINER_HAM_HIDEOUT_GRUNT_7                     584
+#define TRAINER_HAM_HIDEOUT_GRUNT_8                     585
+#define TRAINER_HAM_HIDEOUT_GRUNT_9                     586
+#define TRAINER_HAM_HIDEOUT_GRUNT_10                    587
+#define TRAINER_SIR_THEO_EDGEVILLE                      588
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_ROUTE12_RIVER_TRAINER_2 + 1)
+#define TRAINERS_COUNT                      (TRAINER_SIR_THEO_EDGEVILLE + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

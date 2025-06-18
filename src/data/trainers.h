@@ -6413,6 +6413,138 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_Route200_Trainer_3),
     },
 
+    [TRAINER_HAM_HIDEOUT_GRUNT_1] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_1),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_2] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_2),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_3] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_3),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_4] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_4),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_5] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_5),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_6] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_6),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_7] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_7),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_8] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_8),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_9] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_9),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GRUNT_10] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Grunt_10),
+    },
+
+    [TRAINER_SIR_THEO_EDGEVILLE] =
+    {
+        .trainerClass = TRAINER_CLASS_WHITE_KNIGHT
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_white_knight_m,
+        .trainerName = _("Sir Theo"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_SirTheo_Edgeville),
+    },
+
 /*
     #define TRAINER_HELLWIND                                445
 #define TRAINER_HYPER_STAN                              446
