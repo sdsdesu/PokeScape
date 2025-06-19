@@ -823,7 +823,7 @@ SHOP_LOWE_Text_2:
 	.string "Thank you, come again.$"
 
 SHOP_SPECIAL_POUCHES_Text_0:
-	.string "???$"
+	.string "Ranael$"
 
 SHOP_SPECIAL_POUCHES_Text_1:
 	.string "Welcome to my store, I have pouches\n"

@@ -6331,7 +6331,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGEFOREST_HAM_1] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6343,7 +6343,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGEFOREST_HAM_2] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_f,
         .trainerName = _("GRUNT"),
@@ -6355,7 +6355,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGEFOREST_HAM_3] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6367,7 +6367,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_LUMBRIDGEFOREST_HAM_4] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6379,7 +6379,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROUTE200_TRAINER_1] =
     {
-        .trainerClass = TRAINER_CLASS_SLAYER
+        .trainerClass = TRAINER_CLASS_SLAYER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_slayer,
         .trainerName = _("RatGrinder"),
@@ -6391,7 +6391,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROUTE200_TRAINER_2] =
     {
-        .trainerClass = TRAINER_CLASS_WIZARD
+        .trainerClass = TRAINER_CLASS_WIZARD,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_mage_mystic,
         .trainerName = _("G4le"),
@@ -6403,7 +6403,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_ROUTE200_TRAINER_3] =
     {
-        .trainerClass = TRAINER_CLASS_PKer
+        .trainerClass = TRAINER_CLASS_PKer,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
         .trainerPic = TRAINER_PIC_pk_rusher,
         .trainerName = _("Izikills"),
@@ -6415,7 +6415,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_1] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6427,7 +6427,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_2] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6439,7 +6439,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_3] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6451,7 +6451,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_4] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6463,7 +6463,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_5] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6475,7 +6475,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_6] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6487,7 +6487,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_7] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6499,7 +6499,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_8] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6511,7 +6511,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_9] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6523,7 +6523,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_HAM_HIDEOUT_GRUNT_10] =
     {
-        .trainerClass = TRAINER_CLASS_HAM_GRUNT
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
         .trainerPic = TRAINER_PIC_ham_grunt_m,
         .trainerName = _("GRUNT"),
@@ -6535,7 +6535,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_SIR_THEO_EDGEVILLE] =
     {
-        .trainerClass = TRAINER_CLASS_WHITE_KNIGHT
+        .trainerClass = TRAINER_CLASS_WHITE_KNIGHT,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_white_knight_m,
         .trainerName = _("Sir Theo"),

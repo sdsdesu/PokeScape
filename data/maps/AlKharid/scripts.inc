@@ -61,8 +61,10 @@ ALKHARID_WATERWELL::
 
 ALKHARID_NPC_1::
 	faceplayer
-	msgbox ALKHARID_NPC_1_Text_0
+	namebox ALKHARID_NPC_1_Text_0
+	msgbox ALKHARID_NPC_1_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
@@ -71,170 +73,289 @@ ALKHARID_NPC_2::
 	faceplayer
 	namebox ALKHARID_NPC_2_Text_0
 	msgbox ALKHARID_NPC_2_Text_1
+	waitmessage
+	pokemart STORE_Ali
+	namebox ALKHARID_NPC_2_Text_0
+	msgbox ALKHARID_NPC_2_Text_2
+	release
+	end
+
+
+
+    .align 2
+STORE_Ali:
+    .2byte ITEM_AIR_RUNE
+    .2byte ITEM_WATER_RUNE
+    .2byte ITEM_FIRE_RUNE
+    .2byte ITEM_EARTH_RUNE
+    .2byte ITEM_PRAYER_POTION
+    .2byte ITEM_WATERSKIN
+    .2byte ITEM_TINDERBOX    
+    .2byte ITEM_LUCKYRABBITFOOT
+	.2byte ITEM_GODRABBITFOOT
+    .2byte ITEM_CABBAGE
+	.2byte ITEM_EMPTY_BUCKET
+    .2byte ITEM_NONE
+    release
+    end
+
+ALKHARID_NPC_3::
+	faceplayer
+	namebox ALKHARID_NPC_3_Text_0
+	msgbox ALKHARID_NPC_3_Text_1
 	closemessage
 	hidenamebox
 	release
 	end
 
 
-ALKHARID_NPC_3::
-	faceplayer
-	msgbox ALKHARID_NPC_3_Text_0
-	closemessage
-	release
-	end
-
-
 ALKHARID_NPC_4::
 	faceplayer
-	msgbox ALKHARID_NPC_4_Text_0
+	namebox ALKHARID_NPC_4_Text_0
+	msgbox ALKHARID_NPC_4_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_5::
 	faceplayer
-	msgbox ALKHARID_NPC_5_Text_0
+	namebox ALKHARID_NPC_5_Text_0
+	msgbox ALKHARID_NPC_5_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_6::
 	faceplayer
+	namebox ALKHARID_NPC_5_Text_0
 	msgbox ALKHARID_NPC_6_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_7::
 	faceplayer
+	namebox ALKHARID_NPC_4_Text_0
 	msgbox ALKHARID_NPC_7_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_8::
 	faceplayer
+	namebox ALKHARID_NPC_4_Text_0
 	msgbox ALKHARID_NPC_8_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_9::
 	faceplayer
-	msgbox ALKHARID_NPC_9_Text_0
+	namebox ALKHARID_NPC_9_Text_0
+	msgbox ALKHARID_NPC_9_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_10::
 	faceplayer
+	namebox ALKHARID_NPC_4_Text_0
 	msgbox ALKHARID_NPC_10_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_11::
 	faceplayer
+	namebox ALKHARID_NPC_5_Text_0
 	msgbox ALKHARID_NPC_11_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_12::
 	faceplayer
-	msgbox ALKHARID_NPC_12_Text_0
+	namebox ALKHARID_NPC_12_Text_0
+	msgbox ALKHARID_NPC_12_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_13::
 	faceplayer
-	msgbox ALKHARID_NPC_13_Text_0
+	namebox ALKHARID_NPC_13_Text_0
+	msgbox ALKHARID_NPC_13_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_14::
 	faceplayer
-	msgbox ALKHARID_NPC_14_Text_0
+	namebox ALKHARID_NPC_14_Text_0
+	msgbox ALKHARID_NPC_14_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_15::
 	faceplayer
-	msgbox ALKHARID_NPC_14_Text_0
+	namebox ALKHARID_NPC_14_Text_0
+	msgbox ALKHARID_NPC_14_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_NPC_16::
 	faceplayer
-	msgbox ALKHARID_NPC_14_Text_0
+	namebox ALKHARID_NPC_14_Text_0
+	msgbox ALKHARID_NPC_14_Text_1
 	closemessage
-	release
-	end
-
-
-SHANTYPASS_NPC_1::
-	faceplayer
-	msgbox SHANTYPASS_NPC_1_Text_0
-	closemessage
-	release
-	end
-
-
-SHANTYPASS_NPC_2::
-	faceplayer
-	msgbox SHANTYPASS_NPC_2_Text_0
-	closemessage
-	release
-	end
-
-
-SHANTYPASS_NPC_3::
-	faceplayer
-	msgbox SHANTYPASS_NPC_3_Text_0
-	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_INDOOR_NPC_1::
 	faceplayer
+	namebox ALKHARID_NPC_14_Text_0
 	msgbox ALKHARID_INDOOR_NPC_1_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_INDOOR_NPC_2::
 	faceplayer
-	msgbox ALKHARID_INDOOR_NPC_1_Text_0
+	namebox ALKHARID_INDOOR_NPC_2_Text_0
+	msgbox ALKHARID_INDOOR_NPC_2_Text_1
 	closemessage
+	hidenamebox
 	release
 	end
 
 
 ALKHARID_INDOOR_NPC_3::
 	faceplayer
-	msgbox ALKHARID_INDOOR_NPC_1_Text_0
+	namebox ALKHARID_INDOOR_NPC_3_Text_0
+	msgbox ALKHARID_INDOOR_NPC_3_Text_1
+	waitmessage
+	pokemart STORE_Zeke
+	namebox ALKHARID_INDOOR_NPC_3_Text_0
+	msgbox ALKHARID_INDOOR_NPC_3_Text_2
+	release
+	end
+
+
+
+    .align 2
+STORE_Zeke:
+    .2byte ITEM_MITHRIL_SCIMITAR
+    .2byte ITEM_DRAGON_SCIMITAR
+    .2byte ITEM_NONE
+    release
+    end
+
+ALKHARID_INDOOR_NPC_4::
+	faceplayer
+	namebox ALKHARID_INDOOR_NPC_4_Text_0
+	msgbox ALKHARID_INDOOR_NPC_4_Text_1
+	waitmessage
+	pokemart STORE_Dommik
+	namebox ALKHARID_INDOOR_NPC_4_Text_0
+	msgbox ALKHARID_INDOOR_NPC_4_Text_2
+	release
+	end
+
+
+
+    .align 2
+STORE_Dommik:
+    .2byte ITEM_RING_OF_WEALTH
+    .2byte ITEM_RING_OF_LIFE
+    .2byte ITEM_PHOENIX_NECKLACE    
+    .2byte ITEM_SICKLE
+    .2byte ITEM_NONE
+    release
+    end
+
+Friendship_Checker_Ellis::
+	lock
+	faceplayer
+	namebox Friendship_Checker_Ellis_Text_0
+	msgbox Friendship_Checker_Ellis_Text_1
+	specialvar VAR_RESULT, GetLeadMonFriendshipScore
+	switch VAR_RESULT
+	case 0, Friendship_Checker_Ellis_3
+	case 1, Friendship_Checker_Ellis_4
+	case 2, Friendship_Checker_Ellis_5
+	case 3, Friendship_Checker_Ellis_6
+	case 4, Friendship_Checker_Ellis_7
+	case 5, Friendship_Checker_Ellis_8
+	case 6, Friendship_Checker_Ellis_9
+Friendship_Checker_Ellis_1:
 	closemessage
 	release
 	end
+
+Friendship_Checker_Ellis_3:
+	msgbox Friendship_Checker_Ellis_Text_2
+	msgbox Friendship_Checker_Ellis_Text_3
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_4:
+	msgbox Friendship_Checker_Ellis_Text_4
+	msgbox Friendship_Checker_Ellis_Text_5
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_5:
+	msgbox Friendship_Checker_Ellis_Text_6
+	msgbox Friendship_Checker_Ellis_Text_7
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_6:
+	msgbox Friendship_Checker_Ellis_Text_8
+	msgbox Friendship_Checker_Ellis_Text_9
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_7:
+	msgbox Friendship_Checker_Ellis_Text_10
+	msgbox Friendship_Checker_Ellis_Text_11
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_8:
+	msgbox Friendship_Checker_Ellis_Text_12
+	msgbox Friendship_Checker_Ellis_Text_13
+	goto Friendship_Checker_Ellis_1
+
+Friendship_Checker_Ellis_9:
+	msgbox Friendship_Checker_Ellis_Text_14
+	msgbox Friendship_Checker_Ellis_Text_15
+	goto Friendship_Checker_Ellis_1
 
 
 NPC_ALKHARID_GENERALSTORE_1::
@@ -249,8 +370,10 @@ NPC_ALKHARID_GENERALSTORE_1::
 
 NPC_ALKHARID_GENERALSTORE_2::
 	faceplayer
+	namebox ALKHARID_NPC_4_Text_0
 	msgbox NPC_ALKHARID_GENERALSTORE_2_Text_0
 	closemessage
+	hidenamebox
 	release
 	end
 
@@ -393,28 +516,28 @@ TRIGGER_ALKHARID_HAM_EVENT_2::
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_1
 	closemessage
 	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	namebox ALKHARID_NPC_4_Text_0
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	closemessage
+	hidenamebox
+	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_3
 	closemessage
 	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	namebox ALKHARID_NPC_4_Text_0
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	closemessage
+	hidenamebox
+	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_5
 	closemessage
 	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_6
 	closemessage
 	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
+	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_7
-	closemessage
-	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
-	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_8
-	closemessage
-	hidenamebox
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
-	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_9
 	closemessage
 	hidenamebox
 	removeobject 12
@@ -427,7 +550,7 @@ TRIGGER_ALKHARID_HAM_EVENT_2::
 
 TRIGGER_ALKHARID_HAM_EVENT_3::
 	lockall
-	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
+	namebox ALKHARID_NPC_4_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_3_Text_0
 	closemessage
 	hidenamebox
@@ -474,7 +597,10 @@ ALKHARID_WATERWELL_Text_0:
 	.string "see any polar bears down there.$"
 
 ALKHARID_NPC_1_Text_0:
-	.string "The Gnome Glider is currently\n"
+	.string "Dalbur$"
+
+ALKHARID_NPC_1_Text_1:
+	.string "I'm afraid the Gnome Glider is currently\n"
 	.string "undergoing maintenance.\p"
 	.string "Please come back later.$"
 
@@ -482,18 +608,32 @@ ALKHARID_NPC_2_Text_0:
 	.string "Ali$"
 
 ALKHARID_NPC_2_Text_1:
-	.string "Browse my Wares.$"
+	.string "Please, browse my Wares.$"
+
+ALKHARID_NPC_2_Text_2:
+	.string "Please come back any time.$"
 
 ALKHARID_NPC_3_Text_0:
-	.string "Welcome to Al Kharid, NOOB!$"
+	.string "BigPencil55$"
+
+ALKHARID_NPC_3_Text_1:
+	.string "Welcome to Al Kharid, NOOB!\n"
+	.string "Yeah, so what if I snuck in while the\l"
+	.string "guards were distracted...$"
 
 ALKHARID_NPC_4_Text_0:
+	.string "Guard$"
+
+ALKHARID_NPC_4_Text_1:
 	.string "Don't cause trouble here in the city,\n"
 	.string "law enforcement has a tendency to call\l"
 	.string "upon several more guards unnecessarily\l"
 	.string "for the smallest of cases.$"
 
 ALKHARID_NPC_5_Text_0:
+	.string "Man$"
+
+ALKHARID_NPC_5_Text_1:
 	.string "Up North is the desert, you can find\n"
 	.string "both sunny weather and sandstorms\l"
 	.string "there.\p"
@@ -515,6 +655,9 @@ ALKHARID_NPC_8_Text_0:
 	.string "to challenge the prince?$"
 
 ALKHARID_NPC_9_Text_0:
+	.string "Adaranth$"
+
+ALKHARID_NPC_9_Text_1:
 	.string "I heard rumours of archaeologists\n"
 	.string "carrying out an excavation on some\l"
 	.string "ruins nearby.\p"
@@ -532,15 +675,21 @@ ALKHARID_NPC_11_Text_0:
 	.string "We deal with a lot of thieves and\n"
 	.string "cutthroats here.\p"
 	.string "Al Kharid does not welcome them, yet\n"
-	.string "they keep coming back.$"
+	.string "they keep coming back...$"
 
 ALKHARID_NPC_12_Text_0:
+	.string "Spirit Angler$"
+
+ALKHARID_NPC_12_Text_1:
 	.string "The Spirit of the Sea has awoken and is\n"
 	.string "creating intense storms for sailors.\p"
 	.string "I wonder if there are any adventurers\n"
 	.string "brave enough to defeat it.$"
 
 ALKHARID_NPC_13_Text_0:
+	.string "Ozan$"
+
+ALKHARID_NPC_13_Text_1:
 	.string "Who am I?\p"
 	.string "Only the most famous hero ever born in\n"
 	.string "Al Kharid!\p"
@@ -554,29 +703,132 @@ ALKHARID_NPC_13_Text_0:
 	.string "me?$"
 
 ALKHARID_NPC_14_Text_0:
-	.string "$"
+	.string "Cupholder$"
 
-SHANTYPASS_NPC_1_Text_0:
-	.string "This is the pass of Shantay. I guard\n"
-	.string "this area with my men. I am responsible\l"
-	.string "for keeping this pass open.\p"
-	.string "Unfortunately it is currently\n"
-	.string "undergoing some repairs. Please come\l"
-	.string "back again later.$"
-
-SHANTYPASS_NPC_2_Text_0:
-	.string "I help Shantay prevent outlaws from\n"
-	.string "getting out of the desert. And we stop\l"
-	.string "the inexperienced from a dry death in\l"
-	.string "the sands.$"
-
-SHANTYPASS_NPC_3_Text_0:
-	.string "Go talk to Shantay. I'm on duty and I\n"
-	.string "don't have time to talk to the likes of\l"
-	.string "you!$"
+ALKHARID_NPC_14_Text_1:
+	.string "I am a Cupholder$"
 
 ALKHARID_INDOOR_NPC_1_Text_0:
 	.string "Hello, I am a Cupholder.$"
+
+ALKHARID_INDOOR_NPC_2_Text_0:
+	.string "Karim$"
+
+ALKHARID_INDOOR_NPC_2_Text_1:
+	.string "Would you like to buy a nice kebab? Only\n"
+	.string "one gold.{PAUSE 32}\n"
+	.string "Are you sure you wouldn't like a kebab?$"
+
+ALKHARID_INDOOR_NPC_3_Text_0:
+	.string "Zeke$"
+
+ALKHARID_INDOOR_NPC_3_Text_1:
+	.string "Welcome to Zeke's Superior Scimitars,\n"
+	.string "now with upgraded stock!$"
+
+ALKHARID_INDOOR_NPC_3_Text_2:
+	.string "Some crazy adventurer managed to\n"
+	.string "convince the banana-brained nitwits\l"
+	.string "who make the dragon scimitars to sell\l"
+	.string "some to me.\p"
+	.string "I'll never understand how they managed\n"
+	.string "it.$"
+
+ALKHARID_INDOOR_NPC_4_Text_0:
+	.string "Dommik$"
+
+ALKHARID_INDOOR_NPC_4_Text_1:
+	.string "Would you like to buy some handcrafted\n"
+	.string "items?$"
+
+ALKHARID_INDOOR_NPC_4_Text_2:
+	.string "Excuse the mess, people stopped buying\n"
+	.string "crafting supplies so I had to change\l"
+	.string "business model very, very quickly to\l"
+	.string "keep up!$"
+
+Friendship_Checker_Ellis_Text_0:
+	.string "Ellis$"
+
+Friendship_Checker_Ellis_Text_1:
+	.string "I've spent so many years working with\n"
+	.string "monster hide, that I can tell a lot\l"
+	.string "about a monster just by looking at it.\p"
+	.string "Hmm, let me see here...$"
+
+Friendship_Checker_Ellis_Text_2:
+	.string "Its hide looks incredibly rough and\n"
+	.string "calloused.\p"
+	.string "You either haven't adventurered with it\n"
+	.string "long, or you abuse the poor creature...$"
+
+Friendship_Checker_Ellis_Text_3:
+	.string "FRIENDSHIP is: FRIENDSHIP NONE.$"
+
+Friendship_Checker_Ellis_Text_4:
+	.string "This monster has such a bleak\n"
+	.string "complexion.\p"
+	.string "It looks like the two of you have a very\n"
+	.string "poor relationship.\p"
+	.string "You really need to work on that.$"
+
+Friendship_Checker_Ellis_Text_5:
+	.string "FRIENDSHIP is: FRIENDSHIP 1 TO 49.$"
+
+Friendship_Checker_Ellis_Text_6:
+	.string "Its hide seems to be softening\n"
+	.string "slightly.\p"
+	.string "It appears that this monster is warming\n"
+	.string "up to you, but you've not done enough\l"
+	.string "for it to trust you yet.\p"
+	.string "Keep trying and you'll get there.$"
+
+Friendship_Checker_Ellis_Text_7:
+	.string "FRIENDSHIP is: FRIENDSHIP 50 TO 99.$"
+
+Friendship_Checker_Ellis_Text_8:
+	.string "The monster's hide has softened, but\n"
+	.string "its colour is still quite muted and dull.\p"
+	.string "You two appear to have a fairly neutral\n"
+	.string "relationship.\p"
+	.string "Work at it together though, and you'll\n"
+	.string "start to see it improving.$"
+
+Friendship_Checker_Ellis_Text_9:
+	.string "FRIENDSHIP is: FRIENDSHIP 100 TO 149.$"
+
+Friendship_Checker_Ellis_Text_10:
+	.string "Yes, I can see a nice glow starting to\n"
+	.string "form under the skin.\p"
+	.string "This monster is definitely fond of you,\n"
+	.string "and you've obviously put in some work\l"
+	.string "with it.\p"
+	.string "I think you could get to know each\n"
+	.string "other even better still, though.$"
+
+Friendship_Checker_Ellis_Text_11:
+	.string "FRIENDSHIP is: FRIENDSHIP 150 TO 199.$"
+
+Friendship_Checker_Ellis_Text_12:
+	.string "The colour on your monster is just\n"
+	.string "amazing!\p"
+	.string "You're clearly very close and it knows\n"
+	.string "you very well.\p"
+	.string "There's a small room to keep improving,\n"
+	.string "though!$"
+
+Friendship_Checker_Ellis_Text_13:
+	.string "FRIENDSHIP is: FRIENDSHIP 200 TO 254.$"
+
+Friendship_Checker_Ellis_Text_14:
+	.string "This monster's hide has the most\n"
+	.string "amazing sheen to it.\p"
+	.string "You clearly treat it extremely well and\n"
+	.string "take the best of care of it.\p"
+	.string "It absolutely adores you.$"
+
+Friendship_Checker_Ellis_Text_15:
+	.string "FRIENDSHIP is: FRIENDSHIP MAX.$"
 
 NPC_ALKHARID_GENERALSTORE_1_Text_0:
 	.string "Kathaar$"
@@ -638,34 +890,28 @@ TRIGGER_ALKHARID_HAM_EVENT_2_Text_1:
 	.string "with Spymaster Osman!$"
 
 TRIGGER_ALKHARID_HAM_EVENT_2_Text_2:
-	.string "Guard$"
-
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_3:
 	.string "Nice try Ozan, Prince Ali is currently on\n"
 	.string "the outskirts of town with our finest\l"
 	.string "warriors.$"
 
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_4:
-	.string "Ozan$"
-
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_5:
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_3:
 	.string "Please listen to me…$"
 
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_6:
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_4:
 	.string "Not with your track record, get out of\n"
 	.string "here Ozan!$"
 
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_7:
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_5:
 	.string "It's just no use…$"
 
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_8:
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_6:
 	.string "Hey! It's you!\p"
 	.string "You saw the kidnapping too right?\p"
 	.string "These guards are useless.\p"
 	.string "Say you don't have any extra\n"
 	.string "information do you?$"
 
-TRIGGER_ALKHARID_HAM_EVENT_2_Text_9:
+TRIGGER_ALKHARID_HAM_EVENT_2_Text_7:
 	.string "You mean to say there is a whole\n"
 	.string "organisation that wear those\l"
 	.string "ridiculous pink robes and they're called\l"
