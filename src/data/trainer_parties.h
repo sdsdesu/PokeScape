@@ -9039,7 +9039,7 @@ static const struct TrainerMon sParty_SirTheo_Edgeville[] = {
     .ability = ABILITY_OWN_TEMPO,
     .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
     .heldItem = ITEM_PAPAYA,
-    .moves = {MOVE_FLIP_TURN, MOVE_NATURAL_GIFT, MOVE_THRASH, MOVE_RAIN_DANCE}
+    .moves = {MOVE_FLIP_TURN, MOVE_CRUNCH, MOVE_THRASH, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 48,
@@ -10560,7 +10560,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     },
     {
     .lvl = 73,
-    .species = SSPECIES_SHEEPDOG,
+    .species = SPECIES_SHEEPDOG,
     .ability = ABILITY_UNBURDEN,
     .heldItem = ITEM_DWELLBERRY,
     .moves = {MOVE_DARK_PULSE, MOVE_DOUBLE_EDGE, MOVE_DIG, MOVE_REST}
@@ -10570,7 +10570,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .species = SPECIES_DALMATIAN,
     .ability = ABILITY_SWIFT_SWIM,
     .heldItem = ITEM_APPLE,
-    .moves = {MOVE_FLIP_TURN, MOVE_NATURAL_GIFT, MOVE_ICE_FANG, MOVE_RAIN_DANCE}
+    .moves = {MOVE_FLIP_TURN, MOVE_CRUNCH, MOVE_ICE_FANG, MOVE_RAIN_DANCE}
     },
     {
     .lvl = 75,
