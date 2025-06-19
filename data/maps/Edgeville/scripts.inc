@@ -1353,8 +1353,8 @@ BATTLE_SIR_THEO_EDGEVILLE_Text_1:
 BATTLE_SIR_THEO_EDGEVILLE_Text_2:
 	.string "Well as expected, I am no match for you.\p"
 	.string "No wonder Sir Owen and Sir Tiffy Cashien\n"
-	.string "holds you in high regard.\n"
-	.string "Here's a little something from me as a\l"
+	.string "holds you in high regard.\p"
+	.string "Here's a little something from me as a\n"
 	.string "thank you.$"
 
 BATTLE_SIR_THEO_EDGEVILLE_Text_3:

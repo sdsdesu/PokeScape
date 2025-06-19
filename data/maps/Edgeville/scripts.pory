@@ -850,7 +850,7 @@ script BATTLE_SIR_THEO_EDGEVILLE {
     hidenamebox
 	trainerbattle_no_intro(TRAINER_SIR_THEO_EDGEVILLE, format("A worthy defeat."))
 	namebox("Sir Theo")
-	msgbox(format("Well as expected, I am no match for you.\pNo wonder Sir Owen and Sir Tiffy Cashien holds you in high regard.\nHere's a little something from me as a thank you."))
+	msgbox(format("Well as expected, I am no match for you.\pNo wonder Sir Owen and Sir Tiffy Cashien holds you in high regard.\pHere's a little something from me as a thank you."))
 	closemessage
     hidenamebox
 	giveitem (ITEM_TM28, 1)

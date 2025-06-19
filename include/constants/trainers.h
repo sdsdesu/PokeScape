@@ -615,11 +615,12 @@
 #define TRAINER_CLASS_SANDWICH          0x8a
 #define TRAINER_CLASS_MELZAR            0x8b
 #define TRAINER_CLASS_ZAMORAK           0x8c
+#define TRAINER_CLASS_STRANGER          0x8d
 
 
 
 
-#define TRAINER_CLASS_NUM       		0x8c
+#define TRAINER_CLASS_NUM       		0x8d
 
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // Standard male encounter music

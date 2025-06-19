@@ -289,44 +289,31 @@ script BATTLE_ORCHY {
 }
 
 
-script POKESCAPER_ORCHY_V2
+script POKESCAPER_ORCHY_V2 
 {
     lock
     faceplayer
     namebox ("Orchy")
     msgbox(format("Hey!\pI'm Runescape Reorchestrated, you can call me Orchy for short.\pI made all the music for this game."))
-    closemessage
-    if (flag(FLAG_SYS_POKEMON_GET) == FALSE) {
-	    msgbox(format("What's that?\pYou still don't have any monsters of your own yet?\pWhat are you waiting for, why don't you go and visit Professor Normal Tree in Lumbridge Castle."))
-        hidenamebox
-        closemessage
-	    release
-        end
+    special(GetAmountOfBadges)
+    switch (var(VAR_RESULT)) {
+		case 0:
+            if (flag(FLAG_SYS_POKEMON_GET) == FALSE) {
+                msgbox(format("What's that?\pYou still don't have any monsters of your own yet?\pWhat are you waiting for, why don't you go and visit Professor Normal Tree in Lumbridge Castle."))
+            }
+            else {
+                msgbox(format("I see you have no badges, maybe you should stop by Lumbridge Gym and pick one up.\pCome back and see me once you have a few and we'll have a battle!"))
+            }
+        case 1:
+            msgbox(format("Congratulations on your first badge!\pCome back when you've got a few more and maybe you'll be strong enough to challenge me."))
+        case 2:
+            msgbox(format("Two badges?\pNot bad, but I think you still need at least one, maybe even two more to compete with these melodies."))
+        case 3:
+            msgbox(format("Wow look at you!\pSay get one more badge then come see me again."))
+        default:
+            goto(BATTLE_ORCHY_V2)
     }
-    if (flag(FLAG_BADGE01_GET)) { //If Gym badge is obtained.
-        msgbox(format("Congratulations on beating the gym!\pCome back when you've got a few more and maybe you'll be strong enough to challenge me."))
-        hidenamebox
-        closemessage
-        goto(ORCHY_MUSIC)
-        release
-        end
-    }
-    if (flag(FLAG_BADGE02_GET)) {
-        msgbox(format("Two badges?\pNot bad, but I think you still need at least one, maybe even two more to compete with these melodies."))
-        hidenamebox
-        closemessage
-        goto(ORCHY_MUSIC)
-        release
-        end
-    }
-    if (flag(FLAG_BADGE03_GET)) {
-    	goto(BATTLE_ORCHY_V2)
-    	release
-    	end
-    }
-    else {
-        goto(ORCHY_MUSIC)
-    }
+    goto(ORCHY_MUSIC)
     release
     end
 }
@@ -336,7 +323,7 @@ script BATTLE_ORCHY_V2 {
     applymovement(6, MOVEMENT_EXCLAMATIONMARK)
     waitmovement(0)
     namebox("Orchy")
-    msgbox(format("Oh, do you think you're finally ready for our battle?"), MSGBOX_YESNO)
+    msgbox(format("Say would you like to have a battle with me?"), MSGBOX_YESNO)
     if (var(VAR_RESULT)) {
         msgbox(format("Alright, then let us let the bodies hit the floor!"))
         closemessage
@@ -346,6 +333,7 @@ script BATTLE_ORCHY_V2 {
         msgbox(format("As a member of team PokeScaper, I must say be sure to keep your eyes out as we are everywhere."))
     }
     else {
+        msgbox(format("Ah shame…"))
         goto(ORCHY_MUSIC)
     	release
     	end
@@ -358,7 +346,7 @@ script BATTLE_ORCHY_V2 {
 
 script ORCHY_MUSIC {
     namebox("Orchy")
-    msgbox(format("Why don't you stay for a while and just listen to me playing some music instead."))
+    msgbox(format("Anyways why don't you stay for a while and just listen to me playing some music instead."))
     hidenamebox
 	closemessage
     applymovement(6, Movement_InteractFACERIGHT)

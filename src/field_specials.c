@@ -4392,6 +4392,10 @@ void GetTimeOfDaySpecial(void)
     gSpecialVar_Result = UpdateTimeOfDay();
 }
 
+void GetAmountOfBadges(void)
+{
+    gSpecialVar_Result = GetNumOwnedBadges();
+}
 
 
 

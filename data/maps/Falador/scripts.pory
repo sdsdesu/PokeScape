@@ -1543,14 +1543,15 @@ script Mithrilman_FALADOR1{
 
 script FROGEEL_RIVAL_2 {
     lock 
-    faceplayer
     namebox("Angrennouille")
 	msgbox(format("Phew, evaded pursuit once again."))
     hidenamebox
     closemessage
 	applymovement (53, MOVEMENT_EXCLAMATIONMARK)
+	waitmovement(0)
+	faceplayer
     namebox("Angrennouille")
-	msgbox(format("Oh hi there, {PLAYER} was it?\nYes I know your name, I know a lot of things.\pLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
+	msgbox(format("Oh hi there, {PLAYER} was it?\pYes I know your name, I know a lot of things.\pLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT))
     { 
         msgbox(format("I knew you and I'd be pals. One day when I am King of The Land of the Frogs, you can be in my court."))
