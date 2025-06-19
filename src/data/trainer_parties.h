@@ -8941,7 +8941,7 @@ static const struct TrainerMon sParty_HAMHideout_Grunt_9[] = {
     {
     .lvl = 46,
     .species = SPECIES_SHEEP_PIRATE_FORM,
-    }
+    },
     {
     .lvl = 47,
     .species = SPECIES_CAT_SUNKEN_FORM,

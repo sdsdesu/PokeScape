@@ -9020,6 +9020,16 @@
       "secondary_tileset": "gTileset_IndoorTowns2",
       "border_filepath": "data/layouts/AlKharid_House_5/border.bin",
       "blockdata_filepath": "data/layouts/AlKharid_House_5/map.bin"
+    },
+    {
+      "id": "LAYOUT_EDGEVILLE_GUARDHOUSE",
+      "name": "Edgeville_Guardhouse_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_PokeScapeIndoors",
+      "secondary_tileset": "gTileset_Bank",
+      "border_filepath": "data/layouts/Edgeville_Guardhouse/border.bin",
+      "blockdata_filepath": "data/layouts/Edgeville_Guardhouse/map.bin"
     }
   ]
 }
