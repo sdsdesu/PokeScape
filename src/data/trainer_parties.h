@@ -8531,6 +8531,70 @@ static const struct TrainerMon sParty_DwarfPowerStationF2_Trainer4[] = {    //Di
     }
 };
 
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    
+    {
+    .lvl = 15,
+    .species = SPECIES_FROGEEL,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_GRASS[] = {    
+    {
+    .lvl = 30,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 33,
+    .species = SPECIES_FROGEEL_TRIAL,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_FIRE[] = {    
+    {
+    .lvl = 30,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 33,
+    .species = SPECIES_FROGEEL_TRIAL,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_WATER[] = {    
+    {
+    .lvl = 30,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 33,
+    .species = SPECIES_FROGEEL_TRIAL,
+    }
+};
+
 static const struct TrainerMon sParty_EdgevilleRiver_1[] = {
     {
     .lvl = 43,
@@ -9201,7 +9265,7 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     .ability = ABILITY_REFRIGERATE,
     .moves = {MOVE_FLYING_PRESS, MOVE_DOUBLE_EDGE, MOVE_BUG_BITE, MOVE_BRAVE_BIRD}
     },
-    /*{
+    {
     .lvl = 32,
     .species = SPECIES_SEAGUTRICE,
     .ability = ABILITY_PETRIFY,
@@ -9218,7 +9282,7 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     .species = SPECIES_SEAGUTRICE,
     .ability = ABILITY_KEEN_EYE,
     .moves = {MOVE_COIL, MOVE_DRILL_PECK, MOVE_GLACIATE, MOVE_ROCK_TOMB}
-    },*/
+    },
     {
     .lvl = 35,
     .species = SPECIES_IBIS,
@@ -10050,66 +10114,1165 @@ static const struct TrainerMon sParty_POOL_PortSarim_Pub[] = {
     },
 };
 
-static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_1[] = {    
+
+static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
+    {
+    .lvl = 1,
+    .species = SPECIES_CHICKEN_NORMAL_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_DREADFOWL,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_BAWK_BAWK, MOVE_REVELATION_DANCE, MOVE_MUD_BOMB, MOVE_BOOMBURST}
+    },
+    {
+    .lvl = 3,
+    .species = SPECIES_CHICKEN_VARROCK_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 4,
+    .species = SPECIES_CHICKEN_DIVING_FORM,
+    .ability = ABILITY_WATER_BUBBLE,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_BAWK_BAWK, MOVE_ROOST, MOVE_MUD_BOMB}
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_CHICKEN_KARAMJA_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_CHICKEN_DEATH_FORM,
+    .ability = ABILITY_CURSED_BODY,
+    .moves = {MOVE_BAWK_BAWK, MOVE_SHADOW_BARRAGE, MOVE_MUD_BOMB, MOVE_ROOST}
+    },
+    {
+    .lvl = 7,
+    .species = SPECIES_CHICKEN_BANDOSIAN_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 8,
+    .species = SPECIES_CHICKEN_WAR_FORM,
+    .ability = ABILITY_TANGLED_FEET,
+    .moves = {MOVE_BAWK_BAWK, MOVE_ICE_BARRAGE, MOVE_FOCUS_BLAST, MOVE_ROOST}
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_ROOSTER_NORMAL_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_ERNEST,
+    .ability = ABILITY_RATTLED,
+    .moves = {MOVE_BAWK_BAWK, MOVE_PSYCHIC, MOVE_ENERGY_BALL, MOVE_ROOST}
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_ROOSTER_KARAMJA_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_BATON_PASS, MOVE_AGILITY, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_OOMLIE,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_DRILL_PECK, MOVE_ROOST, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_ROOSTER_BANDOSIAN_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_SPECIES_CHICKEN_FAMINE_FORM,
+    .ability = ABILITY_ADAPTABILITY,
+    .moves = {MOVE_ATTACK_ORDER, MOVE_HEAL_ORDER, MOVE_DRILL_PECK, MOVE_DEFEND_ORDER}
+    },
     {
     .lvl = 15,
-    .species = SPECIES_FROGEEL,
-    }
-};
-
-static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_GRASS[] = {    
+    .species = SPECIES_ROOSTER_VARROCK_FORM,
+    .ability = ABILITY_EARLY_BIRD,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_CHICKEN_PESTILENCE_FORM,
+    .ability = ABILITY_STENCH,
+    .moves = {MOVE_TOXIC, MOVE_ROOST, MOVE_OMINOUS_WIND, MOVE_AGILITY}
+    },
+    {
+    .lvl = 17,
+    .species = SPECIES_CHICKEN_LIZARD_FORM,
+    .ability = ABILITY_RUN_AWAY,
+    .moves = {MOVE_STOCKPILE, MOVE_SAND_TOMB, MOVE_ROOST, MOVE_AGILITY}
+    },
+    {
+    .lvl = 18,
+    .species = SPECIES_CHICKEN_UNDEAD_FORM,
+    .ability = ABILITY_MUMMY,
+    .moves = {MOVE_GRUDGE, MOVE_DESTINY_BOND, MOVE_SPITE, MOVE_ROOST}
+    },
+    {
+    .lvl = 19,
+    .species = SPECIES_CHICKEN_MYSTERY_FORM,
+    .ability = ABILITY_SOLAR_POWER,
+    .moves = {MOVE_THUNDER, MOVE_BAWK_BAWK, MOVE_CHARGE, MOVE_ROOST}
+    },
+    {
+    .lvl = 20,
+    .species = SPECIES_CHICKEN_NORMAL_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_ROOST, MOVE_SOFTBOILED}
+    },
+    {
+    .lvl = 21,
+    .species = SPECIES_DREADFOWL,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_AGILITY, MOVE_BAWK_BAWK, MOVE_BOOMBURST, MOVE_ROOST}
+    },
+    {
+    .lvl = 22,
+    .species = SPECIES_CHICKEN_VARROCK_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 23,
+    .species = SPECIES_CHICKEN_DIVING_FORM,
+    .ability = ABILITY_WATER_VEIL,
+    .moves = {MOVE_DIVE, MOVE_STEEL_WING, MOVE_DRILL_PECK, MOVE_ROOST}
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_CHICKEN_KARAMJA_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 25,
+    .species = SPECIES_CHICKEN_DEATH_FORM,
+    .ability = ABILITY_SHADOW_TAG,
+    .moves = {MOVE_CURSE, MOVE_SHADOW_FORCE, MOVE_DRILL_PECK, MOVE_ROOST}
+    },
+    {
+    .lvl = 26,
+    .species = SPECIES_CHICKEN_BANDOSIAN_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    .moves = {MOVE_EGG_BOMB, MOVE_BAWK_BAWK, MOVE_SOFTBOILED, MOVE_AIR_CUTTER}
+    },
+    {
+    .lvl = 27,
+    .species = SPECIES_CHICKEN_WAR_FORM,
+    .ability = ABILITY_TOUGH_CLAWS,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_CLOSE_COMBAT, MOVE_DRILL_PECK, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 28,
+    .species = SPECIES_ROOSTER_NORMAL_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_BAWK_BAWK, MOVE_ROOST, MOVE_U_TURN}
+    },
+    {
+    .lvl = 29,
+    .species = SPECIES_ERNEST,
+    .ability = ABILITY_EMERGENCY_EXIT,
+    .moves = {MOVE_BAWK_BAWK, MOVE_PSYCHIC, MOVE_ENERGY_BALL, MOVE_ROOST}
+    },
     {
     .lvl = 30,
-    .species = SPECIES_FROGEEL,
+    .species = SPECIES_ROOSTER_KARAMJA_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 31,
+    .species = SPECIES_OOMLIE,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_U_TURN, MOVE_DRILL_PECK, MOVE_NONE}
     },
     {
     .lvl = 32,
-    .species = SPECIES_FROGEEL,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_FROGEEL_RANGED,
+    .species = SPECIES_ROOSTER_BANDOSIAN_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
     },
     {
     .lvl = 33,
-    .species = SPECIES_FROGEEL_TRIAL,
-    }
-};
+    .species = SPECIES_CHICKEN_FAMINE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    .moves = {MOVE_BLOOD_BARRAGE, MOVE_DEFEND_ORDER, MOVE_HEAL_ORDER, MOVE_BAWK_BAWK}
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_ROOSTER_VARROCK_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_HIGH_JUMP_KICK, MOVE_DRILL_PECK, MOVE_FEATHER_DANCE, MOVE_STEEL_WING}
+    },
+    {
+    .lvl = 35,
+    .species = SPECIES_CHICKEN_PESTILENCE_FORM,
+    .ability = ABILITY_CORROSION,
+    .moves = {MOVE_SMOKE_BARRAGE, MOVE_HURRICANE, MOVE_OMINOUS_WIND, MOVE_ROOST}
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_CHICKEN_LIZARD_FORM,
+    .ability = ABILITY_SAND_VEIL,
+    .moves = {MOVE_SANDSTORM, MOVE_DRILL_PECK, MOVE_BULLDOZE, MOVE_STOCKPILE}
+    },
+    {
+    .lvl = 37,
+    .species = SPECIES_CHICKEN_UNDEAD_FORM,
+    .ability = ABILITY_MUMMY,
+    .moves = {MOVE_SHADOW_BARRAGE, MOVE_NASTY_PLOT, MOVE_BAWK_BAWK, MOVE_MUD_BOMB}
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_CHICKEN_MYSTERY_FORM,
+    .ability = ABILITY_LIGHTNING_ROD,
+    .moves = {MOVE_CHARGE_BEAM, MOVE_ROOST, MOVE_BAWK_BAWK, MOVE_THUNDERBOLT}
+    },
+    {
+    .lvl = 39,
+    .species = SPECIES_TROUT_NORMAL_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_SWORDFISH,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_AQUA_CUTTER, MOVE_SACRED_SWORD, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_TROUT_LEAPING_FORM,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_STURGEON,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_LIQUIDATION, MOVE_BRUTAL_SWING, MOVE_SWORDS_DANCE, MOVE_NONE}
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_TROUT_TROPICAL_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    .moves = {MOVE_BOUNCE, MOVE_DIVE, MOVE_WHIRLPOOL, MOVE_NONE}
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_SAILFISH,
+    .ability = ABILITY_DEFIANT,
+    .moves = {MOVE_FLOATY_FALL, MOVE_AQUA_CUTTER, MOVE_AQUA_JET, MOVE_SACRED_SWORD}
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_TROUT_NORMAL_FORM,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SWORDFISH,
+    .ability = ABILITY_SHARPNESS,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_FLYING_PRESS, MOVE_SWORD_STRIKE, MOVE_AERIAL_ACE}
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_TROUT_LEAPING_FORM,
+    .ability = ABILITY_UNBURDEN,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_STURGEON,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_BANANA,
+    .moves = {MOVE_FLIP_TURN, MOVE_SWORD_STRIKE, MOVE_DOUBLE_EDGE, MOVE_CRUNCH}
+    },
+    {
+    .lvl = 49,
+    .species = SPECIES_TROUT_TROPICAL_FORM,
+    .ability = ABILITY_RAIN_DISH,
+    .moves = {MOVE_SOAK, MOVE_RAIN_DANCE, MOVE_AQUA_RING, MOVE_BOUNCE}
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_SAILFISH,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_PAPAYA,
+    .moves = {MOVE_SWORDS_DANCE, MOVE_SACRED_SWORD, MOVE_LIQUIDATION, MOVE_ACROBATICS}
+    },
+    {
+    .lvl = 51,
+    .species = SPECIES_SHEEP_WHITE_FORM,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = {MOVE_COTTON_SPORE, MOVE_COTTON_GUARD, MOVE_BODY_SLAM, MOVE_CAPTIVATE}
+    },
+    {
+    .lvl = 52,
+    .species = SPECIES_SHEEP_PLAGUE_FORM,
+    .ability = ABILITY_NORMALIZE,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_HEAD_CHARGE, MOVE_COTTON_GUARD, MOVE_POISON_GAS, MOVE_REST}
+    },
+    {
+    .lvl = 53,
+    .species = SPECIES_SHEEP_BLACK_FORM,
+    .ability = ABILITY_SCRAPPY,
+    .moves = {MOVE_FRUSTRATION, MOVE_DARKEST_LARIAT, MOVE_PLAY_ROUGH, MOVE_FOUL_PLAY}
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_RAM_FLUFFY_FORM,
+    .ability = ABILITY_FUR_COAT,
+    .moves = {MOVE_COTTON_SPORE, MOVE_COTTON_GUARD, MOVE_BODY_SLAM, MOVE_CAPTIVATE}
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_RAM_SHAGGY_FORM,
+    .ability = ABILITY_FUR_COAT,
+    .moves = {MOVE_WORK_UP, MOVE_HEAD_CHARGE, MOVE_CLOSE_COMBAT, MOVE_FOCUS_ENERGY}
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_RAM_GOLDEN_FORM,
+    .ability = ABILITY_VITAL_SPIRIT,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_WORK_UP, MOVE_THRASH, MOVE_REST, MOVE_NONE}
+    },
+    {
+    .lvl = 57,
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_SAP_SIPPER,
+    .moves = {MOVE_RAZOR_SHELL, MOVE_FOUL_PLAY, MOVE_SWORD_STRIKE, MOVE_BODY_SLAM}
+    },
+    {
+    .lvl = 58,
+    .species = SPECIES_GOAT_BILLY_FORM,
+    .ability = ABILITY_SAP_SIPPER,
+    .moves = {MOVE_CAPTIVATE, MOVE_COTTON_SPORE, MOVE_BODY_SLAM, MOVE_ROCK_TOMB}
+    },
+    {
+    .lvl = 59,
+    .species = SPECIES_GOAT_DESERT_FORM,
+    .ability = ABILITY_SAND_VEIL,
+    .moves = {MOVE_HEADLONG_RUSH, MOVE_HEAD_SMASH, MOVE_RETALIATE, MOVE_ROCK_CLIMB}
+    },
+    {
+    .lvl = 60,
+    .species = SPECIES_GOAT_MOUNTAIN_FORM,
+    .ability = ABILITY_SAND_VEIL,
+    .moves = {MOVE_HEAD_SMASH, MOVE_BUG_BITE, MOVE_HEADLONG_RUSH, MOVE_ROCK_CLIMB}
+    },
+    {
+    .lvl = 61,
+    .species = SPECIES_SHEEP_WHITE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_COTTON_SPORE, MOVE_REST, MOVE_RETALIATE, MOVE_BODY_SLAM}
+    },
+    {
+    .lvl = 62,
+    .species = SPECIES_SHEEP_PLAGUE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_SLUDGE_BOMB, MOVE_COTTON_GUARD, MOVE_BODY_SLAM, MOVE_REST}
+    },
+    {
+    .lvl = 63,
+    .species = SPECIES_SHEEP_BLACK_FORM,
+    .ability = ABILITY_MOXIE,
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_POWER_TRIP, MOVE_QUICK_ATTACK, MOVE_PLAY_ROUGH}
+    },
+    {
+    .lvl = 64,
+    .species = SPECIES_RAM_FLUFFY_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_COTTON_SPORE, MOVE_REST, MOVE_RETALIATE, MOVE_BODY_SLAM}
+    },
+    {
+    .lvl = 65,
+    .species = SPECIES_RAM_SHAGGY_FORM,
+    .ability = ABILITY_FLUFFY,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_BODY_SLAM, MOVE_PLAY_ROUGH, MOVE_REST, MOVE_SKULL_BASH}
+    },
+    {
+    .lvl = 66,
+    .species = SPECIES_RAM_GOLDEN_FORM,
+    .ability = ABILITY_GOOD_AS_GOLD,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_IRON_HEAD, MOVE_BODY_SLAM, MOVE_REST, MOVE_COTTON_GUARD}
+    },
+    {
+    .lvl = 67,
+    .species = SPECIES_SHEEP_PIRATE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_AQUA_CUTTER, MOVE_CEASELESS_EDGE, MOVE_SWORD_STRIKE, MOVE_CLOSE_COMBAT}
+    },
+    {
+    .lvl = 68,
+    .species = SPECIES_GOAT_BILLY_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_BODY_SLAM, MOVE_ROAR, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 69,
+    .species = SPECIES_GOAT_DESERT_FORM,
+    .ability = ABILITY_STAMINA,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_BULLDOZE, MOVE_RETALIATE, MOVE_STOMPING_TANTRUM, MOVE_REST}
+    },
+    {
+    .lvl = 70,
+    .species = SPECIES_GOAT_MOUNTAIN_FORM,
+    .ability = ABILITY_STAMINA,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_ROCK_CLIMB, MOVE_COTTON_GUARD, MOVE_REST, MOVE_ROCK_TOMB}
+    },
+    {
+    .lvl = 71,
+    .species = SPECIES_SHEEP_WHITE_FORM,
+    .ability = ABILITY_FLUFFY,
+    .moves = {MOVE_COTTON_SPORE, MOVE_COTTON_GUARD, MOVE_REST, MOVE_ROCK_TOMB}
+    },
+    {
+    .lvl = 72,
+    .species = SPECIES_TERRIER,
+    .ability = ABILITY_SIMPLE,
+    .moves = {MOVE_ACUPRESSURE, MOVE_ACCELEROCK, MOVE_SAND_ATTACK, MOVE_CRUNCH}
+    },
+    {
+    .lvl = 73,
+    .species = SSPECIES_SHEEPDOG,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_DARK_PULSE, MOVE_DOUBLE_EDGE, MOVE_DIG, MOVE_REST}
+    },
+    {
+    .lvl = 74,
+    .species = SPECIES_DALMATIAN,
+    .ability = ABILITY_SWIFT_SWIM,
+    .heldItem = ITEM_APPLE,
+    .moves = {MOVE_FLIP_TURN, MOVE_NATURAL_GIFT, MOVE_ICE_FANG, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 75,
+    .species = SPECIES_GREYHOUND,
+    .ability = ABILITY_LIMBER,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_DOUBLE_EDGE, MOVE_SLACK_OFF, MOVE_DIG}
+    },
+    {
+    .lvl = 76,
+    .species = SPECIES_BULLDOG,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_THRASH, MOVE_DIG, MOVE_CRUNCH, MOVE_BODY_SLAM}
+    },
+    {
+    .lvl = 77,
+    .species = SPECIES_LABRADOR,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = {MOVE_THUNDERBOLT, MOVE_HOLD_HANDS, MOVE_DOUBLE_EDGE, MOVE_SLACK_OFF}
+    },
+    {
+    .lvl = 78,
+    .species = SPECIES_CORGI,
+    .ability = ABILITY_QUEENLY_MAJESTY,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_THRASH, MOVE_CRUNCH, MOVE_DIG}
+    },
+    {
+    .lvl = 79,
+    .species = SPECIES_TERRIER,
+    .ability = ABILITY_ROCK_HEAD,
+    .moves = {MOVE_HEAD_CHARGE, MOVE_HEAD_SMASH, MOVE_ACCELEROCK, MOVE_DIG}
+    },
+    {
+    .lvl = 80,
+    .species = SPECIES_SHEEPDOG,
+    .ability = ABILITY_GUARD_DOG,
+    .moves = {MOVE_SNARL, MOVE_SCARY_FACE, MOVE_SAND_ATTACK, MOVE_GROWL}
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_DALMATIAN,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_FLIP_TURN, MOVE_CRUNCH, MOVE_DIG, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 82,
+    .species = SPECIES_GREYHOUND,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_AGILITY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 83,
+    .species = SPECIES_BULLDOG,
+    .ability = ABILITY_GUARD_DOG,
+    .moves = {MOVE_SPIKES, MOVE_BULK_UP, MOVE_BULLDOZE, MOVE_MUD_SLAP}
+    },
+    {
+    .lvl = 84,
+    .species = SPECIES_LABRADOR,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_THUNDERBOLT, MOVE_CAPTIVATE, MOVE_PURSUIT, MOVE_TACKLE}
+    },
+    {
+    .lvl = 85,
+    .species = SPECIES_CORGI,
+    .ability = ABILITY_PRANKSTER,
+    .moves = {MOVE_CHARM, MOVE_SAND_ATTACK, MOVE_THRASH, MOVE_PLAY_ROUGH}
+    },
+    {
+    .lvl = 86,
+    .species = SPECIES_CAT_NORMAL_FORM,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = {MOVE_TAUNT, MOVE_SLASH, MOVE_NIGHT_SLASH, MOVE_U_TURN}
+    },
+    {
+    .lvl = 87,
+    .species = SPECIES_CAT_OVERGROWN_FORM,
+    .ability = ABILITY_CUTE_CHARM,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_FAKE_OUT, MOVE_FOUL_PLAY, MOVE_REST, MOVE_ASSIST}
+    },
+    {
+    .lvl = 88,
+    .species = SPECIES_CAT_LAZY_FORM,
+    .ability = ABILITY_TRUANT,
+    .moves = {MOVE_ASSIST, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 89,
+    .species = SPECIES_CAT_WILY_FORM,
+    .ability = ABILITY_VITAL_SPIRIT,
+    .moves = {MOVE_BERSERK, MOVE_SLASH, MOVE_SUBMISSION, MOVE_NIGHT_SLASH}
+    },
+    {
+    .lvl = 90,
+    .species = SPECIES_CAT_PURPLE_FORM,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = {MOVE_NASTY_PLOT, MOVE_STORED_POWER, MOVE_ENERGY_BALL, MOVE_DAZZLING_GLEAM}
+    },
+    {
+    .lvl = 91,
+    .species = SPECIES_CAT_HELL_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    .moves = {MOVE_BURN_UP, MOVE_U_TURN, MOVE_OVERHEAT, MOVE_NONE}
+    },
+    {
+    .lvl = 92,
+    .species = SPECIES_CAT_POST_FORM,
+    .ability = ABILITY_PICKUP,
+    .moves = {MOVE_TOXIC, MOVE_SKY_DROP, MOVE_SLASH, MOVE_KNOCK_OFF}
+    },
+    {
+    .lvl = 93,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    .ability = ABILITY_LIQUID_VOICE,
+    .moves = {MOVE_HYPER_VOICE, MOVE_NASTY_PLOT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 94,
+    .species = SPECIES_CAT_NORMAL_FORM,
+    .ability = ABILITY_NORMALIZE,
+    .moves = {MOVE_FAKE_OUT, MOVE_LAST_RESORT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 95,
+    .species = SPECIES_CAT_OVERGROWN_FORM,
+    .ability = ABILITY_NORMALIZE,
+    .moves = {MOVE_NIGHT_SLASH, MOVE_FAKE_OUT, MOVE_SLASH, MOVE_U_TURN}
+    },
+    {
+    .lvl = 96,
+    .species = SPECIES_CAT_LAZY_FORM,
+    .ability = ABILITY_COMATOSE,
+    .moves = {MOVE_SLEEP_TALK, MOVE_SLASH, MOVE_GUNK_SHOT, MOVE_U_TURN}
+    },
+    {
+    .lvl = 97,
+    .species = SPECIES_CAT_WILY_FORM,
+    .ability = ABILITY_GUTS,
+    .heldItem = ITEM_FIRECAPE
+    .moves = {MOVE_SLICE_DICE, MOVE_AGILITY, MOVE_CLOSE_COMBAT, MOVE_SLASH}
+    },
+    {
+    .lvl = 98,
+    .species = SPECIES_CAT_PURPLE_FORM,
+    .ability = ABILITY_PSYCHIC_SURGE,
+    .moves = {MOVE_NASTY_PLOT, MOVE_EXPANDING_FORCE, MOVE_DAZZLING_GLEAM, MOVE_ENERGY_BALL}
+    },
+    {
+    .lvl = 99,
+    .species = SPECIES_CAT_HELL_FORM,
+    .ability = ABILITY_AVERNIC,
+    .moves = {MOVE_BURN_UP, MOVE_SLASH, MOVE_AGILITY, MOVE_ASSIST}
+    },
+    {
+    .lvl = 100,
+    .species = SPECIES_CAT_POST_FORM,
+    .ability = ABILITY_STAKEOUT,
+    .moves = {MOVE_SLEEP_TALK, MOVE_SLASH, MOVE_GUNK_SHOT, MOVE_U_TURN}
+    },
+    {
+    .lvl = 101,
+    .species = SPECIES_CAT_SUNKEN_FORM,
+    .ability = ABILITY_WATER_VEIL,
+    .moves = {MOVE_CALM_MIND, MOVE_SURF, MOVE_HYPER_VOICE, MOVE_CHARM}
+    },
+    {
+    .lvl = 102,
+    .species = SPECIES_PET_ROCK,
+    .ability = ABILITY_STURDY,
+    .moves = {MOVE_DEFENCE_CURL, MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 103,
+    .species = SPECIES_ROCK_POLISHED_FORM,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_BANANA
+    .moves = {MOVE_ROCK_POLISH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 104,
+    .species = SPECIES_PILLAR,
+    .ability = ABILITY_HUGE_POWER,
+    .moves = {MOVE_STONE_EDGE, MOVE_ROCK_SLIDE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 105,
+    .species = SPECIES_ROCK_SOUP,
+    .ability = ABILITY_STORM_DRAIN,
+    .moves = {MOVE_STOCKPILE, MOVE_STEAM_ERUPTION, MOVE_OVERHEAT, MOVE_BULLDOZE}
+    },
+    {
+    .lvl = 106,
+    .species = SPECIES_SLAGILITH,
+    .ability = ABILITY_ROCKY_PAYLOAD,
+    .moves = {MOVE_AGILITY, MOVE_DEFENCE_CURL, MOVE_ROLLOUT, MOVE_NONE}
+    },
+    {
+    .lvl = 107,
+    .species = SPECIES_ROCK_STRANGE_FORM,
+    .ability = ABILITY_WONDER_SKIN,
+    .moves = {MOVE_PROTECT, MOVE_RECOVER, MOVE_AFTER_YOU, MOVE_NONE}
+    },
+    {
+    .lvl = 108,
+    .species = SPECIES_ROCK_GOLDEN_FORM,
+    .ability = ABILITY_GOOD_AS_GOLD,
+    .moves = {MOVE_MIRROR_SHOT, MOVE_MINIMIZE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 109,
+    .species = SPECIES_PARTY_ROCK,
+    .ability = ABILITY_DANCER,
+    .moves = {MOVE_TEETER_DANCE, MOVE_QUIVER_DANCE, MOVE_SWORDS_DANCE, MOVE_NONE}
+    },
+    {
+    .lvl = 110,
+    .species = SPECIES_PET_ROCK,
+    .ability = ABILITY_STALL,
+    .moves = {MOVE_SHORE_UP, MOVE_TAUNT, MOVE_SANDSTORM, MOVE_STEALTH_ROCK}
+    },
+    {
+    .lvl = 111,
+    .species = SPECIES_ROCK_POLISHED_FORM,
+    .ability = ABILITY_DAZZLING,
+    .heldItem = ITEM_BANANA
+    .moves = {MOVE_ROCK_POLISH, MOVE_STEALTH_ROCK, MOVE_TAUNT, MOVE_SHORE_UP}
+    },
+    {
+    .lvl = 112,
+    .species = SPECIES_PILLAR,
+    .ability = ABILITY_HUGE_POWER,
+    .moves = {MOVE_ROCK_SLIDE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 113,
+    .species = SPECIES_ROCK_SOUP,
+    .ability = ABILITY_WATER_COMPACTION,
+    .moves = {MOVE_SHORE_UP, MOVE_STOCKPILE, MOVE_STEAM_ERUPTION, MOVE_OVERHEAT}
+    },
+    {
+    .lvl = 114,
+    .species = SPECIES_SLAGILITH,
+    .ability = ABILITY_SOLID_ROCK,
+    .moves = {MOVE_PSYCHIC, MOVE_ROCK_SLIDE, MOVE_MINIMIZE, MOVE_SANDSTORM}
+    },
+    {
+    .lvl = 115,
+    .species = SPECIES_ROCK_STRANGE_FORM,
+    .ability = ABILITY_STURDY,
+    .moves = {MOVE_STEALTH_ROCK, MOVE_MINIMIZE, MOVE_RECOVER, MOVE_ROLLOUT}
+    },
+    {
+    .lvl = 116,
+    .species = SPECIES_ROCK_GOLDEN_FORM,
+    .ability = ABILITY_GOOD_AS_GOLD,
+    .moves = {MOVE_GRUDGE, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 117,
+    .species = SPECIES_PARTY_ROCK,
+    .ability = ABILITY_TRUANT,
+    .moves = {MOVE_SLACK_OFF, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 118,
+    .species = SPECIES_SCORPION_NORMAL_FORM,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 119,
+    .species = SPECIES_SCORPION_PIT_FORM,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 120,
+    .species = SPECIES_SCORPION_POISON_FORM,
+    .ability = ABILITY_MERCILESS,
+    },
+    {
+    .lvl = 121,
+    .species = SPECIES_SCORPION_KING_FORM,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 122,
+    .species = SPECIES_SCORPION_GRAVE_FORM,
+    .ability = ABILITY_SAND_VEIL,
+    },
+    {
+    .lvl = 123,
+    .species = SPECIES_SCORPION_CORRUPTED_FORM,
+    .ability = ABILITY_CURSED_BODY,
+    },
+    {
+    .lvl = 124,
+    .species = SPECIES_SCORPION_REANIMATED_FORM,
+    .ability = ABILITY_CURSED_BODY,
+    },
+    {
+    .lvl = 125,
+    .species = SPECIES_SCORPION_GAUNTLET_CRYSTALLINE_FORM,
+    .ability = ABILITY_CLEAR_BODY,
+    },
+    {
+    .lvl = 126,
+    .species = SPECIES_SCORPION_GAUNTLET_CORRUPTED_FORM,
+    .ability = ABILITY_FILTER,
+    },
+    {
+    .lvl = 127,
+    .species = SPECIES_SCORPION_KHAZARD_FORM,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 128,
+    .species = SPECIES_SCORPION_SPIRIT_FORM,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 129,
+    .species = SPECIES_SCORPIA,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 130,
+    .species = SPECIES_DREADNIP,
+    .ability = ABILITY_SNIPER,
+    },
+    {
+    .lvl = 131,
+    .species = SPECIES_SCORPION_NORMAL_FORM,
+    .ability = ABILITY_POISON_POINT,
+    },
+    {
+    .lvl = 132,
+    .species = SPECIES_SCORPION_PIT_FORM,
+    .ability = ABILITY_POISON_TOUCH,
+    },
+    {
+    .lvl = 133,
+    .species = SPECIES_SCORPION_POISON_FORM,
+    .ability = ABILITY_CORROSION,
+    },
+    {
+    .lvl = 134,
+    .species = SPECIES_SCORPION_KING_FORM,
+    .ability = ABILITY_SAND_FORCE,
+    },
+    {
+    .lvl = 135,
+    .species = SPECIES_SCORPION_GRAVE_FORM,
+    .ability = ABILITY_POISON_TOUCH,
+    },
+    {
+    .lvl = 136,
+    .species = SPECIES_SCORPION_CORRUPTED_FORM,
+    .ability = ABILITY_POISON_POINT,
+    },
+    {
+    .lvl = 137,
+    .species = SPECIES_SCORPION_REANIMATED_FORM,
+    .ability = ABILITY_CLEAR_BODY,
+    },
+    {
+    .lvl = 138,
+    .species = SPECIES_SCORPION_GAUNTLET_CRYSTALLINE_FORM,
+    .ability = ABILITY_POISON_TOUCH,
+    },
+    {
+    .lvl = 139,
+    .species = SPECIES_SCORPION_GAUNTLET_CORRUPTED_FORM,
+    .ability = ABILITY_POISON_POINT,
+    },
+    {
+    .lvl = 140,
+    .species = SPECIES_SCORPION_KHAZARD_FORM,
+    .ability = ABILITY_MERCILESS,
+    },
+    {
+    .lvl = 141,
+    .species = SPECIES_SCORPION_SPIRIT_FORM,
+    .ability = ABILITY_WANDERING_SPIRIT,
+    },
+    {
+    .lvl = 142,
+    .species = SPECIES_SCORPIA,
+    .ability = ABILITY_MERCILESS,
+    },
+    {
+    .lvl = 143,
+    .species = SPECIES_DREADNIP,
+    .ability = ABILITY_SHARPNESS,
+    },
+    {
+    .lvl = 144,
+    .species = SPECIES_RAVEN_NORMAL_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    },
+    {
+    .lvl = 145,
+    .species = SPECIES_RAVEN_NEVERMORE_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    },
+    {
+    .lvl = 146,
+    .species = SPECIES_RAVEN_SPOOKY_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    },
+    {
+    .lvl = 147,
+    .species = SPECIES_RAVEN_CRYSTAL_FORM,
+    .ability = ABILITY_KEEN_EYE,
+    },
+    {
+    .lvl = 148,
+    .species = SPECIES_CROW,
+    .ability = ABILITY_PICKUP,
+    },
+    {
+    .lvl = 149,
+    .species = SPECIES_MAGPIE,
+    .ability = ABILITY_PICKUP,
+    },
+    {
+    .lvl = 150,
+    .species = SPECIES_DUCKLING,
+    .ability = ABILITY_OBLIVIOUS,
+    },
+    {
+    .lvl = 151,
+    .species = SPECIES_SWAN,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 152,
+    .species = SPECIES_DUCK_NORMAL_FORM,
+    .ability = ABILITY_OBLIVIOUS,
+    },
+    {
+    .lvl = 153,
+    .species = SPECIES_MEGA_DUCK,
+    .ability = ABILITY_THICK_FAT,
+    },
+    {
+    .lvl = 154,
+    .species = SPECIES_DUCK_CART_FORM,
+    .ability = ABILITY_PRESSURE,
+    },
+    {
+    .lvl = 155,
+    .species = SPECIES_DUCKLING,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 156,
+    .species = SPECIES_SWAN,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 157,
+    .species = SPECIES_DUCK_NORMAL_FORM,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 158,
+    .species = SPECIES_MEGA_DUCK,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 159,
+    .species = SPECIES_DUCKLING,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 160,
+    .species = SPECIES_SWAN,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 161,
+    .species = SPECIES_DUCK_NORMAL_FORM,
+    .ability = ABILITY_RAIN_DISH,
+    },
+    {
+    .lvl = 162,
+    .species = SPECIES_MEGA_DUCK,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 163,
+    .species = SPECIES_UNICORN_WHITE_FORM,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 164,
+    .species = SPECIES_UNICORN_STALLION_FORM,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 165,
+    .species = SPECIES_UNICORN_BLACK_FORM,
+    .ability = ABILITY_GRIM_NEIGH,
+    },
+    {
+    .lvl = 166,
+    .species = SPECIES_UNICORN_ANGRY_FORM,
+    .ability = ABILITY_GRIM_NEIGH,
+    },
+    {
+    .lvl = 167,
+    .species = SPECIES_UNICORN_REANIMATED_FORM,
+    .ability = ABILITY_GRIM_NEIGH,
+    },
+    {
+    .lvl = 168,
+    .species = SPECIES_UNICORN_WHITE_FORM,
+    .ability = ABILITY_CUTE_CHARM,
+    },
+    {
+    .lvl = 169,
+    .species = SPECIES_UNICORN_STALLION_FORM,
+    .ability = ABILITY_IMMUNITY,
+    },
+    {
+    .lvl = 170,
+    .species = SPECIES_UNICORN_BLACK_FORM,
+    .ability = ABILITY_MISTY_SURGE,
+    },
+    {
+    .lvl = 171,
+    .species = SPECIES_UNICORN_ANGRY_FORM,
+    .ability = ABILITY_IMMUNITY,
+    },
+    {
+    .lvl = 172,
+    .species = SPECIES_UNICORN_REANIMATED_FORM,
+    .ability = ABILITY_ANGER_POINT,
+    },
+    {
+    .lvl = 173,
+    .species = SPECIES_EXORAXE,
+    .ability = ABILITY_VITAL_SPIRIT,
+    },
+    {
+    .lvl = 174,
+    .species = SPECIES_SPOOKAXE,
+    .ability = ABILITY_VITAL_SPIRIT,
+    },
+    {
+    .lvl = 175,
+    .species = SPECIES_EXORAXE,
+    .ability = ABILITY_NO_GUARD,
+    },
+    {
+    .lvl = 176,
+    .species = SPECIES_SPOOKAXE,
+    .ability = ABILITY_NO_GUARD,
+    },
+    {
+    .lvl = 177,
+    .species = SPECIES_SHADOW_HOUND,
+    .ability = ABILITY_CURSED_BODY
+    },
+    {
+    .lvl = 178,
+    .species = SPECIES_BORDER_COLLIE,
+    .ability = ABILITY_LEAF_GUARD,
+    },
+    {
+    .lvl = 179,
+    .species = SPECIES_BLOODHOUND,
+    .ability = ABILITY_STAKEOUT,
+    },
+    {
+    .lvl = 180,
+    .species = SPECIES_GUARD_DOG,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 181,
+    .species = SPECIES_SHADOW_HOUND,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 182,
+    .species = SPECIES_BORDER_COLLIE,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 183,
+    .species = SPECIES_BLOODHOUND,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 184,
+    .species = SPECIES_GUARD_DOG,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 185,
+    .species = SPECIES_BEAVER,
+    .ability = ABILITY_SIMPLE,
+    },
+    {
+    .lvl = 186,
+    .species = SPECIES_GIANT_BEAVER,
+    .ability = ABILITY_SIMPLE,
+    },
+    {
+    .lvl = 187,
+    .species = SPECIES_RACOON,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 188,
+    .species = SPECIES_RALPH,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 189,
+    .species = SPECIES_ROCKY,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 190,
+    .species = SPECIES_HONEY_BADGER,
+    .ability = ABILITY_TOUGH_CLAWS,
+    },
+    {
+    .lvl = 191,
+    .species = SPECIES_SQUIRREL_GIANT_FORM,
+    .ability = ABILITY_PICKUP,
+    },
+    {
+    .lvl = 192,
+    .species = SPECIES_SQUIRREL_AUSTRALIAN_FORM,
+    .ability = ABILITY_PICKUP,
+    },
+    {
+    .lvl = 193,
+    .species = SPECIES_BEAVER,
+    .ability = ABILITY_SWIFT_SWIM,
+    },
+    {
+    .lvl = 194,
+    .species = SPECIES_GIANT_BEAVER,
+    .ability = ABILITY_SWIFT_SWIM,
+    },
+    {
+    .lvl = 195,
+    .species = SPECIES_RACOON,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 196,
+    .species = SPECIES_RALPH,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 197,
+    .species = SPECIES_ROCKY,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 198,
+    .species = SPECIES_HONEY_BADGER,
+    .ability = ABILITY_HONEY_GATHERER,
+    },
+    {
+    .lvl = 199,
+    .species = SPECIES_SQUIRREL_GIANT_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 200,
+    .species = SPECIES_SQUIRREL_AUSTRALIAN_FORM,
+    .ability = ABILITY_MOODY,
+    },
+    {
+    .lvl = 201,
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .ability = ABILITY_DEFEATIST,
+    },
+    {
+    .lvl = 202,
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .ability = ABILITY_DEFEATIST,
+    },
+    {
+    .lvl = 203,
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .ability = ABILITY_DEFEATIST,
+    },
+    {
+    .lvl = 204,
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .ability = ABILITY_DEFEATIST,
+    },
+    {
+    .lvl = 205,
+    .species = SPECIES_SPIRIT_WARRIOR,
+    .ability = ABILITY_SHARPNESS,
+    },
 
-static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_FIRE[] = {    
-    {
-    .lvl = 30,
-    .species = SPECIES_FROGEEL,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_FROGEEL,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_FROGEEL_MELEE,
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_FROGEEL_TRIAL,
-    }
-};
-
-static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_WATER[] = {    
-    {
-    .lvl = 30,
-    .species = SPECIES_FROGEEL,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_FROGEEL,
-    },
-    {
-    .lvl = 32,
-    .species = SPECIES_FROGEEL_MAGIC,
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_FROGEEL_TRIAL,
-    }
 };
