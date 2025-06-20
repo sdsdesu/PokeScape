@@ -1086,6 +1086,7 @@
 #define MAP_BLACK_KNIGHTS_FORTRESS_2            (93 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_3            (94 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_4            (95 | (50 << 8))
+#define MAP_HAM_HIDEOUT_B3F                     (96 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

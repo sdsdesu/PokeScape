@@ -1558,3 +1558,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/AlKharid_House_5/scripts.inc"
 
 	.include "data/maps/Edgeville_Guardhouse/scripts.inc"
+
+	.include "data/maps/HAM_Hideout_B3F/scripts.inc"

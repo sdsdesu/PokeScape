@@ -573,6 +573,12 @@
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_R     0x2F8
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_UP    0x2FA
 
+// gTileset_PokeScape_HAM
+#define METATILE_PokeScape_HAM_HAM_CAVE_FLOOR        0x201
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM  0x2BB
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE    0x2D1
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP     0x2B3
+
 // gTileset_PokeScape_Sewers
 #define METATILE_PokeScape_Sewers_GATE_CLOSED_DOWN        0x36A
 #define METATILE_PokeScape_Sewers_GATE_CLOSED_UP          0x362

@@ -377,6 +377,17 @@ void DoWhiteOut(void)
             SetLastHealLocationWarp(HEAL_LOCATION_BKF_JAIL);
             FlagSet(FLAG_BKF_JAILED);
         }
+
+    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(HAM_HIDEOUT_B3F) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(HAM_HIDEOUT_B3F)) {
+        SetLastHealLocationWarp(HEAL_LOCATION_LUMBRIDGE);
+    }
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B3F)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B2F)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B1F)) {
+            SetLastHealLocationWarp(HEAL_LOCATION_HAM_JAIL);
+            FlagSet(FLAG_HAM_JAILED);
+        }
+        
     RunScriptImmediately(EventScript_WhiteOut);
     if (B_WHITEOUT_MONEY == GEN_3)
         SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
