@@ -387,7 +387,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_MITHRILMAN2),
     },
 
-    [TRAINER_MITHRILMAN3] =
+    [TRAINER_MITHRILMAN3_GRASS] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -396,7 +396,31 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN3),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN3_GRASS),
+    },
+
+    [TRAINER_MITHRILMAN3_FIRE] =
+	{
+        .trainerClass = TRAINER_CLASS_MITHRILMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_mithrilman,
+        .trainerName = _(""),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_MITHRILMAN3_FIRE),
+    },
+
+    [TRAINER_MITHRILMAN3_WATER] =
+	{
+        .trainerClass = TRAINER_CLASS_MITHRILMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_mithrilman,
+        .trainerName = _(""),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_MITHRILMAN3_WATER),
     },
 
     [TRAINER_MITHRILMAN4] =
@@ -6158,7 +6182,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FROGEEL_RIVAL_2_GRASS] =
     {
-        .trainerClass = TRAINER_CLASS_STRANGER,         //Need some custom stuff for him?
+        .trainerClass = TRAINER_CLASS_STRANGER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
@@ -6170,7 +6194,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FROGEEL_RIVAL_2_FIRE] =
     {
-        .trainerClass = TRAINER_CLASS_STRANGER,         //Need some custom stuff for him?
+        .trainerClass = TRAINER_CLASS_STRANGER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
@@ -6182,7 +6206,7 @@ const struct Trainer gTrainers[] = {
 
     [TRAINER_FROGEEL_RIVAL_2_WATER] =
     {
-        .trainerClass = TRAINER_CLASS_STRANGER,         //Need some custom stuff for him?
+        .trainerClass = TRAINER_CLASS_STRANGER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
         .trainerPic = TRAINER_PIC_angrennouille,
         .trainerName = _("Angrenouille"),
@@ -6190,6 +6214,78 @@ const struct Trainer gTrainers[] = {
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE,
         .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_2_WATER),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_3_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_3_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_3_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_3_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_3_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_3_WATER),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_4_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_4_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_4_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_4_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_4_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_4_WATER),
     },
 
     [TRAINER_EDGEVILLE_RIVER_1] =

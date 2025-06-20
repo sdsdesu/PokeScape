@@ -1056,6 +1056,7 @@ script FROGEEL_RIVAL_1 {
         waitmovement(0)
         delay(60)
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
         msgbox(format("It seems Angrennouille dropped something while running off."))
         giveitem(ITEM_SPIRIT_CHARM, 1)
         waitmovement(0)

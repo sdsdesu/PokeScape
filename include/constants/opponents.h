@@ -31,7 +31,7 @@
 #define TRAINER_RSN_LUM_SWAMP				        	27
 #define TRAINER_MITHRILMAN1				            	28
 #define TRAINER_MITHRILMAN2				            	29
-#define TRAINER_MITHRILMAN3				            	30
+#define TRAINER_MITHRILMAN3_GRASS				        30
 #define TRAINER_MITHRILMAN4				            	31
 #define TRAINER_MITHRILMAN5				            	32
 #define TRAINER_MITHRILMAN6				            	33
@@ -592,12 +592,20 @@
 #define TRAINER_HAM_HIDEOUT_GRUNT_9                     586
 #define TRAINER_HAM_HIDEOUT_GRUNT_10                    587
 #define TRAINER_SIR_THEO_EDGEVILLE                      588
+#define TRAINER_MITHRILMAN3_FIRE				        589
+#define TRAINER_MITHRILMAN3_WATER				        590
+#define TRAINER_FROGEEL_RIVAL_3_GRASS                   591
+#define TRAINER_FROGEEL_RIVAL_3_FIRE                    592
+#define TRAINER_FROGEEL_RIVAL_3_WATER                   593
+#define TRAINER_FROGEEL_RIVAL_4_GRASS                   594
+#define TRAINER_FROGEEL_RIVAL_4_FIRE                    595
+#define TRAINER_FROGEEL_RIVAL_4_WATER                   596
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_SIR_THEO_EDGEVILLE + 1)
+#define TRAINERS_COUNT                      (TRAINER_FROGEEL_RIVAL_3_WATER + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

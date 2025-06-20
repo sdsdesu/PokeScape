@@ -430,24 +430,24 @@ static const struct TrainerMon sParty_MITHRILMAN2[] = {
     },
 };
 
-static const struct TrainerMon sParty_MITHRILMAN3[] = {
+static const struct TrainerMon sParty_MITHRILMAN3_WATER[] = {
     {
     .species = SPECIES_GOLEM_TITAN,
     .lvl = 34,
-    .nature = NATURE_HARDY,
+    .nature = NATURE_BOLD,
     .ability = ABILITY_SOLID_ROCK,
-    .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 252, 0),
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .moves = {MOVE_POWER_UP_PUNCH, MOVE_CLOSE_COMBAT, MOVE_HEADBUTT, MOVE_MUD_SLAP}
     },
     {
-    .species = SPECIES_MINITRICE,
+    .species = SPECIES_GUTHATRICE,
     .lvl = 35,
-    .nature = NATURE_HARDY,
+    .nature = NATURE_MODEST,
     .ability = ABILITY_PETRIFY,
     .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_GLARE, MOVE_ROCK_TOMB, MOVE_DRILL_PECK, MOVE_ANCIENT_POWER}
+    .moves = {MOVE_GUTHIX_CLAWS, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
     },
     {
     .species = SPECIES_FOX_RECRUITMENTDRIVE,
@@ -456,7 +456,7 @@ static const struct TrainerMon sParty_MITHRILMAN3[] = {
     .ability = ABILITY_DEFEATIST,
     .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_SHADOW_SNEAK, MOVE_CHIP_AWAY, MOVE_SNARL, MOVE_PSYCHIC_FANGS}
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_NASTY_PLOT, MOVE_PSYCHIC_FANGS}
     },
     {
     .species = SPECIES_ANIMOUR,
@@ -468,17 +468,111 @@ static const struct TrainerMon sParty_MITHRILMAN3[] = {
     .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
     },
     {
-    .species = SPECIES_ZARAVEN,
+    .species = SPECIES_ZAROBIRD,
     .lvl = 38,
     .nature = NATURE_NAIVE,
     .ability = ABILITY_EMPTY_LORD,
     .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_BADDY_BAD, MOVE_PSYCHIC, MOVE_WILL_O_WISP, MOVE_PLUCK}
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
     },
 };
 
+static const struct TrainerMon sParty_MITHRILMAN3_GRASS[] = {
+    {
+    .species = SPECIES_GOLEM_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_SOLID_ROCK,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_POWER_UP_PUNCH, MOVE_CLOSE_COMBAT, MOVE_HEADBUTT, MOVE_MUD_SLAP}
+    },
+    {
+    .species = SPECIES_ZAMATRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_ZAMORAK_FLAMES, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
+    },
+    {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_NASTY_PLOT, MOVE_PSYCHIC_FANGS}
+    },
+    {
+    .species = SPECIES_ANIMOUR,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(0, 252, 4, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
+    },
+    {
+    .species = SPECIES_ZAROBIRD,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
+    },
+};
 
+static const struct TrainerMon sParty_MITHRILMAN3_FIRE[] = {
+    {
+    .species = SPECIES_GOLEM_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_SOLID_ROCK,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_POWER_UP_PUNCH, MOVE_CLOSE_COMBAT, MOVE_HEADBUTT, MOVE_MUD_SLAP}
+    },
+    {
+    .species = SPECIES_SARATRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SARADOMIN_STRIKE, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
+    },
+    {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_NASTY_PLOT, MOVE_PSYCHIC_FANGS}
+    },
+    {
+    .species = SPECIES_ANIMOUR,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(0, 252, 4, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
+    },
+    {
+    .species = SPECIES_ZAROBIRD,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
+    },
+};
 
 
 
@@ -8592,6 +8686,168 @@ static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_2_WATER[] = {
     {
     .lvl = 33,
     .species = SPECIES_FROGEEL_TRIAL,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_3_GRASS[] = {    
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_SANE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_3_FIRE[] = {    
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_SANE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_3_WATER[] = {    
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_SANE,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_4_GRASS[] = {    
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_REANIMATED,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_4_FIRE[] = {    
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_REANIMATED,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_4_WATER[] = {    
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_REANIMATED,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_FROGEEL_PRINCE,
     }
 };
 

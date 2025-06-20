@@ -1557,6 +1557,9 @@ script FROGEEL_RIVAL_2 {
         msgbox(format("I knew you and I'd be pals. One day when I am King of The Land of the Frogs, you can be in my court."))
     	closemessage
     	hidenamebox
+		applymovement (53, FACE_ORIGINAL_DIRECTION)
+		release
+		end
 	}
 	msgbox(format("Well I guess we just have to solve it the good old fashioned way then don't we?"))
     closemessage
@@ -1575,35 +1578,31 @@ script FROGEEL_RIVAL_2 {
 	closemessage
 	hidenamebox
 
-	setobjectxy(52, 51, 17)
-	setobjectxy(43, 51, 18)
-	setobjectxyperm(52, 51, 17)
-	setobjectxyperm(43, 51, 18)
+	setobjectxy(52, 49, 17)
+	setobjectxy(43, 49, 18)
+	setobjectxyperm(52, 49, 17)
+	setobjectxyperm(43, 49, 18)
 	clearflag(FLAG_TEMP_1D) //White Knight
 	clearflag(FLAG_TEMP_1F) //White Knight
 	addobject(52)
 	addobject(43)
 
 	playse(SE_FLEE)
-	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-    if (var(VAR_TEMP_1) == 60){
-		applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
-		applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1)
-		} else {
-       	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1)
-		}
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION)
+	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1) //Ang
     applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1)
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2)
 	waitmovement(0)
-	applymovement(53, MOVEMENT_EXCLAMATIONMARK)
-	applymovement(52, MOVEMENT_EXCLAMATIONMARK)
-	applymovement(43, MOVEMENT_EXCLAMATIONMARK)
+	applymovement(53, MOVEMENT_EXCLAMATIONMARK)  //Ang
+	applymovement(52, MOVEMENT_WHITE_KNIGHT_REACTION)
+	applymovement(43, MOVEMENT_WHITE_KNIGHT_REACTION)
 	waitmovement(0)
 	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2)
 	applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3)
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4)
     waitmovement(0)
 	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
     msgbox(format("It seems that some of Angrennouille's loot fell from his pocket as he ran off."))
 	closemessage
     giveitem(ITEM_MIND_RUNE, 1)
@@ -1618,40 +1617,54 @@ script FROGEEL_RIVAL_2 {
     }
 
 movement MOVEMENT_FROGEEL_RIVAL_FALADOR_1 {
-    walk_fast_right * 7
+    walk_fast_down
+	walk_fast_right * 7
     walk_fast_down * 6
-    walk_fast_left * 11
-	walk_fast_up * 4
-	walk_fast_left * 2
+    walk_fast_left * 9
+	walk_fast_up * 3
+	face_left
     step_end
 }
 
 movement MOVEMENT_FROGEEL_RIVAL_FALADOR_2 {
-    walk_fast_right * 2
-    walk_fast_down * 7
+    walk_faster_down * 3
     step_end
 }
 
 movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1 {
-    delay_8
-	walk_right * 13
+    walk_slow_right * 4
+	face_down
     step_end
 }
 
 movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2 {
-	walk_down
-	walk_right * 14
+	walk_slow_right * 4
+	face_up
     step_end
 }
 
 movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3 {
-	walk_fast_right * 4
+	walk_fast_right * 3
 	walk_fast_down * 7
     step_end
 }
 
 movement MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4 {
-	walk_fast_right * 3
+	walk_fast_right * 2
+	delay_4
 	walk_fast_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION {
+	walk_fast_left
+	face_right
+    step_end
+}
+
+movement MOVEMENT_WHITE_KNIGHT_REACTION {
+	face_right
+	emote_question_mark
+	emote_double_exclamation_mark
     step_end
 }
