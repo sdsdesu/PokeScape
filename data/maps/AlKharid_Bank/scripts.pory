@@ -97,3 +97,37 @@ STORE_CLOTHES_BARBARIAN:
     end
 `
 
+//NPCs
+
+script NPC_ALKHARID_BANK_1
+{
+    faceplayer
+    namebox ("Eryndor")
+    msgbox(format("I am extremely skilled at reanimation, and can bring back Scorpions!\nWoah, woah now, it's VERY different to Necromancy!\pI am just reanimating their bodies, but Necromancers manipulate souls...\pIt's much darker."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script NPC_ALKHARID_BANK_2
+{
+    faceplayer
+    namebox ("Fendrel")
+    msgbox(format("There is a dark omen lurking over this town.\pI have seen it in the stars.\pIt has sheathed wings, and undergoes the most visceral of metamorphosis...\pbut there may be one even more deadly lurking deeper beneath the sands.\nBe careful out there."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script NPC_ALKHARID_BANK_3
+{
+    faceplayer
+    namebox ("Guard")
+    msgbox(format("I was the guard on watch when it happened...\pI'm probably going to be executed for this..."))
+    closemessage
+    hidenamebox
+    release
+    end
+}

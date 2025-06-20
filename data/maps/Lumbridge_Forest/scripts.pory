@@ -118,24 +118,24 @@ movement MOVEMENT_SHOCKED_FACEPLAYER {
 }
 
 
-script NPC_LUMBRIDGE_FOREST_5 //not currently in use
+script NPC_LUMBRIDGE_FOREST_5
 {
 	lock
 	faceplayer
-    namebox ("Cupholder")
-	msgbox(format("Hello, I am a Cupholder."))
+    namebox ("Woodcutter")
+	msgbox(format("I can see Lumbridge on the other side.\pIf only I had the Woodcutting level to get past these trees…"))
     closemessage
     hidenamebox
 	release
 	end
 }
 
-script NPC_LUMBRIDGE_FOREST_6
+script NPC_LUMBRIDGE_FOREST_6 //not currently in use
 {
 	lock
 	faceplayer
-    namebox ("Woodcutter")
-	msgbox(format("I can see Lumbridge on the other side.\pIf only I had the Woodcutting level to get past these trees…"))
+    namebox ("Cupholder")
+	msgbox(format("Hello, I am a Cupholder."))
     closemessage
     hidenamebox
 	release
@@ -453,37 +453,180 @@ script Following_Zanik {
 		case 2:
 		case 3:
 			specialvar (VAR_RESULT, GetCurrentMap)
-			if (var(VAR_RESULT) == MAP_ICE_MOUNTAIN) {
-				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
+			if (var(VAR_RESULT) == MAP_LUMBRIDGE_FOREST) {
+				goto(ZANIK_DIALOGUE_LUMBRIDGE_FOREST)
 			}
-			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			elif (var(VAR_RESULT) == MAP_HAM_HIDEOUT_B1F) {
+				goto(ZANIK_DIALOGUE_HAM_HIDEOUT_B1F)
 			}
-			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
-			}
-			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
-			}
-			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
+			elif (var(VAR_RESULT) == MAP_HAM_HIDEOUT_B2F) {
+				goto(ZANIK_DIALOGUE_HAM_HIDEOUT_B2F)
 			}
 			else {
-				goto(SIR_OWEN_DIALOGUE_COMMON)
+				goto(ZANIK_DIALOGUE_COMMON)
 			}
 		default:
-			goto(SIR_OWEN_DIALOGUE_COMMON)
+			goto(ZANIK_DIALOGUE_COMMON)
 	}
 }
 
+script ZANIK_DIALOGUE_COMMON {
+	random(12)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("I hail from a city named Dorgesh-Kaan.\pIt's beneath Lumbridge.\pHumans do not visit there much."))
+		case 1:
+			msgbox(format("We found out about Lumbridge when we accidentally mined into the castle cellars.\pIt was a whole ordeal honestly."))
+		case 2:
+			msgbox(format("Have you seen a weird guy with a party hat and goggles?\pI can't quite figure the guy out."))
+		case 3:
+			msgbox(format("My equipment is made of bones.\pNot a lot of material underground."))
+		case 4:
+			msgbox(format("Aah, I use electric type monsters mainly.\pThey help me see in the dark caverns while I hunt"))
+		case 5:
+			msgbox(format("After you have beaten the MvM championship I hear you need to face the Elite 4.\pDo you ever wonder who they are?"))
+		case 6:
+			msgbox(format("Hey, have you met Millie Miller?\pDo you agree she is really pretty?"))
+		case 7:
+			msgbox(format("I would kill for a frogburger right now, agree?"))
+		case 8:
+			msgbox(format("At home, I like to help Oldak with his experiments!\pI can take his magic ball anywhere in the caves, and even to Lumbridge, but whenever I break it I always end up right back in his workshop."))
+		case 9:
+			msgbox(format("The Dorgeshuun tribe fled underground to avoid taking part in any fight for an evil god.\pWe refused to be their pawns."))
+		case 10:
+			msgbox(format("The mark on my forehead?\pI'm not really sure what it is either."))
+		case 11:
+			msgbox(format("In the ancient goblin language, the Dorgeshuun means 'Goblins of the Strong Spears'."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script ZANIK_DIALOGUE_LUMBRIDGE_FOREST {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I see people around here using axes for cutting down trees.\pThey're tools for good, so why do people also use them as weapons?"))
+	case 1:
+		msgbox(format("Is... Is that another goblin over there?\pI wonder if they're a distant relative."))
+	case 2:
+		msgbox(format("This place is so different to Dorgesh-Kaan."))
+	case 3:
+		msgbox(format("Aaaaah! My eyes!{PAUSE 15}\nSorry {PLAYER}, I'm still not accustomed to being above ground yet."))
+	case 4:
+		msgbox(format("Deep beneath Lumbridge is a place called the Tears of Guthix.\pYou should see it for yourself sometime."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script ZANIK_DIALOGUE_HAM_HIDEOUT_B1F {
+	random(8)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("Careful {PLAYER} we don't want them to realise we're not like them."))
+	case 1:
+		msgbox(format("These HAM guys really tick me off."))
+	case 2:
+		msgbox(format("How do people like these even find one another to form an organisation like this?"))
+	case 3:
+		msgbox(format("These people are so driven by their beliefs, but at the same time they say it's because Saradomin would want the same.\pDo they truly need a god to justify their actions?"))
+	case 4:
+		msgbox(format("It's sad to think about how many amazing things were probably dug up to build this place.\pAll that history gone, and for what..."))
+	case 5:
+		msgbox(format("Come on {PLAYER} if we keep looking around we are bound to find something eventually."))
+	case 6:
+		msgbox(format("These people claim to hate monsters, but just look around.\pThey're the real monsters..."))
+	case 7:
+		msgbox(format("I can hear something going on deeper into these caves...\pWe should investigate!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script ZANIK_DIALOGUE_HAM_HIDEOUT_B2F {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("It's funny that they claim to hate creatures like me, yet here they are living in a cave... just like me."))
+	case 1:
+		msgbox(format("I can't believe that they live like this.\pEven we have running water in Dorgesh-Kaan!"))
+	case 2:
+		msgbox(format("How did the Duke not realise that all of this was going on, right under his nose?"))
+	case 3:
+		msgbox(format("I can hear someone that sounds very important nearby.\pI think we're getting close {PLAYER}!"))
+	case 4:
+		msgbox(format("Humans Against Monsters?\pMore like Humans Are Monsters.\nSorry {PLAYER}, I don't mean you."))
+	case 5:
+		msgbox(format("Where do they make and eat food down here?"))
+	case 6:
+		msgbox(format("Torches?\pReally?\pWe have lamp posts with metal wires and light orbs!\pNo wonder they can't see through our disguises, their eyesight must be awful!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+//HAM NPCs
+
+script NPC_LUMBRIDGEFOREST_HAM_1
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Grunt")
+	msgbox(format("Our hideout isn't here, but if it was we would totally not hold anybody important like a prince here.\pAnd we totally would not need that theoretical prince because he has what is needed to summon a power that will rip the world as we know it in two...\pAnd H.A.M definitely would not want to use that power so we can return the world to the peaceful state it needs to be.{PAUSE 15}\nThat's right, there is nothing here.\pMove on."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
 
 
+//HAM TRAINERS
+script BATTLE_LUMBRIDGEFOREST_HAM_1
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_1, format("Why would you look at that, a little monster sympathiser lost in the woods."),format("You may have beaten us, but we will never tell you where our secret hideout is."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("That grunt needs to stop talking before she gets us both into some serious trouble..."))
+	hidenamebox
+    release
+	end
+}
 
+script BATTLE_LUMBRIDGEFOREST_HAM_2
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_2, format("Maybe you and I should show them the way straight back to the bank."),format("Yeah, we will never tell you it's right up that path!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("You didn't hear anything about our secret hideout being right up that path, did you?"))
+	hidenamebox
+    release
+	end
+}
 
+script BATTLE_LUMBRIDGEFOREST_HAM_3
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_3, format("We fight for what's right... The future will show you were in the wrong!"),format("You may have won, but you're still on the wrong side of this!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("The future is written by the victors... Remember that when we smite you down like the bug you are"))
+	hidenamebox
+    release
+	end
+}
 
-
-
-
+script BATTLE_LUMBRIDGEFOREST_HAM_4
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_4, format("I may have let that one goblin pass, but I refuse to let you just waltz into our hideout!"),format("This really isn't my day..."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("This really isn't my day.\pI hope my superiors arent watching.\pIt would really kill my performance review."))
+	hidenamebox
+    release
+	end
+}
 
 
 

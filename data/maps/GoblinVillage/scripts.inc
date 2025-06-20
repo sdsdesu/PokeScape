@@ -310,42 +310,38 @@ POKESCAPER_ORCHY_V2::
 	faceplayer
 	namebox POKESCAPER_ORCHY_Text_0
 	msgbox POKESCAPER_ORCHY_Text_1
-	closemessage
-	goto_if_unset FLAG_SYS_POKEMON_GET, POKESCAPER_ORCHY_V2_2
-	goto_if_set FLAG_BADGE01_GET, POKESCAPER_ORCHY_V2_5
-	goto_if_set FLAG_BADGE02_GET, POKESCAPER_ORCHY_V2_8
-	goto_if_set FLAG_BADGE03_GET, POKESCAPER_ORCHY_V2_11
+	special GetAmountOfBadges
+	switch VAR_RESULT
+	case 0, POKESCAPER_ORCHY_V2_3
+	case 1, POKESCAPER_ORCHY_V2_4
+	case 2, POKESCAPER_ORCHY_V2_5
+	case 3, POKESCAPER_ORCHY_V2_6
+	goto BATTLE_ORCHY_V2
+POKESCAPER_ORCHY_V2_1:
 	goto ORCHY_MUSIC
 	release
 	end
 
-POKESCAPER_ORCHY_V2_2:
-	msgbox POKESCAPER_ORCHY_V2_Text_0
-	hidenamebox
-	closemessage
-	release
-	end
+POKESCAPER_ORCHY_V2_3:
+	goto_if_unset FLAG_SYS_POKEMON_GET, POKESCAPER_ORCHY_V2_8
+	msgbox POKESCAPER_ORCHY_V2_Text_1
+	goto POKESCAPER_ORCHY_V2_1
+
+POKESCAPER_ORCHY_V2_4:
+	msgbox POKESCAPER_ORCHY_V2_Text_2
+	goto POKESCAPER_ORCHY_V2_1
 
 POKESCAPER_ORCHY_V2_5:
-	msgbox POKESCAPER_ORCHY_V2_Text_1
-	hidenamebox
-	closemessage
-	goto ORCHY_MUSIC
-	release
-	end
+	msgbox POKESCAPER_ORCHY_V2_Text_3
+	goto POKESCAPER_ORCHY_V2_1
+
+POKESCAPER_ORCHY_V2_6:
+	msgbox POKESCAPER_ORCHY_V2_Text_4
+	goto POKESCAPER_ORCHY_V2_1
 
 POKESCAPER_ORCHY_V2_8:
-	msgbox POKESCAPER_ORCHY_V2_Text_2
-	hidenamebox
-	closemessage
-	goto ORCHY_MUSIC
-	release
-	end
-
-POKESCAPER_ORCHY_V2_11:
-	goto BATTLE_ORCHY_V2
-	release
-	end
+	msgbox POKESCAPER_ORCHY_V2_Text_0
+	goto POKESCAPER_ORCHY_V2_1
 
 
 BATTLE_ORCHY_V2::
@@ -652,21 +648,34 @@ POKESCAPER_ORCHY_V2_Text_0:
 	.string "Lumbridge Castle.$"
 
 POKESCAPER_ORCHY_V2_Text_1:
-	.string "Congratulations on beating the gym!\p"
+	.string "I see you have no badges, maybe you\n"
+	.string "should stop by Lumbridge Gym and pick\l"
+	.string "one up.\p"
+	.string "Come back and see me once you have a\n"
+	.string "few and we'll have a battle!$"
+
+POKESCAPER_ORCHY_V2_Text_2:
+	.string "Congratulations on your first badge!\p"
 	.string "Come back when you've got a few more\n"
 	.string "and maybe you'll be strong enough to\l"
 	.string "challenge me.$"
 
-POKESCAPER_ORCHY_V2_Text_2:
+POKESCAPER_ORCHY_V2_Text_3:
 	.string "Two badges?\p"
 	.string "Not bad, but I think you still need at\n"
 	.string "least one, maybe even two more to\l"
 	.string "compete with these melodies.$"
+
+POKESCAPER_ORCHY_V2_Text_4:
+	.string "Wow look at you!\p"
+	.string "Say get one more badge then come see\n"
+	.string "me again.$"
 
 BATTLE_ORCHY_V2_Text_0:
 	.string "Oh, do you think you're finally ready for\n"
 	.string "our battle?$"
 
 ORCHY_MUSIC_Text_0:
-	.string "Why don't you stay for a while and just\n"
-	.string "listen to me playing some music instead.$"
+	.string "Anyways why don't you stay for a while\n"
+	.string "and just listen to me playing some music\l"
+	.string "instead.$"

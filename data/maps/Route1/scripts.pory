@@ -1040,12 +1040,12 @@ script FROGEEL_RIVAL_1 {
         closemessage
         applymovement (38, MOVEMENT_QUESTIONMARK)
         namebox("Angrennouille")
-        msgbox(format("You didn't?{PAUSE 60}\nNo… I am not a thief!\pI swear!\pWell whatever, you're wrong, and I have nothing to prove to you."))
+        msgbox(format("You didn't?{PAUSE 60}\nNo… I am not a thief!\pI swear!\pWell whatever, you're wrong and I have nothing to prove to you."))
         hidenamebox
         closemessage
         namebox("Angrennouille")
         msgbox(format("…{PAUSE 15}\nLet's fight just to keep you silent."))
-        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_1, format("Seeya!"))
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_1, format("AAA… SEEYA!"))
         namebox("Angrennouille")
         msgbox(format("A…{PAUSE 60}\nAAA…{PAUSE 60}\lAAAAAAA!"))
         hidenamebox
@@ -1055,8 +1055,10 @@ script FROGEEL_RIVAL_1 {
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1)
         waitmovement(0)
         delay(60)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
         msgbox(format("It seems Angrennouille dropped something while running off."))
         giveitem(ITEM_SPIRIT_CHARM, 1)
+        waitmovement(0)
         removeobject(38)
         setflag(FLAG_TEMP_1F) //Angrennouille
         setvar(VAR_FROGEEL_RIVAL, 5)

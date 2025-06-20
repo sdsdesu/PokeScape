@@ -682,6 +682,104 @@ GOBLIN_EDGEVILLE_GYM::
 	end
 
 
+SIR_THEO_EDGEVILLE::
+	lock
+	compare VAR_EDGEVILLE_KRYSTILIA, 0
+	goto_if_eq SIR_THEO_EDGEVILLE_2
+	compare VAR_EDGEVILLE_KRYSTILIA, 5
+	goto_if_eq SIR_THEO_EDGEVILLE_3
+	namebox SIR_THEO_EDGEVILLE_Text_2
+	msgbox SIR_THEO_EDGEVILLE_Text_10
+	closemessage
+	hidenamebox
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_11
+	closemessage
+	hidenamebox
+	release
+	end
+
+SIR_THEO_EDGEVILLE_2:
+	faceplayer
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_1
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_2
+	msgbox SIR_THEO_EDGEVILLE_Text_3
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_4
+	msgbox SIR_THEO_EDGEVILLE_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne SIR_THEO_EDGEVILLE_8
+SIR_THEO_EDGEVILLE_7:
+	setvar VAR_EDGEVILLE_KRYSTILIA, 5
+	msgbox SIR_THEO_EDGEVILLE_Text_6
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_2
+	msgbox SIR_THEO_EDGEVILLE_Text_7
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_8
+	closemessage
+	hidenamebox
+	release
+	end
+
+SIR_THEO_EDGEVILLE_3:
+	faceplayer
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_9, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne SIR_THEO_EDGEVILLE_11
+SIR_THEO_EDGEVILLE_10:
+	msgbox SIR_THEO_EDGEVILLE_Text_6
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_2
+	msgbox SIR_THEO_EDGEVILLE_Text_7
+	hidenamebox
+	closemessage
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox SIR_THEO_EDGEVILLE_Text_8
+	closemessage
+	hidenamebox
+	release
+	end
+
+SIR_THEO_EDGEVILLE_8:
+	goto BATTLE_SIR_THEO_EDGEVILLE
+	goto SIR_THEO_EDGEVILLE_7
+
+SIR_THEO_EDGEVILLE_11:
+	goto BATTLE_SIR_THEO_EDGEVILLE
+	goto SIR_THEO_EDGEVILLE_10
+
+
+BATTLE_SIR_THEO_EDGEVILLE::
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox BATTLE_SIR_THEO_EDGEVILLE_Text_0
+	closemessage
+	hidenamebox
+	trainerbattle_no_intro TRAINER_SIR_THEO_EDGEVILLE, BATTLE_SIR_THEO_EDGEVILLE_Text_1
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox BATTLE_SIR_THEO_EDGEVILLE_Text_2
+	closemessage
+	hidenamebox
+	giveitem ITEM_TM28, 1
+	setvar VAR_EDGEVILLE_KRYSTILIA, 10
+	namebox SIR_THEO_EDGEVILLE_Text_0
+	msgbox BATTLE_SIR_THEO_EDGEVILLE_Text_3
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 SIGNPOST_EDGEVILLE_GYM_Text_0:
 	.string "Edgeville Gym, located beneath the\n"
 	.string "graveyard.$"
@@ -1191,3 +1289,77 @@ GOBLIN_EDGEVILLE_GYM_Text_1:
 	.string "Don't get any bright ideas.\p"
 	.string "I'm just minding my own business, you\n"
 	.string "should too.$"
+
+SIR_THEO_EDGEVILLE_Text_0:
+	.string "Sir Theo$"
+
+SIR_THEO_EDGEVILLE_Text_1:
+	.string "{PLAYER}? Fancy meeting you here!\p"
+	.string "Me?\p"
+	.string "Due to the Black Knight Fortress\n"
+	.string "incident I have been stationed here by\l"
+	.string "Sir Amik to keep peace in this area.\p"
+	.string "I recently got this Witch right here\n"
+	.string "arrested for causing chaos.$"
+
+SIR_THEO_EDGEVILLE_Text_2:
+	.string "Krystilia$"
+
+SIR_THEO_EDGEVILLE_Text_3:
+	.string "I can get out anytime I want, don't you\n"
+	.string "worry about me Theodore.$"
+
+SIR_THEO_EDGEVILLE_Text_4:
+	.string "Or so she says, but she has not left\n"
+	.string "just yet.$"
+
+SIR_THEO_EDGEVILLE_Text_5:
+	.string "Either way {PLAYER}, I don't want to\n"
+	.string "get rusty in my battle prowess.\p"
+	.string "Would you care to spar with me?$"
+
+SIR_THEO_EDGEVILLE_Text_6:
+	.string "Well, that is a shame.$"
+
+SIR_THEO_EDGEVILLE_Text_7:
+	.string "Suuuuuuch a shame.\p"
+	.string "Do you want to hear more about my\n"
+	.string "homemade hat then?$"
+
+SIR_THEO_EDGEVILLE_Text_8:
+	.string "I am obligated to hear you out…$"
+
+SIR_THEO_EDGEVILLE_Text_9:
+	.string "Do you feel like giving me a break from\n"
+	.string "this witch to have a little kerfuffle?$"
+
+SIR_THEO_EDGEVILLE_Text_10:
+	.string "And that's how I make so much stuff\n"
+	.string "that I am now running out of room.\p"
+	.string "I am considering filling another cell\n"
+	.string "with just my hats.$"
+
+SIR_THEO_EDGEVILLE_Text_11:
+	.string "Again… back to the point…\p"
+	.string "What do your hats have to do with the\n"
+	.string "Wilderness?$"
+
+BATTLE_SIR_THEO_EDGEVILLE_Text_0:
+	.string "Excellent, let us fight!$"
+
+BATTLE_SIR_THEO_EDGEVILLE_Text_1:
+	.string "A worthy defeat.$"
+
+BATTLE_SIR_THEO_EDGEVILLE_Text_2:
+	.string "Well as expected, I am no match for you.\p"
+	.string "No wonder Sir Owen and Sir Tiffy Cashien\n"
+	.string "holds you in high regard.\p"
+	.string "Here's a little something from me as a\n"
+	.string "thank you.$"
+
+BATTLE_SIR_THEO_EDGEVILLE_Text_3:
+	.string "That's a move used by us knights, but\n"
+	.string "some monsters can learn it too.\p"
+	.string "Hopefully you can put it to good use.\n"
+	.string "Hope I get to see you after I am done\l"
+	.string "here.$"

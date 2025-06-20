@@ -1,0 +1,299 @@
+mapscripts HAM_Hideout_B2F_MapScripts {
+
+}
+
+
+//NPCs
+script NPC_HAM_HIDEOUT_1
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We will not tolerate anyone with an opinion differing from our own.\pThat is the path of disaster."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_2
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Before I joined H.A.M my family was killed by goblins.\pNow I feel like I have found my life's calling right here."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_3
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I quite like it here honestly.\pOne thing bugs me however.\pWhy did the leaders decide on the robes being pink?\n{PAUSE 15}Is there some symbolism I am not getting?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_4
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Don't tell any of the other grunts, but I got a thing for Babe.\pDo you know anything that might help me get closer to her?\nThere is a limit to how much hatred against monsters can bring people together..."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_5
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We are going to make Lumbridge great again.\nThen the world will follow."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_6
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("If you do not agree with my opinion you are my enemy, that is how the world works."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_7
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("The dog I grew up with evolved into a green monstrosity.\pI still like it, but now it's the thing we are trying to vanquish from the world.\pAm I in the wrong for not wanting to abandon my friend?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_8
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We might use monsters to fight monsters, but we have standards.\pDogs, spiders, cows, pigs, sheep, and cats have been friends and allies to humans for centuries.\nNow they stand with us against the scourge that are monsters!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_9
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I miss not living in a cave."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_10
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Johanhus is an idealist, he wants to solve conflict with words alone.\pSo far it hasn't really worked, though."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_11
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Babe and Patty are recent admins recruited by Sigmund for their hard work.\nPatty's hard work that is, I don't know what Babe did..."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_12
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Babe is really aloof.\pIt's really hard to tell what's going on in her head."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_13
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I hear Patty used to be a wizard in the Wizards' Tower before she joined us.\pShe was thrown out due to rash and feisty decisions apparently."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_14
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Sigmund is an extremist among us.\pHe doesn't mind flooding a cavern of goblins if it means they will all die.\nPersonally I get that."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_15
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Sigmund believes power and might makes right, so we in H.A.M will become the most powerful organisation in Gielinor."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_16
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Sigmund believes power and might makes right, so we in H.A.M will become the most powerful organisation in Gielinor."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+//Battles
+
+script BATTLE_HAM_HIDEOUT_GRUNT_1
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_1, format("I bet you're wondering how I ended up here."),format("Urgh..."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("When I signed up to become a member, I was never told that our headquarters was in a cave.\pThe Black Knights have a whole fortress..."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_2
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_2, format("I've only been a member for a few days...\pDo you know where the toilets are?"),format("Aaaaaahhhh!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Please tell me it's not just a hole in the floor..."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_3
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_3, format("I've not had a good night's sleep in weeks!\pI'm going to take my frustrations on you!"),format("My back!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Have you seen how many of us there are compared to how many beds we have?\pThere's a rota, but most nights it's whatever space we can find on the floor."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_4
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_4, format("People like you who are friends with monsters make me sick."),format("Disgusting!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("I can't bear to speak to a monster sympathiser like you."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_5
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_5, format("Johanhus and Sigmund were able to build all this in a cave!\pWith a box of scraps!"),format("Gah!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Praise be to Johanhus and Sigmund.\pWhere would we be without them?"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_6
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_6, format("I have been chosen by Johanhus for a special purpose."),format("I may have lost, but I won't fail him."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Johanhus has tasked me with searching for caches of First Age armour.\pI wonder why he wants it, we already have plenty of sets of much newer armour..."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_7
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_7, format("Do you think Sigmund's plans are extremist?"),format("I only asked a question!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("There are lots of mutterings around here that Sigmund's actions are dangerous and destructive.\pPersonally, I don't think he's done enough yet.\pIt will take a substantial amount of power to wipe out the scourge of monsters."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_8
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("Go in peace in the name of Saradomin.\pMay his glory shine upon you like the sun."),format("May Saradomin guide your soul to light."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("As Saradomin is the 'Lord of Light', do you think that Johanhus and Sigmund deliberately build our base underground where the light cannot reach because they know he would be ashamed of us?"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_9
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_9, format("How dare you side with those THINGS instead of your fellow humans!"),format("Traitor!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("I used to be a farmer, you know.\pUntil a group of hobgoblins destroyed my crops.\pRuined my livelihood!\pHonest farmers shouldn't have to deal with that, it's why monsters should be eradicated."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_10
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Monsters are evil, so that means we can kill them for fun."),format("Evil, evil creatures!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("I learned that from an old book, the 'Manual of Monsters'.\pIt had details on all different kinds of monsters and it said if they were good or evil...\nand most of them are evil!"))
+    hidenamebox
+    release
+    end
+}

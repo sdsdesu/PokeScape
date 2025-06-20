@@ -2511,7 +2511,7 @@ SIR_OWEN_DIALOGUE_COMMON_Text_8:
 
 SIR_OWEN_DIALOGUE_COMMON_Text_9:
 	.string "My arm?\n"
-	.string "No I dont know a troll like that.$"
+	.string "No I don't know a troll like that.$"
 
 SIR_OWEN_DIALOGUE_COMMON_Text_10:
 	.string "Stand with me {PLAYER}.\p"
