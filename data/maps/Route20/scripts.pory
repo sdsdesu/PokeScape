@@ -16,6 +16,10 @@ script ROUTE20_STATE {
     removeobject(13)
     removeobject(18)
     removeobject(14)
+    setflag(FLAG_TEMP_10) //Flag Frogeelman has.
+    setflag(FLAG_TEMP_9) //Flag Barb girl has.
+    removeobject(20)      //Angrennouille
+    removeobject(21)      //Barbarian Girl
     
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 160)
     {
@@ -50,13 +54,19 @@ script ROUTE20_STATE {
 }
 
 script FROGEEL_RIVAL_STATE {
-    if (!(var(VAR_FROGEEL_RIVAL) == 15)) {
-        removeobject(20)      //Angrennouille
-        removeobject(21)      //Barbarian Girl
-        setflag(FLAG_TEMP_10)
-        setflag(FLAG_TEMP_9)
+    switch(var(VAR_FROGEEL_RIVAL)){
+    case 15:
+        addobject(20)      //Angrennouille
+        addobject(21)      //Barbarian Girl
+        clearflag(FLAG_TEMP_10) //Flag Frogeelman has.
+        clearflag(FLAG_TEMP_9) //Flag Barb girl has.
+    case 16:
+        addobject(20)      //Angrennouille
+        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
+    case 17:
+        addobject(20)      //Angrennouille
+        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     }
-    return
 }
 
 //BATTLES
@@ -152,80 +162,116 @@ script ROUTE20_VARROCK_GUARD_2
 }
 
 script FROGEEL_RIVAL_4 {
-    lock
-    namebox("Angrennouille")
-	msgbox(format("So listen, I like loose clothes, you wear loose clothes.\nI think we are a good match."))
-    hidenamebox
-    closemessage
-    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-    if (var(VAR_TEMP_1) == 11){
-        applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE) //pushed into player and jumps in place
-        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK) //reacts to the push
-        playse(SE_WALL_HIT)
-        applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3) //woman exits
-    } 
-    elif (var(VAR_TEMP_1) == 12){
-        applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE)
-        playse(SE_WALL_HIT)
-        applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1) //she walks forward and pushes him
-        applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK) //Angrenouille gets knocked out of the way
-        applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2) //woman exits
-        applymovement (20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET) //Angrenouille gets back in position
-    }
-    removeobject(21)
-    setflag(FLAG_TEMP_9) //Barbarian Woman
-    namebox("Angrennouille")
-	msgbox(format("Ouch! It's not easy being a frog monarch in the making."))
-    waitmovement(0)
-    faceplayer
-	msgbox(format("Oh hi {PLAYER}.\p{PAUSE 15}Hey, are you following me?\p{PAUSE 15}Pure chance?\nYeah right.\pListen, I am not up to anything shady this time.\pI haven't stolen anything.\p{PAUSE 32}Yet.\pListen, when I am king of The Land of the Frogs, you might regret your tone here.\nDon't you think?"), MSGBOX_YESNO)
-    if (var(VAR_RESULT))
-    { 
-        msgbox(format("That's right.\pNow, make sure not to tell my future Frog Princess to be about our encounter with the barbarian lady..."))
-        closemessage
-        hidenamebox
-        release
-        end
-    }
-    else {
-        msgbox(format("Well I am offended. And in need of a battle it seems."))
-        closemessage
-        hidenamebox
-            if (flag(FLAG_STARTER1)){ //Grass
-                trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_GRASS, format("Seeya!"))
-            }
-            elif (flag(FLAG_STARTER2)) { //Fire
-                trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_FIRE, format("Seeya!"))
-            }
-            elif (flag(FLAG_STARTER3)) { //Water
-                trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_WATER, format("Seeya!"))
-            }
-        namebox("Angrennouille")
-        msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!\p{PAUSE 15}Oh, you did not hear the last part?\pSorry.\pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!"))
-        closemessage
-        hidenamebox
-        playse(SE_FLEE)
+    if (var(VAR_FROGEEL_RIVAL) == 15) {   //Variable for if you have done earlier events but not spoken to him here
+            lock
+            namebox("Angrennouille")
+            msgbox(format("So listen, I like loose clothes, you wear loose clothes.\nI think we are a good match."))
+            hidenamebox
+            closemessage
             getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-            if (var(VAR_TEMP_1) == 11){
-                applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_BARB_REACTION)   //have player move out of the way as he flees
+            if (var(VAR_TEMP_1) == 11) {
+                applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE) //pushed into player and jumps in place
+                applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK) //reacts to the push
+                playse(SE_WALL_HIT)
+                applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3) //woman exits
             } 
-            elif (var(VAR_TEMP_1) == 12){
-                applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)  //have player watch Angrenouille
+            elif (var(VAR_TEMP_1) == 12) {
+                applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE)
+                playse(SE_WALL_HIT)
+                applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1) //she walks forward and pushes him
+                applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK) //Angrenouille gets knocked out of the way
+                applymovement(21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2) //woman exits
+                applymovement (20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET) //Angrenouille gets back in position
             }
-        applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE)
-        waitmovement(0)
-        delay(60)
-        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
-        msgbox(format("It seems like Angrenouille dropped something along with a bouquet of flowers."))
-        closemessage
-        giveitem(ITEM_SOUL_RUNE, 1)
-        closemessage
-        removeobject(20)
-        setflag(FLAG_TEMP_10) //Angrennouille
-        setvar(VAR_FROGEEL_RIVAL, 20)
-        release
-        end
+            removeobject(21)
+            setflag(FLAG_TEMP_9) //Barbarian Woman
+            namebox("Angrennouille")
+            msgbox(format("Ouch! It's not easy being a frog monarch in the making."))
+            waitmovement(0)
+            faceplayer
+            msgbox(format("Oh hi {PLAYER}.\p{PAUSE 15}Hey, are you following me?\p{PAUSE 15}Pure chance?\nYeah right.\pListen, I am not up to anything shady this time.\pI haven't stolen anything.\p{PAUSE 32}Yet.\pListen, when I am King of The Land of the Frogs, you might regret your tone here.\nDon't you think?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT)) { 
+                msgbox(format("That's right.\pNow, make sure not to tell my future Frog Princess to be about our encounter with the barbarian lady..."))
+                closemessage
+                hidenamebox
+                setvar(VAR_FROGEEL_RIVAL, 16)
+                release
+                end
+            }
+            else {
+                namebox("Angrennouille")
+                msgbox(format("Well I am offended. And in need of a battle it seems."))
+                closemessage
+                hidenamebox
+                goto(BATTLE_FROGEEL_RIVAL_4)
+                }
+    }
+    elif (var(VAR_FROGEEL_RIVAL) == 16) {   //Variable for if you have done the cutscene but not battled him here
+            namebox("Angrennouille")
+            msgbox(format("Oh, you again?\pI thought we had an agreement that you weren't going to do anything you might regret when I am King of the Land of Frogs.\nHave you changed your mind?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT))
+            { 
+                msgbox(format("That's right.\pNow, make sure not to tell my future Frog Princess to be about our encounter with the barbarian lady..."))
+                closemessage
+                hidenamebox
+                setvar(VAR_FROGEEL_RIVAL, 17)
+                release
+                end
+            }
+            else {
+                namebox("Angrennouille")
+                msgbox(format("And there I was thinking you might have a future place in my Court.\pOh well, it seems like a battle is in order."))
+                closemessage
+                hidenamebox
+                goto(BATTLE_FROGEEL_RIVAL_4)
+                }
+
+    }
+
+    elif (var(VAR_FROGEEL_RIVAL) == 17) {   //Variable for if you have done the cutscene but not battled him here
+            namebox("Angrennouille")
+            msgbox(format("I've given you more than enough chances to leave me be.\pJust remember, you brought this upon yourself {PLAYER}!"))
+            goto(BATTLE_FROGEEL_RIVAL_4)
+    }
+	release
+	end
+}
+
+script BATTLE_FROGEEL_RIVAL_4 {
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_4_WATER, format("Seeya!"))
+    }
+    namebox("Angrennouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!\p{PAUSE 15}Oh, you did not hear the last part?\pSorry.\pAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!"))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 11){
+            applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_BARB_REACTION)   //have player move out of the way as he flees
+        } 
+        elif (var(VAR_TEMP_1) == 12){
+            applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)  //have player watch Angrenouille
         }
+    applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE)
+    waitmovement(0)
+    delay(60)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("It seems like Angrenouille dropped something along with a bouquet of flowers."))
+    closemessage
+    giveitem(ITEM_SOUL_RUNE, 1)
+    closemessage
+    removeobject(20)
+    setflag(FLAG_TEMP_10) //Angrennouille
+    setvar(VAR_FROGEEL_RIVAL, 20)
+    release
+    end
 }
 
 movement MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1 {
