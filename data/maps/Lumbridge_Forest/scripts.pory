@@ -256,8 +256,11 @@ script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
     msgbox(format("So how about I lend you a disguise and we team up down there?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT)) {
         msgbox(format("Well drat.\nI guess I'm not as persuasive as I thought…"))
+		hidenamebox
+    	closemessage
         applymovement (29, movement_ZANIK_WALKS_AWAY)
-        waitmovement(0)
+		applymovement (OBJ_EVENT_ID_PLAYER, movement_WALK_DOWN_1_STEP)
+		waitmovement(0)
     }
     else {
         msgbox(format("I bet we will make a great team!"))

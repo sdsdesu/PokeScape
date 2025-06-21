@@ -10196,7 +10196,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     },
     {
     .lvl = 14,
-    .species = SPECIES_SPECIES_CHICKEN_FAMINE_FORM,
+    .species = SPECIES_CHICKEN_FAMINE_FORM,
     .ability = ABILITY_ADAPTABILITY,
     .moves = {MOVE_ATTACK_ORDER, MOVE_HEAL_ORDER, MOVE_DRILL_PECK, MOVE_DEFEND_ORDER}
     },
@@ -10709,7 +10709,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .lvl = 97,
     .species = SPECIES_CAT_WILY_FORM,
     .ability = ABILITY_GUTS,
-    .heldItem = ITEM_FIRECAPE
+    .heldItem = ITEM_FIRECAPE,
     .moves = {MOVE_SLICE_DICE, MOVE_AGILITY, MOVE_CLOSE_COMBAT, MOVE_SLASH}
     },
     {
@@ -10740,13 +10740,13 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .lvl = 102,
     .species = SPECIES_PET_ROCK,
     .ability = ABILITY_STURDY,
-    .moves = {MOVE_DEFENCE_CURL, MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE}
+    .moves = {MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_NONE, MOVE_NONE}
     },
     {
     .lvl = 103,
     .species = SPECIES_ROCK_POLISHED_FORM,
     .ability = ABILITY_UNBURDEN,
-    .heldItem = ITEM_BANANA
+    .heldItem = ITEM_BANANA,
     .moves = {MOVE_ROCK_POLISH, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     },
     {
@@ -10765,7 +10765,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .lvl = 106,
     .species = SPECIES_SLAGILITH,
     .ability = ABILITY_ROCKY_PAYLOAD,
-    .moves = {MOVE_AGILITY, MOVE_DEFENCE_CURL, MOVE_ROLLOUT, MOVE_NONE}
+    .moves = {MOVE_AGILITY, MOVE_DEFENSE_CURL, MOVE_ROLLOUT, MOVE_NONE}
     },
     {
     .lvl = 107,
@@ -10795,7 +10795,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .lvl = 111,
     .species = SPECIES_ROCK_POLISHED_FORM,
     .ability = ABILITY_DAZZLING,
-    .heldItem = ITEM_BANANA
+    .heldItem = ITEM_BANANA,
     .moves = {MOVE_ROCK_POLISH, MOVE_STEALTH_ROCK, MOVE_TAUNT, MOVE_SHORE_UP}
     },
     {
@@ -11181,7 +11181,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     },
     {
     .lvl = 187,
-    .species = SPECIES_RACOON,
+    .species = SPECIES_RACCOON,
     .ability = ABILITY_PICKPOCKET,
     },
     {
@@ -11221,7 +11221,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     },
     {
     .lvl = 195,
-    .species = SPECIES_RACOON,
+    .species = SPECIES_RACCOON,
     .ability = ABILITY_PICKPOCKET,
     },
     {
@@ -11237,7 +11237,7 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     {
     .lvl = 198,
     .species = SPECIES_HONEY_BADGER,
-    .ability = ABILITY_HONEY_GATHERER,
+    .ability = ABILITY_HONEY_GATHER,
     },
     {
     .lvl = 199,

@@ -1370,12 +1370,13 @@ Mithrilman_FALADOR1::
 
 FROGEEL_RIVAL_2::
 	lock
-	faceplayer
 	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_1
 	hidenamebox
 	closemessage
 	applymovement 53, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	faceplayer
 	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
@@ -2237,8 +2238,8 @@ FROGEEL_RIVAL_2_Text_1:
 	.string "Phew, evaded pursuit once again.$"
 
 FROGEEL_RIVAL_2_Text_2:
-	.string "Oh hi there, {PLAYER} was it?\n"
-	.string "Yes I know your name, I know a lot of\l"
+	.string "Oh hi there, {PLAYER} was it?\p"
+	.string "Yes I know your name, I know a lot of\n"
 	.string "things.\p"
 	.string "Like how you will kindly just let me\n"
 	.string "leave for now, right?$"

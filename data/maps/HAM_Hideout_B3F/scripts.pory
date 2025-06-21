@@ -92,8 +92,8 @@ script HAM_HIDEOUT_GATE
             closemessage
         }
         // set meta tiles open gate
-        setmetatile(4, 5, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
-        setmetatile(4, 4, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(4, 4, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(4, 5, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
         setmetatile(5, 5, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
         setmetatile(5, 4, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
         setmetatile(6, 5, METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE, 1)
@@ -119,7 +119,7 @@ script HAMHIDEOUT_Banker {
     namebox ("Banker")
     msgbox(format("First the Black Knights, now H.A.M…\pIt seems I am destined for one thing only in life and that is to be a prisoner.\pThey didn't say you couldn't use the bank though, so how many I help you?"))
 	waitmessage
-    call(BANK_OPTIONS)
+    call(BANK_OPTIONS_JAIL)
     namebox ("Banker")
     msgbox(format("If you get out please tell my wife and children that I miss them…"))
     closemessage

@@ -12,11 +12,22 @@ const GNOMEBOY_ID = 32
 
 mapscripts HAM_Hideout_B1F_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
+        call(HAMHIDEOUT_B1F_STATE)
         goto(HAM_HIDEOUT_GOLDENGNOME_PLACENPCS)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_POKESCAPE_GOLDENGNOMES, 10: HAM_HIDEOUT_GOLDENGNOME_STATE
     ]
+}
+
+script HAMHIDEOUT_B1F_STATE {
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 220) { 
+        setvar(VAR_TEMP_0, 1)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
+        setvar(VAR_TEMP_0, 2)
+    }
+    return
 }
 
 script HAM_HIDEOUT_GOLDENGNOME_PLACENPCS {
@@ -409,4 +420,33 @@ script GOLDENGNOME_TEST {
 
     }
     return
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script TRIGGER_HAMHIDEOUT_EVENT_1 {
+    msgbox(format("Get to work, go to the jail!"))
+    closemessage
+    setvar(VAR_TEMP_0, 2)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 225)
+}
+
+script TRIGGER_HAMHIDEOUT_EVENT_2 {
+    msgbox(format("Guard the prisinors!"))
+    closemessage
+    setvar(VAR_TEMP_0, 3)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 230)
 }

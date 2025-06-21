@@ -1,6 +1,37 @@
 mapscripts HAM_Hideout_B2F_MapScripts {
-
+    MAP_SCRIPT_ON_TRANSITION {
+        call(HAMHIDEOUT_B2F_STATE)
+    }
 }
+
+script HAMHIDEOUT_B2F_STATE {
+    clearflag(FLAG_TEMP_D) //SHOWS NPCS
+    setflag(FLAG_TEMP_C) //HIDES TRAINERS
+
+    setflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_1E)
+    setflag(FLAG_TEMP_1D)
+    removeobject(27)
+    removeobject(22)
+    removeobject(24)
+    removeobject(4)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 230) { 
+        setvar(VAR_TEMP_0, 1)
+        clearflag(FLAG_TEMP_1E)
+        clearflag(FLAG_TEMP_1D)
+        addobject(22)
+        addobject(24)
+        addobject(4)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) { 
+        setflag(FLAG_TEMP_D) //Hides NPCS
+        clearflag(FLAG_TEMP_C) //Shows TRAINERS
+    }
+    return
+}
+
+
+
 
 
 //NPCs
@@ -303,131 +334,17 @@ script BATTLE_HAM_HIDEOUT_GRUNT_10
 
 
 
-
-
-
-DoorGuard: 
-Don't distract me, I'm keeping guard. I must keep watch for anyone not wearing pink!
-
-
-HAMMANAGER:
-He appears too busy to talk.
-TRIGGER 1 - Walks over
-HAMMANAGER:
-Halt! Where have you two been!
-You were rostered on hours ago to swap shifts watching the prisoners!
-We'll discuss your punishment later! For now get over to the jail and start working!
-Zanik:
-Uh, well that's convient, I guess we should start by looking for the jail and asking the prinsoners if they know what HAM are up to.
-
-HAMMANAGER:
-What are you two still doing here! Get to your shifts now!
-Zanik:
-Let's not blow our cover so easily, we should head to the jail and start our investigation from there.
-
-
-ShiftSwappers:
-OMG its about time you noobs! We've been covering for you both for the last few hours!
-Wake up Grunt Z, it's time to go!
-GruntZ:
-Zzz... Huh?! Oh clocking off time already?
-ShiftSwappers: Walk off.
-Zanik:
-Guess we should talk to the prisioners.
-
-Lil Gobs:
-Pwease pink people I just wanna see my family again, pwease let me go…
-Mugger: (The quest guys name)
-Urgh someone shut this creature up, all it does is cry and cry.
-Zanik:
-It's okay we'll get you all out. I don't suppose any of you know what HAM is up to?
-Mugger:
-Beats me maybe this rich guy knows. Ay rich guy pay attention.
-???:
-They kidnapped me asking for information about Kerb-ib. Obviously I didn't tell them a thing.
-Zanik:
-Right, first things first, we need to get you all out of here. Does anyone know where they stored the key?
-LilGobs:
-Pink man passes keys to each new pink man, they didn't givee to yew?
-???:
-I suspect that they forgot to hand the key to you before their shift ended. You might want to go looking for them.
-Zanik:
-Alight we'll be back stay tight everyone!
-
-
-HAMGrunt:
-Where are you going you're meant to be guarding the prisioners.
-Oh they didn't hand over the keys?
-Check the basement I'm pretty sure theres a spare keyset in there.
-
-
-
-
-
-
-
-Trigger
-BossRoomGuards:
-Do you two have bisness with Johanan? No? I didn't think so. Buzz off and go do your jobs.
-
-
-Ham1:
-WAaahH!?
-Oh sorry I was mistook your green complexion as a nasty goblin for a second. Continue on.
-
-
-StorageRoom: (Lower Jail Room)
-Babe: Hey... You look familiar...
-Patty: Hurry up babe, we need to go to Varrock! I swear if you make us late again...
-Babe: Coming!
-
-HamGrunt:
-The spare Jail key? Man you guards are useless! Here take it. Don't lose this one otherwise Sigmund will have your heads.
-OBTAINED KEY
-Zanik:
-Alright {PLAYER} lets go free the prisioners!
-HamGrunt:
-Wait what did you say?!
-Zanik:
-Uh, let's go beat up the prisioners!
-HamGrunt:
-... Take your hood off.
-Zanik:
-Uh, I cannot do that...
-HamGrunt:
-Fine then I will just do it myself.
--Both get un-disgusied-
-HamGrunt:
-AARRRK! You are a GOBLIN!
-A HORRIBABlE AWFEFUL GOBLIN!!
-Stand still while I emlimate you!
-
--Post battle-
-
-HamGrunt:
-Urgh stupid goblin you wouldn't have stood a chance if it wasn't for this human!
-- Walks over to a bell and sounds the alarm -
-Hahaha, well either way you both won't be getting out here alive.
-
-
-Zanik:
-I'm Sorry PLAYER i should have just kept my mouth shut...
-... (player interacts)
-Your right, no time to feel sorry. We've got some people to rescuse!
-
-
-
-
-
-
 script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     lock
-    applymovement(EVENT_ID_PLAYER, movement_HAMHIDEOUT_PLAYER_1)
-    applymovement(follower, movement_HAMHIDEOUT_ZANIK_1)
-    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_PLAYER, movement_HAMHIDEOUT_PLAYER_1)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, movement_HAMHIDEOUT_ZANIK_1)
+    //waitmovement(0)
     applymovement(22, movement_HAMHIDEOUT_PATTY_1)
     applymovement(24, movement_HAMHIDEOUT_BABE_1)
-    waitmovement(0)
+    waitmovement(22)
+    removeobject(22)
+    playse(SE_EXIT)
+    waitmovement(24)
     namebox ("Babe")
     msgbox(format("Hey… You look familiar…"))
     hidenamebox
@@ -444,23 +361,30 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     msgbox(format("C-coming!"))
     hidenamebox
     closemessage
-    applymovement(follower, MOVEMENT_WALKLEFT)
+    applymovement(24, movement_HAMHIDEOUT_BABE_3)
     waitmovement(0)
-    applymovement(4, movement_HAMHIDEOUT_GUARD_1)
+    removeobject(24)
+    playse(SE_EXIT)
+    setflag(FLAG_TEMP_1E)
+    delay(30)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALKLEFT)
+    waitmovement(0)
     namebox ("Zanik")
     msgbox(format("What was that about?"))
     hidenamebox
     closemessage
+    applymovement(4, movement_HAMHIDEOUT_GUARD_1)
     waitmovement(0)
     namebox ("H.A.M Guard")
     msgbox(format("What are you two doing straying from your posts?!"))
     hidenamebox
     closemessage
     playse(SE_PIN)
-    applymovement(EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
-    applymovement(follower, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
     waitmovement(0)
-    applymovement(EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
+    delay(90)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
     waitmovement(0)
     namebox ("H.A.M Guard")
     msgbox(format("The spare jail key?\pMan you guys are useless!\pHere take it and don't lose this one otherwise Sigmund will have your heads."))
@@ -471,7 +395,9 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     msgbox(format("{PLAYER} obtained the CELL KEY."))
     waitfanfare
     closemessage
-    facefollower
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
+    waitmovement(0)
     namebox ("Zanik")
     msgbox(format("Alright {PLAYER} lets go free the prisioners!"))
     hidenamebox
@@ -480,6 +406,9 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     msgbox(format("Wait what did you say?!"))
     hidenamebox
     closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+    waitmovement(0)
     namebox ("Zanik")
     msgbox(format("Uh, let's go beat up the prisioners!"))
     hidenamebox
@@ -503,8 +432,8 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     { 
         hidenamebox
         closemessage
-        applymovement(EVENT_ID_PLAYER, Movement_InteractFACEUP)
-        applymovement(follower, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
         waitmovement(0)
         namebox ("Zanik")
         msgbox(format("No we will not!"))
@@ -515,26 +444,54 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
         hidenamebox
         closemessage
         //takes outfit off
+        fadescreenswapbuffers(FADE_TO_BLACK)
         msgbox(format("The guard removes your outfits."))
         hidenamebox
         closemessage
+        setvar(VAR_0x8004, OUTFIT_DEFAULT)
+        special(WearOutfit)
+        destroyfollower
+        addobject(27)
+        clearflag(FLAG_TEMP_1F)
+        loadword(0, Following_Zanik)
+        setfollower(27, 0x80)
+        
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        //
     }
     else {
         namebox ("Zanik")
         msgbox(format("Okay…"))
         hidenamebox
         closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+        waitmovement(0)
         //takes off outfits.
+        
+        fadescreenswapbuffers(FADE_TO_BLACK)
         msgbox(format("You remove your outfits."))
         hidenamebox
         closemessage
+        setvar(VAR_0x8004, OUTFIT_DEFAULT)
+        special(WearOutfit)
+        destroyfollower
+        addobject(27)
+        clearflag(FLAG_TEMP_1F)
+        loadword(0, Following_Zanik)
+        setfollower(27, 0x80)
+        
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        //
     }
     //shocked jump
+    playse(SE_LEDGE)
+    applymovement(4, movement_HAMHIDEOUT_GUARD_3)
+    waitmovement(0)
     namebox ("H.A.M Guard")
     msgbox(format("AARRRGH!\pA GOBLIN!\pA DISGUSTING VILE GOBLIN!"))
     hidenamebox
     closemessage
-
     namebox ("H.A.M Guard")
     msgbox(format("Stand still while I eliminate you!"))
     hidenamebox
@@ -543,19 +500,28 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     //BATTLE
 
     namebox ("H.A.M Guard")
-    msgbox(format("Urgh…\pStupid goblin…\pYou wouldn't have stoof a chance if it wasn't for this human!\pThere's no way I'm letting either of you escape alive!"))
+    msgbox(format("Urgh…\pStupid goblin…\pYou wouldn't have stood a chance if it wasn't for this human!\pThere's no way I'm letting either of you escape alive!"))
     hidenamebox
     closemessage
+    applymovement(4, movement_HAMHIDEOUT_GUARD_2)
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_TEMP_1D)
     //Runs off to sound the alarm.
     namebox ("Zanik")
     msgbox(format("I'm sorry {PLAYER}…\pI should have just kept my mouth shut…"))
     hidenamebox
     closemessage
     //player interacts.
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_RIGHT)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
+    waitmovement(0)
     namebox ("Zanik")
     msgbox(format("You're right, no time to feel sorry.\pWe've got some people to rescue!"))
     hidenamebox
     closemessage
+    setvar(VAR_TEMP_0, 2)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 235)
     release
     end
 }
@@ -569,10 +535,19 @@ movement movement_HAMHIDEOUT_GUARD_1 {
     walk_down * 3
     step_end
 }
+movement movement_HAMHIDEOUT_GUARD_2 {
+    walk_fast_up * 4
+    step_end
+}
+movement movement_HAMHIDEOUT_GUARD_3 {
+    jump_in_place_down
+    step_end
+}
 movement movement_HAMHIDEOUT_PLAYER_1 {
     lock_facing_direction
     walk_left
     unlock_facing_direction
+    face_right
     step_end
 }
 movement movement_HAMHIDEOUT_ZANIK_1 {
@@ -580,6 +555,7 @@ movement movement_HAMHIDEOUT_ZANIK_1 {
     lock_facing_direction
     walk_right
     unlock_facing_direction
+    face_left
     step_end
 }
 movement movement_HAMHIDEOUT_PATTY_1 {
@@ -596,5 +572,9 @@ movement movement_HAMHIDEOUT_BABE_1 {
 movement movement_HAMHIDEOUT_BABE_2 {
     emote_double_exclamation_mark
     jump_in_place_down
+    step_end
+}
+movement movement_HAMHIDEOUT_BABE_3 {
+    walk_fast_down
     step_end
 }
