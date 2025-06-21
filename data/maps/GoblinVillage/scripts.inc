@@ -352,6 +352,7 @@ BATTLE_ORCHY_V2::
 	msgbox BATTLE_ORCHY_V2_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_ne BATTLE_ORCHY_V2_2
+	msgbox BATTLE_ORCHY_V2_Text_1
 	goto ORCHY_MUSIC
 	release
 	end
@@ -672,8 +673,11 @@ POKESCAPER_ORCHY_V2_Text_4:
 	.string "me again.$"
 
 BATTLE_ORCHY_V2_Text_0:
-	.string "Oh, do you think you're finally ready for\n"
-	.string "our battle?$"
+	.string "Say would you like to have a battle with\n"
+	.string "me?$"
+
+BATTLE_ORCHY_V2_Text_1:
+	.string "Ah shame…$"
 
 ORCHY_MUSIC_Text_0:
 	.string "Anyways why don't you stay for a while\n"

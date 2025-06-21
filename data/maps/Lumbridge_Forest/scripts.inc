@@ -258,7 +258,10 @@ TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_2:
 
 TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_6:
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_8
+	hidenamebox
+	closemessage
 	applymovement 29, movement_ZANIK_WALKS_AWAY
+	applymovement OBJ_EVENT_ID_PLAYER, movement_WALK_DOWN_1_STEP
 	waitmovement 0
 	goto TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_5
 

@@ -1,5 +1,33 @@
 HAM_Hideout_B2F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, HAM_Hideout_B2F_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+HAM_Hideout_B2F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
+	call HAMHIDEOUT_B2F_STATE
+	return
+
+
+HAMHIDEOUT_B2F_STATE::
+	setflag FLAG_TEMP_1F
+	setflag FLAG_TEMP_1E
+	setflag FLAG_TEMP_1D
+	removeobject 27
+	removeobject 22
+	removeobject 24
+	removeobject 4
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 230
+	goto_if_eq HAMHIDEOUT_B2F_STATE_2
+HAMHIDEOUT_B2F_STATE_1:
+	return
+
+HAMHIDEOUT_B2F_STATE_2:
+	setvar VAR_TEMP_0, 1
+	clearflag FLAG_TEMP_1E
+	clearflag FLAG_TEMP_1D
+	addobject 22
+	addobject 24
+	addobject 4
+	goto HAMHIDEOUT_B2F_STATE_1
 
 
 NPC_HAM_HIDEOUT_1::
@@ -171,7 +199,7 @@ NPC_HAM_HIDEOUT_16::
 	lock
 	faceplayer
 	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_15_Text_0
+	msgbox NPC_HAM_HIDEOUT_16_Text_0
 	closemessage
 	hidenamebox
 	release
@@ -268,6 +296,245 @@ BATTLE_HAM_HIDEOUT_GRUNT_10::
 	end
 
 
+TRIGGER_HAMHIDEOUT_BABE_PATTY::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, movement_HAMHIDEOUT_PLAYER_1
+	applymovement OBJ_EVENT_ID_FOLLOWER, movement_HAMHIDEOUT_ZANIK_1
+	applymovement 22, movement_HAMHIDEOUT_PATTY_1
+	applymovement 24, movement_HAMHIDEOUT_BABE_1
+	waitmovement 22
+	removeobject 22
+	playse SE_EXIT
+	waitmovement 24
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_1
+	hidenamebox
+	closemessage
+	delay 30
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_2
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_3
+	hidenamebox
+	closemessage
+	playse SE_PIN
+	applymovement 24, movement_HAMHIDEOUT_BABE_2
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_4
+	hidenamebox
+	closemessage
+	applymovement 24, movement_HAMHIDEOUT_BABE_3
+	waitmovement 0
+	removeobject 24
+	playse SE_EXIT
+	setflag FLAG_TEMP_1E
+	delay 30
+	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALKLEFT
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_6
+	hidenamebox
+	closemessage
+	applymovement 4, movement_HAMHIDEOUT_GUARD_1
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_8
+	hidenamebox
+	closemessage
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_UP
+	applymovement OBJ_EVENT_ID_FOLLOWER, MOVEMENT_EXCLAMATIONMARK_FACE_UP
+	waitmovement 0
+	delay 90
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_9
+	hidenamebox
+	closemessage
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_10
+	waitfanfare
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_11
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_12
+	hidenamebox
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_13
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_14
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_15
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_16
+	hidenamebox
+	closemessage
+	facefollower
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_17, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq TRIGGER_HAMHIDEOUT_BABE_PATTY_2
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_21
+	hidenamebox
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP
+	waitmovement 0
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_22
+	hidenamebox
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_0x8004, OUTFIT_DEFAULT
+	special WearOutfit
+	destroyfollower
+	addobject 27
+	clearflag FLAG_TEMP_1F
+	loadword 0, Following_Zanik
+	setfollower 27, 0x80
+	fadescreenswapbuffers FADE_FROM_BLACK
+TRIGGER_HAMHIDEOUT_BABE_PATTY_1:
+	playse SE_LEDGE
+	applymovement 4, movement_HAMHIDEOUT_GUARD_3
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_23
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_24
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25
+	hidenamebox
+	closemessage
+	applymovement 4, movement_HAMHIDEOUT_GUARD_2
+	waitmovement 0
+	removeobject 4
+	setflag FLAG_TEMP_1D
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26
+	hidenamebox
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_RIGHT
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27
+	hidenamebox
+	closemessage
+	setvar VAR_TEMP_0, 2
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 235
+	release
+	end
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_2:
+	hidenamebox
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP
+	waitmovement 0
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_18
+	hidenamebox
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_19
+	hidenamebox
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_20
+	hidenamebox
+	closemessage
+	setvar VAR_0x8004, OUTFIT_DEFAULT
+	special WearOutfit
+	destroyfollower
+	addobject 27
+	clearflag FLAG_TEMP_1F
+	loadword 0, Following_Zanik
+	setfollower 27, 0x80
+	fadescreenswapbuffers FADE_FROM_BLACK
+	goto TRIGGER_HAMHIDEOUT_BABE_PATTY_1
+
+
+MOVEMENT_EXCLAMATIONMARK_FACE_UP:
+	emote_exclamation_mark
+	face_up
+	step_end
+
+movement_HAMHIDEOUT_GUARD_1:
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+movement_HAMHIDEOUT_GUARD_2:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+movement_HAMHIDEOUT_GUARD_3:
+	jump_in_place_down
+	step_end
+
+movement_HAMHIDEOUT_PLAYER_1:
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	face_right
+	step_end
+
+movement_HAMHIDEOUT_ZANIK_1:
+	walk_up
+	lock_facing_direction
+	walk_right
+	unlock_facing_direction
+	face_left
+	step_end
+
+movement_HAMHIDEOUT_PATTY_1:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+movement_HAMHIDEOUT_BABE_1:
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	delay_16
+	face_left
+	step_end
+
+movement_HAMHIDEOUT_BABE_2:
+	emote_double_exclamation_mark
+	jump_in_place_down
+	step_end
+
+movement_HAMHIDEOUT_BABE_3:
+	walk_fast_down
+	step_end
+
 NPC_HAM_HIDEOUT_1_Text_0:
 	.string "H.A.M Member$"
 
@@ -286,8 +553,8 @@ NPC_HAM_HIDEOUT_3_Text_0:
 	.string "I quite like it here honestly.\p"
 	.string "One thing bugs me however.\p"
 	.string "Why did the leaders decide on the robes\n"
-	.string "being pink?\n"
-	.string "{PAUSE 15}Is there some symbolism I am not\l"
+	.string "being pink?\p"
+	.string "Is there some symbolism I am not\n"
 	.string "getting?$"
 
 NPC_HAM_HIDEOUT_4_Text_0:
@@ -297,7 +564,7 @@ NPC_HAM_HIDEOUT_4_Text_0:
 	.string "get closer to her?\n"
 	.string "There is a limit to how much hatred\l"
 	.string "against monsters can bring people\l"
-	.string "together...$"
+	.string "together…$"
 
 NPC_HAM_HIDEOUT_5_Text_0:
 	.string "We are going to make Lumbridge great\n"
@@ -339,7 +606,7 @@ NPC_HAM_HIDEOUT_11_Text_0:
 	.string "recruited by Sigmund for their hard\l"
 	.string "work.\n"
 	.string "Patty's hard work that is, I don't know\l"
-	.string "what Babe did...$"
+	.string "what Babe did…$"
 
 NPC_HAM_HIDEOUT_12_Text_0:
 	.string "Babe is really aloof.\p"
@@ -362,6 +629,9 @@ NPC_HAM_HIDEOUT_15_Text_0:
 	.string "Sigmund believes power and might makes\n"
 	.string "right, so we in H.A.M will become the most\l"
 	.string "powerful organisation in Gielinor.$"
+
+NPC_HAM_HIDEOUT_16_Text_0:
+	.string "$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_1_Text_0:
 	.string "I bet you're wondering how I ended up\n"
@@ -506,3 +776,104 @@ BATTLE_HAM_HIDEOUT_GRUNT_10_Text_2:
 	.string "monsters and it said if they were good\l"
 	.string "or evil...\n"
 	.string "and most of them are evil!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_0:
+	.string "Babe$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_1:
+	.string "Hey… You look familiar…$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_2:
+	.string "Patty$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_3:
+	.string "Hurry up Babe, we need to go to Varrock!\p"
+	.string "I swear if you make us late again…$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_4:
+	.string "C-coming!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5:
+	.string "Zanik$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_6:
+	.string "What was that about?$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7:
+	.string "H.A.M Guard$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_8:
+	.string "What are you two doing straying from\n"
+	.string "your posts?!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_9:
+	.string "The spare jail key?\p"
+	.string "Man you guys are useless!\p"
+	.string "Here take it and don't lose this one\n"
+	.string "otherwise Sigmund will have your heads.$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_10:
+	.string "{PLAYER} obtained the CELL KEY.$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_11:
+	.string "Alright {PLAYER} lets go free the\n"
+	.string "prisioners!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_12:
+	.string "Wait what did you say?!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_13:
+	.string "Uh, let's go beat up the prisioners!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_14:
+	.string "Nice try…\n"
+	.string "Take your hood off.$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_15:
+	.string "Uh, I cannot do that…$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_16:
+	.string "Take it off or else!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_17:
+	.string "{PLAYER} what should we do, should we\n"
+	.string "take our disguses off?$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_18:
+	.string "No we will not!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_19:
+	.string "Sorry but I didn't give you a choice!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_20:
+	.string "The guard removes your outfits.$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_21:
+	.string "Okay…$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_22:
+	.string "You remove your outfits.$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_23:
+	.string "AARRRGH!\p"
+	.string "A GOBLIN!\p"
+	.string "A DISGUSTING VILE GOBLIN!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_24:
+	.string "Stand still while I eliminate you!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25:
+	.string "Urgh…\p"
+	.string "Stupid goblin…\p"
+	.string "You wouldn't have stoof a chance if it\n"
+	.string "wasn't for this human!\p"
+	.string "There's no way I'm letting either of you\n"
+	.string "escape alive!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26:
+	.string "I'm sorry {PLAYER}…\p"
+	.string "I should have just kept my mouth shut…$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27:
+	.string "You're right, no time to feel sorry.\p"
+	.string "We've got some people to rescue!$"

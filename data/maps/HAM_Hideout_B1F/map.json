@@ -530,8 +530,8 @@
       "y": 40,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "2",
+      "script": "TRIGGER_HAMHIDEOUT_EVENT_2"
     },
     {
       "type": "trigger",
@@ -539,8 +539,8 @@
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "1",
+      "script": "TRIGGER_HAMHIDEOUT_EVENT_1"
     },
     {
       "type": "trigger",
@@ -548,8 +548,8 @@
       "y": 12,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "1",
+      "script": "TRIGGER_HAMHIDEOUT_EVENT_1"
     },
     {
       "type": "trigger",
@@ -557,8 +557,8 @@
       "y": 40,
       "elevation": 0,
       "var": "VAR_TEMP_0",
-      "var_value": "0",
-      "script": "NULL"
+      "var_value": "2",
+      "script": "TRIGGER_HAMHIDEOUT_EVENT_2"
     }
   ],
   "bg_events": [
