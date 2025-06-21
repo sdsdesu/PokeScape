@@ -5,6 +5,9 @@
 #define METATILE_AlKharid_LOCKED_DOOR  0x251
 #define METATILE_AlKharid_OPENED_DOOR  0x213
 
+// gTileset_Barbarian_Village
+#define METATILE_Barbarian_Village_BRIDGE_SIDE_TOP  0x3CB
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 

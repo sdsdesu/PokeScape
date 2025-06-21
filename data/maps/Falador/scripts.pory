@@ -20,7 +20,7 @@ mapscripts Falador_MapScripts {
 
 	MAP_SCRIPT_ON_TRANSITION { 
 		setflag(FLAG_VISITED_FALADOR)
-		
+
 		call(FALADOR_STATE)
 
 		if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
@@ -1554,8 +1554,9 @@ script Mithrilman_FALADOR1{
 
 
 script FROGEEL_RIVAL_2 {
+	lock
+	faceplayer
     if (var(VAR_FROGEEL_RIVAL) == 5) {   //Variable for if you have done earlier events but not spoken to him here
-                lock 
 				namebox("Angrennouille")
 				msgbox(format("Phew, evaded pursuit once again."))
 				hidenamebox
@@ -1634,21 +1635,28 @@ script BATTLE_FROGEEL_RIVAL_2 {
 	setobjectxy(43, 49, 18)
 	setobjectxyperm(52, 49, 17)
 	setobjectxyperm(43, 49, 18)
+	setobjectmovementtype(52, MOVEMENT_TYPE_FACE_RIGHT)
+	setobjectmovementtype(43, MOVEMENT_TYPE_FACE_RIGHT)
 	clearflag(FLAG_TEMP_1D) //White Knight
 	clearflag(FLAG_TEMP_1F) //White Knight
 	addobject(52)
 	addobject(43)
 
 	playse(SE_FLEE)
-	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION) //Moving the player out of the way.
 	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1) //Ang
+	delay(60)
     applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1)
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2)
 	waitmovement(0)
+	delay(90)
+	playse(SE_PIN)
 	applymovement(53, MOVEMENT_EXCLAMATIONMARK)  //Ang
 	applymovement(52, MOVEMENT_WHITE_KNIGHT_REACTION)
 	applymovement(43, MOVEMENT_WHITE_KNIGHT_REACTION)
 	waitmovement(0)
+	waitse
+	delay(30)
 	applymovement(53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2)
 	applymovement(52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3)
 	applymovement(43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4)

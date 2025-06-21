@@ -1911,8 +1911,8 @@ const u8 gText_POH_BLUE[] =_("BLUE");
 const u8 gText_POH_CYAN[] =_("CYAN");
 const u8 gText_POH_BLACK[] =_("BLACK");
 
-const u8 gText_PhoenixEgg_Clap[] =_("CLAP AT IT.");
-const u8 gText_PhoenixEgg_Kick[] =_("KICK IT!!!!");
+const u8 gText_PhoenixEgg_Clap[] =_("Praise the Egg."); 
+const u8 gText_PhoenixEgg_Kick[] =_("Kick the Egg!");
 
 const u8 gText_BANK_HEAL[] =_("HEAL MONSTERS");
 const u8 gText_BANK_STORE_MONSTERS[] =_("STORE MONSTERS");

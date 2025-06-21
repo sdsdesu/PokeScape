@@ -1382,6 +1382,8 @@ Mithrilman_FALADOR1::
 
 
 FROGEEL_RIVAL_2::
+	lock
+	faceplayer
 	compare VAR_FROGEEL_RIVAL, 5
 	goto_if_eq FROGEEL_RIVAL_2_2
 	compare VAR_FROGEEL_RIVAL, 6
@@ -1393,7 +1395,6 @@ FROGEEL_RIVAL_2_1:
 	end
 
 FROGEEL_RIVAL_2_2:
-	lock
 	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_1
 	hidenamebox
@@ -1462,6 +1463,8 @@ BATTLE_FROGEEL_RIVAL_2_1:
 	setobjectxy 43, 49, 18
 	setobjectxyperm 52, 49, 17
 	setobjectxyperm 43, 49, 18
+	setobjectmovementtype 52, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype 43, MOVEMENT_TYPE_FACE_RIGHT
 	clearflag FLAG_TEMP_1D
 	clearflag FLAG_TEMP_1F
 	addobject 52
@@ -1469,13 +1472,18 @@ BATTLE_FROGEEL_RIVAL_2_1:
 	playse SE_FLEE
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION
 	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1
+	delay 60
 	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1
 	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2
 	waitmovement 0
+	delay 90
+	playse SE_PIN
 	applymovement 53, MOVEMENT_EXCLAMATIONMARK
 	applymovement 52, MOVEMENT_WHITE_KNIGHT_REACTION
 	applymovement 43, MOVEMENT_WHITE_KNIGHT_REACTION
 	waitmovement 0
+	waitse
+	delay 30
 	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2
 	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3
 	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4

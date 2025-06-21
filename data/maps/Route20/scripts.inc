@@ -1,9 +1,35 @@
 Route20_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Route20_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_TRANSITION, Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
 
+Route20_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call ROUTE20_METATILES
+	return
+
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	goto ROUTE20_STATE
+	return
+
+
+ROUTE20_METATILES::
+	switch VAR_FROGEEL_RIVAL
+	case 15, ROUTE20_METATILES_2
+	case 16, ROUTE20_METATILES_3
+	case 17, ROUTE20_METATILES_4
+	return
+
+ROUTE20_METATILES_2:
+	setmetatile 12, 30, METATILE_Barbarian_Village_BRIDGE_SIDE_TOP, 0, 4
+	setmetatile 13, 30, METATILE_Barbarian_Village_BRIDGE_SIDE_TOP, 0, 4
+	return
+
+ROUTE20_METATILES_3:
+	setmetatile 12, 30, METATILE_Barbarian_Village_BRIDGE_SIDE_TOP, 0, 4
+	return
+
+ROUTE20_METATILES_4:
+	setmetatile 12, 30, METATILE_Barbarian_Village_BRIDGE_SIDE_TOP, 0, 4
 	return
 
 
@@ -210,6 +236,7 @@ FROGEEL_RIVAL_4_8:
 	goto FROGEEL_RIVAL_4_1
 
 FROGEEL_RIVAL_4_3:
+	faceplayer
 	namebox FROGEEL_RIVAL_4_Text_0
 	msgbox FROGEEL_RIVAL_4_Text_6, MSGBOX_YESNO
 	compare VAR_RESULT, 0
@@ -228,19 +255,23 @@ FROGEEL_RIVAL_4_4:
 	goto FROGEEL_RIVAL_4_1
 
 FROGEEL_RIVAL_4_9:
-	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE
-	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK
 	playse SE_WALL_HIT
 	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_BARB_PLAYER_PUSHED_BACK
+	waitmovement 21
 	goto FROGEEL_RIVAL_4_8
 
 FROGEEL_RIVAL_4_10:
-	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE
 	playse SE_WALL_HIT
 	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1
-	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE
+	waitmovement 21
+	delay 15
 	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2
+	delay 15
 	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET
+	waitmovement 0
 	goto FROGEEL_RIVAL_4_8
 
 FROGEEL_RIVAL_4_13:
@@ -312,10 +343,12 @@ BATTLE_FROGEEL_RIVAL_4_10:
 
 
 MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1:
-	walk_left
+	walk_fast_left
 	step_end
 
 MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2:
+	walk_left
+	walk_down
 	walk_left
 	walk_left
 	walk_left
@@ -330,6 +363,8 @@ MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2:
 	step_end
 
 MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3:
+	walk_fast_left
+	delay_16
 	walk_down
 	walk_left
 	walk_left
@@ -345,7 +380,7 @@ MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3:
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE:
-	emote_exclamation_mark
+	emote_double_exclamation_mark
 	slide_left
 	jump_special_left
 	face_right
@@ -353,8 +388,18 @@ MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE:
 
 MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE:
 	emote_double_exclamation_mark
-	jump_in_place_right
+	lock_facing_direction
+	slide_left
+	jump_in_place_left
+	unlock_facing_direction
 	face_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_PLAYER_PUSHED_BACK:
+	emote_exclamation_mark
+	lock_facing_direction
+	slide_left
+	unlock_facing_direction
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK:
@@ -363,8 +408,9 @@ MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK:
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET:
-	walk_up
-	walk_right
+	walk_slow_right
+	walk_slow_right
+	face_down
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE:

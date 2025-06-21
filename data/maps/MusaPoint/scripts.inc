@@ -1793,8 +1793,10 @@ FROGEEL_RIVAL_3::
 	msgbox FROGEEL_RIVAL_3_Text_1
 	hidenamebox
 	closemessage
+	playse SE_PIN
 	applymovement 15, MOVEMENT_EXCLAMATIONMARK
 	waitmovement 0
+	namebox FROGEEL_RIVAL_3_Text_0
 	msgbox FROGEEL_RIVAL_3_Text_2
 	closemessage
 	hidenamebox
@@ -1814,7 +1816,13 @@ FROGEEL_RIVAL_3_1:
 	goto_if_eq FROGEEL_RIVAL_3_10
 FROGEEL_RIVAL_3_8:
 	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1
+	waitmovement 0
 	playse SE_WALL_HIT
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3
+	waitmovement 0
+	waitse
+	delay 30
+	playse SE_FLEE
 	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2
 	waitmovement 0
 	delay 60
@@ -1856,20 +1864,23 @@ MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
-	lock_facing_direction
-	slide_left
-	jump_in_place_left
-	unlock_facing_direction
+	walk_fast_right
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2:
-	delay_16
 	face_up
 	walk_faster_up
 	walk_faster_up
 	walk_faster_up
 	walk_faster_up
 	walk_faster_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3:
+	lock_facing_direction
+	slide_left
+	jump_in_place_left
+	unlock_facing_direction
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION:
@@ -2761,8 +2772,8 @@ FROGEEL_RIVAL_3_Text_0:
 FROGEEL_RIVAL_3_Text_1:
 	.string "Oh, it's you again {PLAYER}.\p"
 	.string "No, I am not doing anything shady, just\n"
-	.string "eating bananas.\n"
-	.string "I like them, they have multiple A's in\l"
+	.string "eating bananas.\p"
+	.string "I like them, they have multiple A's in\n"
 	.string "them.$"
 
 FROGEEL_RIVAL_3_Text_2:
@@ -2774,7 +2785,7 @@ FROGEEL_RIVAL_3_Text_2:
 	.string "Eating bananas is one of them.\n"
 	.string "Even if they are owned by others.\p"
 	.string "And if you can not accept that?\p"
-	.string "{PAUSE 15}Well I guess we'll just have to fight\n"
+	.string "Well I guess we'll just have to fight\n"
 	.string "about it.\n"
 	.string "Like this!$"
 
@@ -2789,8 +2800,8 @@ FROGEEL_RIVAL_3_Text_4:
 	.string "AAAAAAAAAAAAAAAAA\p"
 	.string "AAAAAAAAAAAAAAAAA\p"
 	.string "AAAAAAAAAAAAAAAAA!\p"
-	.string "{PAUSE 15}I said\p"
-	.string "A$"
+	.string "I said…{PAUSE 15}…\l"
+	.string "A!$"
 
 FROGEEL_RIVAL_3_Text_5:
 	.string "It seems that Angrennouille dropped a\n"
