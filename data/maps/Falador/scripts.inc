@@ -17,15 +17,14 @@ Falador_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 
 Falador_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_FALADOR
+	call FALADOR_STATE
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Falador_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	call OPENWORLD_STATE_FALADOR
-	call FROGEEL_RIVAL_STATE
 	return
 
 Falador_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	call FALADOR_QUEST_STATE
-	call FROGEEL_RIVAL_STATE
 	return
 
 
@@ -66,16 +65,30 @@ MODTIMBO_STATE_3:
 	return
 
 
-FROGEEL_RIVAL_STATE::
-	compare VAR_FROGEEL_RIVAL, 5
-	goto_if_ne FROGEEL_RIVAL_STATE_2
-FROGEEL_RIVAL_STATE_1:
+FALADOR_STATE::
+	setflag FLAG_TEMP_10
+	removeobject 53
+	switch VAR_FROGEEL_RIVAL
+	case 5, FALADOR_STATE_3
+	case 6, FALADOR_STATE_4
+	case 7, FALADOR_STATE_5
+FALADOR_STATE_1:
 	return
 
-FROGEEL_RIVAL_STATE_2:
-	removeobject 53
-	setflag FLAG_TEMP_10
-	goto FROGEEL_RIVAL_STATE_1
+FALADOR_STATE_3:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
+
+FALADOR_STATE_4:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
+
+FALADOR_STATE_5:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
 
 
 FALADOR_SIGN::
@@ -1369,6 +1382,17 @@ Mithrilman_FALADOR1::
 
 
 FROGEEL_RIVAL_2::
+	compare VAR_FROGEEL_RIVAL, 5
+	goto_if_eq FROGEEL_RIVAL_2_2
+	compare VAR_FROGEEL_RIVAL, 6
+	goto_if_eq FROGEEL_RIVAL_2_3
+	compare VAR_FROGEEL_RIVAL, 7
+	goto_if_eq FROGEEL_RIVAL_2_4
+FROGEEL_RIVAL_2_1:
+	release
+	end
+
+FROGEEL_RIVAL_2_2:
 	lock
 	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_1
@@ -1380,46 +1404,85 @@ FROGEEL_RIVAL_2::
 	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_eq FROGEEL_RIVAL_2_2
-FROGEEL_RIVAL_2_1:
+	goto_if_ne FROGEEL_RIVAL_2_8
+	namebox FROGEEL_RIVAL_2_Text_0
 	msgbox FROGEEL_RIVAL_2_Text_4
 	closemessage
 	hidenamebox
-	goto_if_set FLAG_STARTER1, FROGEEL_RIVAL_2_5
-	goto_if_set FLAG_STARTER2, FROGEEL_RIVAL_2_6
-	goto_if_set FLAG_STARTER3, FROGEEL_RIVAL_2_7
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
+FROGEEL_RIVAL_2_3:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq FROGEEL_RIVAL_2_11
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_7
+	closemessage
+	hidenamebox
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
 FROGEEL_RIVAL_2_4:
 	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_8
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
+FROGEEL_RIVAL_2_8:
+	msgbox FROGEEL_RIVAL_2_Text_3
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 6
+	applymovement 53, FACE_ORIGINAL_DIRECTION
+	release
+	end
+
+FROGEEL_RIVAL_2_11:
 	msgbox FROGEEL_RIVAL_2_Text_6
 	closemessage
 	hidenamebox
-	setobjectxy 52, 51, 17
-	setobjectxy 43, 51, 18
-	setobjectxyperm 52, 51, 17
-	setobjectxyperm 43, 51, 18
+	setvar VAR_FROGEEL_RIVAL, 7
+	applymovement 53, FACE_ORIGINAL_DIRECTION
+	release
+	end
+
+
+BATTLE_FROGEEL_RIVAL_2::
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_2_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_2_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_2_4
+BATTLE_FROGEEL_RIVAL_2_1:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox BATTLE_FROGEEL_RIVAL_2_Text_1
+	closemessage
+	hidenamebox
+	setobjectxy 52, 49, 17
+	setobjectxy 43, 49, 18
+	setobjectxyperm 52, 49, 17
+	setobjectxyperm 43, 49, 18
 	clearflag FLAG_TEMP_1D
 	clearflag FLAG_TEMP_1F
 	addobject 52
 	addobject 43
 	playse SE_FLEE
-	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 60
-	goto_if_eq FROGEEL_RIVAL_2_12
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION
 	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1
-FROGEEL_RIVAL_2_11:
 	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1
 	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2
 	waitmovement 0
 	applymovement 53, MOVEMENT_EXCLAMATIONMARK
-	applymovement 52, MOVEMENT_EXCLAMATIONMARK
-	applymovement 43, MOVEMENT_EXCLAMATIONMARK
+	applymovement 52, MOVEMENT_WHITE_KNIGHT_REACTION
+	applymovement 43, MOVEMENT_WHITE_KNIGHT_REACTION
 	waitmovement 0
 	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2
 	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3
 	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4
 	waitmovement 0
 	delay 60
-	msgbox FROGEEL_RIVAL_2_Text_7
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox BATTLE_FROGEEL_RIVAL_2_Text_2
 	closemessage
 	giveitem ITEM_MIND_RUNE, 1
 	closemessage
@@ -1430,33 +1493,24 @@ FROGEEL_RIVAL_2_11:
 	setflag FLAG_TEMP_1D
 	setflag FLAG_TEMP_1F
 	setvar VAR_FROGEEL_RIVAL, 10
-	return
+	release
+	end
 
-FROGEEL_RIVAL_2_2:
-	msgbox FROGEEL_RIVAL_2_Text_3
-	closemessage
-	hidenamebox
-	goto FROGEEL_RIVAL_2_1
+BATTLE_FROGEEL_RIVAL_2_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_GRASS, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
 
-FROGEEL_RIVAL_2_5:
-	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_GRASS, FROGEEL_RIVAL_2_Text_5
-	goto FROGEEL_RIVAL_2_4
+BATTLE_FROGEEL_RIVAL_2_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_FIRE, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
 
-FROGEEL_RIVAL_2_6:
-	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_FIRE, FROGEEL_RIVAL_2_Text_5
-	goto FROGEEL_RIVAL_2_4
-
-FROGEEL_RIVAL_2_7:
-	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_WATER, FROGEEL_RIVAL_2_Text_5
-	goto FROGEEL_RIVAL_2_4
-
-FROGEEL_RIVAL_2_12:
-	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN
-	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1
-	goto FROGEEL_RIVAL_2_11
+BATTLE_FROGEEL_RIVAL_2_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_WATER, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
 
 
 MOVEMENT_FROGEEL_RIVAL_FALADOR_1:
+	walk_fast_down
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
@@ -1470,8 +1524,6 @@ MOVEMENT_FROGEEL_RIVAL_FALADOR_1:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
-	walk_fast_left
-	walk_fast_left
 	walk_fast_left
 	walk_fast_left
 	walk_fast_left
@@ -1484,60 +1536,32 @@ MOVEMENT_FROGEEL_RIVAL_FALADOR_1:
 	walk_fast_up
 	walk_fast_up
 	walk_fast_up
-	walk_fast_up
-	walk_fast_left
-	walk_fast_left
+	face_left
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_FALADOR_2:
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1:
-	delay_8
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_down
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2:
-	walk_down
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
-	walk_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_up
 	step_end
 
 MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3:
-	walk_fast_right
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
@@ -1553,7 +1577,7 @@ MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3:
 MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4:
 	walk_fast_right
 	walk_fast_right
-	walk_fast_right
+	delay_4
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
@@ -1561,6 +1585,17 @@ MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4:
 	walk_fast_down
 	walk_fast_down
 	walk_fast_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION:
+	walk_fast_left
+	face_right
+	step_end
+
+MOVEMENT_WHITE_KNIGHT_REACTION:
+	face_right
+	emote_question_mark
+	emote_double_exclamation_mark
 	step_end
 
 FALADOR_SIGN_Text_0:
@@ -2255,9 +2290,28 @@ FROGEEL_RIVAL_2_Text_4:
 	.string "we?$"
 
 FROGEEL_RIVAL_2_Text_5:
-	.string "Seeya!$"
+	.string "{PLAYER}... You agreed that you were\n"
+	.string "going to let me leave.\p"
+	.string "You haven't changed your mind now, have\n"
+	.string "you?$"
 
 FROGEEL_RIVAL_2_Text_6:
+	.string "Good, now leave me to plan my next heis-\p"
+	.string "{PAUSE 15}You heard nothing...$"
+
+FROGEEL_RIVAL_2_Text_7:
+	.string "Ugh, in that case I shall have to fight\n"
+	.string "my way out...$"
+
+FROGEEL_RIVAL_2_Text_8:
+	.string "I thought we had a deal {PLAYER}.\p"
+	.string "Why would you betray me like this?\p"
+	.string "I thought we were friends.$"
+
+BATTLE_FROGEEL_RIVAL_2_Text_0:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_2_Text_1:
 	.string "A\n"
 	.string "AAA\n"
 	.string "AAAAAAA\p"
@@ -2265,6 +2319,6 @@ FROGEEL_RIVAL_2_Text_6:
 	.string "AAAAAAAAAAAAAAAAA\p"
 	.string "AAAAAAAAAAAAAAAAA!$"
 
-FROGEEL_RIVAL_2_Text_7:
+BATTLE_FROGEEL_RIVAL_2_Text_2:
 	.string "It seems that some of Angrennouille's\n"
 	.string "loot fell from his pocket as he ran off.$"

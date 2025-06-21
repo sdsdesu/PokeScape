@@ -17,27 +17,37 @@ ROUTE20_STATE::
 	removeobject 13
 	removeobject 18
 	removeobject 14
+	setflag FLAG_TEMP_10
+	setflag FLAG_TEMP_9
+	removeobject 20
+	removeobject 21
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 160
 	goto_if_eq ROUTE20_STATE_2
 ROUTE20_STATE_1:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 165
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 175
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 180
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 181
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 185
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 186
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 187
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 190
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 195
-	goto_if_eq ROUTE20_STATE_4
+	goto_if_eq ROUTE20_STATE_5
+ROUTE20_STATE_4:
+	switch VAR_FROGEEL_RIVAL
+	case 15, ROUTE20_STATE_25
+	case 16, ROUTE20_STATE_26
+	case 17, ROUTE20_STATE_27
+ROUTE20_STATE_23:
 	return
 
 ROUTE20_STATE_2:
@@ -53,14 +63,31 @@ ROUTE20_STATE_2:
 	setvar VAR_TEMP_0, 1
 	goto ROUTE20_STATE_1
 
-ROUTE20_STATE_4:
+ROUTE20_STATE_5:
 	clearflag FLAG_TEMP_1E
 	addobject 11
 	addobject 12
 	addobject 18
 	addobject 14
 	setvar VAR_TEMP_0, 1
-	return
+	goto ROUTE20_STATE_4
+
+ROUTE20_STATE_25:
+	addobject 20
+	addobject 21
+	clearflag FLAG_TEMP_10
+	clearflag FLAG_TEMP_9
+	goto ROUTE20_STATE_23
+
+ROUTE20_STATE_26:
+	addobject 20
+	clearflag FLAG_TEMP_10
+	goto ROUTE20_STATE_23
+
+ROUTE20_STATE_27:
+	addobject 20
+	clearflag FLAG_TEMP_10
+	goto ROUTE20_STATE_23
 
 
 BATTLE_ROUTE20_TRAINER_1::
@@ -139,6 +166,229 @@ ROUTE20_VARROCK_GUARD_2::
 	msgbox ROUTE20_VARROCK_GUARD_2_Text_0
 	closemessage
 	hidenamebox
+	release
+	end
+
+
+FROGEEL_RIVAL_4::
+	compare VAR_FROGEEL_RIVAL, 15
+	goto_if_eq FROGEEL_RIVAL_4_2
+	compare VAR_FROGEEL_RIVAL, 16
+	goto_if_eq FROGEEL_RIVAL_4_3
+	compare VAR_FROGEEL_RIVAL, 17
+	goto_if_eq FROGEEL_RIVAL_4_4
+FROGEEL_RIVAL_4_1:
+	release
+	end
+
+FROGEEL_RIVAL_4_2:
+	lock
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_1
+	hidenamebox
+	closemessage
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 11
+	goto_if_eq FROGEEL_RIVAL_4_9
+	compare VAR_TEMP_1, 12
+	goto_if_eq FROGEEL_RIVAL_4_10
+FROGEEL_RIVAL_4_8:
+	removeobject 21
+	setflag FLAG_TEMP_9
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_2
+	waitmovement 0
+	faceplayer
+	msgbox FROGEEL_RIVAL_4_Text_3, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne FROGEEL_RIVAL_4_16
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_5
+	closemessage
+	hidenamebox
+	goto BATTLE_FROGEEL_RIVAL_4
+	goto FROGEEL_RIVAL_4_1
+
+FROGEEL_RIVAL_4_3:
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_6, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne FROGEEL_RIVAL_4_13
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_7
+	closemessage
+	hidenamebox
+	goto BATTLE_FROGEEL_RIVAL_4
+	goto FROGEEL_RIVAL_4_1
+
+FROGEEL_RIVAL_4_4:
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox FROGEEL_RIVAL_4_Text_8
+	goto BATTLE_FROGEEL_RIVAL_4
+	goto FROGEEL_RIVAL_4_1
+
+FROGEEL_RIVAL_4_9:
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK
+	playse SE_WALL_HIT
+	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3
+	goto FROGEEL_RIVAL_4_8
+
+FROGEEL_RIVAL_4_10:
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE
+	playse SE_WALL_HIT
+	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK
+	applymovement 21, MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET
+	goto FROGEEL_RIVAL_4_8
+
+FROGEEL_RIVAL_4_13:
+	msgbox FROGEEL_RIVAL_4_Text_4
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 17
+	release
+	end
+
+FROGEEL_RIVAL_4_16:
+	msgbox FROGEEL_RIVAL_4_Text_4
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 16
+	release
+	end
+
+
+BATTLE_FROGEEL_RIVAL_4::
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_4_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_4_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_4_4
+BATTLE_FROGEEL_RIVAL_4_1:
+	namebox FROGEEL_RIVAL_4_Text_0
+	msgbox BATTLE_FROGEEL_RIVAL_4_Text_1
+	closemessage
+	hidenamebox
+	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 11
+	goto_if_eq BATTLE_FROGEEL_RIVAL_4_9
+	compare VAR_TEMP_1, 12
+	goto_if_eq BATTLE_FROGEEL_RIVAL_4_10
+BATTLE_FROGEEL_RIVAL_4_8:
+	applymovement 20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE
+	waitmovement 0
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox BATTLE_FROGEEL_RIVAL_4_Text_2
+	closemessage
+	giveitem ITEM_SOUL_RUNE, 1
+	closemessage
+	removeobject 20
+	setflag FLAG_TEMP_10
+	setvar VAR_FROGEEL_RIVAL, 20
+	release
+	end
+
+BATTLE_FROGEEL_RIVAL_4_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_4_GRASS, BATTLE_FROGEEL_RIVAL_4_Text_0
+	goto BATTLE_FROGEEL_RIVAL_4_1
+
+BATTLE_FROGEEL_RIVAL_4_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_4_FIRE, BATTLE_FROGEEL_RIVAL_4_Text_0
+	goto BATTLE_FROGEEL_RIVAL_4_1
+
+BATTLE_FROGEEL_RIVAL_4_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_4_WATER, BATTLE_FROGEEL_RIVAL_4_Text_0
+	goto BATTLE_FROGEEL_RIVAL_4_1
+
+BATTLE_FROGEEL_RIVAL_4_9:
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_BARB_REACTION
+	goto BATTLE_FROGEEL_RIVAL_4_8
+
+BATTLE_FROGEEL_RIVAL_4_10:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	goto BATTLE_FROGEEL_RIVAL_4_8
+
+
+MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_1:
+	walk_left
+	step_end
+
+MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_2:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MOVEMENT_FROGEEL_BARB_WOMAN_EXIT_3:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_SLIDE:
+	emote_exclamation_mark
+	slide_left
+	jump_special_left
+	face_right
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_JUMP_IN_PLACE:
+	emote_double_exclamation_mark
+	jump_in_place_right
+	face_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_KNOCKBACK:
+	walk_fast_down
+	face_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE_RESET:
+	walk_up
+	walk_right
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_BARB_REACTION:
+	walk_fast_down
+	face_left
+	step_end
+
+ROUTE20_BARBARIAN_WOMAN::
+	lock
+	msgbox ROUTE20_BARBARIAN_WOMAN_Text_0
+	closemessage
 	release
 	end
 
@@ -227,3 +477,84 @@ ROUTE20_VARROCK_GUARD_2_Text_0:
 	.string "not to let anybody through while they\l"
 	.string "investigate what's going on over in the\l"
 	.string "west.$"
+
+FROGEEL_RIVAL_4_Text_0:
+	.string "Angrennouille$"
+
+FROGEEL_RIVAL_4_Text_1:
+	.string "So listen, I like loose clothes, you wear\n"
+	.string "loose clothes.\n"
+	.string "I think we are a good match.$"
+
+FROGEEL_RIVAL_4_Text_2:
+	.string "Ouch! It's not easy being a frog\n"
+	.string "monarch in the making.$"
+
+FROGEEL_RIVAL_4_Text_3:
+	.string "Oh hi {PLAYER}.\p"
+	.string "{PAUSE 15}Hey, are you following me?\p"
+	.string "{PAUSE 15}Pure chance?\n"
+	.string "Yeah right.\p"
+	.string "Listen, I am not up to anything shady\n"
+	.string "this time.\p"
+	.string "I haven't stolen anything.\p"
+	.string "{PAUSE 32}Yet.\p"
+	.string "Listen, when I am King of The Land of\n"
+	.string "the Frogs, you might regret your tone\l"
+	.string "here.\n"
+	.string "Don't you think?$"
+
+FROGEEL_RIVAL_4_Text_4:
+	.string "That's right.\p"
+	.string "Now, make sure not to tell my future\n"
+	.string "Frog Princess to be about our\l"
+	.string "encounter with the barbarian lady...$"
+
+FROGEEL_RIVAL_4_Text_5:
+	.string "Well I am offended. And in need of a\n"
+	.string "battle it seems.$"
+
+FROGEEL_RIVAL_4_Text_6:
+	.string "Oh, you again?\p"
+	.string "I thought we had an agreement that you\n"
+	.string "weren't going to do anything you might\l"
+	.string "regret when I am King of the Land of\l"
+	.string "Frogs.\n"
+	.string "Have you changed your mind?$"
+
+FROGEEL_RIVAL_4_Text_7:
+	.string "And there I was thinking you might have\n"
+	.string "a future place in my Court.\p"
+	.string "Oh well, it seems like a battle is in\n"
+	.string "order.$"
+
+FROGEEL_RIVAL_4_Text_8:
+	.string "I've given you more than enough\n"
+	.string "chances to leave me be.\p"
+	.string "Just remember, you brought this upon\n"
+	.string "yourself {PLAYER}!$"
+
+BATTLE_FROGEEL_RIVAL_4_Text_0:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_4_Text_1:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA!\p"
+	.string "{PAUSE 15}Oh, you did not hear the last part?\p"
+	.string "Sorry.\p"
+	.string "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!$"
+
+BATTLE_FROGEEL_RIVAL_4_Text_2:
+	.string "It seems like Angrenouille dropped\n"
+	.string "something along with a bouquet of\l"
+	.string "flowers.$"
+
+ROUTE20_BARBARIAN_WOMAN_Text_0:
+	.string "The woman is too distracted, and\n"
+	.string "confused, by Angrenouille to notice\l"
+	.string "you.$"

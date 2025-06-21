@@ -41,27 +41,32 @@ MUSAPOINT_METATILES_5:
 
 
 MUSAPOINT_STATE::
+	removeobject 15
+	setflag FLAG_TEMP_10
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq MUSAPOINT_STATE_2
 MUSAPOINT_STATE_1:
+	compare VAR_FROGEEL_RIVAL, 10
+	goto_if_eq MUSAPOINT_STATE_5
+MUSAPOINT_STATE_4:
 	return
 
 MUSAPOINT_STATE_2:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 155
-	goto_if_le MUSAPOINT_STATE_5
+	goto_if_le MUSAPOINT_STATE_8
 	removeobject 21
 	setflag FLAG_TEMP_1D
-MUSAPOINT_STATE_4:
+MUSAPOINT_STATE_7:
 	compare VAR_WISE_OLD_MAN_RIVAL, 15
-	goto_if_le MUSAPOINT_STATE_9
+	goto_if_le MUSAPOINT_STATE_12
 	removeobject 20
 	setflag FLAG_TEMP_1F
 	removeobject 22
 	removeobject 23
 	setflag FLAG_TEMP_1E
-MUSAPOINT_STATE_8:
+MUSAPOINT_STATE_11:
 	compare VAR_BANANA_BOAT_QUEST, 5
-	goto_if_ge MUSAPOINT_STATE_12
+	goto_if_ge MUSAPOINT_STATE_15
 	setflag FLAG_TEMP_1C
 	setflag FLAG_TEMP_1B
 	removeobject 24
@@ -69,21 +74,26 @@ MUSAPOINT_STATE_8:
 	goto MUSAPOINT_STATE_1
 
 MUSAPOINT_STATE_5:
+	addobject 15
+	clearflag FLAG_TEMP_10
+	goto MUSAPOINT_STATE_4
+
+MUSAPOINT_STATE_8:
 	addobject 21
 	clearflag FLAG_TEMP_1D
 	setobjectxyperm 7, 38, 29
-	goto MUSAPOINT_STATE_4
+	goto MUSAPOINT_STATE_7
 
-MUSAPOINT_STATE_9:
+MUSAPOINT_STATE_12:
 	setvar VAR_TEMP_F, 1
 	addobject 20
 	clearflag FLAG_TEMP_1F
 	addobject 22
 	addobject 23
 	clearflag FLAG_TEMP_1E
-	goto MUSAPOINT_STATE_8
+	goto MUSAPOINT_STATE_11
 
-MUSAPOINT_STATE_12:
+MUSAPOINT_STATE_15:
 	clearflag FLAG_TEMP_1C
 	clearflag FLAG_TEMP_1B
 	addobject 24
@@ -1776,6 +1786,97 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_7:
 	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
 
 
+FROGEEL_RIVAL_3::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_3_Text_0
+	msgbox FROGEEL_RIVAL_3_Text_1
+	hidenamebox
+	closemessage
+	applymovement 15, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	msgbox FROGEEL_RIVAL_3_Text_2
+	closemessage
+	hidenamebox
+	goto_if_set FLAG_STARTER1, FROGEEL_RIVAL_3_2
+	goto_if_set FLAG_STARTER2, FROGEEL_RIVAL_3_3
+	goto_if_set FLAG_STARTER3, FROGEEL_RIVAL_3_4
+FROGEEL_RIVAL_3_1:
+	namebox FROGEEL_RIVAL_3_Text_0
+	msgbox FROGEEL_RIVAL_3_Text_4
+	closemessage
+	hidenamebox
+	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 20
+	goto_if_eq FROGEEL_RIVAL_3_9
+	compare VAR_TEMP_1, 21
+	goto_if_eq FROGEEL_RIVAL_3_10
+FROGEEL_RIVAL_3_8:
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1
+	playse SE_WALL_HIT
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2
+	waitmovement 0
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox FROGEEL_RIVAL_3_Text_5
+	closemessage
+	giveitem ITEM_NATURE_RUNE, 1
+	closemessage
+	removeobject 15
+	setflag FLAG_TEMP_10
+	setvar VAR_FROGEEL_RIVAL, 15
+	return
+
+FROGEEL_RIVAL_3_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_GRASS, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_FIRE, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_WATER, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_9:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	goto FROGEEL_RIVAL_3_8
+
+FROGEEL_RIVAL_3_10:
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION
+	goto FROGEEL_RIVAL_3_8
+
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	lock_facing_direction
+	slide_left
+	jump_in_place_left
+	unlock_facing_direction
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2:
+	delay_16
+	face_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION:
+	walk_fast_down
+	face_right
+	step_end
+
 NPC_MUSAPOINT_SAILOR_Text_0:
 	.string "Officer$"
 
@@ -2653,3 +2754,46 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_3:
 SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4:
 	.string "When we find Lord Daquarius, we may\n"
 	.string "need to be prepared for a fierce battle.$"
+
+FROGEEL_RIVAL_3_Text_0:
+	.string "Angrennouille$"
+
+FROGEEL_RIVAL_3_Text_1:
+	.string "Oh, it's you again {PLAYER}.\p"
+	.string "No, I am not doing anything shady, just\n"
+	.string "eating bananas.\n"
+	.string "I like them, they have multiple A's in\l"
+	.string "them.$"
+
+FROGEEL_RIVAL_3_Text_2:
+	.string "You have to buy them?\p"
+	.string "{PAUSE 15}They don't belong to me?\p"
+	.string "Listen here {PLAYER}.\n"
+	.string "In life a man has to do certain things\l"
+	.string "to become a frog monarch.\p"
+	.string "Eating bananas is one of them.\n"
+	.string "Even if they are owned by others.\p"
+	.string "And if you can not accept that?\p"
+	.string "{PAUSE 15}Well I guess we'll just have to fight\n"
+	.string "about it.\n"
+	.string "Like this!$"
+
+FROGEEL_RIVAL_3_Text_3:
+	.string "Seeya!$"
+
+FROGEEL_RIVAL_3_Text_4:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA!\p"
+	.string "{PAUSE 15}I said\p"
+	.string "A$"
+
+FROGEEL_RIVAL_3_Text_5:
+	.string "It seems that Angrennouille dropped a\n"
+	.string "banana.\p"
+	.string "Opening the banana revealed an item\n"
+	.string "inside.$"

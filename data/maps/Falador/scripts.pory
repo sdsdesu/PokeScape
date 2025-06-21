@@ -20,17 +20,17 @@ mapscripts Falador_MapScripts {
 
 	MAP_SCRIPT_ON_TRANSITION { 
 		setflag(FLAG_VISITED_FALADOR)
-		setflag(FLAG_TEMP_10) //Flag Frogeelman has.
-        removeobject(53)      //Angrennouille
+		
+		call(FALADOR_STATE)
+
 		if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
 		{
 			call(FALADOR_QUEST_STATE)
-			call(FROGEEL_RIVAL_STATE)
+			
 		}
 		else 
 		{
 			call(OPENWORLD_STATE_FALADOR)
-			call(FROGEEL_RIVAL_STATE) 
 		}
     }
 } 
@@ -77,7 +77,11 @@ script MODTIMBO_STATE{
 }
 
 
-script FROGEEL_RIVAL_STATE {
+script FALADOR_STATE {
+	
+	setflag(FLAG_TEMP_10) //Flag Frogeelman has.
+	removeobject(53)      //Angrennouille
+
     switch(var(VAR_FROGEEL_RIVAL)){
     case 5:
         addobject(53)      //Angrennouille
@@ -89,6 +93,7 @@ script FROGEEL_RIVAL_STATE {
         addobject(53)      //Angrennouille
         clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     }
+	return
 }
 
 

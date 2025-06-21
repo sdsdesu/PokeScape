@@ -2,7 +2,6 @@ mapscripts Route20_MapScripts {
     MAP_SCRIPT_ON_TRANSITION 
     {
         goto(ROUTE20_STATE)
-        call(FROGEEL_RIVAL_STATE)
     }
 }
 
@@ -51,23 +50,24 @@ script ROUTE20_STATE {
         addobject(14)
         setvar(VAR_TEMP_0, 1)
     }
+
+    switch(var(VAR_FROGEEL_RIVAL)) {
+        case 15:
+            addobject(20)      //Angrennouille
+            addobject(21)      //Barbarian Girl
+            clearflag(FLAG_TEMP_10) //Flag Frogeelman has.
+            clearflag(FLAG_TEMP_9) //Flag Barb girl has.
+        case 16:
+            addobject(20)      //Angrennouille
+            clearflag(FLAG_TEMP_10) //Flag Frogeelman has
+        case 17:
+            addobject(20)      //Angrennouille
+            clearflag(FLAG_TEMP_10) //Flag Frogeelman has
+    }
+
+    return
 }
 
-script FROGEEL_RIVAL_STATE {
-    switch(var(VAR_FROGEEL_RIVAL)){
-    case 15:
-        addobject(20)      //Angrennouille
-        addobject(21)      //Barbarian Girl
-        clearflag(FLAG_TEMP_10) //Flag Frogeelman has.
-        clearflag(FLAG_TEMP_9) //Flag Barb girl has.
-    case 16:
-        addobject(20)      //Angrennouille
-        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
-    case 17:
-        addobject(20)      //Angrennouille
-        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
-    }
-}
 
 //BATTLES
 

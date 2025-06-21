@@ -592,12 +592,12 @@ NPC_ROUTE12_BRONZEMAN::
 	msgbox NPC_ROUTE12_BRONZEMAN_Text_1
 	hidenamebox
 	closemessage
-	applymovement 39, ROUTE12_BRONZEMAN
+	applymovement 39, FACE_ORIGINAL_DIRECTION
 	release
 	end
 
 
-ROUTE12_BRONZEMAN:
+FACE_ORIGINAL_DIRECTION:
 	face_original_direction
 	step_end
 

@@ -8,6 +8,8 @@ HAM_Hideout_B2F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 
 
 HAMHIDEOUT_B2F_STATE::
+	clearflag FLAG_TEMP_D
+	setflag FLAG_TEMP_C
 	setflag FLAG_TEMP_1F
 	setflag FLAG_TEMP_1E
 	setflag FLAG_TEMP_1D
@@ -18,6 +20,9 @@ HAMHIDEOUT_B2F_STATE::
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 230
 	goto_if_eq HAMHIDEOUT_B2F_STATE_2
 HAMHIDEOUT_B2F_STATE_1:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 235
+	goto_if_eq HAMHIDEOUT_B2F_STATE_5
+HAMHIDEOUT_B2F_STATE_4:
 	return
 
 HAMHIDEOUT_B2F_STATE_2:
@@ -28,6 +33,11 @@ HAMHIDEOUT_B2F_STATE_2:
 	addobject 24
 	addobject 4
 	goto HAMHIDEOUT_B2F_STATE_1
+
+HAMHIDEOUT_B2F_STATE_5:
+	setflag FLAG_TEMP_D
+	clearflag FLAG_TEMP_C
+	goto HAMHIDEOUT_B2F_STATE_4
 
 
 NPC_HAM_HIDEOUT_1::
@@ -397,10 +407,10 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY::
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
 	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP
 	waitmovement 0
+	fadescreenswapbuffers FADE_TO_BLACK
 	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_22
 	hidenamebox
 	closemessage
-	fadescreenswapbuffers FADE_TO_BLACK
 	setvar VAR_0x8004, OUTFIT_DEFAULT
 	special WearOutfit
 	destroyfollower
@@ -434,6 +444,7 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_1:
 	hidenamebox
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_RIGHT
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT
 	waitmovement 0
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
 	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27
@@ -865,7 +876,7 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_24:
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25:
 	.string "Urgh…\p"
 	.string "Stupid goblin…\p"
-	.string "You wouldn't have stoof a chance if it\n"
+	.string "You wouldn't have stood a chance if it\n"
 	.string "wasn't for this human!\p"
 	.string "There's no way I'm letting either of you\n"
 	.string "escape alive!$"

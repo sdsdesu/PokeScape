@@ -250,7 +250,7 @@ script Mithrilman_VARROCK1{
     playbgm (MUS_ENCOUNTER_MAY, 1)
     namebox("Mithrilman")
     msgbox(format("We meet again knave.\pHow farest thee battle?\pThine?\pThine has bartered with the skin pelter of Varrockia.\pThine wouldst need a bear skin.\pBut alas, clause 73 of the Mithrilmen states thine is not to use money to gainst relics.\pThust thine simply did not pay the pelter.\pThoust seems eager for a rematch?"))
-    trainerbattle_single(TRAINER_MITHRILMAN3,format("Alas knave, there is no ducks to save thee this time."),format("…"),Mithrilman_VARROCK2)
+    //trainerbattle_single(TRAINER_MITHRILMAN3,format("Alas knave, there is no ducks to save thee this time."),format("…"),Mithrilman_VARROCK2)
 }
 script Mithrilman_VARROCK2{  
     lock
