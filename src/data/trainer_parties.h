@@ -7954,7 +7954,7 @@ static const struct TrainerMon sParty_ZANIK_HAM[] = {
     .ev = TRAINER_PARTY_EVS(0, 0, 0, 252, 0, 252),
     .nature = NATURE_TIMID,
     .ability = ABILITY_PERISH_BODY,
-    .moves = {MOVE_SHADOW_BALL, MOVE_PARABOLIC_CHARGE, MOVE_WATER_PULSE, MOVE_THUNDER_WAVE}         //Replace Water Pulse with Defiance when implemented
+    .moves = {MOVE_SHADOW_BALL, MOVE_PARABOLIC_CHARGE, MOVE_DEFIANCE, MOVE_THUNDER_WAVE}
     },
     {
     .lvl = 45,
@@ -7962,7 +7962,7 @@ static const struct TrainerMon sParty_ZANIK_HAM[] = {
     .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
     .nature = NATURE_ADAMANT,
     .ability = ABILITY_STATIC,
-    .moves = {MOVE_DIVE, MOVE_THUNDER_FANG, MOVE_CRUNCH, MOVE_RAIN_DANCE}                           //Replace Rain Dance with Defiance when implemented
+    .moves = {MOVE_DIVE, MOVE_THUNDER_FANG, MOVE_CRUNCH, MOVE_DEFIANCE}
     },
     {
     .lvl = 46,
@@ -7970,7 +7970,7 @@ static const struct TrainerMon sParty_ZANIK_HAM[] = {
     .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 0, 252),
     .nature = NATURE_SERIOUS,
     .ability = ABILITY_JUSTIFIED,
-    .moves = {MOVE_BOLT_STRIKE, MOVE_AIR_SLASH, MOVE_SUPERSONIC, MOVE_THUNDERCLAP}                    //Replace Thunderclap with Defiance when implemented
+    .moves = {MOVE_BOLT_STRIKE, MOVE_AIR_SLASH, MOVE_SUPERSONIC, MOVE_DEFIANCE}
     }
 };
 
@@ -9715,26 +9715,26 @@ static const struct TrainerMon sParty_HAMHideout_Grunt_2[] = {
     },
     {
     .lvl = 47,
-    .species = SPECIES_RAM_FLUFFY_FORM,
+    .species = SPECIES_SHEEP_PIRATE_FORM,
     }
 };
 
 static const struct TrainerMon sParty_HAMHideout_Grunt_3[] = {
     {
     .lvl = 46,
-    .species = SPECIES_SHEEPDOG,
-    },
-    {
-    .lvl = 46,
     .species = SPECIES_SHEEP_BLACK_FORM,
-    },
-    {
-    .lvl = 46,
-    .species = SPECIES_RAM_SHAGGY_FORM,
     },
     {
     .lvl = 47,
     .species = SPECIES_SHEEP_WHITE_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SHEEPDOG,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SPIDER_JUNGLE_FORM,
     }
 };
 
@@ -9840,6 +9840,72 @@ static const struct TrainerMon sParty_HAMHideout_Grunt_10[] = {
     {
     .lvl = 47,
     .species = SPECIES_TURKEY_MALE_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Jailer[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_YAK_PACK_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SOURHOG,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_DREADFOWL,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_TURKEY_MALE_FORM,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_PIGZILLA,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Johanhus[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_COW_HARLEQUIN_FORM,
+    .nature = NATURE_IMPISH,
+    .ability = ABILITY_SAP_SIPPER,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 4, 0),
+    .moves = {MOVE_HEADLONG_RUSH, MOVE_LEECH_SEED, MOVE_SEED_BOMB, MOVE_MILK_DRINK}
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_SPIDER_APEATOLL_FORM,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_POISON_TOUCH,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .moves = {MOVE_FOCUS_BLAST, MOVE_BUG_BUZZ, MOVE_SPECTRAL_THIEF, MOVE_ENERGY_BALL}
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_CHICKEN_PESTILENCE_FORM,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_ADAPTABILITY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 100, 0, 152, 0),
+    .moves = {MOVE_BAWK_BAWK, MOVE_DEFEND_ORDER, MOVE_HEAL_ORDER, MOVE_ATTACK_ORDER}
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_RAM_GOLDEN_FORM,
+    .nature = NATURE_CAREFUL,
+    .ability = ABILITY_GOOD_AS_GOLD,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .moves = {MOVE_HEAD_CHARGE, MOVE_IRON_HEAD, MOVE_JUMP_KICK, MOVE_REST}
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_PIG_PRAYER_FORM,
+    .nature = NATURE_CALM,
+    .ability = ABILITY_THICK_FAT,
+    .ev = TRAINER_PARTY_EVS(252, 0, 4, 252, 0, 0),
+    .moves = {MOVE_ENERGY_BALL, MOVE_DISCHARGE, MOVE_EARTH_POWER, MOVE_WISH}
     }
 };
 

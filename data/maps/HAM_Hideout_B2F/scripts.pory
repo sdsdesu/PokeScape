@@ -399,7 +399,7 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
     waitmovement(0)
     namebox ("Zanik")
-    msgbox(format("Alright {PLAYER} lets go free the prisioners!"))
+    msgbox(format("Alright {PLAYER} lets go free the prisoners!"))
     hidenamebox
     closemessage
     namebox ("H.A.M Guard")
@@ -410,7 +410,7 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
     waitmovement(0)
     namebox ("Zanik")
-    msgbox(format("Uh, let's go beat up the prisioners!"))
+    msgbox(format("Uh, let's go beat up the prisoners!"))
     hidenamebox
     closemessage
     namebox ("H.A.M Guard")
@@ -427,7 +427,7 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     closemessage
     facefollower
     namebox ("Zanik")
-    msgbox(format("{PLAYER} what should we do, should we take our disguses off?"), MSGBOX_YESNO)
+    msgbox(format("{PLAYER} what should we do, should we take our disguises off?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT))
     { 
         hidenamebox
@@ -496,9 +496,7 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     msgbox(format("Stand still while I eliminate you!"))
     hidenamebox
     closemessage
-    
-    //BATTLE
-
+    trainerbattle_no_intro(TRAINER_HAM_HIDEOUT_JAILER, format("I lost??\pTo a goblin and a monster sympathiser!"))
     namebox ("H.A.M Guard")
     msgbox(format("Urgh…\pStupid goblin…\pYou wouldn't have stood a chance if it wasn't for this human!\pThere's no way I'm letting either of you escape alive!"))
     hidenamebox
@@ -577,4 +575,81 @@ movement movement_HAMHIDEOUT_BABE_2 {
 movement movement_HAMHIDEOUT_BABE_3 {
     walk_fast_down
     step_end
+}
+
+
+//Johanhus' Room - WIP
+
+script TRIGGER_HAMHIDEOUT_JOHANHUS {
+    lock
+    //applymovement(OBJ_EVENT_ID_PLAYER, walk into room)
+    //applymovement(OBJ_EVENT_ID_FOLLOWER, walk into room)
+    //waitmovement(0)
+    namebox ("Johanhus")
+    msgbox(format("It seems the search has come to an end then."))
+    namebox ("Sigmund")
+    msgbox(format("Yes.\lThis man held what we needed to summon it and bend it to our will.\pWith his 'INSERT MCGUFFIN HERE' we can proceed to the Wilderness and finish the plan."))
+    namebox ("Johanhus")
+    msgbox(format("And you are sure this will save the world of the scourge that are monsters Sigmund?"))
+    namebox ("Sigmund")
+    msgbox(format("Johanhus my friend.\pEveryday monsters cause problems around the world.\pAnd now adventurers, cooks, kings, queens, pawns and even goblins have decided to use them as their own to attain power.\pWhat we want is to prove to them that we hold absolute power.\lAnd then they will see that the only way for this world to be free is to kill and abandon every single monster in the world.\pAnd when that happens...\lThe world will be at peace.\lJust like we have always wanted..."))
+    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    msgbox(format("Stop this.\lYou won't get away with this."))
+    namebox ("Johanhus")
+    msgbox(format("Cease your yelps prince.\lYou hold no authority here.\pWe will make a just world without monsters just like Saradomin always intended."))
+    //Looks to player and Zanik
+    namebox ("Sigmund")
+    msgbox(format("Looks like some monsters just entered a den they should not be Johanhus."))
+    namebox ("Johanhus")
+    msgbox(format("Indeed. What shall we do?"))
+    namebox ("Sigmund")
+    msgbox(format("I will head to the wilderness as planned.\pI will station Patty and Babe in Varrock for the thing we discussed.\lAs for these guys and the prince.\lLet us show them what happens to monster sympathisers taking a wrong turn."))
+    //Lots of Ham members swarm the player and Zanik. Sigmund leaves menacingly
+    namebox ("Zanik")
+    msgbox(format("Shoot.\p{PLAYER}!\lI will handle this.\lYou go and get them!"))
+    //Zanik pushes the player towards Johanhus as HAM members swarm her
+    namebox ("Johanhus")
+    msgbox(format("I get it.\lYou believe you are righteous.\lYou believe you are correct.\lYou believe in yourself and that what you are doing is the good thing to do.\pAnd as do I.\pAs leader of Humans Against Monsters, on behalf of the world.\lI will smite you.."))
+    trainerbattle_no_intro(TRAINER_HAM_HIDEOUT_JOHANHUS, format("NO!\lThis cannot be!"))
+    namebox ("Johanhus")
+    msgbox(format("So it seems my power is insignificant to yours.\pI guess it seems weird to use the power of monsters to fight when we ourselves use monsters?\lBut what choice do we have?\pYou and everyone else changed the rules.\lWhat is a dagger to a dragon?\pThe world is changing.\lAnd we adapted.\lBut this is not the world we wish to live in."))
+    //Looks to Prince Ali
+    namebox ("Johanhus")
+    msgbox(format("I will submit just this once.\lTake this prince and leave."))
+    //Looks to Zanik
+    namebox ("Johanhus")
+    msgbox(format("Out of goodness of my heart, you can even let the little gremlin over there live as well.\pIt doesn't matter.\lNone of this matters.\pIf Sigmund is right, you can not stop him.\lAnd he will make a world free of the monsters that once caused us so much pain.."))
+    //Zanik runs to the player
+    namebox ("Zanik")
+    msgbox(format("Quick while he is monologuing {PLAYER}.\lGrab the prince and run!"))
+    //Warps to outside HAM
+
+
+    //I am unsure whether this next bit needs to be a continuation of the same script or not.
+
+    namebox ("Zanik")
+    msgbox(format("We made it out somehow."))
+    //Zanik looks at Prince Ali
+    msgbox(format("Hey you, sunburned human, are you all right?"))
+    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    msgbox(format("My name is Prince Ali, goblin.\lThank you for saving me."))
+    namebox ("Zanik")
+    msgbox(format("It wasn't all me, most of it was {PLAYER} here."))
+    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    msgbox(format("{PLAYER}.\lThank you for saving me.\pH.A.M wanted my 'INSERT PLOT MCGUFFIN HERE' saying it was a vital ingredient to a ritual to bind a monster to their will.\pIt has been passed down in my family for ages.\lBut it seems I had to trade it for my life for now.\pWe can not let H.A.M get away with this.\lI will try to reach the other MvM leaders and organize a front to stop them.\pBut until then, I guess you do need to beat me right?\lI will meet you back in Al Kharid.\lLet us battle and become ever stronger together!"))
+    //Prince Ali walks off
+    namebox ("Zanik")
+    msgbox(format("You save him from a bunch of extremists.\lWe risk our lives in doing so.\lAnd your thanks is a battle?\pYou humans are weird.\pEither way, I should get involved as well in tracking H.A.M.\pFor now I will retreat.\pHey {PLAYER}, as a thanks for the help, I want you to have this!"))
+    hidenamebox
+    closemessage
+    giveitem(ITEM_BONECROSSBOW, 1)
+    closemessage
+    namebox ("Zanik")
+    msgbox(format("it's a spare, but I hope it will do you good.\pI am going back to Dorgesh-Kaan for now, but I hope to see you again.\pGoodbye {PLAYER}."))
+    hidenamebox
+    closemessage
+    //Zanik walks off
+    //increase storymode variable
+    release
+    end
 }

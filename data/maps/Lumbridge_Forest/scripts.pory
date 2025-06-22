@@ -236,7 +236,7 @@ script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
     waitmovement(0)
 
     namebox ("???")
-    msgbox(format("Hey you!\pYou aren't a H.A.M member am I right?"), MSGBOX_YESNO)
+    msgbox(format("Hey you!\pYou aren't a H.A.M member, are you?"), MSGBOX_YESNO)
     if (var(VAR_RESULT)){
         msgbox(format("With that lack of pink, you can't fool me human."))
     }

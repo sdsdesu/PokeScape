@@ -445,7 +445,7 @@ script TRIGGER_HAMHIDEOUT_EVENT_1 {
 }
 
 script TRIGGER_HAMHIDEOUT_EVENT_2 {
-    msgbox(format("Guard the prisinors!"))
+    msgbox(format("Guard the prisoners!"))
     closemessage
     setvar(VAR_TEMP_0, 3)
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 230)

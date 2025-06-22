@@ -541,6 +541,7 @@ script BATTLE_FROGEEL_RIVAL_8 {
     }
     applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)   //Have player face down to watch Angrenouille leave
     waitmovement(0)
+    playse(SE_EXIT)
     removeobject(5)
     setflag(FLAG_TEMP_10) //Angrenouille
     setvar(VAR_FROGEEL_RIVAL, 40)
