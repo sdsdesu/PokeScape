@@ -4,10 +4,21 @@ mapscripts Edgeville_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_VISITED_EDGEVILLE)
         setvar(VAR_EVOLUTION_MAP_STATE, 15) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
+		call(EDGEVILLE_STATE)
 		call(RANDOM_EVENT_SANDWICH_LADY)
 	}
 }
 
+script EDGEVILLE_STATE {
+	removeobject(25)
+	setflag(FLAG_TEMP_10) //Angrenouille
+
+	if ((var(VAR_FROGEEL_RIVAL) == 20)) {
+        addobject(25)
+        clearflag(FLAG_TEMP_10) //Angrenouille
+    }
+	return
+}
 
 script SIGNPOST_EDGEVILLE_GYM
 {
@@ -765,4 +776,60 @@ script GOBLIN_EDGEVILLE_GYM {
     hidenamebox
 	release
 	end
+}
+
+script FROGEEL_RIVAL_5 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("You really aren't escaping those stalker allegations {PLAYER}.\p...{PAUSE 15}\p...{PAUSE 15}\pDo you just want an autograph?\pNo shame in being shy {PLAYER}.\lI got you, I got you."))
+	hidenamebox
+    closemessage
+	playse(SE_PIN)
+	applymovement (25, MOVEMENT_EXCLAMATIONMARK)
+	waitmovement(0)
+	namebox("Angrenouille")
+	msgbox(format("What?\pNo?\lWell whatever.\pGot a big decision on my end.\pI will either go for a job at Al Kharid, or Varrock.\lWhat do you think?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+	{ 
+		msgbox(format("Yes as in?\lBoth?\lAl Kharid?\pWhat?"))
+		goto(BATTLE_FROGEEL_RIVAL_5)
+	}
+	else {
+		msgbox(format("No to both?\pOr no to the last one?"))
+		goto(BATTLE_FROGEEL_RIVAL_5)
+	}
+}
+
+script BATTLE_FROGEEL_RIVAL_5 {
+	msgbox(format("You are really confusing {PLAYER}.\pAnyway, the guards might be here soon so I'm going to bail.\lBetter silence you first however!"))
+	hidenamebox
+    closemessage
+	if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+	//movement - possibly him jumping into the river if possible?
+    //waitmovement(0)
+    delay(60)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("As Angrenouille ran off, he dropped an item."))
+    closemessage
+    giveitem(ITEM_SPIRIT_CHARM, 1)   //possibly need a new item?
+    closemessage
+    removeobject(25)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 25)
+    release
+    end
 }

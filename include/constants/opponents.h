@@ -600,12 +600,24 @@
 #define TRAINER_FROGEEL_RIVAL_4_GRASS                   594
 #define TRAINER_FROGEEL_RIVAL_4_FIRE                    595
 #define TRAINER_FROGEEL_RIVAL_4_WATER                   596
+#define TRAINER_FROGEEL_RIVAL_5_GRASS                   597
+#define TRAINER_FROGEEL_RIVAL_5_FIRE                    598
+#define TRAINER_FROGEEL_RIVAL_5_WATER                   599
+#define TRAINER_FROGEEL_RIVAL_6_GRASS                   600
+#define TRAINER_FROGEEL_RIVAL_6_FIRE                    601
+#define TRAINER_FROGEEL_RIVAL_6_WATER                   602
+#define TRAINER_FROGEEL_RIVAL_7_GRASS                   603
+#define TRAINER_FROGEEL_RIVAL_7_FIRE                    604
+#define TRAINER_FROGEEL_RIVAL_7_WATER                   605
+#define TRAINER_FROGEEL_RIVAL_8_GRASS                   606
+#define TRAINER_FROGEEL_RIVAL_8_FIRE                    607
+#define TRAINER_FROGEEL_RIVAL_8_WATER                   608
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_FROGEEL_RIVAL_3_WATER + 1)
+#define TRAINERS_COUNT                      (TRAINER_FROGEEL_RIVAL_8_WATER + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

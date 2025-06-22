@@ -1468,10 +1468,10 @@ FROGEEL_RIVAL_1_Text_2:
 	.string "…{PAUSE 15}… I mean practising my swimming skills.$"
 
 FROGEEL_RIVAL_1_Text_3:
-	.string "Angrennouille$"
+	.string "Angrenouille$"
 
 FROGEEL_RIVAL_1_Text_4:
-	.string "Names Angrennouille.\p"
+	.string "Names Angrenouille.\p"
 	.string "I dream of one day becoming a frog\n"
 	.string "prince.\p"
 	.string "I still wait for the day the Frog\n"
@@ -1506,7 +1506,7 @@ FROGEEL_RIVAL_1_Text_9:
 	.string "AAAAAAA!$"
 
 FROGEEL_RIVAL_1_Text_10:
-	.string "It seems Angrennouille dropped\n"
+	.string "It seems Angrenouille dropped\n"
 	.string "something while running off.$"
 
 FROGEEL_RIVAL_1_Text_11:

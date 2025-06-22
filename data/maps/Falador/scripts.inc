@@ -2275,7 +2275,7 @@ Mithrilman_FALADOR1_Text_4:
 	.string "something while rushing off.$"
 
 FROGEEL_RIVAL_2_Text_0:
-	.string "Angrennouille$"
+	.string "Angrenouille$"
 
 FROGEEL_RIVAL_2_Text_1:
 	.string "Phew, evaded pursuit once again.$"
@@ -2328,5 +2328,5 @@ BATTLE_FROGEEL_RIVAL_2_Text_1:
 	.string "AAAAAAAAAAAAAAAAA!$"
 
 BATTLE_FROGEEL_RIVAL_2_Text_2:
-	.string "It seems that some of Angrennouille's\n"
+	.string "It seems that some of Angrenouille's\n"
 	.string "loot fell from his pocket as he ran off.$"

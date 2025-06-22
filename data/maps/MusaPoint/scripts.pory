@@ -39,7 +39,7 @@ script MUSAPOINT_METATILES {
 
 script MUSAPOINT_STATE {
 	removeobject(15)
-	setflag(FLAG_TEMP_10) //Angrennouille
+	setflag(FLAG_TEMP_10) //Angrenouille
 
 	if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORYMODE
     {
@@ -85,7 +85,7 @@ script MUSAPOINT_STATE {
 
 	if ((var(VAR_FROGEEL_RIVAL) == 10)) {
         addobject(15)
-        clearflag(FLAG_TEMP_10) //Angrennouille
+        clearflag(FLAG_TEMP_10) //Angrenouille
     }
 	return
 }
@@ -1553,14 +1553,14 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4 {
 script FROGEEL_RIVAL_3 {
     lock
 	faceplayer 
-    namebox("Angrennouille")
+    namebox("Angrenouille")
 	msgbox(format("Oh, it's you again {PLAYER}.\pNo, I am not doing anything shady, just eating bananas.\pI like them, they have multiple A's in them."))
     hidenamebox
     closemessage
 	playse(SE_PIN)
 	applymovement (15, MOVEMENT_EXCLAMATIONMARK)
 	waitmovement(0)
-	namebox("Angrennouille")
+	namebox("Angrenouille")
 	msgbox(format("You have to buy them?\p{PAUSE 15}They don't belong to me?\pListen here {PLAYER}.\nIn life a man has to do certain things to become a frog monarch.\pEating bananas is one of them.\nEven if they are owned by others.\pAnd if you can not accept that?\pWell I guess we'll just have to fight about it.\nLike this!"))
     closemessage
     hidenamebox
@@ -1573,7 +1573,7 @@ script FROGEEL_RIVAL_3 {
 	elif (flag(FLAG_STARTER3)) { //Water
 		trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_3_WATER, format("Seeya!"))
 	}
-    namebox("Angrennouille")
+    namebox("Angrenouille")
 	msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!\pI said…{PAUSE 15}…\lA!"))
 	closemessage
 	hidenamebox
@@ -1597,12 +1597,12 @@ script FROGEEL_RIVAL_3 {
 	waitmovement(0)
 	delay(60)
 	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
-    msgbox(format("It seems that Angrennouille dropped a banana.\pOpening the banana revealed an item inside."))
+    msgbox(format("It seems that Angrenouille dropped a banana.\pOpening the banana revealed an item inside."))
 	closemessage
     giveitem(ITEM_NATURE_RUNE, 1)
 	closemessage
     removeobject(15)
-    setflag(FLAG_TEMP_10) //Angrennouille
+    setflag(FLAG_TEMP_10) //Angrenouille
     setvar(VAR_FROGEEL_RIVAL, 15)
 }
 

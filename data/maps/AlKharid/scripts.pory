@@ -20,6 +20,9 @@ MAP_SCRIPT_ON_LOAD { //ON LOAD FOR MAP TILES
 script ALKHARID_STATE {
     //setmetatile(13, 16, METATILE_AlKharid_OPENED_DOOR, 0) //Openworld Player House door.
 
+	removeobject(17)
+	setflag(FLAG_TEMP_10) //Angrenouille
+
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 220) {
         setvar(VAR_TEMP_2, 1) // Block Gym Access
     }
@@ -35,6 +38,12 @@ script ALKHARID_STATE {
 		setvar(VAR_TEMP_1, 1) //Enables Ham Event At palace.
         
 	}
+
+    if ((var(VAR_FROGEEL_RIVAL) == 25)) {
+    addobject(17)
+    clearflag(FLAG_TEMP_10) //Angrenouille
+    }
+	return
 }
 
 
@@ -632,3 +641,92 @@ script HAM_EVENT_ALKHAIRD_WISE_OLD_MAN {
 
 
 
+script FROGEEL_RIVAL_6 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("What?\pLet me guess.\lYou think I am going to go in and rob the Al Kharid palace, don't you?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+	{ 
+		goto(BATTLE_FROGEEL_RIVAL_6)
+	}
+	else {
+		goto(BATTLE_FROGEEL_RIVAL_6)
+	}
+}
+
+script BATTLE_FROGEEL_RIVAL_6 {
+	msgbox(format("Well, you're wrong regardless because I have already been there, and there was nothing of interest.\pWaste of my time really.\pAnd now the guards are after me even though I haven't stolen anything.\pSo what now?\lGoing to fight me?\lYou are one very predictable fellow."))
+	hidenamebox
+    closemessage
+	if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pB!\p...{PAUSE 15}\lNo, that's wrong.{PAUSE 15}\pAA!\lThat's better."))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION)    //player moves out of the way
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_1)                            //frogeel man runs into a cactus
+	waitmovement(0)
+	playse(SE_WALL_HIT)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_2)                            //frogeel man jumps back from the cactus
+	waitmovement(0)
+	waitse
+	delay(30)
+	playse(SE_FLEE)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_3)                            //frogeel man runs off screen 
+	waitmovement(0)
+    delay(60)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_4)                            //frogeel man runs back past the player and north towards Varrock (add in guards chasing??)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("In their hurry, Angrenouille dropped an item."))
+    waitmovement(0)
+    closemessage
+    giveitem(ITEM_MITHRIL_SCIMITAR, 1)   //possibly need a new item?
+    closemessage
+    removeobject(17)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 30)
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_1 {
+    walk_fast_right * 6
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_2 {
+    lock_facing_direction
+    slide_left
+    jump_in_place_left
+    unlock_facing_direction
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_3 {
+    face_down
+    walk_faster_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_4 {
+    walk_faster_up * 4
+    walk_faster_left * 9
+    walk_faster_up * 8        
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION {
+	walk_fast_down
+	face_right
+    step_end
+}

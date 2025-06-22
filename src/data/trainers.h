@@ -6288,6 +6288,150 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_4_WATER),
     },
 
+    [TRAINER_FROGEEL_RIVAL_5_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_5_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_5_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_5_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_5_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_5_WATER),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_6_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_6_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_6_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_6_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_6_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_6_WATER),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_7_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_7_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_7_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_7_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_7_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_7_WATER),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_8_GRASS] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_8_GRASS),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_8_FIRE] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_8_FIRE),
+    },
+
+    [TRAINER_FROGEEL_RIVAL_8_WATER] =
+    {
+        .trainerClass = TRAINER_CLASS_STRANGER,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_NOOB,
+        .trainerPic = TRAINER_PIC_angrennouille,
+        .trainerName = _("Angrenouille"),
+        .items = {},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_ACE_POKEMON,
+        .party = TRAINER_PARTY(sParty_TRAINER_FROGEEL_RIVAL_8_WATER),
+    },
+
     [TRAINER_EDGEVILLE_RIVER_1] =
     {
         .trainerClass = TRAINER_CLASS_QUESTER,

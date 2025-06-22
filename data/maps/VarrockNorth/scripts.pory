@@ -1,5 +1,81 @@
 mapscripts VarrockNorth_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 16) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
+    	call(VARROCK_NORTH_STATE)
     }
+}
+
+script VARROCK_NORTH_STATE {
+	removeobject(28)
+	setflag(FLAG_TEMP_10) //Angrenouille
+
+    if ((var(VAR_FROGEEL_RIVAL) == 30)) {
+    addobject(28)
+    clearflag(FLAG_TEMP_10) //Angrenouille
+    }
+	return
+}
+
+script FROGEEL_RIVAL_7 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("Oh, you are sneaking in the gardens aswell {PLAYER}?\pWell, dont worry.\lI went here looking for treasure.\lThen I found a garden full of flowers.\pBut the most beautiful flower was not a flower at all.\lIt was the Queen.\pAaah{PAUSE 15}\p…{PAUSE 15}But I guess there is a Frog Princess waiting for a handsome fellow like me in The Land of Frogs.\lSo I can not commit to the Queen.\lRight now.{PAUSE 15}\p…{PAUSE 15}\pNo.\lYou do not have to call the guards on me.\lNo, I am not trespassing.\pAnyway, let's battle and forget your accusations."))
+	if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_7_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_7_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_7_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 12) {
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN) //player faces south to watch him run away
+        waitmovement(21)
+    } 
+    elif (var(VAR_TEMP_1) == 13) {
+        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_VARROCK_PLAYER_PUSHED_BACK) //player gets knocked back
+    }
+	applymovement(28, MOVEMENT_FROGEEL_RIVAL_VARROCK_1)                            //frogeel man runs off
+	waitmovement(0)
+	delay(30)
+	applymovement(28, MOVEMENT_FROGEEL_RIVAL_VARROCK_2)                            //frogeel man runs back on screen then south
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("Among some flowers you find something.\lAngrenouille must have dropped it."))
+    waitmovement(0)
+    closemessage
+    giveitem(ITEM_ASTRAL_RUNE, 1)
+    closemessage
+    removeobject(28)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 35)
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_VARROCK_1 {
+    walk_fast_down
+    walk_fast_left
+    walk_fast_down
+    walk_fast_left * 8
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_VARROCK_2 {
+    walk_fast_right * 5
+    walk_fast_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_VARROCK_PLAYER_PUSHED_BACK {
+	walk_fast_down
+	face_left
+    step_end
 }

@@ -8851,6 +8851,330 @@ static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_4_WATER[] = {
     }
 };
 
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_5_GRASS[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_5_FIRE[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_5_WATER[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_6_GRASS[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_STRYKEWYRM,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_6_FIRE[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_STRYKEWYRM,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_6_WATER[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_STRYKEWYRM,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TZHAAR,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_7_GRASS[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_ABYSSAL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_7_FIRE[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_ABYSSAL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_7_WATER[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_ABYSSAL,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_8_GRASS[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_SEEKER,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_RANGED,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_8_FIRE[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_SEEKER,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 45,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MELEE,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
+static const struct TrainerMon sParty_TRAINER_FROGEEL_RIVAL_8_WATER[] = {    
+    {
+    .lvl = 43,                                      //need adjusting
+    .species = SPECIES_FROGEEL_SEEKER,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CORPOREAL,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_CRYSTALLINE,
+    },
+    {
+    .lvl = 42,                                      //need adjusting
+    .species = SPECIES_FROGEEL_MAGIC,
+    },
+    {
+    .lvl = 44,                                      //need adjusting
+    .species = SPECIES_FROGEEL_TRIAL,
+    },
+    {
+    .lvl = 46,                                      //need adjusting
+    .species = SPECIES_FROGEEL_PRINCE,
+    }
+};
+
 static const struct TrainerMon sParty_EdgevilleRiver_1[] = {
     {
     .lvl = 43,

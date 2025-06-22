@@ -2767,7 +2767,7 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4:
 	.string "need to be prepared for a fierce battle.$"
 
 FROGEEL_RIVAL_3_Text_0:
-	.string "Angrennouille$"
+	.string "Angrenouille$"
 
 FROGEEL_RIVAL_3_Text_1:
 	.string "Oh, it's you again {PLAYER}.\p"
@@ -2804,7 +2804,7 @@ FROGEEL_RIVAL_3_Text_4:
 	.string "A!$"
 
 FROGEEL_RIVAL_3_Text_5:
-	.string "It seems that Angrennouille dropped a\n"
+	.string "It seems that Angrenouille dropped a\n"
 	.string "banana.\p"
 	.string "Opening the banana revealed an item\n"
 	.string "inside.$"

@@ -332,6 +332,10 @@ script DungeonLayout_ROOM_PATH_5 {
 
 script Daemonheim_Lobby_STATE {
     setflag(FLAG_TEMP_1F) // Hide thok.
+    setflag(FLAG_TEMP_10) //Flag Frogeelman has.
+    setflag(FLAG_TEMP_9) //Flag disguised Frogeelman.
+    removeobject(5)      //Frogeelman
+    removeobject(7)      //Disguised Frogeelman
 
     switch (var(VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST)){         
         case 10:
@@ -340,6 +344,19 @@ script Daemonheim_Lobby_STATE {
             setobjectxyperm(OBJ_EVENT_ID_SMUGGLER, 9, 5)
             setobjectmovementtype(OBJ_EVENT_ID_SMUGGLER, MOVEMENT_TYPE_FACE_LEFT)
     }
+
+    switch(var(VAR_FROGEEL_RIVAL)) {
+    case 35:
+        addobject(7)      //Disguised frogeelman
+        clearflag(FLAG_TEMP_9) //Flag disguised Frogeelman.
+    case 36:
+        addobject(5)      //Angrenouille
+        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
+    case 37:
+        addobject(5)      //Angrenouille
+        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
+    }
+
     return        
 }
 
@@ -401,3 +418,136 @@ movement Movement_DaemonheimGym_12 {
 
 
 //THOK GYM -----------------------------------------------------------------------------
+
+
+
+
+//FROGEEL RIVAL --------------------------------------------------------------------------
+
+script FROGEEL_RIVAL_8 {
+    lock
+    faceplayer
+    if (var(VAR_FROGEEL_RIVAL) == 35) {   //Variable for if you have done earlier events but not spoken to him here
+        namebox("Angrenouille")
+        msgbox(format("Hello there adventurer?\pAngrenouille?{PAUSE 15}\lNo, I do not know who that handsome man is.{PAUSE 15}\pEh, nevermind this armour is heavy."))
+        hidenamebox
+        closemessage
+        fadescreenswapbuffers (FADE_TO_BLACK)
+        removeobject(7)           //Remove disguised Frogeelman
+        setflag(FLAG_TEMP_9)      //Disguised Frogeelman
+        addobject(5)              //Add Frogeelman
+        clearflag(FLAG_TEMP_10)   //Flag Frogeelman has.
+        fadescreenswapbuffers (FADE_FROM_BLACK)
+        namebox("Angrenouille")
+        msgbox(format("I needed a disguise to sneak past those barbarians up there.\pIs the armour tainted?{PAUSE 15}\lDon't be a coward {PLAYER}.\lWhat thief believes in curses.\pWell, I made off with the loot and that's that."))
+        hidenamebox
+        closemessage
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 9){
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)   //Different movement depending on where the player is stood
+        } 
+        elif (var(VAR_TEMP_1) == 10){
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp)  //Different movement depending on where the player is stood
+        }
+        elif (var(VAR_TEMP_1) == 11){
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)  //Different movement depending on where the player is stood
+        }
+        waitmovement(0)
+        namebox("Angrenouille")
+        msgbox(format("HAM?\lLike the thing on your sandwich?\pNo, I dont know them.{PAUSE 15}\pIt's that serious?"), MSGBOX_YESNO)
+        if (!var(VAR_RESULT)) { 
+            msgbox(format("Then why bring it up then?"))
+            closemessage
+            hidenamebox
+            setvar(VAR_FROGEEL_RIVAL, 36)
+            release
+            end
+        }
+        else {
+            msgbox(format("Wow!\lYou seem really passionate about that."))
+            goto(BATTLE_FROGEEL_RIVAL_8)
+        }
+    }
+    elif (var(VAR_FROGEEL_RIVAL) == 36) {   //Variable for if he has removed his disguise but you declined the battle once
+        namebox("Angrenouille")
+        msgbox(format("You again {PLAYER}?\pYou're still going on about HAM?{PAUSE 15}\pIs it really that serious?"), MSGBOX_YESNO)
+        if (!var(VAR_RESULT))
+        { 
+            msgbox(format("Why do you keep bringing it up then?\pAre there ladies in this organisation that have caught your eye..?"))
+            closemessage
+            hidenamebox
+            setvar(VAR_FROGEEL_RIVAL, 37)
+            release
+            end
+        }
+        else {
+            msgbox(format("Wow!\lYou seem really passionate about that."))
+            goto(BATTLE_FROGEEL_RIVAL_8)
+        }
+
+    }
+    elif (var(VAR_FROGEEL_RIVAL) == 37) {   //Variable for if he has removed his disguise but you declined the battle once
+        namebox("Angrenouille")
+        msgbox(format("You keep going on about HAM {PLAYER}.\pNo matter how much you downplay it, I can tell that you're very passionate about it!"))
+        goto(BATTLE_FROGEEL_RIVAL_8)
+    }
+	release
+	end
+}
+
+script BATTLE_FROGEEL_RIVAL_8 {
+    msgbox(format("Well {PLAYER}, you and I have made it this far.\pJust for you, if you beat me here, I will help you.{PAUSE 15}\lIf I remember it.\pAngrenouille, the future monarch of the Land of Frogs promises!"))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\p...{PAUSE 15}\p{PLAYER}, you have my word.\lWe will make it through this together.\pWhat are we?\lWe are thick as thieves!\lThats what we are.\pHere."))
+    //add counter for number of AAAAA's? (It should be 4, then an extra 50)
+    closemessage
+    hidenamebox
+    giveitem(ITEM_BLOOD_RUNE, 1)
+    closemessage
+    namebox("Angrenouille")
+    msgbox(format("Now then..."))
+    closemessage
+    hidenamebox
+    fadescreenswapbuffers (FADE_TO_BLACK)
+    removeobject(5)        //Remove Frogeelman
+    setflag(FLAG_TEMP_10)  //Flag Frogeelman has.
+    addobject(7)           //Add disguised Frogeelman
+    clearflag(FLAG_TEMP_9) //Disguised Frogeelman
+    fadescreenswapbuffers (FADE_FROM_BLACK)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 9){
+        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1)   //Different movement depending on where the player is stood
+    } 
+    elif (var(VAR_TEMP_1) == 10){
+        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2)  //Different movement depending on where the player is stood
+    }
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)   //Have player face down to watch Angrenouille leave
+    waitmovement(0)
+    removeobject(5)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 40)
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1 {
+    walk_left * 3
+    walk_down * 5
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2 {
+    walk_down * 1
+    walk_left * 3
+    walk_down * 4
+    step_end
+}

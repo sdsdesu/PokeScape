@@ -80,17 +80,17 @@ script MODTIMBO_STATE{
 script FALADOR_STATE {
 	
 	setflag(FLAG_TEMP_10) //Flag Frogeelman has.
-	removeobject(53)      //Angrennouille
+	removeobject(53)      //Angrenouille
 
     switch(var(VAR_FROGEEL_RIVAL)){
     case 5:
-        addobject(53)      //Angrennouille
+        addobject(53)      //Angrenouille
         clearflag(FLAG_TEMP_10) //Flag Frogeelman has.
     case 6:
-        addobject(53)      //Angrennouille
+        addobject(53)      //Angrenouille
         clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     case 7:
-        addobject(53)      //Angrennouille
+        addobject(53)      //Angrenouille
         clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     }
 	return
@@ -1557,14 +1557,14 @@ script FROGEEL_RIVAL_2 {
 	lock
 	faceplayer
     if (var(VAR_FROGEEL_RIVAL) == 5) {   //Variable for if you have done earlier events but not spoken to him here
-				namebox("Angrennouille")
+				namebox("Angrenouille")
 				msgbox(format("Phew, evaded pursuit once again."))
 				hidenamebox
 				closemessage
 				applymovement (53, MOVEMENT_EXCLAMATIONMARK)
 				waitmovement(0)
 				faceplayer
-				namebox("Angrennouille")
+				namebox("Angrenouille")
 				msgbox(format("Oh hi there, {PLAYER} was it?\pYes I know your name, I know a lot of things.\pLike how you will kindly just let me leave for now, right?"), MSGBOX_YESNO)
 				if (var(VAR_RESULT))
 				{ 
@@ -1577,7 +1577,7 @@ script FROGEEL_RIVAL_2 {
 					end
 				}
             	else {
-                namebox("Angrennouille")
+                namebox("Angrenouille")
                 msgbox(format("Well I guess we just have to solve it the good old fashioned way then don't we?"))
 				closemessage
 				hidenamebox
@@ -1585,7 +1585,7 @@ script FROGEEL_RIVAL_2 {
                 }
     }
     elif (var(VAR_FROGEEL_RIVAL) == 6) {   //Variable for if you have spoken to him once but not battled him
-            namebox("Angrennouille")
+            namebox("Angrenouille")
             msgbox(format("{PLAYER}... You agreed that you were going to let me leave.\pYou haven't changed your mind now, have you?"), MSGBOX_YESNO)
             if (!var(VAR_RESULT))
             { 
@@ -1598,7 +1598,7 @@ script FROGEEL_RIVAL_2 {
                 end
             }
             else {
-                namebox("Angrennouille")
+                namebox("Angrenouille")
                 msgbox(format("Ugh, in that case I shall have to fight my way out..."))
                 closemessage
                 hidenamebox
@@ -1608,7 +1608,7 @@ script FROGEEL_RIVAL_2 {
     }
 
     elif (var(VAR_FROGEEL_RIVAL) == 7) {   //Variable for if you have done the cutscene but not battled him here
-            namebox("Angrennouille")
+            namebox("Angrenouille")
             msgbox(format("I thought we had a deal {PLAYER}.\pWhy would you betray me like this?\pI thought we were friends."))
             goto(BATTLE_FROGEEL_RIVAL_2)
     }
@@ -1626,7 +1626,7 @@ script BATTLE_FROGEEL_RIVAL_2 {
 	elif (flag(FLAG_STARTER3)) { //Water
 		trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_2_WATER, format("Seeya!"))
 	}
-    namebox("Angrennouille")
+    namebox("Angrenouille")
 	msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
 	closemessage
 	hidenamebox
@@ -1663,14 +1663,14 @@ script BATTLE_FROGEEL_RIVAL_2 {
     waitmovement(0)
 	delay(60)
 	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
-    msgbox(format("It seems that some of Angrennouille's loot fell from his pocket as he ran off."))
+    msgbox(format("It seems that some of Angrenouille's loot fell from his pocket as he ran off."))
 	closemessage
     giveitem(ITEM_MIND_RUNE, 1)
 	closemessage
     removeobject(53)
     removeobject(52)
     removeobject(43)
-    setflag(FLAG_TEMP_10) //Angrennouille
+    setflag(FLAG_TEMP_10) //Angrenouille
 	setflag(FLAG_TEMP_1D) //White Knight
 	setflag(FLAG_TEMP_1F) //White Knight
     setvar(VAR_FROGEEL_RIVAL, 10)

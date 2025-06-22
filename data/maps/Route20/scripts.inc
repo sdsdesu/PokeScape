@@ -525,7 +525,7 @@ ROUTE20_VARROCK_GUARD_2_Text_0:
 	.string "west.$"
 
 FROGEEL_RIVAL_4_Text_0:
-	.string "Angrennouille$"
+	.string "Angrenouille$"
 
 FROGEEL_RIVAL_4_Text_1:
 	.string "So listen, I like loose clothes, you wear\n"
