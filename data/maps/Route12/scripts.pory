@@ -756,18 +756,33 @@ script TRIGGER_ALKHARID_HAM_EVENT_1 {
 	delay(60)
 	//Ham Runs left (with bag)
 	playse(SE_FLEE)
-	applymovement(46, movement_HAM_RUN_LEFT_WITH_SACK)	
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_2) == 54){
+        applymovement(OBJ_EVENT_ID_PLAYER, movement_PLAYER_AVOIDS_HAM)         //Avoids HAM clipping through the player if they're on the specific tile they are running on
+    } 
+	applymovement(46, movement_HAM_RUN_LEFT_WITH_SACK)
 	//Guards give chase halfway down the bridge.
 	delay(30)
-	applymovement(28, movement_HAM_RUN_LEFT_WITH_SACK)
+	applymovement(28, movement_HAM_RUN_LEFT_WITH_SACK)                          
 	applymovement(45, Movement_InteractFACELEFT)
 	delay(60)
 	applymovement(27, movement_GUARD_CHASE_HAM_BUT_STOP)
+	playse(SE_PIN)
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 28){
+        applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1)         //Has the guard walk over to the player; changing slightly depending on where the player is stood
+    }
+	elif (var(VAR_TEMP_1) == 29){
+        applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2)         //Has the guard walk over to the player; changing slightly depending on where the player is stood
+    }
+	elif (var(VAR_TEMP_2) == 52){
+        applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3)         //Has the guard walk over to the player; changing slightly depending on where the player is stood
+    }
+	elif (var(VAR_TEMP_2) == 54){
+		applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4)         //Has the guard walk over to the player; changing slightly depending on where the player is stood
+    }
 	waitmovement(0)
 	//1 guard stops, speaks to you and Ozan asking you to go inform the palace.
-	playse(SE_PIN)
-	applymovement(27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN)
-	waitmovement(0)
 	namebox("Guard")
     msgbox(format("In… Inform the palace…\pThe… prince…\pThe prince has been kidnapped!"))
     hidenamebox
@@ -798,20 +813,55 @@ movement movement_HAM_RUN_LEFT_WITH_SACK {
 	walk_fast_left * 20
 	step_end
 }
+
 movement movement_GUARD_CHASE_HAM_BUT_STOP {
 	walk_fast_left * 4
 	walk_left * 3
 	walk_slow_left * 3
 	step_end
 }
-movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN {
+
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1 {
+	face_up
 	face_right
 	emote_exclamation_mark
 	delay_16 * 5
-	walk_slow_right * 5
+	walk_slow_up
 	face_up
 	step_end
 }
+
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2 {
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16 * 5
+	walk_slow_right
+	walk_slow_up
+	face_up
+	step_end
+}
+
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3 {
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16 * 5
+	walk_slow_up
+	face_left
+	step_end
+}
+
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4 {
+	face_down
+	face_right
+	emote_exclamation_mark
+	delay_16 * 5
+	walk_slow_down
+	face_left
+	step_end
+}
+
 movement movement_OZAN_CONFUSED {
 	face_right
 	emote_question_mark
@@ -820,5 +870,25 @@ movement movement_OZAN_CONFUSED {
 movement movement_OZAN_RUNS_TO_PALACE {
 	walk_fast_down
 	walk_fast_right * 10
+	step_end
+}
+
+movement movement_PLAYER_AVOIDS_HAM {
+	emote_question_mark
+    lock_facing_direction
+    slide_up
+	emote_exclamation_mark
+	face_down
+	delay_16
+	face_left
+	step_end
+}
+
+movement movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN {
+	face_right
+	emote_exclamation_mark
+	delay_16 * 5
+	walk_slow_right * 5
+	face_up
 	step_end
 }
