@@ -32,8 +32,8 @@
 #define TRAINER_MITHRILMAN1				            	28
 #define TRAINER_MITHRILMAN2				            	29
 #define TRAINER_MITHRILMAN3_GRASS				        30
-#define TRAINER_MITHRILMAN4				            	31
-#define TRAINER_MITHRILMAN5				            	32
+#define TRAINER_MITHRILMAN4_GRASS				        31
+#define TRAINER_MITHRILMAN5_GRASS				        32
 #define TRAINER_MITHRILMAN6				            	33
 #define TRAINER_MITHRILMAN7				            	34
 #define TRAINER_MITHRILMAN8				            	35
@@ -592,32 +592,34 @@
 #define TRAINER_HAM_HIDEOUT_GRUNT_9                     586
 #define TRAINER_HAM_HIDEOUT_GRUNT_10                    587
 #define TRAINER_SIR_THEO_EDGEVILLE                      588
-#define TRAINER_MITHRILMAN3_FIRE				        589
-#define TRAINER_MITHRILMAN3_WATER				        590
-#define TRAINER_FROGEEL_RIVAL_3_GRASS                   591
-#define TRAINER_FROGEEL_RIVAL_3_FIRE                    592
-#define TRAINER_FROGEEL_RIVAL_3_WATER                   593
-#define TRAINER_FROGEEL_RIVAL_4_GRASS                   594
-#define TRAINER_FROGEEL_RIVAL_4_FIRE                    595
-#define TRAINER_FROGEEL_RIVAL_4_WATER                   596
-#define TRAINER_FROGEEL_RIVAL_5_GRASS                   597
-#define TRAINER_FROGEEL_RIVAL_5_FIRE                    598
-#define TRAINER_FROGEEL_RIVAL_5_WATER                   599
-#define TRAINER_FROGEEL_RIVAL_6_GRASS                   600
-#define TRAINER_FROGEEL_RIVAL_6_FIRE                    601
-#define TRAINER_FROGEEL_RIVAL_6_WATER                   602
-#define TRAINER_FROGEEL_RIVAL_7_GRASS                   603
-#define TRAINER_FROGEEL_RIVAL_7_FIRE                    604
-#define TRAINER_FROGEEL_RIVAL_7_WATER                   605
-#define TRAINER_FROGEEL_RIVAL_8_GRASS                   606
-#define TRAINER_FROGEEL_RIVAL_8_FIRE                    607
-#define TRAINER_FROGEEL_RIVAL_8_WATER                   608
+#define TRAINER_FROGEEL_RIVAL_3_GRASS                   589
+#define TRAINER_FROGEEL_RIVAL_3_FIRE                    590
+#define TRAINER_FROGEEL_RIVAL_3_WATER                   591
+#define TRAINER_FROGEEL_RIVAL_4_GRASS                   592
+#define TRAINER_FROGEEL_RIVAL_4_FIRE                    593
+#define TRAINER_FROGEEL_RIVAL_4_WATER                   594
+#define TRAINER_FROGEEL_RIVAL_5_GRASS                   595
+#define TRAINER_FROGEEL_RIVAL_5_FIRE                    596
+#define TRAINER_FROGEEL_RIVAL_5_WATER                   597
+#define TRAINER_FROGEEL_RIVAL_6_GRASS                   598
+#define TRAINER_FROGEEL_RIVAL_6_FIRE                    599
+#define TRAINER_FROGEEL_RIVAL_6_WATER                   600
+#define TRAINER_FROGEEL_RIVAL_7_GRASS                   601
+#define TRAINER_FROGEEL_RIVAL_7_FIRE                    602
+#define TRAINER_FROGEEL_RIVAL_7_WATER                   603
+#define TRAINER_FROGEEL_RIVAL_8_GRASS                   604
+#define TRAINER_FROGEEL_RIVAL_8_FIRE                    605
+#define TRAINER_FROGEEL_RIVAL_8_WATER                   606
+#define TRAINER_MITHRILMAN4_FIRE				        607
+#define TRAINER_MITHRILMAN4_WATER				        608
+#define TRAINER_MITHRILMAN5_FIRE				        609
+#define TRAINER_MITHRILMAN5_WATER				        610
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_FROGEEL_RIVAL_8_WATER + 1)
+#define TRAINERS_COUNT                      (TRAINER_MITHRILMAN4_WATER + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

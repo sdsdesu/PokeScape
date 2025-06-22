@@ -478,7 +478,7 @@ static const struct TrainerMon sParty_MITHRILMAN3_WATER[] = {
     },
 };
 
-static const struct TrainerMon sParty_MITHRILMAN3_GRASS[] = {
+static const struct TrainerMon sParty_MITHRILMAN3[] = {
     {
     .species = SPECIES_GOLEM_TITAN,
     .lvl = 34,
@@ -487,6 +487,54 @@ static const struct TrainerMon sParty_MITHRILMAN3_GRASS[] = {
     .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
     .moves = {MOVE_POWER_UP_PUNCH, MOVE_CLOSE_COMBAT, MOVE_HEADBUTT, MOVE_MUD_SLAP}
+    },
+    {
+    .species = SPECIES_MINITRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_COIL, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
+    },
+    {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_NASTY_PLOT, MOVE_PSYCHIC_FANGS}
+    },
+    {
+    .species = SPECIES_ANIMOUR,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(0, 252, 4, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
+    },
+    {
+    .species = SPECIES_ZARAVEN,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
+    },
+};
+
+static const struct TrainerMon sParty_MITHRILMAN4_GRASS[] = {
+    {
+    .species = SPECIES_MOSS_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_PRISM_ARMOR,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_LEAF_STORM, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
     },
     {
     .species = SPECIES_ZAMATRICE,
@@ -516,25 +564,25 @@ static const struct TrainerMon sParty_MITHRILMAN3_GRASS[] = {
     .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
     },
     {
-    .species = SPECIES_ZAROBIRD,
+    .species = SPECIES_ZARAVEN,
     .lvl = 38,
     .nature = NATURE_NAIVE,
     .ability = ABILITY_EMPTY_LORD,
     .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
     },
 };
 
-static const struct TrainerMon sParty_MITHRILMAN3_FIRE[] = {
+static const struct TrainerMon sParty_MITHRILMAN4_FIRE[] = {
     {
-    .species = SPECIES_GOLEM_TITAN,
+    .species = SPECIES_FIRE_TITAN,
     .lvl = 34,
     .nature = NATURE_BOLD,
-    .ability = ABILITY_SOLID_ROCK,
+    .ability = ABILITY_PRISM_ARMOR,
     .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_POWER_UP_PUNCH, MOVE_CLOSE_COMBAT, MOVE_HEADBUTT, MOVE_MUD_SLAP}
+    .moves = {MOVE_BURN_UP, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
     },
     {
     .species = SPECIES_SARATRICE,
@@ -564,66 +612,250 @@ static const struct TrainerMon sParty_MITHRILMAN3_FIRE[] = {
     .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
     },
     {
-    .species = SPECIES_ZAROBIRD,
+    .species = SPECIES_ZARAVEN,
     .lvl = 38,
     .nature = NATURE_NAIVE,
     .ability = ABILITY_EMPTY_LORD,
     .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
     .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_CALM_MIND, MOVE_PLUCK}
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
     },
 };
 
-
-
-static const struct TrainerMon sParty_MITHRILMAN4[] = {
+static const struct TrainerMon sParty_MITHRILMAN4_WATER[] = {
     {
-    .lvl = 35,
-    .species = SPECIES_ZAROBIRD,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_GEYSIR_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_PRISM_ARMOR,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_STEAM_ERUPTION, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
     },
     {
+    .species = SPECIES_GUTHATRICE,
     .lvl = 35,
-    .species = SPECIES_DUCK_NORMAL_FORM,
-    .heldItem = ITEM_NONE
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_GUTHIX_CLAWS, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
     },
     {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
     .lvl = 35,
-    .species = SPECIES_BEAR_CUB,
-    .heldItem = ITEM_NONE
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_NASTY_PLOT, MOVE_PSYCHIC_FANGS}
     },
     {
-    .lvl = 35,
-    .species = SPECIES_SCORPLING,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_ANIMOUR,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_STURDY,
+    .ev = TRAINER_PARTY_EVS(0, 252, 4, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_SACRED_SWORD, MOVE_SHADOW_CLAW, MOVE_WILL_O_WISP, MOVE_IRON_HEAD}
+    },
+    {
+    .species = SPECIES_ZARAVEN,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
     },
 };
 
-static const struct TrainerMon sParty_MITHRILMAN5[] = {
+static const struct TrainerMon sParty_MITHRILMAN5_GRASS[] = {
     {
-    .lvl = 45,
-    .species = SPECIES_ZAROBIRD,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_MOSS_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_PRISM_ARMOR,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_SARADOMIN_BREW,
+    .moves = {MOVE_LEAF_STORM, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
     },
     {
-    .lvl = 45,
-    .species = SPECIES_DUCK_NORMAL_FORM,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_ZAMATRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_DRAGON_CLAWS,
+    .moves = {MOVE_ZAMORAK_FLAMES, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
     },
     {
-    .lvl = 45,
-    .species = SPECIES_POLAR_BEAR_NORMAL_FORM,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_BALL_OF_WOOL,
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_DEFIANCE, MOVE_PSYCHIC_FANGS}
     },
     {
-    .lvl = 45,
-    .species = SPECIES_SCORPION_PIT_FORM,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_SPIRIT_FIGHTER,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_DEFIANT,
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_FIGHTER_BOOTS,
+    .moves = {MOVE_BANDOS_FURY, MOVE_BITTER_BLADE, MOVE_SHADOW_CLAW, MOVE_STONE_AXE}
     },
     {
-    .lvl = 45,
-    .species = SPECIES_TZ_KEK,
-    .heldItem = ITEM_NONE
+    .species = SPECIES_DRAUGEN,
+    .lvl = 36,
+    .nature = NATURE_ADAMANT,
+    .ability = ABILITY_SHADOW_SHIELD,
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_KERIS,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_CLOSE_COMBAT, MOVE_SPIRIT_BREAK, MOVE_LUNGE}
+    },
+    {
+    .species = SPECIES_ZARAVEN,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_GODSWORD,
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
+    },
+};
+
+static const struct TrainerMon sParty_MITHRILMAN5_FIRE[] = {
+    {
+    .species = SPECIES_FIRE_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_PRISM_ARMOR,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_SARADOMIN_BREW,
+    .moves = {MOVE_BURN_UP, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
+    },
+    {
+    .species = SPECIES_SARATRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_DRAGON_CLAWS,
+    .moves = {MOVE_SARADOMIN_STRIKE, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
+    },
+    {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_BALL_OF_WOOL,
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_DEFIANCE, MOVE_PSYCHIC_FANGS}
+    },
+    {
+    .species = SPECIES_SPIRIT_WARMAGE,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_MAGIC_BOUNCE,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_FIGHTER_BOOTS,
+    .moves = {MOVE_ARMADYL_STORM, MOVE_SPECTRAL_THIEF, MOVE_FLASH_CANNON, MOVE_ENERGY_BALL}
+    },
+    {
+    .species = SPECIES_DRAUGEN,
+    .lvl = 36,
+    .nature = NATURE_ADAMANT,
+    .ability = ABILITY_SHADOW_SHIELD,
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_KERIS,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_CLOSE_COMBAT, MOVE_SPIRIT_BREAK, MOVE_LUNGE}
+    },
+    {
+    .species = SPECIES_ZARAVEN,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_GODSWORD,
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
+    },
+};
+
+static const struct TrainerMon sParty_MITHRILMAN5_WATER[] = {
+    {
+    .species = SPECIES_GEYSIR_TITAN,
+    .lvl = 34,
+    .nature = NATURE_BOLD,
+    .ability = ABILITY_PRISM_ARMOR,
+    .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_SARADOMIN_BREW,
+    .moves = {MOVE_STEAM_ERUPTION, MOVE_EARTH_POWER, MOVE_NO_RETREAT, MOVE_FOCUS_BLAST}
+    },
+    {
+    .species = SPECIES_GUTHATRICE,
+    .lvl = 35,
+    .nature = NATURE_MODEST,
+    .ability = ABILITY_PETRIFY,
+    .ev = TRAINER_PARTY_EVS(252, 0, 0, 252, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_DRAGON_CLAWS,
+    .moves = {MOVE_GUTHIX_CLAWS, MOVE_ANCIENT_POWER, MOVE_GLARE, MOVE_DRILL_PECK}
+    },
+    {
+    .species = SPECIES_FOX_RECRUITMENTDRIVE,
+    .lvl = 35,
+    .nature = NATURE_HARDY,
+    .ability = ABILITY_DEFEATIST,
+    .ev = TRAINER_PARTY_EVS(56, 100, 0, 100, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_BALL_OF_WOOL,
+    .moves = {MOVE_SHADOW_SNEAK, MOVE_TRI_ATTACK, MOVE_DEFIANCE, MOVE_PSYCHIC_FANGS}
+    },
+    {
+    .species = SPECIES_SPIRIT_ARCHER,
+    .lvl = 36,
+    .nature = NATURE_SERIOUS,
+    .ability = ABILITY_SKILL_LINK,
+    .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 4),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_FIGHTER_BOOTS,
+    .moves = {MOVE_ICICLE_SPEAR, MOVE_SPIRIT_SHACKLE, MOVE_IRON_HEAD, MOVE_SEREN_SHINE}
+    },
+    {
+    .species = SPECIES_DRAUGEN,
+    .lvl = 36,
+    .nature = NATURE_ADAMANT,
+    .ability = ABILITY_SHADOW_SHIELD,
+    .ev = TRAINER_PARTY_EVS(4, 252, 0, 0, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_KERIS,
+    .moves = {MOVE_VICTORY_DANCE, MOVE_CLOSE_COMBAT, MOVE_SPIRIT_BREAK, MOVE_LUNGE}
+    },
+    {
+    .species = SPECIES_ZARAVEN,
+    .lvl = 38,
+    .nature = NATURE_NAIVE,
+    .ability = ABILITY_EMPTY_LORD,
+    .ev = TRAINER_PARTY_EVS(4, 0, 0, 252, 0, 252),
+    .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+    .heldItem = ITEM_GODSWORD,
+    .moves = {MOVE_ZAROS_BECKON, MOVE_PSYCHIC, MOVE_HURRICANE, MOVE_KINGS_SHIELD}
     },
 };
 

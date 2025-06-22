@@ -387,7 +387,7 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_MITHRILMAN2),
     },
 
-    [TRAINER_MITHRILMAN3_GRASS] =
+    [TRAINER_MITHRILMAN3] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -396,10 +396,10 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN3_GRASS),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN3),
     },
 
-    [TRAINER_MITHRILMAN3_FIRE] =
+    [TRAINER_MITHRILMAN4_GRASS] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -408,10 +408,10 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN3_FIRE),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN4_GRASS),
     },
 
-    [TRAINER_MITHRILMAN3_WATER] =
+    [TRAINER_MITHRILMAN4_FIRE] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -420,10 +420,10 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN3_WATER),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN4_FIRE),
     },
 
-    [TRAINER_MITHRILMAN4] =
+    [TRAINER_MITHRILMAN4_WATER] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -432,10 +432,10 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN4),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN4_WATER),
     },
 
-    [TRAINER_MITHRILMAN5] =
+    [TRAINER_MITHRILMAN5_GRASS] =
 	{
         .trainerClass = TRAINER_CLASS_MITHRILMAN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
@@ -444,7 +444,31 @@ const struct Trainer gTrainers[] = {
         .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
-        .party = TRAINER_PARTY(sParty_MITHRILMAN5),
+        .party = TRAINER_PARTY(sParty_MITHRILMAN5_GRASS),
+    },
+
+    [TRAINER_MITHRILMAN5_FIRE] =
+	{
+        .trainerClass = TRAINER_CLASS_MITHRILMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_mithrilman,
+        .trainerName = _(""),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_MITHRILMAN5_FIRE),
+    },
+
+    [TRAINER_MITHRILMAN5_WATER] =
+	{
+        .trainerClass = TRAINER_CLASS_MITHRILMAN,
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_PKER,
+        .trainerPic = TRAINER_PIC_mithrilman,
+        .trainerName = _(""),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_OMNISCIENT | AI_FLAG_ACE_POKEMON | AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_MITHRILMAN5_WATER),
     },
 
     [TRAINER_MITHRILMAN6] =

@@ -869,9 +869,36 @@ static const struct SubQuest sSubQuests_MITHRILMAN_QUEST[QUEST_MITHRILMAN_QUEST_
 	      41,
 	      gText_SubQuest_MithrilmanQuest_Name4,
 	      gText_SubQuest_MithrilmanQuest_Desc4,
-	      gText_SideQuestMap_MusaPoint,
-	      ITEM_BANANA,
+	      gText_MapName_Edgeville,
+	      ITEM_STAT_BEER,
 	      ITEM,
+	      sText_Delivered
+	),
+	sub_quest(
+	      58,
+	      gText_SubQuest_MithrilmanQuest_Name5,
+	      gText_SubQuest_MithrilmanQuest_Desc5,
+	      gText_MapName_Route28,
+	      SPECIES_CAMEL,
+	      PKMN,
+	      sText_Delivered
+	),
+	sub_quest(
+	      59,
+	      gText_SubQuest_MithrilmanQuest_Name6,
+	      gText_SubQuest_MithrilmanQuest_Desc6,
+	      gText_MapName_Varrock,
+	      ITEM_RUNE_ESSENCE,
+	      ITEM,
+	      sText_Delivered
+	),
+	sub_quest(
+	      60,
+	      gText_SubQuest_MithrilmanQuest_Name7,
+	      gText_SubQuest_MithrilmanQuest_Desc7,
+	      gText_MapName_Daemonheim,
+	      SPECIES_FLESH_SPOILER_COVERED_FORM,
+	      PKMN,
 	      sText_Delivered
 	),
 };

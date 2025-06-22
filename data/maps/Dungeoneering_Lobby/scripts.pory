@@ -357,6 +357,15 @@ script Daemonheim_Lobby_STATE {
         clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     }
 
+    switch(var(VAR_MITHRILMAN_STATE)) {                            //This will have Mithrilman appear any time between Varrock and the HAM confrontation but allows for his dialogue to change
+    case 30:
+        addobject(3)           //Mithrilman
+        clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+    case 35:
+        addobject(3)           //Mithrilman
+        clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+    }
+
     return        
 }
 
@@ -550,4 +559,31 @@ movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2 {
     walk_left * 3
     walk_down * 4
     step_end
+}
+
+script Mithrilman_Daemonheim {
+    playbgm (MUS_ENCOUNTER_MAY, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    if (var(VAR_MITHRILMAN_STATE) == 30) {   //Variable for if you have done earlier events but not spoken to him here
+        msgbox(format("…{PAUSE 15}\p…{PAUSE 15}\p…{PAUSE 15}\pThousts have decided to pay thine a visit?\lKid thine not.\pThousts is here to gloat isn't thoust?\pLeave thine be.\lThine ist contemplating thinests next ordeal."))
+        hidenamebox
+        closemessage
+        setvar(VAR_MITHRILMAN_STATE, 35)
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 6)
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
+    else {
+        msgbox(format("Mithrilmen are solitary, alone.\lScolded and seen second to by Ironmen.\pThere ist none other that could match one as thine.\pNo-one.\p…{PAUSE 15}"))
+        closemessage
+        hidenamebox
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
 }

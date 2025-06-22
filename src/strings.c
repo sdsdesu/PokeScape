@@ -2172,7 +2172,13 @@ const u8 gText_SubQuest_MithrilmanQuest_Desc2[] = _("You found the Mithrilman in
 const u8 gText_SubQuest_MithrilmanQuest_Name3[] = _("A Hot encounterestd");
 const u8 gText_SubQuest_MithrilmanQuest_Desc3[] = _("Mithrilman is in the Karamja volcano.\nDoes he call lava, lavastedst?");
 const u8 gText_SubQuest_MithrilmanQuest_Name4[] = _("Mithril life crisis");
-const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("");
+const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("You found Mithrilman in Edgeville.\nHe doesn't like losing.");
+const u8 gText_SubQuest_MithrilmanQuest_Name5[] = _("A Trainingst Arc");
+const u8 gText_SubQuest_MithrilmanQuest_Desc5[] = _("You discovered Mithrilman training\nin Al Kharid.");
+const u8 gText_SubQuest_MithrilmanQuest_Name6[] = _("Thine Will Remember This");
+const u8 gText_SubQuest_MithrilmanQuest_Desc6[] = _("Mithrilman has finally learned\nyour name.");
+const u8 gText_SubQuest_MithrilmanQuest_Name7[] = _("A Solitary Fellowst");
+const u8 gText_SubQuest_MithrilmanQuest_Desc7[] = _("In the cold of Daemonheim,\nMithrilman contemplates life.");
 
 const u8 gText_SideQuestName_QuestPowerPlantScorpions[] = _("Dwarven Troubles");
 const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[] = _("Assist Nulodion with his\nscorpion problems.");

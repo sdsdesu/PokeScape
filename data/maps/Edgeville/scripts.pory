@@ -12,11 +12,19 @@ mapscripts Edgeville_MapScripts {
 script EDGEVILLE_STATE {
 	removeobject(25)
 	setflag(FLAG_TEMP_10) //Angrenouille
+	removeobject(24)
+	setflag(FLAG_TEMP_1C) //Angrenouille
 
 	if ((var(VAR_FROGEEL_RIVAL) == 20)) {
         addobject(25)
         clearflag(FLAG_TEMP_10) //Angrenouille
     }
+
+	if (var(VAR_MITHRILMAN_STATE) == 15) {
+		clearflag(FLAG_TEMP_1C)
+		addobject(24)
+	}
+
 	return
 }
 
@@ -832,4 +840,66 @@ script BATTLE_FROGEEL_RIVAL_5 {
     setvar(VAR_FROGEEL_RIVAL, 25)
     release
     end
+}
+
+script Mithrilman_Edgeville {
+    playbgm (MUS_ENCOUNTER_MAY, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    msgbox(format("Greetingst knave.\pThine hast witnessed thousts battle in the village of the barbarianest.\pThine must admit, thousts are truly lucky.\pComing thist far solely on luckst with thousts lackest of skill.\lThoust make thine laugh knave.\pLet thine show yee how a battle is to truly behest."))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_GRASS, format("…"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_FIRE, format("…"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_WATER, format("…"))
+    }
+	namebox("Mithrilman")
+    msgbox(format("Incomprehensiblestststs…\pKnave, thoust mayhaps be the luckiest person in the Gielinorian realm.\pThine is baffled.\lHowst is this possible?\pKnave, thine sees throughts yee.\pThoust are nothing but a knave, insignificant comparest to thine, because thine is a mithrilman beyond comparisonst.\pYee be warned.\lNexts timest thine battlest yee, thine will showst no mercy."))
+    waitmessage
+	closemessage
+    hidenamebox
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 7){
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)   //have player watch Mithrilman leave
+		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_1)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
+    } 
+    elif (var(VAR_TEMP_1) == 8){
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)  //have player watch Mithrilman leave
+		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_2)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
+    }
+    setvar(VAR_MITHRILMAN_STATE, 20)
+    setflag(FLAG_TEMP_1C) 	//mithrilman
+	removeobject(24)		//mithrilman
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3)
+    playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+	waitmovement(0)
+	waitse
+	msgbox(format("Oh?\pMithrilman seems to have dropped something while leaving."))
+	finditem(ITEM_SOUL_RUNE, 1)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    release
+    end
+}
+
+movement MOVEMENT_MITHRILMAN_EDGEVILLE_1 {
+    walk_left * 3
+	walk_down * 3
+	walk_left * 4
+	walk_up * 8
+    step_end
+}
+
+movement MOVEMENT_MITHRILMAN_EDGEVILLE_2 {
+    walk_down * 1
+	walk_left * 3
+	walk_down * 2
+	walk_left * 4
+	walk_up * 8
+    step_end
 }

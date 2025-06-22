@@ -5,6 +5,7 @@ mapscripts Varrock_MapScripts {
         setflag(FLAG_VISITED_VARROCK)
         setvar(VAR_EVOLUTION_MAP_STATE, 16) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
         call(RANDOM_EVENT_SANDWICH_LADY)
+        call(VARROCK_MITHRILMAN_STATE)
         if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
     	{
     	}
@@ -23,6 +24,17 @@ mapscripts Varrock_MapScripts {
 			
 		}
 	}
+}
+
+script VARROCK_MITHRILMAN_STATE {
+    removeobject(47)
+    setflag(FLAG_TEMP_1C) //Mithrilman
+
+    if ((var(VAR_MITHRILMAN_STATE) == 25)) {
+    addobject(47)
+    clearflag(FLAG_TEMP_1C) //Mithrilman
+    }
+	return
 }
 
 script VARROCK_STATE {
@@ -1387,6 +1399,44 @@ script VARROCK_NPC_WondertradeHint
     msgbox(format("There is a desk at the Grand Exchange that allows you to trade your monsters with a stranger.\pIt's very useful for those who don't have any friends to trade with, like me."))
     closemessage
     hidenamebox
+    release
+    end
+}
+
+
+script Mithrilman_Varrock {
+    playbgm (MUS_ENCOUNTER_MAY, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    msgbox(format("We meet again knave.\pThousts harvest made it this far, the very capital of Misthalin itselfst.\pAnd now yee stand before thine.\lA mithrilman in topst shape, trained by the elements and challenges uponst thee.\pKnave.\pThoust have beenst lucky.\pThoust have beenst clever.\pAnd thoust have dared challenge thine time uponst time again.\pThist endst nowt.\pKnave.\pThine challenges thee."))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_MITHRILMAN5_GRASS, format("…"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_MITHRILMAN5_FIRE, format("…"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_MITHRILMAN5_WATER, format("…"))
+    }
+	namebox("Mithrilman")
+    msgbox(format("Thoust does cheat?\pThoust must.\pThine cannot lose, for thine is a Mithrilman.\pGlory be upon thine, not yee.\pKnave{PAUSE 15}\p…{PAUSE 15}\p…{PAUSE 15}\p…{PAUSE 15}\pNAAAAAAAAAAARRRGHGHGHGHGH!\pKnave\lWhat is thousts name?\p…{PAUSE 15}\p{PLAYER}?\pThine will remember this\pFare thee lesser than decently."))
+    waitmessage
+	closemessage
+    hidenamebox
+    //add movement - not yet done depending on where we want the trigger for fighting him to be
+    setvar(VAR_MITHRILMAN_STATE, 30)
+    setflag(FLAG_TEMP_1C) 	//mithrilman
+	removeobject(47)		//mithrilman
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 5)
+    playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+	waitmovement(0)
+	waitse
+	msgbox(format("Oh?\pMithrilman appears to have left something on the ground."))
+	finditem(ITEM_GODSWORD, 1)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
     release
     end
 }
