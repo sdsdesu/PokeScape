@@ -12152,5 +12152,1243 @@ static const struct TrainerMon sParty_POOL_Falador_Pub[] = {
     .species = SPECIES_SPIRIT_WARRIOR,
     .ability = ABILITY_SHARPNESS,
     },
+};
 
+static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
+    {
+    .lvl = 1,
+    .species = SPECIES_SHADOW_HOUND,
+    .ability = ABILITY_CURSED_BODY,
+    },
+    {
+    .lvl = 2,
+    .species = SPECIES_BORDER_COLLIE,
+    .ability = ABILITY_LEAF_GUARD,
+    },
+    {
+    .lvl = 3,
+    .species = SPECIES_BLOODHOUND,
+    .ability = ABILITY_STAKEOUT,
+    },
+    {
+    .lvl = 4,
+    .species = SPECIES_GUARD_DOG,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 5,
+    .species = SPECIES_SHADOW_HOUND,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 6,
+    .species = SPECIES_BORDER_COLLIE,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 7,
+    .species = SPECIES_BLOODHOUND,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 8,
+    .species = SPECIES_GUARD_DOG,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 9,
+    .species = SPECIES_BEAVER,
+    .ability = ABILITY_SIMPLE,
+    },
+    {
+    .lvl = 10,
+    .species = SPECIES_GIANT_BEAVER,
+    .ability = ABILITY_SIMPLE,
+    },
+    {
+    .lvl = 11,
+    .species = SPECIES_RACCOON,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 12,
+    .species = SPECIES_RALPH,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 13,
+    .species = SPECIES_ROCKY,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 14,
+    .species = SPECIES_HONEY_BADGER,
+    .ability = ABILITY_TOUGH_CLAWS,
+    },
+    {
+    .lvl = 15,
+    .species = SPECIES_HARPY_EAGLE,
+    .ability = ABILITY_AERILATE,
+    },
+    {
+    .lvl = 16,
+    .species = SPECIES_HARPY_EAGLE,
+    .ability = ABILITY_SUPER_LUCK,
+    },
+    {
+    .lvl = 17,
+    .species = SPECIES_WHITE_DRAGON,
+    .ability = ABILITY_PSYCHIC_SURGE,
+    },
+    {
+    .lvl = 18,
+    .species = SPECIES_BRONZE_DRAGON,
+    .ability = ABILITY_WEAK_ARMOR,
+    },
+    {
+    .lvl = 19,
+    .species = SPECIES_IRON_DRAGON,
+    .ability = ABILITY_IRON_BARBS,
+    },
+    {
+    .lvl = 20,
+    .species = SPECIES_STEEL_DRAGON,
+    .ability = ABILITY_HEAVY_METAL,
+    },
+    {
+    .lvl = 21,
+    .species = SPECIES_MITHRIL_DRAGON,
+    .ability = ABILITY_LIGHT_METAL,
+    },
+    {
+    .lvl = 22,
+    .species = SPECIES_ADAMANT_DRAGON,
+    .ability = ABILITY_HEATPROOF,
+    },
+    {
+    .lvl = 23,
+    .species = SPECIES_RUNE_DRAGON,
+    .ability = ABILITY_FILTER,    
+    },
+    {
+    .lvl = 24,
+    .species = SPECIES_WHITE_DRAGON,
+    .ability = ABILITY_ABYSSAL,    
+    },
+    {
+    .lvl = 25,
+    .species = SPECIES_BRONZE_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 26,
+    .species = SPECIES_IRON_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 27,
+    .species = SPECIES_STEEL_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 28,
+    .species = SPECIES_MITHRIL_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 29,
+    .species = SPECIES_ADAMANT_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 30,
+    .species = SPECIES_RUNE_DRAGON,
+    .ability = ABILITY_FULL_METAL_BODY,    
+    },
+    {
+    .lvl = 31,
+    .species = SPECIES_CHICKEN_FRANK,
+    .ability = ABILITY_BIG_PECKS,
+    },
+    {
+    .lvl = 32,
+    .species = SPECIES_CHICKEN_DEATH,
+    .ability = ABILITY_PERISH_BODY,
+    },
+    {
+    .lvl = 33,
+    .species = SPECIES_CHICKEN_WAR,
+    .ability = ABILITY_BATTLE_ARMOR,
+    },
+    {
+    .lvl = 34,
+    .species = SPECIES_CHICKEN_PESTILENCE,
+    .ability = ABILITY_STENCH,
+    },
+    {
+    .lvl = 35,
+    .species = SPECIES_CHICKEN_FAMINE,
+    .ability = ABILITY_OPPORTUNIST,
+    },
+    {
+    .lvl = 36,
+    .species = SPECIES_CHICKEN_FRANK,
+    .ability = ABILITY_NORMALIZE,
+    },
+    {
+    .lvl = 37,
+    .species = SPECIES_CHICKEN_DEATH,
+    .ability = ABILITY_PERISH_BODY,
+    },
+    {
+    .lvl = 38,
+    .species = SPECIES_CHICKEN_WAR,
+    .ability = ABILITY_TOUGH_CLAWS,
+    },
+    {
+    .lvl = 39,
+    .species = SPECIES_CHICKEN_PESTILENCE,
+    .ability = ABILITY_TOXIC_DEBRIS,
+    },
+    {
+    .lvl = 40,
+    .species = SPECIES_CHICKEN_FAMINE,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 41,
+    .species = SPECIES_COCKROACH_WORKER,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 42,
+    .species = SPECIES_COCKROACH_SOLDIER,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 43,
+    .species = SPECIES_COCKROACH_WARPED_FORM,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 44,
+    .species = SPECIES_COCKROACH_WORKER,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 45,
+    .species = SPECIES_COCKROACH_SOLDIER,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_COCKROACH_WARPED_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_GOLEM_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 48,
+    .species = SPECIES_MOSS_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 49,
+    .species = SPECIES_IRON_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 50,
+    .species = SPECIES_STEEL_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 51,
+    .species = SPECIES_LAVA_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 52,
+    .species = SPECIES_OBSIDIAN_GOLEM,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 53,
+    .species = SPECIES_SWAMP_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 54,
+    .species = SPECIES_ICE_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 55,
+    .species = SPECIES_FIRE_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 56,
+    .species = SPECIES_GEYSIR_TITAN,
+    .ability = ABILITY_PRISM_ARMOR,
+    },
+    {
+    .lvl = 57,
+    .species = SPECIES_DARK_CORE,
+    .ability = ABILITY_PRESSURE,
+    },
+    {
+    .lvl = 58,
+    .species = SPECIES_GOLEM_TITAN,
+    .ability = ABILITY_SOLID_ROCK,
+    },
+    {
+    .lvl = 59,
+    .species = SPECIES_MOSS_TITAN,
+    .ability = ABILITY_CHLOROPHYLL,
+    },
+    {
+    .lvl = 60,
+    .species = SPECIES_IRON_TITAN,
+    .ability = ABILITY_FULL_METAL_BODY,
+    },
+    {
+    .lvl = 61,
+    .species = SPECIES_STEEL_TITAN,
+    .ability = ABILITY_STEELY_SPIRIT,
+    },
+    {
+    .lvl = 62,
+    .species = SPECIES_LAVA_TITAN,
+    .ability = ABILITY_MAGMA_ARMOR,
+    },
+    {
+    .lvl = 63,
+    .species = SPECIES_OBSIDIAN_GOLEM,
+    .ability = ABILITY_MAGMA_ARMOR,
+    },
+    {
+    .lvl = 64,
+    .species = SSPECIES_SWAMP_TITAN,
+    .ability = ABILITY_STENCH,
+    },
+    {
+    .lvl = 65,
+    .species = SPECIES_ICE_TITAN,
+    .ability = ABILITY_ICE_BODY,
+    },
+    {
+    .lvl = 66,
+    .species = SPECIES_FIRE_TITAN,
+    .ability = ABILITY_FLAME_BODY,
+    },
+    {
+    .lvl = 67,
+    .species = SPECIES_GEYSIR_TITAN,
+    .ability = ABILITY_STEAM_ENGINE,
+    },
+    {
+    .lvl = 68,
+    .species = SPECIES_DARK_CORE,
+    .ability = ABILITY_PRESSURE,
+    },
+    {
+    .lvl = 69,
+    .species = SPECIES_GOAT_PRIMORDIALCLAY_FORM,
+    .ability = ABILITY_SOLID_ROCK,
+    },
+    {
+    .lvl = 70,
+    .species = SPECIES_GOAT_PRIMORDIALCLAY_FORM,
+    .ability = ABILITY_ROCK_HEAD,
+    },
+    {
+    .lvl = 71,
+    .species = SPECIES_SPIDER_CRYPT_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 72,
+    .species = SSPECIES_SPIDER_TEMPLE_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 73,
+    .species = SPECIES_SPIDER_APEATOLL_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 74,
+    .species = SPECIES_SPIDER_CRYPT_FORM,
+    .ability = ABILITY_TINTED_LENS,
+    },
+    {
+    .lvl = 75,
+    .species = SPECIES_SPIDER_TEMPLE_FORM,
+    .ability = ABILITY_TINTED_LENS,
+    },
+    {
+    .lvl = 76,
+    .species = SPECIES_SPIDER_APEATOLL_FORM,
+    .ability = ABILITY_POISON_TOUCH,
+    },
+    {
+    .lvl = 77,
+    .species = SPECIES_IMPLING_DRAGON_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 78,
+    .species = SPECIES_IMPLING_KINGLY_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 79,
+    .species = SPECIES_IMPLING_LUCKY_FORM,
+    .ability = ABILITY_SUPER_LUCK,
+    },
+    {
+    .lvl = 80,
+    .species = SPECIES_IMPLING_DRAGON_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 81,
+    .species = SPECIES_IMPLING_KINGLY_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 82,
+    .species = SPECIES_IMPLING_LUCKY_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 83,
+    .species = SPECIES_HAND_FARMHAND_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 84,
+    .species = SPECIES_HAND_STUFFED_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 85,
+    .species = SPECIES_HAND_BROKENFINGERS_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 86,
+    .species = SPECIES_HAND_DEADHAND_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 87,
+    .species = SPECIES_HAND_DUNGEONEERING_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 88,
+    .species = SSPECIES_HAND_FARMHAND_FORM,
+    .ability = ABILITY_HARVEST,
+    },
+    {
+    .lvl = 89,
+    .species = SPECIES_HAND_STUFFED_FORM,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 90,
+    .species = SPECIES_HAND_BROKENFINGERS_FORM,
+    .ability = ABILITY_UNAWARE,
+    },
+    {
+    .lvl = 91,
+    .species = SPECIES_HAND_DEADHAND_FORM,
+    .ability = ABILITY_UNAWARE,
+    },
+    {
+    .lvl = 92,
+    .species = SPECIES_HAND_DUNGEONEERING_FORM,
+    .ability = ABILITY_UNSEEN_FIST,
+    },
+    {
+    .lvl = 93,
+    .species = SPECIES_IMPLING_NINJA_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 94,
+    .species = SPECIES_IMPLING_ZOMBIE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 95,
+    .species = SPECIES_IMPLING_ECLECTIC_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 96,
+    .species = SPECIES_IMPLING_CRYSTAL_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 97,
+    .species = SPECIES_IMPLING_NATURE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 98,
+    .species = SPECIES_IMPLING_ESSENCE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 99,
+    .species = SPECIES_IMPLING_DIVINE_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 100,
+    .species = SPECIES_IMPLING_SPIRIT_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 101,
+    .species = SPECIES_IMPLING_NINJA_FORM,
+    .ability = ABILITY_SHARPNESS,
+    },
+    {
+    .lvl = 102,
+    .species = SPECIES_IMPLING_ZOMBIE_FORM,
+    .ability = ABILITY_MUMMY,
+    },
+    {
+    .lvl = 103,
+    .species = SPECIES_IMPLING_ECLECTIC_FORM,
+    .ability = ABILITY_MOODY,
+    },
+    {
+    .lvl = 104,
+    .species = SPECIES_IMPLING_CRYSTAL_FORM,
+    .ability = ABILITY_CLEAR_BODY,
+    },
+    {
+    .lvl = 105,
+    .species = SPECIES_IMPLING_NATURE_FORM,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 106,
+    .species = SPECIES_IMPLING_ESSENCE_FORM,
+    .ability = ABILITY_MAGICIAN,
+    },
+    {
+    .lvl = 107,
+    .species = SPECIES_IMPLING_DIVINE_FORM,
+    .ability = ABILITY_MAGICIAN,
+    },
+    {
+    .lvl = 108,
+    .species = SPECIES_IMPLING_SPIRIT_FORM,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 109,
+    .species = SPECIES_SNOW_KNIGHT,
+    .ability = ABILITY_SNOW_WARNING,
+    },
+    {
+    .lvl = 110,
+    .species = SPECIES_BLACK_WARLOCK,
+    .ability = ABILITY_SHADOW_TAG,
+    },
+    {
+    .lvl = 111,
+    .species = SPECIES_SNOW_KNIGHT,
+    .ability = ABILITY_SHIELD_DUST,
+    },
+    {
+    .lvl = 112,
+    .species = SSPECIES_BLACK_WARLOCK,
+    .ability = ABILITY_SHIELD_DUST,
+    },
+    {
+    .lvl = 113,
+    .species = SPECIES_DRAUGEN,
+    .ability = ABILITY_SHADOW_TAG,
+    },
+    {
+    .lvl = 114,
+    .species = SPECIES_MACAW,
+    .ability = ABILITY_HARVEST,
+    },
+    {
+    .lvl = 115,
+    .species = SSPECIES_DRAUGEN,
+    .ability = ABILITY_SHADOW_SHIELD,
+    },
+    {
+    .lvl = 116,
+    .species = SPECIES_MACAW,
+    .ability = ABILITY_HARVEST,
+    },
+    {
+    .lvl = 117,
+    .species = SPECIES_BEAGLE,
+    .ability = ABILITY_UNBURDEN,
+    },
+    {
+    .lvl = 118,
+    .species = SPECIES_PUG,
+    .ability = ABILITY_CUTE_CHARM,
+    },
+    {
+    .lvl = 119,
+    .species = SPECIES_HUSKIE,
+    .ability = ABILITY_SLUSH_RUSH,
+    },
+    {
+    .lvl = 120,
+    .species = SPECIES_SHIBA,
+    .ability = ABILITY_CUTE_CHARM,
+    },
+    {
+    .lvl = 121,
+    .species = SPECIES_POLAR_BEAR_PUNISHED,
+    .ability = ABILITY_UNAWARE,
+    },
+    {
+    .lvl = 122,
+    .species = SPECIES_BEAGLE,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 123,
+    .species = SPECIES_PUG,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 124,
+    .species = SPECIES_HUSKIE,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 125,
+    .species = SPECIES_SHIBA,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 126,
+    .species = SPECIES_POLAR_BEAR_PUNISHED,
+    .ability = ABILITY_PROPELLER_TAIL,
+    },
+    {
+    .lvl = 127,
+    .species = SPECIES_IMPLING_EASTER_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 128,
+    .species = SPECIES_IMPLING_SNOW_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 129,
+    .species = SPECIES_IMPLING_WANDERING_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 130,
+    .species = SPECIES_IMPLING_GHOST_FORM,
+    .ability = ABILITY_PICKPOCKET,
+    },
+    {
+    .lvl = 131,
+    .species = SPECIES_IMPLING_EASTER_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 132,
+    .species = SPECIES_IMPLING_SNOW_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 133,
+    .species = SPECIES_IMPLING_WANDERING_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 134,
+    .species = SPECIES_IMPLING_GHOST_FORM,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 135,
+    .species = SPECIES_JERBOA,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 136,
+    .species = SPECIES_JERBOA_EMBERTAIL,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 137,
+    .species = SPECIES_ANTELOPE_SUNLIGHT_FORM,
+    .ability = ABILITY_LIMBER,
+    },
+    {
+    .lvl = 138,
+    .species = SPECIES_ANTELOPE_MOONLIGHT_FORM,
+    .ability = ABILITY_LIMBER,
+    },
+    {
+    .lvl = 139,
+    .species = SPECIES_JERBOA,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 140,
+    .species = SPECIES_JERBOA_EMBERTAIL,
+    .ability = ABILITY_RUN_AWAY,
+    },
+    {
+    .lvl = 141,
+    .species = SPECIES_ANTELOPE_SUNLIGHT_FORM,
+    .ability = ABILITY_STAMINA,
+    },
+    {
+    .lvl = 142,
+    .species = SPECIES_ANTELOPE_MOONLIGHT_FORM,
+    .ability = ABILITY_STAMINA,
+    },
+    {
+    .lvl = 143,
+    .species = SPECIES_MARIONETTE,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 144,
+    .species = SPECIES_MARIONETTE,
+    .ability = ABILITY_LIMBER,
+    },
+    {
+    .lvl = 145,
+    .species = SPECIES_HAND_CRAWLING_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 146,
+    .species = SPECIES_HAND_SKELETAL_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 147,
+    .species = SPECIES_HAND_CRUSHING_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 148,
+    .species = SPECIES_HAND_ZOMBIE_FORM,
+    .ability = ABILITY_IRON_FIST,
+    },
+    {
+    .lvl = 149,
+    .species = SPECIES_HAND_CRAWLING_FORM,
+    .ability = ABILITY_OBLIVIOUS,
+    },
+    {
+    .lvl = 150,
+    .species = SPECIES_HAND_SKELETAL_FORM,
+    .ability = ABILITY_OBLIVIOUS,
+    },
+    {
+    .lvl = 151,
+    .species = SPECIES_HAND_CRUSHING_FORM,
+    .ability = ABILITY_SCRAPPY,
+    },
+    {
+    .lvl = 152,
+    .species = SPECIES_HAND_ZOMBIE_FORM,
+    .ability = ABILITY_MUMMY,
+    },
+    {
+    .lvl = 153,
+    .species = SPECIES_BEAR_NORMAL_FORM,
+    .ability = ABILITY_INTIMIDATE,
+    },
+    {
+    .lvl = 154,
+    .species = SPECIES_BEAR_REANIMATED_FORM,
+    .ability = ABILITY_CLEAR_BODY,
+    },
+    {
+    .lvl = 155,
+    .species = SPECIES_BEAR_GAUNTLET_CRYSTALLINE_FOR,
+    .ability = ABILITY_ICE_BODY,
+    },
+    {
+    .lvl = 156,
+    .species = SPECIES_CALLISTO,
+    .ability = ABILITY_TERAVOLT,
+    },
+    {
+    .lvl = 157,
+    .species = SSPECIES_POLAR_BEAR_NORMAL_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    },
+    {
+    .lvl = 158,
+    .species = SPECIES_POLAR_BEAR_PBJ_AGENT_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    },
+    {
+    .lvl = 159,
+    .species = SPECIES_POLAR_BEAR_ARCTIC_FORM,
+    .ability = ABILITY_SWIFT_SWIM,
+    },
+    {
+    .lvl = 160,
+    .species = SPECIES_POLAR_BEAR_NANUQ_FORM,
+    .ability = ABILITY_FLASH_FIRE,
+    },
+    {
+    .lvl = 161,
+    .species = SPECIES_BEAR_GRIZZLY_FORM,
+    .ability = ABILITY_ANGER_POINT,
+    },
+    {
+    .lvl = 162,
+    .species = SPECIES_KENDALL,
+    .ability = ABILITY_INTIMIDATE,
+    },
+    {
+    .lvl = 163,
+    .species = SPECIES_BEAR_GAUNTLET_CORRUPTED_FORM,
+    .ability = ABILITY_SHELL_ARMOR,
+    },
+    {
+    .lvl = 164,
+    .species = SPECIES_BEAR_ANGRY_FORM,
+    .ability = ABILITY_ANGER_POINT,
+    },
+    {
+    .lvl = 165,
+    .species = SPECIES_BEAR_NORMAL_FORM,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 166,
+    .species = SPECIES_BEAR_REANIMATED_FORM,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 167,
+    .species = SPECIES_BEAR_GAUNTLET_CRYSTALLINE_FORM,
+    .ability = ABILITY_CLEAR_BODY,
+    },
+    {
+    .lvl = 168,
+    .species = SPECIES_CALLISTO,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 169,
+    .species = SSPECIES_POLAR_BEAR_NORMAL_FORM,
+    .ability = ABILITY_SLUSH_RUSH,
+    },
+    {
+    .lvl = 170,
+    .species = SPECIES_POLAR_BEAR_PBJ_AGENT_FORM,
+    .ability = ABILITY_LEAF_GUARD,
+    },
+    {
+    .lvl = 171,
+    .species = SPECIES_POLAR_BEAR_ARCTIC_FORM,
+    .ability = ABILITY_SLUSH_RUSH,
+    },
+    {
+    .lvl = 172,
+    .species = SSPECIES_POLAR_BEAR_NANUQ_FORM,
+    .ability = ABILITY_SLUSH_RUSH,
+    },
+    {
+    .lvl = 173,
+    .species = SPECIES_BEAR_GRIZZLY_FORM,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 174,
+    .species = SPECIES_KENDALL,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 175,
+    .species = SPECIES_BEAR_GAUNTLET_CORRUPTED_FORM,
+    .ability = ABILITY_FILTER,
+    },
+    {
+    .lvl = 176,
+    .species = SPECIES_BEAR_ANGRY_FORM,
+    .ability = ABILITY_FLUFFY,
+    },
+    {
+    .lvl = 177,
+    .species = SPECIES_WOLF_DIRE_FORM,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 178,
+    .species = SPECIES_WOLF_JUNGLE_FORM,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 179,
+    .species = SPECIES_WOLF_SKOLL_FORM,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 180,
+    .species = SPECIES_WOLF_DESERT_FORM,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 181,
+    .species = SSPECIES_WOLF_HATI_HATI,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 182,
+    .species = SPECIES_WOLF_SPIRIT_FORM,
+    .ability = ABILITY_HUNTER,
+    },
+    {
+    .lvl = 183,
+    .species = SPECIES_FOX,
+    .ability = ABILITY_VITAL_SPIRIT,
+    },
+    {
+    .lvl = 184,
+    .species = SPECIES_INARI,
+    .ability = ABILITY_SNOW_CLOAK,
+    },
+    {
+    .lvl = 185,
+    .species = SPECIES_WOLF_DIRE_FORM,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 186,
+    .species = SPECIES_WOLF_JUNGLE_FORM,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 187,
+    .species = SPECIES_WOLF_SKOLL_FORM,
+    .ability = ABILITY_DROUGHT,
+    },
+    {
+    .lvl = 188,
+    .species = SPECIES_WOLF_DESERT_FORM,
+    .ability = ABILITY_SAND_RUSH,
+    },
+    {
+    .lvl = 189,
+    .species = SPECIES_WOLF_HATI_HATI,
+    .ability = ABILITY_RECKLESS,
+    },
+    {
+    .lvl = 190,
+    .species = SPECIES_WOLF_SPIRIT_FORM,
+    .ability = ABILITY_STRONG_JAW,
+    },
+    {
+    .lvl = 191,
+    .species = SPECIES_FOX,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 192,
+    .species = SPECIES_INARI,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 193,
+    .species = SPECIES_SPIDER_DEADLYRED_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 194,
+    .species = SPECIES_SPIDER_JUNGLE_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 195,
+    .species = SPECIES_SPIDER_BLESSED_FORM,
+    .ability = ABILITY_VOLT_ABSORB,
+    },
+    {
+    .lvl = 196,
+    .species = SPECIES_SPIDER_HUGE_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 197,
+    .species = SPECIES_SPIDER_NIGHT_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 198,
+    .species = SPECIES_SPIDER_ICE_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 199,
+    .species = SPECIES_SPIDER_SPIRIT_FORM,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 200,
+    .species = SPECIES_EEK,
+    .ability = ABILITY_GOOEY,
+    },
+    {
+    .lvl = 201,
+    .species = SPECIES_MINSTRLWEB,
+    .ability = ABILITY_GOOSEBUMPS,
+    },
+    {
+    .lvl = 202,
+    .species = SPECIES_SPIDER_DEADLYRED_FORM,
+    .ability = ABILITY_SWARM,
+    },
+    {
+    .lvl = 203,
+    .species = SPECIES_SPIDER_JUNGLE_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 204,
+    .species = SPECIES_SPIDER_BLESSED_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 205,
+    .species = SPECIES_SPIDER_HUGE_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 206,
+    .species = SPECIES_SPIDER_NIGHT_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 207,
+    .species = SPECIES_SPIDER_ICE_FORM,
+    .ability = ABILITY_ICE_BODY,
+    },
+    {
+    .lvl = 208,
+    .species = SPECIES_SPIDER_SPIRIT_FORM,
+    .ability = ABILITY_COMPOUND_EYES,
+    },
+    {
+    .lvl = 209,
+    .species = SPECIES_EEK,
+    .ability = ABILITY_PRANKSTER,
+    },
+    {
+    .lvl = 210,
+    .species = SPECIES_MINSTRLWEB,
+    .ability = ABILITY_STORM_DRAIN,
+    },
+    {
+    .lvl = 211,
+    .species = SPECIES_YAK_PACK_FORM,
+    .ability = ABILITY_THICK_FAT,
+    },
+    {
+    .lvl = 212,
+    .species = SPECIES_YAK_SACRED_FORM,
+    .ability = ABILITY_THICK_FAT,
+    },
+    {
+    .lvl = 213,
+    .species = SPECIES_YAK_CLUESCROLL_FORM,
+    .ability = ABILITY_SUPER_LUCK,
+    },
+    {
+    .lvl = 214,
+    .species = SPECIES_YAK_UNDEAD_FORM,
+    .ability = ABILITY_MUMMY,
+    },
+    {
+    .lvl = 215,
+    .species = SPECIES_YAK_SNACK_FORM,
+    .ability = ABILITY_THICK_FAT,
+    },
+    {
+    .lvl = 216,
+    .species = SPECIES_YAK_PACK_FORM,
+    .ability = ABILITY_ROCK_HEAD,
+    },
+    {
+    .lvl = 217,
+    .species = SPECIES_YAK_SACRED_FORM,
+    .ability = ABILITY_SERENE_GRACE,
+    },
+    {
+    .lvl = 218,
+    .species = SPECIES_YAK_CLUESCROLL_FORM,
+    .ability = ABILITY_STAKEOUT,
+    },
+    {
+    .lvl = 219,
+    .species = SPECIES_YAK_UNDEAD_FORM,
+    .ability = ABILITY_CURSED_BODY,
+    },
+    {
+    .lvl = 220,
+    .species = SPECIES_YAK_SNACK_FORM,
+    .ability = ABILITY_MOODY,
+    },
+    {
+    .lvl = 221,
+    .species = SPECIES_TERRIER,
+    .ability = ABILITY_SIMPLE,
+    .moves = {MOVE_ACUPRESSURE, MOVE_ACCELEROCK< MOVE_SAND_ATTACK, MOVE_CRUNCH}
+    },
+    {
+    .lvl = 222,
+    .species = SPECIES_SHEEPDOG,
+    .ability = ABILITY_UNBURDEN,
+    .heldItem = ITEM_DWELLBERRY,
+    .moves = {MOVE_DARK_PULSE, MOVE_DOUBLE_EDGE, MOVE_DIG, MOVE_REST}
+    },
+    {
+    .lvl = 223,
+    .species = SPECIES_DALMATIAN,
+    .ability = ABILITY_SWIFT_SWIM,
+    .heldItem = ITEM_APPLE,
+    .moves = {MOVE_FLIP_TURN, MOVE_NATURAL_GIFT, MOVE_ICE_FANG, MOVE_RAIN_DANCE}
+    },
+    {
+    .lvl = 224,
+    .species = SPECIES_GREYHOUND,
+    .ability = ABILITY_LIMBER,
+    .moves = {MOVE_CLOSE_COMBAT, MOVE_DOUBLE_EDGE, MOVE_SLACK_OFF, MOVE_DIG}
+    },
+    {
+    .lvl = 225,
+    .species = SPECIES_BULLDOG,
+    .ability = ABILITY_HUSTLE,
+    .moves = {MOVE_THRASH, MOVE_DIG, MOVE_CRUNCH, MOVE_BODY_SLAM}
+    },
+    {
+    .lvl = 226,
+    .species = SPECIES_LABRADOR,
+    .ability = ABILITY_CUTE_CHARM,
+    .moves = {MOVE_THUNDERBOLT, MOVE_HOLD_HANDS, MOVE_DOUBLE_EDGE, MOVE_SLACK_OFF}
+    },
+    {
+    .lvl = 227,
+    .species = SPECIES_CORGI,
+    .ability = ABILITY_QUEENLY_MAJESTY,
+    .moves = {MOVE_PLAY_ROUGH, MOVE_THRASH, MOVE_CRUNCH, MOVE_DIG}
+    },
+    {
+    .lvl = 228,
+    .species = SPECIES_TERROR_DOG,
+    .ability = ABILITY_RECKLESS,
+    },
+    {
+    .lvl = 229,
+    .species = SPECIES_STRAY_DOG,
+    .ability = ABILITY_STENCH,
+    },
+    {
+    .lvl = 230,
+    .species = SPECIES_MUNCHER,
+    .ability = ABILITY_INTIMIDATE,
+    },
+    {
+    .lvl = 231,
+    .species = SPECIES_HELLPUPPY,
+    .ability = ABILITY_INTIMIDATE,
+    },
+    {
+    .lvl = 232,
+    .species = SPECIES_HELLHOUND,
+    .ability = ABILITY_INTIMIDATE,
+    },
+    {
+    .lvl = 233,
+    .species = SPECIES_TERRIER,
+    .ability = ABILITY_ROCK_HEAD,
+    .moves = {MOVE_HEAD_CHARGE, MOVE_HEAD_SMASH, MOVE_ACCELEROCK, MOVE_DIG}
+    },
+    {
+    .lvl = 234,
+    .species = SPECIES_SHEEPDOG,
+    .ability = ABILITY_GUARD_DOG,
+    .moves = {MOVE_SNARL, MOVE_SCARY_FACE, MOVE_SAND_ATTACK, MOVE_GROWL}
+    },
+    {
+    .lvl = 235,
+    .species = SPECIES_DALMATIAN,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_FLIP_TURN, MOVE_CRUNCH, MOVE_DIG, MOVE_ICE_FANG}
+    },
+    {
+    .lvl = 236,
+    .species = SPECIES_GREYHOUND,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_AGILITY, MOVE_NONE, MOVE_NONE, MOVE_NONE}
+    },
+    {
+    .lvl = 237,
+    .species = SPECIES_BULLDOGL,
+    .ability = ABILITY_GUARD_DOG,
+    .moves = {MOVE_SPIKES, MOVE_BULK_UP, MOVE_BULLDOZE, MOVE_MUD_SLAP}
+    },
+    {
+    .lvl = 238,
+    .species = SPECIES_LABRADOR,
+    .ability = ABILITY_OWN_TEMPO,
+    .moves = {MOVE_THUNDERBOLT, MOVE_CAPTIVATE,	MOVE_PURSUIT, MOVE_TACKLE}
+    },
+    {
+    .lvl = 239,
+    .species = SPECIES_CORGI,
+    .ability = ABILITY_PRANKSTER,
+    .moves = {MOVE_CHARM, MOVE_SAND_ATTACK,	MOVE_THRASH, MOVE_PLAY_ROUGH}
+    },
+    {
+    .lvl = 240,
+    .species = SPECIES_TERROR_DOG,
+    .ability = ABILITY_GUARD_DOG,
+    },
+    {
+    .lvl = 241,
+    .species = SPECIES_STRAY_DOG,
+    .ability = ABILITY_OWN_TEMPO,
+    },
+    {
+    .lvl = 242,
+    .species = SPECIES_MUNCHER,
+    .ability = ABILITY_BALL_FETCH,
+    },
+    {
+    .lvl = 243,
+    .species = SPECIES_HELLPUPPY,
+    .ability = ABILITY_BALL_FETCH,
+    },
+    {
+    .lvl = 244,
+    .species = SPECIES_HELLHOUND,
+    .ability = ABILITY_GUARD_DOG,
+    },
 };
