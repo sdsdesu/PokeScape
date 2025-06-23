@@ -552,6 +552,7 @@ script BATTLE_FROGEEL_RIVAL_8 {
 movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1 {
     walk_left * 3
     walk_down * 5
+    set_invisible
     step_end
 }
 
@@ -559,6 +560,7 @@ movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2 {
     walk_down * 1
     walk_left * 3
     walk_down * 4
+    set_invisible
     step_end
 }
 
