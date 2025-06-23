@@ -9044,30 +9044,30 @@
     {
       "id": "LAYOUT_WILDERNESS_VOLCANO_B1F",
       "name": "WildernessVolcano_B1F_Layout",
-      "width": 80,
-      "height": 80,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_ChaosTunnels",
+      "width": 38,
+      "height": 26,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_Wilderness_Crater",
       "border_filepath": "data/layouts/WildernessVolcano_B1F/border.bin",
       "blockdata_filepath": "data/layouts/WildernessVolcano_B1F/map.bin"
     },
     {
       "id": "LAYOUT_WILDERNESS_CRATER_B2F",
       "name": "Wilderness_Crater_B2F_Layout",
-      "width": 80,
-      "height": 80,
+      "width": 58,
+      "height": 44,
       "primary_tileset": "gTileset_PokeScapeCaves",
-      "secondary_tileset": "gTileset_ChaosTunnels",
+      "secondary_tileset": "gTileset_Wilderness_Crater",
       "border_filepath": "data/layouts/Wilderness_Crater_B2F/border.bin",
       "blockdata_filepath": "data/layouts/Wilderness_Crater_B2F/map.bin"
     },
     {
       "id": "LAYOUT_WILDERNESS_CRATER_B3F",
       "name": "Wilderness_Crater_B3F_Layout",
-      "width": 80,
-      "height": 80,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_ChaosTunnels",
+      "width": 60,
+      "height": 56,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_Wilderness_Crater",
       "border_filepath": "data/layouts/Wilderness_Crater_B3F/border.bin",
       "blockdata_filepath": "data/layouts/Wilderness_Crater_B3F/map.bin"
     },
@@ -9077,7 +9077,7 @@
       "width": 80,
       "height": 80,
       "primary_tileset": "gTileset_PokeScapeCaves",
-      "secondary_tileset": "gTileset_ChaosTunnels",
+      "secondary_tileset": "gTileset_Wilderness_Crater",
       "border_filepath": "data/layouts/Wilderness_Crater_B4F/border.bin",
       "blockdata_filepath": "data/layouts/Wilderness_Crater_B4F/map.bin"
     }
