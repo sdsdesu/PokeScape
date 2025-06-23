@@ -533,6 +533,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_SPIDER_BROWN",
       "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOODCUTTER",
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_LUMBRIDGE_FOREST_MISSING_AXE",
+      "flag": "FLAG_TEMP_8"
     }
   ],
   "warp_events": [

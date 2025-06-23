@@ -1232,6 +1232,6 @@ BATTLE_LUMBRIDGEFOREST_HAM_4_Text_1:
 
 BATTLE_LUMBRIDGEFOREST_HAM_4_Text_2:
 	.string "This really isn't my day.\p"
-	.string "I hope my superiors arent watching.\p"
+	.string "I hope my superiors aren't watching.\p"
 	.string "It would really kill my performance\n"
 	.string "review.$"

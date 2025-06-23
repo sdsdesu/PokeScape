@@ -418,7 +418,7 @@
 #define TRAINER_ELITE4_SIR_TIFFY_1                      414
 #define TRAINER_ELITE4_HAZELMERE_1                      415
 #define TRAINER_ELITE4_ZANIK_1                          416
-#define TRAINER_ELITE4_HANS_1                           417
+#define TRAINER_ELITE4_HANS_1_GRASS                     417
 #define TRAINER_CHAMPION_WISE_OLD_MAN_1                 418
 #define TRAINER_EDGEVILLE_GYM_1                         419
 #define TRAINER_EDGEVILLE_GYM_2                         420
@@ -616,12 +616,16 @@
 #define TRAINER_MITHRILMAN5_WATER				        610
 #define TRAINER_HAM_HIDEOUT_JAILER                      611
 #define TRAINER_HAM_HIDEOUT_JOHANHUS                    612
+#define TRAINER_OZAN_1                                  613
+#define TRAINER_OZAN_2                                  614
+#define TRAINER_ELITE4_HANS_1_FIRE                      615
+#define TRAINER_ELITE4_HANS_1_WATER                     616
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_HAM_HIDEOUT_JOHANHUS + 1)
+#define TRAINERS_COUNT                      (TRAINER_ELITE4_HANS_1_WATER + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

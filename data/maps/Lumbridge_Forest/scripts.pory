@@ -16,6 +16,13 @@ MAP_SCRIPT_ON_TRANSITION {
 }
 
 script LumForest_STATE{
+	removeobject(41)
+	setflag(FLAG_TEMP_8)
+	checkitem(ITEM_CUT_TOOL, 1)
+    if (!var(VAR_RESULT)) {
+        addobject(41)
+		clearflag(FLAG_TEMP_8)
+    }
 	//switch (var(VAR_POKESCAPE_WIZARDS_TOWER_STATE)){ 
 		//case 0: 
             //setobjectxyperm(5, 32, 15)
@@ -130,12 +137,12 @@ script NPC_LUMBRIDGE_FOREST_5
 	end
 }
 
-script NPC_LUMBRIDGE_FOREST_6 //not currently in use
+script NPC_LUMBRIDGE_FOREST_MISSING_AXE
 {
 	lock
 	faceplayer
-    namebox ("Cupholder")
-	msgbox(format("Hello, I am a Cupholder."))
+    namebox ("CutterD0wn")
+	msgbox(format("Are you having difficulty cutting down these tiny trees?\pThey're surprisingly sturdy and require a DRAGON AXE to chop down.{PAUSE 15}\pYou don't have one?\pWhy don't you try seeing if you can buy one from someone in Lumbridge?\lI'm sure there's an axe shop there."))
     closemessage
     hidenamebox
 	release
@@ -429,20 +436,20 @@ script Following_Zanik {
     facefollower 
 
 	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
-		case 181:
-			msgbox(format("Is that a Black Knight Fortress?!"))
+		case 225:
+			msgbox(format("The disguises are working!\pNow where might they be holding their prisoners?"))
 			hidenamebox
 			closemessage
 			release
 			end
-		case 186:
-			msgbox(format("We should go say hello to those guards up on the mountain."))
+		case 230:
+			msgbox(format("We need to find someone with a spare key to the jail cell.\pPerhaps they're somewhere deeper inside the hideout?"))
 			hidenamebox
 			closemessage
 			release
 			end
-		case 187:
-			msgbox(format("I cannot believe we just did that…\pI guess we should try to enter the fortress, now that we look the part."))
+		case 235:
+			msgbox(format("I am sorry I blew our cover {PLAYER}, but we've come this far and we have the jail cell key now!\pWe have to keep going and find the Prince!"))
 			hidenamebox
 			closemessage
 			release
@@ -615,7 +622,7 @@ script BATTLE_LUMBRIDGEFOREST_HAM_3
 { 
     trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_3, format("We fight for what's right... The future will show you were in the wrong!"),format("You may have won, but you're still on the wrong side of this!"))
     namebox ("H.A.M Grunt")
-    msgbox(format("The future is written by the victors... Remember that when we smite you down like the bug you are"))
+    msgbox(format("The future is written by the victors... Remember that when we smite you down like the bug you are."))
 	hidenamebox
     release
 	end
@@ -623,9 +630,9 @@ script BATTLE_LUMBRIDGEFOREST_HAM_3
 
 script BATTLE_LUMBRIDGEFOREST_HAM_4
 { 
-    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_4, format("I may have let that one goblin pass, but I refuse to let you just waltz into our hideout!"),format("This really isn't my day..."))
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_4, format("I refuse to just let you just waltz into our hideout!"),format("This really isn't my day..."))
     namebox ("H.A.M Grunt")
-    msgbox(format("This really isn't my day.\pI hope my superiors arent watching.\pIt would really kill my performance review."))
+    msgbox(format("This really isn't my day.\pI hope my superiors aren't watching.\pIt would really kill my performance review."))
 	hidenamebox
     release
 	end

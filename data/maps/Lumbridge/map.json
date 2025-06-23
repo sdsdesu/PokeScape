@@ -367,7 +367,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "HAM_EVENT_ALKHAIRD_WISE_OLD_MAN",
+      "script": "HAM_EVENT_ALKHARID_WISE_OLD_MAN",
       "flag": "FLAG_TEMP_1E"
     },
     {
