@@ -6964,8 +6964,8 @@
     {
       "id": "LAYOUT_WILDERNESS_VOLCANO_CHAMPION_ROOM",
       "name": "WildernessVolcano_ChampionRoom_Layout",
-      "width": 50,
-      "height": 50,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_PokeScapeOutdoors",
       "secondary_tileset": "gTileset_ChaosTunnels",
       "border_filepath": "data/layouts/WildernessVolcano_ChampionRoom/border.bin",
@@ -9040,6 +9040,46 @@
       "secondary_tileset": "gTileset_PokeScape_HAM",
       "border_filepath": "data/layouts/HAM_Hideout_B3F/border.bin",
       "blockdata_filepath": "data/layouts/HAM_Hideout_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILDERNESS_VOLCANO_B1F",
+      "name": "WildernessVolcano_B1F_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ChaosTunnels",
+      "border_filepath": "data/layouts/WildernessVolcano_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/WildernessVolcano_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILDERNESS_CRATER_B2F",
+      "name": "Wilderness_Crater_B2F_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_ChaosTunnels",
+      "border_filepath": "data/layouts/Wilderness_Crater_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/Wilderness_Crater_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILDERNESS_CRATER_B3F",
+      "name": "Wilderness_Crater_B3F_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ChaosTunnels",
+      "border_filepath": "data/layouts/Wilderness_Crater_B3F/border.bin",
+      "blockdata_filepath": "data/layouts/Wilderness_Crater_B3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WILDERNESS_CRATER_B4F",
+      "name": "Wilderness_Crater_B4F_Layout",
+      "width": 80,
+      "height": 80,
+      "primary_tileset": "gTileset_PokeScapeCaves",
+      "secondary_tileset": "gTileset_ChaosTunnels",
+      "border_filepath": "data/layouts/Wilderness_Crater_B4F/border.bin",
+      "blockdata_filepath": "data/layouts/Wilderness_Crater_B4F/map.bin"
     }
   ]
 }

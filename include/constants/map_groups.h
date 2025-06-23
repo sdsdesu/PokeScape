@@ -1087,6 +1087,10 @@
 #define MAP_BLACK_KNIGHTS_FORTRESS_3            (94 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_4            (95 | (50 << 8))
 #define MAP_HAM_HIDEOUT_B3F                     (96 | (50 << 8))
+#define MAP_WILDERNESS_VOLCANO_B1F              (97 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B2F               (98 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B3F               (99 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B4F               (100 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 
