@@ -1,12 +1,27 @@
 Edgeville_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Edgeville_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_TRANSITION, Edgeville_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Edgeville_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call EDGEVILLE_METATILES
+	return
 
 Edgeville_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_EDGEVILLE
 	setvar VAR_EVOLUTION_MAP_STATE, 15
 	call EDGEVILLE_STATE
 	call RANDOM_EVENT_SANDWICH_LADY
+	return
+
+
+EDGEVILLE_METATILES::
+	switch VAR_FROGEEL_RIVAL
+	case 20, EDGEVILLE_METATILES_2
+	return
+
+EDGEVILLE_METATILES_2:
+	setmetatile 36, 10, METATILE_Edgeville_EDGEVILLE_BRIDGE, 0, 4
 	return
 
 
@@ -790,6 +805,7 @@ Mithrilman_Edgeville_1:
 	compare VAR_TEMP_1, 8
 	goto_if_eq Mithrilman_Edgeville_10
 Mithrilman_Edgeville_8:
+	waitmovement 0
 	setvar VAR_MITHRILMAN_STATE, 20
 	setflag FLAG_TEMP_1C
 	removeobject 24

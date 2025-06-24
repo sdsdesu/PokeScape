@@ -10,8 +10,8 @@ script VARROCK_NORTH_STATE {
 	setflag(FLAG_TEMP_10) //Angrenouille
 
     if ((var(VAR_FROGEEL_RIVAL) == 30)) {
-    addobject(28)
-    clearflag(FLAG_TEMP_10) //Angrenouille
+        addobject(28)
+        clearflag(FLAG_TEMP_10) //Angrenouille
     }
 	return
 }
@@ -51,11 +51,11 @@ script FROGEEL_RIVAL_7 {
     msgbox(format("Among some flowers you find something.\lAngrenouille must have dropped it."))
     waitmovement(0)
     closemessage
+    setvar(VAR_FROGEEL_RIVAL, 35)
     giveitem(ITEM_ASTRAL_RUNE, 1)
     closemessage
     removeobject(28)
     setflag(FLAG_TEMP_10) //Angrenouille
-    setvar(VAR_FROGEEL_RIVAL, 35)
     release
     end
 }

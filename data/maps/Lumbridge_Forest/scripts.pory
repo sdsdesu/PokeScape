@@ -18,20 +18,14 @@ MAP_SCRIPT_ON_TRANSITION {
 script LumForest_STATE{
 	removeobject(41)
 	setflag(FLAG_TEMP_8)
-	checkitem(ITEM_CUT_TOOL, 1)
-    if (!var(VAR_RESULT)) {
-        addobject(41)
-		clearflag(FLAG_TEMP_8)
-    }
-	//switch (var(VAR_POKESCAPE_WIZARDS_TOWER_STATE)){ 
-		//case 0: 
-            //setobjectxyperm(5, 32, 15)
-            //setobjectmovementtype(5,MOVEMENT_TYPE_FACE_DOWN)
-            //setobjectxyperm(4, 33, 15)
-            //setobjectmovementtype(4,MOVEMENT_TYPE_FACE_DOWN)
-
-			return
-    //}
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 215) {
+		checkitem(ITEM_CUT_TOOL, 1) 
+		if (!var(VAR_RESULT)) {
+			addobject(41)
+			clearflag(FLAG_TEMP_8)
+		}
+	}
+	return
 }
 
 

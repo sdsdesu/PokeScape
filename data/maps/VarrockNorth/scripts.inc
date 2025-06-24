@@ -50,11 +50,11 @@ FROGEEL_RIVAL_7_8:
 	msgbox FROGEEL_RIVAL_7_Text_4
 	waitmovement 0
 	closemessage
+	setvar VAR_FROGEEL_RIVAL, 35
 	giveitem ITEM_ASTRAL_RUNE, 1
 	closemessage
 	removeobject 28
 	setflag FLAG_TEMP_10
-	setvar VAR_FROGEEL_RIVAL, 35
 	release
 	end
 

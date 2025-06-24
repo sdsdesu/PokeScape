@@ -125,39 +125,40 @@ script ITEM_DWARVENMINES_BODY_TALISMAN
 
 script MOVE_TUTOR_DEFLECT {
     lock
+    faceplayer
     namebox ("Priest")
     msgbox(format("I see you taking an interest in the church.\pI know a special prayer, passed down through generations of devout followers called DEFLECT that I could teach one of your monsters.\pIt increases their defense by 5 stages for 2 turns.\pWould you be interested in learning it?"), MSGBOX_YESNO)
     if (!var(VAR_RESULT))
-			{
-				goto(MOVE_TUTOR_DEFLECT_NO)
-			}
+    {
+        goto(MOVE_TUTOR_DEFLECT_NO)
+    }
     else {
     msgbox(format("Okay, great!\pUnfortunately the church is in dire need of renovation, so I must insist on a charitable donation for my services.\pI think 3,000gp should cover it.\pIs that okay with you?"), MSGBOX_YESNO)    
     if (!var(VAR_RESULT))
-			{
-				goto(MOVE_TUTOR_DEFLECT_NO)
-			}
+    {
+        goto(MOVE_TUTOR_DEFLECT_NO)
+    }
     else {
         checkmoney(3000, 0)
-            if (!var(VAR_RESULT))
-            {
-                msgbox(format("I am very sorry, but you don't seem to have enough money."))
-                waitmessage
-                hidenamebox
-                release
-                end
+        if (!var(VAR_RESULT))
+        {
+            msgbox(format("I am very sorry, but you don't seem to have enough money."))
+            waitmessage
+            hidenamebox
+            release
+            end
+        }
+        else {
+            setvar (VAR_0x8005, MOVE_DEFLECT)
+            call (MOVE_TUTOR_OpenPartyMenu)
+            if (var(VAR_RESULT) == 0) {
+                goto(MOVE_TUTOR_DEFLECT_NO)
             }
-            else {
-                setvar (VAR_0x8005, MOVE_DEFLECT)
-                call (MOVE_TUTOR_OpenPartyMenu)
-                if (var(VAR_RESULT) == 0) {
-                    goto(MOVE_TUTOR_DEFLECT_NO)
-                }
-                msgbox(format("Your monster was blessed with the power of DEFLECT."))
-                removemoney(3000, 0)
-                release
-                end
-            }
+            msgbox(format("Your monster was blessed with the power of DEFLECT."))
+            removemoney(3000, 0)
+            release
+            end
+        }
         }
     }
 }

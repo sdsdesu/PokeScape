@@ -857,6 +857,10 @@ script STORYMODE_VAR_CHECK {
 	buffernumberstring(STR_VAR_2, VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE)
     msgbox(format("VAR_POKESCAPE_WIZARDS_TOWER_STATE: {STR_VAR_1}.\pVAR_POKESCAPE_BARBARIAN_VILLAGE_STATE: {STR_VAR_2}."))
 	closemessage
+	buffernumberstring(STR_VAR_1, VAR_MITHRILMAN_STATE)
+	buffernumberstring(STR_VAR_2, VAR_FROGEEL_RIVAL)
+    msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_1}.\pVAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+	closemessage
 	msgbox(format("Would you like to edit these?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
@@ -876,11 +880,113 @@ script STORYMODE_VAR_CHECK {
     end
 }
 script STORYMODE_VAR_EDIT {
+	msgbox(format("Edit VAR_POKESCAPE_STORYMODE_PROGRESS?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_STORYMODE)
+	}
+	msgbox(format("Edit VAR_WISE_OLD_MAN_RIVAL?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_WISE_OLD_MAN)
+	}
+	msgbox(format("Edit VAR_MITHRILMAN_STATE?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_MITHRILMAN)
+	}
+	msgbox(format("Edit VAR_FROGEEL_RIVAL?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_FROGEELMAN)
+	}
+	closemessage
+	release
+	end
+}
 
+
+script VAR_EDIT_MITHRILMAN {
+	//WOM
+	buffernumberstring(STR_VAR_2, VAR_MITHRILMAN_STATE)
+    msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+    msgbox(format("Increase VAR_MITHRILMAN_STATE by 5?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_MITHRILMAN_STATE, 5)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Increase VAR_MITHRILMAN_STATE by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_MITHRILMAN_STATE, 10)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset VAR_MITHRILMAN_STATE to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_MITHRILMAN_STATE, 0)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    closemessage
+    release
+    end
+}
+script VAR_EDIT_FROGEELMAN {
+	//WOM
+	buffernumberstring(STR_VAR_2, VAR_FROGEEL_RIVAL)
+    msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+    msgbox(format("Increase VAR_FROGEEL_RIVAL by 5?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_FROGEEL_RIVAL, 5)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Increase VAR_FROGEEL_RIVAL by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_FROGEEL_RIVAL, 10)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset VAR_FROGEEL_RIVAL to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_FROGEEL_RIVAL, 0)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    closemessage
+    release
+    end
+}
+script VAR_EDIT_STORYMODE {
 	//STORYMODE
     buffernumberstring(STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS)
     msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
-    msgbox(format("Increase STORYMODE_PROGRESS by 1?"), MSGBOX_YESNO)
+    msgbox(format("Increase STORYMODE_PROGRESS by 5?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
         addvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 5)
@@ -910,10 +1016,16 @@ script STORYMODE_VAR_EDIT {
 		release
 		end
     }
+	closemessage
+    release
+    end
+}
+
+script VAR_EDIT_WISE_OLD_MAN {
 	//WOM
 	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
     msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
-    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 1?"), MSGBOX_YESNO)
+    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 5?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
         addvar(VAR_WISE_OLD_MAN_RIVAL, 5)

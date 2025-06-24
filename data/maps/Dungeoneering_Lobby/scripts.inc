@@ -301,10 +301,12 @@ DungeonLayout_ROOM_PATH_5::
 
 Daemonheim_Lobby_STATE::
 	setflag FLAG_TEMP_1F
-	setflag FLAG_TEMP_10
-	setflag FLAG_TEMP_9
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1E
+	setflag FLAG_TEMP_1C
 	removeobject 5
 	removeobject 7
+	removeobject 3
 	switch VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST
 	case 10, Daemonheim_Lobby_STATE_3
 Daemonheim_Lobby_STATE_1:
@@ -327,18 +329,18 @@ Daemonheim_Lobby_STATE_3:
 	goto Daemonheim_Lobby_STATE_1
 
 Daemonheim_Lobby_STATE_6:
+	clearflag FLAG_TEMP_1D
 	addobject 7
-	clearflag FLAG_TEMP_9
-	goto Daemonheim_Lobby_STATE_4
+	return
 
 Daemonheim_Lobby_STATE_7:
+	clearflag FLAG_TEMP_1E
 	addobject 5
-	clearflag FLAG_TEMP_10
 	goto Daemonheim_Lobby_STATE_4
 
 Daemonheim_Lobby_STATE_8:
+	clearflag FLAG_TEMP_1E
 	addobject 5
-	clearflag FLAG_TEMP_10
 	goto Daemonheim_Lobby_STATE_4
 
 Daemonheim_Lobby_STATE_11:
@@ -430,13 +432,14 @@ FROGEEL_RIVAL_8_2:
 	hidenamebox
 	closemessage
 	fadescreenswapbuffers FADE_TO_BLACK
-	removeobject 7
-	setflag FLAG_TEMP_9
 	addobject 5
-	clearflag FLAG_TEMP_10
+	clearflag FLAG_TEMP_1E
+	removeobject 7
+	setflag FLAG_TEMP_1D
 	fadescreenswapbuffers FADE_FROM_BLACK
-	namebox FROGEEL_RIVAL_8_Text_0
-	msgbox FROGEEL_RIVAL_8_Text_2
+	applymovement 5, Movement_InteractFACEPLAYER
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_3
 	hidenamebox
 	closemessage
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
@@ -448,26 +451,26 @@ FROGEEL_RIVAL_8_2:
 	goto_if_eq FROGEEL_RIVAL_8_11
 FROGEEL_RIVAL_8_8:
 	waitmovement 0
-	namebox FROGEEL_RIVAL_8_Text_0
-	msgbox FROGEEL_RIVAL_8_Text_3, MSGBOX_YESNO
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_4, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq FROGEEL_RIVAL_8_18
-	msgbox FROGEEL_RIVAL_8_Text_5
+	msgbox FROGEEL_RIVAL_8_Text_6
 	goto BATTLE_FROGEEL_RIVAL_8
 	goto FROGEEL_RIVAL_8_1
 
 FROGEEL_RIVAL_8_3:
-	namebox FROGEEL_RIVAL_8_Text_0
-	msgbox FROGEEL_RIVAL_8_Text_6, MSGBOX_YESNO
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_7, MSGBOX_YESNO
 	compare VAR_RESULT, 0
 	goto_if_eq FROGEEL_RIVAL_8_15
-	msgbox FROGEEL_RIVAL_8_Text_5
+	msgbox FROGEEL_RIVAL_8_Text_6
 	goto BATTLE_FROGEEL_RIVAL_8
 	goto FROGEEL_RIVAL_8_1
 
 FROGEEL_RIVAL_8_4:
-	namebox FROGEEL_RIVAL_8_Text_0
-	msgbox FROGEEL_RIVAL_8_Text_8
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_9
 	goto BATTLE_FROGEEL_RIVAL_8
 	goto FROGEEL_RIVAL_8_1
 
@@ -484,7 +487,7 @@ FROGEEL_RIVAL_8_11:
 	goto FROGEEL_RIVAL_8_8
 
 FROGEEL_RIVAL_8_15:
-	msgbox FROGEEL_RIVAL_8_Text_7
+	msgbox FROGEEL_RIVAL_8_Text_8
 	closemessage
 	hidenamebox
 	setvar VAR_FROGEEL_RIVAL, 37
@@ -492,7 +495,7 @@ FROGEEL_RIVAL_8_15:
 	end
 
 FROGEEL_RIVAL_8_18:
-	msgbox FROGEEL_RIVAL_8_Text_4
+	msgbox FROGEEL_RIVAL_8_Text_5
 	closemessage
 	hidenamebox
 	setvar VAR_FROGEEL_RIVAL, 36
@@ -506,33 +509,34 @@ BATTLE_FROGEEL_RIVAL_8::
 	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_8_3
 	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_8_4
 BATTLE_FROGEEL_RIVAL_8_1:
-	namebox FROGEEL_RIVAL_8_Text_0
+	namebox FROGEEL_RIVAL_8_Text_2
 	msgbox BATTLE_FROGEEL_RIVAL_8_Text_2
 	closemessage
 	hidenamebox
 	giveitem ITEM_BLOOD_RUNE, 1
 	closemessage
-	namebox FROGEEL_RIVAL_8_Text_0
+	namebox FROGEEL_RIVAL_8_Text_2
 	msgbox BATTLE_FROGEEL_RIVAL_8_Text_3
 	closemessage
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
 	removeobject 5
-	setflag FLAG_TEMP_10
+	setflag FLAG_TEMP_1E
 	addobject 7
-	clearflag FLAG_TEMP_9
+	clearflag FLAG_TEMP_1D
 	fadescreenswapbuffers FADE_FROM_BLACK
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 9
+	compare VAR_TEMP_1, 8
 	goto_if_eq BATTLE_FROGEEL_RIVAL_8_9
-	compare VAR_TEMP_1, 10
-	goto_if_eq BATTLE_FROGEEL_RIVAL_8_10
+	applymovement 7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1
 BATTLE_FROGEEL_RIVAL_8_8:
+	delay 30
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
 	waitmovement 0
 	playse SE_EXIT
 	removeobject 5
-	setflag FLAG_TEMP_10
+	setflag FLAG_TEMP_1D
+	waitse
 	setvar VAR_FROGEEL_RIVAL, 40
 	release
 	end
@@ -550,10 +554,6 @@ BATTLE_FROGEEL_RIVAL_8_4:
 	goto BATTLE_FROGEEL_RIVAL_8_1
 
 BATTLE_FROGEEL_RIVAL_8_9:
-	applymovement 7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1
-	goto BATTLE_FROGEEL_RIVAL_8_8
-
-BATTLE_FROGEEL_RIVAL_8_10:
 	applymovement 7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2
 	goto BATTLE_FROGEEL_RIVAL_8_8
 
@@ -668,7 +668,7 @@ THOK_GYM_CHALLENGE_STATE_3_Text_3:
 	.string "advice about the dungeon.$"
 
 FROGEEL_RIVAL_8_Text_0:
-	.string "Angrenouille$"
+	.string "???$"
 
 FROGEEL_RIVAL_8_Text_1:
 	.string "Hello there adventurer?\p"
@@ -678,6 +678,9 @@ FROGEEL_RIVAL_8_Text_1:
 	.string "Eh, nevermind this armour is heavy.$"
 
 FROGEEL_RIVAL_8_Text_2:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_8_Text_3:
 	.string "I needed a disguise to sneak past\n"
 	.string "those barbarians up there.\p"
 	.string "Is the armour tainted?{PAUSE 15}\l"
@@ -686,30 +689,30 @@ FROGEEL_RIVAL_8_Text_2:
 	.string "Well, I made off with the loot and that's\n"
 	.string "that.$"
 
-FROGEEL_RIVAL_8_Text_3:
+FROGEEL_RIVAL_8_Text_4:
 	.string "HAM?\l"
 	.string "Like the thing on your sandwich?\p"
 	.string "No, I dont know them.{PAUSE 15}\p"
 	.string "It's that serious?$"
 
-FROGEEL_RIVAL_8_Text_4:
+FROGEEL_RIVAL_8_Text_5:
 	.string "Then why bring it up then?$"
 
-FROGEEL_RIVAL_8_Text_5:
+FROGEEL_RIVAL_8_Text_6:
 	.string "Wow!\l"
 	.string "You seem really passionate about that.$"
 
-FROGEEL_RIVAL_8_Text_6:
+FROGEEL_RIVAL_8_Text_7:
 	.string "You again {PLAYER}?\p"
 	.string "You're still going on about HAM?{PAUSE 15}\p"
 	.string "Is it really that serious?$"
 
-FROGEEL_RIVAL_8_Text_7:
+FROGEEL_RIVAL_8_Text_8:
 	.string "Why do you keep bringing it up then?\p"
 	.string "Are there ladies in this organisation\n"
 	.string "that have caught your eye..?$"
 
-FROGEEL_RIVAL_8_Text_8:
+FROGEEL_RIVAL_8_Text_9:
 	.string "You keep going on about HAM {PLAYER}.\p"
 	.string "No matter how much you downplay it, I\n"
 	.string "can tell that you're very passionate\l"
@@ -790,7 +793,7 @@ BATTLE_FROGEEL_RIVAL_8_Text_2:
 	.string "Here.$"
 
 BATTLE_FROGEEL_RIVAL_8_Text_3:
-	.string "Now then...$"
+	.string "Now then…$"
 
 Mithrilman_Daemonheim_Text_0:
 	.string "Mithrilman$"

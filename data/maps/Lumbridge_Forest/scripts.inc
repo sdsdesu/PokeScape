@@ -17,13 +17,18 @@ Lumbridge_Forest_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 LumForest_STATE::
 	removeobject 41
 	setflag FLAG_TEMP_8
-	checkitem ITEM_CUT_TOOL, 1
-	compare VAR_RESULT, 0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 215
 	goto_if_eq LumForest_STATE_2
 LumForest_STATE_1:
 	return
 
 LumForest_STATE_2:
+	checkitem ITEM_CUT_TOOL, 1
+	compare VAR_RESULT, 0
+	goto_if_eq LumForest_STATE_4
+	goto LumForest_STATE_1
+
+LumForest_STATE_4:
 	addobject 41
 	clearflag FLAG_TEMP_8
 	goto LumForest_STATE_1

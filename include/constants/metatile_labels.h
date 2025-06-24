@@ -227,6 +227,9 @@
 #define METATILE_Dungeoneering_VINE_TOP_L                   0x3B5
 #define METATILE_Dungeoneering_VINE_TOP_R                   0x3B7
 
+// gTileset_Edgeville
+#define METATILE_Edgeville_EDGEVILLE_BRIDGE  0x2A9
+
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
 #define METATILE_EliteFour_EntryDoor_ClosedTop       0x206

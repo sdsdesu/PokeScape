@@ -564,18 +564,21 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
     delay(60)
     playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
 	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
-    if (var(VAR_TEMP_B) == 9){
+    if (var(VAR_TEMP_B) == 29){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_01)
 		waitmovement(0)
 		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_FACE_DOWN)
+		waitmovement(0)
     } 
     elif (var(VAR_TEMP_B) == 30){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_02)
+		waitmovement(0)
     }
 	elif (var(VAR_TEMP_B) == 31){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_03)
+		waitmovement(0)
     }
-	waitmovement(0)
+	
 	namebox("Wise Old Man")
 	msgbox(format("Well then, it truly has been awhile.\nYou look quite different since we last met."))
 	switch (var(VAR_WISE_OLD_MAN_RIVAL)) { 
@@ -609,7 +612,7 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_1)
 		} 
 		elif (var(VAR_TEMP_B) == 30){
-			applymovement (OOBJ_EVENT_ID_CAMERA, movement_musapoint_camera_2)
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_2)
 		}
 		elif (var(VAR_TEMP_B) == 31){
 			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_3)
@@ -651,7 +654,7 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_4)
 		} 
 		elif (var(VAR_TEMP_B) == 30){
-			applymovement (OOBJ_EVENT_ID_CAMERA, movement_musapoint_camera_5)
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_5)
 		}
 		elif (var(VAR_TEMP_B) == 31){
 			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_6)

@@ -63,6 +63,7 @@ MUSAPOINT_STATE_7:
 	setflag FLAG_TEMP_1F
 	removeobject 22
 	removeobject 23
+	removeobject 29
 	setflag FLAG_TEMP_1E
 MUSAPOINT_STATE_11:
 	compare VAR_BANANA_BOAT_QUEST, 5
@@ -90,6 +91,7 @@ MUSAPOINT_STATE_12:
 	clearflag FLAG_TEMP_1F
 	addobject 22
 	addobject 23
+	addobject 29
 	clearflag FLAG_TEMP_1E
 	goto MUSAPOINT_STATE_11
 
@@ -572,14 +574,13 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT::
 	delay 60
 	playbgm MUS_PS_WISE_OLD_MAN_THEME, 1
 	getplayerxy VAR_TEMP_A, VAR_TEMP_B
-	compare VAR_TEMP_B, 26
+	compare VAR_TEMP_B, 29
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_2
-	compare VAR_TEMP_B, 27
+	compare VAR_TEMP_B, 30
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_3
-	compare VAR_TEMP_B, 28
+	compare VAR_TEMP_B, 31
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_4
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1:
-	waitmovement 0
 	namebox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_0
 	msgbox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_1
 	switch VAR_WISE_OLD_MAN_RIVAL
@@ -605,14 +606,25 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_8:
 	msgbox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_8
 	hidenamebox
 	closemessage
+	special SpawnCameraObject
 	getplayerxy VAR_TEMP_A, VAR_TEMP_B
-	compare VAR_TEMP_B, 26
+	compare VAR_TEMP_B, 29
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_13
-	compare VAR_TEMP_B, 27
+	compare VAR_TEMP_B, 30
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_14
-	compare VAR_TEMP_B, 28
+	compare VAR_TEMP_B, 31
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_15
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12:
+	compare VAR_FROGEEL_RIVAL, 10
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_36
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_37
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_38
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19:
 	waitmovement 0
 	opendoor 18, 32
 	waitdooranim
@@ -621,9 +633,22 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12:
 	removeobject 20
 	setflag FLAG_TEMP_1F
 	closedoor 18, 32
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_24
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_25
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_26
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23:
+	applymovement 29, movement_musapoint_luthas_monkey
+	waitmovement 0
+	special RemoveCameraObject
+	removeobject 29
+	setflag FLAG_TEMP_1E
 	compare VAR_WISE_OLD_MAN_RIVAL, 10
-	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20
-TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19:
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_43
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_42:
 	setvar VAR_WISE_OLD_MAN_RIVAL, 20
 	setvar VAR_TEMP_F, 0
 	savebgm MUS_DUMMY
@@ -635,14 +660,17 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_2:
 	applymovement 20, movement_wom_musapoint_01
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FACE_DOWN
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_3:
 	applymovement 20, movement_wom_musapoint_02
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_4:
 	applymovement 20, movement_wom_musapoint_03
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_10:
@@ -654,20 +682,66 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_11:
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_8
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_13:
-	applymovement 20, movement_wom_musapoint_04
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_1
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_14:
-	applymovement 20, movement_wom_musapoint_05
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_2
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_15:
-	applymovement 20, movement_wom_musapoint_06
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_3
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20:
-	addvar VAR_GAMEMODE_LEVEL_CAP, 2
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_30
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_31
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_32
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_24:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_4
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_25:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_5
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_26:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_6
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_30:
+	applymovement 20, movement_wom_musapoint_04
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_31:
+	applymovement 20, movement_wom_musapoint_05
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_32:
+	applymovement 20, movement_wom_musapoint_06
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_36:
+	applymovement 20, movement_wom_musapoint_07
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_37:
+	applymovement 20, movement_wom_musapoint_08
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_38:
+	applymovement 20, movement_wom_musapoint_09
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_43:
+	addvar VAR_GAMEMODE_LEVEL_CAP, 2
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_42
 
 
 movement_wom_musapoint_noticeplayer:
@@ -680,21 +754,16 @@ movement_wom_musapoint_01:
 	walk_left
 	walk_up
 	walk_left
-	walk_up
-	walk_left
-	face_up
 	step_end
 
 movement_wom_musapoint_02:
 	walk_left
-	walk_up
-	walk_up
 	walk_left
 	step_end
 
 movement_wom_musapoint_03:
 	walk_left
-	walk_up
+	walk_down
 	walk_left
 	step_end
 
@@ -710,28 +779,73 @@ movement_wom_musapoint_1:
 	step_end
 
 movement_wom_musapoint_04:
-	walk_right
-	walk_down
-	walk_down
-	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_down
 	walk_left
 	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_left
 	walk_left
 	walk_left
 	walk_left
 	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
 	step_end
 
 movement_wom_musapoint_05:
 	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
-	walk_right
 	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_wom_musapoint_06:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_wom_musapoint_07:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -744,10 +858,29 @@ movement_wom_musapoint_05:
 	face_up
 	step_end
 
-movement_wom_musapoint_06:
+movement_wom_musapoint_08:
 	walk_down
-	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+movement_wom_musapoint_09:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -763,6 +896,59 @@ movement_wom_musapoint_06:
 movement_ENTER_DOOR:
 	walk_up
 	set_invisible
+	step_end
+
+movement_musapoint_camera_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+movement_musapoint_camera_2:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+movement_musapoint_camera_3:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_musapoint_camera_4:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_camera_5:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_camera_6:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_luthas_monkey:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 NPC_WISEOLDMAN_RIVAL_MUSAPOINT_PUB::

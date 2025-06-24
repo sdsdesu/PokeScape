@@ -1,6 +1,10 @@
 const OBJ_EVENT_ID_SANDWICH_LADY = 17
 
 mapscripts Edgeville_MapScripts {
+	MAP_SCRIPT_ON_LOAD 
+    {
+        call(EDGEVILLE_METATILES)
+    }
     MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_VISITED_EDGEVILLE)
         setvar(VAR_EVOLUTION_MAP_STATE, 15) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
@@ -8,6 +12,17 @@ mapscripts Edgeville_MapScripts {
 		call(RANDOM_EVENT_SANDWICH_LADY)
 	}
 }
+
+
+script EDGEVILLE_METATILES {
+    switch(var(VAR_FROGEEL_RIVAL)) {
+        case 20:
+            setmetatile(36,10, METATILE_Edgeville_EDGEVILLE_BRIDGE, 0, 4)
+    }
+}
+
+
+
 
 script EDGEVILLE_STATE {
 	removeobject(25)
@@ -871,6 +886,7 @@ script Mithrilman_Edgeville {
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)  //have player watch Mithrilman leave
 		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_2)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
     }
+	waitmovement(0)
     setvar(VAR_MITHRILMAN_STATE, 20)
     setflag(FLAG_TEMP_1C) 	//mithrilman
 	removeobject(24)		//mithrilman

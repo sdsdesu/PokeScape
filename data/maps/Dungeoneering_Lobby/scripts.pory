@@ -332,10 +332,12 @@ script DungeonLayout_ROOM_PATH_5 {
 
 script Daemonheim_Lobby_STATE {
     setflag(FLAG_TEMP_1F) // Hide thok.
-    setflag(FLAG_TEMP_10) //Flag Frogeelman has.
-    setflag(FLAG_TEMP_9) //Flag disguised Frogeelman.
+    setflag(FLAG_TEMP_1D) //Flag disguised Frogeelman.
+    setflag(FLAG_TEMP_1E) //Flag Frogeelman has.
+    setflag(FLAG_TEMP_1C)   //mithrilman
     removeobject(5)      //Frogeelman
     removeobject(7)      //Disguised Frogeelman
+    removeobject(3)     //Mithrilman
 
     switch (var(VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST)){         
         case 10:
@@ -347,14 +349,15 @@ script Daemonheim_Lobby_STATE {
 
     switch(var(VAR_FROGEEL_RIVAL)) {
     case 35:
-        addobject(7)      //Disguised frogeelman
-        clearflag(FLAG_TEMP_9) //Flag disguised Frogeelman.
+        clearflag(FLAG_TEMP_1D)  //Flag disguised Frogeelman.
+        addobject(7)            //Disguised frogeelman
+        return
     case 36:
+        clearflag(FLAG_TEMP_1E) //Flag Frogeelman has
         addobject(5)      //Angrenouille
-        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     case 37:
+        clearflag(FLAG_TEMP_1E) //Flag Frogeelman has
         addobject(5)      //Angrenouille
-        clearflag(FLAG_TEMP_10) //Flag Frogeelman has
     }
 
     switch(var(VAR_MITHRILMAN_STATE)) {                            //This will have Mithrilman appear any time between Varrock and the HAM confrontation but allows for his dialogue to change
@@ -437,16 +440,17 @@ script FROGEEL_RIVAL_8 {
     lock
     faceplayer
     if (var(VAR_FROGEEL_RIVAL) == 35) {   //Variable for if you have done earlier events but not spoken to him here
-        namebox("Angrenouille")
+        namebox("???")
         msgbox(format("Hello there adventurer?\pAngrenouille?{PAUSE 15}\lNo, I do not know who that handsome man is.{PAUSE 15}\pEh, nevermind this armour is heavy."))
         hidenamebox
         closemessage
         fadescreenswapbuffers (FADE_TO_BLACK)
-        removeobject(7)           //Remove disguised Frogeelman
-        setflag(FLAG_TEMP_9)      //Disguised Frogeelman
         addobject(5)              //Add Frogeelman
-        clearflag(FLAG_TEMP_10)   //Flag Frogeelman has.
+        clearflag(FLAG_TEMP_1E)   //Flag Frogeelman has.
+        removeobject(7)           //Remove disguised Frogeelman
+        setflag(FLAG_TEMP_1D)      //Disguised Frogeelman
         fadescreenswapbuffers (FADE_FROM_BLACK)
+        applymovement(5, Movement_InteractFACEPLAYER)
         namebox("Angrenouille")
         msgbox(format("I needed a disguise to sneak past those barbarians up there.\pIs the armour tainted?{PAUSE 15}\lDon't be a coward {PLAYER}.\lWhat thief believes in curses.\pWell, I made off with the loot and that's that."))
         hidenamebox
@@ -523,27 +527,29 @@ script BATTLE_FROGEEL_RIVAL_8 {
     giveitem(ITEM_BLOOD_RUNE, 1)
     closemessage
     namebox("Angrenouille")
-    msgbox(format("Now then..."))
+    msgbox(format("Now then…"))
     closemessage
     hidenamebox
     fadescreenswapbuffers (FADE_TO_BLACK)
     removeobject(5)        //Remove Frogeelman
-    setflag(FLAG_TEMP_10)  //Flag Frogeelman has.
+    setflag(FLAG_TEMP_1E)  //Flag Frogeelman has.
     addobject(7)           //Add disguised Frogeelman
-    clearflag(FLAG_TEMP_9) //Disguised Frogeelman
+    clearflag(FLAG_TEMP_1D) //Disguised Frogeelman
     fadescreenswapbuffers (FADE_FROM_BLACK)
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
-    if (var(VAR_TEMP_1) == 9){
-        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1)   //Different movement depending on where the player is stood
-    } 
-    elif (var(VAR_TEMP_1) == 10){
+    if (var(VAR_TEMP_1) == 8) {
         applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2)  //Different movement depending on where the player is stood
     }
+    else {
+        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1)   //Different movement depending on where the player is stood
+    }
+    delay(30)
     applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)   //Have player face down to watch Angrenouille leave
     waitmovement(0)
     playse(SE_EXIT)
     removeobject(5)
-    setflag(FLAG_TEMP_10) //Angrenouille
+    setflag(FLAG_TEMP_1D) //Angrenouille
+    waitse
     setvar(VAR_FROGEEL_RIVAL, 40)
     release
     end
