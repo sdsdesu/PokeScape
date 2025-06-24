@@ -1560,3 +1560,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Edgeville_Guardhouse/scripts.inc"
 
 	.include "data/maps/HAM_Hideout_B3F/scripts.inc"
+
+	.include "data/maps/WildernessVolcano_B1F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B2F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B3F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B4F/scripts.inc"

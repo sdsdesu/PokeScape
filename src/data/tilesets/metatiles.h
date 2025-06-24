@@ -324,3 +324,6 @@ const u16 gMetatileAttributes_IndoorTowns3[] = INCBIN_U16("data/tilesets/seconda
 
 const u16 gMetatiles_DwarvenMines[] = INCBIN_U16("data/tilesets/secondary/dwarven_mines/metatiles.bin");
 const u16 gMetatileAttributes_DwarvenMines[] = INCBIN_U16("data/tilesets/secondary/dwarven_mines/metatile_attributes.bin");
+
+const u16 gMetatiles_Wilderness_Crater[] = INCBIN_U16("data/tilesets/secondary/wilderness_crater/metatiles.bin");
+const u16 gMetatileAttributes_Wilderness_Crater[] = INCBIN_U16("data/tilesets/secondary/wilderness_crater/metatile_attributes.bin");
