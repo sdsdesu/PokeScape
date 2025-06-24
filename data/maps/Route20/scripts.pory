@@ -276,9 +276,11 @@ script BATTLE_FROGEEL_RIVAL_4 {
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 11){
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_BARB_REACTION)   //have player move out of the way as he flees
+        waitmovement(0)
     } 
     elif (var(VAR_TEMP_1) == 12){
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)  //have player watch Angrenouille
+        waitmovement(0)
     }
     applymovement(20, MOVEMENT_FROGEEL_RIVAL_BARB_VILLAGE)
     waitmovement(0)

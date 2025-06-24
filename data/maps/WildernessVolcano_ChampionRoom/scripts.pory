@@ -24,11 +24,19 @@ script WILDERNESS_CRATER_SIR_TIFFY
     namebox("Sir Tiffy")
     //Checkflag Defeated. If true:  Talk about seeing them again.
     //else
-    msgbox(format("Hello {PLAYER}. I've heard a lot of good things about you.\pI am looking forward to this battle!\pI am number 1 in your challenge."))
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+            msgbox(format("What ho, sirrah.\lLovely of you to come here.\pThank you for all the help so far, why don't you sit down here with me for a moment, hmm?"))
+    } 
+    else {
+        msgbox(format("What ho, milady.\lLovely of you to come here.\pThank you for all the help so far, why don't you sit down here with me for a moment, hmm?"))
+    }
+    //applymovement to walk player next to Sir Tiffy
+    msgbox(format("You helped us eliminate the H.A.M threat, wrestled the Black knights, and fought the Chaos Elemental.\lSpiffing work!\pNow you sit here, awaiting your battle against the Elite Four.\pThis old man here is nothing but impressed.\pOne day we of the older generation need to retire, but I hope I can leave it to the next generation to protect this world.\lTherefore, I would like for us to battle.\lPrepare yourself old bean."))
     playbgm (MUS_ENCOUNTER_ELITE_FOUR, FALSE)
     call(ELITE4_BATTLE_SIR_TIFFY_CASHIEN)
-    msgbox(format("You won, go through to the next room."))
-    //setflag Defeated Sir Amik.
+    msgbox(format("Jolly good show {PLAYER}.\lThat was stupendous.\pYou fought with all you had, and emerged victorious. As a member of the old guard I feel like I can rest easy.\lThe future is in good hands dear {PLAYER}.\pBe sure to keep your chin up and make sure to pay me a visit at the park every now and then.\lTa-ta for now!"))
+    //setflag Defeated Sir Tiffy.
     //set metatiles to open door
     hidenamebox
     call(WILDERNESS_VOLCANO_ROOM_1_OpenNextRoom)
@@ -36,22 +44,29 @@ script WILDERNESS_CRATER_SIR_TIFFY
     end
 }
 
-script WILDERNESS_CRATER_HAZELMARE
+//Dialogue for if you speak to him after he's beaten; add in with a flag check
+//msgbox(format("When all this is over, come join me for a cup of tea in Falador, the good old homestead! I feel like you and I might have a lot to talk about. Ta-ta for now!"))
+
+
+script WILDERNESS_CRATER_HAZELMERE
 {
     lock
     faceplayer
-    namebox("Hazelmare")
+    namebox("Hazelmere")
     //Checkflag Defeated. If true:  Talk about seeing them again.
     //else
-    msgbox(format("you hear thoughts in your mind…\pI am number 3. I can read your every move.")) 
+    msgbox(format("Lemanto quir.\lLaufolly lemantolly sarko, ta sind umesco meriz undri meriz.\lIp quir es ta gal.\pMi bom eso lemanto quir.")) 
     call(ELITE4_BATTLE_HAZELMERE)
-    msgbox(format("You won, go through to the next room."))
+    msgbox(format("Lemanto meso prit imindus.\lIp quir es ta gal.\pMeso es imindus por smai."))
     //setflag Defeated HAZELMERE.
     //set metatiles to open door
     hidenamebox
     release
     end
 }
+
+//Dialogue for if you speak to him after he's beaten; add in with a flag check
+//msgbox(format("Ip quir es ta gal.\pMeso es imindus por smai."))
 
 script WILDERNESS_CRATER_HANS
 {
@@ -60,15 +75,21 @@ script WILDERNESS_CRATER_HANS
     namebox("HANS")
     //Checkflag Defeated. If true:  Talk about seeing them again.
     //else
-    msgbox(format("{PLAYER}! Welcome to Lumbridge!")) 
+    msgbox(format("Completionist in the making.\l{PLAYER}.\lYou know I have been along with you for this ride, and I have a little secret to share with you.\pOn the day you arrived at the castle, the day the professor gave you a monster.\lWell, I got one as well."))
+    //applymovement to have Hans walk into position as leader
+    msgbox(format("On your journey you have seen a lot of things.\pThings to remember, things that were fun, things that made you angry, mithrilmen, leaders, knights, dragons and so much more.\lI have had the greatest time watching your journey Completionist in the making.\pYou are about to face Hans of the Elite Four.\lI use flying types to achieve victory and I bet you already know how to beat me.\lSo why don't you show me all you have learned?"))
     call(ELITE4_BATTLE_HANS)
-    msgbox(format("You won, go through to the next room."))
+    msgbox(format("You did it Completionist in the Making.\lYou actually did it!\lYou beat the Elite Four!\pGo on! Forget about me!\lThe champion of the MvM championship awaits you."))
     //setflag Defeated HANS.
     //set metatiles to open door
     hidenamebox
     release
     end
 }
+
+//Dialogue for if you speak to him after he's beaten; add in with a flag check
+//msgbox(format("I saw you battle the Duke and his rooster, it seems to have surprised you.\lThen you went up against Sir Amik, weird how he has all those fish right?\lThe scorching heat of the volcano tested your endurance.\lAs did the barbarians and their proclamations of challenge.\lThen you did a slayer task to prove yourself to Vanakka.\lFought the prince of Al Kharid.\lDefeated a demon to prove yourself to the King of Varrock.\lAnd went head to head with Thok of Daemonheim.\lYou have played for 8 gyms and 4 Elite Four members.\lTime to finish your journey {PLAYER}!"))
+
 
 script WILDERNESS_CRATER_ZANIK
 {
@@ -77,9 +98,9 @@ script WILDERNESS_CRATER_ZANIK
     namebox("Zanik")
     //Checkflag Defeated. If true:  Talk about seeing them again.
     //else
-    msgbox(format("It's good to see you again {PLAYER}! I've been wanting to battle you ever since we battled alongside eachother to take down H.A.M!")) 
+    msgbox(format("Imagine my surprise when I found out you were the next challenger.\lLet me reintroduce myself. I am Zanik of the Dorgeshuun and member of the Elite Four.\pWhile I am thankful to you for exterminating the H.A.M threat, there is only one thing I can do right here.\lAnd that is to face you with all sincerity and might I can muster.\lNothing else would feel fair to match the resolve you needed to get here.")) 
     call(ELITE4_BATTLE_ZANIK)
-    msgbox(format("You won, go through to the next room."))
+    msgbox(format("Haha.\lYou win {PLAYER}.\pWow you are something else, I kind of already knew that.\pI wish you the best of luck moving on.\lDon't worry, both you and I know you can do it."))
     //setflag Defeated ZANIK.
     //set metatiles to open door
     hidenamebox
@@ -97,7 +118,7 @@ script WILDERNESS_CRATER_WISEOLDMAN
     //else
     //need to fix text
     msgbox(format("Hello you mysterious person.\pYou must be strong to make it here. Lets do it. If not I'll just take all your party hats.")) 
-    call(ELITE4_BATTLE_SIR_TIFFY_CASHIEN)
+    call(CHAMPION_BATTLE_WISE_OLD_MAN)
     msgbox(format("You won, YOU ARE THE CHAMPION!"))
     //setflag Defeated WISE OLD MAN..
     //set metatiles to open door

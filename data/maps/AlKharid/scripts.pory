@@ -469,7 +469,15 @@ script ELITE4_BATTLE_ZANIK
 }
 script ELITE4_BATTLE_HANS
 {
-	trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_GRASS, format("I lost."))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_GRASS, format("I lost."))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_FIRE, format("I lost."))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_WATER, format("I lost."))
+    }
 	return
 }
 script ELITE4_BATTLE_HAZELMERE

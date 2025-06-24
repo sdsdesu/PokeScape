@@ -881,13 +881,14 @@ script Mithrilman_Edgeville {
     if (var(VAR_TEMP_1) == 7){
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)   //have player watch Mithrilman leave
 		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_1)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
+		waitmovement(0)
     } 
-    elif (var(VAR_TEMP_1) == 8){
+    else {
         applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)  //have player watch Mithrilman leave
 		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_2)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
-    }
-	waitmovement(0)
-    setvar(VAR_MITHRILMAN_STATE, 20)
+    	waitmovement(0)
+	}
+	    setvar(VAR_MITHRILMAN_STATE, 20)
     setflag(FLAG_TEMP_1C) 	//mithrilman
 	removeobject(24)		//mithrilman
     subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3)
