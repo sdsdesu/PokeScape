@@ -974,6 +974,7 @@ FROGEEL_RIVAL_1_2:
 	waitmovement 0
 	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
 	msgbox FROGEEL_RIVAL_1_Text_10
 	giveitem ITEM_SPIRIT_CHARM, 1
 	waitmovement 0
@@ -1471,7 +1472,7 @@ FROGEEL_RIVAL_1_Text_3:
 	.string "Angrenouille$"
 
 FROGEEL_RIVAL_1_Text_4:
-	.string "Names Angrenouille.\p"
+	.string "Name's Angrenouille.\p"
 	.string "I dream of one day becoming a frog\n"
 	.string "prince.\p"
 	.string "I still wait for the day the Frog\n"

@@ -591,10 +591,7 @@ Mithrilman_TZHAAR1::
 	playbgm MUS_ENCOUNTER_MAY, 1
 	namebox Mithrilman_TZHAAR1_Text_0
 	msgbox Mithrilman_TZHAAR1_Text_1
-	goto_if_set FLAG_STARTER1, Mithrilman_TZHAAR1_2
-	goto_if_set FLAG_STARTER2, Mithrilman_TZHAAR1_3
-	goto_if_set FLAG_STARTER3, Mithrilman_TZHAAR1_4
-Mithrilman_TZHAAR1_1:
+	trainerbattle_no_intro TRAINER_MITHRILMAN3, Mithrilman_TZHAAR1_Text_2
 	namebox Mithrilman_TZHAAR1_Text_0
 	msgbox Mithrilman_TZHAAR1_Text_3
 	waitmessage
@@ -617,18 +614,6 @@ Mithrilman_TZHAAR1_1:
 	fadedefaultbgm
 	release
 	end
-
-Mithrilman_TZHAAR1_2:
-	trainerbattle_no_intro TRAINER_MITHRILMAN3_GRASS, Mithrilman_TZHAAR1_Text_2
-	goto Mithrilman_TZHAAR1_1
-
-Mithrilman_TZHAAR1_3:
-	trainerbattle_no_intro TRAINER_MITHRILMAN3_FIRE, Mithrilman_TZHAAR1_Text_2
-	goto Mithrilman_TZHAAR1_1
-
-Mithrilman_TZHAAR1_4:
-	trainerbattle_no_intro TRAINER_MITHRILMAN3_WATER, Mithrilman_TZHAAR1_Text_2
-	goto Mithrilman_TZHAAR1_1
 
 
 STORYMODE_TZHAAR_NPC_Text_0:

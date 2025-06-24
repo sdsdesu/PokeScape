@@ -579,4 +579,4 @@ TRIGGER_HAMHIDEOUT_EVENT_1_Text_0:
 	.string "Get to work, go to the jail!$"
 
 TRIGGER_HAMHIDEOUT_EVENT_2_Text_0:
-	.string "Guard the prisinors!$"
+	.string "Guard the prisoners!$"

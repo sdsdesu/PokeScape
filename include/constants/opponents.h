@@ -31,7 +31,7 @@
 #define TRAINER_RSN_LUM_SWAMP				        	27
 #define TRAINER_MITHRILMAN1				            	28
 #define TRAINER_MITHRILMAN2				            	29
-#define TRAINER_MITHRILMAN3_GRASS				        30
+#define TRAINER_MITHRILMAN3				                30
 #define TRAINER_MITHRILMAN4_GRASS				        31
 #define TRAINER_MITHRILMAN5_GRASS				        32
 #define TRAINER_MITHRILMAN6				            	33

@@ -104,6 +104,7 @@ TRIGGER_BLOCK_HAZELMERE_1:
 	setobjectmovementtype 11, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectmovementtype 19, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectmovementtype 20, MOVEMENT_TYPE_WANDER_AROUND
+	removeobject 18
 	setflag FLAG_ROUTE13_BLOCK
 	setvar VAR_TEMP_0, 2
 	release

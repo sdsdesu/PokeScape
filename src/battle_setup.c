@@ -911,8 +911,11 @@ u8 GetTrainerBattleTransition(void)
             return B_TRANSITION_HAZELMERE;
         if (gTrainerBattleOpponent_A == TRAINER_ELITE4_ZANIK_1)
             return B_TRANSITION_ZANIK;
-        if (gTrainerBattleOpponent_A == TRAINER_ELITE4_HANS_1)
-            return B_TRANSITION_HANS;
+        if ((gTrainerBattleOpponent_A == TRAINER_ELITE4_HANS_1_GRASS) ||
+            (gTrainerBattleOpponent_A == TRAINER_ELITE4_HANS_1_FIRE) ||
+            (gTrainerBattleOpponent_A == TRAINER_ELITE4_HANS_1_WATER)) {
+                return B_TRANSITION_HANS;
+            }
         if (gTrainerBattleOpponent_A == TRAINER_CHAMPION_WISE_OLD_MAN_1)
             return B_TRANSITION_WISE_OLD_MAN;
     }

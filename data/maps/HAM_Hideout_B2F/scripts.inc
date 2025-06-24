@@ -431,8 +431,9 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_1:
 	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_24
 	hidenamebox
 	closemessage
+	trainerbattle_no_intro TRAINER_HAM_HIDEOUT_JAILER, TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_7
-	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26
 	hidenamebox
 	closemessage
 	applymovement 4, movement_HAMHIDEOUT_GUARD_2
@@ -440,14 +441,14 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_1:
 	removeobject 4
 	setflag FLAG_TEMP_1D
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27
 	hidenamebox
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_RIGHT
 	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT
 	waitmovement 0
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27
+	msgbox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_28
 	hidenamebox
 	closemessage
 	setvar VAR_TEMP_0, 2
@@ -545,6 +546,62 @@ movement_HAMHIDEOUT_BABE_2:
 movement_HAMHIDEOUT_BABE_3:
 	walk_fast_down
 	step_end
+
+TRIGGER_HAMHIDEOUT_JOHANHUS::
+	lock
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_1
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_3
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_4
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_5
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_7
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_8
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_9
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_10
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_11
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_12
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_13
+	trainerbattle_no_intro TRAINER_HAM_HIDEOUT_JOHANHUS, TRIGGER_HAMHIDEOUT_JOHANHUS_Text_14
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_15
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_16
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_17
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_18
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_19
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_20
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_21
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_22
+	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_23
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_24
+	hidenamebox
+	closemessage
+	giveitem ITEM_BONECROSSBOW, 1
+	closemessage
+	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
+	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_25
+	hidenamebox
+	closemessage
+	release
+	end
+
 
 NPC_HAM_HIDEOUT_1_Text_0:
 	.string "H.A.M Member$"
@@ -828,13 +885,13 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_10:
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_11:
 	.string "Alright {PLAYER} lets go free the\n"
-	.string "prisioners!$"
+	.string "prisoners!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_12:
 	.string "Wait what did you say?!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_13:
-	.string "Uh, let's go beat up the prisioners!$"
+	.string "Uh, let's go beat up the prisoners!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_14:
 	.string "Nice try…\n"
@@ -848,7 +905,7 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_16:
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_17:
 	.string "{PLAYER} what should we do, should we\n"
-	.string "take our disguses off?$"
+	.string "take our disguises off?$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_18:
 	.string "No we will not!$"
@@ -874,6 +931,10 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_24:
 	.string "Stand still while I eliminate you!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25:
+	.string "I lost??\p"
+	.string "To a goblin and a monster sympathiser!$"
+
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26:
 	.string "Urgh…\p"
 	.string "Stupid goblin…\p"
 	.string "You wouldn't have stood a chance if it\n"
@@ -881,10 +942,194 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_25:
 	.string "There's no way I'm letting either of you\n"
 	.string "escape alive!$"
 
-TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_26:
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27:
 	.string "I'm sorry {PLAYER}…\p"
 	.string "I should have just kept my mouth shut…$"
 
-TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_27:
+TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_28:
 	.string "You're right, no time to feel sorry.\p"
 	.string "We've got some people to rescue!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0:
+	.string "Johanhus$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_1:
+	.string "It seems the search has come to an end\n"
+	.string "then.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2:
+	.string "Sigmund$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_3:
+	.string "Yes.\l"
+	.string "This man held what we needed to summon\l"
+	.string "it and bend it to our will.\p"
+	.string "With his 'INSERT MCGUFFIN HERE' we can\n"
+	.string "proceed to the Wilderness and finish\l"
+	.string "the plan.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_4:
+	.string "And you are sure this will save the\n"
+	.string "world of the scourge that are monsters\l"
+	.string "Sigmund?$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_5:
+	.string "Johanhus my friend.\p"
+	.string "Everyday monsters cause problems\n"
+	.string "around the world.\p"
+	.string "And now adventurers, cooks, kings,\n"
+	.string "queens, pawns and even goblins have\l"
+	.string "decided to use them as their own to\l"
+	.string "attain power.\p"
+	.string "What we want is to prove to them that\n"
+	.string "we hold absolute power.\l"
+	.string "And then they will see that the only way\l"
+	.string "for this world to be free is to kill and\l"
+	.string "abandon every single monster in the\l"
+	.string "world.\p"
+	.string "And when that happens...\l"
+	.string "The world will be at peace.\l"
+	.string "Just like we have always wanted...$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6:
+	.string "Prince Ali$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_7:
+	.string "Stop this.\l"
+	.string "You won't get away with this.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_8:
+	.string "Cease your yelps prince.\l"
+	.string "You hold no authority here.\p"
+	.string "We will make a just world without\n"
+	.string "monsters just like Saradomin always\l"
+	.string "intended.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_9:
+	.string "Looks like some monsters just entered\n"
+	.string "a den they should not be Johanhus.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_10:
+	.string "Indeed. What shall we do?$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_11:
+	.string "I will head to the wilderness as\n"
+	.string "planned.\p"
+	.string "I will station Patty and Babe in Varrock\n"
+	.string "for the thing we discussed.\l"
+	.string "As for these guys and the prince.\l"
+	.string "Let us show them what happens to\l"
+	.string "monster sympathisers taking a wrong\l"
+	.string "turn.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_12:
+	.string "Shoot.\p"
+	.string "{PLAYER}!\l"
+	.string "I will handle this.\l"
+	.string "You go and get them!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_13:
+	.string "I get it.\l"
+	.string "You believe you are righteous.\l"
+	.string "You believe you are correct.\l"
+	.string "You believe in yourself and that what\l"
+	.string "you are doing is the good thing to do.\p"
+	.string "And as do I.\p"
+	.string "As leader of Humans Against Monsters,\n"
+	.string "on behalf of the world.\l"
+	.string "I will smite you..$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_14:
+	.string "NO!\l"
+	.string "This cannot be!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_15:
+	.string "So it seems my power is insignificant to\n"
+	.string "yours.\p"
+	.string "I guess it seems weird to use the power\n"
+	.string "of monsters to fight when we ourselves\l"
+	.string "use monsters?\l"
+	.string "But what choice do we have?\p"
+	.string "You and everyone else changed the\n"
+	.string "rules.\l"
+	.string "What is a dagger to a dragon?\p"
+	.string "The world is changing.\l"
+	.string "And we adapted.\l"
+	.string "But this is not the world we wish to live\l"
+	.string "in.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_16:
+	.string "I will submit just this once.\l"
+	.string "Take this prince and leave.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_17:
+	.string "Out of goodness of my heart, you can\n"
+	.string "even let the little gremlin over there\l"
+	.string "live as well.\p"
+	.string "It doesn't matter.\l"
+	.string "None of this matters.\p"
+	.string "If Sigmund is right, you can not stop\n"
+	.string "him.\l"
+	.string "And he will make a world free of the\l"
+	.string "monsters that once caused us so much\l"
+	.string "pain..$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_18:
+	.string "Quick while he is monologuing\n"
+	.string "{PLAYER}.\l"
+	.string "Grab the prince and run!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_19:
+	.string "We made it out somehow.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_20:
+	.string "Hey you, sunburned human, are you all\n"
+	.string "right?$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_21:
+	.string "My name is Prince Ali, goblin.\l"
+	.string "Thank you for saving me.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_22:
+	.string "It wasn't all me, most of it was\n"
+	.string "{PLAYER} here.$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_23:
+	.string "{PLAYER}.\l"
+	.string "Thank you for saving me.\p"
+	.string "H.A.M wanted my 'INSERT PLOT MCGUFFIN\n"
+	.string "HERE' saying it was a vital ingredient\l"
+	.string "to a ritual to bind a monster to their\l"
+	.string "will.\p"
+	.string "It has been passed down in my family\n"
+	.string "for ages.\l"
+	.string "But it seems I had to trade it for my\l"
+	.string "life for now.\p"
+	.string "We can not let H.A.M get away with this.\l"
+	.string "I will try to reach the other MvM\l"
+	.string "leaders and organize a front to stop\l"
+	.string "them.\p"
+	.string "But until then, I guess you do need to\n"
+	.string "beat me right?\l"
+	.string "I will meet you back in Al Kharid.\l"
+	.string "Let us battle and become ever stronger\l"
+	.string "together!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_24:
+	.string "You save him from a bunch of\n"
+	.string "extremists.\l"
+	.string "We risk our lives in doing so.\l"
+	.string "And your thanks is a battle?\p"
+	.string "You humans are weird.\p"
+	.string "Either way, I should get involved as\n"
+	.string "well in tracking H.A.M.\p"
+	.string "For now I will retreat.\p"
+	.string "Hey {PLAYER}, as a thanks for the\n"
+	.string "help, I want you to have this!$"
+
+TRIGGER_HAMHIDEOUT_JOHANHUS_Text_25:
+	.string "it's a spare, but I hope it will do you\n"
+	.string "good.\p"
+	.string "I am going back to Dorgesh-Kaan for\n"
+	.string "now, but I hope to see you again.\p"
+	.string "Goodbye {PLAYER}.$"

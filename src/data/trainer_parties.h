@@ -6643,7 +6643,7 @@ static const struct TrainerMon sParty_ELITE4_HAZELMERE_1[] = {
     },
     {
     .lvl = 70,
-    .species = ABILITY_MOSS_TITAN,
+    .species = SPECIES_MOSS_TITAN,
     .ability = ABILITY_PRISM_ARMOR,
     .moves = {MOVE_EARTHQUAKE, MOVE_CLOSE_COMBAT, MOVE_SEED_BOMB, MOVE_BULK_UP}
     },
@@ -10045,7 +10045,8 @@ static const struct TrainerMon sParty_OZAN_2[] = {             //Needs EVs, natu
     .species = SPECIES_VULTURE_RS3_FORM,
     },
     {
-    .lvl = 45,SPECIES_GRIFOLAROO,
+    .lvl = 45,
+    .species = SPECIES_GRIFOLAROO,
     },
     {
     .lvl = 46,
@@ -12568,7 +12569,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 64,
-    .species = SSPECIES_SWAMP_TITAN,
+    .species = SPECIES_SWAMP_TITAN,
     .ability = ABILITY_STENCH,
     },
     {
@@ -12608,7 +12609,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 72,
-    .species = SSPECIES_SPIDER_TEMPLE_FORM,
+    .species = SPECIES_SPIDER_TEMPLE_FORM,
     .ability = ABILITY_GOOSEBUMPS,
     },
     {
@@ -12688,7 +12689,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 88,
-    .species = SSPECIES_HAND_FARMHAND_FORM,
+    .species = SPECIES_HAND_FARMHAND_FORM,
     .ability = ABILITY_HARVEST,
     },
     {
@@ -12808,7 +12809,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 112,
-    .species = SSPECIES_BLACK_WARLOCK,
+    .species = SPECIES_BLACK_WARLOCK,
     .ability = ABILITY_SHIELD_DUST,
     },
     {
@@ -12823,7 +12824,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 115,
-    .species = SSPECIES_DRAUGEN,
+    .species = SPECIES_DRAUGEN,
     .ability = ABILITY_SHADOW_SHIELD,
     },
     {
@@ -13023,7 +13024,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 155,
-    .species = SPECIES_BEAR_GAUNTLET_CRYSTALLINE_FOR,
+    .species = SPECIES_BEAR_GAUNTLET_CRYSTALLINE_FORM,
     .ability = ABILITY_ICE_BODY,
     },
     {
@@ -13033,7 +13034,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 157,
-    .species = SSPECIES_POLAR_BEAR_NORMAL_FORM,
+    .species = SPECIES_POLAR_BEAR_NORMAL_FORM,
     .ability = ABILITY_SWIFT_SWIM,
     },
     {
@@ -13093,7 +13094,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 169,
-    .species = SSPECIES_POLAR_BEAR_NORMAL_FORM,
+    .species = SPECIES_POLAR_BEAR_NORMAL_FORM,
     .ability = ABILITY_SLUSH_RUSH,
     },
     {
@@ -13108,7 +13109,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 172,
-    .species = SSPECIES_POLAR_BEAR_NANUQ_FORM,
+    .species = SPECIES_POLAR_BEAR_NANUQ_FORM,
     .ability = ABILITY_SLUSH_RUSH,
     },
     {
@@ -13153,7 +13154,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 181,
-    .species = SSPECIES_WOLF_HATI_HATI,
+    .species = SPECIES_WOLF_HATI_HATI,
     .ability = ABILITY_HUNTER,
     },
     {
@@ -13446,7 +13447,7 @@ static const struct TrainerMon sParty_POOL_Varrock_Pub[] = {
     },
     {
     .lvl = 237,
-    .species = SPECIES_BULLDOGL,
+    .species = SPECIES_BULLDOG,
     .ability = ABILITY_GUARD_DOG,
     .moves = {MOVE_SPIKES, MOVE_BULK_UP, MOVE_BULLDOZE, MOVE_MUD_SLAP}
     },

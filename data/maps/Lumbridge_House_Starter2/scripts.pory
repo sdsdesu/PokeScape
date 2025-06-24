@@ -279,7 +279,7 @@ script Mithrilman_ALKHARID1{
     playbgm (MUS_ENCOUNTER_MAY, 1)
     namebox("Mithrilman")
     msgbox(format("Greetings knave, these lands be scorchest of themst all.\pThine battlest so far has been harsher than before.\pBut fear not, a Mithrilman never bends.\pAdamantmen may falter, for they do not posesst the speed of a Mithrilman.\pThus they succumb to the heat of the desert.\pThus Mithrilmen shalt be known as the superior challenge!"))
-    trainerbattle_single(TRAINER_MITHRILMAN4,format("Yee seem tired knave, wouldst a battle fire yee up?"),format("…"),Mithrilman_ALKHARID2)
+    //trainerbattle_single(TRAINER_MITHRILMAN4,format("Yee seem tired knave, wouldst a battle fire yee up?"),format("…"),Mithrilman_ALKHARID2)
 }
 script Mithrilman_ALKHARID2{  
     lock

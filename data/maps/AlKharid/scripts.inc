@@ -19,24 +19,35 @@ AlKharid_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 
 ALKHARID_STATE::
+	removeobject 17
+	setflag FLAG_TEMP_10
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 220
 	goto_if_le ALKHARID_STATE_2
 ALKHARID_STATE_1:
 	setflag FLAG_TEMP_9
 	removeobject 12
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
-	goto_if_eq ALKHARID_STATE_4
+	goto_if_eq ALKHARID_STATE_5
+ALKHARID_STATE_4:
+	compare VAR_FROGEEL_RIVAL, 25
+	goto_if_eq ALKHARID_STATE_8
+ALKHARID_STATE_7:
 	return
 
 ALKHARID_STATE_2:
 	setvar VAR_TEMP_2, 1
 	goto ALKHARID_STATE_1
 
-ALKHARID_STATE_4:
+ALKHARID_STATE_5:
 	clearflag FLAG_TEMP_9
 	addobject 12
 	setvar VAR_TEMP_1, 1
-	return
+	goto ALKHARID_STATE_4
+
+ALKHARID_STATE_8:
+	addobject 17
+	clearflag FLAG_TEMP_10
+	goto ALKHARID_STATE_7
 
 
 ALKHARID_GNOMEGLIDER::
@@ -435,7 +446,7 @@ ELITE4_BATTLE_ZANIK::
 
 
 ELITE4_BATTLE_HANS::
-	trainerbattle_no_intro TRAINER_ELITE4_HANS_1, BATTLE_TEST_CUPHOLDER_Text_2
+	trainerbattle_no_intro TRAINER_ELITE4_HANS_1_GRASS, BATTLE_TEST_CUPHOLDER_Text_2
 	return
 
 
@@ -512,6 +523,8 @@ RANDOM_PARTY_SIZE_8:
 
 TRIGGER_ALKHARID_HAM_EVENT_2::
 	lockall
+	applymovement 12, Common_Movement_WalkInPlaceRight
+	waitmovement 0
 	namebox TRIGGER_ALKHARID_HAM_EVENT_2_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_1
 	closemessage
@@ -520,6 +533,9 @@ TRIGGER_ALKHARID_HAM_EVENT_2::
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_2
 	closemessage
 	hidenamebox
+	applymovement 12, MOVEMENT_WALKLEFT
+	applymovement 12, Common_Movement_WalkInPlaceLeft
+	waitmovement 0
 	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_3
 	closemessage
@@ -528,18 +544,39 @@ TRIGGER_ALKHARID_HAM_EVENT_2::
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_4
 	closemessage
 	hidenamebox
+	applymovement 12, MOVEMENT_ALKHARID_PALACE_OZAN_1
+	applymovement 14, MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_1
+	applymovement 15, MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_1
+	waitmovement 0
+	applymovement 12, MOVEMENT_ALKHARID_PALACE_OZAN_2
+	applymovement 14, MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_2
+	applymovement 15, MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_2
 	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_5
 	closemessage
 	hidenamebox
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 30
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_2_2
+	compare VAR_TEMP_1, 31
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_2_3
+TRIGGER_ALKHARID_HAM_EVENT_2_1:
+	waitmovement 0
 	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_6
 	closemessage
 	hidenamebox
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown
 	namebox ALKHARID_NPC_13_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_2_Text_7
 	closemessage
 	hidenamebox
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 30
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_2_7
+	compare VAR_TEMP_1, 31
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_2_8
+TRIGGER_ALKHARID_HAM_EVENT_2_6:
 	removeobject 12
 	setflag FLAG_TEMP_9
 	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 215
@@ -547,6 +584,76 @@ TRIGGER_ALKHARID_HAM_EVENT_2::
 	release
 	end
 
+TRIGGER_ALKHARID_HAM_EVENT_2_2:
+	applymovement 12, MOVEMENT_EXCLAMATIONMARK_FACE_UP
+	goto TRIGGER_ALKHARID_HAM_EVENT_2_1
+
+TRIGGER_ALKHARID_HAM_EVENT_2_3:
+	applymovement 12, movement_WALKRIGHT
+	applymovement 12, MOVEMENT_EXCLAMATIONMARK_FACE_UP
+	goto TRIGGER_ALKHARID_HAM_EVENT_2_1
+
+TRIGGER_ALKHARID_HAM_EVENT_2_7:
+	applymovement 12, MOVEMENT_ALKHARID_PALACE_OZAN_3
+	goto TRIGGER_ALKHARID_HAM_EVENT_2_6
+
+TRIGGER_ALKHARID_HAM_EVENT_2_8:
+	applymovement 12, MOVEMENT_ALKHARID_PALACE_OZAN_4
+	goto TRIGGER_ALKHARID_HAM_EVENT_2_6
+
+
+MOVEMENT_ALKHARID_PALACE_OZAN_1:
+	face_down
+	lock_facing_direction
+	slide_up
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_OZAN_2:
+	jump_in_place_up
+	unlock_facing_direction
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_OZAN_3:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_OZAN_4:
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_1:
+	walk_fast_right
+	face_up
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_2:
+	walk_fast_left
+	face_up
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_1:
+	walk_left
+	face_original_direction
+	step_end
+
+MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_2:
+	walk_right
+	face_original_direction
+	step_end
 
 TRIGGER_ALKHARID_HAM_EVENT_3::
 	lockall
@@ -560,30 +667,152 @@ TRIGGER_ALKHARID_HAM_EVENT_3::
 	end
 
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN::
+HAM_EVENT_ALKHARID_WISE_OLD_MAN::
 	lock
 	faceplayer
-	namebox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_0
+	namebox HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_0
 	checkitem ITEM_CUT_TOOL, 1
 	compare VAR_RESULT, 0
-	goto_if_eq HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_2
-	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_3
+	goto_if_eq HAM_EVENT_ALKHARID_WISE_OLD_MAN_2
+	msgbox HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_3
 	closemessage
 	hidenamebox
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_1:
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_1:
 	release
 	end
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_2:
-	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_1
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_2:
+	msgbox HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_1
 	closemessage
 	hidenamebox
 	giveitem ITEM_CUT_TOOL, 1
-	msgbox HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_2
+	msgbox HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_2
 	closemessage
 	hidenamebox
-	goto HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_1
+	goto HAM_EVENT_ALKHARID_WISE_OLD_MAN_1
 
+
+FROGEEL_RIVAL_6::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_6_Text_0
+	msgbox FROGEEL_RIVAL_6_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne FROGEEL_RIVAL_6_1
+	goto BATTLE_FROGEEL_RIVAL_6
+	return
+
+FROGEEL_RIVAL_6_1:
+	goto BATTLE_FROGEEL_RIVAL_6
+	return
+
+
+BATTLE_FROGEEL_RIVAL_6::
+	msgbox BATTLE_FROGEEL_RIVAL_6_Text_0
+	hidenamebox
+	closemessage
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_6_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_6_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_6_4
+BATTLE_FROGEEL_RIVAL_6_1:
+	namebox FROGEEL_RIVAL_6_Text_0
+	msgbox BATTLE_FROGEEL_RIVAL_6_Text_2
+	closemessage
+	hidenamebox
+	playse SE_FLEE
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION
+	applymovement 17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_1
+	waitmovement 0
+	playse SE_WALL_HIT
+	applymovement 17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_2
+	waitmovement 0
+	waitse
+	delay 30
+	playse SE_FLEE
+	applymovement 17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_3
+	waitmovement 0
+	delay 60
+	applymovement 17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_4
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox BATTLE_FROGEEL_RIVAL_6_Text_3
+	waitmovement 0
+	closemessage
+	giveitem ITEM_MITHRIL_SCIMITAR, 1
+	closemessage
+	removeobject 17
+	setflag FLAG_TEMP_10
+	setvar VAR_FROGEEL_RIVAL, 30
+	release
+	end
+
+BATTLE_FROGEEL_RIVAL_6_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_6_GRASS, BATTLE_FROGEEL_RIVAL_6_Text_1
+	goto BATTLE_FROGEEL_RIVAL_6_1
+
+BATTLE_FROGEEL_RIVAL_6_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_6_FIRE, BATTLE_FROGEEL_RIVAL_6_Text_1
+	goto BATTLE_FROGEEL_RIVAL_6_1
+
+BATTLE_FROGEEL_RIVAL_6_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_6_WATER, BATTLE_FROGEEL_RIVAL_6_Text_1
+	goto BATTLE_FROGEEL_RIVAL_6_1
+
+
+MOVEMENT_FROGEEL_RIVAL_ALKHARID_1:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_ALKHARID_2:
+	lock_facing_direction
+	slide_left
+	jump_in_place_left
+	unlock_facing_direction
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_ALKHARID_3:
+	face_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_ALKHARID_4:
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION:
+	walk_fast_down
+	face_right
+	step_end
 
 ALKHARID_GNOMEGLIDER_Text_0:
 	.string "It is a Gnome Glider.$"
@@ -921,7 +1150,7 @@ TRIGGER_ALKHARID_HAM_EVENT_2_Text_7:
 	.string "While I try to inform Osman could I\n"
 	.string "trouble you to search for some clues\l"
 	.string "around Lumbridge for where they could\l"
-	.string "have kidnapped the prince?$"
+	.string "have taken the Prince?$"
 
 TRIGGER_ALKHARID_HAM_EVENT_3_Text_0:
 	.string "Are you here for a MvM Battle?\p"
@@ -929,15 +1158,15 @@ TRIGGER_ALKHARID_HAM_EVENT_3_Text_0:
 	.string "moment, so there will be no MvM\l"
 	.string "challenges until he returns.$"
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_0:
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_0:
 	.string "Wise Old Man$"
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_1:
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_1:
 	.string "Why hello there {PLAYER}.\p"
-	.string "Odd place to run into one another isnt\n"
+	.string "Odd place to run into one another isn't\n"
 	.string "it?\p"
 	.string "What might you be up to?\p"
-	.string "H.A.M kidnapped the prince and thus you\n"
+	.string "H.A.M kidnapped the Prince and thus you\n"
 	.string "can not battle them for your next\l"
 	.string "badge?\p"
 	.string "Well that really does stop you from\n"
@@ -954,15 +1183,56 @@ HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_1:
 	.string "And take this I would imagine it would\n"
 	.string "be quite useful on your quest.$"
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_2:
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_2:
 	.string "It's only fitting to have such a fine\n"
 	.string "axe to cut trees considering you are\l"
 	.string "about to enter a forest. Haha good luck\l"
 	.string "on your quest {PLAYER}!$"
 
-HAM_EVENT_ALKHAIRD_WISE_OLD_MAN_Text_3:
+HAM_EVENT_ALKHARID_WISE_OLD_MAN_Text_3:
 	.string "Why hello again {PLAYER}.\p"
 	.string "Are you still on your quest to find the\n"
 	.string "kidnapped prince?\p"
 	.string "Did you find any suspicious activity in\n"
 	.string "Lumbridge Forest?$"
+
+FROGEEL_RIVAL_6_Text_0:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_6_Text_1:
+	.string "What?\p"
+	.string "Let me guess.\l"
+	.string "You think I am going to go in and rob\l"
+	.string "the Al Kharid palace, don't you?$"
+
+BATTLE_FROGEEL_RIVAL_6_Text_0:
+	.string "Well, you're wrong regardless because I\n"
+	.string "have already been there, and there was\l"
+	.string "nothing of interest.\p"
+	.string "Waste of my time really.\p"
+	.string "And now the guards are after me even\n"
+	.string "though I haven't stolen anything.\p"
+	.string "So what now?\l"
+	.string "Going to fight me?\l"
+	.string "You are one very predictable fellow.$"
+
+BATTLE_FROGEEL_RIVAL_6_Text_1:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_6_Text_2:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "B!\p"
+	.string "...{PAUSE 15}\l"
+	.string "No, that's wrong.{PAUSE 15}\p"
+	.string "AA!\l"
+	.string "That's better.$"
+
+BATTLE_FROGEEL_RIVAL_6_Text_3:
+	.string "In their hurry, Angrenouille dropped an\n"
+	.string "item.$"

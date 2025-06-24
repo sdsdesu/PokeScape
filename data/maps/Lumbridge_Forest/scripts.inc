@@ -15,7 +15,18 @@ Lumbridge_Forest_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 
 
 LumForest_STATE::
+	removeobject 41
+	setflag FLAG_TEMP_8
+	checkitem ITEM_CUT_TOOL, 1
+	compare VAR_RESULT, 0
+	goto_if_eq LumForest_STATE_2
+LumForest_STATE_1:
 	return
+
+LumForest_STATE_2:
+	addobject 41
+	clearflag FLAG_TEMP_8
+	goto LumForest_STATE_1
 
 
 LUMBRIDGEFOREST_NPC_BOT1::
@@ -112,11 +123,11 @@ NPC_LUMBRIDGE_FOREST_5::
 	end
 
 
-NPC_LUMBRIDGE_FOREST_6::
+NPC_LUMBRIDGE_FOREST_MISSING_AXE::
 	lock
 	faceplayer
-	namebox NPC_LUMBRIDGE_FOREST_6_Text_0
-	msgbox NPC_LUMBRIDGE_FOREST_6_Text_1
+	namebox NPC_LUMBRIDGE_FOREST_MISSING_AXE_Text_0
+	msgbox NPC_LUMBRIDGE_FOREST_MISSING_AXE_Text_1
 	closemessage
 	hidenamebox
 	release
@@ -397,9 +408,9 @@ Following_Zanik::
 	namebox TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_4
 	facefollower
 	switch VAR_POKESCAPE_STORYMODE_PROGRESS
-	case 181, Following_Zanik_3
-	case 186, Following_Zanik_4
-	case 187, Following_Zanik_5
+	case 225, Following_Zanik_3
+	case 230, Following_Zanik_4
+	case 235, Following_Zanik_5
 	random 5
 	switch VAR_RESULT
 	case 0, Following_Zanik_7
@@ -832,11 +843,18 @@ NPC_LUMBRIDGE_FOREST_5_Text_0:
 	.string "If only I had the Woodcutting level to\n"
 	.string "get past these trees…$"
 
-NPC_LUMBRIDGE_FOREST_6_Text_0:
-	.string "Cupholder$"
+NPC_LUMBRIDGE_FOREST_MISSING_AXE_Text_0:
+	.string "CutterD0wn$"
 
-NPC_LUMBRIDGE_FOREST_6_Text_1:
-	.string "Hello, I am a Cupholder.$"
+NPC_LUMBRIDGE_FOREST_MISSING_AXE_Text_1:
+	.string "Are you having difficulty cutting down\n"
+	.string "these tiny trees?\p"
+	.string "They're surprisingly sturdy and require\n"
+	.string "a DRAGON AXE to chop down.{PAUSE 15}\p"
+	.string "You don't have one?\p"
+	.string "Why don't you try seeing if you can buy\n"
+	.string "one from someone in Lumbridge?\l"
+	.string "I'm sure there's an axe shop there.$"
 
 BATTLE_LUMBRIDGEFOREST_BOT1_Text_0:
 	.string "ALERT!\p"
@@ -912,7 +930,7 @@ TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_0:
 
 TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_1:
 	.string "Hey you!\p"
-	.string "You aren't a H.A.M member am I right?$"
+	.string "You aren't a H.A.M member, are you?$"
 
 TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction_Text_2:
 	.string "With that lack of pink, you can't fool me\n"
@@ -987,16 +1005,22 @@ SetFollower_Zanik_Text_0:
 	.string "we team up to take H.A.M down!?$"
 
 Following_Zanik_Text_0:
-	.string "Is that a Black Knight Fortress?!$"
+	.string "The disguises are working!\p"
+	.string "Now where might they be holding their\n"
+	.string "prisoners?$"
 
 Following_Zanik_Text_1:
-	.string "We should go say hello to those guards\n"
-	.string "up on the mountain.$"
+	.string "We need to find someone with a spare\n"
+	.string "key to the jail cell.\p"
+	.string "Perhaps they're somewhere deeper\n"
+	.string "inside the hideout?$"
 
 Following_Zanik_Text_2:
-	.string "I cannot believe we just did that…\p"
-	.string "I guess we should try to enter the\n"
-	.string "fortress, now that we look the part.$"
+	.string "I am sorry I blew our cover {PLAYER},\n"
+	.string "but we've come this far and we have the\l"
+	.string "jail cell key now!\p"
+	.string "We have to keep going and find the\n"
+	.string "Prince!$"
 
 ZANIK_DIALOGUE_COMMON_Text_0:
 	.string "I hail from a city named Dorgesh-Kaan.\p"
@@ -1220,12 +1244,11 @@ BATTLE_LUMBRIDGEFOREST_HAM_3_Text_1:
 BATTLE_LUMBRIDGEFOREST_HAM_3_Text_2:
 	.string "The future is written by the victors...\n"
 	.string "Remember that when we smite you down\l"
-	.string "like the bug you are$"
+	.string "like the bug you are.$"
 
 BATTLE_LUMBRIDGEFOREST_HAM_4_Text_0:
-	.string "I may have let that one goblin pass, but\n"
-	.string "I refuse to let you just waltz into our\l"
-	.string "hideout!$"
+	.string "I refuse to just let you just waltz into\n"
+	.string "our hideout!$"
 
 BATTLE_LUMBRIDGEFOREST_HAM_4_Text_1:
 	.string "This really isn't my day...$"

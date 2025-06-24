@@ -667,7 +667,15 @@ COMMORB_FUNCTION_1:
 	case 187, COMMORB_FUNCTION_8
 	case 190, COMMORB_FUNCTION_9
 	case 195, COMMORB_FUNCTION_10
-	msgbox COMMORB_FUNCTION_Text_7
+	case 200, COMMORB_FUNCTION_11
+	case 205, COMMORB_FUNCTION_11
+	case 210, COMMORB_FUNCTION_12
+	case 215, COMMORB_FUNCTION_13
+	case 220, COMMORB_FUNCTION_14
+	case 225, COMMORB_FUNCTION_15
+	case 230, COMMORB_FUNCTION_16
+	case 235, COMMORB_FUNCTION_17
+	msgbox COMMORB_FUNCTION_Text_14
 COMMORB_FUNCTION_4:
 	closemessage
 	hidenamebox
@@ -703,6 +711,41 @@ COMMORB_FUNCTION_9:
 COMMORB_FUNCTION_10:
 	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
 	msgbox COMMORB_FUNCTION_Text_6
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_11:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_7
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_12:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_8
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_13:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_9
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_14:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_10
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_15:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_11
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_16:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_12
+	goto COMMORB_FUNCTION_4
+
+COMMORB_FUNCTION_17:
+	namebox TRIGGER_STORYMODE_EVENT_ROUTE23_Text_0
+	msgbox COMMORB_FUNCTION_Text_13
 	goto COMMORB_FUNCTION_4
 
 
@@ -973,4 +1016,82 @@ COMMORB_FUNCTION_Text_6:
 	.string "Sir Tiffy Cashien -over.$"
 
 COMMORB_FUNCTION_Text_7:
+	.string "Sir Owen filled me in on the battle with\n"
+	.string "Lord Daquarius {PLAYER}!\p"
+	.string "Jolly good work dontchaknow.\p"
+	.string "We shall do some recon to try and work\n"
+	.string "out what Sigmund and H.A.M are planning.\p"
+	.string "Until then, keep training as we may need\n"
+	.string "your strength again soon!\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_8:
+	.string "What's that {PLAYER}?\p"
+	.string "H.A.M have kidnapped Prince Ali of Al\n"
+	.string "Kharid?!\p"
+	.string "You must be pulling on my leg, hmm?\p"
+	.string "You're not?!\l"
+	.string "This is a diplomatic nightmare, old bean!\p"
+	.string "The top brass will need to be made\n"
+	.string "aware.\p"
+	.string "Can't see them being too thrilled about\n"
+	.string "it.\p"
+	.string "Try contacting someone at Al Kharid\n"
+	.string "palace immediately.\p"
+	.string "I'll make some enquiries this end\n"
+	.string "dontchaknow.\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_9:
+	.string "You met Ozan at Al Kharid palace?\p"
+	.string "Hmm, he's known for embellishing his\n"
+	.string "stories so let's hope Osman believes\l"
+	.string "him.\p"
+	.string "In the meantime, you should look around\n"
+	.string "Lumbridge to see if you can find some\l"
+	.string "clues as to where H.A.M have taken the\l"
+	.string "Prince!\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_10:
+	.string "What ho, old bean.\p"
+	.string "You've teamed up with a goblin?\p"
+	.string "Jolly good show, that'll anger H.A.M more\n"
+	.string "than anything and hopefully they'll\l"
+	.string "make some mistakes!\p"
+	.string "My agents are all too far afield at the\n"
+	.string "moment to assist, so we are relying on\l"
+	.string "you {PLAYER}!\p"
+	.string "Ta-ta for now\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_11:
+	.string "Quite messy stuff, what?\p"
+	.string "The Prince has to be down there\n"
+	.string "somewhere {PLAYER}.\p"
+	.string "See if you can find a prison or a jail of\n"
+	.string "some kind.\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_12:
+	.string "Well done on locating the Prince\n"
+	.string "{PLAYER}!\p"
+	.string "Good to know he's not been harmed yet.\p"
+	.string "You need to get him out as soon as\n"
+	.string "possible before the situation gets\l"
+	.string "much, much worse.\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_13:
+	.string "What's that, you lost your disguise\n"
+	.string "{PLAYER}?\p"
+	.string "You seem to be making a habit of that\n"
+	.string "dontchaknow.\p"
+	.string "You may have lost the element of\n"
+	.string "surprise, but you're still our best hope\l"
+	.string "of rescuing the Prince.\p"
+	.string "\p"
+	.string "Sir Tiffy Cashien -over.$"
+
+COMMORB_FUNCTION_Text_14:
 	.string "There was no response…$"

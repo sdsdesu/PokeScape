@@ -667,15 +667,27 @@ TRIGGER_ALKHARID_HAM_EVENT_1::
 	playbgm MUS_PS_ENCOUNTER_HAM, TRUE
 	delay 60
 	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_2
+TRIGGER_ALKHARID_HAM_EVENT_1_1:
 	applymovement 46, movement_HAM_RUN_LEFT_WITH_SACK
 	delay 30
 	applymovement 28, movement_HAM_RUN_LEFT_WITH_SACK
 	applymovement 45, Movement_InteractFACELEFT
 	delay 60
 	applymovement 27, movement_GUARD_CHASE_HAM_BUT_STOP
-	waitmovement 0
 	playse SE_PIN
-	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 28
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_5
+	compare VAR_TEMP_1, 29
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_6
+	compare VAR_TEMP_2, 52
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_7
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_8
+TRIGGER_ALKHARID_HAM_EVENT_1_4:
 	waitmovement 0
 	namebox ALKHARID_GATE_GUARD_1_Text_0
 	msgbox TRIGGER_ALKHARID_HAM_EVENT_1_Text_0
@@ -695,6 +707,26 @@ TRIGGER_ALKHARID_HAM_EVENT_1::
 	fadedefaultbgm
 	release
 	end
+
+TRIGGER_ALKHARID_HAM_EVENT_1_2:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_PLAYER_AVOIDS_HAM
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_1
+
+TRIGGER_ALKHARID_HAM_EVENT_1_5:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_6:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_7:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_8:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
 
 
 movement_HAM_RUN_LEFT_WITH_SACK:
@@ -733,7 +765,21 @@ movement_GUARD_CHASE_HAM_BUT_STOP:
 	walk_slow_left
 	step_end
 
-movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN:
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2:
+	face_up
 	face_right
 	emote_exclamation_mark
 	delay_16
@@ -742,11 +788,34 @@ movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN:
 	delay_16
 	delay_16
 	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
-	walk_slow_right
+	walk_slow_up
 	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4:
+	face_down
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_down
+	face_left
 	step_end
 
 movement_OZAN_CONFUSED:
@@ -766,6 +835,32 @@ movement_OZAN_RUNS_TO_PALACE:
 	walk_fast_right
 	walk_fast_right
 	walk_fast_right
+	step_end
+
+movement_PLAYER_AVOIDS_HAM:
+	emote_question_mark
+	lock_facing_direction
+	slide_up
+	emote_exclamation_mark
+	face_down
+	delay_16
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN:
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_up
 	step_end
 
 Gillie_Groats_Text_0:

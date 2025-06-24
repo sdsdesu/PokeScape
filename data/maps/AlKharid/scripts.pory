@@ -469,7 +469,7 @@ script ELITE4_BATTLE_ZANIK
 }
 script ELITE4_BATTLE_HANS
 {
-	trainerbattle_no_intro (TRAINER_ELITE4_HANS_1, format("I lost."))
+	trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_GRASS, format("I lost."))
 	return
 }
 script ELITE4_BATTLE_HAZELMERE

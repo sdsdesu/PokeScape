@@ -108,6 +108,57 @@ ITEM_DWARVENMINES_BODY_TALISMAN::
 	end
 
 
+MOVE_TUTOR_DEFLECT::
+	lock
+	namebox MOVE_TUTOR_DEFLECT_Text_0
+	msgbox MOVE_TUTOR_DEFLECT_Text_1, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq MOVE_TUTOR_DEFLECT_1
+	msgbox MOVE_TUTOR_DEFLECT_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq MOVE_TUTOR_DEFLECT_4
+	checkmoney 3000, 0
+	compare VAR_RESULT, 0
+	goto_if_eq MOVE_TUTOR_DEFLECT_7
+	setvar VAR_0x8005, MOVE_DEFLECT
+	call MOVE_TUTOR_OpenPartyMenu
+	compare VAR_RESULT, 0
+	goto_if_eq MOVE_TUTOR_DEFLECT_11
+MOVE_TUTOR_DEFLECT_10:
+	msgbox MOVE_TUTOR_DEFLECT_Text_4
+	removemoney 3000, 0
+	release
+	end
+
+MOVE_TUTOR_DEFLECT_1:
+	goto MOVE_TUTOR_DEFLECT_NO
+	return
+
+MOVE_TUTOR_DEFLECT_4:
+	goto MOVE_TUTOR_DEFLECT_NO
+	return
+
+MOVE_TUTOR_DEFLECT_7:
+	msgbox MOVE_TUTOR_DEFLECT_Text_3
+	waitmessage
+	hidenamebox
+	release
+	end
+
+MOVE_TUTOR_DEFLECT_11:
+	goto MOVE_TUTOR_DEFLECT_NO
+	goto MOVE_TUTOR_DEFLECT_10
+
+
+MOVE_TUTOR_DEFLECT_NO::
+	namebox MOVE_TUTOR_DEFLECT_Text_0
+	msgbox MOVE_TUTOR_DEFLECT_NO_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
 BATTLE_ROUTE_46_TRAINER_1_Text_0:
 	.string "You won't believe what happened!\p"
 	.string "Whilst excavating nearby, I found the\n"
@@ -182,3 +233,37 @@ DIGSITE_SIGN_Text_0:
 	.string "Anyone wishing to do any work on the\n"
 	.string "digsite must first prove they have\l"
 	.string "passed all 3 Earth Science exams.$"
+
+MOVE_TUTOR_DEFLECT_Text_0:
+	.string "Priest$"
+
+MOVE_TUTOR_DEFLECT_Text_1:
+	.string "I see you taking an interest in the\n"
+	.string "church.\p"
+	.string "I know a special prayer, passed down\n"
+	.string "through generations of devout\l"
+	.string "followers called DEFLECT that I could\l"
+	.string "teach one of your monsters.\p"
+	.string "It increases their defense by 5 stages\n"
+	.string "for 2 turns.\p"
+	.string "Would you be interested in learning it?$"
+
+MOVE_TUTOR_DEFLECT_Text_2:
+	.string "Okay, great!\p"
+	.string "Unfortunately the church is in dire\n"
+	.string "need of renovation, so I must insist on\l"
+	.string "a charitable donation for my services.\p"
+	.string "I think 3,000gp should cover it.\p"
+	.string "Is that okay with you?$"
+
+MOVE_TUTOR_DEFLECT_Text_3:
+	.string "I am very sorry, but you don't seem to\n"
+	.string "have enough money.$"
+
+MOVE_TUTOR_DEFLECT_Text_4:
+	.string "Your monster was blessed with the\n"
+	.string "power of DEFLECT.$"
+
+MOVE_TUTOR_DEFLECT_NO_Text_0:
+	.string "If you change your mind, please feel\n"
+	.string "free to come back anytime.$"

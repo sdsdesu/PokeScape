@@ -213,7 +213,6 @@ Mithrilman_ALKHARID1::
 	playbgm MUS_ENCOUNTER_MAY, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_ALKHARID1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN4, Mithrilman_ALKHARID1_Text_1, Mithrilman_ALKHARID1_Text_2, Mithrilman_ALKHARID2
 	return
 
 
@@ -249,7 +248,7 @@ Mithrilman_DRAYNOR1::
 	playbgm MUS_ENCOUNTER_MAY, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_DRAYNOR1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN6, Mithrilman_DRAYNOR1_Text_1, Mithrilman_ALKHARID1_Text_2, Mithrilman_DRAYNOR2
+	trainerbattle_single TRAINER_MITHRILMAN6, Mithrilman_DRAYNOR1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_DRAYNOR2
 	return
 
 
@@ -286,7 +285,7 @@ Mithrilman_EDGEVILLE1_1:
 	playbgm MUS_ENCOUNTER_MAY, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_EDGEVILLE1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN7, Mithrilman_EDGEVILLE1_Text_1, Mithrilman_ALKHARID1_Text_2, Mithrilman_EDGEVILLE2
+	trainerbattle_single TRAINER_MITHRILMAN7, Mithrilman_EDGEVILLE1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_EDGEVILLE2
 	return
 
 
@@ -311,7 +310,7 @@ Mithrilman_WILDERNESS1::
 	playbgm MUS_ENCOUNTER_MAY, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESS1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN8, Mithrilman_WILDERNESS1_Text_1, Mithrilman_ALKHARID1_Text_2, Mithrilman_WILDERNESS2
+	trainerbattle_single TRAINER_MITHRILMAN8, Mithrilman_WILDERNESS1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_WILDERNESS2
 	return
 
 
@@ -343,7 +342,7 @@ Mithrilman_WILDERNESSVOLCANO1::
 	goto_if_ne Mithrilman_WILDERNESSVOLCANO1_3
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESSVOLCANO1_Text_2
-	trainerbattle_single TRAINER_MITHRILMAN9, Mithrilman_WILDERNESSVOLCANO1_Text_3, Mithrilman_ALKHARID1_Text_2, Mithrilman_WILDERNESSVOLCANO2
+	trainerbattle_single TRAINER_MITHRILMAN9, Mithrilman_WILDERNESSVOLCANO1_Text_3, Mithrilman_DRAYNOR1_Text_2, Mithrilman_WILDERNESSVOLCANO2
 	return
 
 Mithrilman_WILDERNESSVOLCANO1_3:
@@ -465,13 +464,6 @@ Mithrilman_ALKHARID1_Text_0:
 	.string "Thus Mithrilmen shalt be known as the\n"
 	.string "superior challenge!$"
 
-Mithrilman_ALKHARID1_Text_1:
-	.string "Yee seem tired knave, wouldst a battle\n"
-	.string "fire yee up?$"
-
-Mithrilman_ALKHARID1_Text_2:
-	.string "…$"
-
 Mithrilman_ALKHARID2_Text_0:
 	.string "The heat scorched upon your head\n"
 	.string "knave.\p"
@@ -504,6 +496,9 @@ Mithrilman_DRAYNOR1_Text_0:
 Mithrilman_DRAYNOR1_Text_1:
 	.string "Would thoust challenge a man as awingst\n"
 	.string "as me?$"
+
+Mithrilman_DRAYNOR1_Text_2:
+	.string "…$"
 
 Mithrilman_DRAYNOR2_Text_0:
 	.string "Thoust does cheat?\p"
