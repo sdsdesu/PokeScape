@@ -35,77 +35,10 @@ script HAMHIDEOUT_B2F_STATE {
 
 
 //NPCs
-script NPC_HAM_HIDEOUT_1
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("We will not tolerate anyone with an opinion differing from our own.\pThat is the path of disaster."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
-script NPC_HAM_HIDEOUT_2
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("Before I joined H.A.M my family was killed by goblins.\pNow I feel like I have found my life's calling right here."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
-script NPC_HAM_HIDEOUT_3
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("I quite like it here honestly.\pOne thing bugs me however.\pWhy did the leaders decide on the robes being pink?\pIs there some symbolism I am not getting?"))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
-script NPC_HAM_HIDEOUT_4
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("Don't tell any of the other grunts, but I got a thing for Babe.\pDo you know anything that might help me get closer to her?\nThere is a limit to how much hatred against monsters can bring people together…"))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
-script NPC_HAM_HIDEOUT_5
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("We are going to make Lumbridge great again.\nThen the world will follow."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
-
-script NPC_HAM_HIDEOUT_6
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("If you do not agree with my opinion you are my enemy, that is how the world works."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
 
 script NPC_HAM_HIDEOUT_7
 {
@@ -119,17 +52,7 @@ script NPC_HAM_HIDEOUT_7
 	end
 }
 
-script NPC_HAM_HIDEOUT_8
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("We might use monsters to fight monsters, but we have standards.\pDogs, spiders, cows, pigs, sheep, and cats have been friends and allies to humans for centuries.\nNow they stand with us against the scourge that are monsters!"))
-    closemessage
-    hidenamebox
-	release
-	end
-}
+
 
 script NPC_HAM_HIDEOUT_9 //Not implemented
 {
@@ -137,18 +60,6 @@ script NPC_HAM_HIDEOUT_9 //Not implemented
 	faceplayer
     namebox ("H.A.M Member")
 	msgbox(format("I miss not living in a cave."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
-
-script NPC_HAM_HIDEOUT_10
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("Johanhus is an idealist, he wants to solve conflict with words alone.\pSo far it hasn't really worked, though."))
     closemessage
     hidenamebox
 	release
@@ -185,30 +96,6 @@ script NPC_HAM_HIDEOUT_13
 	faceplayer
     namebox ("H.A.M Member")
 	msgbox(format("I hear Patty used to be a wizard in the Wizards' Tower before she joined us.\pShe was thrown out due to rash and feisty decisions apparently."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
-
-script NPC_HAM_HIDEOUT_14
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("Sigmund is an extremist among us.\pHe doesn't mind flooding a cavern of goblins if it means they will all die.\nPersonally I get that."))
-    closemessage
-    hidenamebox
-	release
-	end
-}
-
-script NPC_HAM_HIDEOUT_15
-{
-	lock
-	faceplayer
-    namebox ("H.A.M Member")
-	msgbox(format("Sigmund believes power and might makes right, so we in H.A.M will become the most powerful organisation in Gielinor."))
     closemessage
     hidenamebox
 	release
@@ -622,34 +509,15 @@ script TRIGGER_HAMHIDEOUT_JOHANHUS {
     //Zanik runs to the player
     namebox ("Zanik")
     msgbox(format("Quick while he is monologuing {PLAYER}.\lGrab the prince and run!"))
-    //Warps to outside HAM
-
-
-    //I am unsure whether this next bit needs to be a continuation of the same script or not.
-
-    namebox ("Zanik")
-    msgbox(format("We made it out somehow."))
-    //Zanik looks at Prince Ali
-    msgbox(format("Hey you, sunburned human, are you all right?"))
-    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
-    msgbox(format("My name is Prince Ali, goblin.\lThank you for saving me."))
-    namebox ("Zanik")
-    msgbox(format("It wasn't all me, most of it was {PLAYER} here."))
-    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
-    msgbox(format("{PLAYER}.\lThank you for saving me.\pH.A.M wanted my 'INSERT PLOT MCGUFFIN HERE' saying it was a vital ingredient to a ritual to bind a monster to their will.\pIt has been passed down in my family for ages.\lBut it seems I had to trade it for my life for now.\pWe can not let H.A.M get away with this.\lI will try to reach the other MvM leaders and organize a front to stop them.\pBut until then, I guess you do need to beat me right?\lI will meet you back in Al Kharid.\lLet us battle and become ever stronger together!"))
-    //Prince Ali walks off
-    namebox ("Zanik")
-    msgbox(format("You save him from a bunch of extremists.\lWe risk our lives in doing so.\lAnd your thanks is a battle?\pYou humans are weird.\pEither way, I should get involved as well in tracking H.A.M.\pFor now I will retreat.\pHey {PLAYER}, as a thanks for the help, I want you to have this!"))
-    hidenamebox
-    closemessage
-    giveitem(ITEM_BONECROSSBOW, 1)
-    closemessage
-    namebox ("Zanik")
-    msgbox(format("it's a spare, but I hope it will do you good.\pI am going back to Dorgesh-Kaan for now, but I hope to see you again.\pGoodbye {PLAYER}."))
-    hidenamebox
-    closemessage
-    //Zanik walks off
-    //increase storymode variable
-    release
+    //subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)                            //TBC
+    //addvar(VAR_GAMEMODE_LEVEL_CAP, 5) //Level 55 cap.                                         //TBC
+    //setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 240)                                             //TBC
+    call(FOLLOWER_REMOVE)
+    //warp outside to Lumbridge Forest
+    warp(MAP_LUMBRIDGE_FOREST, 28, 5)
+    waitstate
+    releaseall
     end
 }
+
+

@@ -6845,6 +6845,30 @@ const struct Trainer gTrainers[] = {
         .party = TRAINER_PARTY(sParty_HAMHideout_Johanhus),
     },
 
+    [TRAINER_HAM_HIDEOUT_GUARD_1] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,                         //TBC
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,                           //TBC
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Guard_1),
+    },
+
+    [TRAINER_HAM_HIDEOUT_GUARD_2] =
+    {
+        .trainerClass = TRAINER_CLASS_HAM_GRUNT,                         //TBC
+        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HAM,
+        .trainerPic = TRAINER_PIC_ham_grunt_m,                           //TBC
+        .trainerName = _("GRUNT"),
+        .items = {ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE},
+        .doubleBattle = FALSE,
+        .aiFlags = AI_FLAG_PREFER_STRONGEST_MOVE | AI_FLAG_HP_AWARE | AI_FLAG_CHECK_BAD_MOVE,
+        .party = TRAINER_PARTY(sParty_HAMHideout_Guard_2),
+    },
+
     [TRAINER_SIR_THEO_EDGEVILLE] =
     {
         .trainerClass = TRAINER_CLASS_WHITE_KNIGHT,

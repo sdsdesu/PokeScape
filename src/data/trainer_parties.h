@@ -9964,6 +9964,36 @@ static const struct TrainerMon sParty_HAMHideout_Johanhus[] = {
     }
 };
 
+static const struct TrainerMon sParty_HAMHideout_Guard_1[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_SHIBA,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_CAT_LAZY_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_SPIDER_SPIRIT_FORM,
+    }
+};
+
+static const struct TrainerMon sParty_HAMHideout_Guard_2[] = {
+    {
+    .lvl = 46,
+    .species = SPECIES_CHICKEN_WAR_FORM,
+    },
+    {
+    .lvl = 46,
+    .species = SPECIES_RAM_SHAGGY_FORM,
+    },
+    {
+    .lvl = 47,
+    .species = SPECIES_PIGZILLA,
+    }
+};
+
 static const struct TrainerMon sParty_SirTheo_Edgeville[] = {
     {
     .lvl = 47,

@@ -432,21 +432,598 @@ script GOLDENGNOME_TEST {
 
 
 
-
-
-
+//HAM HIDEOUT EVENT
 
 
 script TRIGGER_HAMHIDEOUT_EVENT_1 {
-    msgbox(format("Get to work, go to the jail!"))
+    lock
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)     
+    if (var(VAR_TEMP_1) == 11){                 
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_1_Right)         //have Zanik move beside player
+        waitmovement(0)
+        applymovement(33, HAM_Hideout_Intro_1_Left)         //have HAM member move to speak to them
+        waitmovement(0)
+    } 
+    else {
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_1_Left)         //have Zanik move beside player
+        waitmovement(0)
+        applymovement(33, HAM_Hideout_Intro_1_Right)        //have HAM member move to speak to them
+        waitmovement(0)
+    }
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+    waitmovement(0)
+    namebox("HAM Grunt")
+    msgbox(format("You're late!\lYou should have come in to cover the next shift hours ago.\p...{PAUSE 15}\pI don't want to hear any excuses, now go to the jail!\lSomeone needs to keep watch over our guests!\p...{PAUSE 15}\pWhat's with the blank expressions?\lSurely you both know it's in the south-east of the cave by now, right!?"))
+    hidenamebox
     closemessage
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)  
+    if (var(VAR_TEMP_1) == 11){                 
+        applymovement(33, HAM_Hideout_Intro_2_Left)         //have HAM member move to original position
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
+        waitmovement(0)
+    } 
+    else {
+        applymovement(33, HAM_Hideout_Intro_2_Right)        //have HAM member move to original position
+        waitmovement(0)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACERIGHT)
+        waitmovement(0)
+    }
+    namebox("Zanik")
+    msgbox(format("Did you hear that {PLAYER}?! This gives us the perfect cover to check whether H.A.M have the Prince in their jail cells.\lLet's go!"))
+    closemessage
+    hidenamebox
     setvar(VAR_TEMP_0, 2)
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 225)
+    release
+    end
+}
+
+//Movement scripts for trigger 1
+
+movement HAM_Hideout_Zanik_1_Left {
+    walk_left
+    walk_down
+    step_end
+}
+
+movement HAM_Hideout_Zanik_1_Right {
+    walk_right
+    walk_down
+    step_end
+}
+
+movement HAM_Hideout_Intro_1_Left {
+    walk_left * 2
+    face_down
+    emote_double_exclamation_mark
+    walk_down
+    step_end
+}
+
+movement HAM_Hideout_Intro_1_Right {
+    walk_left
+    face_down
+    emote_double_exclamation_mark
+    walk_down
+    step_end
+}
+
+movement HAM_Hideout_Intro_2_Left {
+    walk_up
+    walk_right * 2
+    face_original_direction
+    step_end
+}
+
+movement HAM_Hideout_Intro_2_Right {
+    walk_up
+    walk_right
+    face_original_direction
+    step_end
 }
 
 script TRIGGER_HAMHIDEOUT_EVENT_2 {
-    msgbox(format("Guard the prisoners!"))
+    lock
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)     
+    if (var(VAR_TEMP_1) == 30){                 
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_2_Left)  //walk into place
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_2_Left) //have Zanik move beside player
+        waitmovement(0)
+    } 
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_2_Right)  //walk into place
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_2_Right) //have Zanik move beside player        
+        waitmovement(0)
+    }
+    applymovement(18, HAM_Hideout_Jail_Guard_Top_1)     //top  guard
+    applymovement(19, HAM_Hideout_Jail_Guard_Bottom_1)  //bottom guard
+    waitmovement(0)
+    namebox("H.A.M Guard")
+    msgbox(format("You two should have been here ages ago!\lWhat kept you?"))
+    applymovement(19, MOVEMENT_EXCLAMATIONMARK_JUMP_LEFT)  //bottom guard
+    waitmovement(0)
+    msgbox(format("It doesn't matter, you're here now.\lMake sure you guard the prisoners!\lDon't let them out of your sight!"))
+    hidenamebox
     closemessage
+    applymovement(18, HAM_Hideout_Jail_Guard_Top_2)     //top  guard exits
+    applymovement(19, HAM_Hideout_Jail_Guard_Bottom_2)  //bottom guard exits
+    waitmovement(0)
+    removeobject(18)
+    removeobject(19)
+    setflag(FLAG_TEMP_6)                                      //Check this is a useable flag. Also add in some mapscripts to set/hide flags and NPCs
     setvar(VAR_TEMP_0, 3)
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 230)
+    release
+    end
+}
+
+//Movement Scripts for Trigger 2
+
+movement HAM_Hideout_Player_2_Left {
+    walk_slow_down * 2 
+    walk_slow_right
+    step_end
+}
+
+movement HAM_Hideout_Player_2_Right {
+    walk_slow_down * 3 
+    face_right
+    step_end
+}
+
+movement HAM_Hideout_Zanik_2_Left {
+    walk_slow_down * 3 
+    walk_slow_right
+    step_end
+}
+
+movement HAM_Hideout_Zanik_2_Right {
+    walk_slow_down * 2
+    face_right
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Top_1 {
+    walk_fast_down * 2
+    walk_fast_left
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Bottom_1 {
+    walk_fast_up * 2
+    walk_fast_right
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Top_2 {
+    walk_up
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_up
+    walk_left
+    walk_up
+    walk_left
+    walk_up * 2
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Bottom_2 {
+    walk_down
+    walk_left * 2
+    walk_up * 4
+    walk_left
+    walk_up * 2
+    walk_left
+    walk_up
+    walk_left
+    walk_up * 4
+    step_end
+}
+
+script TRIGGER_HAMHIDEOUT_EVENT_3 {                              //This needs some polish to work properly with the trigger
+    lock
+    applymovement(10, Movement_InteractFACEPLAYER)
+    applymovement(11, Movement_InteractFACEPLAYER)
+    waitmovement(0)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
+        namebox("H.A.M Guard")
+        msgbox(format("Shouldn't you two be guarding the prisoners?\lThe jail cell is over to the east, remember?"))
+        closemessage
+        hidenamebox
+        applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_LOCKFACING_WALK_DOWN)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+        waitmovement(0)
+        applymovement (10, FACE_ORIGINAL_DIRECTION)                 //Right guard
+		applymovement (11, FACE_ORIGINAL_DIRECTION)                 //Left guard
+        waitmovement(0)
+        release
+        end
+    }
+    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 230) { 
+        namebox("H.A.M Guard")
+        msgbox(format("Get back to guarding the prisoners!\lJohanhus won't be happy if he hears you've abandoned your posts."))
+        closemessage
+        hidenamebox
+        applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_LOCKFACING_WALK_DOWN)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+        waitmovement(0)
+        applymovement (10, FACE_ORIGINAL_DIRECTION)                 //Right guard
+		applymovement (11, FACE_ORIGINAL_DIRECTION)                 //Left guard
+        waitmovement(0)
+        release
+        end
+    }
+    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) {           //After the disguises have been removed, battle the guards to pass through
+        namebox("H.A.M Guard")
+        msgbox(format("Hey, you two aren't H.A.M members!"))
+        trainerbattle_two_trainers(TRAINER_HAM_HIDEOUT_GUARD_1, msgbox(format("H.A.M Guard: Johanhus and Sigmund won't be happy about this...")), TRAINER_HAM_HIDEOUT_GUARD_2, msgbox(format("H.A.M Guard: Especially since one of you is a blasted goblin!")))
+        namebox("H.A.M Guard")
+        msgbox(format("Quick, let's try and find some back-up!\pDon't you dare go in and disturb Johanhus and Sigmund while we're gone!"))
+        hidenamebox
+        closemessage
+        playse(SE_FLEE)
+        applymovement (10, HAM_Hideout_Guard_2_Right)
+		applymovement (11, HAM_Hideout_Guard_1_Left)
+        waitmovement(0)
+        waitse
+        removeobject(10)
+        removeobject(11)
+        setflag(FLAG_TEMP_5)                                      //Check this is a useable flag. Also add in some mapscripts to set/hide flags and NPCs
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 240)
+        release
+        end
+    }
+    else {                                                        //Check what to do if I don't want anything to trigger
+    namebox("H.A.M Guard")
+    msgbox(format("Sorry, this area is off-limits."))
+    hidenamebox
+    closemessage
+    applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_LOCKFACING_WALK_DOWN)
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+    waitmovement(0)
+    release
+    end
+    }
+release
+end
+}
+
+//Movement Scripts for Trigger 3
+
+movement HAM_Hideout_Guard_1_Left {
+    walk_fast_down * 2
+    walk_fast_right * 4
+    walk_fast_up
+    walk_fast_right * 2
+    walk_fast_up
+    walk_fast_right * 2
+    walk_fast_up * 6
+    face_original_direction
+    step_end
+}
+
+movement HAM_Hideout_Guard_2_Right {
+    walk_fast_right * 5
+    walk_fast_up * 2
+    walk_fast_right
+    walk_fast_up * 4
+    step_end
+}
+
+//NPCs
+
+script NPC_HAM_HIDEOUT_B1F_1
+{
+	lock
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
+        faceplayer
+        namebox ("H.A.M Member")
+	    msgbox(format("What did I tell you two?\pGo and guard the jail!\lOtherwise you won't be getting any rations tonight."))
+        closemessage
+        hidenamebox
+        return
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 230) { 
+        faceplayer
+        namebox ("H.A.M Guard")
+	    msgbox(format("I saw the other guard you relieved walk past not too long ago.\lHave you idiots left the jail unguarded?\pWhat if someone tries to sneak in and break the prisoners out!\lGet back to your post before I have to involved Sigmund!"))
+        closemessage
+        hidenamebox
+        return
+    }
+    else {
+        msgbox(format("The guard is too busy to pay attention to you."))
+        closemessage
+        hidenamebox
+        return
+    }
+    release
+    end
+}
+
+script NPC_HAM_HIDEOUT_B1F_2
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+    checkplayergender
+    if (var(VAR_RESULT) == MALE) {
+            msgbox(format("Be vigilant brother, we cannot let the monster scourge pollute our haven."))
+    } 
+    else {
+        msgbox(format("Be vigilant sister, we cannot let the monster scourge pollute our haven."))
+    }
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_3
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Have you had the chance to hear the Deacon speak yet?\lHis words are so wise and inspiring, it's almost as if Saradomin is speaking through him!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_4
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Before I joined H.A.M my family was killed by goblins.\pNow I feel like I have found my life's calling right here."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_5
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I quite like it here honestly.\pOne thing bugs me however.\pWhy did the leaders decide on the robes being pink?\pIs there some symbolism I am not getting?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_6
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Don't tell any of the other grunts, but I got a thing for Babe.\pDo you know anything that might help me get closer to her?\nThere is a limit to how much hatred against monsters can bring people together…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_7
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We are going to make Lumbridge great again.\nThen the world will follow."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_8
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("If you do not agree with my opinion you are my enemy, that is how the world works."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_9
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We might use monsters to fight monsters, but we have standards.\pDogs, spiders, cows, pigs, sheep, and cats have been friends and allies to humans for centuries.\nNow they stand with us against the scourge that are monsters!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_10
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Johanhus is an idealist, he wants to solve conflict with words alone.\pSo far it hasn't really worked, though."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_11
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Sigmund is an extremist among us.\pHe doesn't mind flooding a cavern of goblins if it means they will all die.\nPersonally I get that."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_12
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Sigmund believes power and might makes right, so we in H.A.M will become the most powerful organisation in Gielinor."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_13
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("We will not tolerate anyone with an opinion differing from our own.\pThat is the path of disaster."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_14
+{
+	lock
+    namebox ("H.A.M Deacon")
+    random(10)
+    switch (var(VAR_RESULT)) { 
+        case 0: 
+            msgbox(format("We are the righteous ones in his eyes alone."))
+            hidenamebox
+		    release
+		    end
+        case 1:
+            msgbox(format("Let them not infest our cities and towns..."))
+            hidenamebox
+		    release
+		    end
+        case 2:
+            msgbox(format("And lo, we become the power, indeed the force to stop these monsters in their tracks."))
+            hidenamebox
+		    release
+		    end
+        case 3:
+            msgbox(format("Verily I urge you, my friends to take up your spades and farm your farms to feed our people in this blessed sanctuary."))
+            hidenamebox
+		    release
+		    end
+        case 4:
+            msgbox(format("If thine monsters visage does frighten thee, then tear it off I say... tear it off!"))
+            hidenamebox
+		    release
+		    end
+        case 5:
+            msgbox(format("For Saradomin will guide our sword arms and smash the enemies of humans till their bones become dust."))
+            hidenamebox
+		    release
+		    end
+        case 6:
+            msgbox(format("And let us smite these monsters unto their deaths."))
+            hidenamebox
+		    release
+		    end
+        case 7:
+            msgbox(format("For they are not the chosen ones in Saradomin's eyes."))
+            hidenamebox
+		    release
+		    end
+        case 8:
+            msgbox(format("Where do we go for safety from these monsters... here, with our brethren!"))
+            hidenamebox
+		    release
+		    end
+        case 9:
+            msgbox(format("And let there be no cave or shelter for their spawn until the end of days."))
+            hidenamebox
+		    release
+		    end
+    }
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_15
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Don't forget, through here are the sleeping quarters if you need to take a rest.\lJust make sure not to get caught sleeping if you're on duty, or Sigmund will have your head!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_16
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("It's really inspiring seeing such strong female figures like Babe and Patty having positions of authority here.\lThat's how I know this group truly are guided by Saradomin himself.\pThe churches may preach about him, but you never seen any female priests or monks..!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_17
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("It's my turn to prepare tonight's meal.\pThankfully we have plenty of 'taters.\lYou know, po-tay-toes!\pBoil 'em, mash 'em, stick 'em in a stew.\lYum!"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_18
+{
+	lock
+	faceplayer
+    namebox("H.A.M Guard")
+    msgbox(format("Sorry, this area is off-limits to regular members."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_19
+{
+	lock
+	faceplayer
+    namebox("H.A.M Guard")
+    msgbox(format("Sorry, this area is off-limits.\lSigmund and Johanhus are having an important meeting."))
+    closemessage
+    hidenamebox
+    applymovement(10, FACE_ORIGINAL_DIRECTION)        //The other guard can only be talked to from one direction which is why this movement isn't on both
+	release
+	end
+}
+
+script HAM_HIDEOUT_RANGE
+{
+	msgbox(format("It's a range for cooking on.\lThough you are not really sure how H.A.M managed to get one working this far underground."))
+    closemessage
+	release
+	end
 }
