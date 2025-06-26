@@ -107,7 +107,54 @@ script NPC_HAM_HIDEOUT_16
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format(""))
+	msgbox(format("These are our storage rooms.\pWe've also got another jail in the back.\pBut you know this already…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_17
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("There's so much work to do, clearing these caverns for more storage is a pain…\pWhy couldn't we have an above ground base…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_18
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Yuck, why am I on cleaning duty.\pWanna swap jobs?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_19
+{
+	lock
+    namebox ("H.A.M Member")
+	msgbox(format("Be on high alert!\pThere are intruders in the building!"))
+    closemessage
+    hidenamebox
+    playse(SE_PIN)
+    applymovement(41, MOVEMENT_EXCLAMATIONMARK_FACEPLAYER)
+    msgbox(format("What how did they get past us!"))
+    closemessage
+    hidenamebox
+    //DOUBLE BATTLE!
+    msgbox(format("Too strong!"))
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    setflag(FLAG_TEMP_E)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
     closemessage
     hidenamebox
 	release
@@ -118,9 +165,9 @@ script NPC_HAM_HIDEOUT_16
 
 script BATTLE_HAM_HIDEOUT_GRUNT_1
 { 
-    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_1, format("I bet you're wondering how I ended up here."),format("Urgh..."))
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_1, format("I bet you're wondering how I ended up here."),format("Urgh…"))
     namebox ("H.A.M Grunt")
-    msgbox(format("When I signed up to become a member, I was never told that our headquarters was in a cave.\pThe Black Knights have a whole fortress..."))
+    msgbox(format("When I signed up to become a member, I was never told that our headquarters was in a cave.\pThe Black Knights have a whole fortress…"))
     hidenamebox
     release
     end
@@ -130,7 +177,7 @@ script BATTLE_HAM_HIDEOUT_GRUNT_2
 { 
     trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_2, format("I've only been a member for a few days...\pDo you know where the toilets are?"),format("Aaaaaahhhh!"))
     namebox ("H.A.M Grunt")
-    msgbox(format("Please tell me it's not just a hole in the floor..."))
+    msgbox(format("Please tell me it's not just a hole in the floor…"))
     hidenamebox
     release
     end
@@ -148,9 +195,10 @@ script BATTLE_HAM_HIDEOUT_GRUNT_3
 
 script BATTLE_HAM_HIDEOUT_GRUNT_4
 { 
-    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_4, format("People like you who are friends with monsters make me sick."),format("Disgusting!"))
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_4, format("Where have you guys been the prisoners are left have been not been guarded and there are intruders in the base!\pWait… You guys are the intruders! Prepare for battle!"),format("I cannot believe this!"))
     namebox ("H.A.M Grunt")
-    msgbox(format("I can't bear to speak to a monster sympathiser like you."))
+    //msgbox(format("I can't bear to speak to a monster sympathiser like you."))
+    msgbox(format("You guys are monster sympathisers?!\pDisgusting!."))
     hidenamebox
     release
     end
@@ -166,7 +214,7 @@ script BATTLE_HAM_HIDEOUT_GRUNT_5
     end
 }
 
-script BATTLE_HAM_HIDEOUT_GRUNT_6
+script BATTLE_HAM_HIDEOUT_GRUNT_6 
 { 
     trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_6, format("I have been chosen by Johanhus for a special purpose."),format("I may have lost, but I won't fail him."))
     namebox ("H.A.M Grunt")
@@ -188,9 +236,11 @@ script BATTLE_HAM_HIDEOUT_GRUNT_7
 
 script BATTLE_HAM_HIDEOUT_GRUNT_8
 { 
-    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("Go in peace in the name of Saradomin.\pMay his glory shine upon you like the sun."),format("May Saradomin guide your soul to light."))
+    //trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("Go in peace in the name of Saradomin.\pMay his glory shine upon you like the sun."),format("May Saradomin guide your soul to light."))
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("I'm about to beat you up until you are unconscious!"),format("Awe man, I'm feeling slightly concussed…"))
     namebox ("H.A.M Grunt")
-    msgbox(format("As Saradomin is the 'Lord of Light', do you think that Johanhus and Sigmund deliberately build our base underground where the light cannot reach because they know he would be ashamed of us?"))
+    //msgbox(format("As Saradomin is the 'Lord of Light', do you think that Johanhus and Sigmund deliberately build our base underground where the light cannot reach because they know he would be ashamed of us?"))
+    msgbox(format("Awe man, I'm feeling slightly concussed…"))
     hidenamebox
     release
     end
@@ -208,9 +258,11 @@ script BATTLE_HAM_HIDEOUT_GRUNT_9
 
 script BATTLE_HAM_HIDEOUT_GRUNT_10
 { 
-    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Monsters are evil, so that means we can kill them for fun."),format("Evil, evil creatures!"))
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Who sounded the alarm!?\pWas it you?!"),format("Oh no now the only alarm I hear is the low health of my animals!"))
+    //trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Monsters are evil, so that means we can kill them for fun."),format("Evil, evil creatures!"))
     namebox ("H.A.M Grunt")
-    msgbox(format("I learned that from an old book, the 'Manual of Monsters'.\pIt had details on all different kinds of monsters and it said if they were good or evil...\nand most of them are evil!"))
+    msgbox(format("I may have failed to stop you but the others won't stop until we bundle you up into jail!"))
+    //msgbox(format("I learned that from an old book, the 'Manual of Monsters'.\pIt had details on all different kinds of monsters and it said if they were good or evil...\nand most of them are evil!"))
     hidenamebox
     release
     end

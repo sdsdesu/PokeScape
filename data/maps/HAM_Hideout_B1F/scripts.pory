@@ -21,14 +21,25 @@ mapscripts HAM_Hideout_B1F_MapScripts {
 }
 
 script HAMHIDEOUT_B1F_STATE {
+    clearflag(FLAG_TEMP_D) //SHOWS NPCS
+    setflag(FLAG_TEMP_C) //HIDES TRAINERS
+    setflag(FLAG_TEMP_E)
+
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 220) { 
         setvar(VAR_TEMP_0, 1)
     }
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
         setvar(VAR_TEMP_0, 2)
     }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) { 
+        setflag(FLAG_TEMP_D) //Hides NPCS
+        clearflag(FLAG_TEMP_C) //Shows TRAINERS
+        clearflag(FLAG_TEMP_E)
+    }
     return
 }
+
+
 
 script HAM_HIDEOUT_GOLDENGNOME_PLACENPCS {
     if (var(VAR_POKESCAPE_GOLDENGNOMES) == 5) 
