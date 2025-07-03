@@ -2154,6 +2154,8 @@ const u8 gText_SubQuest_Main_Story_Name11[] = _("Mission complete?");
 const u8 gText_SubQuest_Main_Story_Desc11[] = _("You reported the mission summary to\nSir Amik Varze, but what will\nhappen to Ned and the Cabin boy.");
 const u8 gText_SubQuest_Main_Story_Name12[] = _("What lies below");
 const u8 gText_SubQuest_Main_Story_Desc12[] = _("You and Sir Owen infiltrated the\nBlack Knights Fortress and found\ninformation about a mural.");
+const u8 gText_SubQuest_Main_Story_Name13[] = _("Another Slice of H.A.M");
+const u8 gText_SubQuest_Main_Story_Desc13[] = _("You and Zanik rescued Prince Ali\nfrom the H.A.M Hideout and\nfound out about H.A.M's next move.");
 
 const u8 gText_MapName_DraynorManor[] = _("Draynor Manor");
 const u8 gText_MapName_LumbridgeForest[] = _("Lumbridge Forest");

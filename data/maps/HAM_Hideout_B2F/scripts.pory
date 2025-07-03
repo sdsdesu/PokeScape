@@ -71,7 +71,7 @@ script NPC_HAM_HIDEOUT_11
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format("Babe and Patty are recent admins recruited by Sigmund for their hard work.\nPatty's hard work that is, I don't know what Babe did…"))
+	msgbox(format("Babe and Patty are recent admins recruited by Sigmund for their hard work.\lPatty's hard work that is, I don't know what Babe did…"))
     closemessage
     hidenamebox
 	release
@@ -150,9 +150,10 @@ script NPC_HAM_HIDEOUT_19
     msgbox(format("What how did they get past us!"))
     closemessage
     hidenamebox
-    //DOUBLE BATTLE!
-    msgbox(format("Too strong!"))
+    trainerbattle_two_trainers(TRAINER_HAM_HIDEOUT_GUARD_3, msgbox(format("H.A.M Guard: No wonder you managed to sneak through!")), TRAINER_HAM_HIDEOUT_GUARD_4, msgbox(format("H.A.M Guard: Too strong!")))
     fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(41)
+    removeobject(42)
     setflag(FLAG_TEMP_E)
     fadescreenswapbuffers(FADE_FROM_BLACK)
     closemessage
@@ -198,7 +199,7 @@ script BATTLE_HAM_HIDEOUT_GRUNT_4
     trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_4, format("Where have you guys been the prisoners are left have been not been guarded and there are intruders in the base!\pWait… You guys are the intruders! Prepare for battle!"),format("I cannot believe this!"))
     namebox ("H.A.M Grunt")
     //msgbox(format("I can't bear to speak to a monster sympathiser like you."))
-    msgbox(format("You guys are monster sympathisers?!\pDisgusting!."))
+    msgbox(format("You guys are monster sympathisers?!\pDisgusting!"))
     hidenamebox
     release
     end
@@ -338,7 +339,7 @@ script TRIGGER_HAMHIDEOUT_BABE_PATTY {
     applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
     waitmovement(0)
     namebox ("Zanik")
-    msgbox(format("Alright {PLAYER} lets go free the prisoners!"))
+    msgbox(format("Alright {PLAYER} let's go free the prisoners!"))
     hidenamebox
     closemessage
     namebox ("H.A.M Guard")
@@ -521,49 +522,83 @@ movement movement_HAMHIDEOUT_BABE_3 {
 
 script TRIGGER_HAMHIDEOUT_JOHANHUS {
     lock
-    //applymovement(OBJ_EVENT_ID_PLAYER, walk into room)
-    //applymovement(OBJ_EVENT_ID_FOLLOWER, walk into room)
-    //waitmovement(0)
+    applymovement (OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_ZANIK_1) //walk beside player to left
+    waitmovement(0)
+	special(SpawnCameraObject)
+	applymovement (OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_1)
+    waitmovement(0)
     namebox ("Johanhus")
     msgbox(format("It seems the search has come to an end then."))
     namebox ("Sigmund")
-    msgbox(format("Yes.\lThis man held what we needed to summon it and bend it to our will.\pWith his 'INSERT MCGUFFIN HERE' we can proceed to the Wilderness and finish the plan."))
+    msgbox(format("Yes.\lThis man held what we needed to summon it and bend it to our will.\pWith the power contained inside the Kharid-ib we can proceed to the Wilderness and finish the plan."))
+    applymovement(21, MOVEMENT_QUESTIONMARK)
     namebox ("Johanhus")
     msgbox(format("And you are sure this will save the world of the scourge that are monsters Sigmund?"))
     namebox ("Sigmund")
     msgbox(format("Johanhus my friend.\pEveryday monsters cause problems around the world.\pAnd now adventurers, cooks, kings, queens, pawns and even goblins have decided to use them as their own to attain power.\pWhat we want is to prove to them that we hold absolute power.\lAnd then they will see that the only way for this world to be free is to kill and abandon every single monster in the world.\pAnd when that happens...\lThe world will be at peace.\lJust like we have always wanted..."))
-    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    setobjectxy(35, 41, 34)      //spawn in Prince Ali
+	setobjectxyperm(35, 41, 34)
+    applymovement (35, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    waitmovement(0)
+    applymovement (35, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    applymovement (OBJ_EVENT_ID_PLAYER, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    applymovement (OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    namebox ("Prince Ali")
     msgbox(format("Stop this.\lYou won't get away with this."))
+    applymovement(36, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(37, movement_HAM_Hideout_finale_reaction_2) 
+    applymovement(38, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(39, movement_HAM_Hideout_finale_reaction_3) 
+    applymovement(40, movement_HAM_Hideout_finale_reaction_2) 
+    applymovement(41, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(42, movement_HAM_Hideout_finale_reaction_3)
+    applymovement(21, MOVEMENT_EXCLAMATIONMARK)
+    waitmovement(0)
     namebox ("Johanhus")
     msgbox(format("Cease your yelps prince.\lYou hold no authority here.\pWe will make a just world without monsters just like Saradomin always intended."))
-    //Looks to player and Zanik
+    applymovement(23, movement_HAM_Hideout_finale_reaction_1)
     namebox ("Sigmund")
     msgbox(format("Looks like some monsters just entered a den they should not be Johanhus."))
     namebox ("Johanhus")
     msgbox(format("Indeed. What shall we do?"))
     namebox ("Sigmund")
     msgbox(format("I will head to the wilderness as planned.\pI will station Patty and Babe in Varrock for the thing we discussed.\lAs for these guys and the prince.\lLet us show them what happens to monster sympathisers taking a wrong turn."))
+    setobjectxy(43, 40, 34)      //spawn in extra HAM member for blocking
+	setobjectxyperm(43, 40, 34)
+    applymovement(43, movement_HAM_Hideout_finale_walk_up)    
+    applymovement(39, movement_HAM_Hideout_finale_swarm_left_2)     
+    applymovement(42, movement_HAM_Hideout_finale_swarm_left_1)  
+    applymovement(37, movement_HAM_Hideout_finale_swarm_right_2) 
+    applymovement(41, movement_HAM_Hideout_finale_swarm_right_1) 
+    waitmovement(0)
+    applymovement(23, movement_HAM_Hideout_finale_Sigmund_exit)
+    waitmovement(0)
     //Lots of Ham members swarm the player and Zanik. Sigmund leaves menacingly
     namebox ("Zanik")
     msgbox(format("Shoot.\p{PLAYER}!\lI will handle this.\lYou go and get them!"))
-    //Zanik pushes the player towards Johanhus as HAM members swarm her
+    applymovement(40, movement_HAM_Hideout_finale_misc_1)
+    applymovement(21, movement_HAM_Hideout_finale_Johanhus_1)
+	applymovement (OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_2)
+    waitmovement(0)
+    special(RemoveCameraObject)
     namebox ("Johanhus")
     msgbox(format("I get it.\lYou believe you are righteous.\lYou believe you are correct.\lYou believe in yourself and that what you are doing is the good thing to do.\pAnd as do I.\pAs leader of Humans Against Monsters, on behalf of the world.\lI will smite you.."))
     trainerbattle_no_intro(TRAINER_HAM_HIDEOUT_JOHANHUS, format("NO!\lThis cannot be!"))
     namebox ("Johanhus")
     msgbox(format("So it seems my power is insignificant to yours.\pI guess it seems weird to use the power of monsters to fight when we ourselves use monsters?\lBut what choice do we have?\pYou and everyone else changed the rules.\lWhat is a dagger to a dragon?\pThe world is changing.\lAnd we adapted.\lBut this is not the world we wish to live in."))
-    //Looks to Prince Ali
+    applymovement(21, Movement_InteractFACERIGHT)     //Looks to Prince Ali
     namebox ("Johanhus")
     msgbox(format("I will submit just this once.\lTake this prince and leave."))
-    //Looks to Zanik
+    applymovement(21, Movement_InteractFACELEFT)      //Looks to Zanik
     namebox ("Johanhus")
     msgbox(format("Out of goodness of my heart, you can even let the little gremlin over there live as well.\pIt doesn't matter.\lNone of this matters.\pIf Sigmund is right, you can not stop him.\lAnd he will make a world free of the monsters that once caused us so much pain.."))
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER)
     //Zanik runs to the player
     namebox ("Zanik")
-    msgbox(format("Quick while he is monologuing {PLAYER}.\lGrab the prince and run!"))
-    //subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)                            //TBC
-    //addvar(VAR_GAMEMODE_LEVEL_CAP, 5) //Level 55 cap.                                         //TBC
-    //setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 240)                                             //TBC
+    msgbox(format("Quick while he is monologuing {PLAYER}.\lGrab the Prince and run!"))
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)                            //TBC
+    addvar(VAR_GAMEMODE_LEVEL_CAP, 5) //Level 55 cap.                                         //TBC
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 245)                                             //TBC
     call(FOLLOWER_REMOVE)
     //warp outside to Lumbridge Forest
     warp(MAP_LUMBRIDGE_FOREST, 28, 5)
@@ -572,4 +607,105 @@ script TRIGGER_HAMHIDEOUT_JOHANHUS {
     end
 }
 
+movement movement_HAM_Hideout_finale_ZANIK_1{
+    walk_left
+    walk_up
+    step_end
+}
 
+movement movement_HAM_Hideout_finale_ZANIK_2{
+    walk_left
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_walk_up{
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_PRINCE_ALI_1{
+    walk_left
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_camera_1{
+    walk_up * 5
+    step_end
+}
+
+movement movement_HAM_Hideout_camera_2{
+    delay_16
+    walk_down * 4
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_1{
+    face_down
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_2{
+    face_down
+    emote_exclamation_mark
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_3{
+    face_down
+    emote_double_exclamation_mark
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_left_1{
+    walk_fast_down * 2
+    walk_fast_left
+    face_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_left_2{
+    walk_fast_down * 2
+    face_left
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_right_1{
+    walk_fast_down * 2
+    walk_fast_right
+    face_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_right_2{
+    walk_fast_down * 2
+    face_right
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_Sigmund_exit{
+    walk_slow_left * 2
+    walk_slow_down
+    walk_slow_left
+    walk_slow_down * 2
+    walk_slow_right
+    walk_slow_down
+    walk_slow_right * 2
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_Johanhus_1{
+    walk_right * 2
+    walk_down * 3
+    walk_left * 2
+    walk_down
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_misc_1{
+    walk_slow_up * 2
+    walk_slow_left
+    face_down
+    step_end
+}

@@ -31,10 +31,55 @@ script HAMHIDEOUT_B1F_STATE {
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
         setvar(VAR_TEMP_0, 2)
     }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 230) { 
+        removeobject(18)      //Jail guard
+        removeobject(19)      //Jail guard
+        setflag(FLAG_TEMP_6)
+        removeobject(45)       //Guard blocking storerooms
+        setflag(FLAG_TEMP_4) 
+    }
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) { 
         setflag(FLAG_TEMP_D) //Hides NPCS
         clearflag(FLAG_TEMP_C) //Shows TRAINERS
         clearflag(FLAG_TEMP_E)
+        removeobject(18)      //Jail guard
+        removeobject(19)      //Jail guard
+        setflag(FLAG_TEMP_6)
+        removeobject(45)       //Guard blocking storerooms
+        setflag(FLAG_TEMP_4) 
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 240) { 
+        setflag(FLAG_TEMP_D) //Hides NPCS
+        clearflag(FLAG_TEMP_C) //Shows TRAINERS
+        clearflag(FLAG_TEMP_E)
+        removeobject(18)      //Jail guard
+        removeobject(19)      //Jail guard
+        setflag(FLAG_TEMP_6)
+        removeobject(45)       //Guard blocking storerooms
+        setflag(FLAG_TEMP_4) 
+        setmetatile(36, 42, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(36, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(37, 43, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(37, 42, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(38, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE, 1)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 245) { 
+        setflag(FLAG_TEMP_D) //Hides NPCS
+        clearflag(FLAG_TEMP_C) //Shows TRAINERS
+        clearflag(FLAG_TEMP_E)
+        removeobject(18)      //Jail guard
+        removeobject(19)      //Jail guard
+        setflag(FLAG_TEMP_6)
+        removeobject(45)       //Guard blocking storerooms
+        setflag(FLAG_TEMP_4) 
+        removeobject(10)        //Guards blocking final room 
+        removeobject(11)        //Guards blocking final room
+        setflag(FLAG_TEMP_5)
+        setmetatile(36, 42, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(36, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(37, 43, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(37, 42, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(38, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE, 1)
     }
     return
 }
@@ -540,14 +585,12 @@ movement HAM_Hideout_Intro_2_Right {
 script TRIGGER_HAMHIDEOUT_EVENT_2 {
     lock
     getplayerxy(VAR_TEMP_1, VAR_TEMP_2)     
-    if (var(VAR_TEMP_1) == 30){                 
-        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_2_Left)  //walk into place
-        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_2_Left) //have Zanik move beside player
+    if (var(VAR_TEMP_2) == 44){                 
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Bottom_1) //have Zanik move beside player
         waitmovement(0)
     } 
     else {
-        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_2_Right)  //walk into place
-        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Zanik_2_Right) //have Zanik move beside player        
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Top_1) //have Zanik move beside player        
         waitmovement(0)
     }
     applymovement(18, HAM_Hideout_Jail_Guard_Top_1)     //top  guard
@@ -560,13 +603,64 @@ script TRIGGER_HAMHIDEOUT_EVENT_2 {
     msgbox(format("It doesn't matter, you're here now.\lMake sure you guard the prisoners!\lDon't let them out of your sight!"))
     hidenamebox
     closemessage
-    applymovement(18, HAM_Hideout_Jail_Guard_Top_2)     //top  guard exits
-    applymovement(19, HAM_Hideout_Jail_Guard_Bottom_2)  //bottom guard exits
+    applymovement(18, HAM_Hideout_Jail_Guard_Top_2)     //top guard faces down
+    applymovement(19, HAM_Hideout_Jail_Guard_Bottom_2)  //bottom guard moves out the way
+    waitmovement(0)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)     
+    if (var(VAR_TEMP_2) == 44){                 
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Bottom_2) //have Zanik move in front of the jail
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_Jail_Top) //have the player walk down and forward
+        waitmovement(0)
+    } 
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_Jail_Bottom) //have the player forward
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Top_2) //have Zanik walk down and forward        
+        waitmovement(0)
+    }
+    applymovement(18, HAM_Hideout_Jail_Guard_Top_3)     //top guard walks away
+    applymovement(19, HAM_Hideout_Jail_Guard_Bottom_3)  //bottom guard walks away
     waitmovement(0)
     removeobject(18)
     removeobject(19)
-    setflag(FLAG_TEMP_6)                                      //Check this is a useable flag. Also add in some mapscripts to set/hide flags and NPCs
+    setflag(FLAG_TEMP_6)                                      //Check this is a useable flag
     setvar(VAR_TEMP_0, 3)
+    facefollower
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER) 
+    waitmovement(0)
+    namebox("Zanik")
+    msgbox(format("This is our chance {PLAYER}!\lLet's unlock that cell door and break the Prince out!"))
+    hidenamebox
+    closemessage
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)     
+    if (var(VAR_TEMP_1) == 36){                 
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_Jail_Left)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)     
+        waitmovement(0)
+    } 
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_Jail_Right)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Left)
+        waitmovement(0)
+    }       
+    msgbox(format("You attempt to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…"))
+    closemessage
+    namebox ("Zanik")
+    msgbox(format("Step aside {PLAYER} allow me."))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, HAM_Hideout_Player_Jail_Walk_Right)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, HAM_Hideout_Jail_Zanik_Walk_Up)
+    waitmovement(0)
+    msgbox(format("Zanik attempts to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…"))
+    closemessage
+    applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_QUESTIONMARK)
+    waitmovement(0)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER) 
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("Hmmm…\lThis is unusual, but I can't seem to pick this lock.\lWe're going to have to try and do this the old fashioned way… with a key!\p{PAUSE 15}…\p{PAUSE 15}…\pNow, where would they keep a spare key?"))
+    hidenamebox
+    closemessage
     setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 230)
     release
     end
@@ -574,63 +668,110 @@ script TRIGGER_HAMHIDEOUT_EVENT_2 {
 
 //Movement Scripts for Trigger 2
 
-movement HAM_Hideout_Player_2_Left {
-    walk_slow_down * 2 
+movement HAM_Hideout_Player_Jail_Top {
+    walk_down 
+    walk_right
+    face_left
+    step_end
+}
+
+movement HAM_Hideout_Player_Jail_Bottom {
+    walk_right * 2 
+    face_left
+    step_end
+}
+
+movement HAM_Hideout_Player_Jail_Left {
+    walk_up
+    walk_right
+    face_up
+    step_end
+}
+
+movement HAM_Hideout_Player_Jail_Right {
+    walk_up
+    step_end
+}
+
+movement HAM_Hideout_Jail_Zanik_Top_1 {
+    walk_slow_up 
     walk_slow_right
     step_end
 }
 
-movement HAM_Hideout_Player_2_Right {
-    walk_slow_down * 3 
-    face_right
-    step_end
-}
-
-movement HAM_Hideout_Zanik_2_Left {
-    walk_slow_down * 3 
+movement HAM_Hideout_Jail_Zanik_Bottom_1 {
+    walk_slow_down
     walk_slow_right
     step_end
 }
 
-movement HAM_Hideout_Zanik_2_Right {
-    walk_slow_down * 2
-    face_right
+movement HAM_Hideout_Jail_Zanik_Top_2 {
+    walk_down
+    walk_right 
+    step_end
+}
+
+movement HAM_Hideout_Jail_Zanik_Left {
+    walk_right
+    face_up
+    step_end
+}
+
+movement HAM_Hideout_Jail_Zanik_Bottom_2 {
+    walk_right * 2
+    face_left
+    step_end
+}
+
+movement HAM_Hideout_Player_Jail_Walk_Right {
+    walk_right
+    face_left
+    step_end
+}
+
+movement HAM_Hideout_Jail_Zanik_Walk_Up {
+    walk_up
     step_end
 }
 
 movement HAM_Hideout_Jail_Guard_Top_1 {
-    walk_fast_down * 2
-    walk_fast_left
+    face_left
     step_end
 }
 
 movement HAM_Hideout_Jail_Guard_Bottom_1 {
-    walk_fast_up * 2
-    walk_fast_right
+    walk_fast_down
+    walk_fast_left * 2
     step_end
 }
 
 movement HAM_Hideout_Jail_Guard_Top_2 {
-    walk_up
-    walk_left
-    walk_up * 2
-    walk_left
-    walk_up * 2
-    walk_left
-    walk_up
-    walk_left
-    walk_up
-    walk_left
-    walk_up * 2
+    face_down
     step_end
 }
 
 movement HAM_Hideout_Jail_Guard_Bottom_2 {
     walk_down
-    walk_left * 2
-    walk_up * 4
+    face_up
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Top_3 {
+    delay_8
+    walk_left * 3
+    walk_up
     walk_left
-    walk_up * 2
+    walk_up
+    walk_left
+    walk_up * 3
+    step_end
+}
+
+movement HAM_Hideout_Jail_Guard_Bottom_3 {
+    walk_left
+    walk_up
+    walk_left * 3
+    walk_up
     walk_left
     walk_up
     walk_left
@@ -642,6 +783,7 @@ script TRIGGER_HAMHIDEOUT_EVENT_3 {                              //This needs so
     lock
     applymovement(10, Movement_InteractFACEPLAYER)
     applymovement(11, Movement_InteractFACEPLAYER)
+    applymovement (OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
     waitmovement(0)
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
         namebox("H.A.M Guard")
@@ -671,10 +813,30 @@ script TRIGGER_HAMHIDEOUT_EVENT_3 {                              //This needs so
         release
         end
     }
-    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) {           //After the disguises have been removed, battle the guards to pass through
+    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) {           //After the disguises have been removed, but before the Prince is free
         namebox("H.A.M Guard")
-        msgbox(format("Hey, you two aren't H.A.M members!"))
-        trainerbattle_two_trainers(TRAINER_HAM_HIDEOUT_GUARD_1, msgbox(format("H.A.M Guard: Johanhus and Sigmund won't be happy about this...")), TRAINER_HAM_HIDEOUT_GUARD_2, msgbox(format("H.A.M Guard: Especially since one of you is a blasted goblin!")))
+        msgbox(format("Hey, you two aren't H.A.M members!\lGet out of here, this place is off-limits!"))
+        closemessage
+        hidenamebox
+        applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_LOCKFACING_WALK_DOWN)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+        waitmovement(0)
+        applymovement (10, FACE_ORIGINAL_DIRECTION)                 //Right guard
+		applymovement (11, FACE_ORIGINAL_DIRECTION)                 //Left guard
+        waitmovement(0)
+        facefollower
+        applymovement (OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER)
+        namebox("Zanik")
+        msgbox(format("Maybe we should go and free the Prince while they're distracted guarding whatever's in there?"))
+        closemessage
+        hidenamebox   
+        release
+        end
+    }
+    elif (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 240) {           //After the disguises have been removed and the Prince has been rescued, battle the guards to pass through
+        namebox("H.A.M Guard")
+        msgbox(format("Hey, you two are the ones who helped the Prince escape!"))
+        trainerbattle_two_trainers(TRAINER_HAM_HIDEOUT_GUARD_1, msgbox(format("H.A.M Guard: Johanhus and Sigmund won't be happy about this…")), TRAINER_HAM_HIDEOUT_GUARD_2, msgbox(format("H.A.M Guard: Especially since one of you is a blasted goblin!")))
         namebox("H.A.M Guard")
         msgbox(format("Quick, let's try and find some back-up!\pDon't you dare go in and disturb Johanhus and Sigmund while we're gone!"))
         hidenamebox
@@ -687,7 +849,8 @@ script TRIGGER_HAMHIDEOUT_EVENT_3 {                              //This needs so
         removeobject(10)
         removeobject(11)
         setflag(FLAG_TEMP_5)                                      //Check this is a useable flag. Also add in some mapscripts to set/hide flags and NPCs
-        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 240)
+        setvar(VAR_TEMP_1, 1)
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 245)
         release
         end
     }
@@ -733,6 +896,12 @@ movement HAM_Hideout_Guard_2_Right {
 script NPC_HAM_HIDEOUT_B1F_1
 {
 	lock
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 220) { 
+	    msgbox(format("The guard is too busy to pay attention to you."))
+        closemessage
+        hidenamebox
+        return
+    }
     if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 225) { 
         faceplayer
         namebox ("H.A.M Member")
@@ -750,7 +919,7 @@ script NPC_HAM_HIDEOUT_B1F_1
         return
     }
     else {
-        msgbox(format("The guard is too busy to pay attention to you."))
+        msgbox(format("The guard is either too busy to pay attention to you, or trying desperately to pretend you're not there and hoping you'll go away."))
         closemessage
         hidenamebox
         return
@@ -818,7 +987,7 @@ script NPC_HAM_HIDEOUT_B1F_6
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format("Don't tell any of the other grunts, but I got a thing for Babe.\pDo you know anything that might help me get closer to her?\nThere is a limit to how much hatred against monsters can bring people together…"))
+	msgbox(format("Don't tell any of the other grunts, but I got a thing for Babe.\pDo you know anything that might help me get closer to her?\lThere is a limit to how much hatred against monsters can bring people together…"))
     closemessage
     hidenamebox
 	release
@@ -830,7 +999,7 @@ script NPC_HAM_HIDEOUT_B1F_7
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format("We are going to make Lumbridge great again.\nThen the world will follow."))
+	msgbox(format("We are going to make Lumbridge great again.\lThen the world will follow."))
     closemessage
     hidenamebox
 	release
@@ -854,7 +1023,7 @@ script NPC_HAM_HIDEOUT_B1F_9
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format("We might use monsters to fight monsters, but we have standards.\pDogs, spiders, cows, pigs, sheep, and cats have been friends and allies to humans for centuries.\nNow they stand with us against the scourge that are monsters!"))
+	msgbox(format("We might use monsters to fight monsters, but we have standards.\pDogs, spiders, cows, pigs, sheep, and cats have been friends and allies to humans for centuries.\lNow they stand with us against the scourge that are monsters!"))
     closemessage
     hidenamebox
 	release
@@ -878,7 +1047,7 @@ script NPC_HAM_HIDEOUT_B1F_11
 	lock
 	faceplayer
     namebox ("H.A.M Member")
-	msgbox(format("Sigmund is an extremist among us.\pHe doesn't mind flooding a cavern of goblins if it means they will all die.\nPersonally I get that."))
+	msgbox(format("Sigmund is an extremist among us.\pHe doesn't mind flooding a cavern of goblins if it means they will all die.\lPersonally I get that."))
     closemessage
     hidenamebox
 	release
@@ -1034,6 +1203,77 @@ script NPC_HAM_HIDEOUT_B1F_19
 script HAM_HIDEOUT_RANGE
 {
 	msgbox(format("It's a range for cooking on.\lThough you are not really sure how H.A.M managed to get one working this far underground."))
+    closemessage
+	release
+	end
+}
+
+script HAM_HIDEOUT_CELL_DOOR
+{
+    lock
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) {
+        playse(SE_TRUCK_DOOR)
+        msgbox(format("You unlock the jail door with the CELL KEY."))
+        closemessage
+        setmetatile(36, 42, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(36, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(37, 43, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(37, 42, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(38, 43, METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE, 1)
+        special(DrawWholeMapView) 
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 240)
+    }
+    else {
+        msgbox(format("The jail door is securely locked.\lThe only way to open it appears to be with a key."))
+        closemessage
+        }
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_B1F_STOREROOM_BLOCK
+{
+	lock
+	faceplayer
+    namebox("H.A.M Guard")
+    msgbox(format("You best get to your posts.\lPatty and Babe came through here earlier, and they will not be happy seeing you two wandering aimlessly."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script HAM_HIDEOUT_B1F_JIMMY
+{
+    lock
+    faceplayer
+    namebox("Jimmy")
+	msgbox(format("Hello mate.\lDid Aggie send you?\pI've been training as her apprentice, but these lunatics kidnapped me and tried to force me to join their cult!"))
+    hidenamebox
+    closemessage
+	release
+	end
+}
+
+script HAM_HIDEOUT_B1F_PRINCE_ALI
+{
+    lock
+    faceplayer
+    namebox("Prince Ali")
+	msgbox(format("Ah, it is good to see a friendly face."))
+    hidenamebox
+    closemessage
+	release
+	end
+}
+
+script HAM_HIDEOUT_B1F_GOEBIE
+{
+    lock
+    faceplayer
+    namebox("Goebiewan")
+	msgbox(format("Hello there."))
+    hidenamebox
     closemessage
 	release
 	end

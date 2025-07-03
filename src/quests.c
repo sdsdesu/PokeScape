@@ -833,6 +833,15 @@ static const struct SubQuest sSubQuests_MAIN_STORY[QUEST_MAIN_STORY_SUB_COUNT] =
 		OBJECT,
 		sText_Delivered
   	),
+	sub_quest(
+		61,
+		gText_SubQuest_Main_Story_Name13,
+		gText_SubQuest_Main_Story_Desc13,
+		gText_MapName_IceMountain,
+		OBJ_EVENT_GFX_KNIGHT_BLACK_DAQUARIUS,
+		OBJECT,
+		sText_Delivered
+  	),
 };
 
 

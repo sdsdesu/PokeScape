@@ -8,10 +8,10 @@
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
-  "allow_escaping": true,
+  "allow_escaping": false,
   "allow_running": true,
   "show_map_name": false,
-  "battle_scene": "MAP_BATTLE_SCENE_AQUA",
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": 0,
   "object_events": [
     {
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_HAM_HIDEOUT_B1F_19",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_M",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_HAM_HIDEOUT_B1F_18",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_F",
@@ -246,7 +246,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_TEMP_6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_M",
@@ -258,7 +258,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "FLAG_TEMP_6",
       "flag": "0"
     },
     {
@@ -297,7 +297,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HAM_HIDEOUT_B1F_JIMMY",
       "flag": "0"
     },
     {
@@ -310,7 +310,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HAM_HIDEOUT_B1F_PRINCE_ALI",
       "flag": "0"
     },
     {
@@ -453,7 +453,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HAM_HIDEOUT_B1F_GOEBIE",
       "flag": "0"
     },
     {
@@ -585,6 +585,19 @@
       "trainer_sight_or_berry_tree_id": "5",
       "script": "BATTLE_HAM_HIDEOUT_GRUNT_2",
       "flag": "FLAG_TEMP_C"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_F",
+      "x": 6,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_HAM_HIDEOUT_B1F_STOREROOM_BLOCK",
+      "flag": "FLAG_TEMP_4"
     }
   ],
   "warp_events": [
@@ -637,7 +650,7 @@
       "x": 10,
       "y": 34,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "TRIGGER_HAMHIDEOUT_EVENT_3"
     },
@@ -701,7 +714,7 @@
       "y": 43,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "HAM_HIDEOUT_CELL_DOOR"
     }
   ],
   "has_night_table": false
