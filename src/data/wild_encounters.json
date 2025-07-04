@@ -14927,12 +14927,12 @@
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_CAMEL"
+                "species": "SPECIES_BABOON_NORMAL_FORM"
               },
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_CAMEL"
+                "species": "SPECIES_BABOON_NORMAL_FORM"
               },
               {
                 "min_level": 25,
@@ -14952,17 +14952,17 @@
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_VULTLING"
+                "species": "SPECIES_SCARAB"
               },
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_VULTLING"
+                "species": "SPECIES_BABOON_CURSED_FORM"
               },
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_UGHTANKI"
+                "species": "SPECIES_SCARAB_SOLDIER_FORM"
               },
               {
                 "min_level": 25,
@@ -15165,7 +15165,7 @@
               {
                 "min_level": 29,
                 "max_level": 35,
-                "species": "SPECIES_GOAT_DESERT_FORM"
+                "species": "SPECIES_BABOON_NORMAL_FORM"
               },
               {
                 "min_level": 29,
@@ -15175,7 +15175,7 @@
               {
                 "min_level": 29,
                 "max_level": 35,
-                "species": "SPECIES_CAMEL"
+                "species": "SPECIES_SCARAB"
               },
               {
                 "min_level": 29,
@@ -15185,7 +15185,7 @@
               {
                 "min_level": 29,
                 "max_level": 35,
-                "species": "SPECIES_VULTLING"
+                "species": "SPECIES_BABOON_THRALL_FORM"
               },
               {
                 "min_level": 29,
