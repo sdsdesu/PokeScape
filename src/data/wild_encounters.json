@@ -14952,7 +14952,7 @@
               {
                 "min_level": 25,
                 "max_level": 35,
-                "species": "SPECIES_SCARAB"
+                "species": "SPECIES_SCARAB_SPITTING_FORM"
               },
               {
                 "min_level": 25,
@@ -15175,7 +15175,7 @@
               {
                 "min_level": 29,
                 "max_level": 35,
-                "species": "SPECIES_SCARAB"
+                "species": "SPECIES_SCARAB_SPITTING_FORM"
               },
               {
                 "min_level": 29,

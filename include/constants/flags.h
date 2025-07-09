@@ -262,7 +262,7 @@
 #define FLAG_ITEM_DRAYNORMANOR_FISHFOOD      0xE8
 #define FLAG_ITEM_DRAYNORMANOR_RUBBERTUBE    0xE9
 #define FLAG_ITEM_DRAYNORMANOR_OILCAN        0xEA
-#define FLAG_UNUSED_0xEB                     0xEB
+#define FLAG_JUNA                            0xEB
 
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0xEC
 #define FLAG_RECEIVED_SILVER_SHIELD          0xED

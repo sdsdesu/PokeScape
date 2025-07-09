@@ -40,88 +40,11 @@ HAMHIDEOUT_B2F_STATE_5:
 	goto HAMHIDEOUT_B2F_STATE_4
 
 
-NPC_HAM_HIDEOUT_1::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_1_Text_1
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_2::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_2_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_3::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_3_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_4::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_4_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_5::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_5_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_6::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_6_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
 NPC_HAM_HIDEOUT_7::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_7_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_8::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_8_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
+	msgbox NPC_HAM_HIDEOUT_7_Text_1
 	closemessage
 	hidenamebox
 	release
@@ -131,19 +54,8 @@ NPC_HAM_HIDEOUT_8::
 NPC_HAM_HIDEOUT_9::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
 	msgbox NPC_HAM_HIDEOUT_9_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_10::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_10_Text_0
 	closemessage
 	hidenamebox
 	release
@@ -153,7 +65,7 @@ NPC_HAM_HIDEOUT_10::
 NPC_HAM_HIDEOUT_11::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
 	msgbox NPC_HAM_HIDEOUT_11_Text_0
 	closemessage
 	hidenamebox
@@ -164,7 +76,7 @@ NPC_HAM_HIDEOUT_11::
 NPC_HAM_HIDEOUT_12::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
 	msgbox NPC_HAM_HIDEOUT_12_Text_0
 	closemessage
 	hidenamebox
@@ -175,30 +87,8 @@ NPC_HAM_HIDEOUT_12::
 NPC_HAM_HIDEOUT_13::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
 	msgbox NPC_HAM_HIDEOUT_13_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_14::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_14_Text_0
-	closemessage
-	hidenamebox
-	release
-	end
-
-
-NPC_HAM_HIDEOUT_15::
-	lock
-	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
-	msgbox NPC_HAM_HIDEOUT_15_Text_0
 	closemessage
 	hidenamebox
 	release
@@ -208,8 +98,53 @@ NPC_HAM_HIDEOUT_15::
 NPC_HAM_HIDEOUT_16::
 	lock
 	faceplayer
-	namebox NPC_HAM_HIDEOUT_1_Text_0
+	namebox NPC_HAM_HIDEOUT_7_Text_0
 	msgbox NPC_HAM_HIDEOUT_16_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+NPC_HAM_HIDEOUT_17::
+	lock
+	faceplayer
+	namebox NPC_HAM_HIDEOUT_7_Text_0
+	msgbox NPC_HAM_HIDEOUT_17_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+NPC_HAM_HIDEOUT_18::
+	lock
+	faceplayer
+	namebox NPC_HAM_HIDEOUT_7_Text_0
+	msgbox NPC_HAM_HIDEOUT_18_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+NPC_HAM_HIDEOUT_19::
+	lock
+	namebox NPC_HAM_HIDEOUT_7_Text_0
+	msgbox NPC_HAM_HIDEOUT_19_Text_0
+	closemessage
+	hidenamebox
+	playse SE_PIN
+	applymovement 41, MOVEMENT_EXCLAMATIONMARK_FACEPLAYER
+	msgbox NPC_HAM_HIDEOUT_19_Text_1
+	closemessage
+	hidenamebox
+	trainerbattle_two_trainers TRAINER_HAM_HIDEOUT_GUARD_3, NPC_HAM_HIDEOUT_19_Text_2, TRAINER_HAM_HIDEOUT_GUARD_4, NPC_HAM_HIDEOUT_19_Text_3
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject 41
+	removeobject 42
+	setflag FLAG_TEMP_E
+	fadescreenswapbuffers FADE_FROM_BLACK
 	closemessage
 	hidenamebox
 	release
@@ -282,7 +217,7 @@ BATTLE_HAM_HIDEOUT_GRUNT_7::
 BATTLE_HAM_HIDEOUT_GRUNT_8::
 	trainerbattle_single TRAINER_HAM_HIDEOUT_GRUNT_8, BATTLE_HAM_HIDEOUT_GRUNT_8_Text_0, BATTLE_HAM_HIDEOUT_GRUNT_8_Text_1
 	namebox BATTLE_HAM_HIDEOUT_GRUNT_1_Text_2
-	msgbox BATTLE_HAM_HIDEOUT_GRUNT_8_Text_2
+	msgbox BATTLE_HAM_HIDEOUT_GRUNT_8_Text_1
 	hidenamebox
 	release
 	end
@@ -549,102 +484,198 @@ movement_HAMHIDEOUT_BABE_3:
 
 TRIGGER_HAMHIDEOUT_JOHANHUS::
 	lock
+	applymovement OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_ZANIK_1
+	waitmovement 0
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_1
+	waitmovement 0
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_1
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_3
+	applymovement 21, MOVEMENT_QUESTIONMARK
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_4
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_5
+	setobjectxy 35, 41, 34
+	setobjectxyperm 35, 41, 34
+	applymovement 35, movement_HAM_Hideout_finale_walk_up
+	waitmovement 0
+	applymovement 35, movement_HAM_Hideout_finale_walk_up
+	applymovement OBJ_EVENT_ID_PLAYER, movement_HAM_Hideout_finale_walk_up
+	applymovement OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_walk_up
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_7
+	applymovement 36, movement_HAM_Hideout_finale_reaction_1
+	applymovement 37, movement_HAM_Hideout_finale_reaction_2
+	applymovement 38, movement_HAM_Hideout_finale_reaction_1
+	applymovement 39, movement_HAM_Hideout_finale_reaction_3
+	applymovement 40, movement_HAM_Hideout_finale_reaction_2
+	applymovement 41, movement_HAM_Hideout_finale_reaction_1
+	applymovement 42, movement_HAM_Hideout_finale_reaction_3
+	applymovement 21, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_8
+	applymovement 23, movement_HAM_Hideout_finale_reaction_1
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_9
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_10
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_2
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_11
+	setobjectxy 43, 40, 34
+	setobjectxyperm 43, 40, 34
+	applymovement 43, movement_HAM_Hideout_finale_walk_up
+	applymovement 39, movement_HAM_Hideout_finale_swarm_left_2
+	applymovement 42, movement_HAM_Hideout_finale_swarm_left_1
+	applymovement 37, movement_HAM_Hideout_finale_swarm_right_2
+	applymovement 41, movement_HAM_Hideout_finale_swarm_right_1
+	waitmovement 0
+	applymovement 23, movement_HAM_Hideout_finale_Sigmund_exit
+	waitmovement 0
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_12
+	applymovement 40, movement_HAM_Hideout_finale_misc_1
+	applymovement 21, movement_HAM_Hideout_finale_Johanhus_1
+	applymovement OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_2
+	waitmovement 0
+	special RemoveCameraObject
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_13
 	trainerbattle_no_intro TRAINER_HAM_HIDEOUT_JOHANHUS, TRIGGER_HAMHIDEOUT_JOHANHUS_Text_14
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_15
+	applymovement 21, Movement_InteractFACERIGHT
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_16
+	applymovement 21, Movement_InteractFACELEFT
 	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_0
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_17
+	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER
 	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
 	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_18
-	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_19
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_20
-	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_21
-	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_22
-	namebox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_6
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_23
-	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_24
-	hidenamebox
-	closemessage
-	giveitem ITEM_BONECROSSBOW, 1
-	closemessage
-	namebox TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_5
-	msgbox TRIGGER_HAMHIDEOUT_JOHANHUS_Text_25
-	hidenamebox
-	closemessage
-	release
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11
+	addvar VAR_GAMEMODE_LEVEL_CAP, 5
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 245
+	call FOLLOWER_REMOVE
+	warp MAP_LUMBRIDGE_FOREST, 28, 5
+	waitstate
+	releaseall
 	end
 
 
-NPC_HAM_HIDEOUT_1_Text_0:
-	.string "H.A.M Member$"
+movement_HAM_Hideout_finale_ZANIK_1:
+	walk_left
+	walk_up
+	step_end
 
-NPC_HAM_HIDEOUT_1_Text_1:
-	.string "We will not tolerate anyone with an\n"
-	.string "opinion differing from our own.\p"
-	.string "That is the path of disaster.$"
+movement_HAM_Hideout_finale_ZANIK_2:
+	walk_left
+	walk_up
+	step_end
 
-NPC_HAM_HIDEOUT_2_Text_0:
-	.string "Before I joined H.A.M my family was\n"
-	.string "killed by goblins.\p"
-	.string "Now I feel like I have found my life's\n"
-	.string "calling right here.$"
+movement_HAM_Hideout_finale_walk_up:
+	walk_up
+	step_end
 
-NPC_HAM_HIDEOUT_3_Text_0:
-	.string "I quite like it here honestly.\p"
-	.string "One thing bugs me however.\p"
-	.string "Why did the leaders decide on the robes\n"
-	.string "being pink?\p"
-	.string "Is there some symbolism I am not\n"
-	.string "getting?$"
+movement_HAM_Hideout_finale_PRINCE_ALI_1:
+	walk_left
+	walk_up
+	step_end
 
-NPC_HAM_HIDEOUT_4_Text_0:
-	.string "Don't tell any of the other grunts, but\n"
-	.string "I got a thing for Babe.\p"
-	.string "Do you know anything that might help me\n"
-	.string "get closer to her?\n"
-	.string "There is a limit to how much hatred\l"
-	.string "against monsters can bring people\l"
-	.string "together…$"
+movement_HAM_Hideout_camera_1:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 
-NPC_HAM_HIDEOUT_5_Text_0:
-	.string "We are going to make Lumbridge great\n"
-	.string "again.\n"
-	.string "Then the world will follow.$"
+movement_HAM_Hideout_camera_2:
+	delay_16
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
-NPC_HAM_HIDEOUT_6_Text_0:
-	.string "If you do not agree with my opinion you\n"
-	.string "are my enemy, that is how the world\l"
-	.string "works.$"
+movement_HAM_Hideout_finale_reaction_1:
+	face_down
+	step_end
+
+movement_HAM_Hideout_finale_reaction_2:
+	face_down
+	emote_exclamation_mark
+	step_end
+
+movement_HAM_Hideout_finale_reaction_3:
+	face_down
+	emote_double_exclamation_mark
+	step_end
+
+movement_HAM_Hideout_finale_swarm_left_1:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	face_up
+	step_end
+
+movement_HAM_Hideout_finale_swarm_left_2:
+	walk_fast_down
+	walk_fast_down
+	face_left
+	step_end
+
+movement_HAM_Hideout_finale_swarm_right_1:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_right
+	face_up
+	step_end
+
+movement_HAM_Hideout_finale_swarm_right_2:
+	walk_fast_down
+	walk_fast_down
+	face_right
+	step_end
+
+movement_HAM_Hideout_finale_Sigmund_exit:
+	walk_slow_left
+	walk_slow_left
+	walk_slow_down
+	walk_slow_left
+	walk_slow_down
+	walk_slow_down
+	walk_slow_right
+	walk_slow_down
+	walk_slow_right
+	walk_slow_right
+	step_end
+
+movement_HAM_Hideout_finale_Johanhus_1:
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+movement_HAM_Hideout_finale_misc_1:
+	walk_slow_up
+	walk_slow_up
+	walk_slow_left
+	face_down
+	step_end
 
 NPC_HAM_HIDEOUT_7_Text_0:
+	.string "H.A.M Member$"
+
+NPC_HAM_HIDEOUT_7_Text_1:
 	.string "The dog I grew up with evolved into a\n"
 	.string "green monstrosity.\p"
 	.string "I still like it, but now it's the thing we\n"
@@ -652,27 +683,13 @@ NPC_HAM_HIDEOUT_7_Text_0:
 	.string "Am I in the wrong for not wanting to\n"
 	.string "abandon my friend?$"
 
-NPC_HAM_HIDEOUT_8_Text_0:
-	.string "We might use monsters to fight\n"
-	.string "monsters, but we have standards.\p"
-	.string "Dogs, spiders, cows, pigs, sheep, and\n"
-	.string "cats have been friends and allies to\l"
-	.string "humans for centuries.\n"
-	.string "Now they stand with us against the\l"
-	.string "scourge that are monsters!$"
-
 NPC_HAM_HIDEOUT_9_Text_0:
 	.string "I miss not living in a cave.$"
-
-NPC_HAM_HIDEOUT_10_Text_0:
-	.string "Johanhus is an idealist, he wants to\n"
-	.string "solve conflict with words alone.\p"
-	.string "So far it hasn't really worked, though.$"
 
 NPC_HAM_HIDEOUT_11_Text_0:
 	.string "Babe and Patty are recent admins\n"
 	.string "recruited by Sigmund for their hard\l"
-	.string "work.\n"
+	.string "work.\l"
 	.string "Patty's hard work that is, I don't know\l"
 	.string "what Babe did…$"
 
@@ -687,26 +704,42 @@ NPC_HAM_HIDEOUT_13_Text_0:
 	.string "She was thrown out due to rash and\n"
 	.string "feisty decisions apparently.$"
 
-NPC_HAM_HIDEOUT_14_Text_0:
-	.string "Sigmund is an extremist among us.\p"
-	.string "He doesn't mind flooding a cavern of\n"
-	.string "goblins if it means they will all die.\n"
-	.string "Personally I get that.$"
-
-NPC_HAM_HIDEOUT_15_Text_0:
-	.string "Sigmund believes power and might makes\n"
-	.string "right, so we in H.A.M will become the most\l"
-	.string "powerful organisation in Gielinor.$"
-
 NPC_HAM_HIDEOUT_16_Text_0:
-	.string "$"
+	.string "These are our storage rooms.\p"
+	.string "We've also got another jail in the back.\p"
+	.string "But you know this already…$"
+
+NPC_HAM_HIDEOUT_17_Text_0:
+	.string "There's so much work to do, clearing\n"
+	.string "these caverns for more storage is a\l"
+	.string "pain…\p"
+	.string "Why couldn't we have an above ground\n"
+	.string "base…$"
+
+NPC_HAM_HIDEOUT_18_Text_0:
+	.string "Yuck, why am I on cleaning duty.\p"
+	.string "Wanna swap jobs?$"
+
+NPC_HAM_HIDEOUT_19_Text_0:
+	.string "Be on high alert!\p"
+	.string "There are intruders in the building!$"
+
+NPC_HAM_HIDEOUT_19_Text_1:
+	.string "What how did they get past us!$"
+
+NPC_HAM_HIDEOUT_19_Text_2:
+	.string "H.A.M Guard: No wonder you managed to\n"
+	.string "sneak through!$"
+
+NPC_HAM_HIDEOUT_19_Text_3:
+	.string "H.A.M Guard: Too strong!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_1_Text_0:
 	.string "I bet you're wondering how I ended up\n"
 	.string "here.$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_1_Text_1:
-	.string "Urgh...$"
+	.string "Urgh…$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_1_Text_2:
 	.string "H.A.M Grunt$"
@@ -716,7 +749,7 @@ BATTLE_HAM_HIDEOUT_GRUNT_1_Text_3:
 	.string "was never told that our headquarters\l"
 	.string "was in a cave.\p"
 	.string "The Black Knights have a whole\n"
-	.string "fortress...$"
+	.string "fortress…$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_2_Text_0:
 	.string "I've only been a member for a few days...\p"
@@ -727,7 +760,7 @@ BATTLE_HAM_HIDEOUT_GRUNT_2_Text_1:
 
 BATTLE_HAM_HIDEOUT_GRUNT_2_Text_2:
 	.string "Please tell me it's not just a hole in\n"
-	.string "the floor...$"
+	.string "the floor…$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_3_Text_0:
 	.string "I've not had a good night's sleep in\n"
@@ -746,15 +779,18 @@ BATTLE_HAM_HIDEOUT_GRUNT_3_Text_2:
 	.string "floor.$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_4_Text_0:
-	.string "People like you who are friends with\n"
-	.string "monsters make me sick.$"
+	.string "Where have you guys been the prisoners\n"
+	.string "are left have been not been guarded\l"
+	.string "and there are intruders in the base!\p"
+	.string "Wait… You guys are the intruders!\n"
+	.string "Prepare for battle!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_4_Text_1:
-	.string "Disgusting!$"
+	.string "I cannot believe this!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_4_Text_2:
-	.string "I can't bear to speak to a monster\n"
-	.string "sympathiser like you.$"
+	.string "You guys are monster sympathisers?!\p"
+	.string "Disgusting!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_5_Text_0:
 	.string "Johanhus and Sigmund were able to build\n"
@@ -800,19 +836,12 @@ BATTLE_HAM_HIDEOUT_GRUNT_7_Text_2:
 	.string "monsters.$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_8_Text_0:
-	.string "Go in peace in the name of Saradomin.\p"
-	.string "May his glory shine upon you like the\n"
-	.string "sun.$"
+	.string "I'm about to beat you up until you are\n"
+	.string "unconscious!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_8_Text_1:
-	.string "May Saradomin guide your soul to light.$"
-
-BATTLE_HAM_HIDEOUT_GRUNT_8_Text_2:
-	.string "As Saradomin is the 'Lord of Light', do\n"
-	.string "you think that Johanhus and Sigmund\l"
-	.string "deliberately build our base underground\l"
-	.string "where the light cannot reach because\l"
-	.string "they know he would be ashamed of us?$"
+	.string "Awe man, I'm feeling slightly\n"
+	.string "concussed…$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_9_Text_0:
 	.string "How dare you side with those THINGS\n"
@@ -831,19 +860,17 @@ BATTLE_HAM_HIDEOUT_GRUNT_9_Text_2:
 	.string "eradicated.$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_10_Text_0:
-	.string "Monsters are evil, so that means we can\n"
-	.string "kill them for fun.$"
+	.string "Who sounded the alarm!?\p"
+	.string "Was it you?!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_10_Text_1:
-	.string "Evil, evil creatures!$"
+	.string "Oh no now the only alarm I hear is the\n"
+	.string "low health of my animals!$"
 
 BATTLE_HAM_HIDEOUT_GRUNT_10_Text_2:
-	.string "I learned that from an old book, the\n"
-	.string "'Manual of Monsters'.\p"
-	.string "It had details on all different kinds of\n"
-	.string "monsters and it said if they were good\l"
-	.string "or evil...\n"
-	.string "and most of them are evil!$"
+	.string "I may have failed to stop you but the\n"
+	.string "others won't stop until we bundle you\l"
+	.string "up into jail!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_0:
 	.string "Babe$"
@@ -884,7 +911,7 @@ TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_10:
 	.string "{PLAYER} obtained the CELL KEY.$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_11:
-	.string "Alright {PLAYER} lets go free the\n"
+	.string "Alright {PLAYER} let's go free the\n"
 	.string "prisoners!$"
 
 TRIGGER_HAMHIDEOUT_BABE_PATTY_Text_12:
@@ -964,9 +991,9 @@ TRIGGER_HAMHIDEOUT_JOHANHUS_Text_3:
 	.string "Yes.\l"
 	.string "This man held what we needed to summon\l"
 	.string "it and bend it to our will.\p"
-	.string "With his 'INSERT MCGUFFIN HERE' we can\n"
-	.string "proceed to the Wilderness and finish\l"
-	.string "the plan.$"
+	.string "With the power contained inside the\n"
+	.string "Kharid-ib we can proceed to the\l"
+	.string "Wilderness and finish the plan.$"
 
 TRIGGER_HAMHIDEOUT_JOHANHUS_Text_4:
 	.string "And you are sure this will save the\n"
@@ -1077,59 +1104,4 @@ TRIGGER_HAMHIDEOUT_JOHANHUS_Text_17:
 TRIGGER_HAMHIDEOUT_JOHANHUS_Text_18:
 	.string "Quick while he is monologuing\n"
 	.string "{PLAYER}.\l"
-	.string "Grab the prince and run!$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_19:
-	.string "We made it out somehow.$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_20:
-	.string "Hey you, sunburned human, are you all\n"
-	.string "right?$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_21:
-	.string "My name is Prince Ali, goblin.\l"
-	.string "Thank you for saving me.$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_22:
-	.string "It wasn't all me, most of it was\n"
-	.string "{PLAYER} here.$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_23:
-	.string "{PLAYER}.\l"
-	.string "Thank you for saving me.\p"
-	.string "H.A.M wanted my 'INSERT PLOT MCGUFFIN\n"
-	.string "HERE' saying it was a vital ingredient\l"
-	.string "to a ritual to bind a monster to their\l"
-	.string "will.\p"
-	.string "It has been passed down in my family\n"
-	.string "for ages.\l"
-	.string "But it seems I had to trade it for my\l"
-	.string "life for now.\p"
-	.string "We can not let H.A.M get away with this.\l"
-	.string "I will try to reach the other MvM\l"
-	.string "leaders and organize a front to stop\l"
-	.string "them.\p"
-	.string "But until then, I guess you do need to\n"
-	.string "beat me right?\l"
-	.string "I will meet you back in Al Kharid.\l"
-	.string "Let us battle and become ever stronger\l"
-	.string "together!$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_24:
-	.string "You save him from a bunch of\n"
-	.string "extremists.\l"
-	.string "We risk our lives in doing so.\l"
-	.string "And your thanks is a battle?\p"
-	.string "You humans are weird.\p"
-	.string "Either way, I should get involved as\n"
-	.string "well in tracking H.A.M.\p"
-	.string "For now I will retreat.\p"
-	.string "Hey {PLAYER}, as a thanks for the\n"
-	.string "help, I want you to have this!$"
-
-TRIGGER_HAMHIDEOUT_JOHANHUS_Text_25:
-	.string "it's a spare, but I hope it will do you\n"
-	.string "good.\p"
-	.string "I am going back to Dorgesh-Kaan for\n"
-	.string "now, but I hope to see you again.\p"
-	.string "Goodbye {PLAYER}.$"
+	.string "Grab the Prince and run!$"
