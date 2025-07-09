@@ -624,8 +624,9 @@
 #define	MUS_PS_TZHAAR	            673
 #define	MUS_PS_ICE_MOUNTAIN	        674
 #define	MUS_PS_VS_TZHAAR	        675
+#define	MUS_PS_VS_FROGEELMAN	    676
 
-#define END_MUS                     MUS_PS_VS_TZHAAR
+#define END_MUS                     MUS_PS_VS_FROGEELMAN
 
 
 

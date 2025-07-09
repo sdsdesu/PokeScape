@@ -1,13 +1,47 @@
 const OBJ_EVENT_ID_SANDWICH_LADY = 17
 
 mapscripts Edgeville_MapScripts {
+	MAP_SCRIPT_ON_LOAD 
+    {
+        call(EDGEVILLE_METATILES)
+    }
     MAP_SCRIPT_ON_TRANSITION {
 		setflag(FLAG_VISITED_EDGEVILLE)
         setvar(VAR_EVOLUTION_MAP_STATE, 15) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
+		call(EDGEVILLE_STATE)
 		call(RANDOM_EVENT_SANDWICH_LADY)
 	}
 }
 
+
+script EDGEVILLE_METATILES {
+    switch(var(VAR_FROGEEL_RIVAL)) {
+        case 20:
+            setmetatile(36,10, METATILE_Edgeville_EDGEVILLE_BRIDGE, 0, 4)
+    }
+}
+
+
+
+
+script EDGEVILLE_STATE {
+	removeobject(25)
+	setflag(FLAG_TEMP_10) //Angrenouille
+	removeobject(24)
+	setflag(FLAG_TEMP_1C) //Angrenouille
+
+	if ((var(VAR_FROGEEL_RIVAL) == 20)) {
+        addobject(25)
+        clearflag(FLAG_TEMP_10) //Angrenouille
+    }
+
+	if (var(VAR_MITHRILMAN_STATE) == 15) {
+		clearflag(FLAG_TEMP_1C)
+		addobject(24)
+	}
+
+	return
+}
 
 script SIGNPOST_EDGEVILLE_GYM
 {
@@ -765,4 +799,124 @@ script GOBLIN_EDGEVILLE_GYM {
     hidenamebox
 	release
 	end
+}
+
+script FROGEEL_RIVAL_5 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("You really aren't escaping those stalker allegations {PLAYER}.\p...{PAUSE 15}\p...{PAUSE 15}\pDo you just want an autograph?\pNo shame in being shy {PLAYER}.\lI got you, I got you."))
+	hidenamebox
+    closemessage
+	playse(SE_PIN)
+	applymovement (25, MOVEMENT_EXCLAMATIONMARK)
+	waitmovement(0)
+	namebox("Angrenouille")
+	msgbox(format("What?\pNo?\lWell whatever.\pGot a big decision on my end.\pI will either go for a job at Al Kharid, or Varrock.\lWhat do you think?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+	{ 
+		msgbox(format("Yes as in?\lBoth?\lAl Kharid?\pWhat?"))
+		goto(BATTLE_FROGEEL_RIVAL_5)
+	}
+	else {
+		msgbox(format("No to both?\pOr no to the last one?"))
+		goto(BATTLE_FROGEEL_RIVAL_5)
+	}
+}
+
+script BATTLE_FROGEEL_RIVAL_5 {
+	msgbox(format("You are really confusing {PLAYER}.\pAnyway, the guards might be here soon so I'm going to bail.\lBetter silence you first however!"))
+	hidenamebox
+    closemessage
+	if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_5_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!"))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+	//movement - possibly him jumping into the river if possible?
+    //waitmovement(0)
+    delay(60)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("As Angrenouille ran off, he dropped an item."))
+    closemessage
+    giveitem(ITEM_SPIRIT_CHARM, 1)   //possibly need a new item?
+    closemessage
+    removeobject(25)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 25)
+    release
+    end
+}
+
+script Mithrilman_Edgeville {
+    playbgm (MUS_ENCOUNTER_MAY, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    msgbox(format("Greetingst knave.\pThine hast witnessed thousts battle in the village of the barbarianest.\pThine must admit, thousts are truly lucky.\pComing thist far solely on luckst with thousts lackest of skill.\lThoust make thine laugh knave.\pLet thine show yee how a battle is to truly behest."))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_GRASS, format("…"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_FIRE, format("…"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_MITHRILMAN4_WATER, format("…"))
+    }
+	namebox("Mithrilman")
+    msgbox(format("Incomprehensiblestststs…\pKnave, thoust mayhaps be the luckiest person in the Gielinorian realm.\pThine is baffled.\lHowst is this possible?\pKnave, thine sees throughts yee.\pThoust are nothing but a knave, insignificant comparest to thine, because thine is a mithrilman beyond comparisonst.\pYee be warned.\lNexts timest thine battlest yee, thine will showst no mercy."))
+    waitmessage
+	closemessage
+    hidenamebox
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 7){
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)   //have player watch Mithrilman leave
+		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_1)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
+		waitmovement(0)
+    } 
+    else {
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)  //have player watch Mithrilman leave
+		applymovement(24, MOVEMENT_MITHRILMAN_EDGEVILLE_2)   //have Mithrilman walk off (slight variant depending on where the player is stood to avoid collision)
+    	waitmovement(0)
+	}
+	    setvar(VAR_MITHRILMAN_STATE, 20)
+    setflag(FLAG_TEMP_1C) 	//mithrilman
+	removeobject(24)		//mithrilman
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3)
+    playse(SE_PIN)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+	waitmovement(0)
+	waitse
+	msgbox(format("Oh?\pMithrilman seems to have dropped something while leaving."))
+	finditem(ITEM_SOUL_RUNE, 1)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    release
+    end
+}
+
+movement MOVEMENT_MITHRILMAN_EDGEVILLE_1 {
+    walk_left * 3
+	walk_down * 3
+	walk_left * 4
+	walk_up * 8
+    step_end
+}
+
+movement MOVEMENT_MITHRILMAN_EDGEVILLE_2 {
+    walk_down * 1
+	walk_left * 3
+	walk_down * 2
+	walk_left * 4
+	walk_up * 8
+    step_end
 }

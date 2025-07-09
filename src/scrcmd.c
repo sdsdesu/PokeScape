@@ -2120,11 +2120,14 @@ bool8 ScrCmd_setmetatile(struct ScriptContext *ctx)
     u16 y = VarGet(ScriptReadHalfword(ctx));
     u16 metatileId = VarGet(ScriptReadHalfword(ctx));
     bool16 isImpassable = VarGet(ScriptReadHalfword(ctx));
+    u8 elevation = ScriptReadByte(ctx);
 
     x += MAP_OFFSET;
     y += MAP_OFFSET;
-    if (!isImpassable)
-        MapGridSetMetatileIdAt(x, y, metatileId);
+    if (!isImpassable) {
+        MapGridSetMetatileEntryAt(x, y, metatileId | elevation << MAPGRID_ELEVATION_SHIFT);
+        //MapGridSetMetatileIdAt(x, y, metatileId );
+    }
     else
         MapGridSetMetatileIdAt(x, y, metatileId | MAPGRID_COLLISION_MASK);
     return FALSE;

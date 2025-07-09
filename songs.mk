@@ -1467,4 +1467,6 @@ $(MID_SUBDIR)/mus_ps_ice_mountain.s: %.s: %.mid
 $(MID_SUBDIR)/mus_ps_vs_tzhaar.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 
+$(MID_SUBDIR)/mus_ps_vs_frogeelman.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V100
 	

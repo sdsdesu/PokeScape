@@ -41,27 +41,33 @@ MUSAPOINT_METATILES_5:
 
 
 MUSAPOINT_STATE::
+	removeobject 15
+	setflag FLAG_TEMP_10
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq MUSAPOINT_STATE_2
 MUSAPOINT_STATE_1:
+	compare VAR_FROGEEL_RIVAL, 10
+	goto_if_eq MUSAPOINT_STATE_5
+MUSAPOINT_STATE_4:
 	return
 
 MUSAPOINT_STATE_2:
 	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 155
-	goto_if_le MUSAPOINT_STATE_5
+	goto_if_le MUSAPOINT_STATE_8
 	removeobject 21
 	setflag FLAG_TEMP_1D
-MUSAPOINT_STATE_4:
+MUSAPOINT_STATE_7:
 	compare VAR_WISE_OLD_MAN_RIVAL, 15
-	goto_if_le MUSAPOINT_STATE_9
+	goto_if_le MUSAPOINT_STATE_12
 	removeobject 20
 	setflag FLAG_TEMP_1F
 	removeobject 22
 	removeobject 23
+	removeobject 29
 	setflag FLAG_TEMP_1E
-MUSAPOINT_STATE_8:
+MUSAPOINT_STATE_11:
 	compare VAR_BANANA_BOAT_QUEST, 5
-	goto_if_ge MUSAPOINT_STATE_12
+	goto_if_ge MUSAPOINT_STATE_15
 	setflag FLAG_TEMP_1C
 	setflag FLAG_TEMP_1B
 	removeobject 24
@@ -69,21 +75,27 @@ MUSAPOINT_STATE_8:
 	goto MUSAPOINT_STATE_1
 
 MUSAPOINT_STATE_5:
+	addobject 15
+	clearflag FLAG_TEMP_10
+	goto MUSAPOINT_STATE_4
+
+MUSAPOINT_STATE_8:
 	addobject 21
 	clearflag FLAG_TEMP_1D
 	setobjectxyperm 7, 38, 29
-	goto MUSAPOINT_STATE_4
+	goto MUSAPOINT_STATE_7
 
-MUSAPOINT_STATE_9:
+MUSAPOINT_STATE_12:
 	setvar VAR_TEMP_F, 1
 	addobject 20
 	clearflag FLAG_TEMP_1F
 	addobject 22
 	addobject 23
+	addobject 29
 	clearflag FLAG_TEMP_1E
-	goto MUSAPOINT_STATE_8
+	goto MUSAPOINT_STATE_11
 
-MUSAPOINT_STATE_12:
+MUSAPOINT_STATE_15:
 	clearflag FLAG_TEMP_1C
 	clearflag FLAG_TEMP_1B
 	addobject 24
@@ -562,14 +574,13 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT::
 	delay 60
 	playbgm MUS_PS_WISE_OLD_MAN_THEME, 1
 	getplayerxy VAR_TEMP_A, VAR_TEMP_B
-	compare VAR_TEMP_B, 26
+	compare VAR_TEMP_B, 29
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_2
-	compare VAR_TEMP_B, 27
+	compare VAR_TEMP_B, 30
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_3
-	compare VAR_TEMP_B, 28
+	compare VAR_TEMP_B, 31
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_4
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1:
-	waitmovement 0
 	namebox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_0
 	msgbox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_1
 	switch VAR_WISE_OLD_MAN_RIVAL
@@ -595,14 +606,25 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_8:
 	msgbox TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_Text_8
 	hidenamebox
 	closemessage
+	special SpawnCameraObject
 	getplayerxy VAR_TEMP_A, VAR_TEMP_B
-	compare VAR_TEMP_B, 26
+	compare VAR_TEMP_B, 29
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_13
-	compare VAR_TEMP_B, 27
+	compare VAR_TEMP_B, 30
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_14
-	compare VAR_TEMP_B, 28
+	compare VAR_TEMP_B, 31
 	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_15
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12:
+	compare VAR_FROGEEL_RIVAL, 10
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_36
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_37
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_38
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19:
 	waitmovement 0
 	opendoor 18, 32
 	waitdooranim
@@ -611,9 +633,22 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12:
 	removeobject 20
 	setflag FLAG_TEMP_1F
 	closedoor 18, 32
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_24
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_25
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_26
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23:
+	applymovement 29, movement_musapoint_luthas_monkey
+	waitmovement 0
+	special RemoveCameraObject
+	removeobject 29
+	setflag FLAG_TEMP_1E
 	compare VAR_WISE_OLD_MAN_RIVAL, 10
-	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20
-TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19:
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_43
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_42:
 	setvar VAR_WISE_OLD_MAN_RIVAL, 20
 	setvar VAR_TEMP_F, 0
 	savebgm MUS_DUMMY
@@ -625,14 +660,17 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_2:
 	applymovement 20, movement_wom_musapoint_01
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FACE_DOWN
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_3:
 	applymovement 20, movement_wom_musapoint_02
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_4:
 	applymovement 20, movement_wom_musapoint_03
+	waitmovement 0
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_1
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_10:
@@ -644,20 +682,66 @@ TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_11:
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_8
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_13:
-	applymovement 20, movement_wom_musapoint_04
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_1
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_14:
-	applymovement 20, movement_wom_musapoint_05
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_2
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_15:
-	applymovement 20, movement_wom_musapoint_06
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_3
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_12
 
 TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_20:
-	addvar VAR_GAMEMODE_LEVEL_CAP, 2
+	getplayerxy VAR_TEMP_A, VAR_TEMP_B
+	compare VAR_TEMP_B, 29
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_30
+	compare VAR_TEMP_B, 30
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_31
+	compare VAR_TEMP_B, 31
+	goto_if_eq TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_32
 	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_24:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_4
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_25:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_5
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_26:
+	applymovement OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_6
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_23
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_30:
+	applymovement 20, movement_wom_musapoint_04
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_31:
+	applymovement 20, movement_wom_musapoint_05
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_32:
+	applymovement 20, movement_wom_musapoint_06
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_36:
+	applymovement 20, movement_wom_musapoint_07
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_37:
+	applymovement 20, movement_wom_musapoint_08
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_38:
+	applymovement 20, movement_wom_musapoint_09
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_19
+
+TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_43:
+	addvar VAR_GAMEMODE_LEVEL_CAP, 2
+	goto TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT_42
 
 
 movement_wom_musapoint_noticeplayer:
@@ -670,21 +754,16 @@ movement_wom_musapoint_01:
 	walk_left
 	walk_up
 	walk_left
-	walk_up
-	walk_left
-	face_up
 	step_end
 
 movement_wom_musapoint_02:
 	walk_left
-	walk_up
-	walk_up
 	walk_left
 	step_end
 
 movement_wom_musapoint_03:
 	walk_left
-	walk_up
+	walk_down
 	walk_left
 	step_end
 
@@ -700,28 +779,73 @@ movement_wom_musapoint_1:
 	step_end
 
 movement_wom_musapoint_04:
-	walk_right
-	walk_down
-	walk_down
-	walk_right
-	walk_down
-	walk_down
-	walk_down
 	walk_down
 	walk_left
 	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	walk_left
 	walk_left
 	walk_left
 	walk_left
 	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
 	step_end
 
 movement_wom_musapoint_05:
 	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
-	walk_right
 	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_wom_musapoint_06:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	emote_question_mark
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_wom_musapoint_07:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -734,10 +858,29 @@ movement_wom_musapoint_05:
 	face_up
 	step_end
 
-movement_wom_musapoint_06:
+movement_wom_musapoint_08:
 	walk_down
-	walk_right
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+movement_wom_musapoint_09:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	walk_down
 	walk_down
 	walk_down
@@ -753,6 +896,59 @@ movement_wom_musapoint_06:
 movement_ENTER_DOOR:
 	walk_up
 	set_invisible
+	step_end
+
+movement_musapoint_camera_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+movement_musapoint_camera_2:
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+movement_musapoint_camera_3:
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+movement_musapoint_camera_4:
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_camera_5:
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_camera_6:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+movement_musapoint_luthas_monkey:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 NPC_WISEOLDMAN_RIVAL_MUSAPOINT_PUB::
@@ -1201,48 +1397,48 @@ multipartnerBattle_Zanik_2:
 	end
 
 
-Following_Zanik::
+Following_Chat_Toggles::
 	lock
 	facefollower
 	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ARIANE
-	goto_if_eq Following_Zanik_2
+	goto_if_eq Following_Chat_Toggles_2
 	compare VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK
-	goto_if_eq Following_Zanik_3
-	namebox Following_Zanik_Text_0
-Following_Zanik_1:
-	msgbox Following_Zanik_Text_1, MSGBOX_YESNO
+	goto_if_eq Following_Chat_Toggles_3
+	namebox Following_Chat_Toggles_Text_0
+Following_Chat_Toggles_1:
+	msgbox Following_Chat_Toggles_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne Following_Zanik_8
-	msgbox Following_Zanik_Text_2, MSGBOX_YESNO
+	goto_if_ne Following_Chat_Toggles_8
+	msgbox Following_Chat_Toggles_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne Following_Zanik_11
-Following_Zanik_10:
+	goto_if_ne Following_Chat_Toggles_11
+Following_Chat_Toggles_10:
 	hidenamebox
 	closemessage
 	release
 	end
 
-Following_Zanik_2:
+Following_Chat_Toggles_2:
 	namebox multipartnerBattle_Zanik_Text_0
-	goto Following_Zanik_1
+	goto Following_Chat_Toggles_1
 
-Following_Zanik_3:
+Following_Chat_Toggles_3:
 	namebox multipartnerBattle_Zanik_Text_0
-	goto Following_Zanik_1
+	goto Following_Chat_Toggles_1
 
-Following_Zanik_8:
+Following_Chat_Toggles_8:
 	setflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	hidenamebox
 	closemessage
 	release
 	end
 
-Following_Zanik_11:
-	msgbox Following_Zanik_Text_3
+Following_Chat_Toggles_11:
+	msgbox Following_Chat_Toggles_Text_3
 	clearflag FLAG_PARTNER_BATTLE
 	clearflag FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES
 	destroyfollower
-	goto Following_Zanik_10
+	goto Following_Chat_Toggles_10
 
 
 multipartnerBattle_Ariane::
@@ -1775,6 +1971,108 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_7:
 	msgbox SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4
 	goto SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_1
 
+
+FROGEEL_RIVAL_3::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_3_Text_0
+	msgbox FROGEEL_RIVAL_3_Text_1
+	hidenamebox
+	closemessage
+	playse SE_PIN
+	applymovement 15, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	namebox FROGEEL_RIVAL_3_Text_0
+	msgbox FROGEEL_RIVAL_3_Text_2
+	closemessage
+	hidenamebox
+	goto_if_set FLAG_STARTER1, FROGEEL_RIVAL_3_2
+	goto_if_set FLAG_STARTER2, FROGEEL_RIVAL_3_3
+	goto_if_set FLAG_STARTER3, FROGEEL_RIVAL_3_4
+FROGEEL_RIVAL_3_1:
+	namebox FROGEEL_RIVAL_3_Text_0
+	msgbox FROGEEL_RIVAL_3_Text_4
+	closemessage
+	hidenamebox
+	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 20
+	goto_if_eq FROGEEL_RIVAL_3_9
+	compare VAR_TEMP_1, 21
+	goto_if_eq FROGEEL_RIVAL_3_10
+FROGEEL_RIVAL_3_8:
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1
+	waitmovement 0
+	playse SE_WALL_HIT
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3
+	waitmovement 0
+	waitse
+	delay 30
+	playse SE_FLEE
+	applymovement 15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2
+	waitmovement 0
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox FROGEEL_RIVAL_3_Text_5
+	closemessage
+	giveitem ITEM_NATURE_RUNE, 1
+	closemessage
+	removeobject 15
+	setflag FLAG_TEMP_10
+	setvar VAR_FROGEEL_RIVAL, 15
+	return
+
+FROGEEL_RIVAL_3_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_GRASS, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_FIRE, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_3_WATER, FROGEEL_RIVAL_3_Text_3
+	goto FROGEEL_RIVAL_3_1
+
+FROGEEL_RIVAL_3_9:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	goto FROGEEL_RIVAL_3_8
+
+FROGEEL_RIVAL_3_10:
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION
+	goto FROGEEL_RIVAL_3_8
+
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2:
+	face_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3:
+	lock_facing_direction
+	slide_left
+	jump_in_place_left
+	unlock_facing_direction
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION:
+	walk_fast_down
+	face_right
+	step_end
 
 NPC_MUSAPOINT_SAILOR_Text_0:
 	.string "Officer$"
@@ -2387,18 +2685,18 @@ multipartnerBattle_Zanik_Text_2:
 multipartnerBattle_Zanik_Text_3:
 	.string "Maybe some other time then…$"
 
-Following_Zanik_Text_0:
+Following_Chat_Toggles_Text_0:
 	.string "???$"
 
-Following_Zanik_Text_1:
+Following_Chat_Toggles_Text_1:
 	.string "Did you want to encounter two wild\n"
 	.string "monsters at once?$"
 
-Following_Zanik_Text_2:
+Following_Chat_Toggles_Text_2:
 	.string "What's wrong {PLAYER}?\p"
 	.string "Did you want to stop our adventure?$"
 
-Following_Zanik_Text_3:
+Following_Chat_Toggles_Text_3:
 	.string "Oh, that's a shame I was having so much\n"
 	.string "fun…\p"
 	.string "See you around…$"
@@ -2511,7 +2809,7 @@ SIR_OWEN_DIALOGUE_COMMON_Text_8:
 
 SIR_OWEN_DIALOGUE_COMMON_Text_9:
 	.string "My arm?\n"
-	.string "No I dont know a troll like that.$"
+	.string "No I don't know a troll like that.$"
 
 SIR_OWEN_DIALOGUE_COMMON_Text_10:
 	.string "Stand with me {PLAYER}.\p"
@@ -2653,3 +2951,46 @@ SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_3:
 SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4_Text_4:
 	.string "When we find Lord Daquarius, we may\n"
 	.string "need to be prepared for a fierce battle.$"
+
+FROGEEL_RIVAL_3_Text_0:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_3_Text_1:
+	.string "Oh, it's you again {PLAYER}.\p"
+	.string "No, I am not doing anything shady, just\n"
+	.string "eating bananas.\p"
+	.string "I like them, they have multiple A's in\n"
+	.string "them.$"
+
+FROGEEL_RIVAL_3_Text_2:
+	.string "You have to buy them?\p"
+	.string "{PAUSE 15}They don't belong to me?\p"
+	.string "Listen here {PLAYER}.\n"
+	.string "In life a man has to do certain things\l"
+	.string "to become a frog monarch.\p"
+	.string "Eating bananas is one of them.\n"
+	.string "Even if they are owned by others.\p"
+	.string "And if you can not accept that?\p"
+	.string "Well I guess we'll just have to fight\n"
+	.string "about it.\n"
+	.string "Like this!$"
+
+FROGEEL_RIVAL_3_Text_3:
+	.string "Seeya!$"
+
+FROGEEL_RIVAL_3_Text_4:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA!\p"
+	.string "I said…{PAUSE 15}…\l"
+	.string "A!$"
+
+FROGEEL_RIVAL_3_Text_5:
+	.string "It seems that Angrenouille dropped a\n"
+	.string "banana.\p"
+	.string "Opening the banana revealed an item\n"
+	.string "inside.$"

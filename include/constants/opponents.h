@@ -31,9 +31,9 @@
 #define TRAINER_RSN_LUM_SWAMP				        	27
 #define TRAINER_MITHRILMAN1				            	28
 #define TRAINER_MITHRILMAN2				            	29
-#define TRAINER_MITHRILMAN3				            	30
-#define TRAINER_MITHRILMAN4				            	31
-#define TRAINER_MITHRILMAN5				            	32
+#define TRAINER_MITHRILMAN3				                30
+#define TRAINER_MITHRILMAN4_GRASS				        31
+#define TRAINER_MITHRILMAN5_GRASS				        32
 #define TRAINER_MITHRILMAN6				            	33
 #define TRAINER_MITHRILMAN7				            	34
 #define TRAINER_MITHRILMAN8				            	35
@@ -418,7 +418,7 @@
 #define TRAINER_ELITE4_SIR_TIFFY_1                      414
 #define TRAINER_ELITE4_HAZELMERE_1                      415
 #define TRAINER_ELITE4_ZANIK_1                          416
-#define TRAINER_ELITE4_HANS_1                           417
+#define TRAINER_ELITE4_HANS_1_GRASS                     417
 #define TRAINER_CHAMPION_WISE_OLD_MAN_1                 418
 #define TRAINER_EDGEVILLE_GYM_1                         419
 #define TRAINER_EDGEVILLE_GYM_2                         420
@@ -574,12 +574,62 @@
 #define TRAINER_LUMBRIDGE_RIVER_TRAINER_3               568
 #define TRAINER_ROUTE12_RIVER_TRAINER_1                 569
 #define TRAINER_ROUTE12_RIVER_TRAINER_2                 570
+#define TRAINER_LUMBRIDGEFOREST_HAM_1                   571
+#define TRAINER_LUMBRIDGEFOREST_HAM_2                   572
+#define TRAINER_LUMBRIDGEFOREST_HAM_3                   573
+#define TRAINER_LUMBRIDGEFOREST_HAM_4                   574
+#define TRAINER_ROUTE200_TRAINER_1                      575
+#define TRAINER_ROUTE200_TRAINER_2                      576
+#define TRAINER_ROUTE200_TRAINER_3                      577
+#define TRAINER_HAM_HIDEOUT_GRUNT_1                     578
+#define TRAINER_HAM_HIDEOUT_GRUNT_2                     579
+#define TRAINER_HAM_HIDEOUT_GRUNT_3                     580
+#define TRAINER_HAM_HIDEOUT_GRUNT_4                     581
+#define TRAINER_HAM_HIDEOUT_GRUNT_5                     582
+#define TRAINER_HAM_HIDEOUT_GRUNT_6                     583
+#define TRAINER_HAM_HIDEOUT_GRUNT_7                     584
+#define TRAINER_HAM_HIDEOUT_GRUNT_8                     585
+#define TRAINER_HAM_HIDEOUT_GRUNT_9                     586
+#define TRAINER_HAM_HIDEOUT_GRUNT_10                    587
+#define TRAINER_SIR_THEO_EDGEVILLE                      588
+#define TRAINER_FROGEEL_RIVAL_3_GRASS                   589
+#define TRAINER_FROGEEL_RIVAL_3_FIRE                    590
+#define TRAINER_FROGEEL_RIVAL_3_WATER                   591
+#define TRAINER_FROGEEL_RIVAL_4_GRASS                   592
+#define TRAINER_FROGEEL_RIVAL_4_FIRE                    593
+#define TRAINER_FROGEEL_RIVAL_4_WATER                   594
+#define TRAINER_FROGEEL_RIVAL_5_GRASS                   595
+#define TRAINER_FROGEEL_RIVAL_5_FIRE                    596
+#define TRAINER_FROGEEL_RIVAL_5_WATER                   597
+#define TRAINER_FROGEEL_RIVAL_6_GRASS                   598
+#define TRAINER_FROGEEL_RIVAL_6_FIRE                    599
+#define TRAINER_FROGEEL_RIVAL_6_WATER                   600
+#define TRAINER_FROGEEL_RIVAL_7_GRASS                   601
+#define TRAINER_FROGEEL_RIVAL_7_FIRE                    602
+#define TRAINER_FROGEEL_RIVAL_7_WATER                   603
+#define TRAINER_FROGEEL_RIVAL_8_GRASS                   604
+#define TRAINER_FROGEEL_RIVAL_8_FIRE                    605
+#define TRAINER_FROGEEL_RIVAL_8_WATER                   606
+#define TRAINER_MITHRILMAN4_FIRE				        607
+#define TRAINER_MITHRILMAN4_WATER				        608
+#define TRAINER_MITHRILMAN5_FIRE				        609
+#define TRAINER_MITHRILMAN5_WATER				        610
+#define TRAINER_HAM_HIDEOUT_JAILER                      611
+#define TRAINER_HAM_HIDEOUT_JOHANHUS                    612
+#define TRAINER_OZAN_1                                  613
+#define TRAINER_OZAN_2                                  614
+#define TRAINER_ELITE4_HANS_1_FIRE                      615
+#define TRAINER_ELITE4_HANS_1_WATER                     616
+#define TRAINER_HAM_HIDEOUT_GUARD_1                     617
+#define TRAINER_HAM_HIDEOUT_GUARD_2                     618
+#define TRAINER_HAM_HIDEOUT_GUARD_3                     619
+#define TRAINER_HAM_HIDEOUT_GUARD_4                     620
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_ROUTE12_RIVER_TRAINER_2 + 1)
+#define TRAINERS_COUNT                      (TRAINER_HAM_HIDEOUT_GUARD_4 + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

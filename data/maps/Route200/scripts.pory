@@ -5,3 +5,33 @@ MAP_SCRIPT_ON_TRANSITION {
         call(WEATHER_CHANGE_AREA_WILDERNESS)
 	}
 }
+
+script BATTLE_ROUTE200_TRAINER_1
+{ 
+    trainerbattle_single(TRAINER_ROUTE200_TRAINER_1, format("What a weird place to run into someone trying to take my spawn.\pPunishment time!"),format("Rats..."))
+    namebox ("RatGrinder")
+    msgbox(format("Oh, you are not here to take my spawn?\pWell get away from here, I'm moneymaking!"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_ROUTE200_TRAINER_2
+{ 
+    trainerbattle_single(TRAINER_ROUTE200_TRAINER_2, format("Hey, what do you reckon the outcome of this battle between you and I will be best described as?"),format("An utter defeat?"))
+    namebox ("G4le")
+    msgbox(format("An utter defeat? Couldn't have phrased it more repulsively myself..."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_ROUTE200_TRAINER_3
+{ 
+    trainerbattle_single(TRAINER_ROUTE200_TRAINER_3, format("Looks like a little fly just ran into my web!"),format("..."))
+    namebox ("Izikills")
+    msgbox(format("We won't speak of this.\nEVER!"))
+    hidenamebox
+    release
+    end
+}

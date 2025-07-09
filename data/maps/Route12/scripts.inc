@@ -23,20 +23,58 @@ OPENWORLD_STATE_ROUTE12::
 	removeobject 14
 	removeobject 15
 	removeobject 16
-	setflag FLAG_TEMP_1
+	setflag FLAG_ROUTE13_BLOCK
 	return
 
 
 ROUTE12_STATE::
-	goto_if_set FLAG_ROUTE13_BLOCK, ROUTE12_STATE_1
+	goto_if_unset FLAG_BADGE06_GET, ROUTE12_STATE_2
+ROUTE12_STATE_1:
+	setflag FLAG_TEMP_9
+	removeobject 45
+	removeobject 46
+	goto_if_set FLAG_ROUTE13_BLOCK, ROUTE12_STATE_5
+ROUTE12_STATE_4:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 205
+	goto_if_eq ROUTE12_STATE_8
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ROUTE12_STATE_9
+ROUTE12_STATE_7:
 	return
 
-ROUTE12_STATE_1:
+ROUTE12_STATE_2:
+	setvar VAR_TEMP_3, 1
+	goto ROUTE12_STATE_1
+
+ROUTE12_STATE_5:
 	removeobject 14
 	removeobject 15
 	removeobject 16
-	setflag FLAG_TEMP_1
-	return
+	goto ROUTE12_STATE_4
+
+ROUTE12_STATE_8:
+	setobjectxyperm 27, 37, 53
+	setobjectxyperm 28, 37, 53
+	setobjectxy 27, 37, 53
+	setobjectxy 28, 37, 53
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	clearflag FLAG_TEMP_9
+	addobject 45
+	addobject 46
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_1, 1
+	goto ROUTE12_STATE_7
+
+ROUTE12_STATE_9:
+	setobjectxyperm 27, 24, 52
+	setobjectxyperm 28, 25, 52
+	setobjectxy 27, 24, 52
+	setobjectxy 28, 25, 52
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	setvar VAR_TEMP_3, 0
+	goto ROUTE12_STATE_7
 
 
 Gillie_Groats::
@@ -426,18 +464,48 @@ movement_BLOCK_ALKHARID_GATE_3:
 	walk_left
 	step_end
 
-ALKHARID_GATE_GUARD::
+ALKHARID_GATE_GUARD_1::
 	lockall
 	faceplayer
-	namebox ALKHARID_GATE_GUARD_Text_0
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ALKHARID_GATE_GUARD_1_2
 	msgbox BLOCK_ALKHARID_GATE_Text_0
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
 	applymovement 27, MOVEMENT_FACE_LEFT
 	applymovement 28, MOVEMENT_FACE_LEFT
 	waitmovement 0
+ALKHARID_GATE_GUARD_1_1:
 	release
 	end
+
+ALKHARID_GATE_GUARD_1_2:
+	msgbox ALKHARID_GATE_GUARD_1_Text_1
+	closemessage
+	goto ALKHARID_GATE_GUARD_1_1
+
+
+ALKHARID_GATE_GUARD_2::
+	lockall
+	faceplayer
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ALKHARID_GATE_GUARD_2_2
+	msgbox BLOCK_ALKHARID_GATE_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
+	applymovement 27, MOVEMENT_FACE_LEFT
+	applymovement 28, MOVEMENT_FACE_LEFT
+	waitmovement 0
+ALKHARID_GATE_GUARD_2_1:
+	release
+	end
+
+ALKHARID_GATE_GUARD_2_2:
+	msgbox ALKHARID_GATE_GUARD_2_Text_0
+	closemessage
+	goto ALKHARID_GATE_GUARD_2_1
 
 
 PURO_PURO_EVENT_ROUTE12::
@@ -524,12 +592,12 @@ NPC_ROUTE12_BRONZEMAN::
 	msgbox NPC_ROUTE12_BRONZEMAN_Text_1
 	hidenamebox
 	closemessage
-	applymovement 39, ROUTE12_BRONZEMAN
+	applymovement 39, FACE_ORIGINAL_DIRECTION
 	release
 	end
 
 
-ROUTE12_BRONZEMAN:
+FACE_ORIGINAL_DIRECTION:
 	face_original_direction
 	step_end
 
@@ -589,6 +657,211 @@ NPC_ROUTE12_BOAT_2::
 	release
 	end
 
+
+TRIGGER_ALKHARID_HAM_EVENT_1::
+	lock
+	delay 30
+	playse SE_PIN
+	applymovement 45, movement_OZAN_CONFUSED
+	waitmovement 0
+	playbgm MUS_PS_ENCOUNTER_HAM, TRUE
+	delay 60
+	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_2
+TRIGGER_ALKHARID_HAM_EVENT_1_1:
+	applymovement 46, movement_HAM_RUN_LEFT_WITH_SACK
+	delay 30
+	applymovement 28, movement_HAM_RUN_LEFT_WITH_SACK
+	applymovement 45, Movement_InteractFACELEFT
+	delay 60
+	applymovement 27, movement_GUARD_CHASE_HAM_BUT_STOP
+	playse SE_PIN
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 28
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_5
+	compare VAR_TEMP_1, 29
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_6
+	compare VAR_TEMP_2, 52
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_7
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_8
+TRIGGER_ALKHARID_HAM_EVENT_1_4:
+	waitmovement 0
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_1_Text_0
+	hidenamebox
+	closemessage
+	applymovement 45, movement_OZAN_RUNS_TO_PALACE
+	waitmovement 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	setflag FLAG_TEMP_9
+	removeobject 45
+	removeobject 46
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+TRIGGER_ALKHARID_HAM_EVENT_1_2:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_PLAYER_AVOIDS_HAM
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_1
+
+TRIGGER_ALKHARID_HAM_EVENT_1_5:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_6:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_7:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_8:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+
+movement_HAM_RUN_LEFT_WITH_SACK:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+movement_GUARD_CHASE_HAM_BUT_STOP:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_left
+	walk_left
+	walk_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_right
+	walk_slow_up
+	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4:
+	face_down
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_down
+	face_left
+	step_end
+
+movement_OZAN_CONFUSED:
+	face_right
+	emote_question_mark
+	step_end
+
+movement_OZAN_RUNS_TO_PALACE:
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+movement_PLAYER_AVOIDS_HAM:
+	emote_question_mark
+	lock_facing_direction
+	slide_up
+	emote_exclamation_mark
+	face_down
+	delay_16
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN:
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_up
+	step_end
 
 Gillie_Groats_Text_0:
 	.string "Gillie Groats$"
@@ -795,8 +1068,16 @@ BLOCK_ALKHARID_GATE_Text_0:
 	.string "Only those whom possess the Al-Kharid\n"
 	.string "Badge may enter!$"
 
-ALKHARID_GATE_GUARD_Text_0:
+ALKHARID_GATE_GUARD_1_Text_0:
 	.string "Guard$"
+
+ALKHARID_GATE_GUARD_1_Text_1:
+	.string "Huff…{PAUSE 15} Puff…\p"
+	.string "He kidnapped the prince…$"
+
+ALKHARID_GATE_GUARD_2_Text_0:
+	.string "We must inform the palace in Al Kharid\n"
+	.string "at once!$"
 
 NPC_ROUTE12_IRONMAN_Text_0:
 	.string "Limpwurt$"
@@ -916,3 +1197,8 @@ NPC_ROUTE12_BOAT_2_Text_1:
 	.string "course.\p"
 	.string "Be careful if you do ever venture out\n"
 	.string "that way.$"
+
+TRIGGER_ALKHARID_HAM_EVENT_1_Text_0:
+	.string "In… Inform the palace…\p"
+	.string "The… prince…\p"
+	.string "The prince has been kidnapped!$"

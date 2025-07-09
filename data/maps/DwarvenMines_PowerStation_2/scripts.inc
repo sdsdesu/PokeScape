@@ -135,6 +135,8 @@ TRIGGER_SCORPIONS_DWARVEN_POWERSTATION::
 	setflag FLAG_TEMP_2
 	setflag FLAG_TEMP_3
 	setflag FLAG_TEMP_5
+	msgbox TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_2
+	closemessage
 	release
 	end
 
@@ -241,3 +243,8 @@ TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_0:
 TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_1:
 	.string "The Scorpion appears to be angered and\n"
 	.string "attacks!$"
+
+TRIGGER_SCORPIONS_DWARVEN_POWERSTATION_Text_2:
+	.string "The Scorpions seem to have calmed down\n"
+	.string "and returned to the mines.\p"
+	.string "Maybe you sure return to Nulodion.$"

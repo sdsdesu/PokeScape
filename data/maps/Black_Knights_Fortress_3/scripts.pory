@@ -93,7 +93,7 @@ script BKF_Banker {
     namebox ("Banker")
     msgbox(format("The Black Knights have got me locked up so they can have quick and easy access for their banks.\pThey didn't say you couldn't use the bank though, so how many I help you?"))
 	waitmessage
-    call(BANK_OPTIONS)
+    call(BANK_OPTIONS_JAIL)
     namebox ("Banker")
     msgbox(format("I wonder if I'll ever get out to see my wife and children again…"))
     closemessage

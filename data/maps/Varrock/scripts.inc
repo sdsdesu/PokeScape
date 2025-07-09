@@ -7,6 +7,7 @@ Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_VARROCK
 	setvar VAR_EVOLUTION_MAP_STATE, 16
 	call RANDOM_EVENT_SANDWICH_LADY
+	call VARROCK_MITHRILMAN_STATE
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
@@ -22,6 +23,20 @@ Varrock_MapScripts_MAP_SCRIPT_ON_LOAD:
 Varrock_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 	call VARROCK_STATE
 	return
+
+
+VARROCK_MITHRILMAN_STATE::
+	removeobject 47
+	setflag FLAG_TEMP_1C
+	compare VAR_MITHRILMAN_STATE, 25
+	goto_if_eq VARROCK_MITHRILMAN_STATE_2
+VARROCK_MITHRILMAN_STATE_1:
+	return
+
+VARROCK_MITHRILMAN_STATE_2:
+	addobject 47
+	clearflag FLAG_TEMP_1C
+	goto VARROCK_MITHRILMAN_STATE_1
 
 
 VARROCK_STATE::
@@ -1268,6 +1283,49 @@ VARROCK_NPC_WondertradeHint::
 	end
 
 
+Mithrilman_Varrock::
+	playbgm MUS_ENCOUNTER_MAY, 1
+	lock
+	faceplayer
+	namebox Mithrilman_Varrock_Text_0
+	msgbox Mithrilman_Varrock_Text_1
+	goto_if_set FLAG_STARTER1, Mithrilman_Varrock_2
+	goto_if_set FLAG_STARTER2, Mithrilman_Varrock_3
+	goto_if_set FLAG_STARTER3, Mithrilman_Varrock_4
+Mithrilman_Varrock_1:
+	namebox Mithrilman_Varrock_Text_0
+	msgbox Mithrilman_Varrock_Text_2
+	waitmessage
+	closemessage
+	hidenamebox
+	setvar VAR_MITHRILMAN_STATE, 30
+	setflag FLAG_TEMP_1C
+	removeobject 47
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 5
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	waitmovement 0
+	waitse
+	msgbox Mithrilman_Varrock_Text_3
+	finditem ITEM_GODSWORD, 1
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Mithrilman_Varrock_2:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_GRASS, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
+
+Mithrilman_Varrock_3:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_FIRE, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
+
+Mithrilman_Varrock_4:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_WATER, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
+
+
 NPC_SANDWICH_LADY_Text_0:
 	.string "Sandwich Lady$"
 
@@ -1980,3 +2038,46 @@ VARROCK_NPC_WondertradeHint_Text_1:
 	.string "with a stranger.\p"
 	.string "It's very useful for those who don't\n"
 	.string "have any friends to trade with, like me.$"
+
+Mithrilman_Varrock_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_Varrock_Text_1:
+	.string "We meet again knave.\p"
+	.string "Thousts harvest made it this far, the\n"
+	.string "very capital of Misthalin itselfst.\p"
+	.string "And now yee stand before thine.\l"
+	.string "A mithrilman in topst shape, trained by\l"
+	.string "the elements and challenges uponst\l"
+	.string "thee.\p"
+	.string "Knave.\p"
+	.string "Thoust have beenst lucky.\p"
+	.string "Thoust have beenst clever.\p"
+	.string "And thoust have dared challenge thine\n"
+	.string "time uponst time again.\p"
+	.string "Thist endst nowt.\p"
+	.string "Knave.\p"
+	.string "Thine challenges thee.$"
+
+Mithrilman_Varrock_Text_2:
+	.string "Thoust does cheat?\p"
+	.string "Thoust must.\p"
+	.string "Thine cannot lose, for thine is a\n"
+	.string "Mithrilman.\p"
+	.string "Glory be upon thine, not yee.\p"
+	.string "Knave{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "NAAAAAAAAAAARRRGHGHGHGHGH!\p"
+	.string "Knave\l"
+	.string "What is thousts name?\p"
+	.string "…{PAUSE 15}\p"
+	.string "{PLAYER}?\p"
+	.string "Thine will remember this\p"
+	.string "Fare thee lesser than decently.$"
+
+Mithrilman_Varrock_Text_3:
+	.string "Oh?\p"
+	.string "Mithrilman appears to have left\n"
+	.string "something on the ground.$"

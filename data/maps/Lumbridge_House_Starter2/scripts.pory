@@ -250,7 +250,7 @@ script Mithrilman_VARROCK1{
     playbgm (MUS_ENCOUNTER_MAY, 1)
     namebox("Mithrilman")
     msgbox(format("We meet again knave.\pHow farest thee battle?\pThine?\pThine has bartered with the skin pelter of Varrockia.\pThine wouldst need a bear skin.\pBut alas, clause 73 of the Mithrilmen states thine is not to use money to gainst relics.\pThust thine simply did not pay the pelter.\pThoust seems eager for a rematch?"))
-    trainerbattle_single(TRAINER_MITHRILMAN3,format("Alas knave, there is no ducks to save thee this time."),format("…"),Mithrilman_VARROCK2)
+    //trainerbattle_single(TRAINER_MITHRILMAN3,format("Alas knave, there is no ducks to save thee this time."),format("…"),Mithrilman_VARROCK2)
 }
 script Mithrilman_VARROCK2{  
     lock
@@ -279,7 +279,7 @@ script Mithrilman_ALKHARID1{
     playbgm (MUS_ENCOUNTER_MAY, 1)
     namebox("Mithrilman")
     msgbox(format("Greetings knave, these lands be scorchest of themst all.\pThine battlest so far has been harsher than before.\pBut fear not, a Mithrilman never bends.\pAdamantmen may falter, for they do not posesst the speed of a Mithrilman.\pThus they succumb to the heat of the desert.\pThus Mithrilmen shalt be known as the superior challenge!"))
-    trainerbattle_single(TRAINER_MITHRILMAN4,format("Yee seem tired knave, wouldst a battle fire yee up?"),format("…"),Mithrilman_ALKHARID2)
+    //trainerbattle_single(TRAINER_MITHRILMAN4,format("Yee seem tired knave, wouldst a battle fire yee up?"),format("…"),Mithrilman_ALKHARID2)
 }
 script Mithrilman_ALKHARID2{  
     lock

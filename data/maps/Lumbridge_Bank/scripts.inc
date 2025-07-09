@@ -139,6 +139,52 @@ BANK_HEAL_TZHAAR::
 	end
 
 
+BANK_OPTIONS_JAIL::
+	multichoicedefault 1, 0, MULTI_BANKOPTIONS, 0, 0
+	switch VAR_RESULT
+	case 0, BANK_OPTIONS_JAIL_3
+	case 1, BANK_OPTIONS_JAIL_4
+	case 2, BANK_OPTIONS_JAIL_5
+	case 3, BANK_OPTIONS_JAIL_6
+	case MULTI_B_PRESSED, BANK_OPTIONS_JAIL_7
+BANK_OPTIONS_JAIL_1:
+	return
+
+BANK_OPTIONS_JAIL_3:
+	goto BANK_HEAL_JAIL
+	goto BANK_OPTIONS_JAIL_1
+
+BANK_OPTIONS_JAIL_4:
+	goto EventScript_AccessPokemonStorage
+	goto BANK_OPTIONS_JAIL_1
+
+BANK_OPTIONS_JAIL_5:
+	goto EventScript_AccessPlayersPC
+	goto BANK_OPTIONS_JAIL_1
+
+BANK_OPTIONS_JAIL_6:
+	return
+
+BANK_OPTIONS_JAIL_7:
+	return
+
+
+BANK_HEAL_JAIL::
+	msgbox BANK_HEAL_Text_0
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	playfanfare MUS_HEAL
+	waitfanfare
+	special HealPlayerParty
+	fadescreenswapbuffers FADE_FROM_BLACK
+	namebox BANK_EventScript_PC_Text_0
+	msgbox BANK_HEAL_JAIL_Text_0
+	hidenamebox
+	closemessage
+	releaseall
+	end
+
+
 BANK_EventScript_PC_Text_0:
 	.string "Banker$"
 
@@ -176,3 +222,8 @@ BANK_HEAL_TZHAAR_Text_1:
 BANK_HEAL_TZHAAR_Text_2:
 	.string "Your Kimit-zil are all healed!\p"
 	.string "See you next time!$"
+
+BANK_HEAL_JAIL_Text_0:
+	.string "Your MONSTERS are all healed!\p"
+	.string "If you find a way out please tell my\n"
+	.string "wife and children I miss them…$"

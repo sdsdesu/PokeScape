@@ -358,17 +358,17 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_IMP",
-      "x": 10,
-      "y": 27,
+      "graphics_id": "OBJ_EVENT_GFX_GYMLEADER_WISE_OLD_MAN",
+      "x": 36,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "multipartnerBattle_Zanik",
-      "flag": "0"
+      "script": "HAM_EVENT_ALKHARID_WISE_OLD_MAN",
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",

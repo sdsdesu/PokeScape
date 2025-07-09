@@ -1,0 +1,140 @@
+mapscripts HAM_Hideout_B3F_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        call(HAMHIDEOUT_HEAL_ZONE)
+    }
+    MAP_SCRIPT_ON_TRANSITION {
+        call(CHECK_JAILED_HAM)
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_B, 1: HAM_WHITEOUT
+    ]
+}
+
+
+script HAMHIDEOUT_HEAL_ZONE {
+    setrespawn(HEAL_LOCATION_HAM_JAIL)
+    end
+}
+
+script CHECK_JAILED_HAM {
+    if (flag(FLAG_HAM_JAILED) == TRUE) {
+        setobjectxy(2,5,6)
+        setobjectxyperm(2,5,6)
+        setvar(VAR_TEMP_B, 1)
+    }
+    end
+}
+
+script HAM_WHITEOUT
+{
+	lock
+    delay(60)
+    namebox ("H.A.M Guard")
+    applymovement(2, MOVEMENT_INTERACT_UP)
+    msgbox(format("Stay here until we know what to do with you!"))
+    waitmovement(0)
+    closemessage
+    hidenamebox
+    applymovement(2, movement_HAM_lockup_leave)
+    waitmovement(0)
+    playse(SE_M_SNORE)
+    namebox ("H.A.M Guard")
+    msgbox(format("Zzz…"))
+    checkfollower
+    if (var(VAR_RESULT)) {
+        facefollower
+        namebox ("Zanik")
+        msgbox(format("This isn't good…\nWe must find a way out."))
+        closemessage
+        hidenamebox
+    }
+    setvar(VAR_TEMP_B, 2)
+    clearflag(FLAG_HAM_JAILED)
+    release
+    end
+}
+
+movement movement_HAM_lockup_leave {
+    walk_left * 2
+    walk_down
+    face_left
+    step_end
+}
+
+
+
+
+
+script HAM_HIDEOUT_GATE
+{
+    if (var(VAR_TEMP_C) == 0) {
+        lock
+        msgbox(format("You attempt to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…"))
+        closemessage
+
+        checkfollower
+        if (var(VAR_RESULT)) {
+            facefollower
+            namebox ("Zanik")
+            msgbox(format("Step aside {PLAYER} allow me."))
+            closemessage
+            hidenamebox
+            //Zanik unlocks the door.
+            msgbox(format("Zanik attempts to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…"))
+            closemessage
+            playse(SE_TRUCK_DOOR)
+            msgbox(format("The door opens."))
+            closemessage
+        }
+        else {
+            playse(SE_TRUCK_DOOR)
+            msgbox(format("The door opens."))
+            closemessage
+        }
+        // set meta tiles open gate
+        setmetatile(4, 4, METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(4, 5, METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(5, 5, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(5, 4, METATILE_PokeScape_HAM_HAM_CAVE_FLOOR, 0)
+        setmetatile(6, 5, METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE, 1)
+        special(DrawWholeMapView) 
+
+        checkfollower
+        if (var(VAR_RESULT)) {
+            facefollower
+            namebox ("Zanik")
+            msgbox(format("A high Thieving level comes in handy for situations like this, wouldn't you agree?\pLet's go!"))
+            closemessage
+            hidenamebox
+        }
+        setvar(VAR_TEMP_C, 1)
+        release
+    }
+    end
+}
+
+script HAMHIDEOUT_Banker {
+    lock
+	faceplayer
+    namebox ("Banker")
+    msgbox(format("First the Black Knights, now H.A.M…\pIt seems I am destined for one thing only in life and that is to be a prisoner.\pThey didn't say you couldn't use the bank though, so how many I help you?"))
+	waitmessage
+    call(BANK_OPTIONS_JAIL)
+    namebox ("Banker")
+    msgbox(format("If you get out please tell my wife and children that I miss them…"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+script HAMHIDEOUT_Guard {
+    lock
+    namebox ("H.A.M Guard")
+    playse(SE_M_SNORE)
+    msgbox(format("Zzz…"))
+    closemessage
+    hidenamebox
+    release
+    end
+}

@@ -891,6 +891,7 @@
 #define MAP_AL_KHARID_HOUSE_4_2F    (10 | (45 << 8))
 #define MAP_AL_KHARID_GENERAL_STORE (11 | (45 << 8))
 #define MAP_AL_KHARID_TENT          (12 | (45 << 8))
+#define MAP_AL_KHARID_HOUSE_5       (13 | (45 << 8))
 
 // gMapGroup46
 #define MAP_DUNGEONEERING_1     (0 | (46 << 8))
@@ -941,6 +942,7 @@
 #define MAP_EDGEVILLE_ROUTE19_BRASS_HOUSE (11 | (47 << 8))
 #define MAP_DWARVEN_MINES_POWER_STATION_1 (12 | (47 << 8))
 #define MAP_DWARVEN_MINES_POWER_STATION_2 (13 | (47 << 8))
+#define MAP_EDGEVILLE_GUARDHOUSE          (14 | (47 << 8))
 
 // gMapGroup_PokescapeOutdoorMembers
 #define MAP_YANILLE       (0 | (48 << 8))
@@ -1084,6 +1086,11 @@
 #define MAP_BLACK_KNIGHTS_FORTRESS_2            (93 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_3            (94 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_4            (95 | (50 << 8))
+#define MAP_HAM_HIDEOUT_B3F                     (96 | (50 << 8))
+#define MAP_WILDERNESS_VOLCANO_B1F              (97 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B2F               (98 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B3F               (99 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B4F               (100 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

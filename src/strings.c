@@ -1911,8 +1911,8 @@ const u8 gText_POH_BLUE[] =_("BLUE");
 const u8 gText_POH_CYAN[] =_("CYAN");
 const u8 gText_POH_BLACK[] =_("BLACK");
 
-const u8 gText_PhoenixEgg_Clap[] =_("CLAP AT IT.");
-const u8 gText_PhoenixEgg_Kick[] =_("KICK IT!!!!");
+const u8 gText_PhoenixEgg_Clap[] =_("Praise the Egg."); 
+const u8 gText_PhoenixEgg_Kick[] =_("Kick the Egg!");
 
 const u8 gText_BANK_HEAL[] =_("HEAL MONSTERS");
 const u8 gText_BANK_STORE_MONSTERS[] =_("STORE MONSTERS");
@@ -2154,6 +2154,8 @@ const u8 gText_SubQuest_Main_Story_Name11[] = _("Mission complete?");
 const u8 gText_SubQuest_Main_Story_Desc11[] = _("You reported the mission summary to\nSir Amik Varze, but what will\nhappen to Ned and the Cabin boy.");
 const u8 gText_SubQuest_Main_Story_Name12[] = _("What lies below");
 const u8 gText_SubQuest_Main_Story_Desc12[] = _("You and Sir Owen infiltrated the\nBlack Knights Fortress and found\ninformation about a mural.");
+const u8 gText_SubQuest_Main_Story_Name13[] = _("Another Slice of H.A.M");
+const u8 gText_SubQuest_Main_Story_Desc13[] = _("You and Zanik rescued Prince Ali\nfrom the H.A.M Hideout and\nfound out about H.A.M's next move.");
 
 const u8 gText_MapName_DraynorManor[] = _("Draynor Manor");
 const u8 gText_MapName_LumbridgeForest[] = _("Lumbridge Forest");
@@ -2172,7 +2174,13 @@ const u8 gText_SubQuest_MithrilmanQuest_Desc2[] = _("You found the Mithrilman in
 const u8 gText_SubQuest_MithrilmanQuest_Name3[] = _("A Hot encounterestd");
 const u8 gText_SubQuest_MithrilmanQuest_Desc3[] = _("Mithrilman is in the Karamja volcano.\nDoes he call lava, lavastedst?");
 const u8 gText_SubQuest_MithrilmanQuest_Name4[] = _("Mithril life crisis");
-const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("");
+const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("You found Mithrilman in Edgeville.\nHe doesn't like losing.");
+const u8 gText_SubQuest_MithrilmanQuest_Name5[] = _("A Trainingst Arc");
+const u8 gText_SubQuest_MithrilmanQuest_Desc5[] = _("You discovered Mithrilman training\nin Al Kharid.");
+const u8 gText_SubQuest_MithrilmanQuest_Name6[] = _("Thine Will Remember This");
+const u8 gText_SubQuest_MithrilmanQuest_Desc6[] = _("Mithrilman has finally learned\nyour name.");
+const u8 gText_SubQuest_MithrilmanQuest_Name7[] = _("A Solitary Fellowst");
+const u8 gText_SubQuest_MithrilmanQuest_Desc7[] = _("In the cold of Daemonheim,\nMithrilman contemplates life.");
 
 const u8 gText_SideQuestName_QuestPowerPlantScorpions[] = _("Dwarven Troubles");
 const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[] = _("Assist Nulodion with his\nscorpion problems.");

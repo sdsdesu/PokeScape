@@ -301,9 +301,24 @@ DungeonLayout_ROOM_PATH_5::
 
 Daemonheim_Lobby_STATE::
 	setflag FLAG_TEMP_1F
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1E
+	setflag FLAG_TEMP_1C
+	removeobject 5
+	removeobject 7
+	removeobject 3
 	switch VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST
 	case 10, Daemonheim_Lobby_STATE_3
 Daemonheim_Lobby_STATE_1:
+	switch VAR_FROGEEL_RIVAL
+	case 35, Daemonheim_Lobby_STATE_6
+	case 36, Daemonheim_Lobby_STATE_7
+	case 37, Daemonheim_Lobby_STATE_8
+Daemonheim_Lobby_STATE_4:
+	switch VAR_MITHRILMAN_STATE
+	case 30, Daemonheim_Lobby_STATE_11
+	case 35, Daemonheim_Lobby_STATE_12
+Daemonheim_Lobby_STATE_9:
 	return
 
 Daemonheim_Lobby_STATE_3:
@@ -312,6 +327,31 @@ Daemonheim_Lobby_STATE_3:
 	setobjectxyperm 1, 9, 5
 	setobjectmovementtype 1, MOVEMENT_TYPE_FACE_LEFT
 	goto Daemonheim_Lobby_STATE_1
+
+Daemonheim_Lobby_STATE_6:
+	clearflag FLAG_TEMP_1D
+	addobject 7
+	return
+
+Daemonheim_Lobby_STATE_7:
+	clearflag FLAG_TEMP_1E
+	addobject 5
+	goto Daemonheim_Lobby_STATE_4
+
+Daemonheim_Lobby_STATE_8:
+	clearflag FLAG_TEMP_1E
+	addobject 5
+	goto Daemonheim_Lobby_STATE_4
+
+Daemonheim_Lobby_STATE_11:
+	addobject 3
+	clearflag FLAG_TEMP_1C
+	goto Daemonheim_Lobby_STATE_9
+
+Daemonheim_Lobby_STATE_12:
+	addobject 3
+	clearflag FLAG_TEMP_1C
+	goto Daemonheim_Lobby_STATE_9
 
 
 THOK_GYM_CHALLENGE_STATE_3::
@@ -373,6 +413,202 @@ Movement_DaemonheimGym_12:
 	face_left
 	step_end
 
+FROGEEL_RIVAL_8::
+	lock
+	faceplayer
+	compare VAR_FROGEEL_RIVAL, 35
+	goto_if_eq FROGEEL_RIVAL_8_2
+	compare VAR_FROGEEL_RIVAL, 36
+	goto_if_eq FROGEEL_RIVAL_8_3
+	compare VAR_FROGEEL_RIVAL, 37
+	goto_if_eq FROGEEL_RIVAL_8_4
+FROGEEL_RIVAL_8_1:
+	release
+	end
+
+FROGEEL_RIVAL_8_2:
+	namebox FROGEEL_RIVAL_8_Text_0
+	msgbox FROGEEL_RIVAL_8_Text_1
+	hidenamebox
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	addobject 5
+	clearflag FLAG_TEMP_1E
+	removeobject 7
+	setflag FLAG_TEMP_1D
+	fadescreenswapbuffers FADE_FROM_BLACK
+	applymovement 5, Movement_InteractFACEPLAYER
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_3
+	hidenamebox
+	closemessage
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 9
+	goto_if_eq FROGEEL_RIVAL_8_9
+	compare VAR_TEMP_1, 10
+	goto_if_eq FROGEEL_RIVAL_8_10
+	compare VAR_TEMP_1, 11
+	goto_if_eq FROGEEL_RIVAL_8_11
+FROGEEL_RIVAL_8_8:
+	waitmovement 0
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_4, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq FROGEEL_RIVAL_8_18
+	msgbox FROGEEL_RIVAL_8_Text_6
+	goto BATTLE_FROGEEL_RIVAL_8
+	goto FROGEEL_RIVAL_8_1
+
+FROGEEL_RIVAL_8_3:
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_7, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq FROGEEL_RIVAL_8_15
+	msgbox FROGEEL_RIVAL_8_Text_6
+	goto BATTLE_FROGEEL_RIVAL_8
+	goto FROGEEL_RIVAL_8_1
+
+FROGEEL_RIVAL_8_4:
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox FROGEEL_RIVAL_8_Text_9
+	goto BATTLE_FROGEEL_RIVAL_8
+	goto FROGEEL_RIVAL_8_1
+
+FROGEEL_RIVAL_8_9:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	goto FROGEEL_RIVAL_8_8
+
+FROGEEL_RIVAL_8_10:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	goto FROGEEL_RIVAL_8_8
+
+FROGEEL_RIVAL_8_11:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
+	goto FROGEEL_RIVAL_8_8
+
+FROGEEL_RIVAL_8_15:
+	msgbox FROGEEL_RIVAL_8_Text_8
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 37
+	release
+	end
+
+FROGEEL_RIVAL_8_18:
+	msgbox FROGEEL_RIVAL_8_Text_5
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 36
+	release
+	end
+
+
+BATTLE_FROGEEL_RIVAL_8::
+	msgbox BATTLE_FROGEEL_RIVAL_8_Text_0
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_8_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_8_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_8_4
+BATTLE_FROGEEL_RIVAL_8_1:
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox BATTLE_FROGEEL_RIVAL_8_Text_2
+	closemessage
+	hidenamebox
+	giveitem ITEM_BLOOD_RUNE, 1
+	closemessage
+	namebox FROGEEL_RIVAL_8_Text_2
+	msgbox BATTLE_FROGEEL_RIVAL_8_Text_3
+	closemessage
+	hidenamebox
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject 5
+	setflag FLAG_TEMP_1E
+	addobject 7
+	clearflag FLAG_TEMP_1D
+	fadescreenswapbuffers FADE_FROM_BLACK
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 8
+	goto_if_eq BATTLE_FROGEEL_RIVAL_8_9
+	applymovement 7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1
+BATTLE_FROGEEL_RIVAL_8_8:
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
+	waitmovement 0
+	playse SE_EXIT
+	removeobject 5
+	setflag FLAG_TEMP_1D
+	waitse
+	setvar VAR_FROGEEL_RIVAL, 40
+	release
+	end
+
+BATTLE_FROGEEL_RIVAL_8_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_8_GRASS, BATTLE_FROGEEL_RIVAL_8_Text_1
+	goto BATTLE_FROGEEL_RIVAL_8_1
+
+BATTLE_FROGEEL_RIVAL_8_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_8_FIRE, BATTLE_FROGEEL_RIVAL_8_Text_1
+	goto BATTLE_FROGEEL_RIVAL_8_1
+
+BATTLE_FROGEEL_RIVAL_8_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_8_WATER, BATTLE_FROGEEL_RIVAL_8_Text_1
+	goto BATTLE_FROGEEL_RIVAL_8_1
+
+BATTLE_FROGEEL_RIVAL_8_9:
+	applymovement 7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2
+	goto BATTLE_FROGEEL_RIVAL_8_8
+
+
+MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	set_invisible
+	step_end
+
+Mithrilman_Daemonheim::
+	playbgm MUS_ENCOUNTER_MAY, 1
+	lock
+	faceplayer
+	namebox Mithrilman_Daemonheim_Text_0
+	compare VAR_MITHRILMAN_STATE, 30
+	goto_if_eq Mithrilman_Daemonheim_1
+	msgbox Mithrilman_Daemonheim_Text_2
+	closemessage
+	hidenamebox
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Mithrilman_Daemonheim_1:
+	msgbox Mithrilman_Daemonheim_Text_1
+	hidenamebox
+	closemessage
+	setvar VAR_MITHRILMAN_STATE, 35
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 6
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+
 DUNGEONEERING_CHECK_HOWMANYDUNGEONS_Text_0:
 	.string "You have explored: {STR_VAR_1}\n"
 	.string "floors.$"
@@ -430,3 +666,154 @@ THOK_GYM_CHALLENGE_STATE_3_Text_3:
 	.string "portal.\p"
 	.string "Good luck, I'll be here if you need any\n"
 	.string "advice about the dungeon.$"
+
+FROGEEL_RIVAL_8_Text_0:
+	.string "???$"
+
+FROGEEL_RIVAL_8_Text_1:
+	.string "Hello there adventurer?\p"
+	.string "Angrenouille?{PAUSE 15}\l"
+	.string "No, I do not know who that handsome man\l"
+	.string "is.{PAUSE 15}\p"
+	.string "Eh, nevermind this armour is heavy.$"
+
+FROGEEL_RIVAL_8_Text_2:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_8_Text_3:
+	.string "I needed a disguise to sneak past\n"
+	.string "those barbarians up there.\p"
+	.string "Is the armour tainted?{PAUSE 15}\l"
+	.string "Don't be a coward {PLAYER}.\l"
+	.string "What thief believes in curses.\p"
+	.string "Well, I made off with the loot and that's\n"
+	.string "that.$"
+
+FROGEEL_RIVAL_8_Text_4:
+	.string "HAM?\l"
+	.string "Like the thing on your sandwich?\p"
+	.string "No, I dont know them.{PAUSE 15}\p"
+	.string "It's that serious?$"
+
+FROGEEL_RIVAL_8_Text_5:
+	.string "Then why bring it up then?$"
+
+FROGEEL_RIVAL_8_Text_6:
+	.string "Wow!\l"
+	.string "You seem really passionate about that.$"
+
+FROGEEL_RIVAL_8_Text_7:
+	.string "You again {PLAYER}?\p"
+	.string "You're still going on about HAM?{PAUSE 15}\p"
+	.string "Is it really that serious?$"
+
+FROGEEL_RIVAL_8_Text_8:
+	.string "Why do you keep bringing it up then?\p"
+	.string "Are there ladies in this organisation\n"
+	.string "that have caught your eye..?$"
+
+FROGEEL_RIVAL_8_Text_9:
+	.string "You keep going on about HAM {PLAYER}.\p"
+	.string "No matter how much you downplay it, I\n"
+	.string "can tell that you're very passionate\l"
+	.string "about it!$"
+
+BATTLE_FROGEEL_RIVAL_8_Text_0:
+	.string "Well {PLAYER}, you and I have made it\n"
+	.string "this far.\p"
+	.string "Just for you, if you beat me here, I will\n"
+	.string "help you.{PAUSE 15}\l"
+	.string "If I remember it.\p"
+	.string "Angrenouille, the future monarch of the\n"
+	.string "Land of Frogs promises!$"
+
+BATTLE_FROGEEL_RIVAL_8_Text_1:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_8_Text_2:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "...{PAUSE 15}\p"
+	.string "{PLAYER}, you have my word.\l"
+	.string "We will make it through this together.\p"
+	.string "What are we?\l"
+	.string "We are thick as thieves!\l"
+	.string "Thats what we are.\p"
+	.string "Here.$"
+
+BATTLE_FROGEEL_RIVAL_8_Text_3:
+	.string "Now then…$"
+
+Mithrilman_Daemonheim_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_Daemonheim_Text_1:
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "Thousts have decided to pay thine a\n"
+	.string "visit?\l"
+	.string "Kid thine not.\p"
+	.string "Thousts is here to gloat isn't thoust?\p"
+	.string "Leave thine be.\l"
+	.string "Thine ist contemplating thinests next\l"
+	.string "ordeal.$"
+
+Mithrilman_Daemonheim_Text_2:
+	.string "Mithrilmen are solitary, alone.\l"
+	.string "Scolded and seen second to by Ironmen.\p"
+	.string "There ist none other that could match\n"
+	.string "one as thine.\p"
+	.string "No-one.\p"
+	.string "…{PAUSE 15}$"

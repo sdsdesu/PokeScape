@@ -618,7 +618,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_twisted;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_genie;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_doris;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_angrennouille;
-
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ham_sack;
 
 
 
@@ -1251,7 +1251,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_TWISTED] =                       &gObjectEventGraphicsInfo_twisted,
     [OBJ_EVENT_GFX_GENIE] =                         &gObjectEventGraphicsInfo_genie,
     [OBJ_EVENT_GFX_DORIS] =                         &gObjectEventGraphicsInfo_doris,
-    [OBJ_EVENT_GFX_ANGRENNOUILLE] =                  &gObjectEventGraphicsInfo_angrennouille,
+    [OBJ_EVENT_GFX_ANGRENNOUILLE] =                 &gObjectEventGraphicsInfo_angrennouille,
+    [OBJ_EVENT_GFX_HAM_SACK] =                      &gObjectEventGraphicsInfo_ham_sack,
 
     
 //ORES 

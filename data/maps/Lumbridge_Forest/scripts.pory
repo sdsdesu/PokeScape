@@ -13,24 +13,55 @@ MAP_SCRIPT_ON_TRANSITION {
 			//call(OPENWORLD_STATE_LumForest)
 		}
     }
+MAP_SCRIPT_ON_FRAME_TABLE [
+	VAR_POKESCAPE_STORYMODE_PROGRESS, 240: POST_WARP_ZANIK_EVENT
+]
 }
 
 script LumForest_STATE{
-	//switch (var(VAR_POKESCAPE_WIZARDS_TOWER_STATE)){ 
-		//case 0: 
-            setobjectxyperm(5, 32, 15)
-            setobjectmovementtype(5,MOVEMENT_TYPE_FACE_DOWN)
-            setobjectxyperm(4, 33, 15)
-            setobjectmovementtype(4,MOVEMENT_TYPE_FACE_DOWN)
-
-			return
-    //}
+	removeobject(41)
+	setflag(FLAG_TEMP_8)
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 215) {
+		checkitem(ITEM_CUT_TOOL, 1) 
+		if (!var(VAR_RESULT)) {
+			addobject(41)
+			clearflag(FLAG_TEMP_8)
+		}
+	}
+	return
 }
 
-
-
-
-
+script POST_WARP_ZANIK_EVENT {
+    //add movement
+	namebox ("Zanik")
+    msgbox(format("We made it out somehow."))
+    //Zanik looks at Prince Ali
+    msgbox(format("Hey you, sunburned human, are you all right?"))
+    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    msgbox(format("My name is Prince Ali, goblin.\lThank you for saving me."))
+    namebox ("Zanik")
+    msgbox(format("It wasn't all me, most of it was {PLAYER} here."))
+    namebox ("Prince Ali") //Possibly tweak this if we are having it not actually be Prince Ali?
+    msgbox(format("{PLAYER}.\lThank you for saving me.\pH.A.M wanted my 'INSERT PLOT MCGUFFIN HERE' saying it was a vital ingredient to a ritual to bind a monster to their will.\pIt has been passed down in my family for ages.\lBut it seems I had to trade it for my life for now.\pWe can not let H.A.M get away with this.\lI will try to reach the other MvM leaders and organize a front to stop them.\pBut until then, I guess you do need to beat me right?\lI will meet you back in Al Kharid.\lLet us battle and become ever stronger together!"))
+    //Prince Ali walks off
+	//removeobject Prince Ali
+    namebox ("Zanik")
+    msgbox(format("You save him from a bunch of extremists.\lWe risk our lives in doing so.\lAnd your thanks is a battle?\pYou humans are weird.\pEither way, I should get involved as well in tracking H.A.M.\pFor now I will retreat.\pHey {PLAYER}, as a thanks for the help, I want you to have this!"))
+    hidenamebox
+    closemessage
+    giveitem(ITEM_BONECROSSBOW, 1)
+    closemessage
+    namebox ("Zanik")
+    msgbox(format("it's a spare, but I hope it will do you good.\pI am going back to Dorgesh-Kaan for now, but I hope to see you again.\pGoodbye {PLAYER}."))
+    hidenamebox
+    closemessage
+    //Zanik walks off
+	//remove object Zanik
+	//setflag for Zanik and Prince Ali
+    //setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 245)                            //TBC
+    release
+    end
+}
 
 //NPCS
 script LUMBRIDGEFOREST_NPC_BOT1
@@ -118,24 +149,24 @@ movement MOVEMENT_SHOCKED_FACEPLAYER {
 }
 
 
-script NPC_LUMBRIDGE_FOREST_5 //not currently in use
+script NPC_LUMBRIDGE_FOREST_5
 {
 	lock
 	faceplayer
-    namebox ("Cupholder")
-	msgbox(format("Hello, I am a Cupholder."))
+    namebox ("Woodcutter")
+	msgbox(format("I can see Lumbridge on the other side.\pIf only I had the Woodcutting level to get past these trees…"))
     closemessage
     hidenamebox
 	release
 	end
 }
 
-script NPC_LUMBRIDGE_FOREST_6
+script NPC_LUMBRIDGE_FOREST_MISSING_AXE
 {
 	lock
 	faceplayer
-    namebox ("Woodcutter")
-	msgbox(format("I can see Lumbridge on the other side.\pIf only I had the Woodcutting level to get past these trees…"))
+    namebox ("CutterD0wn")
+	msgbox(format("Are you having difficulty cutting down these tiny trees?\pThey're surprisingly sturdy and require a DRAGON AXE to chop down.{PAUSE 15}\pYou don't have one?\pWhy don't you try seeing if you can buy one from someone in Lumbridge?\lI'm sure there's an axe shop there."))
     closemessage
     hidenamebox
 	release
@@ -207,6 +238,429 @@ script NPC_LUMBRIDGE_FOREST_HAM_1
 	end
 }
 
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_4
+{
+    switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)){ 
+		case 215: 
+            goto(TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction)
+        case 220: 
+            goto(CHECK_FOLLOWER_ZANIK)
+    }
+
+
+    setvar(VAR_TEMP_1, 1) //if all the events are done.
+    release
+    end
+}
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_4_Zanik_first_interaction
+{
+    lockall
+    //zanik walks over to player
+    playse(SE_PIN)
+    applymovement (29, movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP)
+    waitmovement(0)
+
+    namebox ("???")
+    msgbox(format("Hey you!\pYou aren't a H.A.M member, are you?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)){
+        msgbox(format("With that lack of pink, you can't fool me human."))
+    }
+    else {
+        msgbox(format("Oh that's good.\pI know some humans are more sensible than others."))
+    }
+    namebox ("Zanik")
+    msgbox(format("I am Zanik. A hunter and scout for the Dorgeshuun goblins beneath Lumbridge.\pAnd you are?"))
+    closemessage
+    hidenamebox
+    //INTERACTS WITH ZANIK
+    applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("{PLAYER}.\pWhat a weird name…\naccording to goblin sensibilities at least.\pH.A.M has tried to exterminate us for a while, looking upon us as well…\pPests to be rid off I guess?\pLeading to me collaborating with the Duke who is less than pleased with his previous aid Sigmund being at the center of this.\pNow, I need to figure out what is down there and what they are planning and you probably have your own reasons right?"))
+
+    msgbox(format("So how about I lend you a disguise and we team up down there?"), MSGBOX_YESNO)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Well drat.\nI guess I'm not as persuasive as I thought…"))
+		hidenamebox
+    	closemessage
+        applymovement (29, movement_ZANIK_WALKS_AWAY)
+		applymovement (OBJ_EVENT_ID_PLAYER, movement_WALK_DOWN_1_STEP)
+		waitmovement(0)
+    }
+    else {
+        msgbox(format("I bet we will make a great team!"))
+        hidenamebox
+		//ZANIK JOINS THE PARTY and Follows!
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("Together nothing can beat us!\nZanik teams up!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK)
+        namebox("Zanik")
+        msgbox(format("Here put this disguise on."))
+        closemessage
+        hidenamebox
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        destroyfollower
+        loadword(0, Following_Zanik)
+        setfollower(29, 0x80)
+        setvar(VAR_0x8004, OUTFIT_HAM)
+        special(WearOutfit)
+        delay(20)
+        namebox("Zanik")
+        msgbox(format("Perfect let us venture below!"))
+        closemessage
+        hidenamebox
+        applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+		waitmovement(0)
+        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 220)
+    }
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+movement movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP {
+    emote_exclamation_mark
+    delay_16 * 2
+    walk_right * 2
+    walk_down * 2
+    step_end
+}
+movement movement_ZANIK_WALKS_AWAY {
+    walk_up * 2 
+    walk_left * 2
+    face_down
+    step_end
+}
+
+
+script CHECK_FOLLOWER_ZANIK {
+	checkfollower
+	if (var(VAR_RESULT)) {
+		lockall
+		facefollower
+		namebox("Zanik")
+		msgbox(format("{PLAYER} do you wish to part ways?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{ 
+			msgbox(format("Don't take too long, I don't think I can do this without you."))
+			
+			iswearingoutfit(OUTFIT_HAM)
+			if (var(VAR_RESULT) == TRUE) {
+				namebox("Zanik")
+				msgbox(format("Oh pass me that disguise real quick, we need to make sure it stays pink."))
+			}
+			closemessage
+			hidenamebox
+			
+			iswearingoutfit(OUTFIT_HAM)
+			if (var(VAR_RESULT) == TRUE) {
+				fadescreenswapbuffers(FADE_TO_BLACK)
+				call(FOLLOWER_REMOVE)
+				setvar(VAR_0x8004, OUTFIT_DEFAULT)
+				special(WearOutfit)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
+			}
+			else {
+				call(FOLLOWER_REMOVE)
+			}
+			clearflag(FLAG_TEMP_1E)
+			addobject(29)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+			waitmovement(0)
+		}
+		else {
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+			waitmovement(0)
+		}
+		releaseall
+	}
+	else {
+		playse(SE_PIN)
+        applymovement (29, movement_ZANIK_WALK_TOWARDS_PLAYER_FOR_TEAMUP)
+        waitmovement(0)
+		goto(SetFollower_Zanik)
+	}
+	return
+}
+
+
+
+
+script SetFollower_Zanik {
+    lockall
+    faceplayer
+    namebox("Zanik")
+	msgbox(format("You've returned!\pSo how about I lend you a disguise and we team up to take H.A.M down!?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+		msgbox(format("I bet we will make a great team!"))
+        hidenamebox
+		//ZANIK JOINS THE PARTY and Follows!
+		playfanfare(MUS_OBTAIN_SYMBOL)
+		msgbox(format("Together nothing can beat us!\nZanik teams up!"))
+		waitfanfare
+		closemessage
+		hidenamebox
+		setflag(FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES)
+		setflag(FLAG_PARTNER_BATTLE)
+		setvar (VAR_PARTNER_TRAINER, TRAINER_ZANIK_HAM)
+		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_ZANIK)
+        namebox("Zanik")
+        msgbox(format("Here put this disguise on."))
+        closemessage
+        hidenamebox
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        destroyfollower
+        loadword(0, Following_Zanik)
+        setfollower(29, 0x80)
+        setvar(VAR_0x8004, OUTFIT_HAM)
+        special(WearOutfit)
+        delay(20)
+        namebox("Zanik")
+        msgbox(format("Perfect let us venture below!"))
+        closemessage
+        hidenamebox
+		applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+		waitmovement(0)
+		releaseall
+		end
+    }
+	msgbox(format("Well drat.\nI guess I'm not as persuasive as I thought…"))
+    hidenamebox
+    closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+	waitmovement(0)
+    releaseall
+    end
+}
+
+
+
+
+script Following_Zanik {
+    namebox("Zanik")
+    facefollower 
+
+	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
+		case 225:
+			msgbox(format("The disguises are working!\pNow where might they be holding their prisoners?"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 230:
+			msgbox(format("We need to find someone with a spare key to the jail cell.\pPerhaps they're somewhere deeper inside the hideout?"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 235:
+			msgbox(format("I am sorry I blew our cover {PLAYER}, but we've come this far and we have the jail cell key now!\pWe have to keep going and find the Prince!"))
+			hidenamebox
+			closemessage
+			release
+			end
+	}
+	//It is more common for special dialogue than this common dialogue. 1/5
+	random(5)
+	switch (var(VAR_RESULT)) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			specialvar (VAR_RESULT, GetCurrentMap)
+			if (var(VAR_RESULT) == MAP_LUMBRIDGE_FOREST) {
+				goto(ZANIK_DIALOGUE_LUMBRIDGE_FOREST)
+			}
+			elif (var(VAR_RESULT) == MAP_HAM_HIDEOUT_B1F) {
+				goto(ZANIK_DIALOGUE_HAM_HIDEOUT_B1F)
+			}
+			elif (var(VAR_RESULT) == MAP_HAM_HIDEOUT_B2F) {
+				goto(ZANIK_DIALOGUE_HAM_HIDEOUT_B2F)
+			}
+			else {
+				goto(ZANIK_DIALOGUE_COMMON)
+			}
+		default:
+			goto(ZANIK_DIALOGUE_COMMON)
+	}
+}
+
+script ZANIK_DIALOGUE_COMMON {
+	random(12)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("I hail from a city named Dorgesh-Kaan.\pIt's beneath Lumbridge.\pHumans do not visit there much."))
+		case 1:
+			msgbox(format("We found out about Lumbridge when we accidentally mined into the castle cellars.\pIt was a whole ordeal honestly."))
+		case 2:
+			msgbox(format("Have you seen a weird guy with a party hat and goggles?\pI can't quite figure the guy out."))
+		case 3:
+			msgbox(format("My equipment is made of bones.\pNot a lot of material underground."))
+		case 4:
+			msgbox(format("Aah, I use electric type monsters mainly.\pThey help me see in the dark caverns while I hunt"))
+		case 5:
+			msgbox(format("After you have beaten the MvM championship I hear you need to face the Elite 4.\pDo you ever wonder who they are?"))
+		case 6:
+			msgbox(format("Hey, have you met Millie Miller?\pDo you agree she is really pretty?"))
+		case 7:
+			msgbox(format("I would kill for a frogburger right now, agree?"))
+		case 8:
+			msgbox(format("At home, I like to help Oldak with his experiments!\pI can take his magic ball anywhere in the caves, and even to Lumbridge, but whenever I break it I always end up right back in his workshop."))
+		case 9:
+			msgbox(format("The Dorgeshuun tribe fled underground to avoid taking part in any fight for an evil god.\pWe refused to be their pawns."))
+		case 10:
+			msgbox(format("The mark on my forehead?\pI'm not really sure what it is either."))
+		case 11:
+			msgbox(format("In the ancient goblin language, the Dorgeshuun means 'Goblins of the Strong Spears'."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script ZANIK_DIALOGUE_LUMBRIDGE_FOREST {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I see people around here using axes for cutting down trees.\pThey're tools for good, so why do people also use them as weapons?"))
+	case 1:
+		msgbox(format("Is... Is that another goblin over there?\pI wonder if they're a distant relative."))
+	case 2:
+		msgbox(format("This place is so different to Dorgesh-Kaan."))
+	case 3:
+		msgbox(format("Aaaaah! My eyes!{PAUSE 15}\nSorry {PLAYER}, I'm still not accustomed to being above ground yet."))
+	case 4:
+		msgbox(format("Deep beneath Lumbridge is a place called the Tears of Guthix.\pYou should see it for yourself sometime."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+script ZANIK_DIALOGUE_HAM_HIDEOUT_B1F {
+	random(8)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("Careful {PLAYER} we don't want them to realise we're not like them."))
+	case 1:
+		msgbox(format("These HAM guys really tick me off."))
+	case 2:
+		msgbox(format("How do people like these even find one another to form an organisation like this?"))
+	case 3:
+		msgbox(format("These people are so driven by their beliefs, but at the same time they say it's because Saradomin would want the same.\pDo they truly need a god to justify their actions?"))
+	case 4:
+		msgbox(format("It's sad to think about how many amazing things were probably dug up to build this place.\pAll that history gone, and for what..."))
+	case 5:
+		msgbox(format("Come on {PLAYER} if we keep looking around we are bound to find something eventually."))
+	case 6:
+		msgbox(format("These people claim to hate monsters, but just look around.\pThey're the real monsters..."))
+	case 7:
+		msgbox(format("I can hear something going on deeper into these caves...\pWe should investigate!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script ZANIK_DIALOGUE_HAM_HIDEOUT_B2F {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("It's funny that they claim to hate creatures like me, yet here they are living in a cave... just like me."))
+	case 1:
+		msgbox(format("I can't believe that they live like this.\pEven we have running water in Dorgesh-Kaan!"))
+	case 2:
+		msgbox(format("How did the Duke not realise that all of this was going on, right under his nose?"))
+	case 3:
+		msgbox(format("I can hear someone that sounds very important nearby.\pI think we're getting close {PLAYER}!"))
+	case 4:
+		msgbox(format("Humans Against Monsters?\pMore like Humans Are Monsters.\nSorry {PLAYER}, I don't mean you."))
+	case 5:
+		msgbox(format("Where do they make and eat food down here?"))
+	case 6:
+		msgbox(format("Torches?\pReally?\pWe have lamp posts with metal wires and light orbs!\pNo wonder they can't see through our disguises, their eyesight must be awful!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+//HAM NPCs
+
+script NPC_LUMBRIDGEFOREST_HAM_1
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Grunt")
+	msgbox(format("Our hideout isn't here, but if it was we would totally not hold anybody important like a prince here.\pAnd we totally would not need that theoretical prince because he has what is needed to summon a power that will rip the world as we know it in two...\pAnd H.A.M definitely would not want to use that power so we can return the world to the peaceful state it needs to be.{PAUSE 15}\nThat's right, there is nothing here.\pMove on."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+
+//HAM TRAINERS
+script BATTLE_LUMBRIDGEFOREST_HAM_1
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_1, format("Why would you look at that, a little monster sympathiser lost in the woods."),format("You may have beaten us, but we will never tell you where our secret hideout is."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("That grunt needs to stop talking before she gets us both into some serious trouble..."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_LUMBRIDGEFOREST_HAM_2
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_2, format("Maybe you and I should show them the way straight back to the bank."),format("Yeah, we will never tell you it's right up that path!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("You didn't hear anything about our secret hideout being right up that path, did you?"))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_LUMBRIDGEFOREST_HAM_3
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_3, format("We fight for what's right... The future will show you were in the wrong!"),format("You may have won, but you're still on the wrong side of this!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("The future is written by the victors... Remember that when we smite you down like the bug you are."))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_LUMBRIDGEFOREST_HAM_4
+{ 
+    trainerbattle_single(TRAINER_LUMBRIDGEFOREST_HAM_4, format("I refuse to just let you just waltz into our hideout!"),format("This really isn't my day..."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("This really isn't my day.\pI hope my superiors aren't watching.\pIt would really kill my performance review."))
+	hidenamebox
+    release
+	end
+}
 
 
 

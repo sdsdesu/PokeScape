@@ -572,7 +572,8 @@ gSpecials::
 	def_special OutfitMenu
 	def_special MakeoverMage
 	def_special WearOutfit
-
+	def_special GetAmountOfBadges
+	
 
 
 

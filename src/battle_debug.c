@@ -201,6 +201,7 @@ static const u8 sText_Nightmare[] = _("Nightmare");
 static const u8 sText_Cursed[] = _("Cursed");
 static const u8 sText_Foresight[] = _("Foresighted");
 static const u8 sText_DefenseCurl[] = _("Def Curled");
+static const u8 sText_PrayerActivated[] = _("Prayer Active");
 static const u8 sText_Tormented[] = _("Tormented");
 static const u8 sText_AlwaysHits[] = _("Sure Hit");
 static const u8 sText_ChargedUp[] = _("Charged Up");
@@ -421,6 +422,7 @@ static const struct ListMenuItem sStatus2ListItems[] =
     {sText_Foresight, 14},
     {sText_DefenseCurl, 15},
     {sText_Tormented, 16},
+    {sText_PrayerActivated, 17},    
 };
 
 static const struct ListMenuItem sStatus3ListItems[] =

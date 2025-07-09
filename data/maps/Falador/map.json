@@ -722,11 +722,11 @@
       "flag": "FLAG_TEMP_1D"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_THIEF",
-      "x": 59,
-      "y": 15,
+      "graphics_id": "OBJ_EVENT_GFX_ANGRENNOUILLE",
+      "x": 58,
+      "y": 14,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",

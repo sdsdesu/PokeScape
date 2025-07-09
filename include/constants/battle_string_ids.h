@@ -735,11 +735,20 @@
 #define STRINGID_PLAYERGOTTOKKUL                      733
 #define STRINGID_CUTHPINCREASEDSTATS                  734
 #define STRINGID_ELECTROSHOCKCHARGING                 735
+#define STRINGID_SIRTIFFY_MESSAGE_1                   736
+#define STRINGID_SIRTIFFY_MESSAGE_2                   737
+#define STRINGID_SIRTIFFY_MESSAGE_3                   738
+#define STRINGID_HAZELMERE_MESSAGE_1                  739
+#define STRINGID_HAZELMERE_MESSAGE_2                  740
+#define STRINGID_HAZELMERE_MESSAGE_3                  741
+#define STRINGID_HANS_MESSAGE_1                       742
+#define STRINGID_HANS_MESSAGE_2                       743
+#define STRINGID_HANS_MESSAGE_3                       744
+#define STRINGID_ZANIK_MESSAGE_1                      745
+#define STRINGID_ZANIK_MESSAGE_2                      746
+#define STRINGID_ZANIK_MESSAGE_3                      747
 
-
-
-
-#define BATTLESTRINGS_VANILLA_END                     735
+#define BATTLESTRINGS_VANILLA_END                     747
 
 
 

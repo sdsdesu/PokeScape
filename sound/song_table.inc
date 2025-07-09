@@ -682,6 +682,7 @@ gSongTable::
 	song MUS_PS_TZHAAR, 0, 0
 	song mus_ps_ice_mountain, 0, 0
 	song mus_ps_vs_tzhaar, 0, 0
+	song mus_ps_vs_frogeelman, 0, 0
 	
 
 	

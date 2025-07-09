@@ -973,8 +973,11 @@ FROGEEL_RIVAL_1_2:
 	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1
 	waitmovement 0
 	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
 	msgbox FROGEEL_RIVAL_1_Text_10
 	giveitem ITEM_SPIRIT_CHARM, 1
+	waitmovement 0
 	removeobject 38
 	setflag FLAG_TEMP_1F
 	setvar VAR_FROGEEL_RIVAL, 5
@@ -1466,10 +1469,10 @@ FROGEEL_RIVAL_1_Text_2:
 	.string "…{PAUSE 15}… I mean practising my swimming skills.$"
 
 FROGEEL_RIVAL_1_Text_3:
-	.string "Angrennouille$"
+	.string "Angrenouille$"
 
 FROGEEL_RIVAL_1_Text_4:
-	.string "Names Angrennouille.\p"
+	.string "Name's Angrenouille.\p"
 	.string "I dream of one day becoming a frog\n"
 	.string "prince.\p"
 	.string "I still wait for the day the Frog\n"
@@ -1488,7 +1491,7 @@ FROGEEL_RIVAL_1_Text_6:
 	.string "You didn't?{PAUSE 60}\n"
 	.string "No… I am not a thief!\p"
 	.string "I swear!\p"
-	.string "Well whatever, you're wrong, and I have\n"
+	.string "Well whatever, you're wrong and I have\n"
 	.string "nothing to prove to you.$"
 
 FROGEEL_RIVAL_1_Text_7:
@@ -1496,7 +1499,7 @@ FROGEEL_RIVAL_1_Text_7:
 	.string "Let's fight just to keep you silent.$"
 
 FROGEEL_RIVAL_1_Text_8:
-	.string "Seeya!$"
+	.string "AAA… SEEYA!$"
 
 FROGEEL_RIVAL_1_Text_9:
 	.string "A…{PAUSE 60}\n"
@@ -1504,7 +1507,7 @@ FROGEEL_RIVAL_1_Text_9:
 	.string "AAAAAAA!$"
 
 FROGEEL_RIVAL_1_Text_10:
-	.string "It seems Angrennouille dropped\n"
+	.string "It seems Angrenouille dropped\n"
 	.string "something while running off.$"
 
 FROGEEL_RIVAL_1_Text_11:

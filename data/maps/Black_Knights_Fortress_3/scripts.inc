@@ -103,7 +103,7 @@ BKF_Banker::
 	namebox BKF_Banker_Text_0
 	msgbox BKF_Banker_Text_1
 	waitmessage
-	call BANK_OPTIONS
+	call BANK_OPTIONS_JAIL
 	namebox BKF_Banker_Text_0
 	msgbox BKF_Banker_Text_2
 	closemessage

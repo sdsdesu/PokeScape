@@ -244,7 +244,7 @@
 #define FLAG_TOGGLE_FORCED_WILD_DOUBLE_BATTLES  0xD6 // FLAG_ENABLE_WALLY_MATCH_CALL
 #define FLAG_ENABLE_SCOTT_MATCH_CALL         0xD7
 #define FLAG_ENABLE_MOM_MATCH_CALL           0xD8
-#define FLAG_MET_DIVING_TREASURE_HUNTER      0xD9
+#define FLAG_HAM_JAILED                      0xD9 // FLAG_MET_DIVING_TREASURE_HUNTER
 #define FLAG_MET_WAILMER_TRAINER             0xDA
 #define FLAG_EVIL_LEADER_PLEASE_STOP         0xDB
 #define FLAG_NEVER_SET_0x0DC                 0xDC // This flag is read, but never written to

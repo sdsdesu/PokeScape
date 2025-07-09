@@ -5,6 +5,9 @@
 #define METATILE_AlKharid_LOCKED_DOOR  0x251
 #define METATILE_AlKharid_OPENED_DOOR  0x213
 
+// gTileset_Barbarian_Village
+#define METATILE_Barbarian_Village_BRIDGE_SIDE_TOP  0x3CB
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
@@ -223,6 +226,9 @@
 #define METATILE_Dungeoneering_VINE_MID_R                   0x3BF
 #define METATILE_Dungeoneering_VINE_TOP_L                   0x3B5
 #define METATILE_Dungeoneering_VINE_TOP_R                   0x3B7
+
+// gTileset_Edgeville
+#define METATILE_Edgeville_EDGEVILLE_BRIDGE  0x2A9
 
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
@@ -572,6 +578,12 @@
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_L     0x2F9
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_R     0x2F8
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_UP    0x2FA
+
+// gTileset_PokeScape_HAM
+#define METATILE_PokeScape_HAM_HAM_CAVE_FLOOR        0x201
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM  0x2BB
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE    0x2D1
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP     0x2B3
 
 // gTileset_PokeScape_Sewers
 #define METATILE_PokeScape_Sewers_GATE_CLOSED_DOWN        0x36A

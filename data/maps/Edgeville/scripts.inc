@@ -1,12 +1,52 @@
 Edgeville_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, Edgeville_MapScripts_MAP_SCRIPT_ON_LOAD
 	map_script MAP_SCRIPT_ON_TRANSITION, Edgeville_MapScripts_MAP_SCRIPT_ON_TRANSITION
 	.byte 0
+
+Edgeville_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call EDGEVILLE_METATILES
+	return
 
 Edgeville_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_EDGEVILLE
 	setvar VAR_EVOLUTION_MAP_STATE, 15
+	call EDGEVILLE_STATE
 	call RANDOM_EVENT_SANDWICH_LADY
 	return
+
+
+EDGEVILLE_METATILES::
+	switch VAR_FROGEEL_RIVAL
+	case 20, EDGEVILLE_METATILES_2
+	return
+
+EDGEVILLE_METATILES_2:
+	setmetatile 36, 10, METATILE_Edgeville_EDGEVILLE_BRIDGE, 0, 4
+	return
+
+
+EDGEVILLE_STATE::
+	removeobject 25
+	setflag FLAG_TEMP_10
+	removeobject 24
+	setflag FLAG_TEMP_1C
+	compare VAR_FROGEEL_RIVAL, 20
+	goto_if_eq EDGEVILLE_STATE_2
+EDGEVILLE_STATE_1:
+	compare VAR_MITHRILMAN_STATE, 15
+	goto_if_eq EDGEVILLE_STATE_5
+EDGEVILLE_STATE_4:
+	return
+
+EDGEVILLE_STATE_2:
+	addobject 25
+	clearflag FLAG_TEMP_10
+	goto EDGEVILLE_STATE_1
+
+EDGEVILLE_STATE_5:
+	clearflag FLAG_TEMP_1C
+	addobject 24
+	goto EDGEVILLE_STATE_4
 
 
 SIGNPOST_EDGEVILLE_GYM::
@@ -682,6 +722,170 @@ GOBLIN_EDGEVILLE_GYM::
 	end
 
 
+FROGEEL_RIVAL_5::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_5_Text_0
+	msgbox FROGEEL_RIVAL_5_Text_1
+	hidenamebox
+	closemessage
+	playse SE_PIN
+	applymovement 25, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	namebox FROGEEL_RIVAL_5_Text_0
+	msgbox FROGEEL_RIVAL_5_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne FROGEEL_RIVAL_5_1
+	msgbox FROGEEL_RIVAL_5_Text_4
+	goto BATTLE_FROGEEL_RIVAL_5
+	return
+
+FROGEEL_RIVAL_5_1:
+	msgbox FROGEEL_RIVAL_5_Text_3
+	goto BATTLE_FROGEEL_RIVAL_5
+	return
+
+
+BATTLE_FROGEEL_RIVAL_5::
+	msgbox BATTLE_FROGEEL_RIVAL_5_Text_0
+	hidenamebox
+	closemessage
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_5_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_5_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_5_4
+BATTLE_FROGEEL_RIVAL_5_1:
+	namebox FROGEEL_RIVAL_5_Text_0
+	msgbox BATTLE_FROGEEL_RIVAL_5_Text_2
+	closemessage
+	hidenamebox
+	playse SE_FLEE
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox BATTLE_FROGEEL_RIVAL_5_Text_3
+	closemessage
+	giveitem ITEM_SPIRIT_CHARM, 1
+	closemessage
+	removeobject 25
+	setflag FLAG_TEMP_10
+	setvar VAR_FROGEEL_RIVAL, 25
+	release
+	end
+
+BATTLE_FROGEEL_RIVAL_5_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_5_GRASS, BATTLE_FROGEEL_RIVAL_5_Text_1
+	goto BATTLE_FROGEEL_RIVAL_5_1
+
+BATTLE_FROGEEL_RIVAL_5_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_5_FIRE, BATTLE_FROGEEL_RIVAL_5_Text_1
+	goto BATTLE_FROGEEL_RIVAL_5_1
+
+BATTLE_FROGEEL_RIVAL_5_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_5_WATER, BATTLE_FROGEEL_RIVAL_5_Text_1
+	goto BATTLE_FROGEEL_RIVAL_5_1
+
+
+Mithrilman_Edgeville::
+	playbgm MUS_ENCOUNTER_MAY, 1
+	lock
+	faceplayer
+	namebox Mithrilman_Edgeville_Text_0
+	msgbox Mithrilman_Edgeville_Text_1
+	goto_if_set FLAG_STARTER1, Mithrilman_Edgeville_2
+	goto_if_set FLAG_STARTER2, Mithrilman_Edgeville_3
+	goto_if_set FLAG_STARTER3, Mithrilman_Edgeville_4
+Mithrilman_Edgeville_1:
+	namebox Mithrilman_Edgeville_Text_0
+	msgbox Mithrilman_Edgeville_Text_3
+	waitmessage
+	closemessage
+	hidenamebox
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 7
+	goto_if_eq Mithrilman_Edgeville_9
+	compare VAR_TEMP_1, 8
+	goto_if_eq Mithrilman_Edgeville_10
+Mithrilman_Edgeville_8:
+	waitmovement 0
+	setvar VAR_MITHRILMAN_STATE, 20
+	setflag FLAG_TEMP_1C
+	removeobject 24
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 3
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	waitmovement 0
+	waitse
+	msgbox Mithrilman_Edgeville_Text_4
+	finditem ITEM_SOUL_RUNE, 1
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Mithrilman_Edgeville_2:
+	trainerbattle_no_intro TRAINER_MITHRILMAN4_GRASS, Mithrilman_Edgeville_Text_2
+	goto Mithrilman_Edgeville_1
+
+Mithrilman_Edgeville_3:
+	trainerbattle_no_intro TRAINER_MITHRILMAN4_FIRE, Mithrilman_Edgeville_Text_2
+	goto Mithrilman_Edgeville_1
+
+Mithrilman_Edgeville_4:
+	trainerbattle_no_intro TRAINER_MITHRILMAN4_WATER, Mithrilman_Edgeville_Text_2
+	goto Mithrilman_Edgeville_1
+
+Mithrilman_Edgeville_9:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	applymovement 24, MOVEMENT_MITHRILMAN_EDGEVILLE_1
+	goto Mithrilman_Edgeville_8
+
+Mithrilman_Edgeville_10:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
+	applymovement 24, MOVEMENT_MITHRILMAN_EDGEVILLE_2
+	goto Mithrilman_Edgeville_8
+
+
+MOVEMENT_MITHRILMAN_EDGEVILLE_1:
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+MOVEMENT_MITHRILMAN_EDGEVILLE_2:
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 SIGNPOST_EDGEVILLE_GYM_Text_0:
 	.string "Edgeville Gym, located beneath the\n"
 	.string "graveyard.$"
@@ -1191,3 +1395,94 @@ GOBLIN_EDGEVILLE_GYM_Text_1:
 	.string "Don't get any bright ideas.\p"
 	.string "I'm just minding my own business, you\n"
 	.string "should too.$"
+
+FROGEEL_RIVAL_5_Text_0:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_5_Text_1:
+	.string "You really aren't escaping those\n"
+	.string "stalker allegations {PLAYER}.\p"
+	.string "...{PAUSE 15}\p"
+	.string "...{PAUSE 15}\p"
+	.string "Do you just want an autograph?\p"
+	.string "No shame in being shy {PLAYER}.\l"
+	.string "I got you, I got you.$"
+
+FROGEEL_RIVAL_5_Text_2:
+	.string "What?\p"
+	.string "No?\l"
+	.string "Well whatever.\p"
+	.string "Got a big decision on my end.\p"
+	.string "I will either go for a job at Al Kharid, or\n"
+	.string "Varrock.\l"
+	.string "What do you think?$"
+
+FROGEEL_RIVAL_5_Text_3:
+	.string "Yes as in?\l"
+	.string "Both?\l"
+	.string "Al Kharid?\p"
+	.string "What?$"
+
+FROGEEL_RIVAL_5_Text_4:
+	.string "No to both?\p"
+	.string "Or no to the last one?$"
+
+BATTLE_FROGEEL_RIVAL_5_Text_0:
+	.string "You are really confusing {PLAYER}.\p"
+	.string "Anyway, the guards might be here soon\n"
+	.string "so I'm going to bail.\l"
+	.string "Better silence you first however!$"
+
+BATTLE_FROGEEL_RIVAL_5_Text_1:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_5_Text_2:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA!$"
+
+BATTLE_FROGEEL_RIVAL_5_Text_3:
+	.string "As Angrenouille ran off, he dropped an\n"
+	.string "item.$"
+
+Mithrilman_Edgeville_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_Edgeville_Text_1:
+	.string "Greetingst knave.\p"
+	.string "Thine hast witnessed thousts battle in\n"
+	.string "the village of the barbarianest.\p"
+	.string "Thine must admit, thousts are truly\n"
+	.string "lucky.\p"
+	.string "Coming thist far solely on luckst with\n"
+	.string "thousts lackest of skill.\l"
+	.string "Thoust make thine laugh knave.\p"
+	.string "Let thine show yee how a battle is to\n"
+	.string "truly behest.$"
+
+Mithrilman_Edgeville_Text_2:
+	.string "…$"
+
+Mithrilman_Edgeville_Text_3:
+	.string "Incomprehensiblestststs…\p"
+	.string "Knave, thoust mayhaps be the luckiest\n"
+	.string "person in the Gielinorian realm.\p"
+	.string "Thine is baffled.\l"
+	.string "Howst is this possible?\p"
+	.string "Knave, thine sees throughts yee.\p"
+	.string "Thoust are nothing but a knave,\n"
+	.string "insignificant comparest to thine,\l"
+	.string "because thine is a mithrilman beyond\l"
+	.string "comparisonst.\p"
+	.string "Yee be warned.\l"
+	.string "Nexts timest thine battlest yee, thine\l"
+	.string "will showst no mercy.$"
+
+Mithrilman_Edgeville_Text_4:
+	.string "Oh?\p"
+	.string "Mithrilman seems to have dropped\n"
+	.string "something while leaving.$"

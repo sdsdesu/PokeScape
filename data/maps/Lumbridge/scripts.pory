@@ -34,9 +34,18 @@ script LUMBRIDGE_STATE
 {
 	removeobject(OBJ_EVENT_ID_A_NUB_TOT)
 	setflag(FLAG_TEMP_1F)
+	removeobject(25) //Wise Old Man
+	setflag(FLAG_TEMP_1E)
 	if (flag(FLAG_A_NUB_TOT_TUTORIAL) == FALSE) {
 		setmetatile(18,8,METATILE_PokeScapeOutdoors_NOT_A_DOOR, 1) 
 		special(DrawWholeMapView) 
+	}
+
+
+
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 215) {
+		addobject(25) //Wise Old Man
+		clearflag(FLAG_TEMP_1E)
 	}
     return
 }

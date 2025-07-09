@@ -11544,3 +11544,22 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_angrennouille = {
     .images = sPicTable_angrennouille,
     .affineAnims = gDummySpriteAffineAnimTable
 };
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ham_sack = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_HAM,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
+    .size = 512,
+    .width = 32,
+    .height = 32,
+    .paletteSlot = 5,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = FALSE,
+    .disableReflectionPaletteLoad = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_32x32,
+    .subspriteTables = sOamTables_32x32,
+    .anims = sAnimTable_Following,
+    .images = sPicTable_ham_sack,
+    .affineAnims = gDummySpriteAffineAnimTable
+};

@@ -26,11 +26,11 @@ WILDERNESS_CRATER_SIR_TIFFY::
 	end
 
 
-WILDERNESS_CRATER_HAZELMARE::
+WILDERNESS_CRATER_HAZELMERE::
 	lock
 	faceplayer
-	namebox WILDERNESS_CRATER_HAZELMARE_Text_0
-	msgbox WILDERNESS_CRATER_HAZELMARE_Text_1
+	namebox WILDERNESS_CRATER_HAZELMERE_Text_0
+	msgbox WILDERNESS_CRATER_HAZELMERE_Text_1
 	call ELITE4_BATTLE_HAZELMERE
 	msgbox WILDERNESS_CRATER_SIR_TIFFY_Text_2
 	hidenamebox
@@ -96,10 +96,10 @@ WILDERNESS_CRATER_SIR_TIFFY_Text_1:
 WILDERNESS_CRATER_SIR_TIFFY_Text_2:
 	.string "You won, go through to the next room.$"
 
-WILDERNESS_CRATER_HAZELMARE_Text_0:
-	.string "Hazelmare$"
+WILDERNESS_CRATER_HAZELMERE_Text_0:
+	.string "Hazelmere$"
 
-WILDERNESS_CRATER_HAZELMARE_Text_1:
+WILDERNESS_CRATER_HAZELMERE_Text_1:
 	.string "you hear thoughts in your mind…\p"
 	.string "I am number 3. I can read your every\n"
 	.string "move.$"

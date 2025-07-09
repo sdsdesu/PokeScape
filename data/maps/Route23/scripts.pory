@@ -631,6 +631,29 @@ script COMMORB_FUNCTION
 		case 195:
 			namebox("Tiffy Cashien")
 			msgbox(format("Keep going {PLAYER}!\pYou may have lost the element of surprise without your disguises, but the information we are looking for should be in Lord Daquarius' room at the top of the Fortress.\pSir Tiffy Cashien -over."))
+		case 200:           //left blank as there shouldn't be a case where the player is able to access the orb at this state
+		case 205:           //post BKF event after getting the strength tool
+			namebox("Tiffy Cashien")
+			msgbox(format("Sir Owen filled me in on the battle with Lord Daquarius {PLAYER}!\pJolly good work dontchaknow.\pWe shall do some recon to try and work out what Sigmund and H.A.M are planning.\pUntil then, keep training as we may need your strength again soon!\pSir Tiffy Cashien -over."))
+		case 210:           //post HAM kidnapping
+			namebox("Tiffy Cashien")
+			msgbox(format("What's that {PLAYER}?\pH.A.M have kidnapped Prince Ali of Al Kharid?!\pYou must be pulling on my leg, hmm?\pYou're not?!\lThis is a diplomatic nightmare, old bean!\pThe top brass will need to be made aware.\pCan't see them being too thrilled about it.\pTry contacting someone at Al Kharid palace immediately.\pI'll make some enquiries this end dontchaknow.\pSir Tiffy Cashien -over."))
+		case 215:    //post palace, but pre HAM hideout
+			namebox("Tiffy Cashien")
+			msgbox(format("You met Ozan at Al Kharid palace?\pHmm, he's known for embellishing his stories so let's hope Osman believes him.\pIn the meantime, you should look around Lumbridge to see if you can find some clues as to where H.A.M have taken the Prince!\pSir Tiffy Cashien -over."))
+		case 220:           //after teaming up with Zanik for the first time but before triggering jail event
+			namebox("Tiffy Cashien")
+			msgbox(format("What ho, old bean.\pYou've teamed up with a goblin?\pJolly good show, that'll anger H.A.M more than anything and hopefully they'll make some mistakes!\pMy agents are all too far afield at the moment to assist, so we are relying on you {PLAYER}!\pTa-ta for now\pSir Tiffy Cashien -over."))
+		case 225:    //HAM Hideout, in disguise going to jail
+			namebox("Tiffy Cashien")
+			msgbox(format("Quite messy stuff, what?\pThe Prince has to be down there somewhere {PLAYER}.\pSee if you can find a prison or a jail of some kind.\pSir Tiffy Cashien -over."))
+		case 230:    //HAM Hideout, guarding prisoners?
+			namebox("Tiffy Cashien")
+			msgbox(format("Well done on locating the Prince {PLAYER}!\pGood to know he's not been harmed yet.\pYou need to get him out as soon as possible before the situation gets much, much worse.\pSir Tiffy Cashien -over."))
+		case 235:    //HAM Hideout, lost disguise
+			namebox("Tiffy Cashien")
+			msgbox(format("What's that, you lost your disguise {PLAYER}?\pYou seem to be making a habit of that dontchaknow.\pYou may have lost the element of surprise, but you're still our best hope of rescuing the Prince.\p\pSir Tiffy Cashien -over."))
+
 		default:
 			msgbox(format("There was no response…"))
 	}	

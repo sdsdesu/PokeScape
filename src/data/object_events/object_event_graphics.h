@@ -800,7 +800,7 @@ const u32 gObjectEventPic_twisted[] = INCBIN_U32("graphics/object_events/pics/po
 const u32 gObjectEventPic_genie[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/genie.4bpp");
 const u32 gObjectEventPic_doris[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/doris.4bpp");
 const u32 gObjectEventPic_angrennouille[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/angrennouille.4bpp");
-
+const u32 gObjectEventPic_ham_sack[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/ham_sack.4bpp");
 
 const u32 gObjectEventPic_bike_ham[] = INCBIN_U32("graphics/object_events/pics/costumes/bike_ham.4bpp");
 

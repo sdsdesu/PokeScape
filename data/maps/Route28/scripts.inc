@@ -6,6 +6,7 @@ Route28_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 11
 	call PENGUIN_EVENT
 	call WEATHER_CHANGE_AREA_DESERT_CALM
+	call ROUTE28_STATE
 	return
 
 
@@ -40,6 +41,26 @@ ENCOUNTER_PENGUIN_CACTUS_ROUTE28_2:
 	goto ENCOUNTER_PENGUIN_CACTUS_ROUTE28_1
 
 
+ROUTE28_STATE::
+	removeobject 16
+	setflag FLAG_TEMP_1C
+	switch VAR_MITHRILMAN_STATE
+	case 20, ROUTE28_STATE_3
+	case 25, ROUTE28_STATE_4
+ROUTE28_STATE_1:
+	return
+
+ROUTE28_STATE_3:
+	addobject 16
+	clearflag FLAG_TEMP_1C
+	goto ROUTE28_STATE_1
+
+ROUTE28_STATE_4:
+	addobject 16
+	clearflag FLAG_TEMP_1C
+	goto ROUTE28_STATE_1
+
+
 BLOCK_DEMO_END::
 	lockall
 	msgbox BLOCK_DEMO_END_Text_0
@@ -50,7 +71,9 @@ BLOCK_DEMO_END::
 
 BATTLE_ROUTE28_TRAINER_1::
 	trainerbattle_single TRAINER_ROUTE28_TRAINER_1, BATTLE_ROUTE28_TRAINER_1_Text_0, BATTLE_ROUTE28_TRAINER_1_Text_1
+	namebox BATTLE_ROUTE28_TRAINER_1_Text_2
 	msgbox BATTLE_ROUTE28_TRAINER_1_Text_1
+	hidenamebox
 	release
 	end
 
@@ -64,14 +87,18 @@ BATTLE_ROUTE28_TRAINER_2::
 
 BATTLE_ROUTE28_TRAINER_3::
 	trainerbattle_single TRAINER_ROUTE28_TRAINER_3, BATTLE_ROUTE28_TRAINER_3_Text_0, BATTLE_ROUTE28_TRAINER_3_Text_1
+	namebox BATTLE_ROUTE28_TRAINER_1_Text_2
 	msgbox BATTLE_ROUTE28_TRAINER_3_Text_2
+	hidenamebox
 	release
 	end
 
 
 BATTLE_ROUTE28_TRAINER_4::
 	trainerbattle_single TRAINER_ROUTE28_TRAINER_4, BATTLE_ROUTE28_TRAINER_4_Text_0, BATTLE_ROUTE28_TRAINER_4_Text_1
-	msgbox BATTLE_ROUTE28_TRAINER_4_Text_2
+	namebox BATTLE_ROUTE28_TRAINER_4_Text_2
+	msgbox BATTLE_ROUTE28_TRAINER_4_Text_3
+	hidenamebox
 	release
 	end
 
@@ -79,6 +106,33 @@ BATTLE_ROUTE28_TRAINER_4::
 BATTLE_ROUTE28_TRAINER_5::
 	trainerbattle_single TRAINER_ROUTE28_TRAINER_5, BATTLE_ROUTE28_TRAINER_5_Text_0, BATTLE_ROUTE28_TRAINER_5_Text_1
 	msgbox BATTLE_ROUTE28_TRAINER_5_Text_1
+	release
+	end
+
+
+Mithrilman_Route28::
+	playbgm MUS_ENCOUNTER_MAY, 1
+	lock
+	faceplayer
+	namebox Mithrilman_Route28_Text_0
+	compare VAR_MITHRILMAN_STATE, 20
+	goto_if_eq Mithrilman_Route28_1
+	msgbox Mithrilman_Route28_Text_2
+	closemessage
+	hidenamebox
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Mithrilman_Route28_1:
+	msgbox Mithrilman_Route28_Text_1
+	hidenamebox
+	closemessage
+	setvar VAR_MITHRILMAN_STATE, 25
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 4
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	release
 	end
 
@@ -105,6 +159,9 @@ BATTLE_ROUTE28_TRAINER_1_Text_1:
 	.string "Thank you for the fight.\p"
 	.string "I have grown bored of battles now\n"
 	.string "though.$"
+
+BATTLE_ROUTE28_TRAINER_1_Text_2:
+	.string "Guard$"
 
 BATTLE_ROUTE28_TRAINER_2_Text_0:
 	.string "Hey you!\p"
@@ -138,6 +195,9 @@ BATTLE_ROUTE28_TRAINER_4_Text_1:
 	.string "You could have just said no…$"
 
 BATTLE_ROUTE28_TRAINER_4_Text_2:
+	.string "Archeaologist$"
+
+BATTLE_ROUTE28_TRAINER_4_Text_3:
 	.string "Oh the pile of rocks over there are the\n"
 	.string "ruins I have been looking for!\p"
 	.string "I heard that they were magical in some\n"
@@ -149,3 +209,23 @@ BATTLE_ROUTE28_TRAINER_5_Text_0:
 BATTLE_ROUTE28_TRAINER_5_Text_1:
 	.string "Wow, when I said lets have a quick duel I\n"
 	.string "didn't expect it to be that quick.$"
+
+Mithrilman_Route28_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_Route28_Text_1:
+	.string "Knave, thoust darest intrude upon a\n"
+	.string "mithrilman ast thine trains for an\l"
+	.string "ordeal?\p"
+	.string "Leavest thine be knave.\l"
+	.string "Thine is training forst measures beyond\l"
+	.string "thousts control.\p"
+	.string "Thist arid desert, duelling the elements\n"
+	.string "and monsters alike.\l"
+	.string "Thast the true challenge of being\l"
+	.string "mithrilmen.\p"
+	.string "Thoust would never understandst\n"
+	.string "knave.$"
+
+Mithrilman_Route28_Text_2:
+	.string "Begone knave.$"

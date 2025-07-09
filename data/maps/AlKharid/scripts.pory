@@ -18,7 +18,32 @@ MAP_SCRIPT_ON_LOAD { //ON LOAD FOR MAP TILES
 }
 
 script ALKHARID_STATE {
-    setmetatile(13, 16, METATILE_AlKharid_OPENED_DOOR, 0)
+    //setmetatile(13, 16, METATILE_AlKharid_OPENED_DOOR, 0) //Openworld Player House door.
+
+	removeobject(17)
+	setflag(FLAG_TEMP_10) //Angrenouille
+
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 220) {
+        setvar(VAR_TEMP_2, 1) // Block Gym Access
+    }
+    
+
+
+    setflag(FLAG_TEMP_9)
+    removeobject(12)
+
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 210) {
+        clearflag(FLAG_TEMP_9)
+        addobject(12)
+		setvar(VAR_TEMP_1, 1) //Enables Ham Event At palace.
+        
+	}
+
+    if ((var(VAR_FROGEEL_RIVAL) == 25)) {
+    addobject(17)
+    clearflag(FLAG_TEMP_10) //Angrenouille
+    }
+	return
 }
 
 
@@ -50,233 +75,311 @@ script ALKHARID_WATERWELL
 script ALKHARID_NPC_1
 {
     faceplayer
-    //namebox ("")
-    msgbox(format("The Gnome Glider is currently undergoing maintenance.\pPlease come back later."))
-    closemessage
-    //hidenamebox
-    release
-    end
-}
-script ALKHARID_NPC_2
-{
-    faceplayer
-    namebox ("Ali")
-    msgbox(format("Browse my Wares."))
+    namebox ("Dalbur")
+    msgbox(format("I'm afraid the Gnome Glider is currently undergoing maintenance.\pPlease come back later."))
     closemessage
     hidenamebox
     release
     end
 }
+
+script ALKHARID_NPC_2
+{
+    faceplayer
+    namebox ("Ali")
+    msgbox(format("Please, browse my Wares."))
+    waitmessage
+    pokemart (STORE_Ali) 
+    namebox("Ali")
+	msgbox(format("Please come back any time."))
+	release
+	end
+}
+
+raw `
+    .align 2
+STORE_Ali:
+    .2byte ITEM_AIR_RUNE
+    .2byte ITEM_WATER_RUNE
+    .2byte ITEM_FIRE_RUNE
+    .2byte ITEM_EARTH_RUNE
+    .2byte ITEM_PRAYER_POTION
+    .2byte ITEM_WATERSKIN
+    .2byte ITEM_TINDERBOX    
+    .2byte ITEM_LUCKYRABBITFOOT
+	.2byte ITEM_GODRABBITFOOT
+    .2byte ITEM_CABBAGE
+	.2byte ITEM_EMPTY_BUCKET
+    .2byte ITEM_NONE
+    release
+    end
+`
+
 script ALKHARID_NPC_3
 {
     faceplayer
-    //namebox ("")
-    msgbox(format("Welcome to Al Kharid, NOOB!"))
+    namebox ("BigPencil55")
+    msgbox(format("Welcome to Al Kharid, NOOB!\nYeah, so what if I snuck in while the guards were distracted..."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_4
 {
     faceplayer
-    //namebox ("")
+    namebox ("Guard")
     msgbox(format("Don't cause trouble here in the city, law enforcement has a tendency to call upon several more guards unnecessarily for the smallest of cases."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_5
 {
     faceplayer
-    //namebox ("")
+    namebox ("Man")
     msgbox(format("Up North is the desert, you can find both sunny weather and sandstorms there.\pSome monsters seems to evolve only under those conditions."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_6
 {
     faceplayer
-    //namebox ("")
+    namebox ("Man")
     msgbox(format("Did you know there's a ban on magic carpets in Al Kharid?\pApparently their leader died using one at one point."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_7
 {
     faceplayer
-    //namebox ("")
+    namebox ("Guard")
     msgbox(format("This is Al Kharid castle, would you like to lose to the prince?"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_8
 {
     faceplayer
-    //namebox ("")
+    namebox ("Guard")
     msgbox(format("This is Al Kharid castle, would you like to challenge the prince?"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_9
 {
     faceplayer
-    //namebox ("")
+    namebox ("Adaranth")
     msgbox(format("I heard rumours of archaeologists carrying out an excavation on some ruins nearby.\pI wonder what magical artifacts might be sealed inside."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_10
 {
     faceplayer
-    //namebox ("")
+    namebox ("Guard")
     msgbox(format("I'm glad I managed to get assigned as a guard outside the palace.\pTherer were too many adventurers coming into the palace and trapping my brothers behind furniture to kill them."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_11
 {
     faceplayer
-    //namebox ("")
-    msgbox(format("We deal with a lot of thieves and cutthroats here.\pAl Kharid does not welcome them, yet they keep coming back."))
+    namebox ("Man")
+    msgbox(format("We deal with a lot of thieves and cutthroats here.\pAl Kharid does not welcome them, yet they keep coming back..."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_12
 {
     faceplayer
-    //namebox ("Spirit Angler")
+    namebox ("Spirit Angler")
     msgbox(format("The Spirit of the Sea has awoken and is creating intense storms for sailors.\pI wonder if there are any adventurers brave enough to defeat it."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_13
 {
     faceplayer
-    //namebox ("Ozan")
+    namebox ("Ozan")
     msgbox(format("Who am I?\pOnly the most famous hero ever born in Al Kharid!\pI helped aid in the defence of Burthorpe from the troll invasion.\pI helped rescue the druid master Pikkupstix from the depths of Daemonheim!\p…{PAUSE 32}\pWhat do you mean you've never heard of me?"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_14
 {
+    //not currently in use
     faceplayer
-    //namebox ("")
-    msgbox(format(""))
+    namebox ("Cupholder")
+    msgbox(format("I am a Cupholder"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_15
 {
+    //not currently in use
     faceplayer
-    //namebox ("")
-    msgbox(format(""))
+    namebox ("Cupholder")
+    msgbox(format("I am a Cupholder"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_NPC_16
 {
+    //not currently in use
     faceplayer
-    //namebox ("")
-    msgbox(format(""))
+    namebox ("Cupholder")
+    msgbox(format("I am a Cupholder"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
 
 
 
-
-
-//NPCS SHANTYPASS
-script SHANTYPASS_NPC_1
-{
-    faceplayer
-    //namebox ("Shantay")
-    msgbox(format("This is the pass of Shantay. I guard this area with my men. I am responsible for keeping this pass open.\pUnfortunately it is currently undergoing some repairs. Please come back again later."))
-    closemessage
-    //hidenamebox
-    release
-    end
-}
-script SHANTYPASS_NPC_2
-{
-    faceplayer
-    //namebox ("Shantay Guard")
-    msgbox(format("I help Shantay prevent outlaws from getting out of the desert. And we stop the inexperienced from a dry death in the sands."))
-    closemessage
-    //hidenamebox
-    release
-    end
-}
-script SHANTYPASS_NPC_3
-{
-    faceplayer
-    //namebox ("Shantay")
-    msgbox(format("Go talk to Shantay. I'm on duty and I don't have time to talk to the likes of you!"))
-    closemessage
-    //hidenamebox
-    release
-    end
-}
 
 
 script ALKHARID_INDOOR_NPC_1
 {
+    //not currently in use
     faceplayer
-    //namebox ("")
+    namebox ("Cupholder")
     msgbox(format("Hello, I am a Cupholder."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
+
 script ALKHARID_INDOOR_NPC_2
 {
     faceplayer
-    //namebox ("")
-    msgbox(format("Hello, I am a Cupholder."))
+    namebox ("Karim")
+    msgbox(format("Would you like to buy a nice kebab? Only one gold.{PAUSE 32}\nAre you sure you wouldn't like a kebab?"))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 } 
+
 script ALKHARID_INDOOR_NPC_3
 {
     faceplayer
-    //namebox ("")
-    msgbox(format("Hello, I am a Cupholder."))
-    closemessage
-    //hidenamebox
+    namebox ("Zeke")
+    msgbox(format("Welcome to Zeke's Superior Scimitars, now with upgraded stock!"))
+    waitmessage
+    pokemart (STORE_Zeke) 
+    namebox("Zeke")
+	msgbox(format("Some crazy adventurer managed to convince the banana-brained nitwits who make the dragon scimitars to sell some to me.\pI'll never understand how they managed it."))
     release
     end
 } 
 
+raw `
+    .align 2
+STORE_Zeke:
+    .2byte ITEM_MITHRIL_SCIMITAR
+    .2byte ITEM_DRAGON_SCIMITAR
+    .2byte ITEM_NONE
+    release
+    end
+`
+script ALKHARID_INDOOR_NPC_4
+{
+    faceplayer
+    namebox ("Dommik")
+    msgbox(format("Would you like to buy some handcrafted items?"))
+    waitmessage
+    pokemart (STORE_Dommik) 
+    namebox("Dommik")
+	msgbox(format("Excuse the mess, people stopped buying crafting supplies so I had to change business model very, very quickly to keep up!"))
+    release
+    end
+} 
 
+raw `
+    .align 2
+STORE_Dommik:
+    .2byte ITEM_RING_OF_WEALTH
+    .2byte ITEM_RING_OF_LIFE
+    .2byte ITEM_PHOENIX_NECKLACE    
+    .2byte ITEM_SICKLE
+    .2byte ITEM_NONE
+    release
+    end
+`
+
+script Friendship_Checker_Ellis {
+
+	lock
+	faceplayer
+	namebox ("Ellis")
+	msgbox(format("I've spent so many years working with monster hide, that I can tell a lot about a monster just by looking at it.\pHmm, let me see here..."))
+	specialvar (VAR_RESULT, GetLeadMonFriendshipScore)
+	switch(var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("Its hide looks incredibly rough and calloused.\pYou either haven't adventurered with it long, or you abuse the poor creature..."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP NONE."))
+		case 1:
+			msgbox(format("This monster has such a bleak complexion.\pIt looks like the two of you have a very poor relationship.\pYou really need to work on that."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP 1 TO 49."))
+		case 2:
+			msgbox(format("Its hide seems to be softening slightly.\pIt appears that this monster is warming up to you, but you've not done enough for it to trust you yet.\pKeep trying and you'll get there."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP 50 TO 99."))
+		case 3:
+			msgbox(format("The monster's hide has softened, but its colour is still quite muted and dull.\pYou two appear to have a fairly neutral relationship.\pWork at it together though, and you'll start to see it improving."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP 100 TO 149."))
+		case 4:	
+			msgbox(format("Yes, I can see a nice glow starting to form under the skin.\pThis monster is definitely fond of you, and you've obviously put in some work with it.\pI think you could get to know each other even better still, though."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP 150 TO 199."))
+		case 5:
+			msgbox(format("The colour on your monster is just amazing!\pYou're clearly very close and it knows you very well.\pThere's a small room to keep improving, though!"))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP 200 TO 254."))
+		case 6:
+			msgbox(format("This monster's hide has the most amazing sheen to it.\pYou clearly treat it extremely well and take the best of care of it.\pIt absolutely adores you."))
+    		msgbox(format("FRIENDSHIP is: FRIENDSHIP MAX."))
+	}
+	closemessage
+	release
+	end	
+}
 
 //General Store
 script NPC_ALKHARID_GENERALSTORE_1
@@ -289,13 +392,14 @@ script NPC_ALKHARID_GENERALSTORE_1
     release
     end
 }
+
 script NPC_ALKHARID_GENERALSTORE_2
 {
     faceplayer
-    //namebox ("")
+    namebox ("Guard")
     msgbox(format("During sandstorms you may find stronger monsters in the desert.\pI'd suggest you be careful and run away if you see a Strykewyrm."))
     closemessage
-    //hidenamebox
+    hidenamebox
     release
     end
 }
@@ -365,7 +469,15 @@ script ELITE4_BATTLE_ZANIK
 }
 script ELITE4_BATTLE_HANS
 {
-	trainerbattle_no_intro (TRAINER_ELITE4_HANS_1, format("I lost."))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_GRASS, format("I lost."))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_FIRE, format("I lost."))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro (TRAINER_ELITE4_HANS_1_WATER, format("I lost."))
+    }
 	return
 }
 script ELITE4_BATTLE_HAZELMERE
@@ -445,3 +557,258 @@ script RANDOM_PARTY_SIZE {
 
 
 
+script TRIGGER_ALKHARID_HAM_EVENT_2
+{
+    lockall
+    applymovement(12, Common_Movement_WalkInPlaceRight)
+    waitmovement(0)
+    namebox ("???")
+    msgbox(format("You've got to believe me!\pThe prince was kidnapped I must meet with Spymaster Osman!"))
+    closemessage
+    hidenamebox
+    namebox ("Guard")
+    msgbox(format("Nice try Ozan, Prince Ali is currently on the outskirts of town with our finest warriors."))
+    closemessage
+    hidenamebox
+    applymovement(12, MOVEMENT_WALKLEFT)      //Ozan walks over to the other guard to plead with them
+    applymovement(12, Common_Movement_WalkInPlaceLeft)
+    waitmovement(0)
+    namebox ("Ozan")
+    msgbox(format("Please listen to me…"))
+    closemessage
+    hidenamebox
+    namebox ("Guard")
+    msgbox(format("Not with your track record, get out of here Ozan!"))
+    closemessage
+    hidenamebox
+    applymovement(12, MOVEMENT_ALKHARID_PALACE_OZAN_1)          //Ozan gets kicked out
+    applymovement(14, MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_1)    //Left guard moves forward one and faces up
+    applymovement(15, MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_1)   //Right guard moves forward one and faces up
+    waitmovement(0)
+    applymovement(12, MOVEMENT_ALKHARID_PALACE_OZAN_2)          //Ozan jumps up
+    applymovement(14, MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_2)    //Left guard moves back into original position
+    applymovement(15, MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_2)   //Right guard moves back into original position
+    //Ozan gets kicked out.
+    //Thuds, locks in place facing down. jumps to push upwards.
+    //Guards take a step in facing up. and then return to their posts.
+    namebox ("Ozan")
+    msgbox(format("It's just no use…"))
+    closemessage
+    hidenamebox
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 30){
+        applymovement(12, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    } 
+    elif (var(VAR_TEMP_1) == 31){
+        applymovement(12, movement_WALKRIGHT)                       //Ozan moves to make sure he's facing you, depending on what tile you're on
+        applymovement(12, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    }
+    waitmovement(0)
+    namebox ("Ozan")
+    msgbox(format("Hey! It's you!\pYou saw the kidnapping too right?\pThese guards are useless.\pSay you don't have any extra information do you?"))
+    closemessage
+    hidenamebox
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown)
+    //interact with ozan
+    namebox ("Ozan")
+    msgbox(format("You mean to say there is a whole organisation that wear those ridiculous pink robes and they're called H.A.M?\pOkay that should be enough information to convince Osman!\pWhile I try to inform Osman could I trouble you to search for some clues around Lumbridge for where they could have taken the Prince?"))
+    closemessage
+    hidenamebox
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 30){
+        applymovement(12, MOVEMENT_ALKHARID_PALACE_OZAN_3)         //Ozan walks around you depending on what tile you're on
+    } 
+    elif (var(VAR_TEMP_1) == 31){
+        applymovement(12, MOVEMENT_ALKHARID_PALACE_OZAN_4)         //Ozan walks around you depending on what tile you're on
+    }
+    //ozan walks away
+    removeobject(12)
+    setflag(FLAG_TEMP_9)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 215)
+	setvar(VAR_TEMP_1, 2)
+    release
+    end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_OZAN_1 {     //Pushed back
+    face_down
+    lock_facing_direction
+    slide_up
+}
+
+movement MOVEMENT_ALKHARID_PALACE_OZAN_2 {     //Jump up
+    jump_in_place_up
+    unlock_facing_direction
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_OZAN_3 {     //Exit (if you're stood on the left)
+    walk_right
+    walk_up * 7
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_OZAN_4 {    //Exit (if you're stood on the right)
+    walk_left
+    walk_up * 7
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_1 {   //Walking forward
+    walk_fast_right
+    face_up
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_GUARD_LEFT_2 {  //Back into original position
+    walk_fast_left
+    face_up
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_1 {  //Walking forward
+    walk_left
+    face_original_direction
+    step_end
+}
+
+movement MOVEMENT_ALKHARID_PALACE_GUARD_RIGHT_2 {  //Back into original position
+    walk_right
+    face_original_direction
+    step_end
+}
+
+// Ozan splits up and sends you to look for some hints on where HAM might be located.
+// You meet the Wise old man in Lumbridge. He sends you towards Lumbridge forest.
+// You meet Zanik just before the hideout. She says some of her kind have been captured and she is on a resuce mission and could use the help.
+
+
+
+script TRIGGER_ALKHARID_HAM_EVENT_3 //PALACE BLOCK
+{
+    lockall
+    namebox ("Guard")
+    msgbox(format("Are you here for a MvM Battle?\pSorry but the prince is out at the moment, so there will be no MvM challenges until he returns."))
+    closemessage
+    hidenamebox
+    applymovement (OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp)
+    waitmovement(0)
+    release
+    end
+}
+
+script HAM_EVENT_ALKHARID_WISE_OLD_MAN {
+    lock
+    faceplayer
+    namebox ("Wise Old Man")
+    checkitem(ITEM_CUT_TOOL, 1)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Why hello there {PLAYER}.\pOdd place to run into one another isn't it?\pWhat might you be up to?\pH.A.M kidnapped the Prince and thus you can not battle them for your next badge?\pWell that really does stop you from progressing doesn't it?\pWhy back in my days I used to do quests like these as if they were second nature.\pBut alas this will not be my Swan Song but instead yours…\pSpeaking of such, I believe I heard reports about suspicious activity in Lumbridge forest.\pHow about you give that place a try?\pAnd take this I would imagine it would be quite useful on your quest."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_CUT_TOOL, 1)
+        msgbox(format("It's only fitting to have such a fine axe to cut trees considering you are about to enter a forest. Haha good luck on your quest {PLAYER}!"))
+        closemessage
+        hidenamebox
+    }
+    else {
+        msgbox(format("Why hello again {PLAYER}.\pAre you still on your quest to find the kidnapped prince?\pDid you find any suspicious activity in Lumbridge Forest?"))
+        closemessage
+        hidenamebox
+    }
+    release
+    end
+}
+
+
+
+
+script FROGEEL_RIVAL_6 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("What?\pLet me guess.\lYou think I am going to go in and rob the Al Kharid palace, don't you?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+	{ 
+		goto(BATTLE_FROGEEL_RIVAL_6)
+	}
+	else {
+		goto(BATTLE_FROGEEL_RIVAL_6)
+	}
+}
+
+script BATTLE_FROGEEL_RIVAL_6 {
+	msgbox(format("Well, you're wrong regardless because I have already been there, and there was nothing of interest.\pWaste of my time really.\pAnd now the guards are after me even though I haven't stolen anything.\pSo what now?\lGoing to fight me?\lYou are one very predictable fellow."))
+	hidenamebox
+    closemessage
+	if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_6_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pB!\p...{PAUSE 15}\lNo, that's wrong.{PAUSE 15}\pAA!\lThat's better."))
+    closemessage
+    hidenamebox
+    playse(SE_FLEE)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION)    //player moves out of the way
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_1)                            //frogeel man runs into a cactus
+	waitmovement(0)
+	playse(SE_WALL_HIT)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_2)                            //frogeel man jumps back from the cactus
+	waitmovement(0)
+	waitse
+	delay(30)
+	playse(SE_FLEE)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_3)                            //frogeel man runs off screen 
+	waitmovement(0)
+    delay(60)
+	applymovement(17, MOVEMENT_FROGEEL_RIVAL_ALKHARID_4)                            //frogeel man runs back past the player and north towards Varrock (add in guards chasing??)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("In their hurry, Angrenouille dropped an item."))
+    waitmovement(0)
+    closemessage
+    giveitem(ITEM_MITHRIL_SCIMITAR, 1)   //possibly need a new item?
+    closemessage
+    removeobject(17)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 30)
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_1 {
+    walk_fast_right * 6
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_2 {
+    lock_facing_direction
+    slide_left
+    jump_in_place_left
+    unlock_facing_direction
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_3 {
+    face_down
+    walk_faster_down * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_4 {
+    walk_faster_up * 4
+    walk_faster_left * 9
+    walk_faster_up * 8        
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ALKHARID_REACTION {
+	walk_fast_down
+	face_right
+    step_end
+}

@@ -1305,12 +1305,13 @@
 	.endm
 
 	@ Set the metatile at (x, y) on the current map to the given metatile and impassability.
-	.macro setmetatile x:req, y:req, metatileId:req, impassable:req
+	.macro setmetatile x:req, y:req, metatileId:req, impassable:req, elevation=3
 	.byte 0xa2
 	.2byte \x
 	.2byte \y
 	.2byte \metatileId
 	.2byte \impassable
+	.byte \elevation
 	.endm
 
 	@ Queues a weather change to the default weather for the map.

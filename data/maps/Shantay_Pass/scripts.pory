@@ -3,4 +3,47 @@ mapscripts Shantay_Pass_MapScripts{
         setvar(VAR_EVOLUTION_MAP_STATE, 11) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
 		call(WEATHER_CHANGE_AREA_DESERT_ROUGH)
 	}
+	MAP_SCRIPT_ON_LOAD {
+    call(SHANTAY_PASS_STATE)
+    } 
+}
+
+script SHANTAY_PASS_STATE {
+    if (!flag(FLAG_ABYSS_PORTALS_ENABLED))
+    {
+        setflag(FLAG_TEMP_1F)
+        removeobject(4)
+    }
+}
+
+//NPCS SHANTYPASS
+script SHANTYPASS_NPC_1
+{
+    faceplayer
+    namebox ("Shantay")
+    msgbox(format("This is the pass of Shantay.\pI guard this area with my men.\pI am responsible for keeping this pass open.\pUnfortunately it is currently undergoing some repairs.\nPlease come back again later."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script SHANTYPASS_NPC_2
+{
+    faceplayer
+    namebox ("Shantay Guard")
+    msgbox(format("I help Shantay prevent outlaws from getting out of the desert.\pAnd we stop the inexperienced from a dry death in the sands."))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+script SHANTYPASS_NPC_3
+{
+    faceplayer
+    namebox ("Shantay Guard")
+    msgbox(format("Go talk to Shantay.\nI'm on duty and I don't have time to talk to the likes of you!"))
+    closemessage
+    hidenamebox
+    release
+    end
 }
