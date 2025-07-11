@@ -1305,7 +1305,7 @@ SECTIONS {
         sound/songs/midi/MUS_PS_ENCOUNTER_GYM.o(.rodata);
         sound/songs/midi/MUS_PS_ENCOUNTER_LEGENDARY.o(.rodata);
         sound/songs/midi/MUS_PS_ENCOUNTER_SPECIAL.o(.rodata);
-        sound/songs/midi/MUS_PS_ENCOUNTER_MITHRILMAN.o(.rodata);
+        sound/songs/midi/mus_ps_encounter_mithrilman.o(.rodata);
         sound/songs/midi/MUS_PS_QUEST_COMPLETE.o(.rodata);
         sound/songs/midi/MUS_PS_KOUREND_CATACOMBS.o(.rodata);
         sound/songs/midi/MUS_PS_VS_TRAINER_P2P.o(.rodata);

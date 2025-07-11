@@ -1284,7 +1284,7 @@ VARROCK_NPC_WondertradeHint::
 
 
 Mithrilman_Varrock::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	lock
 	faceplayer
 	namebox Mithrilman_Varrock_Text_0

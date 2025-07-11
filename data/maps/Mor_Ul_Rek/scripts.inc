@@ -588,7 +588,7 @@ Movement_Tzhaar_Mithrilman_2:
 	step_end
 
 Mithrilman_TZHAAR1::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_TZHAAR1_Text_0
 	msgbox Mithrilman_TZHAAR1_Text_1
 	trainerbattle_no_intro TRAINER_MITHRILMAN3, Mithrilman_TZHAAR1_Text_2

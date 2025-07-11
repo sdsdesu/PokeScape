@@ -183,7 +183,7 @@ Mithrilman_FLAGS::
 Mithrilman_VARROCK1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_VARROCK1_Text_1
 	return
@@ -210,7 +210,7 @@ Mithrilman_VARROCK2::
 Mithrilman_ALKHARID1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_ALKHARID1_Text_0
 	return
@@ -245,7 +245,7 @@ Mithrilman_ALKHARID2::
 Mithrilman_DRAYNOR1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_DRAYNOR1_Text_0
 	trainerbattle_single TRAINER_MITHRILMAN6, Mithrilman_DRAYNOR1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_DRAYNOR2
@@ -282,7 +282,7 @@ Mithrilman_EDGEVILLE1::
 Mithrilman_EDGEVILLE1_1:
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_EDGEVILLE1_Text_0
 	trainerbattle_single TRAINER_MITHRILMAN7, Mithrilman_EDGEVILLE1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_EDGEVILLE2
@@ -307,7 +307,7 @@ Mithrilman_EDGEVILLE2::
 Mithrilman_WILDERNESS1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESS1_Text_0
 	trainerbattle_single TRAINER_MITHRILMAN8, Mithrilman_WILDERNESS1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_WILDERNESS2
@@ -335,7 +335,7 @@ Mithrilman_WILDERNESS2::
 Mithrilman_WILDERNESSVOLCANO1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESSVOLCANO1_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 1

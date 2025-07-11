@@ -247,7 +247,7 @@ script Mithrilman_FLAGS{
 script Mithrilman_VARROCK1{
 	lock
 	faceplayer
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("We meet again knave.\pHow farest thee battle?\pThine?\pThine has bartered with the skin pelter of Varrockia.\pThine wouldst need a bear skin.\pBut alas, clause 73 of the Mithrilmen states thine is not to use money to gainst relics.\pThust thine simply did not pay the pelter.\pThoust seems eager for a rematch?"))
     //trainerbattle_single(TRAINER_MITHRILMAN3,format("Alas knave, there is no ducks to save thee this time."),format("…"),Mithrilman_VARROCK2)
@@ -276,7 +276,7 @@ script Mithrilman_VARROCK2{
 script Mithrilman_ALKHARID1{
 	lock
 	faceplayer
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("Greetings knave, these lands be scorchest of themst all.\pThine battlest so far has been harsher than before.\pBut fear not, a Mithrilman never bends.\pAdamantmen may falter, for they do not posesst the speed of a Mithrilman.\pThus they succumb to the heat of the desert.\pThus Mithrilmen shalt be known as the superior challenge!"))
     //trainerbattle_single(TRAINER_MITHRILMAN4,format("Yee seem tired knave, wouldst a battle fire yee up?"),format("…"),Mithrilman_ALKHARID2)
@@ -319,7 +319,7 @@ script Mithrilman_ALKHARID2{
 script Mithrilman_DRAYNOR1{
 	lock
 	faceplayer
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("Wiseness is a praise upon us all.\pAnd thine has battlest the wisest of them all.\pDizzy himself, the wisest old man.\pGlory upon thine as thine am the strongest.\pIs that envy I spy upon yee knave?\pDoest not fear, for thine has granted yee the blessing of my visit.\pThe wisest got this 8 times and by the last the victory was mine by default beforest the battle birthed."))
     trainerbattle_single(TRAINER_MITHRILMAN6,format("Would thoust challenge a man as awingst as me?"),format("…"),Mithrilman_DRAYNOR2)
@@ -349,7 +349,7 @@ script Mithrilman_EDGEVILLE1{
     if (flag(FLAG_MITHRILMAN8)) {
     	lock
 	    faceplayer
-        playbgm (MUS_ENCOUNTER_MAY, 1)
+        playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
         namebox("Mithrilman")
         msgbox(format("Thoust contemplatest going downst there?\pKnave yee humour thine so well.\pA Mithrilman as thine would never flaunt thine strength.\pBut yee go on, yee do thoust best.\pA Mithrilman doest notst belittle thine inferior.\pBut thine shall commence a parry.\pForst the last battle between thine and yee left thine in a bitter mood."))
         trainerbattle_single(TRAINER_MITHRILMAN7,format("Thine shall have vengeance."),format("…"),Mithrilman_EDGEVILLE2)
@@ -386,7 +386,7 @@ script Mithrilman_EDGEVILLE2{
 script Mithrilman_WILDERNESS1{
 	lock
 	faceplayer
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("Greetings knave.\pDoust thoust know of Ironmen?\pIronmen favour themselves to be a solitary existence.\pThey embark on a quest uninvolved by others.\pSolitary beingst.\pWhere doest this leave thine the Mithrilman?\pMithrilmen are alone, scorned, hated and resentedst.\pIf Ironmen are alone, Mithrilmen are singular.\pAs thee solitary existence that is Mithril.\pThine must no longer holdst back.\pKnave, this endst now."))
     trainerbattle_single(TRAINER_MITHRILMAN8,format("Thine have beatenst the 8 strongest of this realm and thine shall now smite yee as the non Mithrilman thoust are."),format("…"),Mithrilman_WILDERNESS2)
@@ -416,7 +416,7 @@ script Mithrilman_WILDERNESS2{
 script Mithrilman_WILDERNESSVOLCANO1{
 	lock
 	faceplayer
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("Knave…\p{PLAYER}\pThine can see thoust travel is embarking an end.\pThine has not been fair to yee.\pYee have fought me headst on for every proclamation thine has given, yet has never truly acceptedst the defeat.\pThine is sorry.\p{PLAYER}, thine wish to proclaim a rivalry, not for the glory of Mithrilmen, but as equals.\pWould yee accept?"), MSGBOX_YESNO)
 	while (var(VAR_RESULT) != 1) {

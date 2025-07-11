@@ -1212,7 +1212,7 @@ movement Movement_MithrilmanSpotted
 }
 
 script Mithrilman_LUMBRIDGE_STATE_2{
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     if((var(VAR_POKESCAPE_COOKS_ASSISTANT_QUEST_STATE) == 0)){
 		applymovement(OBJ_EVENT_ID_MITHRILMAN, Movement_InteractFACEPLAYER)
 	    waitmovement(0)

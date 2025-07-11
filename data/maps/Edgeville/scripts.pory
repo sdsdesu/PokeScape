@@ -858,7 +858,7 @@ script BATTLE_FROGEEL_RIVAL_5 {
 }
 
 script Mithrilman_Edgeville {
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
 	lock
 	faceplayer
     namebox("Mithrilman")

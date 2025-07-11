@@ -1291,7 +1291,7 @@ Movement_MithrilmanSpotted:
 	step_end
 
 Mithrilman_LUMBRIDGE_STATE_2::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	compare VAR_POKESCAPE_COOKS_ASSISTANT_QUEST_STATE, 0
 	goto_if_eq Mithrilman_LUMBRIDGE_STATE_2_1
 	namebox Mithrilman_LUMBRIDGE_STATE_2_Text_0

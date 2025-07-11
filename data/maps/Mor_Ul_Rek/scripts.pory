@@ -578,7 +578,7 @@ movement Movement_Tzhaar_Mithrilman_2 {
 
 
 script Mithrilman_TZHAAR1 {
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     namebox("Mithrilman")
     msgbox(format("Fromst the scorching heats of the dunes to a pleasant vacation I see knave.\pGreetings.\pThoust must be here to battle the Tzhaar?\pAllow thine to grant yee some knowledge as thoust superior in battle provesst.\pFirst of thoust shouldn't use iron inside a volcano.\pIt would smelts and yee would end in malfigured armour.\pNot for the goodst of thoust body, mayhaps a battle helps thoust?\pWell yee should show thine your provess then, beware, for the heat of this battle will be nothing like the volcano!"))
     trainerbattle_no_intro(TRAINER_MITHRILMAN3, format("…"))

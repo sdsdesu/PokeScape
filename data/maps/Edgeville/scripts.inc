@@ -785,7 +785,7 @@ BATTLE_FROGEEL_RIVAL_5_4:
 
 
 Mithrilman_Edgeville::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	lock
 	faceplayer
 	namebox Mithrilman_Edgeville_Text_0
@@ -802,10 +802,10 @@ Mithrilman_Edgeville_1:
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 	compare VAR_TEMP_1, 7
 	goto_if_eq Mithrilman_Edgeville_9
-	compare VAR_TEMP_1, 8
-	goto_if_eq Mithrilman_Edgeville_10
-Mithrilman_Edgeville_8:
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
+	applymovement 24, MOVEMENT_MITHRILMAN_EDGEVILLE_2
 	waitmovement 0
+Mithrilman_Edgeville_8:
 	setvar VAR_MITHRILMAN_STATE, 20
 	setflag FLAG_TEMP_1C
 	removeobject 24
@@ -836,11 +836,7 @@ Mithrilman_Edgeville_4:
 Mithrilman_Edgeville_9:
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
 	applymovement 24, MOVEMENT_MITHRILMAN_EDGEVILLE_1
-	goto Mithrilman_Edgeville_8
-
-Mithrilman_Edgeville_10:
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
-	applymovement 24, MOVEMENT_MITHRILMAN_EDGEVILLE_2
+	waitmovement 0
 	goto Mithrilman_Edgeville_8
 
 

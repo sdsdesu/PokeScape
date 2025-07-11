@@ -1353,7 +1353,7 @@ Movement_Falador_Mithrilman_3:
 	step_end
 
 Mithrilman_FALADOR1::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_FALADOR1_Text_0
 	msgbox Mithrilman_FALADOR1_Text_1
 	hidenamebox

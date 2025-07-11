@@ -443,18 +443,17 @@ FROGEEL_RIVAL_8_2:
 	hidenamebox
 	closemessage
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-	compare VAR_TEMP_1, 9
+	compare VAR_TEMP_1, 8
 	goto_if_eq FROGEEL_RIVAL_8_9
-	compare VAR_TEMP_1, 10
+	compare VAR_TEMP_1, 9
 	goto_if_eq FROGEEL_RIVAL_8_10
-	compare VAR_TEMP_1, 11
-	goto_if_eq FROGEEL_RIVAL_8_11
-FROGEEL_RIVAL_8_8:
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
+FROGEEL_RIVAL_8_8:
 	namebox FROGEEL_RIVAL_8_Text_2
 	msgbox FROGEEL_RIVAL_8_Text_4, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_eq FROGEEL_RIVAL_8_18
+	goto_if_eq FROGEEL_RIVAL_8_17
 	msgbox FROGEEL_RIVAL_8_Text_6
 	goto BATTLE_FROGEEL_RIVAL_8
 	goto FROGEEL_RIVAL_8_1
@@ -463,7 +462,7 @@ FROGEEL_RIVAL_8_3:
 	namebox FROGEEL_RIVAL_8_Text_2
 	msgbox FROGEEL_RIVAL_8_Text_7, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_eq FROGEEL_RIVAL_8_15
+	goto_if_eq FROGEEL_RIVAL_8_14
 	msgbox FROGEEL_RIVAL_8_Text_6
 	goto BATTLE_FROGEEL_RIVAL_8
 	goto FROGEEL_RIVAL_8_1
@@ -476,17 +475,15 @@ FROGEEL_RIVAL_8_4:
 
 FROGEEL_RIVAL_8_9:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
 	goto FROGEEL_RIVAL_8_8
 
 FROGEEL_RIVAL_8_10:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
 	goto FROGEEL_RIVAL_8_8
 
-FROGEEL_RIVAL_8_11:
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	goto FROGEEL_RIVAL_8_8
-
-FROGEEL_RIVAL_8_15:
+FROGEEL_RIVAL_8_14:
 	msgbox FROGEEL_RIVAL_8_Text_8
 	closemessage
 	hidenamebox
@@ -494,7 +491,7 @@ FROGEEL_RIVAL_8_15:
 	release
 	end
 
-FROGEEL_RIVAL_8_18:
+FROGEEL_RIVAL_8_17:
 	msgbox FROGEEL_RIVAL_8_Text_5
 	closemessage
 	hidenamebox
@@ -583,7 +580,7 @@ MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2:
 	step_end
 
 Mithrilman_Daemonheim::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	lock
 	faceplayer
 	namebox Mithrilman_Daemonheim_Text_0
@@ -789,7 +786,7 @@ BATTLE_FROGEEL_RIVAL_8_Text_2:
 	.string "We will make it through this together.\p"
 	.string "What are we?\l"
 	.string "We are thick as thieves!\l"
-	.string "Thats what we are.\p"
+	.string "That's what we are.\p"
 	.string "Here.$"
 
 BATTLE_FROGEEL_RIVAL_8_Text_3:
