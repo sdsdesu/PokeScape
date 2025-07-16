@@ -57,16 +57,6 @@ ROUTE_38_NPC_1::
 	end
 
 
-ITEM_ROUTE_38_PRAYER_POTION::
-	finditem ITEM_PRAYER_POTION
-	end
-
-
-ITEM_ROUTE_38_CAKE::
-	finditem ITEM_CAKE
-	end
-
-
 MORYTANIA_WARNING_SIGN::
 	lock
 	faceplayer

@@ -40,8 +40,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE_41_CABBAGE",
-      "flag": "FLAG_ITEM_ROUTE_41_CABBAGE"
+      "script": "FIND_ITEM_EASTER_EGG",
+      "flag": "FLAG_ITEM_ROUTE41_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -53,8 +53,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE_41_BEER",
-      "flag": "FLAG_ITEM_ROUTE_41_BEER"
+      "script": "FIND_ITEM_BEER",
+      "flag": "FLAG_ITEM_ROUTE41_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -66,8 +66,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE_41_CHOCOLATE_CAKE",
-      "flag": "FLAG_ITEM_ROUTE_41_CHOCOLATE_CAKE"
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
+      "flag": "FLAG_ITEM_ROUTE41_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HILL_GIANT",
@@ -146,6 +146,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ROUTE_41_HILL_GIANTS",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BABY_DRAGON_GREEN",
+      "x": 15,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_DOWN_AND_UP",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_DRAGON_GREEN",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BABY_DRAGON_GREEN",
+      "x": 5,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_DRAGON_GREEN",
+      "flag": "FLAG_TEMP_3"
     }
   ],
   "warp_events": [

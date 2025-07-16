@@ -1,0 +1,127 @@
+mapscripts DwarvenMines_PowerStation_1_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION {
+        call(DwarvenMines_PowerStation_1_STATE)
+    }
+}
+
+script DwarvenMines_PowerStation_1_STATE {
+	if (var(VAR_DWARVEN_MINES_STATE) == 10) {
+		setvar(VAR_TEMP_0, 1)
+	}
+	else {
+		removeobject(11)
+		removeobject(12)
+		removeobject(13)
+		removeobject(14)
+		setflag(FLAG_TEMP_1)
+		setflag(FLAG_TEMP_2)
+		setflag(FLAG_TEMP_3)
+		setflag(FLAG_TEMP_4)
+	}
+	return
+}
+
+//NPCs
+script NPC_DwarvenMines_PowerStationF1_1   //Dwarf - top middle
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Sorry human, beyond these doors are machinery that are for dwarven eyes only.\pI can't let you past."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF1_Inventor  
+{
+	lock
+	faceplayer
+    namebox ("Inventor")
+	msgbox(format("Through here leads to the Invention Guild.\pBut it's for VIP members only, so no entry for you!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF1_2    //Smith - top right
+{
+	lock
+	faceplayer
+    namebox ("Smith")
+	msgbox(format("Strykewyrms adapt to their environments even during a battle!\pIf the terrain changes they too will change!\pSuch interesting creatures."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF1_3   //Dwarf - middle left
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("My parents would never let me have monsters and compete in the MvM Championships…\pSo I got a job down here working with the baby dragons.\pThat way I still get to have monsters of my own to look after!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF1_4   //Firemaker - middle
+{
+	lock
+	faceplayer
+    namebox ("PyredOfThis")
+	msgbox(format("I came down here to get some experience in lighting forges, but these dwarves are using dragon's breath instead of logs and a tinderbox!\pThat's cheating!"))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_DwarvenMines_PowerStationF1_5    //Dwarf - bottom middle
+{
+	lock
+	faceplayer
+    namebox ("Dwarf")
+	msgbox(format("Welcome to the Dwarven Mines Power Station.\pOur dragon powered forges provide power to neighbouring towns and settlements for miles around."))
+    waitmessage
+    hidenamebox
+	release
+	end
+}
+
+//TRAINERS
+
+script BATTLE_DWARVENMINES_POWERSTATION_F1_1
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F1_1, format("To smelt iron you need to increase the forge's temperature to a high degree!\pWatch this!"),format("I guess I turned it too high and got burned…"))
+    namebox ("Ozai")
+    msgbox(format("Fahrenheit? Celsius?\pWhat is that supposed to mean?"))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVENMINES_POWERSTATION_F1_2
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F1_2, format("One day I will get to mine runite.\pI will chop through them like I will do to you now."),format("I barely made a dent!"))
+    namebox ("Crypt Oes")
+    msgbox(format("Mining and smithing rework makes it easier? Well, maybe that just undermines the achievement.\pEver thought of that?"))
+	hidenamebox
+    release
+	end
+}
+
+script BATTLE_DWARVENMINES_POWERSTATION_F1_3
+{
+    trainerbattle_single(TRAINER_DWARF_POWERSTATION_F1_3, format("We dig dig dig, and we dig dig dig and digging more we gooooo!"),format("I sing sing sing, and dig dig dig, until the forge goes ooooooh!"))
+    namebox ("Per")
+    msgbox(format("I sing sing sing, and dig dig dig, until the forge goes ooooooh!"))
+	hidenamebox
+    release
+	end
+}

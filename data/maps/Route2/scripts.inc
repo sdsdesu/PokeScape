@@ -606,7 +606,7 @@ BATTLE_ROUTE2_Trainer_3_Text_1:
 	.string "fishing.$"
 
 BATTLE_ROUTE2_Trainer_4_Text_0:
-	.string "Noobs fear me, fish fear me, pkers turns\n"
+	.string "Noobs fear me, fish fear me, pkers turn\n"
 	.string "their eyes away from me as I walk.$"
 
 BATTLE_ROUTE2_Trainer_4_Text_1:

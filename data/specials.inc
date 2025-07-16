@@ -343,8 +343,7 @@ gSpecials::
 	def_special MoveOutOfSecretBaseFromOutside
 	def_special LoadPlayerBag
 	def_special Script_FadeOutMapMusic
-	def_special SetPacifidlogTMReceivedDay
-	def_special GetDaysUntilPacifidlogTMAvailable
+
 	def_special HasAllHoennMons
 	def_special MonOTNameNotPlayer
 	def_special BufferLottoTicketNumber
@@ -570,7 +569,11 @@ gSpecials::
 	def_special Is_InParty_GODLESS
 	def_special Is_InParty_ARMADYL
 	def_special GetSeededResultLessRandom
-
+	def_special OutfitMenu
+	def_special MakeoverMage
+	def_special WearOutfit
+	def_special GetAmountOfBadges
+	
 
 
 

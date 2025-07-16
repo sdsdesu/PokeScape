@@ -175,16 +175,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_OZAN",
-      "x": 35,
-      "y": 18,
+      "x": 31,
+      "y": 23,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ALKHARID_NPC_13",
-      "flag": "0"
+      "flag": "FLAG_TEMP_9"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -196,13 +196,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ALKHARID_1",
+      "script": "FIND_ITEM_SPDEF_LAMP",
       "flag": "FLAG_ITEM_ALKHARID_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_ALKHAIRD",
       "x": 29,
-      "y": 22,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -215,7 +215,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_ALKHAIRD",
       "x": 32,
-      "y": 22,
+      "y": 23,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -236,7 +236,20 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ITEM_ALKHARID_FIRE_TALISMAN",
-      "flag": "FLAG_ITEM_ALKHARID_FIRE_TALISMAN"
+      "flag": "FLAG_ITEM_ALKHARID_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANGRENNOUILLE",
+      "x": 34,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FROGEEL_RIVAL_6",
+      "flag": "FLAG_TEMP_10"
     }
   ],
   "warp_events": [
@@ -304,17 +317,17 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
-      "y": 12,
+      "x": 13,
+      "y": 16,
       "elevation": 0,
       "dest_map": "MAP_AL_KHARID_HOUSE_3",
       "dest_warp_id": "0"
     },
     {
-      "x": 30,
-      "y": 10,
+      "x": 17,
+      "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_AL_KHARID_HOUSE_1",
+      "dest_map": "MAP_AL_KHARID_HOUSE_5",
       "dest_warp_id": "0"
     },
     {
@@ -339,8 +352,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 13,
-      "y": 16,
+      "x": 30,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_STARTER_HOUSE_AL_KHARID",
       "dest_warp_id": "0"
@@ -363,7 +376,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 35,
+      "x": 38,
       "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_0",
@@ -372,12 +385,48 @@
     },
     {
       "type": "trigger",
-      "x": 36,
+      "x": 39,
       "y": 1,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "BLOCK_DEMO_END"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_2"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_2"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_3"
+    },
+    {
+      "type": "trigger",
+      "x": 31,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_2",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_3"
     }
   ],
   "bg_events": [

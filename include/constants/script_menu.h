@@ -141,6 +141,8 @@
 #define MULTI_SANDWICH                     127
 #define MULTI_TZHAAR_FIGHTCAVES            128
 #define MULTI_UTILITY                      129
+#define MULTI_STORYMODE_STATE              130
+#define MULTI_PUB                          131
 
 
 // Lilycove SS Tidal Multichoice Selections

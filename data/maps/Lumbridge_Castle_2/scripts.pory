@@ -771,7 +771,7 @@ script QUEST_Cooks_Assistant_STATE{
 				closemessage
 				giveitem(ITEM_BREAD, 5)
 				giveitem(ITEM_CAKE, 1)
-				giveitem(ITEM_PURPLE_SWEETS, 2)
+				giveitem(ITEM_EXP_CANDY_XS, 15)
 				namebox ("Cook")
 				msgbox(format("Once again, thank you."))
 				if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY MODE
@@ -1127,7 +1127,17 @@ script NPC_RAVEN_TRAINING
 	end
 }
 
-
+script NPC_LUMBRIDGE_REGIONEVOS
+{
+	lock
+	faceplayer
+    namebox ("Newb")
+	msgbox(format("Woah, did you know that some monsters evolve into different things depending on where in Gielinor they are?"))
+    hidenamebox
+	closemessage
+	release
+	end
+}
 
 
 //-----------------------------------------------------------------------
@@ -1202,7 +1212,7 @@ movement Movement_MithrilmanSpotted
 }
 
 script Mithrilman_LUMBRIDGE_STATE_2{
-    playbgm (MUS_ENCOUNTER_MAY, 1)
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
     if((var(VAR_POKESCAPE_COOKS_ASSISTANT_QUEST_STATE) == 0)){
 		applymovement(OBJ_EVENT_ID_MITHRILMAN, Movement_InteractFACEPLAYER)
 	    waitmovement(0)

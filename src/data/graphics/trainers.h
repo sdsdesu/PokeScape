@@ -465,6 +465,10 @@ const u32 gTrainerFrontPic_tzhaar_ket[] = INCBIN_U32("graphics/trainers/pokescap
 const u32 gTrainerFrontPic_sandwich_lady[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/sandwich_lady.4bpp.lz");
 const u32 gTrainerFrontPic_guard_varrock_pose[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/guard_varrock_pose.4bpp.lz");
 const u32 gTrainerFrontPic_tzhaar_ket_hd[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/tzhaar_ket_hd.4bpp.lz");
+const u32 gTrainerFrontPic_zemouregal[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/zemouregal.4bpp.lz");
+const u32 gTrainerFrontPic_lord_daquarius[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/lord_daquarius.4bpp.lz");
+const u32 gTrainerFrontPic_elite_black_knight[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/elite_black_knight.4bpp.lz");
+const u32 gTrainerFrontPic_angrennouille[] = INCBIN_U32("graphics/trainers/pokescape/front_pics/TRAINER/angrennouille.4bpp.lz");
 
 //POKESCAPE PALETTES
 const u32 gTrainerPalette_a_nub_tot[] = INCBIN_U32("graphics/trainers/pokescape/palettes/a_nub_tot.gbapal.lz");
@@ -637,4 +641,7 @@ const u32 gTrainerPalette_tzhaar_ket[] = INCBIN_U32("graphics/trainers/pokescape
 const u32 gTrainerPalette_sandwich_lady[] = INCBIN_U32("graphics/trainers/pokescape/palettes/sandwich_lady.gbapal.lz");
 const u32 gTrainerPalette_guard_varrock_pose[] = INCBIN_U32("graphics/trainers/pokescape/palettes/guard_varrock_pose.gbapal.lz");
 const u32 gTrainerPalette_tzhaar_ket_hd[] = INCBIN_U32("graphics/trainers/pokescape/palettes/tzhaar_ket_hd.gbapal.lz");
-
+const u32 gTrainerPalette_zemouregal[] = INCBIN_U32("graphics/trainers/pokescape/palettes/zemouregal.gbapal.lz");
+const u32 gTrainerPalette_lord_daquarius[] = INCBIN_U32("graphics/trainers/pokescape/palettes/lord_daquarius.gbapal.lz");
+const u32 gTrainerPalette_elite_black_knight[] = INCBIN_U32("graphics/trainers/pokescape/palettes/elite_black_knight.gbapal.lz");
+const u32 gTrainerPalette_angrennouille[] = INCBIN_U32("graphics/trainers/pokescape/palettes/angrennouille.gbapal.lz");

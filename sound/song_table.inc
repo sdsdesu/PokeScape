@@ -670,7 +670,7 @@ gSongTable::
 	song MUS_PS_ENCOUNTER_GYM, 0, 0
 	song MUS_PS_ENCOUNTER_LEGENDARY, 0, 0
 	song MUS_PS_ENCOUNTER_SPECIAL, 0, 0
-	song MUS_PS_ENCOUNTER_MITHRILMAN, 0, 0	
+	song mus_ps_encounter_mithrilman, 0, 0	
 	song MUS_PS_QUEST_COMPLETE, 2, 2
 	song MUS_PS_KOUREND_CATACOMBS, 0, 0
 	song MUS_PS_TRAINER_VICTORY, 0, 0
@@ -680,6 +680,10 @@ gSongTable::
 	song MUS_PS_GODSLAYER, 0, 0
 	song MUS_PS_LUMBRIDGE_CASTLE, 0, 0
 	song MUS_PS_TZHAAR, 0, 0
+	song mus_ps_ice_mountain, 0, 0
+	song mus_ps_vs_tzhaar, 0, 0
+	song mus_ps_vs_frogeelman, 0, 0
+	
 
 	
     

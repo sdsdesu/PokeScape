@@ -14,21 +14,3 @@ script BATTLE_MUDSKIPPER_MUGGER
     release
 	end
 }
-
-script ITEM_MUDSKIPPER_1
-{
-    finditem(ITEM_BREAD)
-    end
-}
-
-script ITEM_MUDSKIPPER_2
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
-script ITEM_MUDSKIPPER_3
-{
-    finditem(ITEM_WATERSKIN)
-    end
-}

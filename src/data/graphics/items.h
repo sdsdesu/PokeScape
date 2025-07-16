@@ -2353,6 +2353,9 @@ const u32 gItemIconPalette_Map[] = INCBIN_U32("graphics/items/pokescape_icon_pal
  const u32 gItemIcon_Cabbage[] = INCBIN_U32("graphics/items/pokescape_icons/cabbage.4bpp.lz");
  const u32 gItemIconPalette_Cabbage[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/cabbage.gbapal.lz");
 
+ const u32 gItemIcon_EasterEgg[] = INCBIN_U32("graphics/items/pokescape_icons/easter_egg.4bpp.lz");
+ const u32 gItemIconPalette_EasterEgg[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/easter_egg.gbapal.lz");
+
  const u32 gItemIcon_Cake[] = INCBIN_U32("graphics/items/pokescape_icons/cake.4bpp.lz");
  const u32 gItemIconPalette_Cake[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/cake.gbapal.lz");
 
@@ -2631,8 +2634,7 @@ const u32 gItemIconPalette_prismatic_star[] = INCBIN_U32("graphics/items/pokesca
 const u32 gItemIcon_pulse_core[] = INCBIN_U32("graphics/items/pokescape_icons/pulse_core.4bpp.lz");
 const u32 gItemIconPalette_pulse_core[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/pulse_core.gbapal.lz");
 
-const u32 gItemIcon_Purple_Sweets[] = INCBIN_U32("graphics/items/pokescape_icons/Purple_Sweets.4bpp.lz");
-const u32 gItemIconPalette_Purple_Sweets[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/Purple_Sweets.gbapal.lz");
+
 
 const u32 gItemIcon_redBerry[] = INCBIN_U32("graphics/items/pokescape_icons/redBerry.4bpp.lz");
 const u32 gItemIconPalette_redBerry[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/redBerry.gbapal.lz");
@@ -2886,12 +2888,17 @@ const u32 gItemIconPalette_ChocolateBarSandwich[] = INCBIN_U32("graphics/items/p
 const u32 gItemIcon_COMMORB[] = INCBIN_U32("graphics/items/pokescape_icons/commorb.4bpp.lz");
 const u32 gItemIconPalette_COMMORB[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/commorb.gbapal.lz");
 
+const u32 gItemIcon_GloopSoup[] = INCBIN_U32("graphics/items/pokescape_icons/gloop_soup.4bpp.lz");
+const u32 gItemIconPalette_GloopSoup[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/gloop_soup.gbapal.lz");
 
+const u32 gItemIcon_Fingers[] = INCBIN_U32("graphics/items/pokescape_icons/fingers.4bpp.lz");
+const u32 gItemIconPalette_Fingers[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/fingers.gbapal.lz");
 
+const u32 gItemIcon_BatShish[] = INCBIN_U32("graphics/items/pokescape_icons/bat_shish.4bpp.lz");
+const u32 gItemIconPalette_BatShish[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/bat_shish.gbapal.lz");
 
-
-
-
+const u32 gItemIcon_EelSushi[] = INCBIN_U32("graphics/items/pokescape_icons/eel_sushi.4bpp.lz");
+const u32 gItemIconPalette_EelSushi[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/eel_sushi.gbapal.lz");
 
 
 
@@ -2966,6 +2973,32 @@ const u32 gItemIconPalette_PartyHat[] = INCBIN_U32("graphics/items/pokescape_ico
 
 const u32 gItemIcon_ClueScrollTools[] = INCBIN_U32("graphics/items/pokescape_icons/ClueScrollTools.4bpp.lz");
 const u32 gItemIconPalette_ClueScrollTools[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/ClueScrollTools.gbapal.lz");
+
+const u32 gItemIcon_OutfitBox[] = INCBIN_U32("graphics/items/icons/outfit_box.4bpp.lz");
+const u32 gItemIconPalette_OutfitBox[] = INCBIN_U32("graphics/items/icon_palettes/outfit_box.gbapal.lz");
+
+const u32 gItemIcon_Purple_Sweets[] = INCBIN_U32("graphics/items/pokescape_icons/Purple_Sweets.4bpp.lz");
+const u32 gItemIconPalette_Purple_Sweets[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/Purple_Sweets.gbapal.lz");
+
+
+const u32 gItemIcon_sweets[] = INCBIN_U32("graphics/items/pokescape_icons/sweets.4bpp.lz");
+const u32 gItemIconPalette_sweets_white[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_white.gbapal.lz");
+const u32 gItemIconPalette_sweets_yellow[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_yellow.gbapal.lz");
+const u32 gItemIconPalette_sweets_orange[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_orange.gbapal.lz");
+const u32 gItemIconPalette_sweets_red[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_red.gbapal.lz");
+const u32 gItemIconPalette_sweets_purple[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_purple.gbapal.lz");
+const u32 gItemIcon_sweets_many[] = INCBIN_U32("graphics/items/pokescape_icons/sweets_many.4bpp.lz");
+const u32 gItemIconPalette_sweets_many[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/sweets_many.gbapal.lz");
+
+
+
+
+
+
+
+
+
+
 
 const u32 gItemIcon_dwellberry[] = INCBIN_U32("graphics/items/pokescape_icons/dwellberry.4bpp.lz");
 const u32 gItemIconPalette_dwellberry[] = INCBIN_U32("graphics/items/pokescape_icon_palettes/dwellberry.gbapal.lz");

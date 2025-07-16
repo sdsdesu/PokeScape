@@ -734,11 +734,21 @@
 #define STRINGID_TZHAAR_WEATHER_2                     732
 #define STRINGID_PLAYERGOTTOKKUL                      733
 #define STRINGID_CUTHPINCREASEDSTATS                  734
+#define STRINGID_ELECTROSHOCKCHARGING                 735
+#define STRINGID_SIRTIFFY_MESSAGE_1                   736
+#define STRINGID_SIRTIFFY_MESSAGE_2                   737
+#define STRINGID_SIRTIFFY_MESSAGE_3                   738
+#define STRINGID_HAZELMERE_MESSAGE_1                  739
+#define STRINGID_HAZELMERE_MESSAGE_2                  740
+#define STRINGID_HAZELMERE_MESSAGE_3                  741
+#define STRINGID_HANS_MESSAGE_1                       742
+#define STRINGID_HANS_MESSAGE_2                       743
+#define STRINGID_HANS_MESSAGE_3                       744
+#define STRINGID_ZANIK_MESSAGE_1                      745
+#define STRINGID_ZANIK_MESSAGE_2                      746
+#define STRINGID_ZANIK_MESSAGE_3                      747
 
-
-
-
-#define BATTLESTRINGS_VANILLA_END                     734
+#define BATTLESTRINGS_VANILLA_END                     747
 
 
 
@@ -804,6 +814,7 @@
 #define B_MSG_TURN1_FREEZE_SHOCK   10
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
+#define B_MSG_TURN1_ELECTRO_SHOCK  13
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0

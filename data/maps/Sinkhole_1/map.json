@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_SINKHOLE_1",
-      "flag": "FLAG_ITEM_SINKHOLE_1"
+      "script": "FIND_ITEM_MOONLIGHT_MEAD",
+      "flag": "FLAG_ITEM_SINKHOLEICE_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BEHEMOTH",
@@ -76,8 +76,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_SINKHOLE_2",
-      "flag": "FLAG_ITEM_SINKHOLE_2"
+      "script": "FIND_ITEM_HWEEN_MASK",
+      "flag": "FLAG_ITEM_SINKHOLEICE_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_SINKHOLE_3",
-      "flag": "FLAG_ITEM_SINKHOLE_3"
+      "script": "FIND_ITEM_SPIRIT_SHARD",
+      "flag": "FLAG_ITEM_SINKHOLEICE_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUNGEONEERING_1",

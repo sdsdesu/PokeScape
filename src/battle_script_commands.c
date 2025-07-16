@@ -585,7 +585,7 @@ static void Cmd_switchoutabilities(void);
 static void Cmd_jumpifhasnohp(void);
 static void Cmd_getsecretpowereffect(void);
 static void Cmd_pickup(void);
-static void Cmd_unused3(void);
+static void Cmd_setprayeractivatedbit(void);
 static void Cmd_unused4(void);
 static void Cmd_settypebasedhalvers(void);
 static void Cmd_jumpifsubstituteblocks(void);
@@ -611,6 +611,7 @@ static void Cmd_jumpifoppositegenders(void);
 static void Cmd_unused(void);
 static void Cmd_tryworryseed(void);
 static void Cmd_callnative(void);
+static void Cmd_setprayeractivatedbit(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -844,8 +845,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_jumpifhasnohp,                           //0xE3
     Cmd_getsecretpowereffect,                    //0xE4
     Cmd_pickup,                                  //0xE5
-    Cmd_unused3,                                 //0xE6
-    Cmd_unused4,                                 //0xE7
+    Cmd_setprayeractivatedbit,                             //0xE6
+    Cmd_unused4,                             //0xE7
     Cmd_settypebasedhalvers,                     //0xE8
     Cmd_jumpifsubstituteblocks,                  //0xE9
     Cmd_tryrecycleitem,                          //0xEA
@@ -1076,7 +1077,7 @@ static const struct PickupItem sPickupTable[] =
     { ITEM_REPEL_TEA_3,         {   _,   3,   3,   4,   4,   9,   8,   8,  30,   _, } },
     { ITEM_DAGONHAIHAT,         {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
     { ITEM_BLUEBOATER,          {   _,   3,   3,   4,   4,   4,   4,   5,   9,  10, } },
-    { ITEM_PURPLE_SWEETS,       {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
+    { ITEM_MANY_SWEETS,       {   _,   1,   1,   1,   1,   4,   4,   5,   4,   5, } },
     { ITEM_SANTA_HAT,           {   _,   _,   3,   4,   4,   4,   4,   5,   4,   5, } },
     { ITEM_MINT_CAKE,           {   _,   _,   3,   4,   4,   4,   8,   8,   9,  30, } },
     { ITEM_MINT_CAKE,           {   _,   _,   1,   1,   4,   4,   4,   _,   _,   _, } },
@@ -1108,12 +1109,12 @@ static const u16 sPickupItems[] =
     ITEM_CABBAGE,
     ITEM_POUCH_RUNE,
     ITEM_CHOCOLATE_CAKE,
-    ITEM_PURPLE_SWEETS,
+    ITEM_MANY_SWEETS,
     ITEM_LAMP_ATT,
-    ITEM_PURPLE_SWEETS, //EASTER EGG (MAX REIVIE)
+    ITEM_MANY_SWEETS, //EASTER EGG (MAX REIVIE)
     ITEM_LAMP_HP,
     ITEM_BLOOD_RUNE,
-    ITEM_PURPLE_SWEETS, //WISE OLD MAN SOCK
+    ITEM_MANY_SWEETS, //WISE OLD MAN SOCK
     ITEM_DAGONHAIHAT,
     ITEM_BLUEBOATER,
 };
@@ -3173,6 +3174,9 @@ void SetMoveEffect(bool32 primary, u32 certain)
             switch (gBattleScripting.moveEffect)
             {
             case MOVE_EFFECT_CONFUSION:
+                if (gCurrentMove == MOVE_ALLURING_VOICE && !gProtectStructs[gEffectBattler].statRaised)
+                    break;
+
                 if (!CanBeConfused(gEffectBattler))
                 {
                     gBattlescriptCurrInstr++;
@@ -3568,6 +3572,7 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     gProtectStructs[gBattlerTarget].banefulBunkered = FALSE;
                     gProtectStructs[gBattlerTarget].obstructed = FALSE;
                     gProtectStructs[gBattlerTarget].silkTrapped = FALSE;
+                    gProtectStructs[gBattlerAttacker].burningBulwarked = FALSE;
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     if (gCurrentMove == MOVE_HYPERSPACE_FURY)
                         gBattlescriptCurrInstr = BattleScript_HyperspaceFuryRemoveProtect;
@@ -5377,6 +5382,15 @@ static void Cmd_moveend(void)
                     gBattlescriptCurrInstr = BattleScript_KingsShieldEffect;
                     effect = 1;
                 }
+                else if (gProtectStructs[gBattlerTarget].burningBulwarked)
+                {
+                    gProtectStructs[gBattlerAttacker].touchedProtectLike = FALSE;
+                    gBattleScripting.moveEffect = MOVE_EFFECT_BURN | MOVE_EFFECT_AFFECTS_USER;
+                    PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_BURNING_BULWARK);
+                    BattleScriptPushCursor();
+                    gBattlescriptCurrInstr = BattleScript_BanefulBunkerEffect;
+                    effect = 1;
+                }
                 // Not strictly a protect effect, but works the same way
                 else if (gProtectStructs[gBattlerTarget].beakBlastCharge
                          && CanBeBurned(gBattlerAttacker)
@@ -6248,7 +6262,10 @@ static void Cmd_sethealblock(void)
     else
     {
         gStatuses3[gBattlerTarget] |= STATUS3_HEAL_BLOCK;
-        gDisableStructs[gBattlerTarget].healBlockTimer = 5;
+        if (gBattleMoves[gCurrentMove].effect == EFFECT_PSYCHIC_NOISE)
+            gDisableStructs[gBattlerTarget].healBlockTimer = 2;
+        else
+            gDisableStructs[gBattlerTarget].healBlockTimer = 5;
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
 }
@@ -10606,7 +10623,7 @@ static void Cmd_various(void)
         u8 leftToDefeat = VarGet(VAR_SLAYER_LEFT_TO_DEFEAT);
         s32 enemySpecies = GetMonData(&gEnemyParty[0],MON_DATA_SPECIES);
 
-        if ((VarGet(VAR_SLAYER_ASSIGNMENT) == 1) && (enemySpecies == SPECIES_BLOODVELD || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM)) {
+        if ((VarGet(VAR_SLAYER_ASSIGNMENT) == 1) && (enemySpecies == SPECIES_BLOODVELD || enemySpecies == SPECIES_BLOODVELD_INSATIABLE_PHYSICAL || enemySpecies == SPECIES_BLOODVELD_RSHD)) {
             if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
                 leftToDefeat--;
             if ((leftToDefeat <= 0))
@@ -10856,6 +10873,11 @@ static void Cmd_setprotectlike(void)
             else if (gCurrentMove == MOVE_SILK_TRAP)
             {
                 gProtectStructs[gBattlerAttacker].silkTrapped = TRUE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
+            }
+            else if (gCurrentMove == MOVE_BURNING_BULWARK)
+            {
+                gProtectStructs[gBattlerAttacker].burningBulwarked = TRUE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PROTECTED_ITSELF;
             }
 
@@ -14263,7 +14285,8 @@ static void Cmd_setroom(void)
         HandleRoomMove(STATUS_FIELD_MAGIC_ROOM, &gFieldTimers.magicRoomTimer, 4);
         break;
     case EFFECT_INVERSE_BATTLE:
-        HandleRoomMove(STATUS_FIELD_CHAOTIC_RIFT, &gFieldTimers.chaoticRiftTimer,6);
+        //HandleRoomMove(STATUS_FIELD_GRAVITY, &gFieldTimers.gravityTimer, 6);
+        HandleRoomMove(STATUS_FIELD_CHAOTIC_RIFT, &gFieldTimers.chaoticRiftTimer, 6);
         break;
     default:
         gBattleCommunication[MULTISTRING_CHOOSER] = 8;
@@ -14709,8 +14732,12 @@ static void Cmd_pickup(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_unused3(void)
+static void Cmd_setprayeractivatedbit(void)
 {
+    CMD_ARGS();
+
+    gBattleMons[gBattlerAttacker].status2 |= STATUS2_DEFENSE_CURL; //  STATUS2_PRAYER_ACTIVATED
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void Cmd_unused4(void)

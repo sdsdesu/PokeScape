@@ -70,6 +70,7 @@
 #include "constants/frontier_util.h"
 #include "constants/trainers.h"
 #include "frontier_util.h"
+#include "match_call.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -2039,11 +2040,156 @@ static void FixIllusionPartyPos(struct Pokemon *party, u32 partySize) //Illusion
     }
 }
 
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 firstTrainer, u32 battleTypeFlags)
 {
     u32 personalityValue;
     s32 i, j;
     u8 monsCount;
+
+    u8 levelscaling = VarGet(VAR_GAMEMODE_LEVEL_SCALING);
+    u8 levelcap = VarGet(VAR_GAMEMODE_LEVEL_CAP);
+    u8 minLevel = 0;
+    u8 maxLevel = 0;
+    u8 customlevel = 0;
+
+
+///////////////////////////////////////////////////////////////////////
+//If openworld mode.
+    if (gSaveBlock2Ptr->GameMode == 1) {
+        
+        u32 LevelofPartyMonster = GetHighestLevelInPlayerParty();
+
+        if (LevelofPartyMonster >= 5) { // If less or equal to
+            minLevel = 1;
+            maxLevel = 5;
+        }
+        if (LevelofPartyMonster >= 8) {
+            minLevel = 3;
+            maxLevel = 8;
+        }
+        if (LevelofPartyMonster >= 10) {
+            minLevel = 5;
+            maxLevel = 10;
+        }
+        if (LevelofPartyMonster >= 15) {
+            minLevel = 10;
+            maxLevel = 15;
+        }
+        if (LevelofPartyMonster >= 20) {
+            minLevel = 15;
+            maxLevel = 20;
+        }
+        if (LevelofPartyMonster >= 25) {
+            minLevel = 20;
+            maxLevel = 25;
+        }
+        if (LevelofPartyMonster >= 30) {
+            minLevel = 25;
+            maxLevel = 30;
+        }
+        if (LevelofPartyMonster >= 35) {
+            minLevel = 30;
+            maxLevel = 35;
+        }
+        if (LevelofPartyMonster >= 40) {
+            minLevel = 35;
+            maxLevel = 40;
+        }
+        if (LevelofPartyMonster >= 45) {
+            minLevel = 40;
+            maxLevel = 45;
+        }
+        if (LevelofPartyMonster >= 50) {
+            minLevel = 45;
+            maxLevel = 50;
+        }
+        if (LevelofPartyMonster >= 60) {
+            minLevel = 50;
+            maxLevel = 60;
+        }
+        if (LevelofPartyMonster >= 70) {
+            minLevel = 60;
+            maxLevel = 70;
+        }
+        if (LevelofPartyMonster >= 80) {
+            minLevel = 70;
+            maxLevel = 80;
+        }
+        if (LevelofPartyMonster >= 90) {
+            minLevel = 80;
+            maxLevel = 90;
+        }
+        if (LevelofPartyMonster >= 99) {
+            minLevel = 85;
+            maxLevel = 99;
+        }
+
+
+        //If you have a badge it caps the level of monsters to go no lower.
+        if ((GetNumOwnedBadges() == 1) && (LevelofPartyMonster <= 15)) {
+            minLevel = 10;
+            maxLevel = 15;
+        }
+        if ((GetNumOwnedBadges() == 2) && (LevelofPartyMonster <= 25)) {
+            minLevel = 20;
+            maxLevel = 25;
+        }
+        if ((GetNumOwnedBadges() == 3) && (LevelofPartyMonster <= 35)) {
+            minLevel = 30;
+            maxLevel = 35;
+        }
+        if ((GetNumOwnedBadges() == 4) && (LevelofPartyMonster <= 40)) {
+            minLevel = 35;
+            maxLevel = 40;
+        }
+        if ((GetNumOwnedBadges() == 5) && (LevelofPartyMonster <= 45)) {
+            minLevel = 40;
+            maxLevel = 45;
+        }
+        if ((GetNumOwnedBadges() == 6) && (LevelofPartyMonster <= 50)) {
+            minLevel = 45;
+            maxLevel = 50;
+        }
+        if ((GetNumOwnedBadges() == 7) && (LevelofPartyMonster <= 55)) {
+            minLevel = 50;
+            maxLevel = 55;
+        }
+        if ((GetNumOwnedBadges() == 8) && (LevelofPartyMonster <= 60)) {
+            minLevel = 55;
+            maxLevel = 60;
+        }
+
+        /*
+        //ADDING EXTRA DIFFICULTY, LEVELS.
+        switch (levelscaling)
+        {
+            case 1: //EASY
+                minLevel = (minLevel - 10);
+                maxLevel = (maxLevel);
+            case 2: //MEDIUM
+                minLevel = (minLevel);
+                maxLevel = (maxLevel + 5);
+            case 3: //HARD
+                minLevel = (minLevel + 5);
+                maxLevel = (maxLevel + 10);
+            case 4: //ELITE
+                minLevel = (minLevel + 10);
+                maxLevel = (maxLevel + 15);
+            default:
+                minLevel = (minLevel);
+                maxLevel = (maxLevel);
+        }
+        if (minLevel <= 0) { //Less or equal
+            minLevel = 1;
+        }
+        if (maxLevel >= 100) { //Greater or higher
+            maxLevel = 100;
+        }*/
+
+    }
+//////////////////////////////////////////////////////////////////////
+
     if (battleTypeFlags & BATTLE_TYPE_TRAINER && !(battleTypeFlags & (BATTLE_TYPE_FRONTIER
                                                                         | BATTLE_TYPE_EREADER_TRAINER
                                                                         | BATTLE_TYPE_TRAINER_HILL)))
@@ -2070,6 +2216,13 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             const struct TrainerMon *partyData = trainer->party;
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
+            
+            //OPENWORLD
+            if (gSaveBlock2Ptr->GameMode == 1) {
+                u8 PartyLevelRange = (maxLevel - minLevel);
+                u8 rand = (Random() % (PartyLevelRange + 1));
+                customlevel = (minLevel + rand);
+            }
 
             if (trainer->doubleBattle == TRUE)
                 personalityValue = 0x80;
@@ -2090,7 +2243,18 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otIdType = OT_ID_PRESET;
                 fixedOtId = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
+
+            //OPENWORLD
+            if (gSaveBlock2Ptr->GameMode == 1)
+            {
+                CreateMon(&party[i], partyData[i].species, customlevel, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            }
+            //STORYMODE
+            else 
+            {
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 0, TRUE, personalityValue, otIdType, fixedOtId);
+            }
+
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
@@ -3502,6 +3666,7 @@ const u8* FaintClearSetData(u32 battler)
     gProtectStructs[battler].quash = FALSE;
     gProtectStructs[battler].obstructed = FALSE;
     gProtectStructs[battler].silkTrapped = FALSE;
+    gProtectStructs[battler].burningBulwarked = FALSE;
     gProtectStructs[battler].endured = FALSE;
     gProtectStructs[battler].noValidMoves = FALSE;
     gProtectStructs[battler].helpingHand = FALSE;

@@ -18,6 +18,7 @@
 #include "constants/field_effects.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
+#include "data.h"
 
 static void Task_DoFieldMove_Init(u8 taskId);
 static void Task_DoFieldMove_ShowMonAfterPose(u8 taskId);
@@ -61,7 +62,13 @@ static void Task_DoFieldMove_Init(u8 taskId)
     if (!ObjectEventIsMovementOverridden(&gObjectEvents[objEventId])
      || ObjectEventClearHeldMovementIfFinished(&gObjectEvents[objEventId]))
     {
-        if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
+        if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) { 
+            // If outfit doesn't have field move animations.
+            //Skip field move animation
+            //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+            gTasks[taskId].func = Task_DoFieldMove_WaitForMon;
+        }
+        else if (gMapHeader.mapType == MAP_TYPE_UNDERWATER)
         {
             // Skip field move pose underwater
             FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);

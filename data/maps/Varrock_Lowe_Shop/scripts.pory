@@ -42,19 +42,6 @@ script LOWESBOOK {
     end   
 }
 
-script LOWES_BONE_CROSSBOW
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-
-
-
-
-
-
-
-
 
 //TRAINING HUT
 

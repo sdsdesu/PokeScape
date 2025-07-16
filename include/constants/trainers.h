@@ -280,6 +280,11 @@
 #define TRAINER_PIC_sandwich_lady   		    254
 #define TRAINER_PIC_guard_varrock_pose   		255
 #define TRAINER_PIC_tzhaar_ket_hd   		    256
+#define TRAINER_PIC_zemouregal   		        257
+#define TRAINER_PIC_lord_daquarius   		    258
+#define TRAINER_PIC_elite_black_knight   		259
+#define TRAINER_PIC_angrennouille   		        260
+
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -610,11 +615,12 @@
 #define TRAINER_CLASS_SANDWICH          0x8a
 #define TRAINER_CLASS_MELZAR            0x8b
 #define TRAINER_CLASS_ZAMORAK           0x8c
+#define TRAINER_CLASS_STRANGER          0x8d
 
 
 
 
-#define TRAINER_CLASS_NUM       		0x8c
+#define TRAINER_CLASS_NUM       		0x8d
 
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // Standard male encounter music

@@ -22,7 +22,14 @@ script ROUTE27_STATE {
 		addobject(8)
 		addobject(9)
     }
-    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175)
+    if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 175) 
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 181)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 185)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 186)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 187)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 190)
+        || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 195))
     {
         clearflag(FLAG_TEMP_1F)
 		addobject(8)
@@ -55,13 +62,10 @@ script TRIGGER_STORYMODE_EVENT_ROUTE27 {
     namebox ("Sir Owen")
     msgbox(format("Let's go, we must make haste to Ice Mountain."))
     closemessage
-    hidenamebox
-	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_3)
-	waitmovement (0)
-    namebox ("Sir Owen")
     msgbox(format("I shall scout ahead and make sure there's not an ambush waiting for us.\pDon't keep me waiting too long!"))
     closemessage
-	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_4)
+    hidenamebox
+	applymovement (SIR_OWEN_ID,movement_SIR_OWEN_3)
 	waitmovement (0)
 
 	setflag(FLAG_TEMP_1E) //Hide only sir owen
@@ -87,11 +91,6 @@ movement movement_SIR_OWEN_2_down
 }
 
 movement movement_SIR_OWEN_3
-{
-	face_up
-}
-
-movement movement_SIR_OWEN_4
 {
     walk_fast_up * 6
 }

@@ -816,34 +816,6 @@ script NPC_PORTSARIM_GENERALSTORE_CUSTOMER_2
 }
 
 
-script NPC_PORTSARIM_GERRANT
-{
-	lock
-	faceplayer
-    namebox ("Gerrant")
-    checkitem(ITEM_BIG_NET, 1)
-        if (!var(VAR_RESULT)){
-            msgbox(format("THAT IS IT!\pTHAT SHINE IN YOUR EYES!\pYou understand the beauty of fishing don't you?!\pHere take this!"))
-            closemessage
-            hidenamebox
-            giveitem(ITEM_BIG_NET)
-            namebox ("Gerrant")
-            msgbox(format("This fishing net will allow you to catch those big suckers!\pDon't worry I won't charge you anything for it!\pNow off with you!\pMuch fishing awaits in your future!"))
-            closemessage
-            hidenamebox
-            release
-            end
-        }
-        else {
-            msgbox(format("Being in the fish selling business has made me gain weight over the years.\pOh did you wish to buy something?"))
-            closemessage
-            hidenamebox
-            release
-            end
-        }
-    release
-    end
-}
 
 
 script NPC_PORTSARIM_FISHING_CUSTOMER
@@ -1220,4 +1192,131 @@ movement movement_walk_to_lighthouse_4 {
 }
 movement movement_jump_in_place_LEFT {
     jump_in_place_left
+}
+
+
+
+
+
+
+
+
+
+script NPC_FISHERMAN_1 {
+    lock
+	faceplayer
+    namebox("Hank")
+    msgbox(format("I love to fish in this pond.\pIt is so peaceful, with the ducks that keep me company.\pI cannot imagine anything bad to happen here."))
+    checkitem(ITEM_SMALL_NET, 1)
+    if (!var(VAR_RESULT)){
+        msgbox(format("You seem like someone who would also enjoy fishing in this pond.\pBut you don't have a fishing net?\pYou should go visit Hank in Lumbridge.\pI'm sure he can supply you with one."))
+    }
+    else {
+        msgbox(format("How are you finding fishing in the pond?\pHave you caught anything yet?{PAUSE 15}\pDid you know that a crayfish evolves into a shrimp?\pBut it's so peaceful here, I've never managed to evolve one myself."))
+    }
+    hidenamebox
+    closemessage
+	release
+	end
+}
+script NPC_ROUTE12_Fisherman{
+    lock
+	faceplayer
+	namebox("Fisherman")
+    msgbox(format("We once had a wooden bridge here, but some firemakers burnt it down…\pMakes the place good for fishing now though."))
+    checkitem(ITEM_SMALL_NET, 1)
+    if (!var(VAR_RESULT)){
+        msgbox(format("Speaking of which, if you're interested in fishing you should go visit Hank in Lumbridge.\pHe can give you with some fishing supplies!"))
+    }
+    hidenamebox
+	closemessage
+	release
+	end
+}
+
+
+
+
+
+
+//FISHING NETS
+
+
+
+script NPC_GIVE_SMALL_NET
+{
+	lock
+	faceplayer
+    namebox("Hank")
+	msgbox(format("G'day, welcome to my little fishing shack."))
+    checkitem(ITEM_SMALL_NET, 1)
+        if (!var(VAR_RESULT)){
+            msgbox(format("You seem like someone who would also enjoy fishing.\pHere take this!"))
+            hidenamebox
+            giveitem(ITEM_SMALL_NET)
+            namebox("Hank")
+            msgbox(format("It is only a small net but I'm sure there are plenty of things you could fish up with it!"))
+            release
+            end
+        }
+        else {
+            msgbox(format("Fishing is a hobby of mine, sadly though this shack is falling apart.\pI tried purchasing the other real estate in Lumbridge but sadly I was outbid."))
+            release
+            end
+        }
+	release
+	end
+}
+
+script NPC_PORTSARIM_GERRANT // BIG NET
+{
+	lock
+	faceplayer
+    namebox ("Gerrant")
+    checkitem(ITEM_BIG_NET, 1)
+        if (!var(VAR_RESULT)){
+            msgbox(format("THAT IS IT!\pTHAT SHINE IN YOUR EYES!\pYou understand the beauty of fishing don't you?!\pHere take this!"))
+            closemessage
+            hidenamebox
+            giveitem(ITEM_BIG_NET)
+            namebox ("Gerrant")
+            msgbox(format("This fishing net will allow you to catch those big suckers!\pDon't worry I won't charge you anything for it!\pNow off with you!\pMuch fishing awaits in your future!"))
+            closemessage
+            hidenamebox
+            release
+            end
+        }
+        else {
+            msgbox(format("Being in the fish selling business has made me gain weight over the years.\pOh did you wish to buy something?"))
+            closemessage
+            hidenamebox
+            release
+            end
+        }
+    release
+    end
+}
+
+script NPC_GIVE_DRAGON_NET
+{
+	lock
+	faceplayer
+    namebox("Stiles")
+    checkitem(ITEM_DRAGON_NET, 1)
+        if (!var(VAR_RESULT)){
+            msgbox(format("Ay-you!\pYou look like you'd be capable at fishing up some powerful monsters, if only your net held up ay?\pWell keep this between us, but ay found this special net that always attracts powerful monsters.\pI have no use for it so here, you take it."))
+            hidenamebox
+            giveitem(ITEM_DRAGON_NET)
+            namebox("Stiles")
+            msgbox(format("I wish I could use it to fish, but ay am too weak to handle such powerful monsters."))
+            release
+            end
+        }
+        else {
+            msgbox(format("Ay-uh, howsit going.\pFished up any of em powerful monsters lately?"))
+            release
+            end
+        }
+	release
+	end
 }

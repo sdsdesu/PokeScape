@@ -38,6 +38,9 @@ script MUSAPOINT_METATILES {
 }
 
 script MUSAPOINT_STATE {
+	removeobject(15)
+	setflag(FLAG_TEMP_10) //Angrenouille
+
 	if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORYMODE
     {
 		if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) <= 155) { //Less than, Next storymoment past obtaining the boat. 
@@ -56,6 +59,7 @@ script MUSAPOINT_STATE {
 			clearflag(FLAG_TEMP_1F)
 			addobject(22)
 			addobject(23)
+			addobject(29)
 			clearflag(FLAG_TEMP_1E)
 		}
 		else {
@@ -63,6 +67,7 @@ script MUSAPOINT_STATE {
 			setflag(FLAG_TEMP_1F)
 			removeobject(22)
 			removeobject(23)
+			removeobject(29)
 			setflag(FLAG_TEMP_1E)
 		}
 	//BANANA BOAT QUEST
@@ -79,6 +84,11 @@ script MUSAPOINT_STATE {
 			removeobject(25)
 		}
 	}
+
+	if ((var(VAR_FROGEEL_RIVAL) == 10)) {
+        addobject(15)
+        clearflag(FLAG_TEMP_10) //Angrenouille
+    }
 	return
 }
 
@@ -119,7 +129,7 @@ script NPC_LegendArts
 {
 	lock
 	faceplayer
-    namebox ("LEGEND ARTS")
+    namebox ("Legend Arts")
 	msgbox(format("What…{PAUSE 15}{PAUSE 15}…{PAUSE 15}{PAUSE 15}…\nHow did I get here?"))
     waitmessage
     hidenamebox
@@ -138,22 +148,13 @@ script SIGNPOST_MUSA_POINT
 
 script SIGNPOST_BOAT_FOR_SALE
 {
-	msgbox(format("Boat for Sale!\pSee Luthas inside for more details."))
-    closemessage
+	if (var(VAR_BANANA_BOAT_QUEST) <= 10) {
+		msgbox(format("Boat for Sale!\pSee Luthas inside for more details."))
+    	closemessage
+	}
 	end
 }
 
-//ITEMS
-script ITEM_MUSA_POINT_1
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_MUSA_POINT_2
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
 
 //NPCS
 script NPC_MUSA_POINT_1
@@ -563,18 +564,21 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
     delay(60)
     playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
 	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
-    if (var(VAR_TEMP_B) == 26){
+    if (var(VAR_TEMP_B) == 29){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_01)
 		waitmovement(0)
 		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_FACE_DOWN)
+		waitmovement(0)
     } 
-    elif (var(VAR_TEMP_B) == 27){
+    elif (var(VAR_TEMP_B) == 30){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_02)
+		waitmovement(0)
     }
-	elif (var(VAR_TEMP_B) == 28){
+	elif (var(VAR_TEMP_B) == 31){
         applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_03)
+		waitmovement(0)
     }
-	waitmovement(0)
+	
 	namebox("Wise Old Man")
 	msgbox(format("Well then, it truly has been awhile.\nYou look quite different since we last met."))
 	switch (var(VAR_WISE_OLD_MAN_RIVAL)) { 
@@ -602,16 +606,41 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 	msgbox(format("Me?\pI think I might go visit the pub for a drink.\pI truly am looking forward to seeing your MvM championship progress.\pUntil next time {PLAYER}."))
 	hidenamebox
 	closemessage
+	special(SpawnCameraObject)                                      //Need to spawn a camera as with the moved trigger tiles you wouldn't see WOM enter the pub
 	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
-    if (var(VAR_TEMP_B) == 26){
-        applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_04)
-    } 
-    elif (var(VAR_TEMP_B) == 27){
-        applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_05)
+		if (var(VAR_TEMP_B) == 29){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_1)
+		} 
+		elif (var(VAR_TEMP_B) == 30){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_2)
+		}
+		elif (var(VAR_TEMP_B) == 31){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_3)
+		}
+	if ((var(VAR_FROGEEL_RIVAL) == 10)) {                           //if Angrenouille is stood outside the pub, WOM will walk around him and react to him
+    	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)
+    		if (var(VAR_TEMP_B) == 29){
+        		applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_04)
+    		} 
+    		elif (var(VAR_TEMP_B) == 30){
+        		applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_05)
+   			}
+			elif (var(VAR_TEMP_B) == 31){
+        		applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_06)
+   			}
     }
-	elif (var(VAR_TEMP_B) == 28){
-        applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_06)
-    }
+	else {
+		getplayerxy(VAR_TEMP_A, VAR_TEMP_B)                         //if Angrenouille is NOT stood outside the pub, WOM will walk through where he'd otherwise be
+    		if (var(VAR_TEMP_B) == 29){
+        		applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_07)
+    		} 
+    		elif (var(VAR_TEMP_B) == 30){
+       			applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_08)
+   			}
+			elif (var(VAR_TEMP_B) == 31){
+        		applymovement (OBJ_EVENT_ID_WISE_OLD_MAN, movement_wom_musapoint_09)
+    		}
+	}
 	waitmovement(0)
 	opendoor(18,32)
 	waitdooranim
@@ -620,6 +649,21 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 	removeobject(OBJ_EVENT_ID_WISE_OLD_MAN)
 	setflag(FLAG_TEMP_1F)
 	closedoor(18,32)
+	getplayerxy(VAR_TEMP_A, VAR_TEMP_B)                               //Pans the camera back
+		if (var(VAR_TEMP_B) == 29){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_4)
+		} 
+		elif (var(VAR_TEMP_B) == 30){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_5)
+		}
+		elif (var(VAR_TEMP_B) == 31){
+			applymovement (OBJ_EVENT_ID_CAMERA, movement_musapoint_camera_6)
+		}
+	applymovement (29, movement_musapoint_luthas_monkey)          //Moves the monkey out from in front of Luthas' house
+	waitmovement(0)
+	special(RemoveCameraObject)
+	removeobject(29)
+	setflag(FLAG_TEMP_1E)
 	if (var(VAR_WISE_OLD_MAN_RIVAL) == 10) {
 		addvar(VAR_GAMEMODE_LEVEL_CAP, 2)
 	}
@@ -629,7 +673,6 @@ script TRIGGER_WISEOLDMAN_RIVAL_MUSAPOINT {
 	fadedefaultbgm
 	release
 	end
-	
 }
 
 movement movement_wom_musapoint_noticeplayer{
@@ -641,20 +684,17 @@ movement movement_wom_musapoint_01{
     walk_left
 	walk_up
 	walk_left
-	walk_up
-	walk_left
-	face_up
+	step_end
 }
 movement movement_wom_musapoint_02{
-    walk_left
-	walk_up
-	walk_up
-	walk_left
+    walk_left * 2
+	step_end
 }
 movement movement_wom_musapoint_03{
     walk_left
-	walk_up
+	walk_down
 	walk_left
+	step_end
 }
 movement movement_wom_musapoint_1{
     face_right
@@ -663,34 +703,108 @@ movement movement_wom_musapoint_1{
 }
 
 movement movement_wom_musapoint_04{
-    walk_right
-	walk_down * 2
-	walk_right
+    walk_down
+	walk_left * 4
 	walk_down * 4
-	walk_left * 6
+	walk_left * 4
 	face_up
+	emote_question_mark
+	walk_left * 2
+	walk_up
+	step_end
 }
 movement movement_wom_musapoint_05{
-    walk_down * 2
-	walk_right
-	walk_down * 4
-	walk_left * 6
+    walk_down
+	walk_left * 4
+	walk_down * 3
+	walk_left * 4
 	face_up
+	emote_question_mark
+	walk_left * 2
+	walk_up
+	step_end
 }
 movement movement_wom_musapoint_06{
-	walk_down
-	walk_right
+    walk_up
+	walk_left * 4
 	walk_down * 4
+	walk_left * 4
+	face_up
+	emote_question_mark
+	walk_left * 2
+	walk_up
+	step_end
+}
+
+movement movement_wom_musapoint_07{
+    walk_down
+	walk_left * 4
+	walk_down * 3
 	walk_left * 6
 	face_up
+	step_end
 }
+movement movement_wom_musapoint_08{
+    walk_down
+	walk_left * 4
+	walk_down * 2
+	walk_left * 6
+	face_up
+	step_end
+}
+movement movement_wom_musapoint_09{
+    walk_up
+	walk_left * 4
+	walk_down * 3
+	walk_left * 6
+	face_up
+	step_end
+}
+
 movement movement_ENTER_DOOR{
 	walk_up
 	set_invisible
 }
 
+movement movement_musapoint_camera_1{
+    walk_left * 3
+	walk_down
+    step_end
+}
 
+movement movement_musapoint_camera_2{
+    walk_left * 3
+    step_end
+}
 
+movement movement_musapoint_camera_3{
+    walk_left * 3
+    walk_up
+    step_end
+}
+
+movement movement_musapoint_camera_4{
+    walk_up
+	walk_right * 3
+    step_end
+}
+
+movement movement_musapoint_camera_5{
+    walk_right * 3
+    step_end
+}
+
+movement movement_musapoint_camera_6{
+    walk_down
+	walk_right * 3
+    step_end
+}
+
+movement movement_musapoint_luthas_monkey{
+    walk_down
+	walk_left * 9
+    step_end
+}
 
 script NPC_WISEOLDMAN_RIVAL_MUSAPOINT_PUB {
 	lock
@@ -818,8 +932,9 @@ script LUTHAS_QUEST_PART_2 {
 		closemessage
 		hidenamebox
 	}
-	giveitem(ITEM_PURPLE_SWEETS,5)
-	giveitem(ITEM_PINEAPPLE,1)
+	giveitem(ITEM_EXP_CANDY_M, 5)
+	giveitem(ITEM_NATURE_RUNE, 1)
+	giveitem(ITEM_PINEAPPLE, 1)
 	//QUEST COMPPLETE.
 	questmenu(QUEST_MENU_COMPLETE_QUEST, QUEST_BANANA_BOAT)
 	setvar(VAR_BANANA_BOAT_QUEST, 10) //Quest complete
@@ -850,7 +965,7 @@ script LUTHAS_QUEST_PART_3 {
 		msgbox(format("My order is filled, thank you!\pHave this as a reward."))
 		hidenamebox
 		closemessage
-		giveitem(ITEM_TM12_MISTY_TERRAIN, 1) //replace with a banana related move.
+		giveitem(ITEM_TM14_ENERGY_BALL, 1)
 	}
 	hidenamebox
 	closemessage
@@ -1003,6 +1118,7 @@ script QUEST_TESTER {
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 8)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 9)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 10)
+	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)
 
 	startquest (QUEST_MITHRILMAN_QUEST)
 	subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 0)
@@ -1120,7 +1236,7 @@ script multipartnerBattle_Zanik {
     end
 }
 
-script Following_Zanik {
+script Following_Chat_Toggles {
 	lock
 	facefollower
 	if (var(VAR_PARTNER_SPRITE) == TRAINER_BACK_PIC_ARIANE) { //chance to a switch case later
@@ -1228,38 +1344,57 @@ script FOLLOWER_REMOVE {
 
 
 script CHECK_FOLLOWER_SIROWEN {
-	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 180) {
-		checkfollower
-		if (var(VAR_RESULT)) {
-			lockall
-			namebox("Sir Owen")
-			msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
-			if (var(VAR_RESULT))
-			{ 
-				msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
-				closemessage
-				hidenamebox
+	checkfollower
+	if (var(VAR_RESULT)) {
+		lockall
+		facefollower
+		namebox("Sir Owen")
+		msgbox(format("{PLAYER} our investigation is on Ice Mountain.\pOr do you wish to part ways?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{ 
+			msgbox(format("Very well, you take a quick retreat and I will stand guard here."))
+			
+			iswearingoutfit(OUTFIT_GUARD)
+			if (var(VAR_RESULT) == TRUE) {
+				namebox("Sir Owen")
+				msgbox(format("Oh pass me that outfit real quick, I'll keep it safe until you return."))
+			}
+			closemessage
+			hidenamebox
+			
+			iswearingoutfit(OUTFIT_GUARD)
+			if (var(VAR_RESULT) == TRUE) {
+				fadescreenswapbuffers(FADE_TO_BLACK)
 				call(FOLLOWER_REMOVE)
-				clearflag(FLAG_TEMP_1E)
-				addobject(13)
-				applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
-				waitmovement(0)
+				setvar(VAR_0x8004, OUTFIT_DEFAULT)
+				special(WearOutfit)
+				fadescreenswapbuffers(FADE_FROM_BLACK)
 			}
 			else {
-				closemessage
-				hidenamebox
-				applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
-				applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
-				waitmovement(0)
+				call(FOLLOWER_REMOVE)
 			}
-			releaseall
+			clearflag(FLAG_TEMP_1E)
+			addobject(13)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+			waitmovement(0)
 		}
 		else {
-			goto(SetFollower_SirOwen)
+			closemessage
+			hidenamebox
+			applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
+			applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
+			waitmovement(0)
 		}
+		releaseall
 	}
-	end
+	else {
+		applymovement (13, Movement_InteractFACEDOWN)
+		waitmovement(0)
+		goto(SetFollower_SirOwen)
+	}
+	return
 }
+
 
 
 
@@ -1282,13 +1417,39 @@ script SetFollower_SirOwen {
 		setflag(FLAG_PARTNER_BATTLE)
 		setvar (VAR_PARTNER_TRAINER, TRAINER_SIR_OWEN_1)
 		setvar (VAR_PARTNER_SPRITE, TRAINER_BACK_PIC_OWEN)
-		loadword(0, FOLLOWING_SirOwen)
-		setfollower(13, 0x80)
 
-		namebox("Sir Owen")
-		msgbox(format("May Saradomin guide us!"))
-		closemessage
-		hidenamebox
+		//check if guard outfit
+		if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 187) {
+			namebox("Sir Owen")
+			msgbox(format("Hold on {PLAYER}, we should put these disguises back on."))
+			closemessage
+			hidenamebox
+
+			fadescreenswapbuffers(FADE_TO_BLACK)
+			addobject(17)
+    		clearflag(FLAG_TEMP_1C)
+			removeobject(13)
+    		setflag(FLAG_TEMP_1E)
+			destroyfollower
+			loadword(0, FOLLOWING_SirOwen)
+			setfollower(17, 0x80)
+			setvar(VAR_0x8004, OUTFIT_GUARD)
+			special(WearOutfit)
+			delay(20)
+			namebox("Sir Owen")
+			msgbox(format("That's better.\pMay Saradomin guide us!"))
+			closemessage
+			hidenamebox
+		}
+		else {
+			loadword(0, FOLLOWING_SirOwen)
+			setfollower(13, 0x80)
+			namebox("Sir Owen")
+			msgbox(format("May Saradomin guide us!"))
+			closemessage
+			hidenamebox
+		}
+		
 		applymovement (OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_UP)
 		applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_UP)
 		waitmovement(0)
@@ -1298,6 +1459,8 @@ script SetFollower_SirOwen {
 	msgbox(format("Oh… I see.\nThat's a bit disappointing.\pThought we had a heroic thing going here…"))
     hidenamebox
     closemessage
+	applymovement (OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
+	waitmovement(0)
     releaseall
     end
 }
@@ -1306,7 +1469,28 @@ script SetFollower_SirOwen {
 script FOLLOWING_SirOwen {
     namebox("Sir Owen")
     facefollower 
-//It is more common for special dialogue than this common dialogue. 1/5
+
+	switch (var(VAR_POKESCAPE_STORYMODE_PROGRESS)) {
+		case 181:
+			msgbox(format("Is that a Black Knight Fortress?!"))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 186:
+			msgbox(format("We should go say hello to those guards up on the mountain."))
+			hidenamebox
+			closemessage
+			release
+			end
+		case 187:
+			msgbox(format("I cannot believe we just did that…\pI guess we should try to enter the fortress, now that we look the part."))
+			hidenamebox
+			closemessage
+			release
+			end
+	}
+	//It is more common for special dialogue than this common dialogue. 1/5
 	random(5)
 	switch (var(VAR_RESULT)) {
 		case 0:
@@ -1318,7 +1502,16 @@ script FOLLOWING_SirOwen {
 				goto(SIR_OWEN_DIALOGUE_ICE_MOUNTAIN)
 			}
 			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_1) {
-				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS)
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_2) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_3) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3)
+			}
+			elif (var(VAR_RESULT) == MAP_BLACK_KNIGHTS_FORTRESS_4) {
+				goto(SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4)
 			}
 			else {
 				goto(SIR_OWEN_DIALOGUE_COMMON)
@@ -1350,7 +1543,7 @@ script SIR_OWEN_DIALOGUE_COMMON {
 		case 8:
 			msgbox(format("My arm? It is a long story.\pMaybe someday we will have time."))
 		case 9:
-			msgbox(format("My arm?\nNo I dont know a troll like that."))
+			msgbox(format("My arm?\nNo I don't know a troll like that."))
 		case 10:
 			msgbox(format("Stand with me {PLAYER}.\pWe will prevail!"))
 	}
@@ -1365,11 +1558,11 @@ script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
 	case 0:
 		msgbox(format("Brrr… It's quite cold."))
 	case 1:
-		msgbox(format("We are looking for any suspicious behavour keep your eyes peeled!"))
+		msgbox(format("We are looking for any suspicious behaviour. Keep your eyes peeled!"))
 	case 2:
-		msgbox(format("I think there is something atop of that mountain."))
+		msgbox(format("I think there is something atop that mountain."))
 	case 3:
-		msgbox(format("They say the Orcale is located somewhere on this mountain."))
+		msgbox(format("They say the Oracle is located somewhere on this mountain."))
 	case 4:
 		msgbox(format("Watch out, we don't want to fall down these cliffs."))
 	case 5:
@@ -1383,7 +1576,7 @@ script SIR_OWEN_DIALOGUE_ICE_MOUNTAIN {
 	release
 	end
 }
-script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_1 {
 	random(8)
 	switch (var(VAR_RESULT)) {
 	case 0:
@@ -1399,7 +1592,7 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
 	case 5:
 		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
 	case 6:
-		msgbox(format("These Black knights dont know when to quit."))
+		msgbox(format("These Black Knights dont know when to quit."))
 	case 7:
 		msgbox(format("We know of another hideout for the Black Knights, it is actually deep underground.\pThis is just an outpost compared to that."))
 	}
@@ -1407,4 +1600,148 @@ script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS {
 	closemessage
 	release
 	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_2 {
+	random(7)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These Kinshra seem obsessed with their history."))
+	case 1:
+		msgbox(format("I cannot believe that they are having a feast in here while people in nearby towns are starving..."))
+	case 2:
+		msgbox(format("Sir Tiffy is not going to be pleased when he hears how many Black Knights are here."))
+	case 3:
+		msgbox(format("How big is this place?\pIf I was in charge, I'd probably want to be right at the very top."))
+	case 4:
+		msgbox(format("I can hear the chanting of hymns.\pI cannot believe that there are still people openly worshipping Zamorak in Gielinor."))
+	case 5:
+		msgbox(format("Surely we just continue going up.\pWe'll find some information eventually."))
+	case 6:
+		msgbox(format("Did you know Kinshra means 'the ones that spark the fire'?\pAll these people know are death and destruction."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_3 {
+	random(4)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("These dungeons are full of prisoners.\pI wish we could free them all."))
+	case 1:
+		msgbox(format("The Kinshra often fill up their armies with slaves.\pI bet these poor people are some of them, ready for whatever war they start next."))
+	case 2:
+		msgbox(format("Can you hear that sound?\pThey've got more than just humans down here..."))
+	case 3:
+		msgbox(format("That sound!\pThey're training!\p{PAUSE 15}We need to find out what they're up to and stop them quickly!"))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+script SIR_OWEN_DIALOGUE_BLACK_KNIGHT_FORTRESS_4 {
+	random(5)
+	switch (var(VAR_RESULT)) {
+	case 0:
+		msgbox(format("I can feel it {PLAYER}, we're getting close now."))
+	case 1:
+		msgbox(format("Can you hear the whispering?\pThere's an important meeting going on up here.\pIt cost me dearly, but if I could go back I would do it all over again."))
+	case 2:
+		msgbox(format("The Kinshra despise me for what I did to Iban."))
+	case 3:
+		msgbox(format("Whilst some may not approve of the tactics I use, I know without a doubt that Saradomin himself guides my hand."))
+	case 4:
+		msgbox(format("When we find Lord Daquarius, we may need to be prepared for a fierce battle."))
+	}
+	hidenamebox
+	closemessage
+	release
+	end
+}
+
+
+script FROGEEL_RIVAL_3 {
+    lock
+	faceplayer 
+    namebox("Angrenouille")
+	msgbox(format("Oh, it's you again {PLAYER}.\pNo, I am not doing anything shady, just eating bananas.\pI like them, they have multiple A's in them."))
+    hidenamebox
+    closemessage
+	playse(SE_PIN)
+	applymovement (15, MOVEMENT_EXCLAMATIONMARK)
+	waitmovement(0)
+	namebox("Angrenouille")
+	msgbox(format("You have to buy them?\p{PAUSE 15}They don't belong to me?\pListen here {PLAYER}.\nIn life a man has to do certain things to become a frog monarch.\pEating bananas is one of them.\nEven if they are owned by others.\pAnd if you can not accept that?\pWell I guess we'll just have to fight about it.\nLike this!"))
+    closemessage
+    hidenamebox
+	if (flag(FLAG_STARTER1)){ //Grass
+		trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_3_GRASS, format("Seeya!"))
+	}
+	elif (flag(FLAG_STARTER2)) { //Fire
+		trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_3_FIRE, format("Seeya!"))
+	}
+	elif (flag(FLAG_STARTER3)) { //Water
+		trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_3_WATER, format("Seeya!"))
+	}
+    namebox("Angrenouille")
+	msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA!\pI said…{PAUSE 15}…\lA!"))
+	closemessage
+	hidenamebox
+	playse(SE_FLEE)
+		getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+		if (var(VAR_TEMP_1) == 20){
+			applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)  //have player watch Angrenouille
+		} 
+		elif (var(VAR_TEMP_1) == 21){
+			applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION)  //move player down then have them watch Angrenouille
+		}
+	applymovement(15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1)
+	waitmovement(0)
+	playse(SE_WALL_HIT)
+	applymovement(15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3)
+	waitmovement(0)
+	waitse
+	delay(30)
+	playse(SE_FLEE)
+	applymovement(15, MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2)
+	waitmovement(0)
+	delay(60)
+	applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+    msgbox(format("It seems that Angrenouille dropped a banana.\pOpening the banana revealed an item inside."))
+	closemessage
+    giveitem(ITEM_NATURE_RUNE, 1)
+	closemessage
+    removeobject(15)
+    setflag(FLAG_TEMP_10) //Angrenouille
+    setvar(VAR_FROGEEL_RIVAL, 15)
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_1 {
+    walk_fast_right * 7
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_2 {
+    face_up
+    walk_faster_up * 5
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_MUSA_POINT_3 {
+    lock_facing_direction
+    slide_left
+    jump_in_place_left
+    unlock_facing_direction
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_MUSA_REACTION {
+	walk_fast_down
+	face_right
+    step_end
 }

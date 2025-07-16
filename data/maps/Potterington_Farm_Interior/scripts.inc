@@ -533,7 +533,8 @@ POTTERINGTON_FARM_Lassy_Text_1:
 	.string "Zzz… {PAUSE 16}Zzz…$"
 
 SCRIPT_EGG_NOROOM_Text_0:
-	.string "You have no space for this.$"
+	.string "You have no space to take the monster\n"
+	.string "EGG.$"
 
 POTTERINGTON_FARM_Zamorak_Text_0:
 	.string "Zamorak$"

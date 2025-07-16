@@ -2322,3 +2322,41 @@ const u16 gTilesetPalettes_IndoorTowns3[][16] =
 };
 
 const u32 gTilesetTiles_IndoorTowns3[] = INCBIN_U32("data/tilesets/secondary/indoor_towns_3/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_DwarvenMines[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/dwarven_mines/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_DwarvenMines[] = INCBIN_U32("data/tilesets/secondary/dwarven_mines/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Wilderness_Crater[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/wilderness_crater/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Wilderness_Crater[] = INCBIN_U32("data/tilesets/secondary/wilderness_crater/tiles.4bpp.lz");

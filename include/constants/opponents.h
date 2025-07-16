@@ -31,9 +31,9 @@
 #define TRAINER_RSN_LUM_SWAMP				        	27
 #define TRAINER_MITHRILMAN1				            	28
 #define TRAINER_MITHRILMAN2				            	29
-#define TRAINER_MITHRILMAN3				            	30
-#define TRAINER_MITHRILMAN4				            	31
-#define TRAINER_MITHRILMAN5				            	32
+#define TRAINER_MITHRILMAN3				                30
+#define TRAINER_MITHRILMAN4_GRASS				        31
+#define TRAINER_MITHRILMAN5_GRASS				        32
 #define TRAINER_MITHRILMAN6				            	33
 #define TRAINER_MITHRILMAN7				            	34
 #define TRAINER_MITHRILMAN8				            	35
@@ -145,9 +145,9 @@
 #define TRAINER_MUDSKIPPERPOINT_FISHERMAN_2				141
 #define TRAINER_DEMONHEADGE					            142
 #define TRAINER_ROUTE40_DIVINER					        143
-#define TRAINER_PUB_SARIM_1					            144
-#define TRAINER_PUB_SARIM_2					            145
-#define TRAINER_PUB_SARIM_3					            146
+#define TRAINER_POOL_PORTSARIM_PUB_SAILOR				144 //POOL
+#define TRAINER_POOL_PORTSARIM_PUB_PIRATE_1				145 //POOL
+#define TRAINER_POOL_PORTSARIM_PUB_PIRATE_2				146 //POOL
 #define TRAINER_RimmingtonMines_Miner					147
 #define TRAINER_RimmingtonMines_Ironman					148
 #define TRAINER_RimmingtonMines_Slayer					149
@@ -418,7 +418,7 @@
 #define TRAINER_ELITE4_SIR_TIFFY_1                      414
 #define TRAINER_ELITE4_HAZELMERE_1                      415
 #define TRAINER_ELITE4_ZANIK_1                          416
-#define TRAINER_ELITE4_HANS_1                           417
+#define TRAINER_ELITE4_HANS_1_GRASS                     417
 #define TRAINER_CHAMPION_WISE_OLD_MAN_1                 418
 #define TRAINER_EDGEVILLE_GYM_1                         419
 #define TRAINER_EDGEVILLE_GYM_2                         420
@@ -508,8 +508,8 @@
 #define TRAINER_BLACKKNIGHT_TAIM                        502
 #define TRAINER_BLACKKNIGHT_LAIF                        503
 #define TRAINER_BLACKKNIGHT_FALL                        504
-#define TRAINER_BLACKKNIGHT_SKOOL                       505 //Not currently in use
-#define TRAINER_BLACKKNIGHT_SIFT                        506 //Not currently in use
+#define TRAINER_BLACKKNIGHT_SKOOL                       505
+#define TRAINER_BLACKKNIGHT_SIFT                        506
 #define TRAINER_BLACKKNIGHT_NECRO_1                     507
 #define TRAINER_BLACKKNIGHT_NECRO_2                     508
 #define TRAINER_BLACKKNIGHT_ELITE_1                     509
@@ -523,13 +523,113 @@
 #define TRAINER_ROUTE26_BLACK_KNIGHT                    517
 #define TRAINER_ICE_MOUNTAIN_GUARD_1                    518
 #define TRAINER_ICE_MOUNTAIN_GUARD_2                    519
-
+#define TRAINER_ROUTE21_TRAINER_3                       520
+#define TRAINER_ROUTE22_TRAINER_2                       521
+#define TRAINER_BLACKKNIGHT_ELITE_2                     522
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_1           523
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_2           524
+#define TRAINER_BARB_STRONGHOLD_B1F_TRAINER_3           525
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_1           526
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_2           527
+#define TRAINER_BARB_STRONGHOLD_B2F_TRAINER_3           528
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_1           529
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_2           530
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_3           531
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_4           532
+#define TRAINER_BARB_STRONGHOLD_B3F_TRAINER_5           533
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_1           534
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_2           535
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_3           536
+#define TRAINER_BARB_STRONGHOLD_B4F_TRAINER_4           537
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_1               538
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_2               539
+#define TRAINER_DRAYNOR_SEWERS3_TRAINER_3               540
+#define TRAINER_BLACKKNIGHT_TEE                         541
+#define TRAINER_DWARF_POWERSTATION_F1_1                 542
+#define TRAINER_DWARF_POWERSTATION_F1_2                 543
+#define TRAINER_DWARF_POWERSTATION_F1_3                 544
+#define TRAINER_DWARF_POWERSTATION_F2_1                 545
+#define TRAINER_DWARF_POWERSTATION_F2_2                 546
+#define TRAINER_DWARF_POWERSTATION_F2_3                 547
+#define TRAINER_DWARVENMINES_HOUSE_1                    548
+#define TRAINER_DWARVENMINES_HOUSE_2                    549
+#define TRAINER_DWARVENMINES_HOUSE_3                    550
+#define TRAINER_DWARVENMINES_HOUSE_4                    551
+#define TRAINER_PUB_VARROCK_1                           552
+#define TRAINER_PUB_VARROCK_2                           553
+#define TRAINER_FROGEEL_RIVAL_1                         554
+#define TRAINER_FROGEEL_RIVAL_2_GRASS                   555
+#define TRAINER_FROGEEL_RIVAL_2_FIRE                    556
+#define TRAINER_FROGEEL_RIVAL_2_WATER                   557
+#define TRAINER_DWARF_POWERSTATION_F2_4                 558
+#define TRAINER_EDGEVILLE_RIVER_1                       559
+#define TRAINER_ROUTE20_TRAINER_8                       560
+#define TRAINER_ROUTE14_TRAINER_3                       561
+#define TRAINER_ROUTE1_RIVER_TRAINER_1                  562
+#define TRAINER_ROUTE1_RIVER_TRAINER_2                  563
+#define TRAINER_ROUTE1_RIVER_TRAINER_3                  564
+#define TRAINER_ROUTE36_RIVER_TRAINER_1                 565
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_1               566
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_2               567
+#define TRAINER_LUMBRIDGE_RIVER_TRAINER_3               568
+#define TRAINER_ROUTE12_RIVER_TRAINER_1                 569
+#define TRAINER_ROUTE12_RIVER_TRAINER_2                 570
+#define TRAINER_LUMBRIDGEFOREST_HAM_1                   571
+#define TRAINER_LUMBRIDGEFOREST_HAM_2                   572
+#define TRAINER_LUMBRIDGEFOREST_HAM_3                   573
+#define TRAINER_LUMBRIDGEFOREST_HAM_4                   574
+#define TRAINER_ROUTE200_TRAINER_1                      575
+#define TRAINER_ROUTE200_TRAINER_2                      576
+#define TRAINER_ROUTE200_TRAINER_3                      577
+#define TRAINER_HAM_HIDEOUT_GRUNT_1                     578
+#define TRAINER_HAM_HIDEOUT_GRUNT_2                     579
+#define TRAINER_HAM_HIDEOUT_GRUNT_3                     580
+#define TRAINER_HAM_HIDEOUT_GRUNT_4                     581
+#define TRAINER_HAM_HIDEOUT_GRUNT_5                     582
+#define TRAINER_HAM_HIDEOUT_GRUNT_6                     583
+#define TRAINER_HAM_HIDEOUT_GRUNT_7                     584
+#define TRAINER_HAM_HIDEOUT_GRUNT_8                     585
+#define TRAINER_HAM_HIDEOUT_GRUNT_9                     586
+#define TRAINER_HAM_HIDEOUT_GRUNT_10                    587
+#define TRAINER_SIR_THEO_EDGEVILLE                      588
+#define TRAINER_FROGEEL_RIVAL_3_GRASS                   589
+#define TRAINER_FROGEEL_RIVAL_3_FIRE                    590
+#define TRAINER_FROGEEL_RIVAL_3_WATER                   591
+#define TRAINER_FROGEEL_RIVAL_4_GRASS                   592
+#define TRAINER_FROGEEL_RIVAL_4_FIRE                    593
+#define TRAINER_FROGEEL_RIVAL_4_WATER                   594
+#define TRAINER_FROGEEL_RIVAL_5_GRASS                   595
+#define TRAINER_FROGEEL_RIVAL_5_FIRE                    596
+#define TRAINER_FROGEEL_RIVAL_5_WATER                   597
+#define TRAINER_FROGEEL_RIVAL_6_GRASS                   598
+#define TRAINER_FROGEEL_RIVAL_6_FIRE                    599
+#define TRAINER_FROGEEL_RIVAL_6_WATER                   600
+#define TRAINER_FROGEEL_RIVAL_7_GRASS                   601
+#define TRAINER_FROGEEL_RIVAL_7_FIRE                    602
+#define TRAINER_FROGEEL_RIVAL_7_WATER                   603
+#define TRAINER_FROGEEL_RIVAL_8_GRASS                   604
+#define TRAINER_FROGEEL_RIVAL_8_FIRE                    605
+#define TRAINER_FROGEEL_RIVAL_8_WATER                   606
+#define TRAINER_MITHRILMAN4_FIRE				        607
+#define TRAINER_MITHRILMAN4_WATER				        608
+#define TRAINER_MITHRILMAN5_FIRE				        609
+#define TRAINER_MITHRILMAN5_WATER				        610
+#define TRAINER_HAM_HIDEOUT_JAILER                      611
+#define TRAINER_HAM_HIDEOUT_JOHANHUS                    612
+#define TRAINER_OZAN_1                                  613
+#define TRAINER_OZAN_2                                  614
+#define TRAINER_ELITE4_HANS_1_FIRE                      615
+#define TRAINER_ELITE4_HANS_1_WATER                     616
+#define TRAINER_HAM_HIDEOUT_GUARD_1                     617
+#define TRAINER_HAM_HIDEOUT_GUARD_2                     618
+#define TRAINER_HAM_HIDEOUT_GUARD_3                     619
+#define TRAINER_HAM_HIDEOUT_GUARD_4                     620
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define TRAINERS_COUNT                      (TRAINER_DRAYNORMANOR_HAM + 1)
+#define TRAINERS_COUNT                      (TRAINER_HAM_HIDEOUT_GUARD_4 + 1)
 #define MAX_TRAINERS_COUNT                  864
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

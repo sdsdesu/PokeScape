@@ -20,27 +20,61 @@ Route12_MapScripts_MAP_SCRIPT_ON_LOAD:
 
 
 OPENWORLD_STATE_ROUTE12::
-	setobjectxyperm 16, 29, 9
-	setobjectmovementtype 16, MOVEMENT_TYPE_LOOK_AROUND
-	setobjectxyperm 14, 30, 14
-	setobjectmovementtype 14, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT
-	setobjectxyperm 15, 33, 8
-	setobjectmovementtype 15, MOVEMENT_TYPE_WANDER_AROUND
+	removeobject 14
+	removeobject 15
+	removeobject 16
+	setflag FLAG_ROUTE13_BLOCK
 	return
 
 
 ROUTE12_STATE::
-	goto_if_set FLAG_BADGE04_GET, ROUTE12_STATE_1
+	goto_if_unset FLAG_BADGE06_GET, ROUTE12_STATE_2
+ROUTE12_STATE_1:
+	setflag FLAG_TEMP_9
+	removeobject 45
+	removeobject 46
+	goto_if_set FLAG_ROUTE13_BLOCK, ROUTE12_STATE_5
+ROUTE12_STATE_4:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 205
+	goto_if_eq ROUTE12_STATE_8
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ROUTE12_STATE_9
+ROUTE12_STATE_7:
 	return
 
-ROUTE12_STATE_1:
-	setobjectxyperm 16, 32, 5
-	setobjectmovementtype 16, MOVEMENT_TYPE_LOOK_AROUND
-	setobjectxyperm 14, 30, 14
-	setobjectmovementtype 14, MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT
-	setobjectxyperm 15, 33, 8
-	setobjectmovementtype 15, MOVEMENT_TYPE_WANDER_AROUND
-	return
+ROUTE12_STATE_2:
+	setvar VAR_TEMP_3, 1
+	goto ROUTE12_STATE_1
+
+ROUTE12_STATE_5:
+	removeobject 14
+	removeobject 15
+	removeobject 16
+	goto ROUTE12_STATE_4
+
+ROUTE12_STATE_8:
+	setobjectxyperm 27, 37, 53
+	setobjectxyperm 28, 37, 53
+	setobjectxy 27, 37, 53
+	setobjectxy 28, 37, 53
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	clearflag FLAG_TEMP_9
+	addobject 45
+	addobject 46
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_1, 1
+	goto ROUTE12_STATE_7
+
+ROUTE12_STATE_9:
+	setobjectxyperm 27, 24, 52
+	setobjectxyperm 28, 25, 52
+	setobjectxy 27, 24, 52
+	setobjectxy 28, 25, 52
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	setvar VAR_TEMP_3, 0
+	goto ROUTE12_STATE_7
 
 
 Gillie_Groats::
@@ -185,7 +219,7 @@ BLOCK_Route12_Farmer::
 	end
 
 BLOCK_Route12_Farmer_1:
-	goto_if_unset FLAG_BADGE04_GET, BLOCK_Route12_Farmer_5
+	goto_if_unset FLAG_ROUTE13_BLOCK, BLOCK_Route12_Farmer_5
 	msgbox BLOCK_Route12_Farmer_Text_2
 	hidenamebox
 	closemessage
@@ -293,6 +327,24 @@ BATTLE_ROUTE12_TRAINER_1::
 	end
 
 
+BATTLE_ROUTE12_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_ROUTE12_RIVER_TRAINER_1, BATTLE_ROUTE12_RIVER_TRAINER_1_Text_0, BATTLE_ROUTE12_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_ROUTE12_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_ROUTE12_RIVER_TRAINER_1_Text_3
+	hidenamebox
+	closemessage
+	end
+
+
+BATTLE_ROUTE12_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_ROUTE12_RIVER_TRAINER_2, BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0, BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0
+	namebox BATTLE_ROUTE12_RIVER_TRAINER_2_Text_1
+	msgbox BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0
+	hidenamebox
+	closemessage
+	end
+
+
 NPC_ROUTE12_Goblin_1::
 	lock
 	faceplayer
@@ -334,17 +386,6 @@ NPC_LASSIE::
 	playmoncry SPECIES_BORDER_COLLIE, 0
 	msgbox NPC_LASSIE_Text_1
 	waitmoncry
-	release
-	end
-
-
-NPC_ROUTE12_Fisherman::
-	lock
-	faceplayer
-	namebox NPC_ROUTE12_Fisherman_Text_0
-	msgbox NPC_ROUTE12_Fisherman_Text_1
-	hidenamebox
-	closemessage
 	release
 	end
 
@@ -423,18 +464,48 @@ movement_BLOCK_ALKHARID_GATE_3:
 	walk_left
 	step_end
 
-ALKHARID_GATE_GUARD::
+ALKHARID_GATE_GUARD_1::
 	lockall
 	faceplayer
-	namebox ALKHARID_GATE_GUARD_Text_0
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ALKHARID_GATE_GUARD_1_2
 	msgbox BLOCK_ALKHARID_GATE_Text_0
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
 	applymovement 27, MOVEMENT_FACE_LEFT
 	applymovement 28, MOVEMENT_FACE_LEFT
 	waitmovement 0
+ALKHARID_GATE_GUARD_1_1:
 	release
 	end
+
+ALKHARID_GATE_GUARD_1_2:
+	msgbox ALKHARID_GATE_GUARD_1_Text_1
+	closemessage
+	goto ALKHARID_GATE_GUARD_1_1
+
+
+ALKHARID_GATE_GUARD_2::
+	lockall
+	faceplayer
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	goto_if_eq ALKHARID_GATE_GUARD_2_2
+	msgbox BLOCK_ALKHARID_GATE_Text_0
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, movement_BLOCK_ALKHARID_GATE_3
+	applymovement 27, MOVEMENT_FACE_LEFT
+	applymovement 28, MOVEMENT_FACE_LEFT
+	waitmovement 0
+ALKHARID_GATE_GUARD_2_1:
+	release
+	end
+
+ALKHARID_GATE_GUARD_2_2:
+	msgbox ALKHARID_GATE_GUARD_2_Text_0
+	closemessage
+	goto ALKHARID_GATE_GUARD_2_1
 
 
 PURO_PURO_EVENT_ROUTE12::
@@ -465,6 +536,332 @@ PURO_PURO_EVENT_ROUTE12::
 	setmetatile 31, 12, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
 	return
 
+
+NPC_ROUTE12_IRONMAN::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_IRONMAN_Text_0
+	random 7
+	switch VAR_RESULT
+	case 0, NPC_ROUTE12_IRONMAN_3
+	case 1, NPC_ROUTE12_IRONMAN_4
+	case 2, NPC_ROUTE12_IRONMAN_5
+	case 3, NPC_ROUTE12_IRONMAN_6
+	case 4, NPC_ROUTE12_IRONMAN_7
+	case 5, NPC_ROUTE12_IRONMAN_8
+	case 6, NPC_ROUTE12_IRONMAN_9
+NPC_ROUTE12_IRONMAN_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+NPC_ROUTE12_IRONMAN_3:
+	msgbox NPC_ROUTE12_IRONMAN_Text_1
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_4:
+	msgbox NPC_ROUTE12_IRONMAN_Text_2
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_5:
+	msgbox NPC_ROUTE12_IRONMAN_Text_3
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_6:
+	msgbox NPC_ROUTE12_IRONMAN_Text_4
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_7:
+	msgbox NPC_ROUTE12_IRONMAN_Text_5
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_8:
+	msgbox NPC_ROUTE12_IRONMAN_Text_6
+	goto NPC_ROUTE12_IRONMAN_1
+
+NPC_ROUTE12_IRONMAN_9:
+	msgbox NPC_ROUTE12_IRONMAN_Text_7
+	goto NPC_ROUTE12_IRONMAN_1
+
+
+NPC_ROUTE12_BRONZEMAN::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BRONZEMAN_Text_0
+	msgbox NPC_ROUTE12_BRONZEMAN_Text_1
+	hidenamebox
+	closemessage
+	applymovement 39, FACE_ORIGINAL_DIRECTION
+	release
+	end
+
+
+FACE_ORIGINAL_DIRECTION:
+	face_original_direction
+	step_end
+
+NPC_ROUTE12_COW::
+	lock
+	namebox NPC_ROUTE12_COW_Text_0
+	playmoncry SPECIES_COW, 0
+	msgbox NPC_ROUTE12_COW_Text_1
+	waitmoncry
+	hidenamebox
+	msgbox NPC_ROUTE12_COW_Text_2
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_NOOB::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_NOOB_Text_0
+	msgbox NPC_ROUTE12_NOOB_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_SAILING::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_SAILING_Text_0
+	msgbox NPC_ROUTE12_SAILING_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_BOAT_1::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BOAT_1_Text_0
+	msgbox NPC_ROUTE12_BOAT_1_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+NPC_ROUTE12_BOAT_2::
+	lock
+	faceplayer
+	namebox NPC_ROUTE12_BOAT_2_Text_0
+	msgbox NPC_ROUTE12_BOAT_2_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
+TRIGGER_ALKHARID_HAM_EVENT_1::
+	lock
+	delay 30
+	playse SE_PIN
+	applymovement 45, movement_OZAN_CONFUSED
+	waitmovement 0
+	playbgm MUS_PS_ENCOUNTER_HAM, TRUE
+	delay 60
+	playse SE_FLEE
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_2
+TRIGGER_ALKHARID_HAM_EVENT_1_1:
+	applymovement 46, movement_HAM_RUN_LEFT_WITH_SACK
+	delay 30
+	applymovement 28, movement_HAM_RUN_LEFT_WITH_SACK
+	applymovement 45, Movement_InteractFACELEFT
+	delay 60
+	applymovement 27, movement_GUARD_CHASE_HAM_BUT_STOP
+	playse SE_PIN
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_1, 28
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_5
+	compare VAR_TEMP_1, 29
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_6
+	compare VAR_TEMP_2, 52
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_7
+	compare VAR_TEMP_2, 54
+	goto_if_eq TRIGGER_ALKHARID_HAM_EVENT_1_8
+TRIGGER_ALKHARID_HAM_EVENT_1_4:
+	waitmovement 0
+	namebox ALKHARID_GATE_GUARD_1_Text_0
+	msgbox TRIGGER_ALKHARID_HAM_EVENT_1_Text_0
+	hidenamebox
+	closemessage
+	applymovement 45, movement_OZAN_RUNS_TO_PALACE
+	waitmovement 0
+	setvar VAR_TEMP_3, 0
+	setvar VAR_TEMP_1, 0
+	setvar VAR_POKESCAPE_STORYMODE_PROGRESS, 210
+	setflag FLAG_TEMP_9
+	removeobject 45
+	removeobject 46
+	setobjectmovementtype 27, MOVEMENT_TYPE_LOOK_AROUND
+	setobjectmovementtype 28, MOVEMENT_TYPE_LOOK_AROUND
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+TRIGGER_ALKHARID_HAM_EVENT_1_2:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_PLAYER_AVOIDS_HAM
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_1
+
+TRIGGER_ALKHARID_HAM_EVENT_1_5:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_6:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_7:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+TRIGGER_ALKHARID_HAM_EVENT_1_8:
+	applymovement 27, movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4
+	goto TRIGGER_ALKHARID_HAM_EVENT_1_4
+
+
+movement_HAM_RUN_LEFT_WITH_SACK:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	step_end
+
+movement_GUARD_CHASE_HAM_BUT_STOP:
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_left
+	walk_left
+	walk_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_1:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_2:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_right
+	walk_slow_up
+	face_up
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_3:
+	face_up
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_up
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN_4:
+	face_down
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_down
+	face_left
+	step_end
+
+movement_OZAN_CONFUSED:
+	face_right
+	emote_question_mark
+	step_end
+
+movement_OZAN_RUNS_TO_PALACE:
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	step_end
+
+movement_PLAYER_AVOIDS_HAM:
+	emote_question_mark
+	lock_facing_direction
+	slide_up
+	emote_exclamation_mark
+	face_down
+	delay_16
+	face_left
+	step_end
+
+movement_GUARD_WALK_OVER_TO_PLAYER_AND_OZAN:
+	face_right
+	emote_exclamation_mark
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_up
+	step_end
 
 Gillie_Groats_Text_0:
 	.string "Gillie Groats$"
@@ -602,6 +999,30 @@ BATTLE_ROUTE12_TRAINER_1_Text_2:
 	.string "I will have you know I went easy on you.\p"
 	.string "Just wait until you see my main.$"
 
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_0:
+	.string "The water looks very deep here, but let\n"
+	.string "us not trace into a deep conversation\l"
+	.string "and battle instead.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_1:
+	.string "So deep I nearly drowned!$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_2:
+	.string "Ulrik$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_1_Text_3:
+	.string "The perceived depth and actual depth\n"
+	.string "may differ.\p"
+	.string "This goes for anything, water,\n"
+	.string "literature...\n"
+	.string "Even this conversation.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_2_Text_0:
+	.string "I am a Cupholder.$"
+
+BATTLE_ROUTE12_RIVER_TRAINER_2_Text_1:
+	.string "Cupholder$"
+
 NPC_ROUTE12_Goblin_1_Text_0:
 	.string "Goblin$"
 
@@ -628,13 +1049,6 @@ NPC_LASSIE_Text_0:
 NPC_LASSIE_Text_1:
 	.string "WOOF!$"
 
-NPC_ROUTE12_Fisherman_Text_0:
-	.string "Fisherman$"
-
-NPC_ROUTE12_Fisherman_Text_1:
-	.string "We once had a wooden bridge here, but\n"
-	.string "some firemakers burnt it down…$"
-
 NPC_ROUTE12_Goblin_2_Text_0:
 	.string "Me fishing.$"
 
@@ -654,5 +1068,137 @@ BLOCK_ALKHARID_GATE_Text_0:
 	.string "Only those whom possess the Al-Kharid\n"
 	.string "Badge may enter!$"
 
-ALKHARID_GATE_GUARD_Text_0:
+ALKHARID_GATE_GUARD_1_Text_0:
 	.string "Guard$"
+
+ALKHARID_GATE_GUARD_1_Text_1:
+	.string "Huff…{PAUSE 15} Puff…\p"
+	.string "He kidnapped the prince…$"
+
+ALKHARID_GATE_GUARD_2_Text_0:
+	.string "We must inform the palace in Al Kharid\n"
+	.string "at once!$"
+
+NPC_ROUTE12_IRONMAN_Text_0:
+	.string "Limpwurt$"
+
+NPC_ROUTE12_IRONMAN_Text_1:
+	.string "I got 99 Woodcutting with a steel axe\n"
+	.string "without ever leaving Lumbridge!\p"
+	.string "I think I'm the reason Bob is out of\n"
+	.string "axes.\p"
+	.string "Now where is that Woodcutting Tutor\n"
+	.string "with my cape...$"
+
+NPC_ROUTE12_IRONMAN_Text_2:
+	.string "With how my routes rolled, it took me 2\n"
+	.string "years to finish Cook's Assistant.$"
+
+NPC_ROUTE12_IRONMAN_Text_3:
+	.string "I rolled Al Kharid as my next route, but\n"
+	.string "since then the guards have blocked\l"
+	.string "access to anybody without the badge.\p"
+	.string "I probably should have done that\n"
+	.string "before I left, but I came back here to\l"
+	.string "train!$"
+
+NPC_ROUTE12_IRONMAN_Text_4:
+	.string "I'm an extreme one route ironman.\p"
+	.string "That means before I can leave this\n"
+	.string "route, I must complete all of the\l"
+	.string "highest level skilling challenges,\p"
+	.string "do all available achievement diary\n"
+	.string "tasks,\p"
+	.string "obtain all unique monster drops,\p"
+	.string "and obtain all unique items on a route.\p"
+	.string "{PAUSE 15}What do you mean there are no\n"
+	.string "achievement diaries?!$"
+
+NPC_ROUTE12_IRONMAN_Text_5:
+	.string "The extreme part of a extreme one\n"
+	.string "route ironman means absolutely no\l"
+	.string "exceptions to my rules!$"
+
+NPC_ROUTE12_IRONMAN_Text_6:
+	.string "I smelted so many bronze bars in the\n"
+	.string "Lumbridge Furnace that I think I broke\l"
+	.string "it...\p"
+	.string "Apparently they've had to send a dwarf\n"
+	.string "all the way from near Falador to fix it.$"
+
+NPC_ROUTE12_IRONMAN_Text_7:
+	.string "There's a gnome near the windmill that\n"
+	.string "is looking for an item.\p"
+	.string "Do you have any idea where it could be?\p"
+	.string "I can't roll my next route until I find\n"
+	.string "it.\p"
+	.string "{PAUSE 15}...\p"
+	.string "{PAUSE 15}I... must... find... it!$"
+
+NPC_ROUTE12_BRONZEMAN_Text_0:
+	.string "Br0nzem4n$"
+
+NPC_ROUTE12_BRONZEMAN_Text_1:
+	.string "Everyone kept saying that to battle, I\n"
+	.string "had to catch a monster.\p"
+	.string "But no matter how much I run after it, I\n"
+	.string "can't seem to keep this cow still long\l"
+	.string "enough!\p"
+	.string "{PAUSE 15}Wait, what's a pouch..?$"
+
+NPC_ROUTE12_COW_Text_0:
+	.string "Cow$"
+
+NPC_ROUTE12_COW_Text_1:
+	.string "MOOOOOOOO!$"
+
+NPC_ROUTE12_COW_Text_2:
+	.string "This poor cow seems very distressed.$"
+
+NPC_ROUTE12_NOOB_Text_0:
+	.string "Big Nub56$"
+
+NPC_ROUTE12_NOOB_Text_1:
+	.string "Where is varok?$"
+
+NPC_ROUTE12_SAILING_Text_0:
+	.string "MonKeeDLoof$"
+
+NPC_ROUTE12_SAILING_Text_1:
+	.string "Once I've saved up enough coins to buy\n"
+	.string "myself a boat, I'm going to set sail and\l"
+	.string "never look back.\p"
+	.string "One day my crew and I will be known as\n"
+	.string "the Straw Boater Pirates!$"
+
+NPC_ROUTE12_BOAT_1_Text_0:
+	.string "L0st2theS3a$"
+
+NPC_ROUTE12_BOAT_1_Text_1:
+	.string "I picked up a courier task to deliver\n"
+	.string "from lobsters from Musa Point to\l"
+	.string "Catherby.\p"
+	.string "I have absolutely no idea how I ended\n"
+	.string "up here, though.\p"
+	.string "I just got caught up in the currents...\p"
+	.string "I'm just continuing to follow them and\n"
+	.string "hoping for the best.$"
+
+NPC_ROUTE12_BOAT_2_Text_0:
+	.string "DaveyJay5$"
+
+NPC_ROUTE12_BOAT_2_Text_1:
+	.string "I heard rumours of an unusual sea\n"
+	.string "creature causing a disturbance north\l"
+	.string "of Musa Point.\p"
+	.string "It has churned up the sea so much that\n"
+	.string "the currents there are out of control\l"
+	.string "and causing boats to veer wildly off\l"
+	.string "course.\p"
+	.string "Be careful if you do ever venture out\n"
+	.string "that way.$"
+
+TRIGGER_ALKHARID_HAM_EVENT_1_Text_0:
+	.string "In… Inform the palace…\p"
+	.string "The… prince…\p"
+	.string "The prince has been kidnapped!$"

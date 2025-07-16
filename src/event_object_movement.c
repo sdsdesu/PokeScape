@@ -651,7 +651,7 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_STRYKEWYRM_LEAFY  0x1259
 #define OBJ_EVENT_PAL_GhostDisguise     0x125A
 #define OBJ_EVENT_PAL_ARCHAEOLOGIST		0x1263
-//#define OBJ_EVENT_PAL_DIVINER			0x1264
+#define OBJ_EVENT_PAL_GENIE			    0x1264
 #define OBJ_EVENT_PAL_DURIAL321			0x1265
 
 //SHARED PALETTES
@@ -695,6 +695,10 @@ const u8 gInitialMovementTypeFacingDirections[] = {
 #define OBJ_EVENT_PAL_GREYPAL           0x121F
 #define OBJ_EVENT_PAL_ELITEBLACK        0x1151
 #define OBJ_EVENT_PAL_SAILING           0x1153
+#define OBJ_EVENT_PAL_GORAJO            0x1218
+#define OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW    0x1176
+#define OBJ_EVENT_PAL_MONSTERS_RED_GREY             0x123A
+
 
 
 
@@ -1052,10 +1056,10 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_GREYPAL, OBJ_EVENT_PAL_GREYPAL},
     {gObjectEventPalette_ELITEBLACK, OBJ_EVENT_PAL_ELITEBLACK},
     {gObjectEventPalette_SAILING, OBJ_EVENT_PAL_SAILING},
-    
-    
-    
-    
+    {gObjectEventPalette_GORAJO, OBJ_EVENT_PAL_GORAJO},
+    {gObjectEventPalette_MONSTERS_GREEN_BLUE_YELLOW, OBJ_EVENT_PAL_MONSTERS_GREEN_BLUE_YELLOW},
+    {gObjectEventPalette_MONSTERS_RED_GREY, OBJ_EVENT_PAL_MONSTERS_RED_GREY},
+    {gObjectEventPalette_GENIE, OBJ_EVENT_PAL_GENIE},
     
     
     /*
@@ -2440,7 +2444,6 @@ static void SetPlayerAvatarObjectEventIdAndObjectId(u8 objectEventId, u8 spriteI
 {
     gPlayerAvatar.objectEventId = objectEventId;
     gPlayerAvatar.spriteId = spriteId;
-    gPlayerAvatar.gender = GetPlayerAvatarGenderByGraphicsId(gObjectEvents[objectEventId].graphicsId);
     SetPlayerAvatarExtraStateTransition(gObjectEvents[objectEventId].graphicsId, PLAYER_AVATAR_FLAG_CONTROLLABLE);
 }
 
@@ -9871,6 +9874,15 @@ bool8 MovementAction_EmoteDoubleExclamationMark_Step0(struct ObjectEvent *object
     FieldEffectStart(FLDEFF_DOUBLE_EXCL_MARK_ICON);
     sprite->sActionFuncId = 1;
     return TRUE;
+}
+
+const struct SpritePalette *GetObjectEventPaletteFromTag(u16 tag)
+{
+    u32 i = FindObjectEventPaletteIndexByTag(tag);
+    if (i == 0xFF)
+        i = 0; 
+
+    return &sObjectEventSpritePalettes[i];
 }
 
 // Running Slow (Sideways Stairs)

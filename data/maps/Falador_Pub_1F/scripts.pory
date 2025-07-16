@@ -6,11 +6,7 @@ mapscripts Falador_Pub_1F_MapScripts{
 
 //ITEMS---------------------------------
 //HIDDEN ITEMS:
-script ITEM_FALADORPUB_1
-{
-    finditem(ITEM_STAT_BEER)
-    end
-}
+
 
 
 script NPC_FALADORPUB_BARMAID_1
@@ -59,13 +55,13 @@ script NPC_FALADORPUB_NPC1 {
     namebox("Guard")
 	msgbox(format("Today was a rough day.\pSeven of my friends were killed and then the perpetrator lit fireworks over his head before he ran off.\pI hate this job."))
 	hidenamebox
-	if (flag(FLAG_PUB_TRAINER_10) == false) 
+	if (flag(FLAG_PUB_TRAINER_4) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_PUB_TRAINER_10)
+				setflag(FLAG_PUB_TRAINER_4)
 				trainerbattle_no_intro(TRAINER_PUB_FALADOR_2, msgbox(format("…")))
 				namebox("Guard")
 				msgbox(format("Wow, today just keeps getting worse and worse."))
@@ -86,13 +82,13 @@ script NPC_FALADORPUB_NPC2 {
     namebox ("White Knight")
 	msgbox(format("Some guy named Sir Theodore made a big hassle at work.\pApparently cleaning duty is not in accords with the ways of the White Knight code."))
 	hidenamebox
-	if (flag(FLAG_PUB_TRAINER_11) == false) 
+	if (flag(FLAG_PUB_TRAINER_5) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_PUB_TRAINER_11)
+				setflag(FLAG_PUB_TRAINER_5)
 				trainerbattle_no_intro(TRAINER_PUB_FALADOR_1, msgbox(format("…")))
 				namebox ("White Knight")
 				msgbox(format("You are strong, take this."))
@@ -173,13 +169,13 @@ script NPC_FALADORPUB_NPC8 {
     namebox ("Black Knight")
 	msgbox(format("Scram!\pI cannot hear what they are saying at that table if you are here annoying me!"))
 	hidenamebox
-	if (flag(FLAG_PUB_TRAINER_9) == false) 
+	if (flag(FLAG_PUB_TRAINER_6) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
 				hidenamebox
-				setflag(FLAG_PUB_TRAINER_9)
+				setflag(FLAG_PUB_TRAINER_6)
 				trainerbattle_no_intro(TRAINER_PUB_FALADOR_3, msgbox(format("…")))
 				namebox ("Black Knight")
 				msgbox(format("Take this and get out of here."))

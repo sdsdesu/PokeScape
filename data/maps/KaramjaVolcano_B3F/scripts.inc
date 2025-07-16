@@ -1854,7 +1854,7 @@ NPC_CRANDOR_VOLCANO_HAMGRUNT_4_Text_0:
 	.string "I hope there is no cave-in.$"
 
 NPC_CRANDOR_VOLCANO_HAMGRUNT_5_Text_0:
-	.string "Yo, this guy legit looks cripsy.\p"
+	.string "Yo, this guy legit looks crispy.\p"
 	.string "I wonder what happened to him.$"
 
 BATTLE_KaramjaVolcano_HAM_6_Text_0:

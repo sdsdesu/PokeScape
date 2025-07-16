@@ -17,12 +17,26 @@ Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 0
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
+	call ROUTE1_STATE
 	call OPENWORLD_STATE_ROUTE1
 	return
 
 Route1_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
+	call ROUTE1_STATE
 	call STORYMODE_STATE_ROUTE1
 	return
+
+
+ROUTE1_STATE::
+	compare VAR_FROGEEL_RIVAL, 0
+	goto_if_ne ROUTE1_STATE_2
+ROUTE1_STATE_1:
+	return
+
+ROUTE1_STATE_2:
+	removeobject 38
+	setflag FLAG_TEMP_1F
+	goto ROUTE1_STATE_1
 
 
 OPENWORLD_STATE_ROUTE1::
@@ -255,6 +269,42 @@ NPC_CHICKEN::
 	end
 
 
+NPC_CHINCHOMPA::
+	lock
+	faceplayer
+	namebox NPC_CHINCHOMPA_Text_0
+	playmoncry SPECIES_CHINCHOMPA_GREY_FORM, 0
+	msgbox NPC_CHINCHOMPA_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_ESSENCE::
+	lock
+	faceplayer
+	namebox NPC_ESSENCE_Text_0
+	playmoncry SPECIES_PURE, 0
+	msgbox NPC_ESSENCE_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
+NPC_BEAR::
+	lock
+	faceplayer
+	namebox NPC_BEAR_Text_0
+	playmoncry SPECIES_BEAR_NORMAL_FORM, 0
+	msgbox NPC_BEAR_Text_1
+	waitmoncry
+	hidenamebox
+	release
+	end
+
+
 SIGN_ROUTE1_1::
 	lock
 	msgbox SIGN_ROUTE1_1_Text_0
@@ -272,31 +322,6 @@ SIGN_ROUTE1_2::
 SIGN_ROUTE1_3::
 	lock
 	msgbox SIGN_ROUTE1_3_Text_0
-	release
-	end
-
-
-NPC_FISHERMAN_1::
-	lock
-	faceplayer
-	namebox NPC_FISHERMAN_1_Text_0
-	msgbox NPC_FISHERMAN_1_Text_1
-	checkitem ITEM_SMALL_NET, 1
-	compare VAR_RESULT, 0
-	goto_if_eq NPC_FISHERMAN_1_2
-	msgbox NPC_FISHERMAN_1_Text_4
-	release
-	end
-
-	release
-	end
-
-NPC_FISHERMAN_1_2:
-	msgbox NPC_FISHERMAN_1_Text_2
-	hidenamebox
-	giveitem ITEM_SMALL_NET
-	namebox NPC_FISHERMAN_1_Text_0
-	msgbox NPC_FISHERMAN_1_Text_3
 	release
 	end
 
@@ -347,6 +372,66 @@ ROUTE1_FarmerFred::
 	end
 
 
+ROUTE1_FARMER_NPC::
+	lock
+	faceplayer
+	namebox BLOCK_ROUTE1_FARMER_Text_0
+	random 4
+	switch VAR_RESULT
+	case 0, ROUTE1_FARMER_NPC_3
+	case 1, ROUTE1_FARMER_NPC_4
+	case 2, ROUTE1_FARMER_NPC_5
+	case 3, ROUTE1_FARMER_NPC_6
+ROUTE1_FARMER_NPC_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+ROUTE1_FARMER_NPC_3:
+	msgbox ROUTE1_FARMER_NPC_Text_0
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_4:
+	msgbox ROUTE1_FARMER_NPC_Text_1
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_5:
+	msgbox ROUTE1_FARMER_NPC_Text_2
+	goto ROUTE1_FARMER_NPC_1
+
+ROUTE1_FARMER_NPC_6:
+	msgbox ROUTE1_FARMER_NPC_Text_3
+	goto ROUTE1_FARMER_NPC_1
+
+
+BATTLE_ROUTE1_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_1, BATTLE_ROUTE1_RIVER_TRAINER_1_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_1_Text_3
+	hidenamebox
+	release
+	end
+
+
+BATTLE_ROUTE1_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_2, BATTLE_ROUTE1_RIVER_TRAINER_2_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_2_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_2_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_2_Text_3
+	hidenamebox
+	release
+	end
+
+
+BATTLE_ROUTE1_RIVER_TRAINER_3::
+	trainerbattle_single TRAINER_ROUTE1_RIVER_TRAINER_3, BATTLE_ROUTE1_RIVER_TRAINER_3_Text_0, BATTLE_ROUTE1_RIVER_TRAINER_3_Text_1
+	namebox BATTLE_ROUTE1_RIVER_TRAINER_3_Text_2
+	msgbox BATTLE_ROUTE1_RIVER_TRAINER_3_Text_3
+	hidenamebox
+	release
+	end
+
+
 Wartfoot_Route1_Battle::
 	trainerbattle_single TRAINER_GOBLIN_1_ROUTE1, Wartfoot_Route1_Battle_Text_0, Wartfoot_Route1_Battle_Text_1
 	msgbox Wartfoot_Route1_Battle_Text_2
@@ -383,7 +468,7 @@ MudbeardBattle::
 
 Route1FarmerBattle::
 	trainerbattle_single TRAINER_FARMER_ROUTE1, Route1FarmerBattle_Text_0, Route1FarmerBattle_Text_1
-	msgbox Route1FarmerBattle_Text_2
+	msgbox Route1FarmerBattle_Text_1
 	hidenamebox
 	release
 	return
@@ -845,6 +930,96 @@ PURO_PURO_EVENT_ROUTE1::
 	return
 
 
+FROGEEL_RIVAL_1::
+	lock
+	faceplayer
+	namebox FROGEEL_RIVAL_1_Text_0
+	goto_if_set FLAG_BADGE01_GET, FROGEEL_RIVAL_1_2
+	msgbox FROGEEL_RIVAL_1_Text_11
+FROGEEL_RIVAL_1_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+FROGEEL_RIVAL_1_2:
+	msgbox FROGEEL_RIVAL_1_Text_1
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_0
+	msgbox FROGEEL_RIVAL_1_Text_2
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_4
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_5
+	hidenamebox
+	closemessage
+	applymovement 38, MOVEMENT_QUESTIONMARK
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_6
+	hidenamebox
+	closemessage
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_7
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_1, FROGEEL_RIVAL_1_Text_8
+	namebox FROGEEL_RIVAL_1_Text_3
+	msgbox FROGEEL_RIVAL_1_Text_9
+	hidenamebox
+	closemessage
+	playse SE_FLEE
+	applymovement 38, MOVEMENT_FROGEEL_RIVAL_ROUTE1
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1
+	waitmovement 0
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox FROGEEL_RIVAL_1_Text_10
+	giveitem ITEM_SPIRIT_CHARM, 1
+	waitmovement 0
+	removeobject 38
+	setflag FLAG_TEMP_1F
+	setvar VAR_FROGEEL_RIVAL, 5
+	goto FROGEEL_RIVAL_1_1
+
+
+MOVEMENT_FROGEEL_RIVAL_ROUTE1:
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	delay_8
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1:
+	walk_fast_down
+	face_left
+	step_end
+
 NPC_DOG_Text_0:
 	.string "Dog$"
 
@@ -911,6 +1086,24 @@ NPC_CHICKEN_Text_0:
 NPC_CHICKEN_Text_1:
 	.string "Bwak Bwak!$"
 
+NPC_CHINCHOMPA_Text_0:
+	.string "Chinchompa$"
+
+NPC_CHINCHOMPA_Text_1:
+	.string "Squeep!$"
+
+NPC_ESSENCE_Text_0:
+	.string "Essence$"
+
+NPC_ESSENCE_Text_1:
+	.string "Whhiiirll!$"
+
+NPC_BEAR_Text_0:
+	.string "Bear$"
+
+NPC_BEAR_Text_1:
+	.string "Grraugh!$"
+
 SIGN_ROUTE1_1_Text_0:
 	.string "Fred's Farm.$"
 
@@ -924,40 +1117,6 @@ SIGN_ROUTE1_3_Text_0:
 	.string "WEST to FALADOR\p"
 	.string "EAST to LUMBRIDGE\p"
 	.string "SOUTH to DRAYNOR$"
-
-NPC_FISHERMAN_1_Text_0:
-	.string "Fisherman$"
-
-NPC_FISHERMAN_1_Text_1:
-	.string "I love to fish in this pond.\p"
-	.string "It is so peaceful, with the ducks that\n"
-	.string "keep me company.\p"
-	.string "I cannot imagine anything bad to\n"
-	.string "happen here.$"
-
-NPC_FISHERMAN_1_Text_2:
-	.string "You seem like someone who would also\n"
-	.string "enjoy fishing in this pond.\p"
-	.string "Here take this!$"
-
-NPC_FISHERMAN_1_Text_3:
-	.string "It is only a small net but I'm sure there\n"
-	.string "are plenty of things you could fish up\l"
-	.string "with it!$"
-
-NPC_FISHERMAN_1_Text_4:
-	.string "How are you finding fishing in the pond?\p"
-	.string "Have you caught anything yet?{PAUSE 15}\p"
-	.string "Did you know that a crayfish evolves\n"
-	.string "into a shrimp?\p"
-	.string "Or that a shrimp then evolves into a\n"
-	.string "lobster?\p"
-	.string "Apparently lobsters can then evolve\n"
-	.string "again if you level them up under\l"
-	.string "extreme weather conditions like rain,\l"
-	.string "sunshine, or hail.\p"
-	.string "But it's so peaceful here, I've never\n"
-	.string "managed to evolve one myself.$"
 
 BLOCK_ROUTE1_FARMER_Text_0:
 	.string "Farmer$"
@@ -1013,6 +1172,88 @@ ROUTE1_FarmerFred_Text_1:
 	.string "Maybe you could try it and see what\n"
 	.string "happens?$"
 
+ROUTE1_FARMER_NPC_Text_0:
+	.string "Did you know that pigs use mud to\n"
+	.string "regulate their temperature?\p"
+	.string "That's a fun fact to help you remember\n"
+	.string "that most pigs are GROUND type.$"
+
+ROUTE1_FARMER_NPC_Text_1:
+	.string "Although they're too heavy to do it for\n"
+	.string "long distances, chickens can flap their\l"
+	.string "wings to fly for short distances.\p"
+	.string "Most chickens are FLYING type.$"
+
+ROUTE1_FARMER_NPC_Text_2:
+	.string "Cows are constantly moving while\n"
+	.string "grazing, and can cover huge distances\l"
+	.string "in one day.\p"
+	.string "Although they love to eat grass,\n"
+	.string "remember that most cows are GROUND\l"
+	.string "type so they don't fare well against it\l"
+	.string "in battle!$"
+
+ROUTE1_FARMER_NPC_Text_3:
+	.string "Unlike humans, sheep have rectangular\n"
+	.string "pupils allowing them to see almost\l"
+	.string "everything around them without turning\l"
+	.string "their head.\p"
+	.string "Although this is very strange, almost\n"
+	.string "all sheep are NORMAL type.$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_0:
+	.string "No! My peace! You've ruined it!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_1:
+	.string "I just need an escape, okay?!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_2:
+	.string "Awenix$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_1_Text_3:
+	.string "I love spending time on the water like\n"
+	.string "this.\p"
+	.string "It helps me escape from life's\n"
+	.string "responsibilities for a moment.\p"
+	.string "Like my wife and children.\p"
+	.string "{PAUSE 15}Don't tell them you found me here!.$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_0:
+	.string "I need to get into Varrock for my quest\n"
+	.string "but they've locked down access!\p"
+	.string "Argh, I'm so mad I need to take out my\n"
+	.string "anger in a battle!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_1:
+	.string "I lost?$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_2:
+	.string "Gelo Ball$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_2_Text_3:
+	.string "The guards are blocking one entrance..\p"
+	.string "Sheep are blocking another.\p"
+	.string "Maybe I should just give up on slaying\n"
+	.string "that demon.$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_0:
+	.string "Did you know different routes seem to\n"
+	.string "have different fish in them?\p"
+	.string "Let's see if you've faced these before!$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_1:
+	.string "They were no match for you.$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_2:
+	.string "Trickool$"
+
+BATTLE_ROUTE1_RIVER_TRAINER_3_Text_3:
+	.string "If you're looking for a specific type of\n"
+	.string "fish, try sailing around in different\l"
+	.string "locations.\p"
+	.string "Some like my WebSnipper are only\n"
+	.string "available underground!$"
+
 Wartfoot_Route1_Battle_Text_0:
 	.string "Brown armour best!$"
 
@@ -1056,9 +1297,6 @@ Route1FarmerBattle_Text_0:
 	.string "lands!$"
 
 Route1FarmerBattle_Text_1:
-	.string "Its not really my lands yet.$"
-
-Route1FarmerBattle_Text_2:
 	.string "It's not really my lands yet.$"
 
 FeetfingersBattle_Text_0:
@@ -1217,3 +1455,64 @@ BATTLE_AREA_TRAINER_3_Text_1:
 
 BATTLE_AREA_TRAINER_3_Text_2:
 	.string "Big high war god is god of goblins.$"
+
+FROGEEL_RIVAL_1_Text_0:
+	.string "???$"
+
+FROGEEL_RIVAL_1_Text_1:
+	.string "Hello there…{PAUSE 30}\n"
+	.string "Sorry if I seem wet.\p"
+	.string "I just swam across the river here,\n"
+	.string "evading…$"
+
+FROGEEL_RIVAL_1_Text_2:
+	.string "…{PAUSE 15}… I mean practising my swimming skills.$"
+
+FROGEEL_RIVAL_1_Text_3:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_1_Text_4:
+	.string "Name's Angrenouille.\p"
+	.string "I dream of one day becoming a frog\n"
+	.string "prince.\p"
+	.string "I still wait for the day the Frog\n"
+	.string "Princess of my dreams will call me to the\l"
+	.string "Land of the Frogs to ask for a kiss from\l"
+	.string "yours truly.\p"
+	.string "Aaah, love.$"
+
+FROGEEL_RIVAL_1_Text_5:
+	.string "What?{PAUSE 60}\n"
+	.string "I look shady?\p"
+	.string "My, you sure do have some gall to call ME\n"
+	.string "a thief?$"
+
+FROGEEL_RIVAL_1_Text_6:
+	.string "You didn't?{PAUSE 60}\n"
+	.string "No… I am not a thief!\p"
+	.string "I swear!\p"
+	.string "Well whatever, you're wrong and I have\n"
+	.string "nothing to prove to you.$"
+
+FROGEEL_RIVAL_1_Text_7:
+	.string "…{PAUSE 15}\n"
+	.string "Let's fight just to keep you silent.$"
+
+FROGEEL_RIVAL_1_Text_8:
+	.string "AAA… SEEYA!$"
+
+FROGEEL_RIVAL_1_Text_9:
+	.string "A…{PAUSE 60}\n"
+	.string "AAA…{PAUSE 60}\l"
+	.string "AAAAAAA!$"
+
+FROGEEL_RIVAL_1_Text_10:
+	.string "It seems Angrenouille dropped\n"
+	.string "something while running off.$"
+
+FROGEEL_RIVAL_1_Text_11:
+	.string "Hello there…{PAUSE 30}\n"
+	.string "Thieves Guild?\p"
+	.string "Never heard of it…\p"
+	.string "Come back when you've beat the Duke\n"
+	.string "and we'll talk then.$"

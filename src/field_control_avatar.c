@@ -38,6 +38,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "qol_field_moves.h"
+#include "field_weather.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -429,6 +430,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_BananaTree;
     if (MetatileBehavior_IsRestBed(metatileBehavior) == TRUE)
         return EventScript_RestBed;
+    if (MetatileBehavior_ChangeOutfit(metatileBehavior) == TRUE)
+        return EventScript_ChangeOutfit;
     if (MetatileBehavior_IsLockedDoor(metatileBehavior) == TRUE)
         return EventScript_Locked_Door;
     if (MetatileBehavior_IsWallClock(metatileBehavior) == TRUE)

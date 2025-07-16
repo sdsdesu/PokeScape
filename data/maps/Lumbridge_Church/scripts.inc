@@ -150,7 +150,7 @@ GnomeBoi_Kevin_9:
 GnomeBoi_Kevin_10:
 	msgbox GnomeBoi_Kevin_Text_8
 	additem ITEM_PULSE_CORE, 6
-	additem ITEM_PURPLE_SWEETS, 100
+	additem ITEM_MANY_SWEETS, 100
 	additem ITEM_FRAGMENT_OF_JAS, 5
 	release
 	goto GnomeBoi_Kevin_1
@@ -254,7 +254,7 @@ Cheat_Menu_Shop_Medicine:
     .2byte ITEM_PRAYER_POTION
     .2byte ITEM_SUPER_PRAYER_POTION //MAX-ELIXER
 
-	.2byte ITEM_PURPLE_SWEETS
+	.2byte ITEM_MANY_SWEETS
 
 	.2byte ITEM_STAT_BEER //PP-UP
 	.2byte ITEM_STAT_MOONLIGHT_MEAD //PP-MAX
@@ -388,7 +388,7 @@ Cheat_Menu_Shop_Misc:
     .2byte ITEM_HOLY_WRENCH
     .2byte ITEM_FANCY_BOOTS
     .2byte ITEM_IRONMAN_HELMET
-    .2byte ITEM_ITEM_GNOMEBALL
+    .2byte ITEM_GNOMEBALL
     .2byte ITEM_KERIS
     .2byte ITEM_KRAKEN_TENTACLE
     .2byte ITEM_LINZAHAMMER
@@ -409,7 +409,7 @@ Cheat_Menu_Shop_Misc:
     .2byte ITEM_TOME_OF_FROST
     .2byte ITEM_WATERSKIN
     .2byte ITEM_WIZARDS_HAT
-    .2byte ITEM_WOOLBALL
+    .2byte ITEM_BALL_OF_WOOL
     .2byte ITEM_VERACFLAIL
     .2byte ITEM_DHAROKAXE
     .2byte ITEM_KARILCROSSBOW

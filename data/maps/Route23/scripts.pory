@@ -226,12 +226,114 @@ script ENCOUNTER_PENGUIN_ROCK_ROUTE23 {
 }
 
 
+script TRIGGER_STORYMODE_EVENT_ROUTE23_WEST {
+	lockall
+	//Sir Owen and white knights walk off to the north.
 
+	applymovement (19,movement_WHITEKNIGHTEXIT_1)
+	applymovement (16,movement_WHITEKNIGHTEXIT_2)
+	applymovement (20,movement_WHITEKNIGHTEXIT_3)
+	applymovement (17,movement_WHITEKNIGHTEXIT_4)
+	waitmovement(0)
 
+	setflag(FLAG_TEMP_1D)
+    removeobject(16)
+    removeobject(17)
+    removeobject(19)
+    removeobject(20)
 
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_2) == 10) {
+		applymovement(18, Movement_STORY_R23_1_top)
+	}
+	elif (var(VAR_TEMP_2) == 11) {
+		applymovement(18, Movement_STORY_R23_1_bottom)
+	}
+	waitmovement(0)
 
+	namebox("Tiffy Cashien")
+	msgbox(format("Oho, good to see you {PLAYER}.\pWhat brings you here?"))
+	hidenamebox
+	closemessage
+	//interact
+	namebox("Tiffy Cashien")
+	msgbox(format("A Black Knight?\pWell, what a coincidence! Sir Owen and the Temple Knights are currently investigating just that dontchaknow.\pSay, why don't you join them.\pI'll contact them using my handy Commorb and let them know you will be joining them."))
+	hidenamebox
+	closemessage
+	namebox("Tiffy Cashien")
+	msgbox(format("Speaking of which, you should probably have one."))
+	hidenamebox
+	closemessage
+	giveitem(ITEM_COMMORB, 1)
+	//give player a Comm-Orb - to communicate the mission details.
+	namebox("Tiffy Cashien")
+	msgbox(format("That Commorb will allow us to communicate across great distances and provide you with our support."))
+	hidenamebox
+	closemessage
+	//face north
 
+	applymovement(18, Movement_STORY_R23_2)
+	waitmovement(0)
 
+	namebox("Tiffy Cashien")
+	msgbox(format("Now, if you follow this path it will lead you to Ice Mountain.\pThe Temple Knights should be there."))
+	hidenamebox
+	closemessage
+
+	applymovement(18, Movement_STORY_R23_3_left)
+	waitmovement(0)
+
+	//faceplayer
+	namebox("Tiffy Cashien")
+	msgbox(format("I am on my way back to Falador.\pRemember if you need anything just use the Commorb to contact me.\pJolly good to see you again {PLAYER}.\pTa-ta for now!"))
+	hidenamebox
+	closemessage
+
+	getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_2) == 10) {
+		applymovement(18, Movement_STORY_R23_4_top)
+	}
+	elif (var(VAR_TEMP_2) == 11) {
+		applymovement(18, Movement_STORY_R23_4_bottom)
+	}
+	waitmovement(0)
+
+	setflag(FLAG_TEMP_1F)
+    removeobject(18)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 170)
+	releaseall
+	end
+}
+
+movement Movement_STORY_R23_1_top {
+	emote_exclamation_mark
+	delay_16 * 2
+	walk_left * 3
+}
+movement Movement_STORY_R23_1_bottom {
+	emote_exclamation_mark
+	delay_16 * 2
+	walk_down
+	walk_left * 3
+}
+
+movement Movement_STORY_R23_3_left {
+	face_left
+}
+
+movement Movement_STORY_R23_4_top {
+	face_down
+	walk_down
+	face_left
+	walk_left * 10
+}
+
+movement Movement_STORY_R23_4_bottom {
+	face_up
+	walk_up
+	face_left
+	walk_left * 10
+}
 
 
 //ROUTE 23
@@ -520,6 +622,38 @@ script COMMORB_FUNCTION
 		case 185:
 			namebox("Tiffy Cashien")
 			msgbox(format("Sir Owen has informed me that you both took out a Black Knight.\pYou should investigate Ice Mountain with him for any suspicious behaviour.\pSir Tiffy Cashien -over."))
+		case 187:
+			namebox("Tiffy Cashien")
+			msgbox(format("I don't want to know how you got those uniforms, {PLAYER}, but now that you have them you should see if you can use them to get past the guards and inside the Fortress.\pSir Tiffy Cashien -over."))
+		case 190:
+			namebox("Tiffy Cashien")
+			msgbox(format("Jolly good show infiltrating the Black Knights' Fortress {PLAYER}!\pYou should have a look around to see what you can find.\pSir Tiffy Cashien -over."))
+		case 195:
+			namebox("Tiffy Cashien")
+			msgbox(format("Keep going {PLAYER}!\pYou may have lost the element of surprise without your disguises, but the information we are looking for should be in Lord Daquarius' room at the top of the Fortress.\pSir Tiffy Cashien -over."))
+		case 200:           //left blank as there shouldn't be a case where the player is able to access the orb at this state
+		case 205:           //post BKF event after getting the strength tool
+			namebox("Tiffy Cashien")
+			msgbox(format("Sir Owen filled me in on the battle with Lord Daquarius {PLAYER}!\pJolly good work dontchaknow.\pWe shall do some recon to try and work out what Sigmund and H.A.M are planning.\pUntil then, keep training as we may need your strength again soon!\pSir Tiffy Cashien -over."))
+		case 210:           //post HAM kidnapping
+			namebox("Tiffy Cashien")
+			msgbox(format("What's that {PLAYER}?\pH.A.M have kidnapped Prince Ali of Al Kharid?!\pYou must be pulling on my leg, hmm?\pYou're not?!\lThis is a diplomatic nightmare, old bean!\pThe top brass will need to be made aware.\pCan't see them being too thrilled about it.\pTry contacting someone at Al Kharid palace immediately.\pI'll make some enquiries this end dontchaknow.\pSir Tiffy Cashien -over."))
+		case 215:    //post palace, but pre HAM hideout
+			namebox("Tiffy Cashien")
+			msgbox(format("You met Ozan at Al Kharid palace?\pHmm, he's known for embellishing his stories so let's hope Osman believes him.\pIn the meantime, you should look around Lumbridge to see if you can find some clues as to where H.A.M have taken the Prince!\pSir Tiffy Cashien -over."))
+		case 220:           //after teaming up with Zanik for the first time but before triggering jail event
+			namebox("Tiffy Cashien")
+			msgbox(format("What ho, old bean.\pYou've teamed up with a goblin?\pJolly good show, that'll anger H.A.M more than anything and hopefully they'll make some mistakes!\pMy agents are all too far afield at the moment to assist, so we are relying on you {PLAYER}!\pTa-ta for now\pSir Tiffy Cashien -over."))
+		case 225:    //HAM Hideout, in disguise going to jail
+			namebox("Tiffy Cashien")
+			msgbox(format("Quite messy stuff, what?\pThe Prince has to be down there somewhere {PLAYER}.\pSee if you can find a prison or a jail of some kind.\pSir Tiffy Cashien -over."))
+		case 230:    //HAM Hideout, guarding prisoners?
+			namebox("Tiffy Cashien")
+			msgbox(format("Well done on locating the Prince {PLAYER}!\pGood to know he's not been harmed yet.\pYou need to get him out as soon as possible before the situation gets much, much worse.\pSir Tiffy Cashien -over."))
+		case 235:    //HAM Hideout, lost disguise
+			namebox("Tiffy Cashien")
+			msgbox(format("What's that, you lost your disguise {PLAYER}?\pYou seem to be making a habit of that dontchaknow.\pYou may have lost the element of surprise, but you're still our best hope of rescuing the Prince.\p\pSir Tiffy Cashien -over."))
+
 		default:
 			msgbox(format("There was no response…"))
 	}	

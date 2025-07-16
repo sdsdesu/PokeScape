@@ -183,10 +183,9 @@ Mithrilman_FLAGS::
 Mithrilman_VARROCK1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_VARROCK1_Text_1
-	trainerbattle_single TRAINER_MITHRILMAN3, Mithrilman_VARROCK1_Text_2, Mithrilman_VARROCK1_Text_3, Mithrilman_VARROCK2
 	return
 
 
@@ -211,10 +210,9 @@ Mithrilman_VARROCK2::
 Mithrilman_ALKHARID1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_ALKHARID1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN4, Mithrilman_ALKHARID1_Text_1, Mithrilman_VARROCK1_Text_3, Mithrilman_ALKHARID2
 	return
 
 
@@ -247,10 +245,10 @@ Mithrilman_ALKHARID2::
 Mithrilman_DRAYNOR1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_DRAYNOR1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN6, Mithrilman_DRAYNOR1_Text_1, Mithrilman_VARROCK1_Text_3, Mithrilman_DRAYNOR2
+	trainerbattle_single TRAINER_MITHRILMAN6, Mithrilman_DRAYNOR1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_DRAYNOR2
 	return
 
 
@@ -284,10 +282,10 @@ Mithrilman_EDGEVILLE1::
 Mithrilman_EDGEVILLE1_1:
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_EDGEVILLE1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN7, Mithrilman_EDGEVILLE1_Text_1, Mithrilman_VARROCK1_Text_3, Mithrilman_EDGEVILLE2
+	trainerbattle_single TRAINER_MITHRILMAN7, Mithrilman_EDGEVILLE1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_EDGEVILLE2
 	return
 
 
@@ -309,10 +307,10 @@ Mithrilman_EDGEVILLE2::
 Mithrilman_WILDERNESS1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESS1_Text_0
-	trainerbattle_single TRAINER_MITHRILMAN8, Mithrilman_WILDERNESS1_Text_1, Mithrilman_VARROCK1_Text_3, Mithrilman_WILDERNESS2
+	trainerbattle_single TRAINER_MITHRILMAN8, Mithrilman_WILDERNESS1_Text_1, Mithrilman_DRAYNOR1_Text_2, Mithrilman_WILDERNESS2
 	return
 
 
@@ -337,14 +335,14 @@ Mithrilman_WILDERNESS2::
 Mithrilman_WILDERNESSVOLCANO1::
 	lock
 	faceplayer
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESSVOLCANO1_Text_0, MSGBOX_YESNO
 	compare VAR_RESULT, 1
 	goto_if_ne Mithrilman_WILDERNESSVOLCANO1_3
 	namebox Mithrilman_VARROCK1_Text_0
 	msgbox Mithrilman_WILDERNESSVOLCANO1_Text_2
-	trainerbattle_single TRAINER_MITHRILMAN9, Mithrilman_WILDERNESSVOLCANO1_Text_3, Mithrilman_VARROCK1_Text_3, Mithrilman_WILDERNESSVOLCANO2
+	trainerbattle_single TRAINER_MITHRILMAN9, Mithrilman_WILDERNESSVOLCANO1_Text_3, Mithrilman_DRAYNOR1_Text_2, Mithrilman_WILDERNESSVOLCANO2
 	return
 
 Mithrilman_WILDERNESSVOLCANO1_3:
@@ -443,13 +441,6 @@ Mithrilman_VARROCK1_Text_1:
 	.string "pelter.\p"
 	.string "Thoust seems eager for a rematch?$"
 
-Mithrilman_VARROCK1_Text_2:
-	.string "Alas knave, there is no ducks to save\n"
-	.string "thee this time.$"
-
-Mithrilman_VARROCK1_Text_3:
-	.string "…$"
-
 Mithrilman_VARROCK2_Text_0:
 	.string "Thine ears hurt, the pelter gave thine\n"
 	.string "an earfull.\p"
@@ -472,10 +463,6 @@ Mithrilman_ALKHARID1_Text_0:
 	.string "desert.\p"
 	.string "Thus Mithrilmen shalt be known as the\n"
 	.string "superior challenge!$"
-
-Mithrilman_ALKHARID1_Text_1:
-	.string "Yee seem tired knave, wouldst a battle\n"
-	.string "fire yee up?$"
 
 Mithrilman_ALKHARID2_Text_0:
 	.string "The heat scorched upon your head\n"
@@ -509,6 +496,9 @@ Mithrilman_DRAYNOR1_Text_0:
 Mithrilman_DRAYNOR1_Text_1:
 	.string "Would thoust challenge a man as awingst\n"
 	.string "as me?$"
+
+Mithrilman_DRAYNOR1_Text_2:
+	.string "…$"
 
 Mithrilman_DRAYNOR2_Text_0:
 	.string "Thoust does cheat?\p"

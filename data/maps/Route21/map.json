@@ -2,7 +2,7 @@
   "id": "MAP_ROUTE21",
   "name": "Route21",
   "layout": "LAYOUT_ROUTE21",
-  "music": "MUS_ABANDONED_SHIP",
+  "music": "MUS_PS_ROUTE_MISTHALIN",
   "region_map_section": "MAPSEC_ROUTE_21",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -55,8 +55,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
@@ -68,8 +68,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOODCUTTER",
@@ -94,8 +94,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE21_ITEM1",
-      "flag": "FLAG_ITEM_ROUTE21_ITEM1"
+      "script": "FIND_ITEM_MITHRIL_POUCHES",
+      "flag": "FLAG_ITEM_ROUTE21_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOODCUTTER",
@@ -115,12 +115,12 @@
       "x": 12,
       "y": 10,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 5,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "5",
-      "script": "NULL",
+      "script": "BATTLE_ROUTE21_TRAINER_3",
       "flag": "0"
     }
   ],

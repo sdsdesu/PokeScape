@@ -24,8 +24,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MAKEOVER_MAGE_ITEM_CAKE",
-      "flag": "FLAG_ITEM_MAKEOVER_MAGE_ITEM_CAKE"
+      "script": "FIND_ITEM_MEAT_PIE_SANDWICH",
+      "flag": "FLAG_ITEM_MAKEOVER_MAGE_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CHINCHOMPA_YELLOW",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_CHINCHOMPA",
+      "flag": "0"
     }
   ],
   "warp_events": [

@@ -5,12 +5,278 @@ Route13_MapScripts::
 
 Route13_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setvar VAR_EVOLUTION_MAP_STATE, 16
+	call Route13_STATE
 	return
 
 Route13_MapScripts_MAP_SCRIPT_ON_LOAD:
 	call PURO_PURO_EVENT
 	return
 
+
+Route13_STATE::
+	compare VAR_POKESCAPE_GAMEMODE_STATE, 1
+	goto_if_eq Route13_STATE_2
+Route13_STATE_1:
+	goto_if_unset FLAG_ROUTE13_BLOCK, Route13_STATE_5
+	setobjectxyperm 9, 17, 20
+	setobjectxyperm 10, 18, 23
+	setobjectxyperm 11, 22, 24
+	setobjectxyperm 19, 24, 17
+	setobjectxyperm 20, 23, 21
+	setobjectxyperm 13, 23, 18
+	setobjectmovementtype 13, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 9, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 10, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 11, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 19, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 20, MOVEMENT_TYPE_WANDER_AROUND
+Route13_STATE_4:
+	return
+
+Route13_STATE_2:
+	removeobject 18
+	setflag FLAG_ROUTE13_BLOCK
+	goto Route13_STATE_1
+
+Route13_STATE_5:
+	setvar VAR_TEMP_0, 1
+	goto Route13_STATE_4
+
+
+TRIGGER_BLOCK_HAZELMERE::
+	lock
+	delay 60
+	applymovement 18, MOVEMENT_INTERACT_DOWN
+	namebox TRIGGER_BLOCK_HAZELMERE_Text_0
+	msgbox TRIGGER_BLOCK_HAZELMERE_Text_1
+	closemessage
+	hidenamebox
+	waitmovement 0
+	playse SE_PIN
+	applymovement 9, Sheep_Face_Halzemere_up
+	applymovement 10, Sheep_Face_Halzemere_left
+	applymovement 11, Sheep_Face_Halzemere_up
+	applymovement 19, Sheep_Face_Halzemere_left
+	applymovement 20, Sheep_Face_Halzemere_down
+	waitmovement 0
+	delay 60
+	playse SE_PIN
+	applymovement 13, Farmer_Face_Halzemere_up
+	waitmovement 0
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_2, 32
+	goto_if_eq TRIGGER_BLOCK_HAZELMERE_2
+TRIGGER_BLOCK_HAZELMERE_1:
+	applymovement 10, Sheep_Walk_to_Farm_4
+	delay 30
+	applymovement 9, Sheep_Walk_to_Farm_2
+	applymovement 11, Sheep_Walk_to_Farm_1
+	applymovement 19, Sheep_Walk_to_Farm_3
+	applymovement 20, Sheep_Walk_to_Farm_5
+	delay 120
+	playse SE_LEDGE
+	applymovement 13, Farmer_Shock_JumpInPlace
+	waitse
+	waitmovement 13
+	playse SE_LEDGE
+	applymovement 13, Movement_JumpInPlace_UP
+	waitse
+	delay 30
+	applymovement 13, Farmer_Chase_Sheep
+	delay 120
+	applymovement 18, Halzmere_walk_off
+	waitmovement 0
+	setobjectxy 9, 17, 20
+	setobjectxy 10, 18, 23
+	setobjectxy 11, 22, 24
+	setobjectxy 19, 24, 17
+	setobjectxy 20, 23, 21
+	setobjectxy 13, 23, 18
+	setobjectxyperm 9, 17, 20
+	setobjectxyperm 10, 18, 23
+	setobjectxyperm 11, 22, 24
+	setobjectxyperm 19, 24, 17
+	setobjectxyperm 20, 23, 21
+	setobjectxyperm 13, 23, 18
+	setobjectmovementtype 13, MOVEMENT_TYPE_FACE_DOWN
+	setobjectmovementtype 9, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 10, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 11, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 19, MOVEMENT_TYPE_WANDER_AROUND
+	setobjectmovementtype 20, MOVEMENT_TYPE_WANDER_AROUND
+	removeobject 18
+	setflag FLAG_ROUTE13_BLOCK
+	setvar VAR_TEMP_0, 2
+	release
+	end
+
+TRIGGER_BLOCK_HAZELMERE_2:
+	applymovement OBJ_EVENT_ID_PLAYER, movement_lock_walk_up
+	goto TRIGGER_BLOCK_HAZELMERE_1
+
+
+Halzmere_walk_off:
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_up
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	step_end
+
+Farmer_Chase_Sheep:
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_down
+	step_end
+
+Farmer_Shock_JumpInPlace:
+	emote_double_exclamation_mark
+	jump_in_place_up
+	step_end
+
+Movement_JumpInPlace_UP:
+	jump_in_place_up
+	step_end
+
+Sheep_Walk_to_Farm_1:
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+Sheep_Walk_to_Farm_2:
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+Sheep_Walk_to_Farm_3:
+	walk_slow_left
+	walk_slow_down
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+Sheep_Walk_to_Farm_4:
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+Sheep_Walk_to_Farm_5:
+	walk_slow_down
+	walk_slow_down
+	walk_slow_down
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+Sheep_Face_Halzemere_up:
+	emote_exclamation_mark
+	face_up
+	step_end
+
+Sheep_Face_Halzemere_left:
+	emote_exclamation_mark
+	face_left
+	step_end
+
+Sheep_Face_Halzemere_down:
+	emote_exclamation_mark
+	face_down
+	step_end
+
+Farmer_Face_Halzemere_up:
+	emote_question_mark
+	face_up
+	step_end
 
 VARROCK_NPC_RATBURGUS::
 	faceplayer
@@ -246,6 +512,16 @@ PURO_PURO_EVENT_ROUTE13::
 	setmetatile 7, 24, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0
 	return
 
+
+TRIGGER_BLOCK_HAZELMERE_Text_0:
+	.string "???$"
+
+TRIGGER_BLOCK_HAZELMERE_Text_1:
+	.string "Andra andro krachis mond.\p"
+	.string "Mi tuzo undri.\p"
+	.string "Lemantolly cef o cinqo.\p"
+	.string "Lemanto, mi lovos imindus.\p"
+	.string "Lwmqnto quir, qui umesco ir undri.$"
 
 VARROCK_NPC_RATBURGUS_Text_0:
 	.string "Ratburgus$"

@@ -26,7 +26,7 @@ script NPC_LumbridgeBasement_Demonheadge
 	lock
 	faceplayer
     namebox ("Demonheadge")
-	msgbox(format("Hi there, I hope you enjoy playing PokeScape.\pJust so you know this portal leads to my beta testing area.\pSo please do not go here unless you have finished playing the beta and want to mess around with some buggy mess, cheat, etc.\pI do highly recommend you play through the beta once first."))
+	msgbox(format("Hi there, I hope you enjoy playing PokeScape.\pJust so you know this portal leads to my beta testing area.\pPlease do not attempt to enter it!\pI do highly recommend playing through the beta normally before even thinking about going in there."))
     waitmessage
     hidenamebox
 	release
@@ -41,4 +41,99 @@ script NPC_LumbridgeBasement_Item
     waitmessage
 	release
 	end
+}
+
+
+script DEMONHEADGE_BLOCK
+{
+    lock
+    applymovement (5,Movement_InteractFACEDOWN)  //Demon
+	waitmovement (0)
+    namebox("Demonheadge")
+    msgbox(format("Are you trying to go through my portal?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    { 
+        msgbox(format("Are you sure you want to do that?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{
+			msgbox(format("Are you REALLY sure going in there is a good idea?"), MSGBOX_YESNO)
+			if (var(VAR_RESULT))
+			{
+				msgbox(format("Are you actually reading these or are you just mashing the same button to get through my dialogue?"), MSGBOX_YESNO)
+				if (var(VAR_RESULT))
+				{
+					msgbox(format("Okay, so just to confirm, you don't want to go through this ominous portal?"), MSGBOX_YESNO)
+					if (var(VAR_RESULT))
+					{
+						msgbox(format("Good, I'm glad you agree that you don't want to go in.\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+						closemessage
+						hidenamebox
+						applymovement (5,Movement_InteractFACERIGHT)  //Demon
+						applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+						waitmovement (0)
+						release
+						end
+					}
+					else {
+						msgbox(format("I'm sorry! Despite your persistence, that portal is still off-limits to everybody.\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+						closemessage
+						hidenamebox
+						applymovement (5,Movement_InteractFACERIGHT)  //Demon
+						applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+						waitmovement (0)
+						release
+						end
+					}
+    			}
+    			else {
+					msgbox(format("Maybe if you paid attention to what you were reading, you'd realise that the portal is off-limits to everybody.\pNo exceptions!\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+					closemessage
+					hidenamebox
+					applymovement (5,Movement_InteractFACERIGHT)  //Demon
+					applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+					waitmovement (0)
+					release
+					end
+				}
+			}
+			else {
+				msgbox(format("You're right, it really isn't!\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+				closemessage
+				applymovement (5,Movement_InteractFACERIGHT)  //Demon
+				applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+				waitmovement (0)
+				hidenamebox
+				release
+				end
+			}
+		}
+		else {
+			msgbox(format("That's sensible. You're much safer this side of it.\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+			closemessage
+			hidenamebox
+			applymovement (5,Movement_InteractFACERIGHT)  //Demon
+			applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+			waitmovement (0)
+			release
+			end
+		}
+	}
+	else {
+		msgbox(format("That's good, because that portal is off-limits to everybody.\pNow, please leave me as I have to think of more new stuff to add to procrastinate finishing the story."))
+		closemessage
+		hidenamebox
+		applymovement (5,Movement_InteractFACERIGHT)  //Demon
+		applymovement (OBJ_EVENT_ID_PLAYER,movement_DEMON_BLOCK)
+		waitmovement (0)
+		release
+		end
+	}
+	release
+	end
+}
+
+movement movement_DEMON_BLOCK
+{
+	walk_left
+	step_end
 }

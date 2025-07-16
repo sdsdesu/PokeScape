@@ -53,54 +53,6 @@ script Randomise_VarrockSewer_2F_Spawns
 
 
 
-script ITEM_VARROCK_SEWERS_1
-{
-    finditem(ITEM_SCURRIUS_CHEESE)
-    end
-}
-script ITEM_VARROCK_SEWERS_2
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_3
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_4
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_5
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_6
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_7
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_8
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-script ITEM_VARROCK_SEWERS_9
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
-
-
 //Battles
 script BATTLE_VARROCK_SEWERS_2F_TRAINER_1
 {

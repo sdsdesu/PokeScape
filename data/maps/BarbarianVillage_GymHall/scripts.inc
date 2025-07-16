@@ -25,6 +25,7 @@ BarbarianVillage_GYM_STATE::
 	case 5, BarbarianVillage_GYM_STATE_3
 	case 2, BarbarianVillage_GYM_STATE_4
 	case 3, BarbarianVillage_GYM_STATE_5
+	case 6, BarbarianVillage_GYM_STATE_5
 	return
 
 BarbarianVillage_GYM_STATE_2:
@@ -353,7 +354,7 @@ NPC_BARBGYM_BARBARIAN_2::
 	namebox NPC_BARBGYM_BARBARIAN_2_Text_19
 	msgbox NPC_BARBGYM_BARBARIAN_2_Text_23
 	hidenamebox
-	giveitem ITEM_TM66_BRUTAL_SWING
+	giveitem ITEM_TM73_BERSERK
 	namebox NPC_BARBGYM_BARBARIAN_2_Text_19
 	msgbox NPC_BARBGYM_BARBARIAN_2_Text_24
 	hidenamebox
@@ -371,8 +372,9 @@ NPC_BARBGYM_BARBARIAN_2::
 	hidenamebox
 	fadescreenswapbuffers FADE_TO_BLACK
 	setflag FLAG_BADGE04_GET
-	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 5
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 3
 	call HIDDEN_GROTTO_RESET
+	addvar VAR_GAMEMODE_LEVEL_CAP, 3
 	addvar VAR_GAMEMODE_LEVEL_SCALING, 1
 	setvar VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3
 	call BarbarianVillage_GYM_STATE

@@ -76,8 +76,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MELZARS_2F_RUNE",
-      "flag": "FLAG_ITEM_MELZARS_2F_RUNE"
+      "script": "FIND_ITEM_SOUL_RUNE",
+      "flag": "FLAG_ITEM_MELZARSMAZE_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SKELETON_1",
@@ -102,8 +102,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MELZARS_2F_BREAD",
-      "flag": "FLAG_ITEM_MELZARS_2F_BREAD"
+      "script": "FIND_ITEM_CAKE",
+      "flag": "FLAG_ITEM_MELZARSMAZE_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_M",
@@ -117,6 +117,32 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "BATTLE_MELZAR_2F_TRAINER_5",
       "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 24,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 20,
+      "y": 24,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [

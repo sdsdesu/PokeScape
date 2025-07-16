@@ -7,6 +7,7 @@ mapscripts Route28_MapScripts{
         setvar(VAR_EVOLUTION_MAP_STATE, 11) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
 		call(PENGUIN_EVENT)
 		call(WEATHER_CHANGE_AREA_DESERT_CALM)
+        call(ROUTE28_STATE)
 	}
 }
 
@@ -35,7 +36,21 @@ script ENCOUNTER_PENGUIN_CACTUS_ROUTE28 {
     end
 }
 
+script ROUTE28_STATE {
+	removeobject(16)
+	setflag(FLAG_TEMP_1C) //Mithrilman
 
+    switch(var(VAR_MITHRILMAN_STATE)) {                            //This will have Mithrilman appear any time between Edgeville and Varrock, but allows for his dialogue to change
+        case 20:
+            addobject(16)           //Mithrilman
+            clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+        case 25:
+            addobject(16)           //Mithrilman
+            clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+    }
+
+	return
+}
 
 
 
@@ -56,9 +71,9 @@ script BLOCK_DEMO_END
 script BATTLE_ROUTE28_TRAINER_1
 { // x2 gecko, giant rat.
     trainerbattle_single(TRAINER_ROUTE28_TRAINER_1, format("They assigned me to this boring post on the outskirts of town.\pCan you entertain me?"),format("Thank you for the fight.\pI have grown bored of battles now though."))
-    //namebox ("Guard")
+    namebox ("Guard")
     msgbox(format("Thank you for the fight.\pI have grown bored of battles now though."))
-	//hidenamebox
+	hidenamebox
     release
 	end
 }
@@ -74,18 +89,18 @@ script BATTLE_ROUTE28_TRAINER_2
 script BATTLE_ROUTE28_TRAINER_3
 { //Ninja monkey
     trainerbattle_single(TRAINER_ROUTE28_TRAINER_3, format("Al Kharid is past here, allow me to test you."),format("Fine, you pass the test."))
-    //namebox ("Guard")
+    namebox ("Guard")
     msgbox(format("Do not give my brothers any trouble while visting Al Kharid."))
-	//hidenamebox
+	hidenamebox
     release
 	end
 }
 script BATTLE_ROUTE28_TRAINER_4
 { //Bloated frog, Night spider
     trainerbattle_single(TRAINER_ROUTE28_TRAINER_4, format("Have you seen any ruins around these parts?"),format("You could have just said no…"))
-    //namebox ("Archeaologist")
+    namebox ("Archeaologist")
     msgbox(format("Oh the pile of rocks over there are the ruins I have been looking for!\pI heard that they were magical in some way."))
-	//hidenamebox
+	hidenamebox
     release
 	end
 }
@@ -100,6 +115,33 @@ script BATTLE_ROUTE28_TRAINER_5
 }
 
 
+
+script Mithrilman_Route28 {
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    if (var(VAR_MITHRILMAN_STATE) == 20) {   //Variable for if you have done earlier events but not spoken to him here
+        msgbox(format("Knave, thoust darest intrude upon a mithrilman ast thine trains for an ordeal?\pLeavest thine be knave.\lThine is training forst measures beyond thousts control.\pThist arid desert, duelling the elements and monsters alike.\lThast the true challenge of being mithrilmen.\pThoust would never understandst knave."))
+        hidenamebox
+        closemessage
+        setvar(VAR_MITHRILMAN_STATE, 25)
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 4)
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
+    else {
+        msgbox(format("Begone knave."))
+        closemessage
+        hidenamebox
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
+}
 
 
 

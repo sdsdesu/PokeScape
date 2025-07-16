@@ -170,7 +170,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE28_1",
+      "script": "FIND_ITEM_REPEL_TEA_2",
       "flag": "FLAG_ITEM_ROUTE28_1"
     },
     {
@@ -183,7 +183,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE28_2",
+      "script": "FIND_ITEM_ADAMANT_POUCHES",
       "flag": "FLAG_ITEM_ROUTE28_2"
     },
     {
@@ -224,6 +224,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MITHRILMAN",
+      "x": 37,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Mithrilman_Route28",
+      "flag": "FLAG_TEMP_1C"
     }
   ],
   "warp_events": [

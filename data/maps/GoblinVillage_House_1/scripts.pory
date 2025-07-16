@@ -277,45 +277,56 @@ script NPC_GOBLINVILLAGE_CHOOSEPICKAXE
 
 movement MOVEMENT_INTERACT_LEFT{
     walk_in_place_left * 3
+    step_end
 }
 movement MOVEMENT_INTERACT_RIGHT{
     walk_in_place_right * 3
+    step_end
 }
 movement MOVEMENT_INTERACT_DOWN{
     walk_in_place_down * 3
+    step_end
 }
 movement MOVEMENT_INTERACT_UP{
     walk_in_place_up * 3
+    step_end
 }
 movement Movement_InteractFACEPLAYER{
     face_player
+    step_end
 }
 movement Movement_InteractSURPRISEFACEPLAYER{
     emote_question_mark
     delay_16
     face_player
     delay_16
+    step_end
 }
 movement Movement_InteractFACEUP{
     face_up
     delay_16
+    step_end
 }
 movement Movement_InteractFACELEFT{
     face_left
     delay_16
+    step_end
 }
 movement Movement_InteractFACEDOWN{
     face_down
     delay_16
+    step_end
 }
 movement Movement_InteractFACERIGHT{
     face_right
     delay_16
+    step_end
 }
 movement Movement_Goblin_1{
     delay_16 * 3 
     walk_up * 2
     delay_16
+    step_end
 }
 
 

@@ -492,8 +492,24 @@ movement Movement_DraynorGuardTree_3
 }   
 
 
-
-
+script NPC_Falador_Skiller{
+	lock
+	faceplayer
+    namebox("Sk1llchawmpa")
+	msgbox(format("My chinchompa is a skiller like me!\pNo fighting for us, just skilling!"))
+    hidenamebox
+    release
+	end
+}
+script NPC_Draynor_Skiller{
+	lock
+	faceplayer
+    namebox("Ch1nchawmpa")
+	msgbox(format("Chinchompas are really hard to train, but if you put the effort in they are a force to be reckoned with!"))
+    hidenamebox
+    release
+	end
+}
 
 script NPC_Draynor_Woman_1{
 	lock

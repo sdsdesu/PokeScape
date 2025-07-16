@@ -1,0 +1,87 @@
+mapscripts Minigame_1_MapScripts {
+}
+
+script VOID_KNIGHT_NPC_1 
+{
+    lock
+    faceplayer
+    namebox ("Void Knight")
+    random(5)
+        switch (var(VAR_RESULT)) {
+            case 0:
+                msgbox(format("The purple, western portal shield is down!"))
+            case 1:
+                msgbox(format("The blue, eastern portal shield is down!"))
+            case 2:
+                msgbox(format("The yellow, south-eastern portal shield is down!"))
+            case 3:
+                msgbox(format("The red, south-western portal shield is down!"))
+            case 4:
+                msgbox(format("So many monsters...!\pWe cannot let them escape this island!"))
+        }
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
+
+script VOID_KNIGHT_NPC_2 
+{
+    lock
+	faceplayer
+	namebox("Void Knight")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+	closemessage
+	release
+	end
+}
+
+script VOID_KNIGHT_NPC_3 
+{
+    lock
+	faceplayer
+	namebox("Void Knight")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+	closemessage
+	release
+	end
+}
+
+script VOID_KNIGHT_NPC_4
+{
+    lock
+	faceplayer
+	namebox("Void Knight")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+	closemessage
+	release
+	end
+}
+
+script VOID_KNIGHT_NPC_5
+{
+    lock
+	faceplayer
+	namebox("Void Knight")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+	closemessage
+	release
+	end
+}
+
+script VOID_KNIGHT_NPC_6
+{
+    lock
+	faceplayer
+	namebox("Void Knight")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+	closemessage
+	release
+	end
+}

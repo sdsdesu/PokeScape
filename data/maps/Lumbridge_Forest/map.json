@@ -22,9 +22,9 @@
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_HAM_1",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_LUMBRIDGEFOREST_HAM_4",
       "flag": "0"
     },
     {
@@ -35,48 +35,48 @@
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_HAM_1",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_LUMBRIDGEFOREST_HAM_3",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_F",
-      "x": 30,
-      "y": 8,
+      "x": 33,
+      "y": 5,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_HAM_1",
+      "script": "NPC_LUMBRIDGEFOREST_HAM_1",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_F",
       "x": 34,
-      "y": 17,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_HAM_1",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "BATTLE_LUMBRIDGEFOREST_HAM_2",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HAM_GRUNT_M",
-      "x": 31,
-      "y": 15,
+      "x": 32,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 2,
       "movement_range_y": 2,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_HAM_1",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "1",
+      "script": "BATTLE_LUMBRIDGEFOREST_HAM_1",
       "flag": "0"
     },
     {
@@ -94,7 +94,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RAT",
-      "x": 46,
+      "x": 48,
       "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -107,7 +107,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SHEEP",
-      "x": 43,
+      "x": 44,
       "y": 42,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -141,8 +141,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGEFOREST_TM49_SNARL",
-      "flag": "FLAG_ITEM_LUMBRIDGEFOREST_1"
+      "script": "ITEM_RECEIVED_TM49",
+      "flag": "FLAG_RECEIVED_TM49"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_M",
@@ -199,7 +199,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_1",
       "x": 24,
-      "y": 26,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -232,7 +232,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_FOREST_6",
+      "script": "NPC_LUMBRIDGE_FOREST_5",
       "flag": "0"
     },
     {
@@ -310,8 +310,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_FOREST_3",
-      "flag": "FLAG_ITEM_LUMBRIDGE_FOREST_3"
+      "script": "FIND_ITEM_YELLOW_SWEETS",
+      "flag": "FLAG_ITEM_LUMBRIDGEFOREST_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -323,7 +323,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGEFOREST_BREAD",
+      "script": "FIND_ITEM_ELEMENTAL_POUCHES",
       "flag": "FLAG_ITEM_LUMBRIDGEFOREST_2"
     },
     {
@@ -336,13 +336,13 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_FOREST_CABBAGE",
-      "flag": "FLAG_ITEM_LUMBRIDGE_FOREST_CABBAGE"
+      "script": "FIND_ITEM_CABBAGE",
+      "flag": "FLAG_ITEM_LUMBRIDGEFOREST_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 5,
-      "y": 0,
+      "x": 25,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -380,7 +380,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZANIK_HAM",
-      "x": 25,
+      "x": 26,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -388,8 +388,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "Following_Zanik",
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
@@ -445,8 +445,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ABYSS_PORTAL",
-      "x": 43,
-      "y": 22,
+      "x": 0,
+      "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -458,8 +458,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 4,
-      "y": 0,
+      "x": 22,
+      "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -507,6 +507,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_StrengthBoulder",
       "flag": "FLAG_TEMP_11"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
+      "x": 35,
+      "y": 36,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_BROWN",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
+      "x": 15,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_BROWN",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_WOODCUTTER",
+      "x": 21,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_LUMBRIDGE_FOREST_MISSING_AXE",
+      "flag": "FLAG_TEMP_8"
     }
   ],
   "warp_events": [
@@ -558,10 +597,25 @@
       "elevation": 0,
       "dest_map": "MAP_LUMBRIDGE",
       "dest_warp_id": "17"
+    },
+    {
+      "x": 43,
+      "y": 23,
+      "elevation": 0,
+      "dest_map": "MAP_DRAYNOR_SEWERS_3",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_4"
+    }
   ],
   "bg_events": [
     {
@@ -569,7 +623,7 @@
       "x": 16,
       "y": 41,
       "elevation": 3,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_FOREST_1"
     }
   ],

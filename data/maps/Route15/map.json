@@ -242,7 +242,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_1",
+      "script": "FIND_ITEM_MANY_SWEETS_15",
       "flag": "FLAG_ITEM_ROUTE15_1"
     },
     {
@@ -255,7 +255,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_2",
+      "script": "FIND_ITEM_AUGMENTED_POUCHES",
       "flag": "FLAG_ITEM_ROUTE15_2"
     },
     {
@@ -268,7 +268,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_3",
+      "script": "FIND_ITEM_EASTER_EGG",
       "flag": "FLAG_ITEM_ROUTE15_3"
     },
     {
@@ -281,7 +281,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE15_4",
+      "script": "FIND_ITEM_PRAYER_POTION",
       "flag": "FLAG_ITEM_ROUTE15_4"
     },
     {
@@ -307,11 +307,11 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ROUTE15_NPC_UNICORN",
-      "flag": "0"
+      "script": "ENCOUNTER_UNICORN_BARB",
+      "flag": "FLAG_TEMP_3"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_UNICORN_WHITE",
+      "graphics_id": "OBJ_EVENT_GFX_BEAR_BROWN",
       "x": 16,
       "y": 38,
       "elevation": 0,
@@ -320,8 +320,8 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ROUTE15_NPC_UNICORN",
-      "flag": "0"
+      "script": "ENCOUNTER_BEAR_BROWN",
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_IMPLING_ESSENCE",
@@ -335,6 +335,45 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_LUCKY_IMPLING",
       "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_ALKHAIRD",
+      "x": 12,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_ALKHAIRD",
+      "x": 13,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LITTLE_BOY",
+      "x": 12,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [

@@ -13,31 +13,6 @@ NPC_AsgarnianDungeon_RAPTOR::
 	end
 
 
-ITEM_AsgarnianDungeon_1::
-	finditem ITEM_LAMP_SPATT
-	end
-
-
-ITEM_AsgarnianDungeon_2::
-	finditem ITEM_LAMP_SPDEF
-	end
-
-
-ITEM_AsgarnianDungeon_3::
-	finditem ITEM_PRAYER_POTION
-	end
-
-
-ITEM_AsgarnianDungeon_4::
-	finditem ITEM_POUCH_ELEMENTAL, 5
-	end
-
-
-ITEM_AsgarnianDungeon_5::
-	finditem ITEM_SPIRIT_CHARM
-	end
-
-
 BATTLE_AsgarnianDungeon_MUGGER_1::
 	trainerbattle_single TRAINER_AsgarnianDungeon_MUGGER_1, BATTLE_AsgarnianDungeon_MUGGER_1_Text_0, BATTLE_AsgarnianDungeon_MUGGER_1_Text_1
 	namebox BATTLE_AsgarnianDungeon_MUGGER_1_Text_2
@@ -143,7 +118,7 @@ BATTLE_AsgarnianDungeon_MUGGER_1_Text_1:
 	.string "Fine here, have your gp back.$"
 
 BATTLE_AsgarnianDungeon_MUGGER_1_Text_2:
-	.string "IWill4StealU$"
+	.string "Robert$"
 
 BATTLE_AsgarnianDungeon_MUGGER_1_Text_3:
 	.string "Not many people come down here due the\n"

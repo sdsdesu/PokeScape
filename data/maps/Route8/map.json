@@ -302,8 +302,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE8_ITEM_PRAYER_POTION",
-      "flag": "FLAG_ITEM_ROUTE8_ITEM_PRAYER_POTION"
+      "script": "FIND_ITEM_PRAYER_POTION",
+      "flag": "FLAG_ITEM_ROUTE8_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MINER",
@@ -328,8 +328,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE8_ITEM_POUCH_MITHRIL",
-      "flag": "FLAG_ITEM_ROUTE8_ITEM_POUCH_MITHRIL"
+      "script": "FIND_ITEM_STEEL_POUCHES",
+      "flag": "FLAG_ITEM_ROUTE8_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -341,8 +341,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE8_ITEM_FLAX",
-      "flag": "FLAG_ITEM_ROUTE8_ITEM_FLAX"
+      "script": "FIND_ITEM_SANTA_HAT",
+      "flag": "FLAG_ITEM_ROUTE8_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TIN_ORE",

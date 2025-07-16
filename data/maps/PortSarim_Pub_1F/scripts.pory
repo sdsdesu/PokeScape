@@ -3,32 +3,201 @@ mapscripts PortSarim_Pub_1F_MapScripts {
 
 
 
-script NPC_PortSarimPub_BARTENDER { 
-	lock
-	faceplayer
-    namebox("BARTENDER")
-	msgbox(format("Here at the Battle Pub, adventurers can challenge each other to battles.\pThe loser must pay for their meals.\pI would say that it is making me profit, but the amount of damage that they cause makes me break about even."))
+
+script BattlePub_INFO { 
+	msgbox(format("How may I serve you today?"))
+	multichoicedefault (1, 0, MULTI_PUB, 0, 0)
+	switch (var(VAR_RESULT))
+	{
+		case 0: //REST
+			call(BattlePub_REST)
+		case 1: //INFO
+			//if not got a battle card
+			checkitem(ITEM_BAR_CRAWL_BATTLE_CARD, 1)
+            if (!var(VAR_RESULT)) {
+				call(BattlePub_SIGNUP)
+			}
+			//if got a battle card
+			else {
+				call(BattlePub_RULES)
+			}
+		case 2: //EXIT
+			return
+	}
+	return
+}
+script BattlePub_REST { 
+	msgbox(format("Sorry, we have no beds left.\pThe best I can do is heal your monsters for you."))
+	//msgbox(format("Would you like to spend a night in our Inn?\pThat will cost 2000 GP."), MSGBOX_YESNO)
+	//msgbox(format("Great, when would you like me to wake you up?"))
+	special(HealPlayerParty)
+	return
+}
+script BattlePub_RULES { 
+	msgbox(format("The rules for the Bar Crawl Pub Battles are as follows…"))
+	msgbox(format("You may only challenge someone to a battle once per day.\pThe loser of the battle must pay the winner.\pIf any damage is inflicted upon the pub itself, compensation must be made.\pYour wins and losses will be shown on your Pub Crawl Battle Card."))
+	return
+}
+script BattlePub_SIGNUP { 
+	msgbox(format("You're a new face, I don't think I've seen you around these parts.\pAre you interested in signing up for the Bar Crawl Battles?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT))
+	{
+		msgbox(format("Great, gimme yer name and I'll write it on this card."))
+		//animations?
+		msgbox(format("Right, here you go buddy."))
+		giveitem(ITEM_BAR_CRAWL_BATTLE_CARD, 1)
+		msgbox(format("That card will allow you to participate in Bar Crawl Battles."))
+		call(BattlePub_RULES)
+		msgbox(format("Hope you have fun and remember to be respectful to other battlers."))
+	}
+	else {
+		msgbox(format("Ay, come back if you change yer mind."))
+	}
+	closemessage
     hidenamebox
     release
 	end
 }
+script BattlePub_CHECKCARD { 
+	checkitem(ITEM_BAR_CRAWL_BATTLE_CARD, 1)
+	if (!var(VAR_RESULT)) {
+		msgbox(format("Oh I noticed that you don't have a Pub Crawl Battle Card.\pYou should speak to the bartender for one."))
+		closemessage
+		hidenamebox
+		release
+		end
+	}
+	return
+}
+script PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON { 
+	setflag (FLAG_TZHAAR_RANDOM) // SET TO BE ABLE TO HAVE THE RANDOMISED BATTLES.
+	setflag(FLAG_POKESCAPE_USECUSTOM_POOL_LEVEL) //Enable this if using the randomised WAVE levels.
+	call(PUBCRAWL_RANDOMISED_PARTY_SIZE)
+	call(PUBCRAWL_RANDOMISED_LEVELS)
+	return
+}
+script PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF { 
+	clearflag (FLAG_TZHAAR_RANDOM) // ALWAYS UNSET AFTER THE RANDOMISED BATTLES.
+	clearflag(FLAG_POKESCAPE_USECUSTOM_POOL_LEVEL)
+	return
+}
+script PUBCRAWL_RANDOMISED_PARTY_SIZE {
+	random(6)
+	switch (var(VAR_RESULT)) { 
+		case 0: 
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 1)
+		case 1:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 2)
+		case 2:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 3)
+		case 3:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 4)
+		case 4:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 5)
+		case 5:
+			setvar(VAR_POKESCAPE_TZHAAR_PARTY_SIZE, 6)
+	}
+	return
+}
+script PUBCRAWL_RANDOMISED_LEVELS {  
+	//30 - 35
+	setvar(VAR_TEMP_A, 30) //base level.
+	setvar(VAR_TEMP_B, 6)  //amount of randomness 0,1,2,3,4,5
+	random(VAR_TEMP_B) 
+	copyvar(VAR_CUSTOM_TRAINERPOOL_LEVEL, VAR_RESULT) //Copy it out of TEMP_A to be used elsewhere.
+	addvar(VAR_CUSTOM_TRAINERPOOL_LEVEL, VAR_TEMP_A) // Add A + B(result) = The intended Level. into TEMP_A.
+	return
+}
+//Turn all of this into level scaling function later instead of poryscript.
+
+
+
+
+script NPC_PortSarimPub_BARTENDER { 
+	lock
+	faceplayer
+    namebox("Bartender")
+	msgbox(format("Welcome to the Port Sarim Battle Pub!"))
+	call(BattlePub_INFO)
+	msgbox(format("Take care, don't be a stranger!"))
+    release
+	end
+	//msgbox(format("Here at the Battle Pub, adventurers can challenge each other to battles.\pThe loser must pay for their meals.\pI would say that it is making me profit, but the amount of damage that they cause makes me break about even."))
+}
+script NPC_PortSarimPub_BARMAID { 
+	lock
+	faceplayer
+    namebox("Barmaid")
+	msgbox(format("Here at the Battle Pub, adventurers can challenge each other to battles.\pThe loser must pay for their meals.\pI would say that it is making us profit, but the amount of damage that they cause makes us break about even."))
+	closemessage
+    release
+	end
+}
+script NPC_PortSarimPub_NPC_2 { 
+	lock
+	faceplayer
+    namebox("Pirate")
+	msgbox(format("I heard that the Falador party room holds contests to show off the beauty of monsters instead of battling with them.\pDisgusting!"))
+    hidenamebox
+    release
+	end
+}
+
+
+script NPC_PortSarimPub_BRINE
+{
+    lock
+    faceplayer
+    namebox ("Sailor")
+	checkitem(ITEM_TM13_BRINE, 1)
+    if (!var(VAR_RESULT)) {
+        msgbox(format("Aye… this used to be my favourite move.\pBut ever since I've gotten sick it's been too much for me to handle.\pHere I want you to have it."))
+        closemessage
+        hidenamebox
+        giveitem(ITEM_TM13_BRINE)
+        
+    }
+	msgbox(format("Brrrugh…"))
+	closemessage
+	hidenamebox
+	release
+	end
+}
+
+
+
+
 
 script NPC_PortSarimPub_NPC_1 { 
 	lock
 	faceplayer
-    namebox("SAILOR")
+    namebox("Sailor")
 	msgbox(format("There is an unspoken rule where you can only battle the same person once per day.\pI heard this rule came about after too many drunks lost all of their gold pieces."))
-    hidenamebox
-    release
-	end
-}
-
-script NPC_PortSarimPub_NPC_2 { 
-	lock
-	faceplayer
-    namebox("PIRATE")
-	msgbox(format("I heard that far off to the east they hold contests to show off the beauty of monsters instead of battling with them.\pDisgusting!"))
-    hidenamebox
+    call(BattlePub_CHECKCARD)
+	hidenamebox
+	if (flag(FLAG_PUB_TRAINER_3) == false) 
+	{
+		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+			{
+				setflag(FLAG_PUB_TRAINER_3)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_SAILOR, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("Sailor")
+					msgbox(format("This round is on me."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
+			}
+	}
+	closemessage
     release
 	end
 }
@@ -36,21 +205,30 @@ script NPC_PortSarimPub_NPC_2 {
 script NPC_PortSarimPub_Pirate_1 { // PUB TRAINER 1
 	lock
 	faceplayer
-    namebox("PIRATE GIBBS")
+    namebox("Gibbs")
 	msgbox(format("The customs officer confiscates all Karamja Rum.\pShe is the reason the Rum is always gone."))
+	call(BattlePub_CHECKCARD)
 	hidenamebox
-	if (flag(FLAG_UNUSED_0x935) == false) 
+	if (flag(FLAG_PUB_TRAINER_1) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
-				hidenamebox
-				setflag(FLAG_UNUSED_0x935)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_1, msgbox(format("…")))
-				namebox("PIRATE GIBBS")
-				msgbox(format("I guess I owe you this."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
+				setflag(FLAG_PUB_TRAINER_1)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_1, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("PIRATE GIBBS")
+					msgbox(format("I guess I owe you this."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
 			}
 	}
     hidenamebox
@@ -63,54 +241,35 @@ script NPC_PortSarimPub_Pirate_2 {	// PUB TRAINER 2
 	lock
 	faceplayer
     namebox("AyePatch")
-	msgbox(format("AYE!\pThis is Port Sarim's Battle Pub."))
+	msgbox(format("Aye come to this pub daily, yer should too."))
+	call(BattlePub_CHECKCARD)
 	hidenamebox
-	if (flag(FLAG_UNUSED_0x936) == false) 
+	if (flag(FLAG_PUB_TRAINER_2) == false) 
 	{
 		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
 		if (var(VAR_RESULT))
 			{
-				hidenamebox
-				setflag(FLAG_UNUSED_0x936)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_2, msgbox(format("…")))
-				namebox("AyePatch")
-				msgbox(format("Yaarr, take this."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
+				setflag(FLAG_PUB_TRAINER_2)
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+				trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, "I lost, you win.")
+				call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+				specialvar (VAR_RESULT, GetBattleOutcome)
+				if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+					special (HealPlayerParty)
+					msgbox ("You lost! Suck it!")
+				}
+				else { //You Win.
+					namebox("AyePatch")
+					msgbox(format("Yaarr, take this."))
+					hidenamebox
+					call(GIVE_RANDOM_ITEM)
+				}
 			}
 	}
     hidenamebox
     release
 	end
 }
-
-script NPC_PortSarimPub_Dwarf {	// PUB TRAINER 3
-	lock
-	faceplayer
-    namebox("BREHAN")
-	msgbox(format("Outrageous!\pThe barmaid does not want to sell me drinks because I am a miner!"))
-	hidenamebox
-	if (flag(FLAG_UNUSED_0x937) == false) 
-	{
-		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
-		if (var(VAR_RESULT))
-			{
-				hidenamebox
-				setflag(FLAG_UNUSED_0x937)
-				trainerbattle_no_intro(TRAINER_PUB_SARIM_3, msgbox(format("…")))
-				namebox("BREHAN")
-				msgbox(format("This round is on me."))
-				hidenamebox
-				call(GIVE_RANDOM_ITEM)
-			}
-	}
-    hidenamebox
-    release
-	end
-}
-
-
-
 
 
 
@@ -120,9 +279,41 @@ script NPC_PortSarimPub_Dwarf {	// PUB TRAINER 3
 script NPC_PortSarimPub_PUBCRAWL { 
 	lock
 	faceplayer
-    namebox("BARBARIAN")
-	msgbox(format("Are you here for the Pubcrawl challenge?\pNo?\pIf you are interested in signing up you should go to Barbarian Village and talk to our champion about it."))
-    hidenamebox
+    namebox("Barbarian")
+	msgbox(format("YAARRGHH!\pI am the strongest of this YAAARR BATTLE PUB!"))
+    call(BattlePub_CHECKCARD)
+	// Check if all Trainers in the battle pub have been defeated.
+	if ((flag(FLAG_PUB_TRAINER_1) == true) && (flag(FLAG_PUB_TRAINER_2) == true) && (flag(FLAG_PUB_TRAINER_3) == true)) { 
+		msgbox(format("YARHAHA! I have observed your potential.\pI would like to test you!"))
+		hidenamebox
+		msgbox(format("Do you wish to challenge them to a battle?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT))
+		{
+			setflag(FLAG_PUB_TRAINER_3) // Barbarian 
+
+			call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_ON)
+			trainerbattle_no_intro_no_whiteout (TRAINER_POOL_PORTSARIM_PUB_PIRATE_2, "I lost, you win.")
+			call(PUBCRAWL_RANDOMISED_TRAINER_BATTLE_OFF)
+			specialvar (VAR_RESULT, GetBattleOutcome)
+			if (var(VAR_RESULT) == B_OUTCOME_LOST) {
+				special (HealPlayerParty)
+				msgbox ("You lost! Suck it!")
+			}
+			else {
+				msgbox ("You defeated me.")
+				namebox("Barbarian")
+				msgbox(format("This round is on me."))
+				hidenamebox
+				call(GIVE_RANDOM_ITEM)  //give better item
+				//set quest if beaten.
+			}
+		}
+	}
+	else {
+		msgbox(format("I do not battle weaklings, come back when you've shown potential!"))
+	}
+	hidenamebox
+	closemessage
     release
 	end
 }
@@ -147,7 +338,7 @@ script GIVE_RANDOM_ITEM {
 			case 5: 
 				giveitem(ITEM_STAT_BEER, 1)
 			case 6: 
-				giveitem(ITEM_PURPLE_SWEETS, 1)
+				giveitem(ITEM_MANY_SWEETS, 1)
 			case 7: 
 				giveitem(ITEM_CHOCOLATE_CAKE, 1)
 			case 8: 
@@ -249,4 +440,22 @@ script RING_OF_KINSHIP_TELEPORT {
     closemessage
     release
     end
+}
+
+
+
+
+
+
+
+
+script NPC_PortSarimPub_Dwarf {	// PUB TRAINER 3
+	lock
+	faceplayer
+    namebox("Brehan")
+	msgbox(format("Outrageous!\pThe barmaid does not want to sell me drinks because I am a miner!"))
+	closemessage
+    hidenamebox
+    release
+	end
 }

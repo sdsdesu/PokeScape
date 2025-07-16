@@ -50,45 +50,12 @@ script NPC_AsgarnianDungeon_RAPTOR
 //HIDDEN ITEMS: ANCIENT_POUCH, SANTA_HAT, BEER
 //
 
-script ITEM_AsgarnianDungeon_1
-{
-    finditem(ITEM_LAMP_SPATT)
-    end
-}
-
-script ITEM_AsgarnianDungeon_2
-{
-    finditem(ITEM_LAMP_SPDEF)
-    end
-}
-
-script ITEM_AsgarnianDungeon_3
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-script ITEM_AsgarnianDungeon_4
-{
-    finditem(ITEM_POUCH_ELEMENTAL, 5)
-    end
-}
-
-script ITEM_AsgarnianDungeon_5
-{
-    finditem(ITEM_SPIRIT_CHARM)
-    end
-}
-
-
-
-
 
 //BATTLE
 script BATTLE_AsgarnianDungeon_MUGGER_1
 {
     trainerbattle_single(TRAINER_AsgarnianDungeon_MUGGER_1, format("No I will not return the gp I just pickpocketed from you."),format("Fine here, have your gp back."))
-    namebox ("IWill4StealU")
+    namebox ("Robert")
     msgbox(format("Not many people come down here due the dangerous monsters further in."))
 	hidenamebox
     release

@@ -1571,6 +1571,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
 
 void DrawTerrainTypeBattleBackground(void)
 {
+    u8 rand;
     switch (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
     {
     case STATUS_FIELD_GRASSY_TERRAIN:
@@ -1584,6 +1585,11 @@ void DrawTerrainTypeBattleBackground(void)
         break;
     case STATUS_FIELD_PSYCHIC_TERRAIN:
         LoadMoveBg(BG_PSYCHIC_TERRAIN);
+        break;
+    case STATUS_FIELD_CHAOTIC_RIFT:
+        //LoadMoveBg(BG_HYPERSPACE_FURY);
+        //LoadMoveBg(BG_SHATTERED_PSYCHE);
+        LoadMoveBg(BG_NIGHTMARE);
         break;
     default:
         DrawMainBattleBackground();

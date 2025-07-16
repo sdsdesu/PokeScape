@@ -144,8 +144,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMP_ITEM_SPIRIT_SHARD",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_ITEM_SPIRIT_SHARD"
+      "script": "FIND_ITEM_FLAX",
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_1",
@@ -183,8 +183,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMP_ITEM_2",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_ITEM_2"
+      "script": "FIND_ITEM_MITHRIL_POUCHES",
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MINER",
@@ -248,8 +248,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGESWAMP_ITEM_3",
-      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_ITEM_3"
+      "script": "FIND_ITEM_BLUEBERRY_SPECIAL",
+      "flag": "FLAG_ITEM_LUMBRIDGESWAMP_1"
     }
   ],
   "warp_events": [

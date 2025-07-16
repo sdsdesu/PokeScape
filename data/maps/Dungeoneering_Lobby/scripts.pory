@@ -84,6 +84,12 @@ script Randomise_Puzzles {
 
 
 script Start_Dungeoneering {
+    //CHECK IF GYM CHALLENGE
+    if (var(VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST) == 15) {
+        warp(MAP_DUNG_GYM_1, 0, 0, 0)
+        waitstate
+        end
+    }
     call(RandomiseSeed_ForDoors)
     call(Randomise_Dungeon)
     call(Randomise_Puzzles)
@@ -326,6 +332,12 @@ script DungeonLayout_ROOM_PATH_5 {
 
 script Daemonheim_Lobby_STATE {
     setflag(FLAG_TEMP_1F) // Hide thok.
+    setflag(FLAG_TEMP_1D) //Flag disguised Frogeelman.
+    setflag(FLAG_TEMP_1E) //Flag Frogeelman has.
+    setflag(FLAG_TEMP_1C)   //mithrilman
+    removeobject(5)      //Frogeelman
+    removeobject(7)      //Disguised Frogeelman
+    removeobject(3)     //Mithrilman
 
     switch (var(VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST)){         
         case 10:
@@ -334,6 +346,29 @@ script Daemonheim_Lobby_STATE {
             setobjectxyperm(OBJ_EVENT_ID_SMUGGLER, 9, 5)
             setobjectmovementtype(OBJ_EVENT_ID_SMUGGLER, MOVEMENT_TYPE_FACE_LEFT)
     }
+
+    switch(var(VAR_FROGEEL_RIVAL)) {
+    case 35:
+        clearflag(FLAG_TEMP_1D)  //Flag disguised Frogeelman.
+        addobject(7)            //Disguised frogeelman
+        return
+    case 36:
+        clearflag(FLAG_TEMP_1E) //Flag Frogeelman has
+        addobject(5)      //Angrenouille
+    case 37:
+        clearflag(FLAG_TEMP_1E) //Flag Frogeelman has
+        addobject(5)      //Angrenouille
+    }
+
+    switch(var(VAR_MITHRILMAN_STATE)) {                            //This will have Mithrilman appear any time between Varrock and the HAM confrontation but allows for his dialogue to change
+    case 30:
+        addobject(3)           //Mithrilman
+        clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+    case 35:
+        addobject(3)           //Mithrilman
+        clearflag(FLAG_TEMP_1C) //Flag Mithrilman has.
+    }
+
     return        
 }
 
@@ -395,3 +430,171 @@ movement Movement_DaemonheimGym_12 {
 
 
 //THOK GYM -----------------------------------------------------------------------------
+
+
+
+
+//FROGEEL RIVAL --------------------------------------------------------------------------
+
+script FROGEEL_RIVAL_8 {
+    lock
+    faceplayer
+    if (var(VAR_FROGEEL_RIVAL) == 35) {   //Variable for if you have done earlier events but not spoken to him here
+        namebox("???")
+        msgbox(format("Hello there adventurer?\pAngrenouille?{PAUSE 15}\lNo, I do not know who that handsome man is.{PAUSE 15}\pEh, nevermind this armour is heavy."))
+        hidenamebox
+        closemessage
+        fadescreenswapbuffers (FADE_TO_BLACK)
+        addobject(5)              //Add Frogeelman
+        clearflag(FLAG_TEMP_1E)   //Flag Frogeelman has.
+        removeobject(7)           //Remove disguised Frogeelman
+        setflag(FLAG_TEMP_1D)      //Disguised Frogeelman
+        fadescreenswapbuffers (FADE_FROM_BLACK)
+        applymovement(5, Movement_InteractFACEPLAYER)
+        namebox("Angrenouille")
+        msgbox(format("I needed a disguise to sneak past those barbarians up there.\pIs the armour tainted?{PAUSE 15}\lDon't be a coward {PLAYER}.\lWhat thief believes in curses.\pWell, I made off with the loot and that's that."))
+        hidenamebox
+        closemessage
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 8){
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight)   //Different movement depending on where the player is stood
+             waitmovement(0)
+        } 
+        elif (var(VAR_TEMP_1) == 9){
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterUp)  //Different movement depending on where the player is stood
+            waitmovement(0)
+        }
+        else {
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft)  //Different movement depending on where the player is stood
+            waitmovement(0)
+        }
+        namebox("Angrenouille")
+        msgbox(format("HAM?\lLike the thing on your sandwich?\pNo, I dont know them.{PAUSE 15}\pIt's that serious?"), MSGBOX_YESNO)
+        if (!var(VAR_RESULT)) { 
+            msgbox(format("Then why bring it up then?"))
+            closemessage
+            hidenamebox
+            setvar(VAR_FROGEEL_RIVAL, 36)
+            release
+            end
+        }
+        else {
+            msgbox(format("Wow!\lYou seem really passionate about that."))
+            goto(BATTLE_FROGEEL_RIVAL_8)
+        }
+    }
+    elif (var(VAR_FROGEEL_RIVAL) == 36) {   //Variable for if he has removed his disguise but you declined the battle once
+        namebox("Angrenouille")
+        msgbox(format("You again {PLAYER}?\pYou're still going on about HAM?{PAUSE 15}\pIs it really that serious?"), MSGBOX_YESNO)
+        if (!var(VAR_RESULT))
+        { 
+            msgbox(format("Why do you keep bringing it up then?\pAre there ladies in this organisation that have caught your eye..?"))
+            closemessage
+            hidenamebox
+            setvar(VAR_FROGEEL_RIVAL, 37)
+            release
+            end
+        }
+        else {
+            msgbox(format("Wow!\lYou seem really passionate about that."))
+            goto(BATTLE_FROGEEL_RIVAL_8)
+        }
+
+    }
+    elif (var(VAR_FROGEEL_RIVAL) == 37) {   //Variable for if he has removed his disguise but you declined the battle once
+        namebox("Angrenouille")
+        msgbox(format("You keep going on about HAM {PLAYER}.\pNo matter how much you downplay it, I can tell that you're very passionate about it!"))
+        goto(BATTLE_FROGEEL_RIVAL_8)
+    }
+	release
+	end
+}
+
+script BATTLE_FROGEEL_RIVAL_8 {
+    msgbox(format("Well {PLAYER}, you and I have made it this far.\pJust for you, if you beat me here, I will help you.{PAUSE 15}\lIf I remember it.\pAngrenouille, the future monarch of the Land of Frogs promises!"))
+    if (flag(FLAG_STARTER1)){ //Grass
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_GRASS, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER2)) { //Fire
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_FIRE, format("Seeya!"))
+    }
+    elif (flag(FLAG_STARTER3)) { //Water
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_8_WATER, format("Seeya!"))
+    }
+    namebox("Angrenouille")
+    msgbox(format("A\nAAA\nAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\pAAAAAAAAAAAAAAAAA\p...{PAUSE 15}\p{PLAYER}, you have my word.\lWe will make it through this together.\pWhat are we?\lWe are thick as thieves!\lThat's what we are.\pHere."))
+    //add counter for number of AAAAA's? (It should be 4, then an extra 50)
+    closemessage
+    hidenamebox
+    giveitem(ITEM_BLOOD_RUNE, 1)
+    closemessage
+    namebox("Angrenouille")
+    msgbox(format("Now then…"))
+    closemessage
+    hidenamebox
+    fadescreenswapbuffers (FADE_TO_BLACK)
+    removeobject(5)        //Remove Frogeelman
+    setflag(FLAG_TEMP_1E)  //Flag Frogeelman has.
+    addobject(7)           //Add disguised Frogeelman
+    clearflag(FLAG_TEMP_1D) //Disguised Frogeelman
+    fadescreenswapbuffers (FADE_FROM_BLACK)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 8) {
+        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2)  //Different movement depending on where the player is stood
+    }
+    else {
+        applymovement(7, MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1)   //Different movement depending on where the player is stood
+    }
+    delay(30)
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN)   //Have player face down to watch Angrenouille leave
+    waitmovement(0)
+    playse(SE_EXIT)
+    removeobject(5)
+    setflag(FLAG_TEMP_1D) //Angrenouille
+    waitse
+    setvar(VAR_FROGEEL_RIVAL, 40)
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_1 {
+    walk_left * 3
+    walk_down * 5
+    set_invisible
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_DAEMONHEIM_2 {
+    walk_down * 1
+    walk_left * 3
+    walk_down * 4
+    set_invisible
+    step_end
+}
+
+script Mithrilman_Daemonheim {
+    playbgm (MUS_PS_ENCOUNTER_MITHRILMAN, 1)
+	lock
+	faceplayer
+    namebox("Mithrilman")
+    if (var(VAR_MITHRILMAN_STATE) == 30) {   //Variable for if you have done earlier events but not spoken to him here
+        msgbox(format("…{PAUSE 15}\p…{PAUSE 15}\p…{PAUSE 15}\pThousts have decided to pay thine a visit?\lKid thine not.\pThousts is here to gloat isn't thoust?\pLeave thine be.\lThine ist contemplating thinests next ordeal."))
+        hidenamebox
+        closemessage
+        setvar(VAR_MITHRILMAN_STATE, 35)
+        subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 6)
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
+    else {
+        msgbox(format("Mithrilmen are solitary, alone.\lScolded and seen second to by Ironmen.\pThere ist none other that could match one as thine.\pNo-one.\p…{PAUSE 15}"))
+        closemessage
+        hidenamebox
+        savebgm(MUS_DUMMY)
+        fadedefaultbgm
+        release
+        end
+    }
+}

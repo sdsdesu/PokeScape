@@ -15,11 +15,7 @@ VerdanturfTown_WandasHouse_EventScript_WallyShortSpeech::
 
 VerdanturfTown_WandasHouse_EventScript_WallysUncle::
 	lock
-	faceplayer
-	goto_if_set FLAG_DEFEATED_WALLY_VICTORY_ROAD, VerdanturfTown_WandasHouse_EventScript_WallysUncleEverGrande
-	goto_if_set FLAG_DEFEATED_LAVARIDGE_GYM, VerdanturfTown_WandasHouse_EventScript_WallysUncleSlippedOff
-	msgbox VerdanturfTown_WandasHouse_Text_WallysNextDoor, MSGBOX_DEFAULT
-	release
+
 	end
 
 VerdanturfTown_WandasHouse_EventScript_WallysUncleSlippedOff::

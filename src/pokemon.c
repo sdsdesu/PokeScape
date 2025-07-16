@@ -511,10 +511,10 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(GECKO),
     HOENN_TO_NATIONAL(CHAMELEON),
     HOENN_TO_NATIONAL(BLOODVELD),
-    HOENN_TO_NATIONAL(BLOODVELD_INSATIABLE_PHYSICAL_FORM),
-    HOENN_TO_NATIONAL(BLOODVELD_INSATIABLE_SPECIAL_FORM),
-    HOENN_TO_NATIONAL(BLOODVELD_MUTATED_PHYSICAL_FORM),
-    HOENN_TO_NATIONAL(BLOODVELD_MUTATED_SPECIAL_FORM),
+    HOENN_TO_NATIONAL(BLOODVELD_INSATIABLE_PHYSICAL),
+    HOENN_TO_NATIONAL(BLOODVELD_RSHD),
+    HOENN_TO_NATIONAL(BLOODVELD_MUTATED),
+    HOENN_TO_NATIONAL(BLOODVELD_INSATIABLE_SPECIAL),
     HOENN_TO_NATIONAL(REAVER),
     HOENN_TO_NATIONAL(ARMALING),
     HOENN_TO_NATIONAL(ARMABIRD),
@@ -791,13 +791,13 @@ static const u16 sHoennToNationalOrder[HOENN_DEX_COUNT - 1] =
     HOENN_TO_NATIONAL(CROCODILE_MUTADILE_FORM),
     HOENN_TO_NATIONAL(CROCODILE_ANKH_FORM),
     HOENN_TO_NATIONAL(CROCODILE_UKUNDUKA_FORM),
-    HOENN_TO_NATIONAL(BLOODVELD_INSATIABLE_MUTATED_FORM),
+    HOENN_TO_NATIONAL(BLOODVELD_GWD),
     HOENN_TO_NATIONAL(BLOODVELD_ACIDIC_FORM),
     HOENN_TO_NATIONAL(BLOODVELD_VAMPIRIC_FORM),
     HOENN_TO_NATIONAL(BLOODVELD_RS3_FORM),
     HOENN_TO_NATIONAL(BEAVER),
     HOENN_TO_NATIONAL(GIANT_BEAVER),
-    HOENN_TO_NATIONAL(RACOON),
+    HOENN_TO_NATIONAL(RACCOON),
     HOENN_TO_NATIONAL(RALPH),
     HOENN_TO_NATIONAL(ROCKY),
     HOENN_TO_NATIONAL(HONEY_BADGER),
@@ -3954,11 +3954,11 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
 
 // EXP candies store an index for this table in their holdEffectParam.
 const u32 sExpCandyExperienceTable[] = {
-    [EXP_100 - 1] = 100,
-    [EXP_800 - 1] = 800,
-    [EXP_3000 - 1] = 3000,
+    [EXP_100 - 1] = 500,
+    [EXP_800 - 1] = 1000,
+    [EXP_3000 - 1] = 5000,
     [EXP_10000 - 1] = 10000,
-    [EXP_30000 - 1] = 30000,
+    [EXP_30000 - 1] = 50000,
 };
 
 // Returns TRUE if the item has no effect on the Pokémon, FALSE otherwise
@@ -5934,8 +5934,33 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem, s
                     && (j == WEATHER_RAIN || j == WEATHER_RAIN_THUNDERSTORM || WEATHER_DOWNPOUR))
                         targetSpecies = evolutions[i].targetSpecies;
                     break;
-
-
+            //
+            case EVO_SPECIFIC_MON_IN_PARTY_MALE: 
+                for (j = 0; j < PARTY_SIZE; j++)
+                {
+                    if (GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL) == evolutions[i].param)
+                    {
+                        if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_MALE)
+                        {
+                            targetSpecies = evolutions[i].targetSpecies;
+                            break;
+                        }
+                    }
+                }
+                break;
+            case EVO_SPECIFIC_MON_IN_PARTY_FEMALE: 
+                for (j = 0; j < PARTY_SIZE; j++)
+                {
+                    if (GetMonData(&gPlayerParty[j], MON_DATA_SPECIES, NULL) == evolutions[i].param)
+                    {
+                        if (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE)
+                        {
+                            targetSpecies = evolutions[i].targetSpecies;
+                            break;
+                        }
+                    }
+                }
+                break;  
 
 
 
@@ -6944,8 +6969,15 @@ u16 GetBattleBGM(void)
         else
             trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
 
+        if (gTrainerBattleOpponent_A == TRAINER_ORCHY)
+        {
+            return MUS_PS_VS_ORCHY;
+        }
+
         switch (trainerClass)
         {
+        case TRAINER_CLASS_STRANGER: 
+            return MUS_PS_VS_FROGEELMAN; //POKESCAPE
         case TRAINER_CLASS_WISE_OLD_MAN: 
             return MUS_PS_VS_WISE_OLD_MAN_RIVAL; //POKESCAPE
         case TRAINER_CLASS_HAM_GRUNT:
@@ -6998,7 +7030,13 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_SANDWICH:
             return MUS_PS_VS_ORCHY;
         default:
-            return MUS_PS_VS_TRAINER_P2P; //POKESCAPE
+            if (FlagGet(FLAG_TZHAAR_RANDOM) == TRUE) {
+                return MUS_PS_VS_TZHAAR;
+            }
+            else {
+                return MUS_PS_VS_TRAINER_P2P; //POKESCAPE
+            }
+            
         }
     }
     else

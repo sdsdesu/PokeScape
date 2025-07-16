@@ -23,8 +23,13 @@ Lumbridge_MapScripts_MAP_SCRIPT_ON_LOAD:
 LUMBRIDGE_STATE::
 	removeobject 33
 	setflag FLAG_TEMP_1F
+	removeobject 25
+	setflag FLAG_TEMP_1E
 	goto_if_unset FLAG_A_NUB_TOT_TUTORIAL, LUMBRIDGE_STATE_2
 LUMBRIDGE_STATE_1:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 215
+	goto_if_eq LUMBRIDGE_STATE_5
+LUMBRIDGE_STATE_4:
 	return
 
 LUMBRIDGE_STATE_2:
@@ -32,11 +37,16 @@ LUMBRIDGE_STATE_2:
 	special DrawWholeMapView
 	goto LUMBRIDGE_STATE_1
 
+LUMBRIDGE_STATE_5:
+	addobject 25
+	clearflag FLAG_TEMP_1E
+	goto LUMBRIDGE_STATE_4
+
 
 OPENWORLD_STATE_LUMBRIDGE::
 	setobjectxyperm 14, 43, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
@@ -74,7 +84,7 @@ STORYMODE_STATE_LUMBRIDGE_2:
 STORYMODE_STATE_LUMBRIDGE_5:
 	setobjectxyperm 14, 41, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
@@ -93,7 +103,7 @@ STORYMODE_STATE_LUMBRIDGE_5:
 STORYMODE_STATE_LUMBRIDGE_10:
 	setobjectxyperm 14, 43, 20
 	setobjectmovementtype 14, MOVEMENT_TYPE_FACE_DOWN
-	setobjectxyperm 23, 40, 4
+	setobjectxyperm 23, 41, 5
 	setobjectmovementtype 23, MOVEMENT_TYPE_WANDER_AROUND
 	setobjectxyperm 3, 13, 7
 	setobjectmovementtype 3, MOVEMENT_TYPE_FACE_LEFT
@@ -743,7 +753,9 @@ Lumbridge_House_NPC4::
 Lumbridge_House_NPC5::
 	lock
 	faceplayer
+	namebox Lumbridge_EVENT_NPC3_Text_0
 	msgbox Lumbridge_House_NPC5_Text_0
+	hidenamebox
 	release
 	end
 
@@ -751,7 +763,9 @@ Lumbridge_House_NPC5::
 Lumbridge_House_NPC6::
 	lock
 	faceplayer
+	namebox Lumbridge_House_BobsGirl_Text_0
 	msgbox Lumbridge_House_NPC6_Text_0
+	hidenamebox
 	release
 	end
 
@@ -932,6 +946,141 @@ ANUBTOT_3:
 	walk_up
 	walk_up
 	step_end
+
+Lumbridge_GRAVEYARD_SIGN_1::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_1_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_2::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_2_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_3::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_3_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_4::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_4_Text_0
+	release
+	end
+
+
+Lumbridge_GRAVEYARD_SIGN_5::
+	lock
+	msgbox Lumbridge_GRAVEYARD_SIGN_5_Text_0
+	release
+	end
+
+
+Lumbridge_River_NPC1::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC1_Text_0
+	msgbox Lumbridge_River_NPC1_Text_1
+	hidenamebox
+	release
+	end
+
+
+Lumbridge_River_NPC2::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC2_Text_0
+	msgbox Lumbridge_River_NPC2_Text_1
+	hidenamebox
+	release
+	end
+
+
+Lumbridge_River_NPC3::
+	lock
+	faceplayer
+	namebox Lumbridge_River_NPC3_Text_0
+	random 8
+	switch VAR_RESULT
+	case 0, Lumbridge_River_NPC3_3
+	case 1, Lumbridge_River_NPC3_4
+	case 2, Lumbridge_River_NPC3_5
+	case 3, Lumbridge_River_NPC3_6
+	case 4, Lumbridge_River_NPC3_7
+	case 5, Lumbridge_River_NPC3_8
+	case 6, Lumbridge_River_NPC3_9
+	case 7, Lumbridge_River_NPC3_10
+Lumbridge_River_NPC3_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+Lumbridge_River_NPC3_3:
+	msgbox Lumbridge_River_NPC3_Text_1
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_4:
+	msgbox Lumbridge_River_NPC3_Text_2
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_5:
+	msgbox Lumbridge_River_NPC3_Text_3
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_6:
+	msgbox Lumbridge_River_NPC3_Text_4
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_7:
+	msgbox Lumbridge_River_NPC3_Text_5
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_8:
+	msgbox Lumbridge_River_NPC3_Text_6
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_9:
+	msgbox Lumbridge_River_NPC3_Text_7
+	goto Lumbridge_River_NPC3_1
+
+Lumbridge_River_NPC3_10:
+	msgbox Lumbridge_River_NPC3_Text_8
+	goto Lumbridge_River_NPC3_1
+
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_1, BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_1
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_2
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_3
+	hidenamebox
+	release
+	end
+
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_2, BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_1
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0
+	hidenamebox
+	release
+	end
+
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3::
+	trainerbattle_single TRAINER_LUMBRIDGE_RIVER_TRAINER_3, BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_0, BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_1
+	namebox BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_2
+	msgbox BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_3
+	hidenamebox
+	release
+	end
+
 
 CUPHOLDER_NPC_Text_0:
 	.string "I am currently a Cupholder with no\n"
@@ -1120,7 +1269,9 @@ Lumbridge_EVENT_NPC3_Text_2:
 
 NPC_LumbridgeBridge_Text_0:
 	.string "Is it just me or is this really long?\p"
-	.string "Nah I must be imagining it.$"
+	.string "Nah, I must be imagining it.\p"
+	.string "{PAUSE 15}Wait, I'm SURE the river used to be wider\n"
+	.string "than this...$"
 
 Lumbridge_Guard_NORTH_Text_0:
 	.string "Pazel$"
@@ -1184,9 +1335,10 @@ Lumbridge_GeneralStore_NPC2_Text_0:
 
 Lumbridge_GeneralStore_NPC2_Text_1:
 	.string "There are a lot of goblins around these\n"
-	.string "parts, you might want to stock up on\l"
-	.string "some antipoisons.\p"
-	.string "This will prepare you for the worst.$"
+	.string "parts, you might want to stock up on a\l"
+	.string "Chocolate Sunday or two!.\p"
+	.string "They can cure poison, and this will\n"
+	.string "prepare you for the worst.$"
 
 Lumbridge_House_BobsAxes_Text_0:
 	.string "Bob$"
@@ -1362,3 +1514,127 @@ A_NUB_TOT_LOCKED_DOOR_TUTORIAL_Text_1:
 	.string "Nice meeting you!\p"
 	.string "And one final time.\n"
 	.string "Remember… the A BUTTON.$"
+
+Lumbridge_GRAVEYARD_SIGN_1_Text_0:
+	.string "RIP 'Thick Lum'.\p"
+	.string "Gone before its time.$"
+
+Lumbridge_GRAVEYARD_SIGN_2_Text_0:
+	.string "The grave is simply marked with the\n"
+	.string "letter 'J'.\p"
+	.string "There is a tattered scroll with the\n"
+	.string "number 17 written on it, along with a\l"
+	.string "bloody harpoon.\p"
+	.string "You decide it's best to leave that\n"
+	.string "alone...$"
+
+Lumbridge_GRAVEYARD_SIGN_3_Text_0:
+	.string "Lumbridge Graveyard.\p"
+	.string "Please respect the graves while\n"
+	.string "searching for monsters.$"
+
+Lumbridge_GRAVEYARD_SIGN_4_Text_0:
+	.string "In loving memory of Duchess Oriana of\n"
+	.string "Lumbridge.$"
+
+Lumbridge_GRAVEYARD_SIGN_5_Text_0:
+	.string "Note to adventurers.\p"
+	.string "The restless ghost has been released\n"
+	.string "from the world, and the mausoleum is now\l"
+	.string "closed off to the public.$"
+
+Lumbridge_River_NPC1_Text_0:
+	.string "Sailor$"
+
+Lumbridge_River_NPC1_Text_1:
+	.string "The River Lum used to be the second\n"
+	.string "longest river in Gielinor, second only to\l"
+	.string "the River Dougne.\p"
+	.string "You used to be able to paddle from here\n"
+	.string "all the way up to the Wilderness!\p"
+	.string "It became too dangerous to travel\n"
+	.string "there though, so they had to block the\l"
+	.string "route beyond Edgeville.$"
+
+Lumbridge_River_NPC2_Text_0:
+	.string "b4nana m4n$"
+
+Lumbridge_River_NPC2_Text_1:
+	.string "There's a single, small island just north\n"
+	.string "of here with a solitary oak tree on it.\p"
+	.string "I wonder how it got there.$"
+
+Lumbridge_River_NPC3_Text_0:
+	.string "Finta5tic$"
+
+Lumbridge_River_NPC3_Text_1:
+	.string "This is a good plaice to go fishing.$"
+
+Lumbridge_River_NPC3_Text_2:
+	.string "I'd tell you what I just caught, but I'm\n"
+	.string "too shellfish to share.$"
+
+Lumbridge_River_NPC3_Text_3:
+	.string "If you find any rare fish, could you let\n"
+	.string "minnow?$"
+
+Lumbridge_River_NPC3_Text_4:
+	.string "You’re krilling me with these sea-rious\n"
+	.string "vibes...$"
+
+Lumbridge_River_NPC3_Text_5:
+	.string "Speak up, I'm hard of herring.$"
+
+Lumbridge_River_NPC3_Text_6:
+	.string "Sorry, I can't talk right now.\p"
+	.string "I have a haddock.$"
+
+Lumbridge_River_NPC3_Text_7:
+	.string "Do you like my fish puns?\p"
+	.string "Eh, I guess they cod be betta.$"
+
+Lumbridge_River_NPC3_Text_8:
+	.string "You think you know some better fish\n"
+	.string "puns?\p"
+	.string "I seriously trout it.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_0:
+	.string "I sail this sea, this domain is mine,\n"
+	.string "there is no place on Gielinor like this.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_1:
+	.string "For the Queen!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_2:
+	.string "Chiba$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_1_Text_3:
+	.string "I don't care if this is a river and not a\n"
+	.string "sea.\p"
+	.string "I don't care what you think.\p"
+	.string "This is my sea.\p"
+	.string "For the Queen!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_0:
+	.string "I am a Cupholder.$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_2_Text_1:
+	.string "Cupholder$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_0:
+	.string "I fell off the bridge when it got\n"
+	.string "destroyed.\p"
+	.string "Please help me, I want to go back to\n"
+	.string "land...$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_1:
+	.string "Please!!$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_2:
+	.string "ofRats$"
+
+BATTLE_LUMBRIDGE_RIVER_TRAINER_3_Text_3:
+	.string "I said help me, not fight me!\n"
+	.string "Please get me to land!\n"
+	.string "I dont know how to steer a boat.\n"
+	.string "Please don't leave me out here...$"

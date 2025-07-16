@@ -250,24 +250,33 @@ struct ObjectEventGraphicsInfo
 
 enum {
     PLAYER_AVATAR_STATE_NORMAL,
-    PLAYER_AVATAR_STATE_MACH_BIKE,
-    PLAYER_AVATAR_STATE_ACRO_BIKE,
+    PLAYER_AVATAR_STATE_BIKE,
     PLAYER_AVATAR_STATE_SURFING,
     PLAYER_AVATAR_STATE_UNDERWATER,
-    PLAYER_AVATAR_STATE_FIELD_MOVE,
-    PLAYER_AVATAR_STATE_FISHING,
-    PLAYER_AVATAR_STATE_WATERING,
-    PLAYER_AVATAR_STATE_VSSEEKER,
+    PLAYER_AVATAR_STATE_BIKE_2,
+    PLAYER_AVATAR_STATE_COUNT = 5,
+    PLAYER_AVATAR_STATE_CONTROLLABLE,
+    PLAYER_AVATAR_STATE_FORCED,
+    PLAYER_AVATAR_STATE_DASH,
 };
 
-#define PLAYER_AVATAR_FLAG_ON_FOOT      (1 << 0)
-#define PLAYER_AVATAR_FLAG_MACH_BIKE    (1 << 1)
-#define PLAYER_AVATAR_FLAG_ACRO_BIKE    (1 << 2)
-#define PLAYER_AVATAR_FLAG_SURFING      (1 << 3)
-#define PLAYER_AVATAR_FLAG_UNDERWATER   (1 << 4)
-#define PLAYER_AVATAR_FLAG_CONTROLLABLE (1 << 5)
-#define PLAYER_AVATAR_FLAG_FORCED_MOVE  (1 << 6)
-#define PLAYER_AVATAR_FLAG_DASH         (1 << 7)
+#define PLAYER_AVATAR_FLAG_ON_FOOT      (1 << PLAYER_AVATAR_STATE_NORMAL)
+#define PLAYER_AVATAR_FLAG_BIKE         (1 << PLAYER_AVATAR_STATE_BIKE)
+#define PLAYER_AVATAR_FLAG_SURFING      (1 << PLAYER_AVATAR_STATE_SURFING)
+#define PLAYER_AVATAR_FLAG_UNDERWATER   (1 << PLAYER_AVATAR_STATE_UNDERWATER)
+#define PLAYER_AVATAR_FLAG_BIKE_2       (1 << PLAYER_AVATAR_STATE_BIKE_2)
+#define PLAYER_AVATAR_FLAG_CONTROLLABLE (1 << PLAYER_AVATAR_STATE_CONTROLLABLE)
+#define PLAYER_AVATAR_FLAG_FORCED_MOVE  (1 << PLAYER_AVATAR_STATE_FORCED)
+#define PLAYER_AVATAR_FLAG_DASH         (1 << PLAYER_AVATAR_STATE_DASH)
+
+enum {
+    PLAYER_AVATAR_GFX_FIELD_MOVE,
+    PLAYER_AVATAR_GFX_FISHING,
+    PLAYER_AVATAR_GFX_WATERING,
+    PLAYER_AVATAR_GFX_DECORATING,
+    PLAYER_AVATAR_GFX_VSSEEKER,
+    PLAYER_AVATAR_GFX_COUNT,
+};
 
 enum
 {
@@ -325,7 +334,7 @@ enum
 struct PlayerAvatar
 {
     /*0x00*/ u8 flags;
-    /*0x01*/ u8 transitionFlags; // used to be named bike, but its definitely not that. seems to be some transition flags
+    /*0x01*/ u16 transitionFlags; // Used to be u8 // used to be named bike, but its definitely not that. seems to be some transition flags
     /*0x02*/ u8 runningState; // this is a static running state. 00 is not moving, 01 is turn direction, 02 is moving.
     /*0x03*/ u8 tileTransitionState; // this is a transition running state: 00 is not moving, 01 is transition between tiles, 02 means you are on the frame in which you have centered on a tile but are about to keep moving, even if changing directions. 2 is also used for a ledge hop, since you are transitioning.
     /*0x04*/ u8 spriteId;

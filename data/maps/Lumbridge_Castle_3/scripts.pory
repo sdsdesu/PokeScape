@@ -152,9 +152,10 @@ script NPC_DUKE_1{
                 msgbox(format("What's that?\nMysterious Altars?\pHow fascinating! I'll have to keep my ears out for more information regarding these.\pThank you for looking into this for me.\pHere I would like to reward you with these."))  
                 closemessage
                 hidenamebox
-                giveitem(ITEM_PURPLE_SWEETS, 5)
-                giveitem(ITEM_EARTH_RUNE, 1)
-                giveitem(ITEM_POUCH_GRANITE, 5)
+                giveitem(ITEM_EXP_CANDY_S, 10)
+                giveitem(ITEM_AIR_RUNE, 1)
+                giveitem(ITEM_POUCH_ELEMENTAL, 5)
+                giveitem(ITEM_POUCH_CATALYTIC, 5)
                 namebox("Duke Horacio")
                 msgbox(format("Thank you and don't be a stranger you are welcome in Lumbridge anytime!"))
                 closemessage
@@ -307,4 +308,30 @@ script HANS_GYM_LUMBRIDGE {
     }
     release
     end
+}
+
+
+script SIGMUND_DRAWERS {
+    lock
+    msgbox(format("You rummage through the drawers...\p{PAUSE 15}")) 
+    if (!flag(FLAG_BADGE03_GET)){
+        msgbox(format("and find a set of pink robes?"))
+        closemessage
+        applymovement(3, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+        waitmovement(0)
+        namebox("Sigmund")
+        msgbox(format("Get out of there, that's private!"))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
+    else 
+    {
+        msgbox(format("and find a sketch of what looks like a cloud with arms and legs.\pHow strange."))
+        closemessage
+        hidenamebox
+        release
+        end
+    }
 }

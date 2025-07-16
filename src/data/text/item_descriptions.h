@@ -4051,13 +4051,13 @@ static const u8 sSweetScentToolDesc[] = _(
 //POKESCAPE
 static const u8 sAirRuneDesc[] = _(
     "Makes certain\n"
-    "species of MONSTERs\n"
-    "evolve.");
+    "species of\n"
+    "MONSTERs evolve.");
 
 static const u8 sEvoItemDesc[] = _(
     "Makes certain\n"
-    "species of MONSTERs\n"
-    "evolve.");
+    "species of\n"
+    "MONSTERs evolve.");
 	
 static const u8 sEvoLegendaryItemDesc[] = _(
     "Makes Legendary\n"
@@ -4331,7 +4331,7 @@ static const u8 sWizardsBlizzardDesc[] = _(
 
 static const u8 sPurpleSweetsDesc[] = _(
     "Raises the level\n"
-    "of a MONSTERS by\n"
+    "of a MONSTER by\n"
     "one.");
 
 //POKESCAPE FARMING ITEMS
@@ -4975,7 +4975,7 @@ static const u8 sScroll_05_Desc[] = _(
 static const u8 sScroll_06_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Nitro Charge)");
+    "(Flame Charge)");
 
 static const u8 sScroll_07_Desc[] = _(
     "This Scroll\n"
@@ -4990,22 +4990,22 @@ static const u8 sScroll_08_Desc[] = _(
 static const u8 sScroll_09_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Grass Terrain)");
+    "(Mighty Cleave)");
 
 static const u8 sScroll_10_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Electric Terrain)");
+    "(Triple Arrows)");
 
 static const u8 sScroll_11_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Psychic Terrain)");
+    "(Eerie Spell)");
 
 static const u8 sScroll_12_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Misty Terrain)");
+    "(Stone Axe)");
 
 static const u8 sScroll_13_Desc[] = _(
     "This Scroll\n"
@@ -5170,7 +5170,7 @@ static const u8 sScroll_44_Desc[] = _(
 static const u8 sScroll_45_Desc[] = _(
     "This Scroll\n"
     "contains the move:\n"
-    "(Spectral Theif)");
+    "(Spectral Thief)");
 
 static const u8 sScroll_46_Desc[] = _(
     "This Scroll\n"
@@ -5277,6 +5277,46 @@ static const u8 sScroll_66_Desc[] = _(
     "contains the move:\n"
     "(Brutal Swing)");
 
+static const u8 sScroll_67_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Parting Shot)");
+
+static const u8 sScroll_68_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Tele Block)");
+
+static const u8 sScroll_69_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Overload)");
+
+static const u8 sScroll_70_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Jaw Lock)");
+
+static const u8 sScroll_71_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Terrain Pulse)");
+
+static const u8 sScroll_72_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Future Sight)");
+
+static const u8 sScroll_73_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Berserk)");
+            
+static const u8 sScroll_74_Desc[] = _(
+    "This Scroll\n"
+    "contains the move:\n"
+    "(Ceaseless Edge)");
+
 //END -- SCROLLS
 
 static const u8 sANCIENT_SHARD_Desc[] = _(
@@ -5374,6 +5414,11 @@ static const u8 sPokeScapeReviveDesc[] = _(
     "Monster with half\n"
     "its HP.");
 
+static const u8 sPokeScapeMaxReviveDesc[] = _(
+    "Revives a fainted\n"
+    "Monster with all\n"
+    "its HP.");
+
 static const u8 sRingOfKinship_Desc[] = _(
     "A ring that\n"
     "will teleport you\n"
@@ -5467,9 +5512,12 @@ static const u8 sBaguetteSandwichDesc[] = _(
     "for the active battler.");
 static const u8 sChocolateBarSandwichDesc[] = _(
     "A good battle snack\n"
-    "for those who need a\n"
-    "little energy hit.");
-
+    "for those who need\n"
+    "a little energy hit.");
+static const u8 sOutfitBoxDesc[] = _(
+    "A box for storing\n"
+    "your collections of\n"
+    "Outfits safely.");
 
 
 static const u8 sPouch_Desc[] = _(
@@ -5557,3 +5605,8 @@ static const u8 sCOMMORB_Desc[] = _(
     "An orb that contacts\n"
     "the White Knights.\n"
     "");
+
+static const u8 sBARCRAWLCARD_Desc[] = _(
+    "Allows you to\n"
+    "partipate in battles\n"
+    "within Battle Pubs.");

@@ -102,8 +102,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_KARAMJA_VOLCANO_1",
-      "flag": "FLAG_ITEM_KARAMJA_VOLCANO_1"
+      "script": "ITEM_RECEIVED_TM06",
+      "flag": "FLAG_RECEIVED_TM06"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PVMER",
@@ -130,11 +130,76 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_LESSERDEMON_KARAMJA_2",
       "flag": "FLAG_TEMP_C"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_RED",
+      "x": 5,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_RED_LAVA",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_RED",
+      "x": 6,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_RED_LAVA",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
+      "x": 7,
+      "y": 11,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_BROWN_VARIED",
+      "flag": "FLAG_TEMP_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_BROWN_VARIED",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPIDER_BROWN",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 2,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_SPIDER_BROWN_VARIED",
+      "flag": "FLAG_TEMP_5"
     }
   ],
   "warp_events": [
     {
-      "x": 23,
+      "x": 24,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_KARAMJA_VOLCANO_B1F",
@@ -157,7 +222,7 @@
       "x": 25,
       "y": 12,
       "elevation": 3,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_DEATH_RUNE",
       "flag": "FLAG_HIDDEN_ITEM_KARAMJA_VOLCANO_1"
     }
   ],

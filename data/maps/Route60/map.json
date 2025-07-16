@@ -214,8 +214,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "FIND_ITEM_SPEED_LAMP",
+      "flag": "FLAG_ITEM_ROUTE60_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -227,8 +227,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "FIND_ITEM_EASTER_EGG",
+      "flag": "FLAG_ITEM_ROUTE60_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -240,8 +240,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "FIND_ITEM_SUPER_PRAYER_POTION",
+      "flag": "FLAG_ITEM_ROUTE60_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DOG_STRAY",

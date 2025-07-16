@@ -45,13 +45,11 @@ GeneralStoreShopScript_7:
 SHOP_TOKKUL::
 	lock
 	faceplayer
-	setflag FLAG_A_NUB_TOT_TUTORIAL
 	namebox SHOP_TOKKUL_Text_0
 	msgbox SHOP_TOKKUL_Text_1
 	waitmessage
 	pokemarttokkulshop STORE_GeneralStore_4
 	msgbox SHOP_TOKKUL_Text_2
-	clearflag FLAG_A_NUB_TOT_TUTORIAL
 	release
 	end
 
@@ -78,6 +76,7 @@ GeneralStore_LUMBRIDGE::
 	msgbox GeneralStore_LUMBRIDGE_Text_1
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -90,6 +89,7 @@ GeneralStore_DRAYNOR::
 	msgbox GeneralStore_DRAYNOR_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -102,6 +102,7 @@ GeneralStore_FALADOR::
 	msgbox GeneralStore_FALADOR_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -114,6 +115,7 @@ GeneralStore_VARROCK::
 	msgbox GeneralStore_VARROCK_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -126,6 +128,7 @@ GeneralStore_PORTSARIM::
 	msgbox GeneralStore_PORTSARIM_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -138,6 +141,7 @@ GeneralStore_RIMMINGTON::
 	msgbox GeneralStore_RIMMINGTON_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -150,6 +154,7 @@ GeneralStore_ALKHARID::
 	msgbox GeneralStore_ALKHARID_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -162,6 +167,7 @@ GeneralStore_MUSAPOINT::
 	msgbox GeneralStore_MUSAPOINT_Text_0
 	waitmessage
 	call GeneralStoreShopScript
+	namebox GeneralStore_LUMBRIDGE_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
@@ -174,20 +180,76 @@ GeneralStore_MUSAPOINT_Assistant::
 	msgbox GeneralStore_MUSAPOINT_Assistant_Text_1
 	waitmessage
 	pokemart STORE_cocktails
+	namebox GeneralStore_MUSAPOINT_Assistant_Text_0
 	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
 	return
 
 
-GeneralStore_TZHAAR::
+GeneralStore_TZHAAR_Human::
 	lock
 	faceplayer
-	namebox GeneralStore_TZHAAR_Text_0
-	msgbox GeneralStore_TZHAAR_Text_1
+	namebox GeneralStore_LUMBRIDGE_Text_0
+	msgbox GeneralStore_TZHAAR_Human_Text_0
 	waitmessage
 	call GeneralStoreShopScript
-	msgbox GeneralStore_TZHAAR_Text_2
+	namebox GeneralStore_LUMBRIDGE_Text_0
+	msgbox GeneralStore_LUMBRIDGE_Text_2
 	release
+	return
+
+
+TZHAAR_SHOP_BATTLESHOP::
+	lock
+	faceplayer
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_BATTLESHOP_Text_1
+	waitmessage
+	call SHOP_TOKKUL_BattleShop
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_BATTLESHOP_Text_2
+	release
+	return
+
+
+TZHAAR_SHOP_RUNESHOP::
+	lock
+	faceplayer
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_RUNESHOP_Text_0
+	waitmessage
+	call SHOP_TOKKUL_Runes
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_BATTLESHOP_Text_2
+	release
+	return
+
+
+TZHAAR_SHOP_POUCHSHOP::
+	lock
+	faceplayer
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_POUCHSHOP_Text_0
+	waitmessage
+	call SHOP_TOKKUL_Pouches
+	namebox TZHAAR_SHOP_BATTLESHOP_Text_0
+	msgbox TZHAAR_SHOP_BATTLESHOP_Text_2
+	release
+	return
+
+
+SHOP_TOKKUL_Pouches::
+	pokemarttokkulshop STORE_SpecialPouches
+	return
+
+
+SHOP_TOKKUL_Runes::
+	pokemarttokkulshop STORE_RuneStore_5
+	return
+
+
+SHOP_TOKKUL_BattleShop::
+	pokemarttokkulshop STORE_BattleShop
 	return
 
 
@@ -328,6 +390,29 @@ STORE_RuneStore_4:
 
 
     .align 2
+STORE_RuneStore_5:
+    .2byte ITEM_AIR_RUNE
+    .2byte ITEM_WATER_RUNE
+    .2byte ITEM_EARTH_RUNE
+	.2byte ITEM_FIRE_RUNE
+    .2byte ITEM_MIND_RUNE
+    .2byte ITEM_BODY_RUNE
+    .2byte ITEM_COSMIC_RUNE
+	.2byte ITEM_CHAOS_RUNE
+    .2byte ITEM_NATURE_RUNE
+    .2byte ITEM_LAW_RUNE
+    .2byte ITEM_ASTRAL_RUNE
+    .2byte ITEM_DEATH_RUNE
+	.2byte ITEM_BLOOD_RUNE
+    .2byte ITEM_SOUL_RUNE
+    .2byte ITEM_LIFE_RUNE
+    .2byte ITEM_SPIRIT_CHARM
+    .2byte ITEM_NONE
+    release
+    end
+
+
+    .align 2
 STORE_SpecialPouches:
     .2byte ITEM_POUCH
     .2byte ITEM_POUCH_IRON
@@ -392,10 +477,10 @@ STORE_TM_2:
 
     .align 2
 STORE_TM_3:
-    .2byte ITEM_TM10_ELECTRIC_TERRAIN
-    .2byte ITEM_TM11_PSYCHIC_TERRAIN
-    .2byte ITEM_TM12_MISTY_TERRAIN
-	.2byte ITEM_TM09_GRASSY_TERRAIN
+    //.2byte ITEM_TM10_ELECTRIC_TERRAIN
+    //.2byte ITEM_TM11_PSYCHIC_TERRAIN
+    //.2byte ITEM_TM12_MISTY_TERRAIN
+	//.2byte ITEM_TM09_GRASSY_TERRAIN
     .2byte ITEM_NONE
     release
     end
@@ -573,6 +658,40 @@ STORE_cocktails:
     release
     end
 
+
+    .align 2
+STORE_BattleShop:
+    .2byte 	ITEM_BLOODFURY
+    .2byte 	ITEM_ROCKCAKE
+    .2byte 	ITEM_EFFIGY
+    .2byte 	ITEM_DRAGON_SCIMITAR
+    .2byte 	ITEM_DRAGON_DAGGER_POISON
+    .2byte 	ITEM_DRAGON_CLAWS
+    .2byte 	ITEM_ABYSSAL_WHIP
+    .2byte 	ITEM_DFS
+    .2byte 	ITEM_FIGHTER_TORSO
+    .2byte 	ITEM_PHOENIX_NECKLACE
+    .2byte 	ITEM_DOUBLE_EYEPATCH
+    .2byte 	ITEM_TINDERBOX
+    .2byte 	ITEM_STAFF_OF_EARTH
+    .2byte 	ITEM_SARADOMIN_BREW
+    .2byte 	ITEM_OVERLOAD
+    .2byte 	ITEM_BLACK_SCALE
+    .2byte 	ITEM_BLUE_SCALE
+    .2byte 	ITEM_GREEN_SCALE
+    .2byte 	ITEM_RED_SCALE
+    .2byte 	ITEM_MANY_SWEETS
+    .2byte 	ITEM_STAT_BEER
+    .2byte 	ITEM_LAMP_ATT
+    .2byte 	ITEM_LAMP_DEF
+    .2byte 	ITEM_LAMP_HP
+    .2byte 	ITEM_LAMP_SPATT
+    .2byte 	ITEM_LAMP_SPDEF
+    .2byte 	ITEM_LAMP_SPEED
+    .2byte ITEM_NONE
+    release
+    end
+
 SHOP_TOKKUL_Text_0:
 	.string "Tz-ShopKeeps$"
 
@@ -632,15 +751,29 @@ GeneralStore_MUSAPOINT_Assistant_Text_1:
 	.string "General Store.\p"
 	.string "How may I help you?$"
 
-GeneralStore_TZHAAR_Text_0:
+GeneralStore_TZHAAR_Human_Text_0:
+	.string "It's so hot down here...\p"
+	.string "Welcome to the Tzhaar General Store.\p"
+	.string "How may I help you?$"
+
+TZHAAR_SHOP_BATTLESHOP_Text_0:
 	.string "Tzhaar$"
 
-GeneralStore_TZHAAR_Text_1:
+TZHAAR_SHOP_BATTLESHOP_Text_1:
 	.string "JalYt, this is Tzhaar shop.\p"
 	.string "We sell things to assist your Kimit-zil.$"
 
-GeneralStore_TZHAAR_Text_2:
+TZHAAR_SHOP_BATTLESHOP_Text_2:
 	.string "Come again.$"
+
+TZHAAR_SHOP_RUNESHOP_Text_0:
+	.string "JalYt, this is Runes shop.\p"
+	.string "Use runes to evolve your Kimit-zil.$"
+
+TZHAAR_SHOP_POUCHSHOP_Text_0:
+	.string "JalYt, this is Pouch shop.\p"
+	.string "Buy pouches to catch you some\n"
+	.string "Kimit-zil.$"
 
 SHOP_RUNESTORE_VARROCK_Text_0:
 	.string "Aubury$"
@@ -690,7 +823,7 @@ SHOP_LOWE_Text_2:
 	.string "Thank you, come again.$"
 
 SHOP_SPECIAL_POUCHES_Text_0:
-	.string "???$"
+	.string "Ranael$"
 
 SHOP_SPECIAL_POUCHES_Text_1:
 	.string "Welcome to my store, I have pouches\n"

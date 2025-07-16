@@ -1,10 +1,24 @@
 mapscripts Crandor_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         call(CRANDOR_STATE)
+        call(RANDOM_EVENT_SPAWNS_CRANDOR)
     }
     MAP_SCRIPT_ON_FRAME_TABLE [
 		VAR_POKESCAPE_STORYMODE_PROGRESS, 135: CRANDOR_CRASHED
     ]
+}
+
+script RANDOM_EVENT_SPAWNS_CRANDOR {
+	random(10)
+	if ((var(VAR_RESULT) == 1)) {
+		clearflag(FLAG_TEMP_A)
+		addobject(36)
+	}
+	else {
+		setflag(FLAG_TEMP_A)
+		removeobject(36)
+	}
+	return
 }
 
 
@@ -134,54 +148,6 @@ script CRANDOR_BANK_HEAL {
     hidenamebox
 	releaseall
 	end
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//ITEMS
-
-script ITEM_CRANDOR_SPIRIT_SHARD
-{
-    finditem(ITEM_SPIRIT_SHARD)
-    end
-}
-
-script ITEM_CRANDOR_CHOCOLATE_CAKE
-{
-    finditem(ITEM_CHOCOLATE_CAKE)
-    end
-}
-
-script ITEM_CRANDOR_RUNE_POUCH
-{
-    finditem(ITEM_POUCH_RUNE)
-    end
-}
-
-script ITEM_CRANDOR_CABBAGE
-{
-    finditem(ITEM_CABBAGE)
-    end
 }
 
 

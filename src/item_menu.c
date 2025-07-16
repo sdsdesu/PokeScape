@@ -936,13 +936,13 @@ static void GetItemName(u8 *dest, u16 itemId)
         {
             // Get TM number
             ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
-            StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
+            StringExpandPlaceholders(dest, gText_NumberItem_TM);
         }
         break;
     case BERRIES_POCKET:
         ConvertIntToDecimalStringN(gStringVar1, itemId - FIRST_BERRY_INDEX + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
         CopyItemName(itemId, gStringVar2);
-        StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
+        StringExpandPlaceholders(dest, gText_NumberItem_Berry);
         break;
     default:
         CopyItemName(itemId, dest);
@@ -1671,7 +1671,7 @@ static void OpenContextMenu(u8 taskId)
                     gBagMenu->contextMenuItemsBuffer[1] = ACTION_DESELECT;
                 if (gSpecialVar_ItemId == ITEM_MACH_BIKE || gSpecialVar_ItemId == ITEM_ACRO_BIKE)
                 {
-                    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+                    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
                         gBagMenu->contextMenuItemsBuffer[0] = ACTION_WALK;
                 }
                 break;

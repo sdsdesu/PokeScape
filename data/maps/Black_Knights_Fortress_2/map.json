@@ -29,7 +29,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ELITE_BLACK_KNIGHT",
-      "x": 17,
+      "x": 18,
       "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -107,10 +107,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_FALADOR",
-      "x": 18,
-      "y": 11,
+      "x": 20,
+      "y": 9,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -129,7 +129,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_3",
-      "flag": "0"
+      "flag": "FLAG_TEMP_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
@@ -142,7 +142,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_4",
-      "flag": "0"
+      "flag": "FLAG_TEMP_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NECROMANCER",
@@ -155,7 +155,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_6",
-      "flag": "0"
+      "flag": "FLAG_TEMP_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_ZAMORAK",
@@ -194,15 +194,15 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_7",
-      "flag": "0"
+      "flag": "FLAG_TEMP_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_ZAMORAK",
-      "x": 22,
-      "y": 24,
+      "x": 15,
+      "y": 26,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
-      "movement_range_x": 10,
+      "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
+      "movement_range_x": 6,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -212,7 +212,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_ZAMORAK",
       "x": 25,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -225,7 +225,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_ZAMORAK",
       "x": 30,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -251,7 +251,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_NECROMANCER",
       "x": 31,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -277,7 +277,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_WIZARD_DARK",
       "x": 26,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -292,7 +292,7 @@
       "x": 10,
       "y": 29,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -303,7 +303,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ZAMORAK_HAWK",
       "x": 16,
-      "y": 4,
+      "y": 3,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -315,12 +315,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CAT_HELL",
-      "x": 23,
-      "y": 28,
+      "x": 4,
+      "y": 29,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
       "movement_range_x": 0,
-      "movement_range_y": 2,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_HELLCAT",
@@ -353,26 +353,26 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
-      "x": 4,
-      "y": 27,
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_F",
+      "x": 22,
+      "y": 23,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLACK_KNIGHT_QUIZ_5",
-      "flag": "0"
+      "flag": "FLAG_TEMP_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GUARD_FALADOR",
-      "x": 8,
-      "y": 16,
+      "x": 5,
+      "y": 27,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BKFORT_2F_NPC_4",
@@ -380,16 +380,16 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 30,
-      "y": 13,
+      "x": 32,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM5",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM5"
+      "script": "FIND_ITEM_SPIRIT_CHARM",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_14"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -401,8 +401,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM4",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM4"
+      "script": "FIND_ITEM_COSMIC_RUNE",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_10"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -414,21 +414,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM1"
+      "script": "FIND_ITEM_BLACK_POUCHES",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_7"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 1,
-      "y": 24,
+      "x": 8,
+      "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM3"
+      "script": "FIND_ITEM_POTATOES",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_9"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -440,8 +440,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM2"
+      "script": "FIND_ITEM_BEER",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_8"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -453,21 +453,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM6",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM6"
+      "script": "FIND_ITEM_CHOCOLATE_CAKE",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_11"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
       "x": 19,
-      "y": 9,
+      "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM7",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM7"
+      "script": "FIND_ITEM_PINEAPPLES",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_12"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -479,8 +479,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_2F_ITEM8",
-      "flag": "FLAG_ITEM_BKFORT_2F_ITEM8"
+      "script": "FIND_ITEM_BEER",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_13"
     }
   ],
   "warp_events": [
@@ -538,8 +538,8 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 27,
+      "x": 22,
+      "y": 24,
       "elevation": 0,
       "var": "VAR_TEMP_5",
       "var_value": "0",
@@ -547,8 +547,8 @@
     },
     {
       "type": "trigger",
-      "x": 6,
-      "y": 27,
+      "x": 0,
+      "y": 33,
       "elevation": 0,
       "var": "VAR_TEMP_5",
       "var_value": "0",
@@ -593,11 +593,19 @@
     },
     {
       "type": "hidden_item",
-      "x": 2,
-      "y": 21,
+      "x": 1,
+      "y": 25,
       "elevation": 0,
-      "item": "ITEM_NONE",
-      "flag": "FLAG_TEMP_1"
+      "item": "ITEM_CABBAGE",
+      "flag": "FLAG_HIDDEN_ITEM_BKFORT_CABBAGE"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 27,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BKFORT_4F_BOOK_2"
     }
   ],
   "has_night_table": false

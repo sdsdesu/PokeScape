@@ -64,11 +64,6 @@ MillLaneMillFlourShop:
     release
     end
 
-MillLaneMill_Item_FLOUR_POT::
-	finditem ITEM_BREAD
-	end
-
-
 Millie_Miller_Text_0:
 	.string "Millie Miller$"
 

@@ -68,17 +68,23 @@ BARBARIANVILLAGE_STORYMODE_EVENT_6:
 	setobjectxy 16, 12, 29
 	applymovement 16, MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_3
 	delay 60
-	applymovement 2, Movement_InteractFACELEFT
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
-	waitmovement 16
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
 	compare VAR_TEMP_1, 12
 	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_12
 	compare VAR_TEMP_1, 11
 	goto_if_eq BARBARIANVILLAGE_STORYMODE_EVENT_13
 BARBARIANVILLAGE_STORYMODE_EVENT_11:
+	waitmovement 16
+	waitmovement 0
 	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
 	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_3
+	hidenamebox
+	closemessage
+	applymovement 2, Movement_InteractFACEUP
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACEDOWN
+	waitmovement 0
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox BARBARIANVILLAGE_STORYMODE_EVENT_Text_4
 	hidenamebox
 	closemessage
 	setvar VAR_TEMP_B, 0
@@ -127,15 +133,45 @@ BARBARIANVILLAGE_STORYMODE_EVENT_8:
 	goto BARBARIANVILLAGE_STORYMODE_EVENT_6
 
 BARBARIANVILLAGE_STORYMODE_EVENT_12:
-	applymovement 2, Movement_InteractFACERIGHT
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_5
+	applymovement 2, Movement_Barbmovement_4
 	goto BARBARIANVILLAGE_STORYMODE_EVENT_11
 
 BARBARIANVILLAGE_STORYMODE_EVENT_13:
-	applymovement 2, Movement_InteractFACELEFT
-	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_2
+	applymovement 2, Movement_Barbmovement_1
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_Barbmovement_3
 	goto BARBARIANVILLAGE_STORYMODE_EVENT_11
 
+
+Movement_Barbmovement_1:
+	face_left
+	delay_4
+	walk_fast_left
+	walk_fast_down
+	face_left
+	step_end
+
+Movement_Barbmovement_2:
+	lock_facing_direction
+	walk_up
+	unlock_facing_direction
+	face_left
+	step_end
+
+Movement_Barbmovement_3:
+	walk_down
+	step_end
+
+Movement_Barbmovement_4:
+	walk_fast_down
+	face_left
+	step_end
+
+Movement_Barbmovement_5:
+	walk_left
+	step_end
 
 MOVEMENT_BARBARIANVILLAGE_STORYMODE_EVENT_1:
 	face_down
@@ -184,6 +220,7 @@ STORYMODE_STATE_BARBARIAN_VILLAGE_1:
 	case 1, STORYMODE_STATE_BARBARIAN_VILLAGE_8
 	case 2, STORYMODE_STATE_BARBARIAN_VILLAGE_8
 	case 3, STORYMODE_STATE_BARBARIAN_VILLAGE_9
+	case 6, STORYMODE_STATE_BARBARIAN_VILLAGE_10
 	return
 
 STORYMODE_STATE_BARBARIAN_VILLAGE_2:
@@ -205,8 +242,22 @@ STORYMODE_STATE_BARBARIAN_VILLAGE_8:
 	return
 
 STORYMODE_STATE_BARBARIAN_VILLAGE_9:
+	compare VAR_POKESCAPE_STORYMODE_PROGRESS, 205
+	goto_if_ge STORYMODE_STATE_BARBARIAN_VILLAGE_12
+	return
+
+STORYMODE_STATE_BARBARIAN_VILLAGE_10:
 	setobjectxyperm 2, 13, 27
 	setobjectmovementtype 2, MOVEMENT_TYPE_FACE_UP
+	return
+
+STORYMODE_STATE_BARBARIAN_VILLAGE_11:
+	setvar VAR_TEMP_C, 1
+	return
+
+STORYMODE_STATE_BARBARIAN_VILLAGE_12:
+	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3
+	goto_if_eq STORYMODE_STATE_BARBARIAN_VILLAGE_11
 	return
 
 
@@ -219,6 +270,55 @@ OPENWORLDMODE_STATE_BARBARIAN_VILLAGE_1:
 	setobjectmovementtype 2, MOVEMENT_TYPE_FACE_UP
 	return
 
+
+TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS::
+	lock
+	getplayerxy VAR_TEMP_1, VAR_TEMP_2
+	compare VAR_TEMP_2, 30
+	goto_if_eq TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS_2
+	setobjectxy 2, 15, 31
+	setobjectxyperm 2, 15, 31
+TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS_1:
+	addobject 2
+	applymovement 2, movement_STORYMODE_POST_BKF_GRANTS_ACCESS
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT
+	waitmovement 0
+	goto STORYMODE_POST_BKF_GRANTS_ACCESS
+	return
+
+TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS_2:
+	setobjectxy 2, 15, 30
+	setobjectxyperm 2, 15, 30
+	goto TRIGGER_STORYMODE_POST_BKF_GRANTS_ACCESS_1
+
+
+STORYMODE_POST_BKF_GRANTS_ACCESS::
+	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
+	msgbox STORYMODE_POST_BKF_GRANTS_ACCESS_Text_0
+	hidenamebox
+	closemessage
+	fadescreenswapbuffers FADE_TO_BLACK
+	setvar VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 6
+	setvar VAR_TEMP_C, 0
+	setobjectxyperm 2, 13, 27
+	setobjectmovementtype 2, MOVEMENT_TYPE_FACE_UP
+	removeobject 2
+	setflag FLAG_TEMP_3
+	fadescreenswapbuffers FADE_FROM_BLACK
+	release
+	end
+
+
+movement_STORYMODE_POST_BKF_GRANTS_ACCESS:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 NPC_BARB_BLOCKADE_1::
 	lock
@@ -237,6 +337,8 @@ NPC_BARB_BLOCKADE_1_7:
 	goto_if_eq NPC_BARB_BLOCKADE_1_15
 NPC_BARB_BLOCKADE_1_14:
 	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3
+	goto_if_eq NPC_BARB_BLOCKADE_1_20
+	compare VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 6
 	goto_if_eq NPC_BARB_BLOCKADE_1_20
 NPC_BARB_BLOCKADE_1_19:
 	hidenamebox
@@ -303,16 +405,43 @@ NPC_BARBARIANVILLAGE_DUNGEONGIRL::
 	lock
 	faceplayer
 	namebox BARBARIANVILLAGE_STORYMODE_EVENT_Text_0
-	goto_if_set FLAG_BADGE06_GET, NPC_BARBARIANVILLAGE_DUNGEONGIRL_2
-	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1
+	compare VAR_TEMP_C, 1
+	goto_if_eq NPC_BARBARIANVILLAGE_DUNGEONGIRL_2
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_1:
+	goto_if_set FLAG_BADGE04_GET, NPC_BARBARIANVILLAGE_DUNGEONGIRL_5
+	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_2
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_4:
+	closemessage
 	hidenamebox
 	release
 	end
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_2:
-	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0
+	goto STORYMODE_POST_BKF_GRANTS_ACCESS
 	goto NPC_BARBARIANVILLAGE_DUNGEONGIRL_1
+
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_5:
+	switch VAR_POKESCAPE_STORYMODE_PROGRESS
+	case 165, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 170, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 175, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 180, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 181, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 185, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 186, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 187, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 190, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 195, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	case 200, NPC_BARBARIANVILLAGE_DUNGEONGIRL_10
+	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1
+	goto NPC_BARBARIANVILLAGE_DUNGEONGIRL_4
+
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_10:
+	msgbox NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0
+	closemessage
+	hidenamebox
+	release
+	end
 
 
 NPC_BARBARIANVILLAGE_SIGNPOST::
@@ -441,7 +570,9 @@ NPC_BARBARIANVILLAGE_NPC6::
 	faceplayer
 	namebox NPC_BARB_BLOCKADE_1_Text_0
 	msgbox NPC_BARBARIANVILLAGE_NPC6_Text_0
-	hidenamebox
+	waitmessage
+	pokemartoutfit STORE_CLOTHES_BARBARIAN
+	msgbox NPC_BARBARIANVILLAGE_NPC6_Text_1
 	release
 	end
 
@@ -497,6 +628,25 @@ BARBARIANVILLAGE_STORYMODE_EVENT_Text_3:
 	.string "Who was that, they weren't allowed in\n"
 	.string "there!$"
 
+BARBARIANVILLAGE_STORYMODE_EVENT_Text_4:
+	.string "Sorry, I know you're itching to give our\n"
+	.string "stronghold a shot, but could you chase\l"
+	.string "that knight and find out what he was\l"
+	.string "doing down here.$"
+
+STORYMODE_POST_BKF_GRANTS_ACCESS_Text_0:
+	.string "Hey {PLAYER}!\p"
+	.string "Good to see you again, may I ask did you\n"
+	.string "find out anything about that outsider\l"
+	.string "that was in our stronghold?\p"
+	.string "…\p"
+	.string "I see… So they were a Black Knight.\p"
+	.string "I must inform our Chieftain of this at\n"
+	.string "once.\p"
+	.string "Oh and don't worry, you are free to use\n"
+	.string "our stronhold anytime.\p"
+	.string "See you!$"
+
 NPC_BARB_BLOCKADE_1_Text_0:
 	.string "Barbarian$"
 
@@ -536,6 +686,11 @@ NPC_BARB_BLOCKADE_1_Text_7:
 	.string "We are impressed, well done!$"
 
 NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0:
+	.string "This is not good, somehow an outsider\n"
+	.string "got access to our stronghold!\p"
+	.string "Did you find out where they went?$"
+
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
 	.string "You have proved yourself a barbarian in\n"
 	.string "name and spirit!\p"
 	.string "I grant you access to use our\n"
@@ -543,10 +698,10 @@ NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_0:
 	.string "The monsters found within are very\n"
 	.string "strong, so have fun training!$"
 
-NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_1:
+NPC_BARBARIANVILLAGE_DUNGEONGIRL_Text_2:
 	.string "Only once you have proved yourself a\n"
 	.string "barbarian are you allowed to use our\l"
-	.string "dungeon for training.$"
+	.string "stronghold for training.$"
 
 NPC_BARBARIANVILLAGE_SIGNPOST_Text_0:
 	.string "Barbarian Village.\p"
@@ -678,6 +833,9 @@ NPC_BARBARIANVILLAGE_NPC6_Text_0:
 	.string "I make all the clothes for our village.\p"
 	.string "But don't tell anyone that I get my\n"
 	.string "supplies from Thessalia in Varrock.$"
+
+NPC_BARBARIANVILLAGE_NPC6_Text_1:
+	.string "See you later!$"
 
 SHOP_HELMET_BARBARIANVILLAGE_Text_0:
 	.string "Peska$"

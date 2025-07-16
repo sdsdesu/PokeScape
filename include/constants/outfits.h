@@ -1,0 +1,40 @@
+#ifndef GUARD_CONSTANTS_OUTFITS_H
+#define GUARD_CONSTANTS_OUTFITS_H
+
+//! macro modes
+
+// ScrCmd_getoutfitstatus
+#define OUTFIT_CHECK_FLAG 0
+#define OUTFIT_CHECK_USED 1
+// ScrCmd_toggleoutfit
+#define OUTFIT_TOGGLE_UNLOCK 0
+#define OUTFIT_TOGGLE_LOCK 1
+// BufferOutfitStrings
+#define OUTFIT_BUFFER_NAME  0
+#define OUTFIT_BUFFER_DESC  1
+
+//! outfits
+#define OUTFIT_NONE 0
+#define OUTFIT_DEFAULT 1
+#define OUTFIT_HAM 2
+#define OUTFIT_GUARD 3
+#define OUTFIT_BRONZE_ARMOUR 4
+#define OUTFIT_ZANIK 5
+#define OUTFIT_ARIANE 6
+#define OUTFIT_BARBARIAN 7
+#define OUTFIT_FARMER 8
+#define OUTFIT_RSMV 9
+#define OUTFIT_WIZARD 10
+#define OUTFIT_DEMONHEADGE 11
+#define OUTFIT_HYPERSTAN 12
+#define OUTFIT_TWISTED_SMILE 13
+ 
+#define OUTFIT_COUNT 14
+
+// inclusive
+#define OUTFIT_BEGIN OUTFIT_DEFAULT
+#define OUTFIT_END   OUTFIT_TWISTED_SMILE
+
+#define DEFAULT_OUTFIT OUTFIT_DEFAULT
+
+#endif //! GUARD_CONSTANTS_OUTFITS_H

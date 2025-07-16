@@ -24,10 +24,12 @@ mapscripts Route1_MapScripts {
 
         if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
     	{
+            call(ROUTE1_STATE) 
             call(STORYMODE_STATE_ROUTE1) 
     	}
 		else
 		{
+            call(ROUTE1_STATE) 
 			call(OPENWORLD_STATE_ROUTE1)
 		}    
         
@@ -37,6 +39,13 @@ mapscripts Route1_MapScripts {
     //MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE:Route1WarpCheck 
 } 
 
+script ROUTE1_STATE {
+    if (!(var(VAR_FROGEEL_RIVAL) == 0)) {
+        removeobject(38)
+        setflag(FLAG_TEMP_1F) //Angrenouille
+    }
+    return
+}
 
 script OPENWORLD_STATE_ROUTE1 {
 		setobjectxyperm(OBJ_EVENT_ID_FARMER, 42, 10)
@@ -303,6 +312,42 @@ script NPC_CHICKEN
 	end
 }
 
+script NPC_CHINCHOMPA
+{
+	lock
+	faceplayer
+    namebox ("Chinchompa")
+    playmoncry(SPECIES_CHINCHOMPA_GREY_FORM, 0)
+	msgbox(format("Squeep!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
+script NPC_ESSENCE
+{
+	lock
+	faceplayer
+    namebox ("Essence")
+    playmoncry(SPECIES_PURE, 0)
+	msgbox(format("Whhiiirll!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
+script NPC_BEAR
+{
+	lock
+	faceplayer
+    namebox ("Bear")
+    playmoncry(SPECIES_BEAR_NORMAL_FORM, 0)
+	msgbox(format("Grraugh!"))
+    waitmoncry
+    hidenamebox
+	release
+	end
+}
 
 script SIGN_ROUTE1_1
 {
@@ -329,30 +374,7 @@ script SIGN_ROUTE1_3
 }
 
 
-script NPC_FISHERMAN_1
-{
-	lock
-	faceplayer
-    namebox("Fisherman")
-	msgbox(format("I love to fish in this pond.\pIt is so peaceful, with the ducks that keep me company.\pI cannot imagine anything bad to happen here."))
-    checkitem(ITEM_SMALL_NET, 1)
-        if (!var(VAR_RESULT)){
-            msgbox(format("You seem like someone who would also enjoy fishing in this pond.\pHere take this!"))
-            hidenamebox
-            giveitem(ITEM_SMALL_NET)
-            namebox("Fisherman")
-            msgbox(format("It is only a small net but I'm sure there are plenty of things you could fish up with it!"))
-            release
-            end
-        }
-        else {
-            msgbox(format("How are you finding fishing in the pond?\pHave you caught anything yet?{PAUSE 15}\pDid you know that a crayfish evolves into a shrimp?\pOr that a shrimp then evolves into a lobster?\pApparently lobsters can then evolve again if you level them up under extreme weather conditions like rain, sunshine, or hail.\pBut it's so peaceful here, I've never managed to evolve one myself."))
-            release
-            end
-        }
-	release
-	end
-}
+
 
 
 
@@ -401,17 +423,55 @@ script ROUTE1_FarmerFred
 }
 
 
+script ROUTE1_FARMER_NPC {
+    lock
+    faceplayer
+    namebox("Farmer")
+    random(4)
+    switch (var(VAR_RESULT)) {
+        case 0: 
+            msgbox(format("Did you know that pigs use mud to regulate their temperature?\pThat's a fun fact to help you remember that most pigs are GROUND type."))
+        case 1: 
+            msgbox(format("Although they're too heavy to do it for long distances, chickens can flap their wings to fly for short distances.\pMost chickens are FLYING type."))
+        case 2: 
+            msgbox(format("Cows are constantly moving while grazing, and can cover huge distances in one day.\pAlthough they love to eat grass, remember that most cows are GROUND type so they don't fare well against it in battle!"))
+        case 3: 
+            msgbox(format("Unlike humans, sheep have rectangular pupils allowing them to see almost everything around them without turning their head.\pAlthough this is very strange, almost all sheep are NORMAL type."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
 
+script BATTLE_ROUTE1_RIVER_TRAINER_1 
+{
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_1, format("No! My peace! You've ruined it!"),format("I just need an escape, okay?!"))
+    namebox ("Awenix")
+    msgbox(format("I love spending time on the water like this.\pIt helps me escape from life's responsibilities for a moment.\pLike my wife and children.\p{PAUSE 15}Don't tell them you found me here!."))
+    hidenamebox
+    release
+    end
+}
+script BATTLE_ROUTE1_RIVER_TRAINER_2 
+{
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_2, format("I need to get into Varrock for my quest but they've locked down access!\pArgh, I'm so mad I need to take out my anger in a battle!"),format("I lost?"))
+    namebox ("Gelo Ball")
+    msgbox(format("The guards are blocking one entrance..\pSheep are blocking another.\pMaybe I should just give up on slaying that demon."))
+    hidenamebox
+    release
+    end
+}
 
-
-
-
-
-
-
-
-
-
+script BATTLE_ROUTE1_RIVER_TRAINER_3 
+{
+    trainerbattle_single(TRAINER_ROUTE1_RIVER_TRAINER_3, format("Did you know different routes seem to have different fish in them?\pLet's see if you've faced these before!"),format("They were no match for you."))
+    namebox ("Trickool")
+    msgbox(format("If you're looking for a specific type of fish, try sailing around in different locations.\pSome like my WebSnipper are only available underground!"))
+    hidenamebox
+    release
+    end
+}
 
 
 //TRAINER BATTLES-----------------------------------------
@@ -458,7 +518,7 @@ script MudbeardBattle{
 }
 
 script Route1FarmerBattle{
-    trainerbattle_single(TRAINER_FARMER_ROUTE1,format("Cor blimey what are ye doing on me lands!"),format("Its not really my lands yet."))
+    trainerbattle_single(TRAINER_FARMER_ROUTE1,format("Cor blimey what are ye doing on me lands!"),format("It's not really my lands yet."))
     //namebox ("John")
     msgbox("It's not really my lands yet.")
     hidenamebox
@@ -952,4 +1012,78 @@ script PURO_PURO_EVENT_ROUTE1 {
     setmetatile(54, 9, METATILE_PokeScapeOutdoors_TELEPORT_WHEAT_3, 0)
 
 	return
+}
+
+
+
+script FROGEEL_RIVAL_1 {
+    lock 
+    faceplayer
+    namebox("???")
+    if (flag(FLAG_BADGE01_GET)) {   //Only battleable after first gym, given he has a level 15 Frogeel
+        msgbox(format("Hello there…{PAUSE 30}\nSorry if I seem wet.\pI just swam across the river here, evading…"))
+        hidenamebox
+        closemessage
+        //applymovement (24, MOVEMENT_EXCLAMATIONMARK_JUMP_DOWN)
+        //waitmovement(0)
+        namebox("???")
+        msgbox(format("…{PAUSE 15}… I mean practising my swimming skills."))
+        namebox("Angrenouille")
+        msgbox(format("Name's Angrenouille.\pI dream of one day becoming a frog prince.\pI still wait for the day the Frog Princess of my dreams will call me to the Land of the Frogs to ask for a kiss from yours truly.\pAaah, love."))
+        hidenamebox
+        closemessage
+        //applymovement (24, MOVEMENT_EXCLAMATIONMARK_JUMP_DOWN)
+        //waitmovement(0)
+        namebox("Angrenouille")
+        msgbox(format("What?{PAUSE 60}\nI look shady?\pMy, you sure do have some gall to call ME a thief?"))
+        hidenamebox
+        closemessage
+        applymovement (38, MOVEMENT_QUESTIONMARK)
+        namebox("Angrenouille")
+        msgbox(format("You didn't?{PAUSE 60}\nNo… I am not a thief!\pI swear!\pWell whatever, you're wrong and I have nothing to prove to you."))
+        hidenamebox
+        closemessage
+        namebox("Angrenouille")
+        msgbox(format("…{PAUSE 15}\nLet's fight just to keep you silent."))
+        trainerbattle_no_intro(TRAINER_FROGEEL_RIVAL_1, format("AAA… SEEYA!"))
+        namebox("Angrenouille")
+        msgbox(format("A…{PAUSE 60}\nAAA…{PAUSE 60}\lAAAAAAA!"))
+        hidenamebox
+        closemessage
+        playse(SE_FLEE)
+        applymovement(38, MOVEMENT_FROGEEL_RIVAL_ROUTE1)
+        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1)
+        waitmovement(0)
+        delay(60)
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK)
+        msgbox(format("It seems Angrenouille dropped something while running off."))
+        giveitem(ITEM_SPIRIT_CHARM, 1)
+        waitmovement(0)
+        removeobject(38)
+        setflag(FLAG_TEMP_1F) //Angrenouille
+        setvar(VAR_FROGEEL_RIVAL, 5)
+    }
+    else {
+        msgbox(format("Hello there…{PAUSE 30}\nThieves Guild?\pNever heard of it…\pCome back when you've beat the Duke and we'll talk then."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_ROUTE1 {
+    walk_fast_down
+    walk_fast_left * 6
+    walk_fast_up * 6
+    delay_8
+    walk_fast_down * 14
+    step_end
+}
+
+movement MOVEMENT_FROGEEL_RIVAL_REACTION_ROUTE1 {
+    walk_fast_down
+    face_left
+    step_end
 }

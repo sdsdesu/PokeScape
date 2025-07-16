@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_MELZARS_3F_PRAYER_POTION",
-      "flag": "FLAG_ITEM_MELZARS_3F_PRAYER_POTION"
+      "script": "FIND_ITEM_PRAYER_POTION",
+      "flag": "FLAG_ITEM_MELZARSMAZE_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NECROMANCER",
@@ -104,6 +104,32 @@
       "trainer_sight_or_berry_tree_id": "2",
       "script": "BATTLE_MELZAR_3F_TRAINER_1",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 11,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BAT_GREY",
+      "x": 26,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_BAT",
+      "flag": "FLAG_TEMP_3"
     }
   ],
   "warp_events": [

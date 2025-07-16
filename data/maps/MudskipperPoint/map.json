@@ -115,8 +115,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "FIND_ITEM_BARROWS_POUCHES",
+      "flag": "FLAG_ITEM_MUDSKIPPERPOINT_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DND",
@@ -154,7 +154,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE",
+      "script": "NPC_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE",
       "flag": "FLAG_TEMP_F"
     },
     {
@@ -195,13 +195,123 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ENCOUNTER_ROCKCRAB",
       "flag": "FLAG_TEMP_8"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CRAB_RED",
+      "x": 30,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_CRAB_RED",
+      "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CRAB_RED",
+      "x": 16,
+      "y": 29,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 3,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_CRAB_RED",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
+      "x": 25,
+      "y": 23,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ITEM_RECEIVED_TM54",
+      "flag": "FLAG_RECEIVED_TM54"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 23,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 22,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 16,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_5",
+      "var_value": "1",
+      "script": "TRIGGER_STORY_NPC_MUDSKIPPER_POINT_SIRTHEODORE"
+    }
   ],
   "bg_events": [
     {
@@ -217,7 +327,7 @@
       "x": 18,
       "y": 18,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_MUDSKIPPER_POINT_1"
     },
     {
@@ -225,7 +335,7 @@
       "x": 16,
       "y": 26,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_MUDSKIPPER_POINT_2"
     },
     {
@@ -233,7 +343,7 @@
       "x": 32,
       "y": 22,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_HIDDEN_ITEM_MUDSKIPPER_POINT_3"
     }
   ],

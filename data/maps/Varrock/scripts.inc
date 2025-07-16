@@ -7,6 +7,7 @@ Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_VARROCK
 	setvar VAR_EVOLUTION_MAP_STATE, 16
 	call RANDOM_EVENT_SANDWICH_LADY
+	call VARROCK_MITHRILMAN_STATE
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	return
@@ -15,13 +16,27 @@ Varrock_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	return
 
 Varrock_MapScripts_MAP_SCRIPT_ON_LOAD:
-	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
+	compare VAR_POKESCAPE_GAMEMODE_STATE, 1
 	goto_if_eq Varrock_MapScripts_MAP_SCRIPT_ON_LOAD_1
 	return
 
 Varrock_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 	call VARROCK_STATE
 	return
+
+
+VARROCK_MITHRILMAN_STATE::
+	removeobject 47
+	setflag FLAG_TEMP_1C
+	compare VAR_MITHRILMAN_STATE, 25
+	goto_if_eq VARROCK_MITHRILMAN_STATE_2
+VARROCK_MITHRILMAN_STATE_1:
+	return
+
+VARROCK_MITHRILMAN_STATE_2:
+	addobject 47
+	clearflag FLAG_TEMP_1C
+	goto VARROCK_MITHRILMAN_STATE_1
 
 
 VARROCK_STATE::
@@ -607,8 +622,9 @@ VARROCK_NPC_Thessalia::
 	faceplayer
 	namebox VARROCK_NPC_Thessalia_Text_0
 	msgbox VARROCK_NPC_Thessalia_Text_1
-	closemessage
-	hidenamebox
+	waitmessage
+	pokemartoutfit STORE_CLOTHES_THESSALIA
+	msgbox VARROCK_NPC_Thessalia_Text_2
 	release
 	end
 
@@ -986,7 +1002,7 @@ NPC_ROUTE18_MAN::
 
 GiveMon_VARROCK_KITTEN::
 	setvar VAR_TEMP_1, SPECIES_KITTEN
-	giveshinymon SPECIES_KITTEN, 10, ITEM_WOOLBALL, 0
+	giveshinymon SPECIES_KITTEN, 10, ITEM_BALL_OF_WOOL, 0
 	compare VAR_RESULT, 0
 	goto_if_eq GiveMon_VARROCK_SendParty_KITTEN
 	compare VAR_RESULT, 1
@@ -1129,7 +1145,7 @@ GIVE_RANDOM_ITEM_28_8:
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_9:
-	giveitem ITEM_PURPLE_SWEETS, 1
+	giveitem ITEM_MANY_SWEETS, 1
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_10:
@@ -1177,7 +1193,7 @@ GIVE_RANDOM_ITEM_28_20:
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_21:
-	giveitem ITEM_PURPLE_SWEETS, 5
+	giveitem ITEM_MANY_SWEETS, 5
 	goto GIVE_RANDOM_ITEM_28_1
 
 GIVE_RANDOM_ITEM_28_22:
@@ -1224,21 +1240,6 @@ VARROCK_POTIONSTORE_BOOK::
 	end
 
 
-ITEM_VARROCK_POTIONSTORE::
-	finditem ITEM_POTION_ATT
-	end
-
-
-ITEM_VARROCK_CLOTHESSTORE::
-	finditem ITEM_POUCH_ELEMENTAL
-	end
-
-
-ITEM_NORTH_VARROCK_1::
-	finditem ITEM_EARTH_RUNE
-	end
-
-
 VARROCK_NPC_FROGEELBURGER::
 	faceplayer
 	namebox VARROCK_NPC_FROGEELBURGER_Text_0
@@ -1280,6 +1281,49 @@ VARROCK_NPC_WondertradeHint::
 	hidenamebox
 	release
 	end
+
+
+Mithrilman_Varrock::
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
+	lock
+	faceplayer
+	namebox Mithrilman_Varrock_Text_0
+	msgbox Mithrilman_Varrock_Text_1
+	goto_if_set FLAG_STARTER1, Mithrilman_Varrock_2
+	goto_if_set FLAG_STARTER2, Mithrilman_Varrock_3
+	goto_if_set FLAG_STARTER3, Mithrilman_Varrock_4
+Mithrilman_Varrock_1:
+	namebox Mithrilman_Varrock_Text_0
+	msgbox Mithrilman_Varrock_Text_2
+	waitmessage
+	closemessage
+	hidenamebox
+	setvar VAR_MITHRILMAN_STATE, 30
+	setflag FLAG_TEMP_1C
+	removeobject 47
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MITHRILMAN_QUEST, 5
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	waitmovement 0
+	waitse
+	msgbox Mithrilman_Varrock_Text_3
+	finditem ITEM_GODSWORD, 1
+	savebgm MUS_DUMMY
+	fadedefaultbgm
+	release
+	end
+
+Mithrilman_Varrock_2:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_GRASS, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
+
+Mithrilman_Varrock_3:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_FIRE, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
+
+Mithrilman_Varrock_4:
+	trainerbattle_no_intro TRAINER_MITHRILMAN5_WATER, BATTLE_Soffan_and_Quo_Text_0
+	goto Mithrilman_Varrock_1
 
 
 NPC_SANDWICH_LADY_Text_0:
@@ -1681,13 +1725,20 @@ VARROCK_NPC_Thessalia_Text_0:
 	.string "Thessalia$"
 
 VARROCK_NPC_Thessalia_Text_1:
-	.string "Hello, I can change your outfit for you.\p"
-	.string "But you will have to come back later.$"
+	.string "Can I intrest you in any outfits?$"
+
+VARROCK_NPC_Thessalia_Text_2:
+	.string "See you later!$"
 
 VARROCK_NPC_ThessaliaGrandma_Text_0:
 	.string "Iffie$"
 
 VARROCK_NPC_ThessaliaGrandma_Text_1:
+	.string "Zzz…\p"
+	.string "Oh sorry sweety I must have dozed off.\p"
+	.string "You can use this wardrobe to change\n"
+	.string "your outfit.\p"
+	.string "…{PAUSE 15}…\p"
 	.string "Zzz…$"
 
 VARROCK_NPC_SWORDSHOP_1_Text_0:
@@ -1987,3 +2038,46 @@ VARROCK_NPC_WondertradeHint_Text_1:
 	.string "with a stranger.\p"
 	.string "It's very useful for those who don't\n"
 	.string "have any friends to trade with, like me.$"
+
+Mithrilman_Varrock_Text_0:
+	.string "Mithrilman$"
+
+Mithrilman_Varrock_Text_1:
+	.string "We meet again knave.\p"
+	.string "Thousts harvest made it this far, the\n"
+	.string "very capital of Misthalin itselfst.\p"
+	.string "And now yee stand before thine.\l"
+	.string "A mithrilman in topst shape, trained by\l"
+	.string "the elements and challenges uponst\l"
+	.string "thee.\p"
+	.string "Knave.\p"
+	.string "Thoust have beenst lucky.\p"
+	.string "Thoust have beenst clever.\p"
+	.string "And thoust have dared challenge thine\n"
+	.string "time uponst time again.\p"
+	.string "Thist endst nowt.\p"
+	.string "Knave.\p"
+	.string "Thine challenges thee.$"
+
+Mithrilman_Varrock_Text_2:
+	.string "Thoust does cheat?\p"
+	.string "Thoust must.\p"
+	.string "Thine cannot lose, for thine is a\n"
+	.string "Mithrilman.\p"
+	.string "Glory be upon thine, not yee.\p"
+	.string "Knave{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "…{PAUSE 15}\p"
+	.string "NAAAAAAAAAAARRRGHGHGHGHGH!\p"
+	.string "Knave\l"
+	.string "What is thousts name?\p"
+	.string "…{PAUSE 15}\p"
+	.string "{PLAYER}?\p"
+	.string "Thine will remember this\p"
+	.string "Fare thee lesser than decently.$"
+
+Mithrilman_Varrock_Text_3:
+	.string "Oh?\p"
+	.string "Mithrilman appears to have left\n"
+	.string "something on the ground.$"

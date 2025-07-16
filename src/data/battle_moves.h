@@ -13438,7 +13438,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
     [MOVE_CEASELESS_EDGE] =
     {
         .effect = EFFECT_HIT_SET_ENTRY_HAZARD,
-        .power = 65,
+        .power = 75,
         .type = TYPE_DARK,
         .accuracy = 90,
         .pp = 15,
@@ -14477,7 +14477,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ELECTRO_SHOT] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_ELECTRO_SHOT
+        .effect = EFFECT_METEOR_BEAM,
         .power = 130,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -14510,7 +14510,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_FICKLE_BEAM] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_FICKLE_BEAM
+        .effect = EFFECT_FICKLE_BEAM,
         .power = 80,
         .type = TYPE_DRAGON,
         .accuracy = 100,
@@ -14524,7 +14524,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_BURNING_BULWARK] =
     {
-        .effect = EFFECT_PLACEHOLDER, // EFFECT_PROTECT with effects
+        .effect = EFFECT_PROTECT,
         .power = 0,
         .type = TYPE_FIRE,
         .accuracy = 0,
@@ -14620,17 +14620,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_ALLURING_VOICE] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_ALLURING_VOICE
+        .effect = EFFECT_CONFUSE_HIT,
         .power = 80,
         .type = TYPE_FAIRY,
         .accuracy = 100,
         .pp = 10,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .split = SPLIT_SPECIAL,
         .zMoveEffect = Z_EFFECT_NONE,
         .soundMove = TRUE,
+        .sheerForceBoost = TRUE,
         .ignoresSubstitute = TRUE,
     },
 
@@ -14666,7 +14667,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_PSYCHIC_NOISE] =
     {
-        .effect = EFFECT_PLACEHOLDER, //EFFECT_PSYCHIC_NOISE
+        .effect = EFFECT_PSYCHIC_NOISE,
         .power = 75,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -17018,13 +17019,149 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .mirrorMoveBanned = TRUE,
     },
 
+    [MOVE_DEFIANCE] =
+    {
+        .effect = EFFECT_DEFENSE_DOWN_HIT, 
+        .power = 110,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 95,
+        .pp = 5,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+    },
 
+    [MOVE_DEFLECT] =
+    {
+        .effect = EFFECT_DEFLECT,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
 
+    [MOVE_PIETY] =
+    {
+        .effect = EFFECT_PIETY,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+   
+    [MOVE_TURMOIL] =
+    {
+        .effect = EFFECT_TURMOIL,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
 
-
-
-
-
+    [MOVE_RIGOUR] =
+    {
+        .effect = EFFECT_RIGOUR,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+   
+    [MOVE_TORMENT_PRAYER] =
+    {
+        .effect = EFFECT_TORMENT_PRAYER,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+   
+    [MOVE_AUGURY] =
+    {
+        .effect = EFFECT_AUGURY,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+   
+    [MOVE_ANGUISH] =
+    {
+        .effect = EFFECT_ANGUISH,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+     
+    [MOVE_DIVINERAGE] =
+    {
+        .effect = EFFECT_DIVINERAGE,
+        .power = 0,
+        .type = TYPE_ELECTRIC,
+        .accuracy = 0,
+        .pp = 10,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+    },
+   
+    
+   
 
 
 

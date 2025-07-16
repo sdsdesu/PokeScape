@@ -17,6 +17,7 @@ Falador_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 
 Falador_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	setflag FLAG_VISITED_FALADOR
+	call FALADOR_STATE
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
 	goto_if_eq Falador_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 	call OPENWORLD_STATE_FALADOR
@@ -64,14 +65,30 @@ MODTIMBO_STATE_3:
 	return
 
 
-ITEM_FALADOR_1::
-	finditem ITEM_POUCH_ADAMANT
-	end
+FALADOR_STATE::
+	setflag FLAG_TEMP_10
+	removeobject 53
+	switch VAR_FROGEEL_RIVAL
+	case 5, FALADOR_STATE_3
+	case 6, FALADOR_STATE_4
+	case 7, FALADOR_STATE_5
+FALADOR_STATE_1:
+	return
 
+FALADOR_STATE_3:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
 
-ITEM_FALADOR_2::
-	finditem ITEM_TM26_KINGS_SHIELD
-	end
+FALADOR_STATE_4:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
+
+FALADOR_STATE_5:
+	addobject 53
+	clearflag FLAG_TEMP_10
+	goto FALADOR_STATE_1
 
 
 FALADOR_SIGN::
@@ -1336,7 +1353,7 @@ Movement_Falador_Mithrilman_3:
 	step_end
 
 Mithrilman_FALADOR1::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_FALADOR1_Text_0
 	msgbox Mithrilman_FALADOR1_Text_1
 	hidenamebox
@@ -1363,6 +1380,231 @@ Mithrilman_FALADOR1::
 	release
 	end
 
+
+FROGEEL_RIVAL_2::
+	lock
+	faceplayer
+	compare VAR_FROGEEL_RIVAL, 5
+	goto_if_eq FROGEEL_RIVAL_2_2
+	compare VAR_FROGEEL_RIVAL, 6
+	goto_if_eq FROGEEL_RIVAL_2_3
+	compare VAR_FROGEEL_RIVAL, 7
+	goto_if_eq FROGEEL_RIVAL_2_4
+FROGEEL_RIVAL_2_1:
+	release
+	end
+
+FROGEEL_RIVAL_2_2:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_1
+	hidenamebox
+	closemessage
+	applymovement 53, MOVEMENT_EXCLAMATIONMARK
+	waitmovement 0
+	faceplayer
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne FROGEEL_RIVAL_2_8
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_4
+	closemessage
+	hidenamebox
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
+FROGEEL_RIVAL_2_3:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_5, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_eq FROGEEL_RIVAL_2_11
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_7
+	closemessage
+	hidenamebox
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
+FROGEEL_RIVAL_2_4:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox FROGEEL_RIVAL_2_Text_8
+	goto BATTLE_FROGEEL_RIVAL_2
+	goto FROGEEL_RIVAL_2_1
+
+FROGEEL_RIVAL_2_8:
+	msgbox FROGEEL_RIVAL_2_Text_3
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 6
+	applymovement 53, FACE_ORIGINAL_DIRECTION
+	release
+	end
+
+FROGEEL_RIVAL_2_11:
+	msgbox FROGEEL_RIVAL_2_Text_6
+	closemessage
+	hidenamebox
+	setvar VAR_FROGEEL_RIVAL, 7
+	applymovement 53, FACE_ORIGINAL_DIRECTION
+	release
+	end
+
+
+BATTLE_FROGEEL_RIVAL_2::
+	goto_if_set FLAG_STARTER1, BATTLE_FROGEEL_RIVAL_2_2
+	goto_if_set FLAG_STARTER2, BATTLE_FROGEEL_RIVAL_2_3
+	goto_if_set FLAG_STARTER3, BATTLE_FROGEEL_RIVAL_2_4
+BATTLE_FROGEEL_RIVAL_2_1:
+	namebox FROGEEL_RIVAL_2_Text_0
+	msgbox BATTLE_FROGEEL_RIVAL_2_Text_1
+	closemessage
+	hidenamebox
+	setobjectxy 52, 49, 17
+	setobjectxy 43, 49, 18
+	setobjectxyperm 52, 49, 17
+	setobjectxyperm 43, 49, 18
+	setobjectmovementtype 52, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype 43, MOVEMENT_TYPE_FACE_RIGHT
+	clearflag FLAG_TEMP_1D
+	clearflag FLAG_TEMP_1F
+	addobject 52
+	addobject 43
+	playse SE_FLEE
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION
+	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_1
+	delay 60
+	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1
+	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2
+	waitmovement 0
+	delay 90
+	playse SE_PIN
+	applymovement 53, MOVEMENT_EXCLAMATIONMARK
+	applymovement 52, MOVEMENT_WHITE_KNIGHT_REACTION
+	applymovement 43, MOVEMENT_WHITE_KNIGHT_REACTION
+	waitmovement 0
+	waitse
+	delay 30
+	applymovement 53, MOVEMENT_FROGEEL_RIVAL_FALADOR_2
+	applymovement 52, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3
+	applymovement 43, MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4
+	waitmovement 0
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, MOVEMENT_QUESTIONMARK
+	msgbox BATTLE_FROGEEL_RIVAL_2_Text_2
+	closemessage
+	giveitem ITEM_MIND_RUNE, 1
+	closemessage
+	removeobject 53
+	removeobject 52
+	removeobject 43
+	setflag FLAG_TEMP_10
+	setflag FLAG_TEMP_1D
+	setflag FLAG_TEMP_1F
+	setvar VAR_FROGEEL_RIVAL, 10
+	release
+	end
+
+BATTLE_FROGEEL_RIVAL_2_2:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_GRASS, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
+
+BATTLE_FROGEEL_RIVAL_2_3:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_FIRE, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
+
+BATTLE_FROGEEL_RIVAL_2_4:
+	trainerbattle_no_intro TRAINER_FROGEEL_RIVAL_2_WATER, BATTLE_FROGEEL_RIVAL_2_Text_0
+	goto BATTLE_FROGEEL_RIVAL_2_1
+
+
+MOVEMENT_FROGEEL_RIVAL_FALADOR_1:
+	walk_fast_down
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	face_left
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_FALADOR_2:
+	walk_faster_down
+	walk_faster_down
+	walk_faster_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_1:
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_2:
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	walk_slow_right
+	face_up
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_3:
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_WHITE_KNIGHT_4:
+	walk_fast_right
+	walk_fast_right
+	delay_4
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+MOVEMENT_FROGEEL_RIVAL_FALADOR_REACTION:
+	walk_fast_left
+	face_right
+	step_end
+
+MOVEMENT_WHITE_KNIGHT_REACTION:
+	face_right
+	emote_question_mark
+	emote_double_exclamation_mark
+	step_end
 
 FALADOR_SIGN_Text_0:
 	.string "Falador, home of the White Knights.$"
@@ -2031,3 +2273,60 @@ Mithrilman_FALADOR1_Text_3:
 Mithrilman_FALADOR1_Text_4:
 	.string "It appears Mithrilman dropped\n"
 	.string "something while rushing off.$"
+
+FROGEEL_RIVAL_2_Text_0:
+	.string "Angrenouille$"
+
+FROGEEL_RIVAL_2_Text_1:
+	.string "Phew, evaded pursuit once again.$"
+
+FROGEEL_RIVAL_2_Text_2:
+	.string "Oh hi there, {PLAYER} was it?\p"
+	.string "Yes I know your name, I know a lot of\n"
+	.string "things.\p"
+	.string "Like how you will kindly just let me\n"
+	.string "leave for now, right?$"
+
+FROGEEL_RIVAL_2_Text_3:
+	.string "I knew you and I'd be pals. One day when\n"
+	.string "I am King of The Land of the Frogs, you\l"
+	.string "can be in my court.$"
+
+FROGEEL_RIVAL_2_Text_4:
+	.string "Well I guess we just have to solve it\n"
+	.string "the good old fashioned way then don't\l"
+	.string "we?$"
+
+FROGEEL_RIVAL_2_Text_5:
+	.string "{PLAYER}... You agreed that you were\n"
+	.string "going to let me leave.\p"
+	.string "You haven't changed your mind now, have\n"
+	.string "you?$"
+
+FROGEEL_RIVAL_2_Text_6:
+	.string "Good, now leave me to plan my next heis-\p"
+	.string "{PAUSE 15}You heard nothing...$"
+
+FROGEEL_RIVAL_2_Text_7:
+	.string "Ugh, in that case I shall have to fight\n"
+	.string "my way out...$"
+
+FROGEEL_RIVAL_2_Text_8:
+	.string "I thought we had a deal {PLAYER}.\p"
+	.string "Why would you betray me like this?\p"
+	.string "I thought we were friends.$"
+
+BATTLE_FROGEEL_RIVAL_2_Text_0:
+	.string "Seeya!$"
+
+BATTLE_FROGEEL_RIVAL_2_Text_1:
+	.string "A\n"
+	.string "AAA\n"
+	.string "AAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA\p"
+	.string "AAAAAAAAAAAAAAAAA!$"
+
+BATTLE_FROGEEL_RIVAL_2_Text_2:
+	.string "It seems that some of Angrenouille's\n"
+	.string "loot fell from his pocket as he ran off.$"

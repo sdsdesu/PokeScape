@@ -435,7 +435,8 @@ extern const u8 gText_FirmSlash[];
 // item menu screen text
 extern const u8 gText_CloseBag[];
 extern const u8 gText_NumberItem_HM[];
-extern const u8 gText_NumberItem_TMBerry[];
+extern const u8 gText_NumberItem_TM[];
+extern const u8 gText_NumberItem_Berry[];
 extern const u8 gText_xVar1[];
 extern const u8 gText_ReturnToVar1[];
 extern const u8 gText_SelectorArrow2[];
@@ -943,6 +944,7 @@ extern const u8 gText_Gabby[];
 extern const u8 gText_Anna[];
 
 extern const u8 gText_DadsAdvice[];
+extern const u8 gText_OutfitCannotUseItemMessage[];
 extern const u8 gText_CantDismountBike[];
 extern const u8 gText_ItemFinderNothing[];
 extern const u8 gText_ItemFinderNearby[];
@@ -1027,13 +1029,16 @@ extern const u8 gText_AnythingElseICanHelp[];
 extern const u8 gText_QuitShopping[];
 extern const u8 gText_PokedollarVar1[];
 extern const u8 gText_YouDontHaveMoney[];
+extern const u8 gText_YouDontHaveTokkul[];
 extern const u8 gText_Var1CertainlyHowMany2[];
 extern const u8 gText_Var1CertainlyHowMany[];
 extern const u8 gText_Var1IsItThatllBeVar2[];
 extern const u8 gText_YouWantedVar1ThatllBeVar2[];
+extern const u8 gText_YouWantedVar1OutfitThatllBeVar2[];
 extern const u8 gText_InBagVar1[];
 extern const u8 gText_Var1AndYouWantedVar2[];
 extern const u8 gText_HereYouGoThankYou[];
+extern const u8 gText_HereIsTheOutfitThankYou[];
 extern const u8 gText_NoMoreRoomForThis[];
 extern const u8 gText_ThankYouIllSendItHome[];
 extern const u8 gText_ThanksIllSendItHome[];
@@ -3138,6 +3143,18 @@ extern const u8 gText_RenameMon[];
 extern const u8 gText_ReLearnMove[];
 extern const u8 gText_ForgetMove[];
 
+extern const u8 gText_BEGINNING[];
+extern const u8 gText_Pre_WIZARDSTOWER[];
+extern const u8 gText_Post_DRAYNORMANOR[];
+extern const u8 gText_Post_MELZARSMAZE[];
+extern const u8 gText_Post_FALADORGYM[];
+extern const u8 gText_Pre_Crandor[];
+extern const u8 gText_Pre_BKF[];
+extern const u8 gText_Post_BKF[];
+
+extern const u8 gText_PubCrawlInfo[];
+
+
 //pokescape cheat menu
 extern const u8 gText_CheatEvolutionShop[];
 extern const u8 gText_CheatPouchShop[];
@@ -3311,6 +3328,7 @@ extern const u8 gText_MapName_PortSarim[];
 extern const u8 gText_MapName_MelzarsMaze[];
 extern const u8 gText_MapName_DwarvenMines[];
 extern const u8 gText_MapName_Crandor[];
+extern const u8 gText_MapName_IceMountain[];
 
 extern const u8 gText_SideQuestName_Main_Story[];
 extern const u8 gText_SideQuestDesc_Main_Story[];
@@ -3334,6 +3352,12 @@ extern const u8 gText_SubQuest_Main_Story_Name9[];
 extern const u8 gText_SubQuest_Main_Story_Desc9[];
 extern const u8 gText_SubQuest_Main_Story_Name10[];
 extern const u8 gText_SubQuest_Main_Story_Desc10[];
+extern const u8 gText_SubQuest_Main_Story_Name11[];
+extern const u8 gText_SubQuest_Main_Story_Desc11[];
+extern const u8 gText_SubQuest_Main_Story_Name12[];
+extern const u8 gText_SubQuest_Main_Story_Desc12[];
+extern const u8 gText_SubQuest_Main_Story_Name13[];
+extern const u8 gText_SubQuest_Main_Story_Desc13[];
 
 extern const u8 gText_SideQuestName_MithrilmanQuest[];
 extern const u8 gText_SideQuestDesc_MithrilmanQuest[];
@@ -3345,7 +3369,23 @@ extern const u8 gText_SubQuest_MithrilmanQuest_Name3[];
 extern const u8 gText_SubQuest_MithrilmanQuest_Desc3[];
 extern const u8 gText_SubQuest_MithrilmanQuest_Name4[];
 extern const u8 gText_SubQuest_MithrilmanQuest_Desc4[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name5[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc5[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name6[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc6[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Name7[];
+extern const u8 gText_SubQuest_MithrilmanQuest_Desc7[];
 
+extern const u8 gText_SideQuestName_QuestPowerPlantScorpions[];
+extern const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name1[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc1[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name2[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc2[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name3[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc3[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Name4[];
+extern const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc4[];
 
 
 /*

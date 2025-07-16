@@ -148,6 +148,7 @@
 #define STATUS2_FORESIGHT             (1 << 29)
 #define STATUS2_DEFENSE_CURL          (1 << 30)
 #define STATUS2_TORMENT               (1 << 31)
+#define STATUS2_PRAYER_ACTIVATED      (1 << 32)
 
 #define STATUS3_LEECHSEED_BATTLER       (1 << 0 | 1 << 1) // The battler to receive HP from Leech Seed
 #define STATUS3_LEECHSEED               (1 << 2)
@@ -263,7 +264,7 @@
 #define STATUS_FIELD_CHAOTIC_RIFT                   (1 << 12)
 #define STATUS_FIELD_TERRAIN_PERMANENT              (1 << 13)   // Overworld thunderstorm generates electric terrain
 
-#define STATUS_FIELD_TERRAIN_ANY        (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN)
+#define STATUS_FIELD_TERRAIN_ANY        (STATUS_FIELD_GRASSY_TERRAIN | STATUS_FIELD_MISTY_TERRAIN | STATUS_FIELD_ELECTRIC_TERRAIN | STATUS_FIELD_PSYCHIC_TERRAIN | STATUS_FIELD_CHAOTIC_RIFT)
 
 // Flags describing move's result
 #define MOVE_RESULT_MISSED                (1 << 0)

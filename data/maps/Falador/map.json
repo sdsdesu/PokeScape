@@ -302,7 +302,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "NPC_DUCK",
       "flag": "0"
     },
     {
@@ -315,7 +315,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "NPC_DUCK",
       "flag": "0"
     },
     {
@@ -328,7 +328,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "NPC_DUCK",
       "flag": "0"
     },
     {
@@ -406,8 +406,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_FALADOR_2",
-      "flag": "FLAG_ITEM_FALADOR_2"
+      "script": "ITEM_RECEIVED_TM26",
+      "flag": "FLAG_RECEIVED_TM26"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -419,7 +419,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_FALADOR_1",
+      "script": "FIND_ITEM_ADAMANT_POUCHES",
       "flag": "FLAG_ITEM_FALADOR_1"
     },
     {
@@ -720,6 +720,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_TEMP_1D"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANGRENNOUILLE",
+      "x": 58,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "FROGEEL_RIVAL_2",
+      "flag": "FLAG_TEMP_10"
     }
   ],
   "warp_events": [

@@ -47,12 +47,17 @@
       "map": "MAP_ROUTE15",
       "offset": 46,
       "direction": "up"
+    },
+    {
+      "map": "MAP_ROUTE36",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
-      "x": 28,
+      "x": 29,
       "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -65,20 +70,20 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
-      "x": 34,
-      "y": 33,
+      "x": 35,
+      "y": 34,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_LEFT",
       "movement_range_x": 4,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ENCOUNTER_COW",
-      "flag": "FLAG_TEMP_8"
+      "script": "NPC_ROUTE12_COW",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
-      "x": 31,
+      "x": 32,
       "y": 38,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -91,7 +96,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_1",
-      "x": 27,
+      "x": 23,
       "y": 59,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
@@ -104,8 +109,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_1",
-      "x": 27,
-      "y": 48,
+      "x": 25,
+      "y": 43,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -117,8 +122,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_2",
-      "x": 21,
-      "y": 46,
+      "x": 16,
+      "y": 43,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -129,11 +134,11 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GOBLIN_2",
-      "x": 25,
-      "y": 31,
+      "graphics_id": "OBJ_EVENT_GFX_GOBLIN_1",
+      "x": 20,
+      "y": 32,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -143,8 +148,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHICKEN",
-      "x": 18,
-      "y": 16,
+      "x": 15,
+      "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -156,8 +161,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHICKEN",
-      "x": 14,
-      "y": 17,
+      "x": 10,
+      "y": 16,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -169,7 +174,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CHICKEN",
-      "x": 16,
+      "x": 12,
       "y": 18,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -182,10 +187,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NOOB",
-      "x": 23,
-      "y": 15,
+      "x": 21,
+      "y": 13,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -195,12 +200,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",
-      "x": 16,
+      "x": 8,
       "y": 6,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 5,
+      "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_ROUTE12_Farmer",
@@ -230,7 +235,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "0"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SHEEP",
@@ -243,7 +248,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NPC_SHEEP",
-      "flag": "0"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",
@@ -256,12 +261,12 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BLOCK_Route12_Farmer",
-      "flag": "0"
+      "flag": "FLAG_ROUTE13_BLOCK"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_F",
       "x": 29,
-      "y": 28,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -274,7 +279,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_COW_DAIRY",
       "x": 28,
-      "y": 28,
+      "y": 27,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -286,7 +291,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 12,
+      "x": 8,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -294,8 +299,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_EGG",
-      "flag": "FLAG_ITEM_ROUTE12_EGG"
+      "script": "FIND_ITEM_PINEAPPLE_PUNCH",
+      "flag": "FLAG_ITEM_ROUTE12_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -307,21 +312,21 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_WIZARDS_BLIZZARD",
-      "flag": "FLAG_ITEM_ROUTE12_WIZARDS_BLIZZARD"
+      "script": "FIND_ITEM_FRUIT_BLAST",
+      "flag": "FLAG_ITEM_ROUTE12_3"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 35,
-      "y": 18,
+      "x": 10,
+      "y": 40,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_ATTACK_POTION",
-      "flag": "FLAG_ITEM_ROUTE12_ATTACK_POTION"
+      "script": "FIND_ITEM_IRON_POUCHES",
+      "flag": "FLAG_ITEM_ROUTE12_2"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -333,8 +338,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_CABBAGE",
-      "flag": "FLAG_ITEM_ROUTE12_CABBAGE"
+      "script": "FIND_ITEM_CABBAGE",
+      "flag": "FLAG_ITEM_ROUTE12_1"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -346,15 +351,15 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_ROUTE12_BREAD",
-      "flag": "FLAG_ITEM_ROUTE12_BREAD"
+      "script": "FIND_ITEM_SPATT_LAMP",
+      "flag": "FLAG_ITEM_ROUTE12_4"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 15,
+      "x": 8,
       "y": 33,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -364,8 +369,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GOBLIN_2",
-      "x": 14,
-      "y": 37,
+      "x": 9,
+      "y": 35,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -377,7 +382,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
-      "x": 11,
+      "x": 7,
       "y": 51,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -398,7 +403,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ALKHARID_GATE_GUARD",
+      "script": "ALKHARID_GATE_GUARD_1",
       "flag": "0"
     },
     {
@@ -411,12 +416,12 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ALKHARID_GATE_GUARD",
+      "script": "ALKHARID_GATE_GUARD_2",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
-      "x": 9,
+      "x": 5,
       "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -430,7 +435,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
       "x": 34,
-      "y": 28,
+      "y": 24,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 4,
@@ -442,10 +447,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_COW",
-      "x": 30,
+      "x": 31,
       "y": 32,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -455,34 +460,34 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILING_6",
-      "x": 9,
-      "y": 64,
+      "x": 11,
+      "y": 65,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
       "movement_range_x": 8,
       "movement_range_y": 8,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_ROUTE12_RIVER_TRAINER_2",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILING_4",
-      "x": 6,
-      "y": 36,
+      "x": 4,
+      "y": 38,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
-      "movement_range_x": 4,
-      "movement_range_y": 4,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_ROUTE12_RIVER_TRAINER_1",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
-      "x": 17,
-      "y": 64,
+      "x": 18,
+      "y": 66,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
@@ -494,7 +499,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
-      "x": 11,
+      "x": 5,
       "y": 44,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -502,26 +507,156 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "NPC_DUCK",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DUCK_SWIM",
-      "x": 7,
-      "y": 11,
+      "x": 2,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 2,
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_DUCK",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COW",
+      "x": 25,
+      "y": 24,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_COW",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_COW",
+      "x": 25,
+      "y": 20,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 3,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "ENCOUNTER_COW",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LUKIENLIGHT",
+      "x": 34,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_ROUTE12_BRONZEMAN",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NOOB",
+      "x": 32,
+      "y": 23,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 4,
+      "movement_range_y": 4,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_ROUTE12_NOOB",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CHICKEN",
+      "x": 9,
+      "y": 19,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_LUMBRIDGE_CHICKEN",
+      "flag": "FLAG_TEMP_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HYPER_STAN",
+      "x": 9,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_ROUTE12_SAILING",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RAVEN",
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_IRONMAN",
+      "x": 20,
+      "y": 55,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT",
+      "movement_range_x": 4,
+      "movement_range_y": 4,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NPC_ROUTE12_IRONMAN",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OZAN",
+      "x": 32,
+      "y": 52,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_9"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HAM_SACK",
+      "x": 37,
+      "y": 53,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_9"
     }
   ],
   "warp_events": [
     {
-      "x": 10,
+      "x": 6,
       "y": 19,
       "elevation": 0,
       "dest_map": "MAP_ROUTE1_HOUSE_1",
@@ -531,7 +666,7 @@
       "x": 31,
       "y": 12,
       "elevation": 0,
-      "dest_map": "MAP_ROUTE12",
+      "dest_map": "MAP_PURO_PURO1",
       "dest_warp_id": "0"
     }
   ],
@@ -541,15 +676,60 @@
       "x": 36,
       "y": 54,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
-      "var_value": "0",
+      "var": "VAR_TEMP_3",
+      "var_value": "1",
       "script": "TRIGGER_ALKHARID_GATE"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 53,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 52,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 54,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "TRIGGER_ALKHARID_HAM_EVENT_1"
     }
   ],
   "bg_events": [
     {
       "type": "sign",
-      "x": 21,
+      "x": 17,
       "y": 42,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -558,17 +738,17 @@
     {
       "type": "sign",
       "x": 30,
-      "y": 52,
+      "y": 50,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "SIGN_ROUTE12"
     },
     {
       "type": "hidden_item",
-      "x": 13,
+      "x": 9,
       "y": 25,
       "elevation": 0,
-      "item": "ITEM_BREAD",
+      "item": "ITEM_CAKE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE12_1"
     }
   ],

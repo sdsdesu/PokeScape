@@ -85,7 +85,7 @@
 #define VAR_FANCLUB_FAN_COUNTER              0x4041
 #define VAR_FANCLUB_LOSE_FAN_TIMER           0x4042
 #define VAR_DEPT_STORE_FLOOR                 0x4043
-#define VAR_TRICK_HOUSE_LEVEL                0x4044
+#define VAR_EDGEVILLE_KRYSTILIA              0x4044     // VAR_TRICK_HOUSE_LEVEL
 #define VAR_POKELOT_PRIZE_ITEM               0x4045
 #define VAR_NATIONAL_DEX                     0x4046
 #define VAR_SEEDOT_SIZE_RECORD               0x4047
@@ -211,14 +211,14 @@
 #define VAR_METEOR_FALLS_STATE               0x40BF
 #define VAR_SOOTOPOLIS_MYSTERY_EVENTS_STATE  0x40C0
 #define VAR_POKESCAPE_DAEMONHEIM_GYM_QUEST   0x40C1 //VAR_TRICK_HOUSE_PRIZE_PICKUP 
-#define VAR_PACIFIDLOG_TM_RECEIVED_DAY       0x40C2
-#define VAR_VICTORY_ROAD_1F_STATE            0x40C3
-#define VAR_FOSSIL_RESURRECTION_STATE        0x40C4
-#define VAR_WHICH_FOSSIL_REVIVED             0x40C5
-#define VAR_STEVENS_HOUSE_STATE              0x40C6
-#define VAR_OLDALE_RIVAL_STATE               0x40C7
-#define VAR_JAGGED_PASS_STATE                0x40C8
-#define VAR_SCOTT_PETALBURG_ENCOUNTER        0x40C9
+#define VAR_BKF_QUIZ_1                       0x40C2 //VAR_PACIFIDLOG_TM_RECEIVED_DAY
+#define VAR_BKF_QUIZ_2                       0x40C3 //VAR_VICTORY_ROAD_1F_STATE
+#define VAR_BKF_QUIZ_3                       0x40C4 //VAR_FOSSIL_RESURRECTION_STATE
+#define VAR_BKF_QUIZ_4                       0x40C5 //VAR_WHICH_FOSSIL_REVIVED
+#define VAR_BKF_QUIZ_5                       0x40C6 //VAR_STEVENS_HOUSE_STATE
+#define VAR_BKF_QUIZ_6                       0x40C7 //VAR_OLDALE_RIVAL_STATE
+#define VAR_BKF_QUIZ_7                       0x40C8 //VAR_JAGGED_PASS_STATE
+#define VAR_DWARVEN_MINES_STATE              0x40C9 //VAR_SCOTT_PETALBURG_ENCOUNTER
 #define VAR_SKY_PILLAR_STATE                 0x40CA
 #define VAR_MIRAGE_TOWER_STATE               0x40CB
 #define VAR_FOSSIL_MANIAC_STATE              0x40CC
@@ -246,7 +246,7 @@
 #define VAR_GIFT_UNUSED_5                    0x40E2 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_6                    0x40E3 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_7                    0x40E4 // var is written to, but never read
-#define VAR_UNUSED_0x40E5                    0x40E5 // Unused Var
+#define VAR_FROGEEL_RIVAL                    0x40E5 // Unused Var
 #define VAR_DAILY_SLOTS                      0x40E6
 #define VAR_DAILY_WILDS                      0x40E7
 #define VAR_DAILY_BLENDER                    0x40E8

@@ -7,31 +7,6 @@ Route3_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	return
 
 
-ITEM_ROUTE3_CORN::
-	finditem ITEM_CORN
-	end
-
-
-ITEM_ROUTE3_REPEL_TEA::
-	finditem ITEM_REPEL_TEA_1
-	end
-
-
-ITEM_BARBARIAN_VILLAGE_1::
-	finditem ITEM_BODY_RUNE
-	end
-
-
-ITEM_BARBARIAN_VILLAGE_2::
-	finditem ITEM_POUCH_ANCIENT
-	end
-
-
-ITEM_BARBARIAN_VILLAGE_3::
-	finditem ITEM_REPEL_TEA_2
-	end
-
-
 ITEM_MUDSKIPPER_SOUND_1::
 	finditem ITEM_SPIRIT_CHARM
 	end
@@ -72,7 +47,7 @@ Script_Maggie_1::
 	trainerbattle_no_intro TRAINER_MAGGIE, Script_Maggie_1_Text_4
 	msgbox Script_Maggie_1_Text_5
 	hidenamebox
-	giveitem ITEM_PURPLE_SWEETS, 1
+	giveitem ITEM_MANY_SWEETS, 1
 	namebox Script_Maggie_1_Text_0
 	msgbox Script_Maggie_1_Text_6
 	closemessage

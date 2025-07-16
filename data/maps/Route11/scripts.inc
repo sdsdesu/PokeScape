@@ -42,31 +42,6 @@ BATTLE_ROUTE11_GRACEFUL::
 	return
 
 
-ITEM_ROUTE11_ITEM_1::
-	finditem ITEM_POTION_ATT
-	end
-
-
-ITEM_ROUTE11_ITEM_2::
-	finditem ITEM_POUCH_MITHRIL
-	end
-
-
-ITEM_ROUTE11_ITEM_3::
-	finditem ITEM_POUCH_CRYSTAL
-	end
-
-
-ITEM_ROUTE11_ITEM_4::
-	finditem ITEM_TM54
-	end
-
-
-ITEM_ROUTE11_ITEM_5::
-	finditem ITEM_WATER_RUNE
-	end
-
-
 NPC_MUDSKIPPERPOINT_NPC_1::
 	lock
 	faceplayer

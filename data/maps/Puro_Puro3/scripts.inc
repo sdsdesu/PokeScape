@@ -73,11 +73,6 @@ ENCOUNTER_PURO_PURO_3_2:
 	goto ENCOUNTER_PURO_PURO_3_1
 
 
-ITEM_PURO_PURO_3::
-	finditem ITEM_POUCH_RUNE
-	end
-
-
 ELNOCK_3_Text_0:
 	.string "Elnock$"
 

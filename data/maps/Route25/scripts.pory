@@ -31,7 +31,7 @@ script BATTLE_ROUTE25_TRAINER_3
 {
     trainerbattle_single(TRAINER_ROUTE25_TRAINER_3, format("I was on my way to do some Runecrafting, have you seen the Altar?"),format("Even if I find the Altar I don't have the correct Talisman for it."))
     //namebox ("Korin65")
-    msgbox(format("Even if I find the Altar I don't have the correct Talisman for it.\pI wonder where I can find it."))
+    msgbox(format("Even if I find the Altar I don't have the correct Talisman for it.\pI wonder where I can find it, it must be somewhere in the region."))
 	hidenamebox
     release
 	end

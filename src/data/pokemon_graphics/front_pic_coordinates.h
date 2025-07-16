@@ -4041,22 +4041,22 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_PHYSICAL_FORM] =
+	[SPECIES_BLOODVELD_INSATIABLE_PHYSICAL] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_SPECIAL_FORM] =
+	[SPECIES_BLOODVELD_RSHD] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_MUTATED_PHYSICAL_FORM] =
+	[SPECIES_BLOODVELD_MUTATED] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_MUTATED_SPECIAL_FORM] =
+	[SPECIES_BLOODVELD_INSATIABLE_SPECIAL] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
@@ -5441,7 +5441,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_BLOODVELD_INSATIABLE_MUTATED_FORM] =
+	[SPECIES_BLOODVELD_GWD] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
@@ -5471,7 +5471,7 @@ const struct MonCoords gMonFrontPicCoords[] =
 		.size = 0x0,
 		.y_offset = 0,
 	},
-	[SPECIES_RACOON] =
+	[SPECIES_RACCOON] =
 	{
 		.size = 0x0,
 		.y_offset = 0,
@@ -7397,6 +7397,347 @@ const struct MonCoords gMonFrontPicCoords[] =
 
 
 	[SPECIES_MOTHER_MALLUM] 
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+
+	[SPECIES_LAVA_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROST_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_DRAGON_CRYSTALLINE_FORM] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_DRAGON_CORRUPTED_FORM] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_SOTTLEPOT] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_REANIMATED_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_WHITE_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_BRONZE_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_IRON_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_STEEL_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_MITHRIL_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_ADAMANT_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_RUNE_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_GALVEK] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CELESTIAL_DRAGON] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_BANDOTRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_SERETRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_ZAROTRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_TUMETRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_UNGOTRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_ARMATRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_SPIRIT_COCKATRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_SEAGUTRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_COOCATRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_PHEATRICE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_MINI_MARM] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_RICHIE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CPT_MARLIN] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_BARRELCHEST] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_LAVA_BEAST] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_LAVA_MONSTER] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_ZOMBIE_HEAD] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_WINTERTOAD] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_PLAGUE_FROG] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_SWAMP_FROG] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CUTHBERT] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_ZORYA] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_LOLA] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_RABBIT_CAERBANNOG] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHOCOLATE_RABBIT] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_HARVEY] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_EASTER_BUNNY] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_WAR_BUNNY] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_RABBIT_STALKER] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_RABBIT_ELDER_STALKER] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHICKEN_FRANK] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHICKEN_DEATH] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHICKEN_WAR] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHICKEN_PESTILENCE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CHICKEN_FAMINE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_CRYSTALLINE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_SEEKER] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_CORPOREAL] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_TZHAAR] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_ABYSSAL] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_REANIMATED] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_STRYKEWYRM] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_SNOW] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_TRIAL] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_MELEE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_MAGIC] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_RANGED] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_SANE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_PRINCE] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_FROGEEL_PRINCESS] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_CORRUPTED_BEAST] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_MOLANISK] =
+	{
+		.size = 0x0,
+		.y_offset = 0,
+	},
+	[SPECIES_DUCKATRICE] =
 	{
 		.size = 0x0,
 		.y_offset = 0,

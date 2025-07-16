@@ -997,6 +997,7 @@ static void GetSeededResultWeather(void)
 
 static void PokeScape_Reset_HiddenGrottos(void)
 {
+    FlagClear(FLAG_GOODIE_BAG);
     FlagClear(FLAG_HIDDEN_GROTTO_1);
     FlagClear(FLAG_HIDDEN_GROTTO_2);
     FlagClear(FLAG_HIDDEN_GROTTO_3);
@@ -1009,8 +1010,40 @@ static void PokeScape_Reset_HiddenGrottos(void)
     FlagClear(FLAG_HIDDEN_GROTTO_10);
     FlagClear(FLAG_HIDDEN_GROTTO_11);
     FlagClear(FLAG_HIDDEN_GROTTO_12);
-    FlagClear(FLAG_GOODIE_BAG);
+    FlagClear(FLAG_HIDDEN_GROTTO_13);
+    FlagClear(FLAG_HIDDEN_GROTTO_14);
+    FlagClear(FLAG_HIDDEN_GROTTO_15);
 }
+static void PokeScape_Reset_DailyEvents(void)
+{
+    FlagClear(FLAG_GOODIE_BAG);
+    FlagClear(FLAG_PUB_TRAINER_1);
+    FlagClear(FLAG_PUB_TRAINER_2);
+    FlagClear(FLAG_PUB_TRAINER_3);
+    FlagClear(FLAG_PUB_TRAINER_4);
+    FlagClear(FLAG_PUB_TRAINER_5);
+    FlagClear(FLAG_PUB_TRAINER_6);
+    FlagClear(FLAG_PUB_TRAINER_7);
+    FlagClear(FLAG_PUB_TRAINER_8);
+    FlagClear(FLAG_PUB_TRAINER_9);
+    FlagClear(FLAG_PUB_TRAINER_10);
+    FlagClear(FLAG_PUB_TRAINER_11);
+    FlagClear(FLAG_PUB_TRAINER_12);
+    FlagClear(FLAG_PUB_TRAINER_13);
+    FlagClear(FLAG_PUB_TRAINER_14);
+    FlagClear(FLAG_PUB_TRAINER_15);
+    FlagClear(FLAG_PUB_TRAINER_16);
+    FlagClear(FLAG_PUB_TRAINER_17);
+    FlagClear(FLAG_PUB_TRAINER_18);
+    FlagClear(FLAG_PUB_TRAINER_19);
+    FlagClear(FLAG_PUB_TRAINER_20);
+}
+
+
+
+
+
+
 
 static void GetSeededResultGrotto(void)
 {
@@ -1043,6 +1076,7 @@ static void PokeScape_CallDailyEvents(void)
             GetSeededResultWeather();
             GetSeededResultGrotto();
             PokeScape_Reset_HiddenGrottos();
+            PokeScape_Reset_DailyEvents();
             FlagSet(FLAG_POKESCAPE_TIME_RESET_MORNING);
         }
     }

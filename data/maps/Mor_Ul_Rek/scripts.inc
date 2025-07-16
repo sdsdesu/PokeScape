@@ -417,13 +417,26 @@ TZHAAR_NPC_12::
 
 
 TZHAAR_NPC_BANKER::
-	lock
+	lockall
 	faceplayer
-	namebox STORYMODE_TZHAAR_NPC_Text_0
-	msgbox TZHAAR_NPC_BANKER_Text_0
+	namebox TZHAAR_NPC_BANKER_Text_0
+	msgbox TZHAAR_NPC_BANKER_Text_1
+	call BANK_OPTIONS_TZHAAR
+	namebox TZHAAR_NPC_BANKER_Text_0
+	msgbox TZHAAR_NPC_BANKER_Text_2
 	closemessage
 	hidenamebox
-	goto BANK_OPTIONS
+	releaseall
+	end
+
+
+TZHAAR_NPC_BANKER_Human::
+	lock
+	faceplayer
+	namebox TZHAAR_NPC_BANKER_Human_Text_0
+	msgbox TZHAAR_NPC_BANKER_Human_Text_1
+	closemessage
+	hidenamebox
 	release
 	end
 
@@ -575,7 +588,7 @@ Movement_Tzhaar_Mithrilman_2:
 	step_end
 
 Mithrilman_TZHAAR1::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	namebox Mithrilman_TZHAAR1_Text_0
 	msgbox Mithrilman_TZHAAR1_Text_1
 	trainerbattle_no_intro TRAINER_MITHRILMAN3, Mithrilman_TZHAAR1_Text_2
@@ -773,11 +786,27 @@ TZHAAR_NPC_12_Text_0:
 	.string "You are not ready to enter yet.$"
 
 TZHAAR_NPC_BANKER_Text_0:
+	.string "Ga'Al Banker$"
+
+TZHAAR_NPC_BANKER_Text_1:
 	.string "Greetings, welcome to the Bank of\n"
 	.string "Tzhaar!\p"
 	.string "We are learning new things from this\n"
 	.string "JalYt.\p"
-	.string "What can I help you with today?$"
+	.string "What can we help you with today?$"
+
+TZHAAR_NPC_BANKER_Text_2:
+	.string "Come again anytime.$"
+
+TZHAAR_NPC_BANKER_Human_Text_0:
+	.string "Banker$"
+
+TZHAAR_NPC_BANKER_Human_Text_1:
+	.string "If you need something speak with these\n"
+	.string "Tzhaar.\p"
+	.string "The big one will heal your monsters and\n"
+	.string "the little one will help them learn\l"
+	.string "moves.$"
 
 TZHAAR_NPC_13_Text_0:
 	.string "Tzhaar-Ket$"
@@ -892,7 +921,7 @@ Mithrilman_TZHAAR1_Text_0:
 
 Mithrilman_TZHAAR1_Text_1:
 	.string "Fromst the scorching heats of the\n"
-	.string "dunes to a pleasant vaction I see\l"
+	.string "dunes to a pleasant vacation I see\l"
 	.string "knave.\p"
 	.string "Greetings.\p"
 	.string "Thoust must be here to battle the\n"

@@ -415,11 +415,6 @@ Movement_punchGoblin:
 	walk_in_place_faster_down
 	step_end
 
-ITEM_LIGHTHOUSE_1::
-	finditem ITEM_POTION_SPATT
-	end
-
-
 LIGHTHOUSE_3F_NPC_1_Text_0:
 	.string "The guard looks like they're struggling\n"
 	.string "to hold the H.A.M member off.$"

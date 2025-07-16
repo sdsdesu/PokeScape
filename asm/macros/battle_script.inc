@@ -1157,10 +1157,9 @@
 	.byte 0xe0
 	.4byte \failInstr
 	.endm
-
-	.macro unused2 ptr:req
+	
+	.macro gettokkul
 	.byte 0xe1
-	.4byte \ptr
 	.endm
 
 	.macro switchoutabilities battler:req
@@ -1182,7 +1181,7 @@
 	.byte 0xe5
 	.endm
 
-	.macro unused3
+	.macro setprayeractivatedbit
 	.byte 0xe6
 	.endm
 
@@ -2426,6 +2425,4 @@
 	various \battler, VARIOUS_FREE_STUFF
 	.endm
 
-	.macro gettokkul
-	.byte 0xE1
-	.endm
+	

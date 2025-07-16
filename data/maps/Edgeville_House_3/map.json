@@ -2,7 +2,7 @@
   "id": "MAP_EDGEVILLE_HOUSE_3",
   "name": "Edgeville_House_3",
   "layout": "LAYOUT_EDGEVILLE_HOUSE_3",
-  "music": "MUS_PS_EDGEVILLE",
+  "music": "MUS_PS_BARBARIAN_VILLAGE",
   "region_map_section": "MAPSEC_EDGEVILLE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -89,8 +89,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_EDGEVILLE_INDOOR_1",
-      "flag": "FLAG_ITEM_REPEATABLE_ITEM_6"
+      "script": "FIND_ITEM_BEER",
+      "flag": "FLAG_ITEM_EDGEVILLE_1"
     }
   ],
   "warp_events": [
@@ -118,7 +118,7 @@
       "x": 2,
       "y": 3,
       "elevation": 0,
-      "item": "ITEM_PURPLE_SWEETS",
+      "item": "ITEM_MANY_SWEETS",
       "flag": "FLAG_TEMP_1"
     },
     {

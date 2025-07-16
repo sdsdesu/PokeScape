@@ -837,6 +837,7 @@ static const u8 sText_TheSwampDisappeared[] = _("The swamp around {B_ATK_TEAM2}\
 static const u8 sText_WeatherDisapearedBook[] = _("The effects of weather disappeared\ndue to the Book of Balance.");
 static const u8 sText_TzhaarWeather1[] = _("It is very hot.");
 static const u8 sText_TzhaarWeather2[] = _("The heat is way too extreme!");
+static const u8 sText_ElectroShockCharging[] = _("{B_ATK_NAME_WITH_PREFIX} absorbed\nelectricity!");
 
 //Pokescape Start
 static const u8 sText_CantRunFromRat[] = _("DON'T EVEN THINK ABOUT RUNNING\nFROM A RAT!!");
@@ -873,13 +874,23 @@ static const u8 sText_Melzar_PlayerMonUnaffected[] = _("Cabbage stew!{PAUSE_UNTI
 static const u8 sText_Melzar_PlayerLost[] = _("Feel the wrath of my feet!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PlayerGotTokkul[] = _("{B_PLAYER_NAME} got {B_BUFF1} TOKKUL\nfor winning!\p");
 static const u8 sText_CutHPIncreasedStats[] = _("{B_ATK_NAME_WITH_PREFIX} increased it's\nstats at the cost of it's health!");
-
-
-
+static const u8 sText_SirTiffy_BeforeFirstTurn[] = _("You are fighting a White Knight and master benchsitter here, dontchaknow!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SirTiffy_SwitchIn[] = _("Hard to not enjoy this battle with the finest tea when you've got me this riled up {PLAYER}.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_SirTiffy_PlayerLost[] = _("Better luck next time old bean. Ta-ta for now!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hazelmere_BeforeFirstTurn[] = _("Lemanto ip ko por bom.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hazelmere_SwitchIn[] = _("Mi lovos batta gandius.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hazelmere_PlayerLost[] = _("Ip kar cef pro eis!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hans_FirstDown[] = _("I had a feeling you would do that.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hans_SwitchIn[] = _("This reminds me of that one gym battle. You know the one!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Hans_PlayerLost[] = _("Back to Lumbridge {PLAYER}!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Zanik_BeforeFirstTurn[] = _("We dont need gods, because we can fight anything when we stand together.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Zanik_SwitchIn[] = _("We can never surrender, not as long as we can fight.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_Zanik_PlayerLost[] = _("Nothing can stand up to my crossbow!{PAUSE_UNTIL_PRESS}");
 
 const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
     [STRINGID_THESWAMPDISAPPEARED - BATTLESTRINGS_TABLE_START] = sText_TheSwampDisappeared,
+    [STRINGID_ELECTROSHOCKCHARGING - BATTLESTRINGS_TABLE_START] = sText_ElectroShockCharging,
     [STRINGID_SWAMPENVELOPEDSIDE - BATTLESTRINGS_TABLE_START] = sText_SwampEnvelopedSide,
     [STRINGID_THESEAOFFIREDISAPPEARED - BATTLESTRINGS_TABLE_START] = sText_TheSeaOfFireDisappeared,
     [STRINGID_HURTBYTHESEAOFFIRE - BATTLESTRINGS_TABLE_START] = sText_HurtByTheSeaOfFire,
@@ -1604,7 +1615,18 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_TZHAAR_WEATHER_2 - BATTLESTRINGS_TABLE_START] = sText_TzhaarWeather2,
     [STRINGID_PLAYERGOTTOKKUL - BATTLESTRINGS_TABLE_START] = sText_PlayerGotTokkul,
     [STRINGID_CUTHPINCREASEDSTATS - BATTLESTRINGS_TABLE_START] = sText_CutHPIncreasedStats,
-
+    [STRINGID_SIRTIFFY_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_SirTiffy_BeforeFirstTurn,
+    [STRINGID_SIRTIFFY_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_SirTiffy_SwitchIn,
+    [STRINGID_SIRTIFFY_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_SirTiffy_PlayerLost,
+    [STRINGID_HAZELMERE_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Hazelmere_BeforeFirstTurn,
+    [STRINGID_HAZELMERE_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Hazelmere_SwitchIn,
+    [STRINGID_HAZELMERE_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Hazelmere_PlayerLost,
+    [STRINGID_HANS_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Hans_FirstDown,
+    [STRINGID_HANS_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Hans_SwitchIn,
+    [STRINGID_HANS_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Hans_PlayerLost,
+    [STRINGID_ZANIK_MESSAGE_1 - BATTLESTRINGS_TABLE_START] = sText_Zanik_BeforeFirstTurn,
+    [STRINGID_ZANIK_MESSAGE_2 - BATTLESTRINGS_TABLE_START] = sText_Zanik_SwitchIn,
+    [STRINGID_ZANIK_MESSAGE_3 - BATTLESTRINGS_TABLE_START] = sText_Zanik_PlayerLost,
 
 };
 
@@ -1847,6 +1869,7 @@ const u16 gFirstTurnOfTwoStringIds[] =
     [B_MSG_TURN1_FREEZE_SHOCK]  = STRINGID_CLOAKEDINAFREEZINGLIGHT,
     [B_MSG_TURN1_SKY_DROP]      = STRINGID_PKMNTOOKTARGETHIGH,
     [B_MSG_TURN1_METEOR_BEAM]   = STRINGID_METEORBEAMCHARGING,
+    [B_MSG_TURN1_ELECTRO_SHOCK] = STRINGID_ELECTROSHOCKCHARGING,
 };
 
 // Index copied from move's index in sTrappingMoves
@@ -4248,6 +4271,41 @@ static const struct TrainerSlide sTrainerSlides[] =
         .msgLastLowHp = sText_Melzar_LastLowHp, //Leave me alone, I need to feed my pet rock!
         .msgPlayerMonUnaffected = sText_Melzar_PlayerMonUnaffected, //Cabbage stew!
         .msgPlayerLost = sText_Melzar_PlayerLost, //Feel the wrath of my feet!
+    },
+
+    {
+        .trainerId = TRAINER_ELITE4_SIR_TIFFY_1,
+        .msgBeforeFirstTurn = sText_SirTiffy_BeforeFirstTurn,
+        .msgLastSwitchIn = sText_SirTiffy_SwitchIn,
+        .msgPlayerLost = sText_SirTiffy_PlayerLost,
+    },
+
+    {
+        .trainerId = TRAINER_ELITE4_HAZELMERE_1,
+        .msgBeforeFirstTurn = sText_Hazelmere_BeforeFirstTurn,
+        .msgLastSwitchIn = sText_Hazelmere_SwitchIn,
+        .msgPlayerLost = sText_Hazelmere_PlayerLost,
+    },
+
+    {
+        .trainerId = TRAINER_ELITE4_HANS_1_GRASS,
+        .msgFirstDown = sText_Hans_FirstDown,
+        .msgLastSwitchIn = sText_Hans_SwitchIn,
+        .msgPlayerLost = sText_Hans_PlayerLost,
+    },
+
+        {
+        .trainerId = TRAINER_ELITE4_HANS_1_FIRE,
+        .msgFirstDown = sText_Hans_FirstDown,
+        .msgLastSwitchIn = sText_Hans_SwitchIn,
+        .msgPlayerLost = sText_Hans_PlayerLost,
+    },
+
+    {
+        .trainerId = TRAINER_ELITE4_HANS_1_WATER,
+        .msgFirstDown = sText_Hans_FirstDown,
+        .msgLastSwitchIn = sText_Hans_SwitchIn,
+        .msgPlayerLost = sText_Hans_PlayerLost,
     },
 };
 

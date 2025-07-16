@@ -3339,7 +3339,7 @@ const u8 gNotDoneYetDescription[] = _(
 // Pokescape
 static const u8 sChaoticRiftDescription[] = _(
     "Opens a chaotic rift.\n"
-    "Type matchups get weird!.");
+    "Type matchups get weird!");
 
 static const u8 sSwordStrikeDescription[] = _(
     "Strike forth with a mighty blade.\n"
@@ -3374,8 +3374,8 @@ static const u8 sBloodBarrageDescription[] = _(
     "Steals a large amount of health.");
 
 static const u8 sVengeanceDescription[] = _(
-    "Reflect some of the damage taken\n"
-    "back at the enemy.");
+    "Reflect some of the damage\n"
+    "taken back at the enemy.");
 
 static const u8 sArmadylStormDescription[] = _(
     "Strike the target with armadyls winds.\n"
@@ -3613,6 +3613,31 @@ static const u8 sBerserkDescription[] = _(
     "Raises Atk, Def & Speed stats.\n"
     "Lowers SpDef.");
     
+static const u8 sDefianceDescription[] = _(
+    "Has a chance to sharply lower\n"
+    "SpDef.");
+
+static const u8 sPietyDescription[] = _(
+    "\n"
+    "");
+static const u8 sTurmoilDescription[] = _(
+    "\n"
+    "");
+static const u8 sRigourDescription[] = _(
+    "\n"
+    "");
+static const u8 sTormentPrayerDescription[] = _(
+    "\n"
+    "");
+static const u8 sDAuguryDescription[] = _(
+    "\n"
+    "");
+static const u8 sAnguishDescription[] = _(
+    "\n"
+    "");
+static const u8 sDivineRageDescription[] = _(
+    "\n"
+    "");
 
 #undef BINDING_TURNS
 
@@ -4541,5 +4566,16 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_EXCALIBUR - 1] = sExcaliburDescription,
     [MOVE_SNELM_SHOWOFF - 1] = sSnelmShowoffDescription,
     [MOVE_ENERGY_DRAIN - 1] = sEnergyDrainDescription,
-    [MOVE_BERSERK - 1] = sBerserkDescription,    
+    [MOVE_BERSERK - 1] = sBerserkDescription,  
+    [MOVE_DEFIANCE - 1] = sDefianceDescription,
+    [MOVE_PIETY - 1] = sPietyDescription,
+    [MOVE_TURMOIL - 1] = sTurmoilDescription,
+    [MOVE_RIGOUR - 1] = sRigourDescription,
+    [MOVE_TORMENT_PRAYER - 1] = sTormentPrayerDescription,
+    [MOVE_AUGURY - 1] = sDAuguryDescription,
+    [MOVE_ANGUISH - 1] = sAnguishDescription,
+    [MOVE_DIVINERAGE - 1] = sDivineRageDescription,
+
+
+
 };

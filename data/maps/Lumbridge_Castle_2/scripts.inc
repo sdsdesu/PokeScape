@@ -834,7 +834,7 @@ QUEST_Cooks_Assistant_STATE_4:
 	closemessage
 	giveitem ITEM_BREAD, 5
 	giveitem ITEM_CAKE, 1
-	giveitem ITEM_PURPLE_SWEETS, 2
+	giveitem ITEM_EXP_CANDY_XS, 15
 	namebox Lumbridge_Castle_COOKS_TRIGGER_celler_Text_0
 	msgbox QUEST_Cooks_Assistant_STATE_Text_14
 	compare VAR_POKESCAPE_GAMEMODE_STATE, 0
@@ -1191,6 +1191,17 @@ NPC_RAVEN_TRAINING::
 	end
 
 
+NPC_LUMBRIDGE_REGIONEVOS::
+	lock
+	faceplayer
+	namebox NPC_LUMBRIDGE_REGIONEVOS_Text_0
+	msgbox NPC_LUMBRIDGE_REGIONEVOS_Text_1
+	hidenamebox
+	closemessage
+	release
+	end
+
+
 Mithrilman_LUMBRIDGE::
 	lock
 	faceplayer
@@ -1280,7 +1291,7 @@ Movement_MithrilmanSpotted:
 	step_end
 
 Mithrilman_LUMBRIDGE_STATE_2::
-	playbgm MUS_ENCOUNTER_MAY, 1
+	playbgm MUS_PS_ENCOUNTER_MITHRILMAN, 1
 	compare VAR_POKESCAPE_COOKS_ASSISTANT_QUEST_STATE, 0
 	goto_if_eq Mithrilman_LUMBRIDGE_STATE_2_1
 	namebox Mithrilman_LUMBRIDGE_STATE_2_Text_0
@@ -1715,6 +1726,14 @@ NPC_RAVEN_TRAINING_Text_0:
 
 NPC_RAVEN_TRAINING_Text_1:
 	.string "TWITTER!$"
+
+NPC_LUMBRIDGE_REGIONEVOS_Text_0:
+	.string "Newb$"
+
+NPC_LUMBRIDGE_REGIONEVOS_Text_1:
+	.string "Woah, did you know that some monsters\n"
+	.string "evolve into different things depending\l"
+	.string "on where in Gielinor they are?$"
 
 Mithrilman_LUMBRIDGE_STATE_2_Text_0:
 	.string "???$"

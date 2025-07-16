@@ -472,6 +472,7 @@ const u32 gObjectEventPic_Barbarian_Female_2[] = INCBIN_U32("graphics/object_eve
 const u32 gObjectEventPic_Barbarian_Male_1[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/barbarian_male_1.4bpp");
 const u32 gObjectEventPic_Barbarian_Male_2[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/barbarian_male_2.4bpp");
 const u32 gObjectEventPic_Tzhaar_Ga_al[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_ga_al.4bpp");
+const u32 gObjectEventPic_Tzhaar_Banker[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_banker.4bpp");
 const u32 gObjectEventPic_Tzhaar_1[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_1.4bpp");
 const u32 gObjectEventPic_Tzhaar_2[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_2.4bpp");
 const u32 gObjectEventPic_Tzhaar_3[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/tzhaar_3.4bpp");
@@ -775,6 +776,33 @@ const u32 gObjectEventPic_sailing_4[] = INCBIN_U32("graphics/object_events/pics/
 const u32 gObjectEventPic_sailing_5[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/sailing_5.4bpp");
 const u32 gObjectEventPic_sailing_6[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/sailing_6.4bpp");
 const u32 gObjectEventPic_Guard_Nude[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/guard_nude.4bpp");
+const u32 gObjectEventPic_baby_dragon_black[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/baby_dragon_black.4bpp");
+const u32 gObjectEventPic_baby_dragon_red[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/baby_dragon_red.4bpp");
+const u32 gObjectEventPic_baby_dragon_green[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/baby_dragon_green.4bpp");
+const u32 gObjectEventPic_baby_dragon_blue[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/baby_dragon_blue.4bpp");
+const u32 gObjectEventPic_bat_grey[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/bat_grey.4bpp");
+const u32 gObjectEventPic_bear_black[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/bear_black.4bpp");
+const u32 gObjectEventPic_bear_brown[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/bear_brown.4bpp");
+const u32 gObjectEventPic_chinchompa_grey[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/chinchompa_grey.4bpp");
+const u32 gObjectEventPic_chinchompa_red[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/chinchompa_red.4bpp");
+const u32 gObjectEventPic_chinchompa_yellow[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/chinchompa_yellow.4bpp");
+const u32 gObjectEventPic_chinchompa_blue[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/chinchompa_blue.4bpp");
+const u32 gObjectEventPic_chinchompa_green[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/chinchompa_green.4bpp");
+const u32 gObjectEventPic_dagannoth[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/dagannoth.4bpp");
+const u32 gObjectEventPic_crab_red[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/crab_red.4bpp");
+const u32 gObjectEventPic_spider_green[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/spider_green.4bpp");
+const u32 gObjectEventPic_spider_brown[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/spider_brown.4bpp");
+const u32 gObjectEventPic_spider_red[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/spider_red.4bpp");
+const u32 gObjectEventPic_spider_blue[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/spider_blue.4bpp");
+const u32 gObjectEventPic_fleshcrawler[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/fleshcrawler.4bpp");
+const u32 gObjectEventPic_essence[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/essence.4bpp");
+const u32 gObjectEventPic_twisted[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/twisted.4bpp");
+const u32 gObjectEventPic_genie[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/genie.4bpp");
+const u32 gObjectEventPic_doris[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/doris.4bpp");
+const u32 gObjectEventPic_angrennouille[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/angrennouille.4bpp");
+const u32 gObjectEventPic_ham_sack[] = INCBIN_U32("graphics/object_events/pics/pokescape_overworlds/ham_sack.4bpp");
+
+const u32 gObjectEventPic_bike_ham[] = INCBIN_U32("graphics/object_events/pics/costumes/bike_ham.4bpp");
 
 //POKESCAPE PALETTES
 /*
@@ -962,7 +990,7 @@ const u16 gObjectEventPalette_TzTok_Jad[] = INCBIN_U16("graphics/object_events/p
 const u16 gObjectEventPalette_Mole_Giant[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/mole_giant.gbapal");
 const u16 gObjectEventPalette_Mole_Baby[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/mole_baby.gbapal");
 const u16 gObjectEventPalette_Camel[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/camel.gbapal");
-const u16 gObjectEventPalette_Frogeel[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/frogeel.gbapal");
+
 //const u16 gObjectEventPalette_Scorpion[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/scorpion.gbapal");
 const u16 gObjectEventPalette_Slime[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/slime.gbapal");
 const u16 gObjectEventPalette_Raven[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/raven.gbapal");
@@ -991,11 +1019,9 @@ const u16 gObjectEventPalette_Abyss_Portal[] = INCBIN_U16("graphics/object_event
 //const u16 gObjectEventPalette_Chair[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/chair.gbapal");
 const u16 gObjectEventPalette_GhostDisguise[] = INCBIN_U16("graphics/field_effects/pics/GhostDisguise.gbapal");
 const u16 gObjectEventPalette_ZombieDisguise[] = INCBIN_U16("graphics/field_effects/pics/ZombieDisguise.gbapal");
-
 const u16 gObjectEventPalette_Archaeologist[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/archaeologist.gbapal");
 const u16 gObjectEventPalette_Diviner[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/diviner.gbapal");
 const u16 gObjectEventPalette_Durial321[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/durial321.gbapal");
-
 const u16 gObjectEventPalette_DOGS[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/Dogs.gbapal");
 const u16 gObjectEventPalette_CATS[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/Cats.gbapal");
 const u16 gObjectEventPalette_SKELETAL[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/Skeletal.gbapal");
@@ -1010,8 +1036,6 @@ const u16 gObjectEventPalette_KNIGHTS2[] = INCBIN_U16("graphics/object_events/pa
 const u16 gObjectEventPalette_HAM[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/HAM.gbapal");
 const u16 gObjectEventPalette_BARROWS[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/Barrows.gbapal");
 const u16 gObjectEventPalette_GOBLIN_GREEN[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/GOBLIN_GREEN.gbapal");
-
-
 const u16 gObjectEventPalette_Smuggler[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/smuggler.gbapal");
 const u16 gObjectEventPalette_Pker_Rusher[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/Pker_Rusher.gbapal");
 const u16 gObjectEventPalette_RAC_PALETTE_1[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/RAC_PALETTE_1.gbapal");
@@ -1020,7 +1044,6 @@ const u16 gObjectEventPalette_RAC_PALETTE_3[] = INCBIN_U16("graphics/object_even
 const u16 gObjectEventPalette_RAC_PALETTE_4[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/RAC_PALETTE_4.gbapal");
 const u16 gObjectEventPalette_RAC_PALETTE_5[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/RAC_PALETTE_5.gbapal");
 const u16 gObjectEventPalette_RAC_PALETTE_6[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/RAC_PALETTE_6.gbapal");
-
 const u16 gObjectEventPalette_CORP_BOSS[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/CORP_BOSS.gbapal");
 const u16 gObjectEventPalette_GIANTS[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/giants.gbapal");
 const u16 gObjectEventPalette_Skotizo[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/skotizo.gbapal");
@@ -1042,7 +1065,11 @@ const u16 gObjectEventPalette_DUNGEONEERING_2[] = INCBIN_U16("graphics/object_ev
 const u16 gObjectEventPalette_GREYPAL[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/greypalette.gbapal");
 const u16 gObjectEventPalette_ELITEBLACK[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/eliteblack_palette.gbapal");
 const u16 gObjectEventPalette_SAILING[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/sailing.gbapal");
-
+const u16 gObjectEventPalette_GORAJO[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/gorajo.gbapal");
+const u16 gObjectEventPalette_MONSTERS_GREEN_BLUE_YELLOW[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/monsters_green_blue_yellow.gbapal");
+const u16 gObjectEventPalette_MONSTERS_RED_GREY[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/monsters_red_grey.gbapal");
+const u16 gObjectEventPalette_GENIE[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/genie.gbapal");
+const u16 gObjectEventPalette_Frogeel[] = INCBIN_U16("graphics/object_events/palettes/PokeScape_Palettes/frogeel.gbapal");
 
 /*
 const u16 gObjectEventPalette_RAC_BATS[] = INCBIN_U16("graphics/object_events/pics/pokescape_overworlds/rac_bats.gbapal");

@@ -1,23 +1,19 @@
 Varrock_Pub_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Varrock_Pub_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, Varrock_Pub_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 Varrock_Pub_1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 	call PUB_EVENT_STATE
 	return
 
-Varrock_Pub_1F_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-	map_script_2 VAR_POKESCAPE_GOLDENGNOMES, 15, GOLDENGNOME_EVENT_END
-	.2byte 0
-
 
 PUB_EVENT_STATE::
-	random 3
+	special GetTimeOfDaySpecial
 	switch VAR_RESULT
 	case 0, PUB_EVENT_STATE_2
 	case 1, PUB_EVENT_STATE_3
 	case 2, PUB_EVENT_STATE_3
+	case 3, PUB_EVENT_STATE_3
 	return
 
 PUB_EVENT_STATE_2:
@@ -82,7 +78,8 @@ NPC_VarrockPub_BARBARIAN::
 NPC_VarrockPub_NPC1::
 	lock
 	faceplayer
-	msgbox NPC_VarrockPub_NPC1_Text_0
+	namebox NPC_VarrockPub_NPC1_Text_0
+	msgbox NPC_VarrockPub_NPC1_Text_1
 	hidenamebox
 	release
 	end
@@ -91,7 +88,8 @@ NPC_VarrockPub_NPC1::
 NPC_VarrockPub_NPC2::
 	lock
 	faceplayer
-	msgbox NPC_VarrockPub_NPC2_Text_0
+	namebox NPC_VarrockPub_NPC2_Text_0
+	msgbox NPC_VarrockPub_NPC2_Text_1
 	hidenamebox
 	release
 	end
@@ -210,7 +208,7 @@ NPC_VarrockPub_Trainer_1::
 	namebox NPC_VarrockPub_Trainer_1_Text_0
 	msgbox NPC_VarrockPub_Trainer_1_Text_1
 	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x93B, NPC_VarrockPub_Trainer_1_2
+	goto_if_unset FLAG_PUB_TRAINER_8, NPC_VarrockPub_Trainer_1_2
 NPC_VarrockPub_Trainer_1_1:
 	hidenamebox
 	release
@@ -224,8 +222,8 @@ NPC_VarrockPub_Trainer_1_2:
 
 NPC_VarrockPub_Trainer_1_4:
 	hidenamebox
-	setflag FLAG_UNUSED_0x93B
-	trainerbattle_no_intro TRAINER_PUB_SARIM_1, NPC_VarrockPub_NPC8_Text_1
+	setflag FLAG_PUB_TRAINER_8
+	trainerbattle_no_intro TRAINER_PUB_VARROCK_1, NPC_VarrockPub_NPC8_Text_1
 	namebox NPC_VarrockPub_Trainer_1_Text_0
 	msgbox NPC_VarrockPub_Trainer_1_Text_3
 	hidenamebox
@@ -239,7 +237,7 @@ NPC_VarrockPub_Trainer_2::
 	namebox NPC_VarrockPub_Trainer_2_Text_0
 	msgbox NPC_VarrockPub_Trainer_2_Text_1
 	hidenamebox
-	goto_if_unset FLAG_UNUSED_0x93C, NPC_VarrockPub_Trainer_2_2
+	goto_if_unset FLAG_PUB_TRAINER_9, NPC_VarrockPub_Trainer_2_2
 NPC_VarrockPub_Trainer_2_1:
 	hidenamebox
 	release
@@ -253,8 +251,7 @@ NPC_VarrockPub_Trainer_2_2:
 
 NPC_VarrockPub_Trainer_2_4:
 	hidenamebox
-	setflag FLAG_UNUSED_0x93C
-	trainerbattle_no_intro TRAINER_PUB_SARIM_1, NPC_VarrockPub_NPC8_Text_1
+	setflag FLAG_PUB_TRAINER_9
 	namebox NPC_VarrockPub_Trainer_2_Text_0
 	msgbox NPC_VarrockPub_Trainer_2_Text_2
 	hidenamebox
@@ -360,7 +357,7 @@ RAC_Enkoro::
 	lock
 	faceplayer
 	namebox RAC_Enkoro_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_Enkoro_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -371,18 +368,41 @@ RAC_LegendArts::
 	lock
 	faceplayer
 	namebox RAC_LegendArts_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_LegendArts_Text_1
 	hidenamebox
 	closemessage
+	playse SE_BRIDGE_WALK
+	random 3
+	switch VAR_RESULT
+	case 0, RAC_LegendArts_3
+	case 1, RAC_LegendArts_4
+	case 2, RAC_LegendArts_5
+RAC_LegendArts_1:
+	hidemonpic
 	release
 	end
+
+RAC_LegendArts_3:
+	showmonpic SPECIES_FROGEEL, 10, 3
+	msgbox RAC_LegendArts_Text_2
+	goto RAC_LegendArts_1
+
+RAC_LegendArts_4:
+	showmonpic SPECIES_FROGEEL, 10, 3
+	msgbox RAC_LegendArts_Text_3
+	goto RAC_LegendArts_1
+
+RAC_LegendArts_5:
+	showmonpic SPECIES_FROGEEL, 10, 3
+	msgbox RAC_LegendArts_Text_4
+	goto RAC_LegendArts_1
 
 
 RAC_Theo::
 	lock
 	faceplayer
 	namebox RAC_Theo_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_Theo_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -393,7 +413,7 @@ RAC_NYChannel::
 	lock
 	faceplayer
 	namebox RAC_NYChannel_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_Theo_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -404,7 +424,7 @@ RAC_Jaxyys::
 	lock
 	faceplayer
 	namebox RAC_Jaxyys_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_Theo_Text_1
 	hidenamebox
 	closemessage
 	release
@@ -415,11 +435,69 @@ RAC_Snow::
 	lock
 	faceplayer
 	namebox RAC_Snow_Text_0
-	msgbox RAC_Spriggan_Text_1
+	msgbox RAC_Snow_Text_1
 	hidenamebox
 	closemessage
 	release
 	end
+
+
+NPC_VarrockPub_NYChannel::
+	lock
+	faceplayer
+	namebox NPC_VarrockPub_NYChannel_Text_0
+	msgbox NPC_VarrockPub_NYChannel_Text_1
+	hidenamebox
+	goto_if_unset FLAG_PUB_TRAINER_10, NPC_VarrockPub_NYChannel_2
+NPC_VarrockPub_NYChannel_1:
+	hidenamebox
+	release
+	end
+
+NPC_VarrockPub_NYChannel_2:
+	msgbox NPC_VarrockPub_Trainer_1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_VarrockPub_NYChannel_4
+	goto NPC_VarrockPub_NYChannel_1
+
+NPC_VarrockPub_NYChannel_4:
+	hidenamebox
+	setflag FLAG_PUB_TRAINER_10
+	trainerbattle_no_intro TRAINER_NYCHANNEL, NPC_VarrockPub_NPC8_Text_1
+	namebox NPC_VarrockPub_NYChannel_Text_0
+	msgbox NPC_VarrockPub_NYChannel_Text_2
+	hidenamebox
+	call GIVE_RANDOM_ITEM
+	goto NPC_VarrockPub_NYChannel_1
+
+
+NPC_VarrockPub_Prezleek::
+	lock
+	faceplayer
+	namebox BATTLE_Prezleek_Text_0
+	msgbox NPC_VarrockPub_NYChannel_Text_1
+	hidenamebox
+	goto_if_unset FLAG_PUB_TRAINER_11, NPC_VarrockPub_Prezleek_2
+NPC_VarrockPub_Prezleek_1:
+	hidenamebox
+	release
+	end
+
+NPC_VarrockPub_Prezleek_2:
+	msgbox NPC_VarrockPub_Trainer_1_Text_2, MSGBOX_YESNO
+	compare VAR_RESULT, 0
+	goto_if_ne NPC_VarrockPub_Prezleek_4
+	goto NPC_VarrockPub_Prezleek_1
+
+NPC_VarrockPub_Prezleek_4:
+	hidenamebox
+	setflag FLAG_PUB_TRAINER_11
+	trainerbattle_no_intro TRAINER_PREZLEEK, NPC_VarrockPub_NPC8_Text_1
+	namebox NPC_VarrockPub_NYChannel_Text_0
+	msgbox NPC_VarrockPub_NYChannel_Text_2
+	hidenamebox
+	call GIVE_RANDOM_ITEM
+	goto NPC_VarrockPub_Prezleek_1
 
 
 NPC_VarrockPub_GOLDENGNOMES_Text_0:
@@ -435,9 +513,15 @@ NPC_VarrockPub_BARBARIAN_Text_0:
 	.string "Barbarian$"
 
 NPC_VarrockPub_BARBARIAN_Text_1:
-	.string "YAARRG, Do yer want a Pub Crawl battle?!$"
+	.string "If yer wish to participate in a Pub\n"
+	.string "Crawl Battle, then yer should get a Pub\l"
+	.string "Crawl battle card!\p"
+	.string "You can get one from the Jolly Boar pub.$"
 
 NPC_VarrockPub_NPC1_Text_0:
+	.string "Drunken Man$"
+
+NPC_VarrockPub_NPC1_Text_1:
 	.string "Did you know that many players have\n"
 	.string "named themselves after Pokemons?\p"
 	.string "There is one player named Evil Lucario\n"
@@ -450,12 +534,13 @@ NPC_VarrockPub_NPC1_Text_0:
 	.string "capture them all!$"
 
 NPC_VarrockPub_NPC2_Text_0:
-	.string "Sometimes people from the Runescape\n"
-	.string "Art Community come to party here.\p"
+	.string "Meteor$"
+
+NPC_VarrockPub_NPC2_Text_1:
+	.string "At night people from the Runescape Art\n"
+	.string "Community come to party here.\p"
 	.string "They are amazing, fun, talented and\n"
-	.string "they are simply awesome!\p"
-	.string "I am not a artist but I love to see their\n"
-	.string "masterpieces.$"
+	.string "they are simply awesome!$"
 
 NPC_VarrockPub_NPC3_Text_0:
 	.string "Guard$"
@@ -522,7 +607,9 @@ NPC_VarrockPub_NPC7_Text_0:
 	.string "Bartender$"
 
 NPC_VarrockPub_NPC7_Text_1:
-	.string "Can I get you something to drink?$"
+	.string "Can I get you something to drink?\p"
+	.string "Or perhaps you'd like to stay a night in\n"
+	.string "our Inn?$"
 
 NPC_VarrockPub_NPC8_Text_0:
 	.string "Man$"
@@ -593,16 +680,41 @@ RAC_Spriggan_Text_0:
 	.string "Spriggan$"
 
 RAC_Spriggan_Text_1:
-	.string "Hello.$"
+	.string "There's something so peaceful about\n"
+	.string "night wouldn't you agree?\p"
+	.string "So many different monsters come out\n"
+	.string "that you don't see turning the day.$"
 
 RAC_Enkoro_Text_0:
 	.string "Enkoro$"
 
+RAC_Enkoro_Text_1:
+	.string "Heya, we usually come here every night\n"
+	.string "for a few drinks.\p"
+	.string "Say why don't you sit down and join us?$"
+
 RAC_LegendArts_Text_0:
 	.string "LegendArts$"
 
+RAC_LegendArts_Text_1:
+	.string "Howsit!\p"
+	.string "Watch how fast I can draw monsters!$"
+
+RAC_LegendArts_Text_2:
+	.string "I title this picture, 'The Prince of AAA!'$"
+
+RAC_LegendArts_Text_3:
+	.string "I title this picture, 'The Princess of\n"
+	.string "AAA!'$"
+
+RAC_LegendArts_Text_4:
+	.string "I title this picture, 'AAAAAAAAAA!'$"
+
 RAC_Theo_Text_0:
 	.string "Theo$"
+
+RAC_Theo_Text_1:
+	.string "Hello.$"
 
 RAC_NYChannel_Text_0:
 	.string "NYChannel$"
@@ -612,3 +724,17 @@ RAC_Jaxyys_Text_0:
 
 RAC_Snow_Text_0:
 	.string "Seakara$"
+
+RAC_Snow_Text_1:
+	.string "You should visit the party room in\n"
+	.string "Falador, they hold contests their\l"
+	.string "regularly to show off your monsters.$"
+
+NPC_VarrockPub_NYChannel_Text_0:
+	.string "NyChannel$"
+
+NPC_VarrockPub_NYChannel_Text_1:
+	.string "Hey there!$"
+
+NPC_VarrockPub_NYChannel_Text_2:
+	.string "Looks like I lost…$"

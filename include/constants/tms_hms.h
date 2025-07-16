@@ -10,10 +10,10 @@
     F(FLAME_CHARGE) \
     F(RAZOR_SHELL) \
     F(SOLAR_BLADE) \
-    F(GRASSY_TERRAIN) \
-    F(ELECTRIC_TERRAIN) \
-    F(PSYCHIC_TERRAIN) \
-    F(MISTY_TERRAIN) \
+    F(MIGHTY_CLEAVE) \
+    F(TRIPLE_ARROWS) \
+    F(EERIE_SPELL) \
+    F(STONE_AXE) \
     F(BRINE) \
     F(ENERGY_BALL) \
     F(LAVA_PLUME) \
@@ -67,7 +67,15 @@
     F(TRICK_OR_TREAT) \
     F(REVENGE) \
     F(ICE_HAMMER) \
-    F(BRUTAL_SWING)
+    F(BRUTAL_SWING) \
+    F(PARTING_SHOT) \
+    F(TELE_BLOCK) \
+    F(OVERLOAD) \
+    F(JAW_LOCK) \
+    F(TERRAIN_PULSE) \
+    F(FUTURE_SIGHT) \
+    F(BERSERK) \
+    F(CEASELESS_EDGE) 
 
 #define FOREACH_HM(F) \
     F(CUT) \

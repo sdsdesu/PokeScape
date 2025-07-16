@@ -31,7 +31,7 @@ script TZHAAR_GYM_ROOM_POST_WIN {
     setvar(VAR_TEMP_E, 5000)
     call(GIVE_TOKKUL)
     namebox("Kimit-Kal")
-    msgbox(format("If you wish to prove yourself even more you should visit our Fight Caves in the westside of our city.\pOtherwise we wish you to have glorious battles in your future MvM Challenges."))
+    msgbox(format("If you wish to prove yourself even more you should visit our Fight Caves in the west side of our city.\pOtherwise we wish you to have glorious battles in your future MvM Challenges."))
     closemessage
     hidenamebox
     setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 35)
@@ -104,7 +104,7 @@ script NPC_TZHAAR_GYM_TOKHAAR
             msgbox(format("That move is called Power Gem.\pIt sparkles just as all our precious Gems around the palace do."))
             //setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 30)
             setflag(FLAG_BADGE05_GET)
-            subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 4)
+            subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 2)
             call(HIDDEN_GROTTO_RESET)
             addvar(VAR_GAMEMODE_LEVEL_SCALING, 1) //INCREASES LEVEL SCALING & SHOPS
             //call(SetGymTrainers_TZHAAR)
@@ -250,37 +250,39 @@ script NPC_TZHAAR_GYM_LEADER
     lock
     faceplayer
     namebox("Kimit-Kal")
-
-    if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 0) {
-        msgbox(format("Welcome to the Mor-Ul-Rek Gym.\nI am Kimit-Kal.\pIf the Tzhaar Badge is what you seek, then you must participate in our Gym Challenge.\pBattle your way through 10 Waves of my brethren then defeat me in battle."))
-        setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1)
-        msgbox(format("Would you like to start your Gym challenge?"), MSGBOX_YESNO)
-        if (var(VAR_RESULT))
-        {
-            call(TZHAAR_GYMCHALLENGE_START)
+    if (flag(FLAG_BADGE03_GET) == FALSE) {
+        if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 0) {
+            msgbox(format("Welcome to the Mor-Ul-Rek Gym.\nI am Kimit-Kal.\pIf the Tzhaar Badge is what you seek, then you must participate in our Gym Challenge.\pBattle your way through 10 Waves of my brethren then defeat me in battle."))
+            setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1)
+            msgbox(format("Would you like to start your Gym challenge?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT))
+            {
+                call(TZHAAR_GYMCHALLENGE_START)
+            }
+            else {
+                hidenamebox
+                closemessage
+                release
+                end
+            }
         }
-        else {
-            hidenamebox
-            closemessage
-            release
-            end
+        if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 1) {
+            msgbox(format("You return JalYt, would you like to start your Gym challenge?"), MSGBOX_YESNO)
+            if (var(VAR_RESULT))
+            {
+                call(TZHAAR_GYMCHALLENGE_START)
+            }
+        }
+
+        if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 10) {// If you lose the Gym Challenge.
+            msgbox(format("It seems us Tzhaar have proven victorious this time.\pCome back and challenge us again when you are ready."))
+            setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1)
         }
     }
-    if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 1) {
-        msgbox(format("You return JalYt, would you like to start your Gym challenge?"), MSGBOX_YESNO)
-        if (var(VAR_RESULT))
-        {
-            call(TZHAAR_GYMCHALLENGE_START)
-        }
-    }
-
-    if (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 10) {// If you lose the Gym Challenge.
-        msgbox(format("It seems us Tzhaar have proven victorious this time.\pCome back and challenge us again when you are ready."))
-        setvar(VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1)
-    }
-
-    if ((var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 30) || (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 35))  {
-        msgbox(format("Congratulations on your victory JalYt.\pIf you wish to prove yourself even more you should visit our Fight Caves in the westside of our city.\pOtherwise we wish you to have glorious battles in your future MvM Challenges."))
+    else {
+        //if ((var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 30) || (var(VAR_POKESCAPE_TZHAAR_GYM_QUEST) == 35))  {
+        msgbox(format("Congratulations on your victory JalYt.\pIf you wish to prove yourself even more you should visit our Fight Caves in the west side of our city.\pOtherwise we wish you to have glorious battles in your future MvM Challenges."))
+        //}
     }
     hidenamebox
     closemessage

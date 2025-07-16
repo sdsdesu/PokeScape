@@ -52,12 +52,9 @@ LittlerootTown_EventScript_HideMapNamePopup::
 	return
 
 LittlerootTown_EventScript_SetRivalLeftForRoute103::
-	setflag FLAG_RIVAL_LEFT_FOR_ROUTE103
 	return
 
 LittlerootTown_EventScript_MoveRivalFromOldale::
-	setvar VAR_OLDALE_RIVAL_STATE, 2
-	setflag FLAG_HIDE_OLDALE_TOWN_RIVAL
 	return
 
 LittlerootTown_EventScript_SetExitedHouseAfterLatiSSTicketEvent::
@@ -246,10 +243,6 @@ LittlerootTown_EventScript_Boy::
 LittlerootTown_EventScript_Twin::
 	lock
 	faceplayer
-	goto_if_set FLAG_ADVENTURE_STARTED, LittlerootTown_EventScript_GoodLuck
-	goto_if_set FLAG_RECEIVED_SPLITBARK, LittlerootTown_EventScript_YouSavedBirch
-	goto_if_ne VAR_POKESCAPE_MUSIC_STATE, 0, LittlerootTown_EventScript_GoSaveBirch
-	msgbox LittlerootTown_Text_IfYouGoInGrassPokemonWillJumpOut, MSGBOX_DEFAULT
 	release
 	end
 

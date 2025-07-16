@@ -52,6 +52,7 @@
 #include "region_map.h"
 #include "fldeff.h"
 // End qol_field_moves
+#include "outfit_menu.h"
 
 extern const u8 EventScript_SLAYER_TASK_CHECK[];
 extern const u8 EventScript_XERIC[];
@@ -102,6 +103,8 @@ static void UseTeleportToolYesNo(u8 taskId);
 static void AskPlayerTeleportTool(u8 taskId);
 // End qol_field_moves
 static void ItemUseOnFieldCB_RunScript(u8);
+static void CB2_OpenOutfitBoxFromBag(void);
+static void Task_OpenRegisteredOutfitBox(u8 taskId);
 
 // EWRAM variables
 EWRAM_DATA static void(*sItemUseOnFieldCB)(u8 taskId) = NULL;
@@ -189,6 +192,11 @@ static void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegist
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_DadsAdvice);
 }
 
+static void OutfitCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
+{
+    DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_OutfitCannotUseItemMessage);
+}
+
 static void DisplayCannotDismountBikeMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField)
 {
     DisplayCannotUseItemMessage(taskId, isUsingRegisteredKeyItemOnField, gText_CantDismountBike);
@@ -265,7 +273,10 @@ void ItemUseOutOfBattle_Bike(u8 taskId)
         DisplayCannotDismountBikeMessage(taskId, tUsingRegisteredKeyItem);
     else
     {
-        if (Overworld_IsBikingAllowed() == TRUE && IsBikingDisallowedByPlayer() == 0 && FollowerCanBike())
+        if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+            OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+        }
+        else if (Overworld_IsBikingAllowed() == TRUE && IsBikingDisallowedByPlayer() == 0 && FollowerCanBike())
         {
             sItemUseOnFieldCB = ItemUseOnFieldCB_Bike;
             SetUpItemUseOnFieldCallback(taskId);
@@ -343,10 +354,26 @@ static void ItemUseOnFieldCB_RunScript(u8 taskId)
 
 static void ItemUseOnFieldCB_Bike(u8 taskId)
 {
-    if (ItemId_GetSecondaryId(gSpecialVar_ItemId) == MACH_BIKE)
-        GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE);
-    else // ACRO_BIKE
-        GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+    gUnusedBikeCameraAheadPanback = FALSE;
+
+    if (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
+    {
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        Overworld_ClearSavedMusic();
+        Overworld_PlaySpecialMapMusic();
+    }
+    else
+    {
+        gSaveBlock2Ptr->playerBike = ItemId_GetSecondaryId(gSpecialVar_ItemId);
+        if (ItemId_GetSecondaryId(gSpecialVar_ItemId) == MACH_BIKE) {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE_2);
+        } 
+        else {
+            SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
+        }
+        Overworld_SetSavedMusic(MUS_PS_TERRORBIRD);
+        Overworld_ChangeMusicTo(MUS_PS_TERRORBIRD);
+    }
     FollowMe_HandleBike();
     ScriptUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
@@ -389,7 +416,10 @@ static bool32 CanFish(void)
 
 void ItemUseOutOfBattle_Rod(u8 taskId)
 {
-    if (CanFish() == TRUE)
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (CanFish() == TRUE)
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_Rod;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1605,7 +1635,10 @@ static void ItemUseOnFieldCB_SurfTool(u8 taskId)
 
 void ItemUseOutOfBattle_SurfTool(u8 taskId)
 {
-    if (IsPlayerFacingSurfableFishableWater())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (IsPlayerFacingSurfableFishableWater())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_SurfTool;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1672,7 +1705,10 @@ static void ItemUseOnFieldCB_WaterfallTool(u8 taskId)
 
 void ItemUseOutOfBattle_WaterfallTool(u8 taskId)
 {
-    if (CanUseWaterfallTool())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (CanUseWaterfallTool())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_WaterfallTool;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1690,7 +1726,10 @@ static void ItemUseOnFieldCB_DiveTool(u8 taskId)
 
 void ItemUseOutOfBattle_DiveTool(u8 taskId)
 {
-    if (TrySetDiveWarp())
+    if (gOutfits[gSaveBlock2Ptr->currOutfitId].hasExtraAnims == FALSE) {
+        OutfitCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (TrySetDiveWarp())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_DiveTool;
         SetUpItemUseOnFieldCallback(taskId);
@@ -1743,10 +1782,15 @@ static void AskPlayerTeleportTool(u8 taskId)
 
 void ItemUseOutOfBattle_TeleportTool(u8 taskId)
 {
-    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
-        AskPlayerTeleportTool(taskId);
+    if (CanUseDigOrEscapeRopeOnCurMap() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_TeleportTool;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
     else
+    {
         DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
 }
 
 static void ItemUseOnFieldCB_SweetScentTool(u8 taskId)
@@ -1771,4 +1815,40 @@ void ItemUseOutOfBattle_PokescapeMap(u8 taskId)
 	Task_FadeAndCloseBagMenu(taskId);
 }
 
+void ItemUseOutOfBattle_OutfitBox(u8 taskId)
+{
+    if (MenuHelpers_IsLinkActive() == TRUE)
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+    else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
+    {
+        gBagMenu->newScreenCallback = CB2_OpenOutfitBoxFromBag;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        gFieldCallback = FieldCB_ReturnToFieldNoScript;
+        FadeScreen(FADE_TO_BLACK, 0);
+        gTasks[taskId].func = Task_OpenRegisteredOutfitBox;
+    }
+}
+
+static void CB2_OpenOutfitBoxFromBag(void)
+{
+    OpenOutfitMenu(CB2_ReturnToBagMenuPocket);
+}
+
+static void Task_OpenRegisteredOutfitBox(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        OpenOutfitMenu(CB2_ReturnToField);
+        DestroyTask(taskId);
+    }
+}
+
 #undef tUsingRegisteredKeyItem
+
+

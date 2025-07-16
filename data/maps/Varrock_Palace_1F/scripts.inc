@@ -1039,7 +1039,7 @@ VARROCK_GYM_RELDO_Text_7:
 
 VARROCK_GYM_RELDO_Text_8:
 	.string "Congratulations on winning the MvM\n"
-	.string "battle against King Roald!.$"
+	.string "battle against King Roald!$"
 
 VARROCK_GYM_RELDO_Text_9:
 	.string "We have so many books about so many\n"
@@ -1333,7 +1333,7 @@ BATTLE_VARROCK_GYM_TRAINER_1_Text_3:
 
 BATTLE_VARROCK_GYM_TRAINER_2_Text_0:
 	.string "You look shady.\p"
-	.string "Get out of the sleeping quaters!$"
+	.string "Get out of the sleeping quarters!$"
 
 BATTLE_VARROCK_GYM_TRAINER_2_Text_1:
 	.string "You may pass shady person.$"

@@ -442,17 +442,17 @@ script NPC_WIZARDSTOWER_Jalarast
 {
 	lock
 	faceplayer
-	if (!flag(FLAG_RECEIVED_SPLITBARK)){
+	if (!flag(FLAG_RECEIVED_WIZARDSHAT)){
 		namebox ("Jalarast")
 		msgbox(format("Here you should have this!"))
 		hidenamebox
-		giveitem (ITEM_SPLITBARK, 1)
+		giveitem (ITEM_WIZARDS_HAT, 1)
 		waitmessage
 		closemessage
-		setflag(FLAG_RECEIVED_SPLITBARK)
+		setflag(FLAG_RECEIVED_WIZARDSHAT)
 		}
 	namebox ("Jalarast")
-	msgbox(format("Splitbark has amazing Magical properties!\pIt can enhance a Psychic Type's power."))
+	msgbox(format("Wizard Hats have amazing Magical properties!\pIt can enhance a Psychic Type's power."))
 	waitmessage
 	hidenamebox
 	release
@@ -853,6 +853,14 @@ script STORYMODE_VAR_CHECK {
 	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
     msgbox(format("STORYMODE_PROGRESS: {STR_VAR_1}.\nVAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
 	closemessage
+	buffernumberstring(STR_VAR_1, VAR_POKESCAPE_WIZARDS_TOWER_STATE)
+	buffernumberstring(STR_VAR_2, VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE)
+    msgbox(format("VAR_POKESCAPE_WIZARDS_TOWER_STATE: {STR_VAR_1}.\pVAR_POKESCAPE_BARBARIAN_VILLAGE_STATE: {STR_VAR_2}."))
+	closemessage
+	buffernumberstring(STR_VAR_1, VAR_MITHRILMAN_STATE)
+	buffernumberstring(STR_VAR_2, VAR_FROGEEL_RIVAL)
+    msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_1}.\pVAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+	closemessage
 	msgbox(format("Would you like to edit these?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
@@ -872,26 +880,113 @@ script STORYMODE_VAR_CHECK {
     end
 }
 script STORYMODE_VAR_EDIT {
-	msgbox(format("Set custom story-test values?"), MSGBOX_YESNO)
+	msgbox(format("Edit VAR_POKESCAPE_STORYMODE_PROGRESS?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
-		//setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130) // CRANDOR SCENE
+		goto(VAR_EDIT_STORYMODE)
+	}
+	msgbox(format("Edit VAR_WISE_OLD_MAN_RIVAL?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_WISE_OLD_MAN)
+	}
+	msgbox(format("Edit VAR_MITHRILMAN_STATE?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_MITHRILMAN)
+	}
+	msgbox(format("Edit VAR_FROGEEL_RIVAL?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		goto(VAR_EDIT_FROGEELMAN)
+	}
+	closemessage
+	release
+	end
+}
 
-		setflag(FLAG_BADGE04_GET) // BKF START
-        setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 160) // BKF START
 
-        buffernumberstring(0, VAR_POKESCAPE_STORYMODE_PROGRESS)
-        msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
+script VAR_EDIT_MITHRILMAN {
+	//WOM
+	buffernumberstring(STR_VAR_2, VAR_MITHRILMAN_STATE)
+    msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+    msgbox(format("Increase VAR_MITHRILMAN_STATE by 5?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_MITHRILMAN_STATE, 5)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
 		closemessage
 		release
 		end
     }
-
-
+    msgbox(format("Increase VAR_MITHRILMAN_STATE by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_MITHRILMAN_STATE, 10)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset VAR_MITHRILMAN_STATE to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_MITHRILMAN_STATE, 0)
+        buffernumberstring(0, VAR_MITHRILMAN_STATE)
+        msgbox(format("VAR_MITHRILMAN_STATE: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    closemessage
+    release
+    end
+}
+script VAR_EDIT_FROGEELMAN {
+	//WOM
+	buffernumberstring(STR_VAR_2, VAR_FROGEEL_RIVAL)
+    msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+    msgbox(format("Increase VAR_FROGEEL_RIVAL by 5?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_FROGEEL_RIVAL, 5)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Increase VAR_FROGEEL_RIVAL by 10?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        addvar(VAR_FROGEEL_RIVAL, 10)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    msgbox(format("Reset VAR_FROGEEL_RIVAL to 0?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+        setvar(VAR_FROGEEL_RIVAL, 0)
+        buffernumberstring(0, VAR_FROGEEL_RIVAL)
+        msgbox(format("VAR_FROGEEL_RIVAL: {STR_VAR_2}."))
+		closemessage
+		release
+		end
+    }
+    closemessage
+    release
+    end
+}
+script VAR_EDIT_STORYMODE {
 	//STORYMODE
     buffernumberstring(STR_VAR_1, VAR_POKESCAPE_STORYMODE_PROGRESS)
     msgbox(format("VAR_POKESCAPE_STORYMODE_PROGRESS: {STR_VAR_1}."))
-    msgbox(format("Increase STORYMODE_PROGRESS by 1?"), MSGBOX_YESNO)
+    msgbox(format("Increase STORYMODE_PROGRESS by 5?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
         addvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 5)
@@ -921,10 +1016,16 @@ script STORYMODE_VAR_EDIT {
 		release
 		end
     }
+	closemessage
+    release
+    end
+}
+
+script VAR_EDIT_WISE_OLD_MAN {
 	//WOM
 	buffernumberstring(STR_VAR_2, VAR_WISE_OLD_MAN_RIVAL)
     msgbox(format("VAR_WISE_OLD_MAN_RIVAL: {STR_VAR_2}."))
-    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 1?"), MSGBOX_YESNO)
+    msgbox(format("Increase VAR_WISE_OLD_MAN_RIVAL by 5?"), MSGBOX_YESNO)
     if (var(VAR_RESULT))
     {
         addvar(VAR_WISE_OLD_MAN_RIVAL, 5)
@@ -972,7 +1073,7 @@ script RUNE_EVOLUTIONS_NOTES {
                 release
 		end
             case 2: 
-                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pIt appears that puppies have some of the most runic evolutions of any monster I have encountered.\pThese also vary depending on the type of dog you expose to the stone.\pFor example, a pup exposed to an Air Rune evolves into a Labrador.\pHowever, if you expose a mutt to the same rune?\pIt turns into a Greyhound.\pCompletely different!."))
+                msgbox(format("The bookcase contains various research notes that Rick has written.\pYou choose one at random.\pIt appears that puppies have some of the most runic evolutions of any monster I have encountered.\pThese also vary depending on the type of dog you expose to the stone.\pFor example, a pup exposed to an Air Rune evolves into a Labrador.\pHowever, if you expose a mutt to the same rune?\pIt turns into a Greyhound.\pCompletely different!"))
                 release
 		end
             case 3: 
@@ -1023,4 +1124,141 @@ script TOGGLE_BATTLE_SPEED {
 		release
 		end
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+script STORYMODE_SAVESTATE {
+	msgbox(format("Would you like to edit your save file?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT))
+    {
+		closemessage
+		multichoicedefault (1, 0, MULTI_STORYMODE_STATE, 0, 0)
+		switch (var(VAR_RESULT))
+		{
+			case 0:
+				goto(STORYMODE_SAVESTATE_GAME_START)
+			case 1:
+				goto(STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER)
+			case 2:
+				goto(STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR)
+			case 3:
+				goto(STORYMODE_SAVESTATE_POST_MELZARS_MAZE)
+			case 4:
+				goto(STORYMODE_SAVESTATE_POST_FALADOR_GYM)
+			case 5:
+				goto(STORYMODE_SAVESTATE_PRE_CRANDOR)
+			case 6:
+				goto(STORYMODE_SAVESTATE_POST_BARBARIANGYM)
+			case 7:
+				goto(STORYMODE_SAVESTATE_POST_BKF)
+		}
+    }
+}
+
+script STORYMODE_SAVESTATE_GAME_START { 
+	call(FOLLOWER_REMOVE)
+	clearflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET) 
+	clearflag(FLAG_BADGE03_GET) 
+	clearflag(FLAG_BADGE04_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 0)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 0)
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 0)
+}
+script STORYMODE_SAVESTATE_PRE_WIZARDS_TOWER { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 0)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 15)
+	warp(MAP_WIZARDS_TOWER, 0, 0, 0)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_DRAYNOR_MANOR { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
+	//
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
+}
+script STORYMODE_SAVESTATE_POST_MELZARS_MAZE { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 10)
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 100)
+}
+script STORYMODE_SAVESTATE_POST_FALADOR_GYM { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	clearflag(FLAG_BADGE02_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE, 10)
+	//
+	setvar(VAR_POKESCAPE_FALADOR_STATE, 5)
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 115)
+	warp(MAP_FALADOR_CASTLE_3F, 0, 0, 0)
+	waitstate
+}
+script STORYMODE_SAVESTATE_PRE_CRANDOR { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_FALADOR_STATE, 5)
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 130) // CRANDOR SCENE
+	warp(MAP_PORT_SARIM, 35, 34)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_BARBARIANGYM { 
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setflag(FLAG_BADGE03_GET) 
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_FALADOR_STATE, 5)
+	setvar(VAR_BKF_QUIZ_1,0)
+	setvar(VAR_BKF_QUIZ_2,0)
+	setvar(VAR_BKF_QUIZ_3,0)
+	setvar(VAR_BKF_QUIZ_4,0)
+	setvar(VAR_BKF_QUIZ_5,0)
+	setvar(VAR_BKF_QUIZ_6,0)
+	setvar(VAR_BKF_QUIZ_7,0)
+	//
+	setflag(FLAG_BADGE04_GET) 
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 160) 
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3) //Sets Barbarian Gym & Town to be post gym.
+	warp(MAP_BARBARIAN_VILLAGE, 0, 0, 0)
+	waitstate
+}
+script STORYMODE_SAVESTATE_POST_BKF {
+	call(FOLLOWER_REMOVE)
+	setflag(FLAG_BADGE01_GET) 
+	setflag(FLAG_BADGE02_GET) 
+	setflag(FLAG_BADGE03_GET) 
+	setflag(FLAG_BADGE04_GET)
+	setvar(VAR_POKESCAPE_WIZARDS_TOWER_STATE,10)
+	setvar(VAR_POKESCAPE_FALADOR_STATE, 5)
+	setvar(VAR_POKESCAPE_BARBARIAN_VILLAGE_STATE, 3) 
+	//
+	setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 200)
+	warp(MAP_ROUTE26, 24, 17)
+	waitstate
 }

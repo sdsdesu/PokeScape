@@ -1513,7 +1513,7 @@ script GIVE_RANDOM_ITEM_DUNGEONEERING {
 			case 5: 
 				finditem(ITEM_POUCH_CRYSTAL, 1)
 			case 6: 
-				finditem(ITEM_PURPLE_SWEETS, 1)
+				finditem(ITEM_MANY_SWEETS, 1)
 			case 7: 
 				finditem(ITEM_CHOCOLATE_CAKE, 1)
 			case 8: 
@@ -1537,7 +1537,7 @@ script GIVE_RANDOM_ITEM_DUNGEONEERING {
             case 17: 
 				finditem(ITEM_CABBAGE, 1)
             case 18: 
-				finditem(ITEM_PURPLE_SWEETS, 5)
+				finditem(ITEM_MANY_SWEETS, 5)
             case 19: 
 				finditem(ITEM_CABBAGE, 1)
             case 20: 

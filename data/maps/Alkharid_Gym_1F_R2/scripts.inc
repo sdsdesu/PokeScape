@@ -259,7 +259,7 @@ ALKHARID_GYM_ALI_2:
 	msgbox ALKHARID_GYM_ALI_Text_4
 	setvar VAR_POKESCAPE_ALKHARID_GYM_QUEST, 30
 	setflag FLAG_BADGE04_GET
-	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 3
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 4
 	call HIDDEN_GROTTO_RESET
 	addvar VAR_GAMEMODE_LEVEL_SCALING, 1
 	call SetGymTrainers_VARROCK
@@ -356,7 +356,7 @@ MOVE_RELEARNER_NPC_1:
 
 
 UTILITY_NPC::
-	lock
+	lockall
 	faceplayer
 	namebox UTILITY_NPC_Text_0
 	goto UTILITY_TOOLS
@@ -364,7 +364,7 @@ UTILITY_NPC::
 
 
 UTILITY_NPC_TZHAAR::
-	lock
+	lockall
 	faceplayer
 	namebox UTILITY_NPC_TZHAAR_Text_0
 	goto UTILITY_TOOLS
@@ -381,7 +381,7 @@ UTILITY_TOOLS::
 UTILITY_TOOLS_1:
 	closemessage
 	hidenamebox
-	release
+	releaseall
 	end
 
 UTILITY_TOOLS_3:
@@ -849,10 +849,10 @@ UTILITY_NPC_Text_0:
 	.string "Druid$"
 
 UTILITY_NPC_TZHAAR_Text_0:
-	.string "Tzhaar$"
+	.string "Ga'Al Banker$"
 
 UTILITY_TOOLS_Text_0:
-	.string "What would you like to do?$"
+	.string "What can I assist you with?$"
 
 GYM_NPC_0_Text_0:
 	.string "The prince has gone back to the throne\n"

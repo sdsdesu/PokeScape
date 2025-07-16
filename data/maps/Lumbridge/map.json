@@ -29,11 +29,6 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE14",
-      "offset": 44,
-      "direction": "up"
-    },
-    {
       "map": "MAP_UNDERWATER_LUMBRIDGE",
       "offset": 0,
       "direction": "dive"
@@ -42,6 +37,11 @@
       "map": "MAP_DRAYNOR",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE36",
+      "offset": 44,
+      "direction": "up"
     }
   ],
   "object_events": [
@@ -138,8 +138,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_NOOB",
-      "x": 42,
-      "y": 2,
+      "x": 41,
+      "y": 1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT",
       "movement_range_x": 0,
@@ -280,17 +280,17 @@
       "flag": "FLAG_TEMP_A"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 50,
-      "y": 29,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 9,
+      "y": 28,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_STEEL_POUCH",
-      "flag": "FLAG_ITEM_LUMBRIDGE_STEEL_POUCH"
+      "script": "NULL",
+      "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -302,8 +302,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_LUMBRIDGE_DRUNK_DRAGON",
-      "flag": "FLAG_ITEM_LUMBRIDGE_DRUNK_DRAGON"
+      "script": "FIND_ITEM_DRUNK_DRAGON",
+      "flag": "FLAG_ITEM_LUMBRIDGE_5"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FARMER_M",
@@ -358,17 +358,17 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ZANIK",
-      "x": 13,
-      "y": 29,
+      "graphics_id": "OBJ_EVENT_GFX_GYMLEADER_WISE_OLD_MAN",
+      "x": 36,
+      "y": 22,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "multipartnerBattle_Zanik",
-      "flag": "0"
+      "script": "HAM_EVENT_ALKHARID_WISE_OLD_MAN",
+      "flag": "FLAG_TEMP_1E"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
@@ -436,7 +436,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_FALADOR",
+      "graphics_id": "OBJ_EVENT_GFX_LUKIENLIGHT",
       "x": 40,
       "y": 23,
       "elevation": 0,
@@ -445,7 +445,7 @@
       "movement_range_y": 2,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NPC_LUMBRIDGE_HARLAN",
+      "script": "NPC_LUMBRIDGE_REGIONEVOS",
       "flag": "0"
     },
     {
@@ -482,9 +482,9 @@
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 8,
       "movement_range_y": 8,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_LUMBRIDGE_RIVER_TRAINER_1",
       "flag": "0"
     },
     {
@@ -495,9 +495,9 @@
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 8,
       "movement_range_y": 8,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_LUMBRIDGE_RIVER_TRAINER_2",
       "flag": "0"
     },
     {
@@ -506,11 +506,24 @@
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
-      "movement_range_x": 4,
-      "movement_range_y": 4,
+      "movement_range_x": 6,
+      "movement_range_y": 6,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "BATTLE_LUMBRIDGE_RIVER_TRAINER_3",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 42,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Lumbridge_River_NPC3",
       "flag": "0"
     }
   ],
@@ -635,11 +648,11 @@
       "dest_warp_id": "2"
     },
     {
-      "x": 3,
-      "y": 6,
+      "x": 34,
+      "y": 0,
       "elevation": 0,
-      "dest_map": "MAP_LUMBRIDGE_FOREST",
-      "dest_warp_id": "6"
+      "dest_map": "MAP_LUMBRIDGE_FISHING_STORE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -826,6 +839,62 @@
       "elevation": 3,
       "item": "ITEM_STAT_BEER",
       "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_BEER"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 33,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_1"
+    },
+    {
+      "type": "sign",
+      "x": 45,
+      "y": 38,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_2"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 36,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_3"
+    },
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 37,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_4"
+    },
+    {
+      "type": "sign",
+      "x": 48,
+      "y": 38,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Lumbridge_GRAVEYARD_SIGN_5"
+    },
+    {
+      "type": "hidden_item",
+      "x": 48,
+      "y": 36,
+      "elevation": 0,
+      "item": "ITEM_BODY_RUNE",
+      "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_ITEM_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 20,
+      "y": 6,
+      "elevation": 0,
+      "item": "ITEM_MIND_RUNE",
+      "flag": "FLAG_HIDDEN_ITEM_LUMBRIDGE_ITEM_2"
     }
   ],
   "has_night_table": true

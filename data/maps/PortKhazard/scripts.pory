@@ -2,19 +2,6 @@ mapscripts PortKhazard_MapScripts {
 
 }
 
-//ITEMS
-script ITEM_PORTKHAZARD_ATTACK_LAMP
-{
-    finditem(ITEM_LAMP_ATT)
-    end
-}
-
-script ITEM_PORTKHAZARD_PURPLE_SWEETS
-{
-    finditem(ITEM_PURPLE_SWEETS)
-    end
-}
-
 //NPCS
 script NPC_PORTKHAZARD_1
 {

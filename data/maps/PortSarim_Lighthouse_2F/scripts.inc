@@ -193,7 +193,7 @@ LIGHTHOUSE_2F_NPC_3_Text_1:
 LIGHTHOUSE_2F_NPC_3_Text_2:
 	.string "Your one of those MvM guys right?\p"
 	.string "We were approached by the MvM\n"
-	.string "organization to see if we could adapt\l"
+	.string "organisation to see if we could adapt\l"
 	.string "our jail into a gym.\p"
 	.string "But our captain didn't like the idea of\n"
 	.string "the pirate Redbeard Frank being the\l"

@@ -82,7 +82,7 @@ script HIDDEN_GROTTO_WARP_LUMBRIDGE_SWAMP {
 
 //CHOOSE WHAT SPAWNS
 //Removed, to re-enable change object events to OBJ_EVENT_GFX_VAR_0 and give them 
-//the script HIDDEN_GROTTO_INTERACT along with thier flags FLAG_HIDDEN_GROTTO_X
+//the script HIDDEN_GROTTO_INTERACT along with their flags FLAG_HIDDEN_GROTTO_X
 script HIDDEN_GROTTO_ENTRY_SPAWNS {
     random(13)
     switch (var(VAR_RESULT)) {
@@ -810,7 +810,7 @@ script HIDDEN_GROTTO_FIND_ITEM {
 			case 5: 
 				finditem(ITEM_POUCH_CRYSTAL, 1)
 			case 6: 
-				finditem(ITEM_PURPLE_SWEETS, 1)
+				finditem(ITEM_MANY_SWEETS, 1)
 			case 7: 
 				finditem(ITEM_CHOCOLATE_CAKE, 1)
 			case 8: 
@@ -834,7 +834,7 @@ script HIDDEN_GROTTO_FIND_ITEM {
             case 17: 
 				finditem(ITEM_CABBAGE, 1)
             case 18: 
-				finditem(ITEM_PURPLE_SWEETS, 5)
+				finditem(ITEM_MANY_SWEETS, 5)
             case 19: 
 				finditem(ITEM_CABBAGE, 1)
             case 20: 

@@ -370,8 +370,109 @@ JUNA_TOXIC_WATER::
 	end
 
 
+ENCOUNTER_JUNA::
+	lock
+	namebox ENCOUNTER_JUNA_Text_0
+	goto_if_unset FLAG_TEMP_10, ENCOUNTER_JUNA_2
+ENCOUNTER_JUNA_1:
+	goto_if_set FLAG_TEMP_10, ENCOUNTER_JUNA_5
+ENCOUNTER_JUNA_4:
+	release
+	end
+
+ENCOUNTER_JUNA_2:
+	msgbox ENCOUNTER_JUNA_Text_1
+	hidenamebox
+	closemessage
+	goto ENCOUNTER_JUNA_1
+
+ENCOUNTER_JUNA_5:
+	msgbox ENCOUNTER_JUNA_Text_2
+	playmoncry SPECIES_JUNA, 0
+	waitmoncry
+	delay 32
+	setwildbattle SPECIES_JUNA, 65, ITEM_NONE
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq ENCOUNTER_JUNA_7
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq ENCOUNTER_JUNA_8
+	goto ENCOUNTER_JUNA_4
+
+ENCOUNTER_JUNA_7:
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_JUNA_Text_3
+	closemessage
+	goto ENCOUNTER_JUNA_4
+
+ENCOUNTER_JUNA_8:
+	fadescreenswapbuffers FADE_TO_BLACK
+	setflag FLAG_JUNA
+	removeobject VAR_LAST_TALKED
+	setmetatile 37, 11, 113, 0
+	setmetatile 38, 9, 137, 1
+	setmetatile 38, 10, 137, 1
+	setmetatile 38, 11, 113, 0
+	setmetatile 39, 9, 137, 1
+	setmetatile 39, 10, 137, 1
+	setmetatile 39, 11, 113, 0
+	setmetatile 40, 9, 137, 1
+	setmetatile 40, 10, 137, 1
+	setmetatile 40, 11, 113, 0
+	setmetatile 41, 9, 137, 1
+	setmetatile 41, 10, 137, 1
+	setmetatile 41, 11, 113, 0
+	setmetatile 42, 9, 137, 1
+	setmetatile 42, 10, 137, 1
+	setmetatile 42, 11, 113, 0
+	setmetatile 43, 9, 137, 1
+	setmetatile 43, 10, 137, 1
+	setmetatile 43, 11, 113, 0
+	setmetatile 44, 11, 113, 0
+	fadescreenswapbuffers FADE_FROM_BLACK
+	msgbox ENCOUNTER_JUNA_Text_4
+	closemessage
+	goto ENCOUNTER_JUNA_4
+
+
 JUNA_POOL_ALL_FLAGS_Text_0:
-	.string "BEEP BOOP.$"
+	.string "You successfully cleanse the\n"
+	.string "corruption from the Tears of Guthix.$"
 
 JUNA_TOXIC_WATER_Text_0:
 	.string "This water is too toxic to pass.$"
+
+ENCOUNTER_JUNA_Text_0:
+	.string "Juna$"
+
+ENCOUNTER_JUNA_Text_1:
+	.string "Adventurer...\p"
+	.string "I have been waiting here three\n"
+	.string "thousand years, guarding the Tears of\l"
+	.string "Guthix.\p"
+	.string "The Tears have become polluted over\n"
+	.string "the years, and some of the streams are\l"
+	.string "no longer blessed with Guthix's power.\l"
+	.string "Please, restore balance and return His\l"
+	.string "power to these caves.$"
+
+ENCOUNTER_JUNA_Text_2:
+	.string "Adventurer, you have cleansed the\n"
+	.string "impurities from the waters!\l"
+	.string "The tears that flow from them are\l"
+	.string "blessed by the very power of Guthix\l"
+	.string "Himself.\p"
+	.string "I have been waiting for a long time for\n"
+	.string "a Guardian like yourself to come along.\l"
+	.string "Let us see if you are worthy!$"
+
+ENCOUNTER_JUNA_Text_3:
+	.string "Juna slithers away to bathe in the\n"
+	.string "Tears of Guthix.$"
+
+ENCOUNTER_JUNA_Text_4:
+	.string "After capturing Juna the cavern goes\n"
+	.string "quiet. The rocks finally stop weeping…$"

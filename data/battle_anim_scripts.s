@@ -948,7 +948,15 @@ gBattleAnims_Moves::
 	.4byte Move_SNELM_SHOWOFF
 	.4byte Move_ENERGY_DRAIN
 	.4byte Move_BERSERK
-
+	.4byte Move_DEFIANCE
+	.4byte Move_DEFLECT
+	.4byte Move_PIETY     
+	.4byte Move_TURMOIL   
+	.4byte Move_RIGOUR    
+	.4byte Move_TORMENT   
+	.4byte Move_AUGURY    
+	.4byte Move_ANGUISH   
+	.4byte Move_DIVINERAGE
 
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
@@ -17043,19 +17051,40 @@ Move_IVY_CUDGEL::
 Move_ELECTRO_SHOT::
 Move_TERA_STARSTORM::
 Move_FICKLE_BEAM::
-Move_BURNING_BULWARK::
 Move_THUNDERCLAP::
 Move_MIGHTY_CLEAVE::
 Move_TACHYON_CUTTER::
 Move_HARD_PRESS::
 Move_DRAGON_CHEER::
-Move_ALLURING_VOICE::
 Move_TEMPER_FLARE::
 Move_SUPERCELL_SLAM::
 Move_PSYCHIC_NOISE::
 Move_UPPER_HAND::
 Move_MALIGNANT_CHAIN::
 	end @to do
+
+Move_BURNING_BULWARK::
+	goto Move_PROTECT
+
+Move_ALLURING_VOICE::
+	loadspritegfx ANIM_TAG_THIN_RING
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x0, 0x8, 0x6e7d
+	waitforvisualfinish
+	createvisualtask SoundTask_PlayCryWithEcho, 5, FALSE
+	createsprite gHyperVoiceRingSpriteTemplate, ANIM_ATTACKER, 0, 45, 0, 0, 0, 0, 0, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 6, 1
+	createvisualtask AnimTask_ShakeBattleTerrain, 2, 1, 0, 6, 1
+	createvisualtask SoundTask_WaitForCry, 5
+	delay 0xA
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 1, 0, 26, 1
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_DEF_PARTNER, 1, 0, 26, 1
+	waitforvisualfinish
+	createvisualtask SoundTask_WaitForCry, 0x5
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 0xa, F_PAL_BG, 0x1, 0x8, 0x0, 0x6e7d
+	waitforvisualfinish
+	end
 
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
 Move_NONE:
@@ -34322,7 +34351,17 @@ Move_SHARKBREW:
 Move_EXCALIBUR:
 Move_SNELM_SHOWOFF:
 Move_ENERGY_DRAIN:
+Move_DEFIANCE:
 	goto Move_HEADBUTT
+Move_DEFLECT:
+Move_PIETY:
+Move_TURMOIL:
+Move_RIGOUR:
+Move_TORMENT_PRAYER:
+Move_AUGURY:
+Move_ANGUISH:
+Move_DIVINERAGE:
+	goto Move_HEALING_WISH
 
 Move_BERSERK:
 

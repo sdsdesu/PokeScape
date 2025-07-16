@@ -118,7 +118,7 @@ NPC_TZHAAR_GYM_TOKHAAR_11:
 	namebox NPC_TZHAAR_GYM_TOKHAAR_Text_0
 	msgbox NPC_TZHAAR_GYM_TOKHAAR_Text_11
 	setflag FLAG_BADGE05_GET
-	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 4
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_MVM_CHAMPIONSHIPS, 2
 	call HIDDEN_GROTTO_RESET
 	addvar VAR_GAMEMODE_LEVEL_SCALING, 1
 	goto NPC_TZHAAR_GYM_TOKHAAR_1
@@ -223,58 +223,54 @@ NPC_TZHAAR_GYM_LEADER::
 	lock
 	faceplayer
 	namebox TZHAAR_GYM_ROOM_POST_WIN_Text_0
-	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 0
-	goto_if_eq NPC_TZHAAR_GYM_LEADER_2
+	goto_if_unset FLAG_BADGE03_GET, NPC_TZHAAR_GYM_LEADER_2
+	msgbox NPC_TZHAAR_GYM_LEADER_Text_4
 NPC_TZHAAR_GYM_LEADER_1:
-	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1
-	goto_if_eq NPC_TZHAAR_GYM_LEADER_5
-NPC_TZHAAR_GYM_LEADER_4:
-	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 10
-	goto_if_eq NPC_TZHAAR_GYM_LEADER_11
-NPC_TZHAAR_GYM_LEADER_10:
-	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 30
-	goto_if_eq NPC_TZHAAR_GYM_LEADER_16
-	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 35
-	goto_if_eq NPC_TZHAAR_GYM_LEADER_16
-NPC_TZHAAR_GYM_LEADER_15:
 	hidenamebox
 	closemessage
 	release
 	end
 
 NPC_TZHAAR_GYM_LEADER_2:
+	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 0
+	goto_if_eq NPC_TZHAAR_GYM_LEADER_6
+NPC_TZHAAR_GYM_LEADER_5:
+	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1
+	goto_if_eq NPC_TZHAAR_GYM_LEADER_9
+NPC_TZHAAR_GYM_LEADER_8:
+	compare VAR_POKESCAPE_TZHAAR_GYM_QUEST, 10
+	goto_if_eq NPC_TZHAAR_GYM_LEADER_14
+	goto NPC_TZHAAR_GYM_LEADER_1
+
+NPC_TZHAAR_GYM_LEADER_6:
 	msgbox NPC_TZHAAR_GYM_LEADER_Text_0
 	setvar VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1
 	msgbox NPC_TZHAAR_GYM_LEADER_Text_1, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne NPC_TZHAAR_GYM_LEADER_7
+	goto_if_ne NPC_TZHAAR_GYM_LEADER_11
 	hidenamebox
 	closemessage
 	release
 	end
 
-NPC_TZHAAR_GYM_LEADER_5:
+NPC_TZHAAR_GYM_LEADER_9:
 	msgbox NPC_TZHAAR_GYM_LEADER_Text_2, MSGBOX_YESNO
 	compare VAR_RESULT, 0
-	goto_if_ne NPC_TZHAAR_GYM_LEADER_13
-	goto NPC_TZHAAR_GYM_LEADER_4
-
-NPC_TZHAAR_GYM_LEADER_7:
-	call TZHAAR_GYMCHALLENGE_START
-	goto NPC_TZHAAR_GYM_LEADER_1
+	goto_if_ne NPC_TZHAAR_GYM_LEADER_16
+	goto NPC_TZHAAR_GYM_LEADER_8
 
 NPC_TZHAAR_GYM_LEADER_11:
+	call TZHAAR_GYMCHALLENGE_START
+	goto NPC_TZHAAR_GYM_LEADER_5
+
+NPC_TZHAAR_GYM_LEADER_14:
 	msgbox NPC_TZHAAR_GYM_LEADER_Text_3
 	setvar VAR_POKESCAPE_TZHAAR_GYM_QUEST, 1
-	goto NPC_TZHAAR_GYM_LEADER_10
-
-NPC_TZHAAR_GYM_LEADER_13:
-	call TZHAAR_GYMCHALLENGE_START
-	goto NPC_TZHAAR_GYM_LEADER_4
+	goto NPC_TZHAAR_GYM_LEADER_1
 
 NPC_TZHAAR_GYM_LEADER_16:
-	msgbox NPC_TZHAAR_GYM_LEADER_Text_4
-	goto NPC_TZHAAR_GYM_LEADER_15
+	call TZHAAR_GYMCHALLENGE_START
+	goto NPC_TZHAAR_GYM_LEADER_8
 
 
 TZHAAR_GYMCHALLENGE_START::
@@ -436,7 +432,7 @@ TZHAAR_GYM_ROOM_POST_WIN_Text_1:
 TZHAAR_GYM_ROOM_POST_WIN_Text_2:
 	.string "If you wish to prove yourself even more\n"
 	.string "you should visit our Fight Caves in the\l"
-	.string "westside of our city.\p"
+	.string "west side of our city.\p"
 	.string "Otherwise we wish you to have glorious\n"
 	.string "battles in your future MvM Challenges.$"
 
@@ -582,7 +578,7 @@ NPC_TZHAAR_GYM_LEADER_Text_4:
 	.string "Congratulations on your victory JalYt.\p"
 	.string "If you wish to prove yourself even more\n"
 	.string "you should visit our Fight Caves in the\l"
-	.string "westside of our city.\p"
+	.string "west side of our city.\p"
 	.string "Otherwise we wish you to have glorious\n"
 	.string "battles in your future MvM Challenges.$"
 

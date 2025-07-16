@@ -758,6 +758,7 @@
 #define MAP_LUMBRIDGE_CHURCH           (19 | (38 << 8))
 #define MAP_LUMBRIDGE_CASTLE_BASEMENT  (20 | (38 << 8))
 #define MAP_LUMBRIDGE_HOUSE_5          (21 | (38 << 8))
+#define MAP_LUMBRIDGE_FISHING_STORE    (22 | (38 << 8))
 
 // gMapGroup_PokescapeIndoorDraynor
 #define MAP_DRAYNOR_HOUSE_MORGAN_1F   (0 | (39 << 8))
@@ -868,6 +869,7 @@
 #define MAP_VARROCK_HOUSE_8           (31 | (43 << 8))
 #define MAP_VARROCK_HOUSE_9           (32 | (43 << 8))
 #define MAP_VARROCK_HOUSE_10          (33 | (43 << 8))
+#define MAP_DIGSITE_EXAM_CENTRE       (34 | (43 << 8))
 
 // gMapGroup_PokescapeIndoorBarbarianVillage
 #define MAP_BARBARIAN_VILLAGE_GYM_HALL (0 | (44 << 8))
@@ -889,6 +891,7 @@
 #define MAP_AL_KHARID_HOUSE_4_2F    (10 | (45 << 8))
 #define MAP_AL_KHARID_GENERAL_STORE (11 | (45 << 8))
 #define MAP_AL_KHARID_TENT          (12 | (45 << 8))
+#define MAP_AL_KHARID_HOUSE_5       (13 | (45 << 8))
 
 // gMapGroup46
 #define MAP_DUNGEONEERING_1     (0 | (46 << 8))
@@ -910,6 +913,19 @@
 #define MAP_DUNGEONEERING_LOBBY (16 | (46 << 8))
 #define MAP_DAEMONHEIM_GYM      (17 | (46 << 8))
 #define MAP_DAEMONHEIM_BANK     (18 | (46 << 8))
+#define MAP_DUNG_GYM_1          (19 | (46 << 8))
+#define MAP_DUNG_GYM_2          (20 | (46 << 8))
+#define MAP_DUNG_GYM_3          (21 | (46 << 8))
+#define MAP_DUNG_GYM_4          (22 | (46 << 8))
+#define MAP_DUNG_GYM_5          (23 | (46 << 8))
+#define MAP_DUNG_GYM_6          (24 | (46 << 8))
+#define MAP_DUNG_GYM_7          (25 | (46 << 8))
+#define MAP_DUNG_GYM_8          (26 | (46 << 8))
+#define MAP_DUNG_GYM_9          (27 | (46 << 8))
+#define MAP_DUNG_GYM_10         (28 | (46 << 8))
+#define MAP_DUNG_GYM_11         (29 | (46 << 8))
+#define MAP_DUNG_GYM_12         (30 | (46 << 8))
+#define MAP_DUNG_GYM_13         (31 | (46 << 8))
 
 // gMapGroup47
 #define MAP_EDGEVILLE_GYM                 (0 | (47 << 8))
@@ -924,6 +940,9 @@
 #define MAP_DWARVEN_MINES_HOUSE_2         (9 | (47 << 8))
 #define MAP_DWARVEN_MINES_HOUSE_3         (10 | (47 << 8))
 #define MAP_EDGEVILLE_ROUTE19_BRASS_HOUSE (11 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_1 (12 | (47 << 8))
+#define MAP_DWARVEN_MINES_POWER_STATION_2 (13 | (47 << 8))
+#define MAP_EDGEVILLE_GUARDHOUSE          (14 | (47 << 8))
 
 // gMapGroup_PokescapeOutdoorMembers
 #define MAP_YANILLE       (0 | (48 << 8))
@@ -1067,6 +1086,11 @@
 #define MAP_BLACK_KNIGHTS_FORTRESS_2            (93 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_3            (94 | (50 << 8))
 #define MAP_BLACK_KNIGHTS_FORTRESS_4            (95 | (50 << 8))
+#define MAP_HAM_HIDEOUT_B3F                     (96 | (50 << 8))
+#define MAP_WILDERNESS_VOLCANO_B1F              (97 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B2F               (98 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B3F               (99 | (50 << 8))
+#define MAP_WILDERNESS_CRATER_B4F               (100 | (50 << 8))
 
 #define MAP_GROUPS_COUNT 51
 

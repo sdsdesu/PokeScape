@@ -240,6 +240,7 @@ const u8 gText_TossHowManyVar1s[] = _("Toss out how many\n{STR_VAR_1}(s)?");
 const u8 gText_ThrewAwayVar2Var1s[] = _("Threw away {STR_VAR_2}\n{STR_VAR_1}(s).");
 const u8 gText_ConfirmTossItems[] = _("Is it okay to\nthrow away {STR_VAR_2}\n{STR_VAR_1}(s)?");
 const u8 gText_DadsAdvice[] = _("Demonheadge's advice…\n{PLAYER}, nothing interesting happens!{PAUSE_UNTIL_PRESS}");
+const u8 gText_OutfitCannotUseItemMessage[] = _("Demonheadge's advice…\nYou cannot do this while in that form.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderOnTop[] = _("Oh!\nThe ITEMFINDER's shaking wildly!{PAUSE_UNTIL_PRESS}");
@@ -301,7 +302,8 @@ const u8 *const gPocketNamesStringsTable[] =
     [KEYITEMS_POCKET] = gText_KeyItemsPocket
 };
 
-const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
+const u8 gText_NumberItem_Berry[] = _("{STR_VAR_2}");
+const u8 gText_NumberItem_TM[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
 const u8 gText_NumberItem_HM[] = _("{CLEAR_TO 0x11}{STR_VAR_1}{CLEAR 0x05}{STR_VAR_2}");
 const u8 gText_SizeSlash[] = _("SIZE /");
 const u8 gText_FirmSlash[] = _("FIRM /");
@@ -360,6 +362,7 @@ const u8 gText_HereYouGoThankYou[] = _("Here you go!\nThank you very much.");
 const u8 gText_ThankYouIllSendItHome[] = _("Thank you!\nI'll send it to your home PC.");
 const u8 gText_ThanksIllSendItHome[] = _("Thanks!\nI'll send it to your PC at home.");
 const u8 gText_YouDontHaveMoney[] = _("You don't have enough money.{PAUSE_UNTIL_PRESS}");
+const u8 gText_YouDontHaveTokkul[] = _("You don't have enough Tokkul.{PAUSE_UNTIL_PRESS}");
 const u8 gText_NoMoreRoomForThis[] = _("You have no more room for this\nitem.{PAUSE_UNTIL_PRESS}");
 const u8 gText_SpaceForVar1Full[] = _("The space for {STR_VAR_1} is full.{PAUSE_UNTIL_PRESS}");
 const u8 gText_AnythingElseICanHelp[] = _("Is there anything else I can help\nyou with?");
@@ -718,7 +721,7 @@ const u8 gText_Items[] = _("ITEMS");
 const u8 gText_Key_Items[] = _("KEY ITEMS");
 const u8 gText_Poke_Balls[] = _("POUCHES");
 const u8 gText_TMs_Hms[] = _("TMs & HMs");
-const u8 gText_Berries2[] = _("BERRIES");
+const u8 gText_Berries2[] = _("GOODIES");
 const u8 gText_SomeonesPC[] = _("SOMEONE'S PC");
 const u8 gText_LanettesPC[] = _("LANETTE'S PC");
 const u8 gText_PlayersPC[] = _("{PLAYER}'s PC");
@@ -957,7 +960,7 @@ const u8 gText_MoveItemsDescription[] = _("Move items held by any MONSTER\nin a 
 const u8 gText_SeeYaDescription[] = _("Return to the previous menu.");
 const u8 gText_JustOnePkmn[] = _("There is just one MONSTER with you.");
 const u8 gText_PartyFull[] = _("Your party is full!");
-const u8 gText_Box[] = _("BOX");
+const u8 gText_Box[] = _("TAB ");
 const u8 gText_CheckMapOfHoenn[] = _("Check the map of the HOENN region.");
 const u8 gText_CheckPokemonInDetail[] = _("Check MONSTER in detail.");
 const u8 gText_CallRegisteredTrainer[] = _("Call a registered TRAINER.");
@@ -1851,8 +1854,8 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POUCHES");
 const u8 gText_Berry[] = _("");
 const u8 gText_Berries[] = _("");
-const u8 gText_ExpShareOn[] = _("The Exp. Share has been turned on.{PAUSE_UNTIL_PRESS}");
-const u8 gText_ExpShareOff[] = _("The Exp. Share has been turned off.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOn[] = _("The Pulse Core has been activated and will share exp.{PAUSE_UNTIL_PRESS}");
+const u8 gText_ExpShareOff[] = _("The Pulse Core has been deactivated and will no longer share exp.{PAUSE_UNTIL_PRESS}");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 
 //pokescape
@@ -1908,8 +1911,8 @@ const u8 gText_POH_BLUE[] =_("BLUE");
 const u8 gText_POH_CYAN[] =_("CYAN");
 const u8 gText_POH_BLACK[] =_("BLACK");
 
-const u8 gText_PhoenixEgg_Clap[] =_("CLAP AT IT.");
-const u8 gText_PhoenixEgg_Kick[] =_("KICK IT!!!!");
+const u8 gText_PhoenixEgg_Clap[] =_("Praise the Egg."); 
+const u8 gText_PhoenixEgg_Kick[] =_("Kick the Egg!");
 
 const u8 gText_BANK_HEAL[] =_("HEAL MONSTERS");
 const u8 gText_BANK_STORE_MONSTERS[] =_("STORE MONSTERS");
@@ -1934,6 +1937,24 @@ const u8 gText_TRIANGLE_SANDWICH[] =_("TRIANGLE SANDWICH");
 const u8 gText_RenameMon[] =_("RENAME A MONSTER");
 const u8 gText_ReLearnMove[] =_("FORGET A MOVE");
 const u8 gText_ForgetMove[] =_("RELEARN A MOVE");
+
+const u8 gText_BEGINNING[] =_("BEGINNING");
+const u8 gText_Pre_WIZARDSTOWER[] =_("PRE WIZARDS TOWER");
+const u8 gText_Post_DRAYNORMANOR[] =_("POST DRAYNOR MANOR");
+const u8 gText_Post_MELZARSMAZE[] =_("POST MELZARS MAZE");
+const u8 gText_Pre_Crandor[] =_("PRE CRANDOR");
+const u8 gText_Pre_BKF[] =_("PRE BLACK KNIGHTS FORTRESS");
+const u8 gText_Post_BKF[] =_("POST BLACK KNIGHTS FORTRESS");
+const u8 gText_Post_FALADORGYM[] =_("POST FALADOR GYM");
+
+const u8 gText_PubCrawlInfo[] =_("PUB CRAWL INFO");
+
+
+
+
+
+
+
 
 //misc
 const u8 gText_NextMenu[] =_("Next");
@@ -2129,6 +2150,12 @@ const u8 gText_SubQuest_Main_Story_Name9[] = _("Dragon Sailor");
 const u8 gText_SubQuest_Main_Story_Desc9[] = _("You found a captain for the boat.\nAll that's left to do now is to set sail!");
 const u8 gText_SubQuest_Main_Story_Name10[] = _("Close one!");
 const u8 gText_SubQuest_Main_Story_Desc10[] = _("You escaped from the volcano just in\ntime. Best report back to the\nWhite Knights of Falador.");
+const u8 gText_SubQuest_Main_Story_Name11[] = _("Mission complete?");
+const u8 gText_SubQuest_Main_Story_Desc11[] = _("You reported the mission summary to\nSir Amik Varze, but what will\nhappen to Ned and the Cabin boy.");
+const u8 gText_SubQuest_Main_Story_Name12[] = _("What lies below");
+const u8 gText_SubQuest_Main_Story_Desc12[] = _("You and Sir Owen infiltrated the\nBlack Knights Fortress and found\ninformation about a mural.");
+const u8 gText_SubQuest_Main_Story_Name13[] = _("Another Slice of H.A.M");
+const u8 gText_SubQuest_Main_Story_Desc13[] = _("You and Zanik rescued Prince Ali\nfrom the H.A.M Hideout and\nfound out about H.A.M's next move.");
 
 const u8 gText_MapName_DraynorManor[] = _("Draynor Manor");
 const u8 gText_MapName_LumbridgeForest[] = _("Lumbridge Forest");
@@ -2136,6 +2163,7 @@ const u8 gText_MapName_PortSarim[] = _("Port Sarim");
 const u8 gText_MapName_MelzarsMaze[] = _("Melzars Maze");
 const u8 gText_MapName_DwarvenMines[] = _("Dwarven Mines");
 const u8 gText_MapName_Crandor[] = _("Crandor");
+const u8 gText_MapName_IceMountain[] = _("Ice Mountain");
 
 const u8 gText_SideQuestName_MithrilmanQuest[] = _("Mithrilman Quest");
 const u8 gText_SideQuestDesc_MithrilmanQuest[] = _("Follow the story of Mithrilman.");
@@ -2146,9 +2174,24 @@ const u8 gText_SubQuest_MithrilmanQuest_Desc2[] = _("You found the Mithrilman in
 const u8 gText_SubQuest_MithrilmanQuest_Name3[] = _("A Hot encounterestd");
 const u8 gText_SubQuest_MithrilmanQuest_Desc3[] = _("Mithrilman is in the Karamja volcano.\nDoes he call lava, lavastedst?");
 const u8 gText_SubQuest_MithrilmanQuest_Name4[] = _("Mithril life crisis");
-const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("");
+const u8 gText_SubQuest_MithrilmanQuest_Desc4[] = _("You found Mithrilman in Edgeville.\nHe doesn't like losing.");
+const u8 gText_SubQuest_MithrilmanQuest_Name5[] = _("A Trainingst Arc");
+const u8 gText_SubQuest_MithrilmanQuest_Desc5[] = _("You discovered Mithrilman training\nin Al Kharid.");
+const u8 gText_SubQuest_MithrilmanQuest_Name6[] = _("Thine Will Remember This");
+const u8 gText_SubQuest_MithrilmanQuest_Desc6[] = _("Mithrilman has finally learned\nyour name.");
+const u8 gText_SubQuest_MithrilmanQuest_Name7[] = _("A Solitary Fellowst");
+const u8 gText_SubQuest_MithrilmanQuest_Desc7[] = _("In the cold of Daemonheim,\nMithrilman contemplates life.");
 
-
+const u8 gText_SideQuestName_QuestPowerPlantScorpions[] = _("Dwarven Troubles");
+const u8 gText_SideQuestDesc_QuestPowerPlantScorpions[] = _("Assist Nulodion with his\nscorpion problems.");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Name1[] = _("You got this!");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc1[] = _("You recieved a key to the\npowerstation located within the\nDwarven Mines.");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Name2[] = _("Access granted!");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc2[] = _("Using the Factory Key you gained\naccess to the powerplant.");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Name3[] = _("Haircut anyone?");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc3[] = _("You defeated some massive scorpions!");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Name4[] = _("Still not enough…");
+const u8 gText_SubQuest_QuestPowerPlantScorpions_Desc4[] = _("Nulodion rewarded you with\nsome junk.");
 
 
 
@@ -2413,3 +2456,5 @@ const u8 gText_TrainerCardTokkul[] = _("TOKKUL:");
 const u8 gText_TrainerCardSlayerPoints[] = _("SLAYER POINTS:");
 const u8 gText_SlayerPoints[] = _("{STR_VAR_1} SP");
 const u8 gText_Tokkul[] = _("{STR_VAR_1} TKL");
+const u8 gText_YouWantedVar1OutfitThatllBeVar2[] = _("You wanted that {STR_VAR_1} OUTFIT?\nThat'll be {STR_VAR_2} GP. Will that be okay?");
+const u8 gText_HereIsTheOutfitThankYou[] = _("Here is the OUTFIT!\nThank you very much.");

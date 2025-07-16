@@ -1,5 +1,6 @@
 Dwarven_Mine_B1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_TRANSITION
+	map_script MAP_SCRIPT_ON_LOAD, Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_LOAD
 	.byte 0
 
 Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
@@ -11,6 +12,20 @@ Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 
 Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 	goto DWARVENMINES_QUEST_STATE
+	return
+
+Dwarven_Mine_B1F_MapScripts_MAP_SCRIPT_ON_LOAD:
+	call DWARVENMINES_METATILES
+	return
+
+
+DWARVENMINES_METATILES::
+	compare VAR_DWARVEN_MINES_STATE, 10
+	goto_if_ge DWARVENMINES_METATILES_1
+	return
+
+DWARVENMINES_METATILES_1:
+	setmetatile 9, 6, 121, 0
 	return
 
 
@@ -119,31 +134,6 @@ NPC_DWARVENMINES_DROGO::
 	msgbox NPC_DWARVENMINES_DROGO_Text_1
 	hidenamebox
 	release
-	end
-
-
-ITEM_DWARVENMINES_1::
-	finditem ITEM_ROCKCAKE
-	end
-
-
-ITEM_DWARVENMINES_2::
-	finditem ITEM_POUCH_GRANITE
-	end
-
-
-ITEM_DWARVENMINES_3::
-	finditem ITEM_EARTH_RUNE
-	end
-
-
-ITEM_DWARVENMINES_4::
-	finditem ITEM_REPEL_TEA_2
-	end
-
-
-ITEM_DWARVENMINES_5::
-	finditem ITEM_PURPLE_SWEETS
 	end
 
 
@@ -630,7 +620,7 @@ NPC_DWARVENMINES_DWARF_8::
 NPC_DWARVENMINES_DWARF_9::
 	lock
 	faceplayer
-	namebox NPC_DWARVENMINES_DWARF_1_Text_0
+	namebox NPC_DWARVENMINES_DWARF_4_Text_0
 	msgbox NPC_DWARVENMINES_DWARF_9_Text_0
 	hidenamebox
 	release
@@ -640,7 +630,7 @@ NPC_DWARVENMINES_DWARF_9::
 NPC_DWARVENMINES_DWARF_10::
 	lock
 	faceplayer
-	namebox NPC_DWARVENMINES_DWARF_1_Text_0
+	namebox NPC_DWARVENMINES_DWARF_4_Text_0
 	msgbox NPC_DWARVENMINES_DWARF_10_Text_0
 	hidenamebox
 	release
@@ -650,7 +640,7 @@ NPC_DWARVENMINES_DWARF_10::
 NPC_DWARVENMINES_DWARF_11::
 	lock
 	faceplayer
-	namebox NPC_DWARVENMINES_DWARF_1_Text_0
+	namebox NPC_DWARVENMINES_DWARF_4_Text_0
 	msgbox NPC_DWARVENMINES_DWARF_11_Text_0
 	hidenamebox
 	release
@@ -665,6 +655,34 @@ NPC_DWARVENMINES_HURA::
 	hidenamebox
 	release
 	end
+
+
+POWER_STATION_DOOR::
+	compare VAR_DWARVEN_MINES_STATE, 0
+	goto_if_eq POWER_STATION_DOOR_2
+	compare VAR_DWARVEN_MINES_STATE, 5
+	goto_if_eq POWER_STATION_DOOR_3
+POWER_STATION_DOOR_1:
+	end
+
+POWER_STATION_DOOR_2:
+	msgbox POWER_STATION_DOOR_Text_0
+	closemessage
+	goto POWER_STATION_DOOR_1
+
+POWER_STATION_DOOR_3:
+	msgbox POWER_STATION_DOOR_Text_1
+	playse SE_SWITCH
+	waitse
+	delay 30
+	setmetatile 9, 6, 121, 0
+	special DrawWholeMapView
+	playse SE_TRUCK_DOOR
+	msgbox POWER_STATION_DOOR_Text_2
+	closemessage
+	setvar VAR_DWARVEN_MINES_STATE, 10
+	subquestmenu QUEST_MENU_COMPLETE_QUEST, QUEST_POWERPLANT_SCORPIONS, 1
+	goto POWER_STATION_DOOR_1
 
 
 NPC_SCORPION_Text_0:
@@ -950,9 +968,10 @@ NPC_DWARVENMINES_DWARF_7_Text_0:
 	.string "Railway System is down.$"
 
 NPC_DWARVENMINES_DWARF_8_Text_0:
-	.string "That pickaxe you have there…\p"
-	.string "That looks like one of mine.\p"
-	.string "How did you get it?$"
+	.string "Ay mate, this is the backdoor to our\n"
+	.string "Power Station.\p"
+	.string "I'll have to ask you to stay clear for\n"
+	.string "saftey reasons.$"
 
 NPC_DWARVENMINES_DWARF_9_Text_0:
 	.string "If you are dealing with less than\n"
@@ -993,3 +1012,12 @@ NPC_DWARVENMINES_HURA_Text_1:
 	.string "I'm afraid I don't currently have any in\n"
 	.string "stock, but if I get any in I'll make sure\l"
 	.string "you get your hands on one.$"
+
+POWER_STATION_DOOR_Text_0:
+	.string "The door is locked.$"
+
+POWER_STATION_DOOR_Text_1:
+	.string "The key unlocks the door!$"
+
+POWER_STATION_DOOR_Text_2:
+	.string "The door opens.$"

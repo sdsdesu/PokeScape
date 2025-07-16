@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_BOT_DRAGON",
-      "x": 8,
+      "x": 7,
       "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_UP",
@@ -94,12 +94,12 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HILL_GIANT",
-      "x": 9,
+      "x": 5,
       "y": 4,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BKFORT_3F_NPC_4",
@@ -136,8 +136,8 @@
       "x": 8,
       "y": 19,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
@@ -162,9 +162,9 @@
       "x": 2,
       "y": 14,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BKFORT_3F_NPC_6",
@@ -198,7 +198,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
-      "x": 14,
+      "x": 11,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -211,7 +211,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_M",
-      "x": 12,
+      "x": 7,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -250,8 +250,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_KNIGHT_WHITE_M",
-      "x": 13,
-      "y": 4,
+      "x": 9,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -289,19 +289,6 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
-      "x": 1,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_3F_ITEM3",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
       "x": 14,
       "y": 13,
       "elevation": 0,
@@ -310,8 +297,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_3F_ITEM2",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM2"
+      "script": "FIND_ITEM_BRONZE_HELMET",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_6"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_POUCH",
@@ -323,8 +310,34 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_BKFORT_3F_ITEM1",
-      "flag": "FLAG_ITEM_BKFORT_3F_ITEM1"
+      "script": "FIND_ITEM_PRAYER_POTION",
+      "flag": "FLAG_ITEM_BLACKKNIGHTSFORTRESS_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BANKER_M",
+      "x": 13,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BKF_Banker",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_KNIGHT_BLACK_F",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1F"
     }
   ],
   "warp_events": [
@@ -340,7 +353,14 @@
 
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BKF_GATE"
+    }
   ],
   "has_night_table": false
 }

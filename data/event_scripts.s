@@ -58,6 +58,7 @@
 #include "constants/weather.h"
 #include "constants/quests.h"
 #include "constants/follow_me.h"
+#include "constants/outfits.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -629,19 +630,10 @@ EventScript_MoveMrBrineyToRoute109::
 	end
 
 EverGrandeCity_HallOfFame_EventScript_ResetEliteFour::
-	clearflag FLAG_DEFEATED_ELITE_4_SIDNEY
-	clearflag FLAG_DEFEATED_ELITE_4_PHOEBE
-	clearflag FLAG_DEFEATED_ELITE_4_GLACIA
-	clearflag FLAG_DEFEATED_ELITE_4_DRAKE
-	setvar VAR_ELITE_4_STATE, 0
 	return
 
 Common_EventScript_UpdateBrineyLocation::
-	goto_if_unset FLAG_RECEIVED_POKENAV, Common_EventScript_NopReturn
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, Common_EventScript_NopReturn
-	goto_if_unset FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT, EventScript_SetBrineyLocation_House
-	goto_if_unset FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN, EventScript_SetBrineyLocation_Dewford
-	goto_if_unset FLAG_HIDE_ROUTE_109_MR_BRINEY, EventScript_SetBrineyLocation_Route109
+
 	return
 
 EventScript_SetBrineyLocation_House::
@@ -770,21 +762,9 @@ Movement_FerryDepart:
 	step_end
 
 EventScript_HideMrBriney::
-	setflag FLAG_HIDE_MR_BRINEY_DEWFORD_TOWN
-	setflag FLAG_HIDE_MR_BRINEY_BOAT_DEWFORD_TOWN
-	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY
-	setflag FLAG_HIDE_ROUTE_109_MR_BRINEY_BOAT
-	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY
-	setflag FLAG_HIDE_ROUTE_104_MR_BRINEY_BOAT
-	setflag FLAG_HIDE_BRINEYS_HOUSE_MR_BRINEY
-	setflag FLAG_HIDE_BRINEYS_HOUSE_PEEKO
-	setvar VAR_BRINEY_LOCATION, 0
 	return
 
 RusturfTunnel_EventScript_SetRusturfTunnelOpen::
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDAS_BOYFRIEND
-	clearflag FLAG_HIDE_VERDANTURF_TOWN_WANDAS_HOUSE_WANDA
-	setvar VAR_RUSTURF_TUNNEL_STATE, 6
 
 	return
 
@@ -1540,3 +1520,51 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Black_Knights_Fortress_3/scripts.inc"
 
 	.include "data/maps/Black_Knights_Fortress_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_1/scripts.inc"
+
+	.include "data/maps/Dung_Gym_2/scripts.inc"
+
+	.include "data/maps/Dung_Gym_3/scripts.inc"
+
+	.include "data/maps/Dung_Gym_4/scripts.inc"
+
+	.include "data/maps/Dung_Gym_5/scripts.inc"
+
+	.include "data/maps/Dung_Gym_6/scripts.inc"
+
+	.include "data/maps/Dung_Gym_7/scripts.inc"
+
+	.include "data/maps/Dung_Gym_8/scripts.inc"
+
+	.include "data/maps/Dung_Gym_9/scripts.inc"
+
+	.include "data/maps/Dung_Gym_10/scripts.inc"
+
+	.include "data/maps/Dung_Gym_11/scripts.inc"
+
+	.include "data/maps/Dung_Gym_12/scripts.inc"
+
+	.include "data/maps/Dung_Gym_13/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_1/scripts.inc"
+
+	.include "data/maps/DwarvenMines_PowerStation_2/scripts.inc"
+
+	.include "data/maps/Lumbridge_FishingStore/scripts.inc"
+
+	.include "data/maps/Digsite_Exam_Centre/scripts.inc"
+
+	.include "data/maps/AlKharid_House_5/scripts.inc"
+
+	.include "data/maps/Edgeville_Guardhouse/scripts.inc"
+
+	.include "data/maps/HAM_Hideout_B3F/scripts.inc"
+
+	.include "data/maps/WildernessVolcano_B1F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B2F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B3F/scripts.inc"
+
+	.include "data/maps/Wilderness_Crater_B4F/scripts.inc"

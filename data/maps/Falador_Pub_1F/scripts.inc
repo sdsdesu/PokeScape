@@ -2,11 +2,6 @@ Falador_Pub_1F_MapScripts::
 	.byte 0
 
 
-ITEM_FALADORPUB_1::
-	finditem ITEM_STAT_BEER
-	end
-
-
 NPC_FALADORPUB_BARMAID_1::
 	lock
 	faceplayer
@@ -45,7 +40,7 @@ NPC_FALADORPUB_NPC1::
 	namebox NPC_FALADORPUB_NPC1_Text_0
 	msgbox NPC_FALADORPUB_NPC1_Text_1
 	hidenamebox
-	goto_if_unset FLAG_PUB_TRAINER_10, NPC_FALADORPUB_NPC1_2
+	goto_if_unset FLAG_PUB_TRAINER_4, NPC_FALADORPUB_NPC1_2
 NPC_FALADORPUB_NPC1_1:
 	hidenamebox
 	release
@@ -59,7 +54,7 @@ NPC_FALADORPUB_NPC1_2:
 
 NPC_FALADORPUB_NPC1_4:
 	hidenamebox
-	setflag FLAG_PUB_TRAINER_10
+	setflag FLAG_PUB_TRAINER_4
 	trainerbattle_no_intro TRAINER_PUB_FALADOR_2, NPC_FALADORPUB_NPC1_Text_3
 	namebox NPC_FALADORPUB_NPC1_Text_0
 	msgbox NPC_FALADORPUB_NPC1_Text_4
@@ -74,7 +69,7 @@ NPC_FALADORPUB_NPC2::
 	namebox NPC_FALADORPUB_NPC2_Text_0
 	msgbox NPC_FALADORPUB_NPC2_Text_1
 	hidenamebox
-	goto_if_unset FLAG_PUB_TRAINER_11, NPC_FALADORPUB_NPC2_2
+	goto_if_unset FLAG_PUB_TRAINER_5, NPC_FALADORPUB_NPC2_2
 NPC_FALADORPUB_NPC2_1:
 	hidenamebox
 	release
@@ -88,7 +83,7 @@ NPC_FALADORPUB_NPC2_2:
 
 NPC_FALADORPUB_NPC2_4:
 	hidenamebox
-	setflag FLAG_PUB_TRAINER_11
+	setflag FLAG_PUB_TRAINER_5
 	trainerbattle_no_intro TRAINER_PUB_FALADOR_1, NPC_FALADORPUB_NPC1_Text_3
 	namebox NPC_FALADORPUB_NPC2_Text_0
 	msgbox NPC_FALADORPUB_NPC2_Text_2
@@ -155,7 +150,7 @@ NPC_FALADORPUB_NPC8::
 	namebox NPC_FALADORPUB_NPC8_Text_0
 	msgbox NPC_FALADORPUB_NPC8_Text_1
 	hidenamebox
-	goto_if_unset FLAG_PUB_TRAINER_9, NPC_FALADORPUB_NPC8_2
+	goto_if_unset FLAG_PUB_TRAINER_6, NPC_FALADORPUB_NPC8_2
 NPC_FALADORPUB_NPC8_1:
 	hidenamebox
 	release
@@ -169,7 +164,7 @@ NPC_FALADORPUB_NPC8_2:
 
 NPC_FALADORPUB_NPC8_4:
 	hidenamebox
-	setflag FLAG_PUB_TRAINER_9
+	setflag FLAG_PUB_TRAINER_6
 	trainerbattle_no_intro TRAINER_PUB_FALADOR_3, NPC_FALADORPUB_NPC1_Text_3
 	namebox NPC_FALADORPUB_NPC8_Text_0
 	msgbox NPC_FALADORPUB_NPC8_Text_2

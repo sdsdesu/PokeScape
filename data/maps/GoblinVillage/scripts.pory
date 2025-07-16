@@ -17,68 +17,6 @@ mapscripts GoblinVillage_MapScripts {
 //HIDDEN ITEMS: MOONLIGHT_MEAD,  POTION_DEF
 //
 
-script ITEM_GOBLIN_VILLAGE_1
-{
-    finditem(ITEM_BOOK_OF_BANDOS) //ITEM_LAMP_ATT
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_2
-{
-    finditem(ITEM_CAKE)
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_3
-{
-    finditem(ITEM_PRAYER_POTION)
-    end
-}
-
-script ITEM_GOBLIN_VILLAGE_4
-{
-    finditem(ITEM_CABBAGE)
-    end
-}
-
-
-
-script ITEM_ROUTE24_1
-{
-    finditem(ITEM_POUCH_MITHRIL, 5)
-    end
-}
-
-script ITEM_ROUTE24_2
-{
-    finditem(ITEM_POTION_SPATT)
-    end
-}
-
-script ITEM_ROUTE24_3
-{
-    finditem(ITEM_MIND_RUNE)
-    end
-}
-
-script ITEM_ROUTE24_4
-{
-    finditem(ITEM_MIND_RUNE)
-    end
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -236,10 +174,10 @@ script BATTLE_LOPENDEBANK {
     if (var(VAR_RESULT)){
         trainerbattle_no_intro(TRAINER_LOPENDEBANK, msgbox(format("OMG pls don't ban me pl0x!")))
         namebox ("Lopendebank")
-        msgbox(format("I am apart of team PokeScaper.\pKeep your eyes out as we are everywhere.\pNow if you will excuse me I am going back to making memes."))
+        msgbox(format("I am apart of team PokeScaper.\pKeep your eyes out as we are everywhere.\pNow if you will excuse me I have got a lot of things to not read."))
     }
     else {
-        msgbox(format("Oh, okay. If you'll excuse me I have memes to make and bans to avoid."))
+        msgbox(format("Oh, okay. If you'll excuse me I have got a lot of things to not read."))
     }
     hidenamebox
 	closemessage
@@ -288,8 +226,159 @@ script NPC_AMBER
 
 
 
+script POKESCAPER_ORCHY
+{
+    lock
+    faceplayer
+    namebox ("Orchy")
+    msgbox(format("Hey!\pI'm Runescape Reorchestrated, you can call me Orchy for short.\pI made all the music for this game."))
+    closemessage
+    hidenamebox
+    goto(BATTLE_ORCHY)
+    release
+    end
+}
+script BATTLE_ORCHY {
+    playse(SE_PIN)
+    applymovement(6, MOVEMENT_EXCLAMATIONMARK)
+    waitmovement(0)
+    namebox("Orchy")
+    msgbox(format("Oh, by any chance are you looking for a battle?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Alright, then let us let the bodies hit the floor!"))
+        closemessage
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_ORCHY, msgbox(format("Can you hear that?\nIt's the sound of my defeat.")))
+        namebox ("Orchy")
+        msgbox(format("As a member of team PokeScaper, I must say be sure to keep your eyes out as we are everywhere."))
+    }
+    else {
+        msgbox(format("That's alright, you can just listen to me playing some music."))
+    }
+    hidenamebox
+	closemessage
+    applymovement(6, Movement_InteractFACERIGHT)
+    waitmovement(0)
+    random(11)
+    switch (var(VAR_RESULT)){ 
+            case 0: 
+                playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
+            case 1: 
+                playbgm (MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1)
+            case 2: 
+                playbgm (MUS_PS_GODSLAYER, 1)
+            case 3: 
+                playbgm (MUS_PS_VS_CHAOS_TUNNELS, 1)
+            case 4: 
+                playbgm (MUS_PS_VS_ORCHY, 1)
+            case 5: 
+                playbgm (MUS_PS_VS_POKESCAPERS, 1)
+            case 6: 
+                playbgm (MUS_PS_VS_CHAOS_ELEMENTAL, 1)
+            case 7: 
+                playbgm (MUS_PS_VS_LEGENDARY, 1)
+            case 8: 
+                playbgm (MUS_PS_ROUTE_DESERT, 1)
+            case 9: 
+                playbgm (MUS_PS_SURFING, 1)
+            case 10: 
+                playbgm (MUS_PS_GENERAL_STORE, 1)
+    }
+    release
+    end
+}
 
 
+script POKESCAPER_ORCHY_V2 
+{
+    lock
+    faceplayer
+    namebox ("Orchy")
+    msgbox(format("Hey!\pI'm Runescape Reorchestrated, you can call me Orchy for short.\pI made all the music for this game."))
+    special(GetAmountOfBadges)
+    switch (var(VAR_RESULT)) {
+		case 0:
+            if (flag(FLAG_SYS_POKEMON_GET) == FALSE) {
+                msgbox(format("What's that?\pYou still don't have any monsters of your own yet?\pWhat are you waiting for, why don't you go and visit Professor Normal Tree in Lumbridge Castle."))
+            }
+            else {
+                msgbox(format("I see you have no badges, maybe you should stop by Lumbridge Gym and pick one up.\pCome back and see me once you have a few and we'll have a battle!"))
+            }
+        case 1:
+            msgbox(format("Congratulations on your first badge!\pCome back when you've got a few more and maybe you'll be strong enough to challenge me."))
+        case 2:
+            msgbox(format("Two badges?\pNot bad, but I think you still need at least one, maybe even two more to compete with these melodies."))
+        case 3:
+            msgbox(format("Wow look at you!\pSay get one more badge then come see me again."))
+        default:
+            goto(BATTLE_ORCHY_V2)
+    }
+    goto(ORCHY_MUSIC)
+    release
+    end
+}
+
+script BATTLE_ORCHY_V2 {
+    playse(SE_PIN)
+    applymovement(6, MOVEMENT_EXCLAMATIONMARK)
+    waitmovement(0)
+    namebox("Orchy")
+    msgbox(format("Say would you like to have a battle with me?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT)) {
+        msgbox(format("Alright, then let us let the bodies hit the floor!"))
+        closemessage
+        hidenamebox
+        trainerbattle_no_intro(TRAINER_ORCHY, msgbox(format("Can you hear that?\nIt's the sound of my defeat.")))
+        namebox ("Orchy")
+        msgbox(format("As a member of team PokeScaper, I must say be sure to keep your eyes out as we are everywhere."))
+    }
+    else {
+        msgbox(format("Ah shame…"))
+        goto(ORCHY_MUSIC)
+    	release
+    	end
+    }
+    hidenamebox
+	closemessage
+    release
+    end
+}
+
+script ORCHY_MUSIC {
+    namebox("Orchy")
+    msgbox(format("Anyways why don't you stay for a while and just listen to me playing some music instead."))
+    hidenamebox
+	closemessage
+    applymovement(6, Movement_InteractFACERIGHT)
+    waitmovement(0)
+    random(11)
+    switch (var(VAR_RESULT)){ 
+            case 0: 
+                playbgm (MUS_PS_WISE_OLD_MAN_THEME, 1)
+            case 1: 
+                playbgm (MUS_PS_VS_WISE_OLD_MAN_RIVAL, 1)
+            case 2: 
+                playbgm (MUS_PS_GODSLAYER, 1)
+            case 3: 
+                playbgm (MUS_PS_VS_CHAOS_TUNNELS, 1)
+            case 4: 
+                playbgm (MUS_PS_VS_ORCHY, 1)
+            case 5: 
+                playbgm (MUS_PS_VS_POKESCAPERS, 1)
+            case 6: 
+                playbgm (MUS_PS_VS_CHAOS_ELEMENTAL, 1)
+            case 7: 
+                playbgm (MUS_PS_VS_LEGENDARY, 1)
+            case 8: 
+                playbgm (MUS_PS_ROUTE_DESERT, 1)
+            case 9: 
+                playbgm (MUS_PS_SURFING, 1)
+            case 10: 
+                playbgm (MUS_PS_GENERAL_STORE, 1)
+    }
+    release
+    end
+}
 
 
 

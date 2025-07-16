@@ -1,5 +1,7 @@
 mapscripts Black_Knights_Fortress_2_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        call(BKF_HEAL_ZONE)
+    }
 }
 
 
@@ -15,14 +17,7 @@ script BLACK_KNIGHT_QUIZ_3 //Necromancer
     applymovement(9, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Necromancer")
-    if (flag(FLAG_BKF_QUIZ_3) == TRUE)
-    {
-        msgbox(format("You may continue through."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_3) == 0) {  
         msgbox(format("I hope you've studied, as that's the only way you're getting through here.\pTell me..."))
         msgbox(format("The first Black Knight was Lord Sanafin Valzin."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == FALSE)
@@ -33,13 +28,33 @@ script BLACK_KNIGHT_QUIZ_3 //Necromancer
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_NECRO_1, msgbox(format("…")))
+            namebox("Necromancer")
+            msgbox(format("This will just not do, I must now go and resurrect my monsters."))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_3, 2) // Caught
+            setflag(FLAG_TEMP_1)
+            removeobject(9)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("Yes, she was the daughter of the Varrockian Duke.\pYou know your history well."))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_3)
+            setvar(VAR_BKF_QUIZ_3, 1) // Not Caught
         }
+    }
+    elif (var(VAR_BKF_QUIZ_3) == 1) {  // Not Caught
+        msgbox(format("You may continue through."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_3) == 2) { // Caught
+        msgbox(format("Wait a second…\pNevermind I thought you were an intruder but I was mistaken."))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_3, 1)
     releaseall
@@ -59,14 +74,7 @@ script BLACK_KNIGHT_QUIZ_4 //Taim
     applymovement(10, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Black Knight")
-    if (flag(FLAG_BKF_QUIZ_4) == TRUE)
-    {
-        msgbox(format("Phew, it's just you two.\pEveryone's on edge around here at the moment."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_4) == 0) {  
         msgbox(format("Sorry. Increased security means you need to answer a question before passing.\pIt'll be easy...\pif you're a true Black Knight!"))
         msgbox(format("The first Black Knights were allies of King Wallace?"), MSGBOX_YESNO)
         if (var(VAR_RESULT) == TRUE)
@@ -77,13 +85,33 @@ script BLACK_KNIGHT_QUIZ_4 //Taim
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_TAIM, msgbox(format("…")))
+            namebox("Black Knight")
+            msgbox(format("Damn beaten by noobs.\pI'm such a loser…"))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_4, 2) // Caught
+            setflag(FLAG_TEMP_2)
+            removeobject(10)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("Correct\pWe were allies of King Raddallin. Not Wallace."))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_4)
+            setvar(VAR_BKF_QUIZ_4, 1) // Not Caught
         }
+    }
+    elif (var(VAR_BKF_QUIZ_4) == 1) {  // Not Caught
+        msgbox(format("Phew, it's just you two.\pEveryone's on edge around here at the moment."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_4) == 2) { // Caught
+        msgbox(format("There were some intruders awhile ago, did you see which way they went?"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_4, 1)
     releaseall
@@ -92,7 +120,7 @@ script BLACK_KNIGHT_QUIZ_4 //Taim
 
 script TRIGGER_BLACK_KNIGHT_QUIZ_5 {
     lockall
-    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACELEFT)
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
     waitmovement(0)
     goto(BLACK_KNIGHT_QUIZ_5)
 }
@@ -102,14 +130,7 @@ script BLACK_KNIGHT_QUIZ_5 //Laif
     applymovement(27, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Black Knight")
-    if (flag(FLAG_BKF_QUIZ_5) == TRUE)
-    {
-        msgbox(format("Black armour never goes out of style!\pYou both suit it."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_5) == 0) {
         msgbox(format("Before you go any further..."))
         msgbox(format("Black and red is a great colour combination."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == FALSE)
@@ -120,13 +141,33 @@ script BLACK_KNIGHT_QUIZ_5 //Laif
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_LAIF, msgbox(format("…")))
+            namebox("Black Knight")
+            msgbox(format("Urgh get out of my face."))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_5, 2) // Caught
+            setflag(FLAG_TEMP_3)
+            removeobject(27)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("Heck yeah!"))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_5)
+            setvar(VAR_BKF_QUIZ_5, 1)
         }
+    }
+    elif (var(VAR_BKF_QUIZ_5) == 1) {  // Not Caught
+        msgbox(format("Black armour never goes out of style!\pYou guys would suit it."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_5) == 2) { // Caught
+        msgbox(format("Grey and brown, you guards disgust me.\pYou know why?\pBecause it's more likely your an intruder!"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_5, 1)
     releaseall
@@ -145,14 +186,7 @@ script BLACK_KNIGHT_QUIZ_6 //UPDATE AND ADD Necromancer
     applymovement(11, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Necromancer")
-    if (flag(FLAG_BKF_QUIZ_6) == TRUE)
-    {
-        msgbox(format("Solus Dellagar will burn for what he did."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_6) == 0) {
         msgbox(format("You know the drill by now...\pAnswer the question, and you can keep going."))
         msgbox(format("The Zamorakian mage Solus Dellagar is a close ally of the Black Knights."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == TRUE)
@@ -163,13 +197,33 @@ script BLACK_KNIGHT_QUIZ_6 //UPDATE AND ADD Necromancer
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_NECRO_2, msgbox(format("…")))
+            namebox("Necromancer")
+            msgbox(format("You guys better not be with Solus!\pUrgh, I need to lie down I let my rage get to me…"))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_6, 2) // Caught
+            setflag(FLAG_TEMP_4)
+            removeobject(11)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("That's right!\pThe only good thing those White Knights have ever done was apprehend and exile that traitor."))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_6)
+            setvar(VAR_BKF_QUIZ_6, 1)
         }
+    }
+    elif (var(VAR_BKF_QUIZ_6) == 1) {  // Not Caught
+        msgbox(format("Solus Dellagar will burn for what he did."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_6) == 2) { // Caught
+        msgbox(format("I hope those intruders aren't with Solus Dellagar!\pOtherwise I will crush them, once I fully recover from my defeat…"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_6, 1)
     releaseall
@@ -188,14 +242,7 @@ script BLACK_KNIGHT_QUIZ_7 //Fall
     applymovement(14, Movement_InteractFACEPLAYER)
     waitmovement(0)
     namebox("Black Knight")
-    if (flag(FLAG_BKF_QUIZ_7) == TRUE)
-    {
-        msgbox(format("Hail Daquarius.{PAUSE 15}\pYou may pass."))
-        closemessage
-        hidenamebox
-    }
-    else 
-    {
+    if (var(VAR_BKF_QUIZ_7) == 0) {
         msgbox(format("Before you can go through here, tell me one thing."))
         msgbox(format("The current leader of the Black Knights is Lord Daquarius."), MSGBOX_YESNO)
         if (var(VAR_RESULT) == FALSE)
@@ -206,13 +253,34 @@ script BLACK_KNIGHT_QUIZ_7 //Fall
             call(CAUGHT_BY_BLACK_KNIGHTS)
             playbgm(MUS_PS_ENCOUNTER_KNIGHTS, FALSE)
             trainerbattle_no_intro(TRAINER_BLACKKNIGHT_FALL, msgbox(format("…")))
+            namebox("Black Knight")
+            msgbox(format("Please don't tell Lord Daquarius of my failings…"))
+            closemessage
+            hidenamebox
+            fadescreenswapbuffers(FADE_TO_BLACK)
+            setvar(VAR_BKF_QUIZ_7, 2) // Caught
+            setflag(FLAG_TEMP_5)
+            removeobject(14)
+            fadescreenswapbuffers(FADE_FROM_BLACK)
+            call(POST_CAUGHT_BLACK_KNIGHTS)
         }
         else {
             msgbox(format("Hail Daquarius."))
             closemessage
             hidenamebox
-            setflag(FLAG_BKF_QUIZ_7)
+            setvar(VAR_BKF_QUIZ_7, 1)
         }
+    }
+    elif (var(VAR_BKF_QUIZ_7) == 1) {  // Not Caught
+        msgbox(format("Hail Daquarius.{PAUSE 15}\pYou may pass."))
+        closemessage
+        hidenamebox
+    }
+    elif (var(VAR_BKF_QUIZ_7) == 2) { // Caught
+        
+        msgbox(format("Hail… Lord Daquarius…\pI hope he isn't disapointed in me for letting some intruders past…"))
+        closemessage
+        hidenamebox
     }
     setvar(VAR_TEMP_7, 1)
     releaseall
@@ -346,7 +414,7 @@ script BKFORT_2F_NPC_11 //First of two guards in main hall
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("I tried to hit on the girl over there, but she said guard is hardly an occupation.\pGuess I need a promotion before I can settle down."))
+    msgbox(format("I tried to hit on the girl over there, but she said being a guard is hardly an occupation.\pGuess I need a promotion before I can settle down."))
     closemessage
     hidenamebox
     release
@@ -504,54 +572,4 @@ script NPC_ZAMOHAWK
     hidenamebox
 	release
 	end
-}
-
-//ITEMS
-
-script ITEM_BKFORT_2F_ITEM1
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM2
-{
-    finditem(ITEM_FRUIT_BLAST)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM3
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM4
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM5
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM6
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM7
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_2F_ITEM8
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
 }

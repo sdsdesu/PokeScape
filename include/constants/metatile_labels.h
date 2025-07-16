@@ -5,6 +5,9 @@
 #define METATILE_AlKharid_LOCKED_DOOR  0x251
 #define METATILE_AlKharid_OPENED_DOOR  0x213
 
+// gTileset_Barbarian_Village
+#define METATILE_Barbarian_Village_BRIDGE_SIDE_TOP  0x3CB
+
 // gTileset_BattleArena
 #define METATILE_BattleArena_Door  0x21B
 
@@ -224,6 +227,9 @@
 #define METATILE_Dungeoneering_VINE_TOP_L                   0x3B5
 #define METATILE_Dungeoneering_VINE_TOP_R                   0x3B7
 
+// gTileset_Edgeville
+#define METATILE_Edgeville_EDGEVILLE_BRIDGE  0x2A9
+
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
 #define METATILE_EliteFour_EntryDoor_ClosedTop       0x206
@@ -337,6 +343,12 @@
 // gTileset_Ice_Mountain
 #define METATILE_Ice_Mountain_SNOW_LOGFIRE_ON   0x2B4
 #define METATILE_Ice_Mountain_SNOW_LOGFIRE_OUT  0x2B5
+
+// gTileset_IndoorTowns3
+#define METATILE_IndoorTowns3_BKF_FLOOR             0x201
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_BOTTOM  0x2FD
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_SIDE    0x2C5
+#define METATILE_IndoorTowns3_JAILDOOR_OPEN_TOP     0x2F5
 
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
@@ -567,13 +579,20 @@
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_R     0x2F8
 #define METATILE_PokeScape_Caves_TENTACLE_POOL_UP    0x2FA
 
+// gTileset_PokeScape_HAM
+#define METATILE_PokeScape_HAM_HAM_CAVE_FLOOR        0x201
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_BOTTOM  0x2BB
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_SIDE    0x2D1
+#define METATILE_PokeScape_HAM_JAILDOOR_OPEN_TOP     0x2B3
+
 // gTileset_PokeScape_Sewers
-#define METATILE_PokeScape_Sewers_GATE_CLOSED_DOWN  0x36A
-#define METATILE_PokeScape_Sewers_GATE_CLOSED_UP    0x362
-#define METATILE_PokeScape_Sewers_GATE_DOWN         0x308
-#define METATILE_PokeScape_Sewers_GATE_OPEN_DOWN    0x369
-#define METATILE_PokeScape_Sewers_GATE_OPEN_UP      0x361
-#define METATILE_PokeScape_Sewers_GATE_UP           0x300
+#define METATILE_PokeScape_Sewers_GATE_CLOSED_DOWN        0x36A
+#define METATILE_PokeScape_Sewers_GATE_CLOSED_UP          0x362
+#define METATILE_PokeScape_Sewers_GATE_DOWN               0x308
+#define METATILE_PokeScape_Sewers_GATE_OPEN_DOWN          0x369
+#define METATILE_PokeScape_Sewers_GATE_OPEN_UP            0x361
+#define METATILE_PokeScape_Sewers_GATE_UP                 0x300
+#define METATILE_PokeScape_Sewers_SEWER_FLOOR_ENCOUNTERS  0x201
 
 // gTileset_PokemonCenter
 #define METATILE_PokemonCenter_CounterBarrier            0x25D

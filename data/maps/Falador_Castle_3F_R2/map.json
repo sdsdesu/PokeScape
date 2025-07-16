@@ -50,8 +50,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "ITEM_FALADOR_COURTYARD_2",
-      "flag": "FLAG_ITEM_FALADOR_COURTYARD_2"
+      "script": "FIND_ITEM_BOOK_OF_SARADOMIN",
+      "flag": "FLAG_ITEM_FALADOR_5"
     }
   ],
   "warp_events": [

@@ -345,6 +345,7 @@ SECTIONS {
         src/expansion_intro.o(.text);
         src/quests.o(.text);
         src/follow_me.o(.text);
+        src/outfit_menu.o(.text);
     } > ROM =0
 
     script_data :
@@ -714,6 +715,7 @@ SECTIONS {
         src/expansion_intro.o(.rodata);
         src/quests.o(.rodata);
         src/follow_me.o(.rodata);
+        src/outfit_menu.o(.rodata);
     } > ROM =0
 
     song_data :
@@ -1303,7 +1305,7 @@ SECTIONS {
         sound/songs/midi/MUS_PS_ENCOUNTER_GYM.o(.rodata);
         sound/songs/midi/MUS_PS_ENCOUNTER_LEGENDARY.o(.rodata);
         sound/songs/midi/MUS_PS_ENCOUNTER_SPECIAL.o(.rodata);
-        sound/songs/midi/MUS_PS_ENCOUNTER_MITHRILMAN.o(.rodata);
+        sound/songs/midi/mus_ps_encounter_mithrilman.o(.rodata);
         sound/songs/midi/MUS_PS_QUEST_COMPLETE.o(.rodata);
         sound/songs/midi/MUS_PS_KOUREND_CATACOMBS.o(.rodata);
         sound/songs/midi/MUS_PS_VS_TRAINER_P2P.o(.rodata);
@@ -1313,6 +1315,9 @@ SECTIONS {
         sound/songs/midi/MUS_PS_GODSLAYER.o(.rodata);
         sound/songs/midi/MUS_PS_LUMBRIDGE_CASTLE.o(.rodata);
         sound/songs/midi/MUS_PS_TZHAAR.o(.rodata);
+        sound/songs/midi/mus_ps_ice_mountain.o(.rodata);
+        sound/songs/midi/mus_ps_vs_tzhaar.o(.rodata);
+        sound/songs/midi/mus_ps_vs_frogeelman.o(.rodata);
     } > ROM =0
 
 

@@ -1,7 +1,7 @@
 mapscripts Route13_MapScripts {
     MAP_SCRIPT_ON_TRANSITION {
         setvar(VAR_EVOLUTION_MAP_STATE, 16) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
-        
+        call(Route13_STATE)  
     }
     MAP_SCRIPT_ON_LOAD {
         call(PURO_PURO_EVENT)
@@ -9,13 +9,186 @@ mapscripts Route13_MapScripts {
 }
 
 
+script Route13_STATE {
+    if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 1) //if OPENWORLD
+    {
+        removeobject(18)
+        setflag(FLAG_ROUTE13_BLOCK)
+    }
 
+    if (!flag(FLAG_ROUTE13_BLOCK)) {    //if FALSE
+        setvar(VAR_TEMP_0, 1)
+    }
+    else {  //if TRUE
+        setobjectxyperm(9, 17, 20)
+        setobjectxyperm(10, 18, 23)
+        setobjectxyperm(11, 22, 24)
+        setobjectxyperm(19, 24, 17)
+        setobjectxyperm(20, 23, 21)
+        setobjectxyperm(13, 23, 18)
+        setobjectmovementtype(13, MOVEMENT_TYPE_FACE_DOWN)
+        setobjectmovementtype(9, MOVEMENT_TYPE_WANDER_AROUND)
+        setobjectmovementtype(10, MOVEMENT_TYPE_WANDER_AROUND)
+        setobjectmovementtype(11, MOVEMENT_TYPE_WANDER_AROUND)
+        setobjectmovementtype(19, MOVEMENT_TYPE_WANDER_AROUND)
+        setobjectmovementtype(20, MOVEMENT_TYPE_WANDER_AROUND)
+    }
+    return
+}
 
 
 
 
 
 //NPC
+
+script TRIGGER_BLOCK_HAZELMERE
+{
+    lock
+    delay(60)
+    applymovement (18, MOVEMENT_INTERACT_DOWN)
+    namebox ("???")
+    msgbox(format("Andra andro krachis mond.\pMi tuzo undri.\pLemantolly cef o cinqo.\pLemanto, mi lovos imindus.\pLwmqnto quir, qui umesco ir undri."))
+    //"City gate cracked and closed
+    //I will open it
+    //Stupid man is a danger to kingdom (ham)
+    //Human, i give you a quest
+    //You are a guardian, save the soul of the land"
+    closemessage
+    hidenamebox
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement (9, Sheep_Face_Halzemere_up)
+    applymovement (10, Sheep_Face_Halzemere_left)
+    applymovement (11, Sheep_Face_Halzemere_up)
+    applymovement (19, Sheep_Face_Halzemere_left)
+    applymovement (20, Sheep_Face_Halzemere_down)
+    waitmovement(0)
+    delay(60)
+    playse(SE_PIN)
+    applymovement (13, Farmer_Face_Halzemere_up)
+	waitmovement(0)
+    getplayerxy(VAR_TEMP_1, VAR_TEMP_2) 
+    if (var(VAR_TEMP_2) == 32) {
+        applymovement (OBJ_EVENT_ID_PLAYER, movement_lock_walk_up)
+    }
+    applymovement (10, Sheep_Walk_to_Farm_4)
+    delay(30)
+    applymovement (9, Sheep_Walk_to_Farm_2)
+    applymovement (11, Sheep_Walk_to_Farm_1)
+    applymovement (19, Sheep_Walk_to_Farm_3)
+    applymovement (20, Sheep_Walk_to_Farm_5)
+    delay(120)
+    playse(SE_LEDGE)
+    applymovement (13, Farmer_Shock_JumpInPlace)
+    waitse
+    waitmovement(13)
+    playse(SE_LEDGE)
+    applymovement (13, Movement_JumpInPlace_UP)
+    waitse
+    delay(30)
+    applymovement (13, Farmer_Chase_Sheep)
+    delay(120)
+    applymovement (18, Halzmere_walk_off)
+    waitmovement(0)
+    setobjectxy(9, 17, 20)
+    setobjectxy(10, 18, 23)
+    setobjectxy(11, 22, 24)
+    setobjectxy(19, 24, 17)
+    setobjectxy(20, 23, 21)
+    setobjectxy(13, 23, 18)
+    setobjectxyperm(9, 17, 20)
+    setobjectxyperm(10, 18, 23)
+    setobjectxyperm(11, 22, 24)
+    setobjectxyperm(19, 24, 17)
+    setobjectxyperm(20, 23, 21)
+    setobjectxyperm(13, 23, 18)
+    setobjectmovementtype(13, MOVEMENT_TYPE_FACE_DOWN)
+    setobjectmovementtype(9, MOVEMENT_TYPE_WANDER_AROUND)
+    setobjectmovementtype(10, MOVEMENT_TYPE_WANDER_AROUND)
+    setobjectmovementtype(11, MOVEMENT_TYPE_WANDER_AROUND)
+    setobjectmovementtype(19, MOVEMENT_TYPE_WANDER_AROUND)
+    setobjectmovementtype(20, MOVEMENT_TYPE_WANDER_AROUND)
+    removeobject(18)                     //remove Hazelmere
+    setflag(FLAG_ROUTE13_BLOCK)
+    setvar(VAR_TEMP_0, 2)
+    release
+    end
+}
+
+movement Halzmere_walk_off {
+    walk_slow_right * 5
+    walk_slow_up 
+    walk_slow_right * 5
+    step_end
+}
+
+movement Farmer_Chase_Sheep {
+    walk_up
+    walk_left * 3
+    walk_up * 11
+    face_down
+    step_end
+}
+movement Farmer_Shock_JumpInPlace {
+    emote_double_exclamation_mark
+    jump_in_place_up
+    step_end
+}
+movement Movement_JumpInPlace_UP {
+    jump_in_place_up
+    step_end
+}
+
+movement Sheep_Walk_to_Farm_1 {
+    walk_slow_left * 4
+    walk_slow_up * 11
+    step_end
+}
+movement Sheep_Walk_to_Farm_2 {
+    walk_slow_left * 5
+    walk_slow_up * 11
+    step_end
+}
+movement Sheep_Walk_to_Farm_3 {
+    walk_slow_left
+    walk_slow_down
+    walk_slow_left * 5
+    walk_slow_up * 11
+    step_end
+}
+movement Sheep_Walk_to_Farm_4 {
+    walk_slow_left * 7
+    walk_slow_up * 11
+    step_end
+}
+movement Sheep_Walk_to_Farm_5 {
+    walk_slow_down * 3
+    walk_slow_left * 5
+    walk_slow_up * 11
+    step_end
+}
+
+movement Sheep_Face_Halzemere_up {
+    emote_exclamation_mark
+    face_up
+    step_end
+}
+movement Sheep_Face_Halzemere_left {
+    emote_exclamation_mark
+    face_left
+    step_end
+}
+movement Sheep_Face_Halzemere_down {
+    emote_exclamation_mark
+    face_down
+    step_end
+}
+movement Farmer_Face_Halzemere_up {
+    emote_question_mark
+    face_up
+    step_end
+}
 
 script VARROCK_NPC_RATBURGUS
 {

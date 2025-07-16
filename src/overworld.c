@@ -71,6 +71,7 @@
 #include "qol_field_moves.h" // qol_field_moves
 #include "constants/event_object_movement.h"
 #include "rtc.h"
+#include "constants/heal_locations.h"
 
 struct CableClubPlayer
 {
@@ -172,7 +173,7 @@ static void SetKeyInterceptCallback(u16 (*func)(u32));
 static void SetFieldVBlankCallback(void);
 static void FieldClearVBlankHBlankCallbacks(void);
 static void TransitionMapMusic(void);
-static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
+static u16 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *, u16, u8);
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *, u8, u16, u8);
 static u16 GetCenterScreenMetatileBehavior(void);
 
@@ -366,6 +367,27 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 // code
 void DoWhiteOut(void)
 {
+    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(BLACK_KNIGHTS_FORTRESS_3) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_3)) {
+        SetLastHealLocationWarp(HEAL_LOCATION_DWARVEN_MINES);
+    }
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_1)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_2)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_3)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(BLACK_KNIGHTS_FORTRESS_4)) {
+            SetLastHealLocationWarp(HEAL_LOCATION_BKF_JAIL);
+            FlagSet(FLAG_BKF_JAILED);
+        }
+
+    if (gSaveBlock1Ptr->lastHealLocation.mapGroup == MAP_GROUP(HAM_HIDEOUT_B3F) && gSaveBlock1Ptr->lastHealLocation.mapNum == MAP_NUM(HAM_HIDEOUT_B3F)) {
+        SetLastHealLocationWarp(HEAL_LOCATION_LUMBRIDGE);
+    }
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B3F)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B2F)
+        || gSaveBlock1Ptr->location.mapNum == MAP_NUM(HAM_HIDEOUT_B1F)) {
+            SetLastHealLocationWarp(HEAL_LOCATION_HAM_JAIL);
+            FlagSet(FLAG_HAM_JAILED);
+        }
+        
     RunScriptImmediately(EventScript_WhiteOut);
     if (B_WHITEOUT_MONEY == GEN_3)
         SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);
@@ -932,10 +954,10 @@ void StoreInitialPlayerAvatarState(void)
 {
     sInitialPlayerAvatarState.direction = GetPlayerFacingDirection();
 
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE))
-        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_MACH_BIKE;
-    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE))
-        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_ACRO_BIKE;
+    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
+        sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE;
+    else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE_2))
+    sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_BIKE_2;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         sInitialPlayerAvatarState.transitionFlags = PLAYER_AVATAR_FLAG_SURFING;
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_UNDERWATER))
@@ -949,14 +971,14 @@ static struct InitialPlayerAvatarState *GetInitialPlayerAvatarState(void)
     struct InitialPlayerAvatarState playerStruct;
     u8 mapType = GetCurrentMapType();
     u16 metatileBehavior = GetCenterScreenMetatileBehavior();
-    u8 transitionFlags = GetAdjustedInitialTransitionFlags(&sInitialPlayerAvatarState, metatileBehavior, mapType);
+    u16 transitionFlags = GetAdjustedInitialTransitionFlags(&sInitialPlayerAvatarState, metatileBehavior, mapType);
     playerStruct.transitionFlags = transitionFlags;
     playerStruct.direction = GetAdjustedInitialDirection(&sInitialPlayerAvatarState, transitionFlags, metatileBehavior, mapType);
     sInitialPlayerAvatarState = playerStruct;
     return &sInitialPlayerAvatarState;
 }
 
-static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
+static u16 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, u8 mapType)
 {
     if (mapType != MAP_TYPE_INDOOR && FlagGet(FLAG_SYS_CRUISE_MODE))
         return PLAYER_AVATAR_FLAG_ON_FOOT;
@@ -966,12 +988,12 @@ static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pla
         return PLAYER_AVATAR_FLAG_SURFING;
     else if (Overworld_IsBikingAllowed() != TRUE)
         return PLAYER_AVATAR_FLAG_ON_FOOT;
-    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_MACH_BIKE)
-        return PLAYER_AVATAR_FLAG_MACH_BIKE;
-    else if (playerStruct->transitionFlags != PLAYER_AVATAR_FLAG_ACRO_BIKE)
-        return PLAYER_AVATAR_FLAG_ON_FOOT;
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_BIKE)
+        return PLAYER_AVATAR_FLAG_BIKE;
+    else if (playerStruct->transitionFlags == PLAYER_AVATAR_FLAG_BIKE_2)
+        return PLAYER_AVATAR_FLAG_BIKE_2;
     else
-        return PLAYER_AVATAR_FLAG_ACRO_BIKE;
+        return PLAYER_AVATAR_FLAG_ON_FOOT;
 }
 
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u8 transitionFlags, u16 metatileBehavior, u8 mapType)
@@ -1239,7 +1261,7 @@ static void TransitionMapMusic(void)
         }
         if (newMusic != currentMusic)
         {
-            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
+            if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE | PLAYER_AVATAR_FLAG_BIKE_2))
                 FadeOutAndFadeInNewMapMusic(newMusic, 4, 4);
             else
                 FadeOutAndPlayNewMapMusic(newMusic, 8);
@@ -2382,6 +2404,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
 
 static bool32 ReturnToFieldLocal(u8 *state)
 {
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
     switch (*state)
     {
     case 0:
@@ -2389,6 +2412,8 @@ static bool32 ReturnToFieldLocal(u8 *state)
         ResetScreenForMapLoad();
         ResumeMap(FALSE);
         InitObjectEventsReturnToField();
+        ObjectEventSetGraphicsId(player, GetPlayerAvatarGraphicsIdByCurrentState());
+        ObjectEventTurn(player, player->movementDirection);
         SetCameraToTrackPlayer();
         (*state)++;
         break;
@@ -2411,6 +2436,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
 
 static bool32 ReturnToFieldLink(u8 *state)
 {
+    struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
     switch (*state)
     {
     case 0:
@@ -2426,6 +2452,8 @@ static bool32 ReturnToFieldLink(u8 *state)
     case 2:
         CreateLinkPlayerSprites();
         InitObjectEventsReturnToField();
+        ObjectEventSetGraphicsId(player, GetPlayerAvatarGraphicsIdByCurrentState());
+        ObjectEventTurn(player, player->movementDirection);
         SetCameraToTrackGuestPlayer_2();
         (*state)++;
         break;
@@ -2590,7 +2618,7 @@ static void InitObjectEventsLocal(void)
     ResetObjectEvents();
     GetCameraFocusCoords(&x, &y);
     player = GetInitialPlayerAvatarState();
-    InitPlayerAvatar(x, y, player->direction, gSaveBlock2Ptr->playerGender);
+    InitPlayerAvatar(x, y, player->direction);
     SetPlayerAvatarTransitionFlags(player->transitionFlags);
     ResetInitialPlayerAvatarState();
     TrySpawnObjectEvents(0, 0);
@@ -3613,7 +3641,10 @@ static void CreateLinkPlayerSprite(u8 linkPlayerId, u8 gameVersion)
             objEvent->spriteId = CreateObjectGraphicsSprite(GetRSAvatarGraphicsIdByGender(linkGender(objEvent)), SpriteCB_LinkPlayer, 0, 0, 0);
             break;
         case VERSION_EMERALD:
-            objEvent->spriteId = CreateObjectGraphicsSprite(GetRivalAvatarGraphicsIdByStateIdAndGender(PLAYER_AVATAR_STATE_NORMAL, linkGender(objEvent)), SpriteCB_LinkPlayer, 0, 0, 0);
+            {
+                u16 gfxId = GetLinkPlayerAvatarGraphicsIdByStateIdLinkIdAndGender(PLAYER_AVATAR_STATE_NORMAL, linkPlayerId, linkGender(objEvent));
+                objEvent->spriteId = CreateObjectGraphicsSprite(gfxId, SpriteCB_LinkPlayer, 0, 0, 0);
+            }
             break;
         }
 

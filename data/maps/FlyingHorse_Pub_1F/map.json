@@ -59,14 +59,14 @@
       "x": 3,
       "y": 7,
       "elevation": 0,
-      "dest_map": "MAP_FLYING_HORSE_PUB_1F",
+      "dest_map": "MAP_ARDOUGNE",
       "dest_warp_id": "0"
     },
     {
       "x": 9,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_FLYING_HORSE_PUB_1F",
+      "dest_map": "MAP_FLYING_HORSE_PUB_2F",
       "dest_warp_id": "0"
     }
   ],

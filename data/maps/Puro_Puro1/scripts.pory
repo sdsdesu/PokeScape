@@ -211,15 +211,6 @@ script ENCOUNTER_IMPLING_EARTH
     release
 	end
 }
-//ITEMS
-script ITEM_PURO_PURO_1
-{
-    finditem(ITEM_POUCH_MITHRIL)
-    end
-}
-
-
-
 
 
 
@@ -290,7 +281,7 @@ script GIVE_RANDOM_ITEM_IMPLING {
 			case 5: 
 				giveitem(ITEM_POUCH_MYSTIC, 3)
 			case 6: 
-				giveitem(ITEM_PURPLE_SWEETS, 5)
+				giveitem(ITEM_MANY_SWEETS, 5)
 			case 7: 
 				giveitem(ITEM_POUCH_ADAMANT, 5)
 			case 8: 

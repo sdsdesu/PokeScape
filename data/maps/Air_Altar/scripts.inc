@@ -33,11 +33,6 @@ AIRALTAR_RUNECRAFTER_2::
 	end
 
 
-ITEM_AIRALTAR_1::
-	finditem ITEM_RUNE_ESSENCE
-	end
-
-
 AIR_ALTAR::
 	lock
 	msgbox AIR_ALTAR_Text_0

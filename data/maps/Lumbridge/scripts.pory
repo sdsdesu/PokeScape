@@ -34,9 +34,18 @@ script LUMBRIDGE_STATE
 {
 	removeobject(OBJ_EVENT_ID_A_NUB_TOT)
 	setflag(FLAG_TEMP_1F)
+	removeobject(25) //Wise Old Man
+	setflag(FLAG_TEMP_1E)
 	if (flag(FLAG_A_NUB_TOT_TUTORIAL) == FALSE) {
 		setmetatile(18,8,METATILE_PokeScapeOutdoors_NOT_A_DOOR, 1) 
 		special(DrawWholeMapView) 
+	}
+
+
+
+	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 215) {
+		addobject(25) //Wise Old Man
+		clearflag(FLAG_TEMP_1E)
 	}
     return
 }
@@ -52,7 +61,7 @@ script LUMBRIDGE_STATE
 script OPENWORLD_STATE_LUMBRIDGE {
 		setobjectxyperm(14, 43, 20)
 		setobjectmovementtype(14,MOVEMENT_TYPE_FACE_DOWN)
-		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 40, 4)
+		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 41, 5)
 		setobjectmovementtype(OBJ_EVENT_ID_FISHERMAN,MOVEMENT_TYPE_WANDER_AROUND)
 		setobjectxyperm(OBJ_EVENT_ID_BANKERGF, 13, 7)
 		setobjectmovementtype(OBJ_EVENT_ID_BANKERGF,MOVEMENT_TYPE_FACE_LEFT)
@@ -87,7 +96,7 @@ script STORYMODE_STATE_LUMBRIDGE {
 	if ((var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 5) || (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 10)) {
 		setobjectxyperm(14, 41, 20)
 		setobjectmovementtype(14,MOVEMENT_TYPE_FACE_DOWN)
-		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 40, 4)
+		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 41, 5)
 		setobjectmovementtype(OBJ_EVENT_ID_FISHERMAN,MOVEMENT_TYPE_WANDER_AROUND)
 		setobjectxyperm(OBJ_EVENT_ID_BANKERGF, 13, 7)
 		setobjectmovementtype(OBJ_EVENT_ID_BANKERGF,MOVEMENT_TYPE_FACE_LEFT)
@@ -107,7 +116,7 @@ script STORYMODE_STATE_LUMBRIDGE {
 	if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) >= 15) { //EQUAL or GREATER Than
 		setobjectxyperm(14, 43, 20)
 		setobjectmovementtype(14,MOVEMENT_TYPE_FACE_DOWN)
-		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 40, 4)
+		setobjectxyperm(OBJ_EVENT_ID_FISHERMAN, 41, 5)
 		setobjectmovementtype(OBJ_EVENT_ID_FISHERMAN,MOVEMENT_TYPE_WANDER_AROUND)
 		setobjectxyperm(OBJ_EVENT_ID_BANKERGF, 13, 7)
 		setobjectmovementtype(OBJ_EVENT_ID_BANKERGF,MOVEMENT_TYPE_FACE_LEFT)
@@ -428,7 +437,7 @@ script NPC_LumbridgeBridge
 	lock
 	faceplayer
 	namebox("Fisherman")
-	msgbox(format("Is it just me or is this really long?\pNah I must be imagining it."))
+	msgbox(format("Is it just me or is this really long?\pNah, I must be imagining it.\p{PAUSE 15}Wait, I'm SURE the river used to be wider than this..."))
 	release
 	end
 }
@@ -706,7 +715,7 @@ script Lumbridge_GeneralStore_NPC2
 	lock
 	faceplayer
 	namebox("H1PYRaNG3r59")
-	msgbox(format("There are a lot of goblins around these parts, you might want to stock up on some antipoisons.\pThis will prepare you for the worst."))
+	msgbox(format("There are a lot of goblins around these parts, you might want to stock up on a Chocolate Sunday or two!.\pThey can cure poison, and this will prepare you for the worst."))
 	release
 	end
 }	
@@ -778,9 +787,9 @@ script Lumbridge_House_NPC5
 {
 	lock
 	faceplayer
-	//namebox ("???")
+	namebox ("Man")
 	msgbox(format("Luckily monsters only faint.\pOtherwise we would be overstocked with funeral services."))
-	//hidenamebox
+	hidenamebox
 	release
 	end
 }
@@ -789,9 +798,9 @@ script Lumbridge_House_NPC6
 {
 	lock
 	faceplayer
-	//namebox ("???")
+	namebox ("Woman")
 	msgbox(format("If you can't rest in a bank try a bed.\pSome beds are very inviting."))
-	//hidenamebox
+	hidenamebox
 	release
 	end
 }
@@ -976,4 +985,129 @@ movement ANUBTOT_2 {
 movement ANUBTOT_3 {
 	walk_right * 6 
 	walk_up * 6 
+}
+
+
+//Graveyard
+
+script Lumbridge_GRAVEYARD_SIGN_1
+{
+	lock
+	msgbox(format("RIP 'Thick Lum'.\pGone before its time."))
+	release
+	end
+}
+
+script Lumbridge_GRAVEYARD_SIGN_2
+{
+	lock
+	msgbox(format("The grave is simply marked with the letter 'J'.\pThere is a tattered scroll with the number 17 written on it, along with a bloody harpoon.\pYou decide it's best to leave that alone..."))
+	release
+	end
+}
+
+script Lumbridge_GRAVEYARD_SIGN_3
+{
+	lock
+	msgbox(format("Lumbridge Graveyard.\pPlease respect the graves while searching for monsters."))
+	release
+	end
+}
+
+script Lumbridge_GRAVEYARD_SIGN_4
+{
+	lock
+	msgbox(format("In loving memory of Duchess Oriana of Lumbridge."))
+	release
+	end
+}
+
+script Lumbridge_GRAVEYARD_SIGN_5
+{
+	lock
+	msgbox(format("Note to adventurers.\pThe restless ghost has been released from the world, and the mausoleum is now closed off to the public."))
+	release
+	end
+}
+
+script Lumbridge_River_NPC1     //Not in use
+{
+	lock
+	faceplayer
+	namebox ("Sailor")
+	msgbox(format("The River Lum used to be the second longest river in Gielinor, second only to the River Dougne.\pYou used to be able to paddle from here all the way up to the Wilderness!\pIt became too dangerous to travel there though, so they had to block the route beyond Edgeville."))
+	hidenamebox
+	release
+	end
+}
+
+script Lumbridge_River_NPC2         //Not in use
+{
+	lock
+	faceplayer
+	namebox ("b4nana m4n")
+	msgbox(format("There's a single, small island just north of here with a solitary oak tree on it.\pI wonder how it got there."))
+	hidenamebox
+	release
+	end
+}
+
+script Lumbridge_River_NPC3 {
+    lock
+    faceplayer
+    namebox("Finta5tic")
+    random(8)
+    switch (var(VAR_RESULT)) {
+        case 0: 
+            msgbox(format("This is a good plaice to go fishing."))
+        case 1: 
+            msgbox(format("I'd tell you what I just caught, but I'm too shellfish to share."))
+        case 2: 
+            msgbox(format("If you find any rare fish, could you let minnow?"))
+        case 3: 
+            msgbox(format("You’re krilling me with these sea-rious vibes..."))
+        case 4: 
+            msgbox(format("Speak up, I'm hard of herring."))
+        case 5: 
+            msgbox(format("Sorry, I can't talk right now.\pI have a haddock."))
+        case 6: 
+            msgbox(format("Do you like my fish puns?\pEh, I guess they cod be betta."))
+        case 7: 
+            msgbox(format("You think you know some better fish puns?\pI seriously trout it."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}
+
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_1
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_1, format("I sail this sea, this domain is mine, there is no place on Gielinor like this."),format("For the Queen!"))
+    namebox ("Chiba")
+    msgbox(format("I don't care if this is a river and not a sea.\pI don't care what you think.\pThis is my sea.\pFor the Queen!"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_2
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_2, format("I am a Cupholder."),format("I am a Cupholder."))
+    namebox ("Cupholder")
+    msgbox(format("I am a Cupholder."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_LUMBRIDGE_RIVER_TRAINER_3
+{
+    trainerbattle_single(TRAINER_LUMBRIDGE_RIVER_TRAINER_3, format("I fell off the bridge when it got destroyed.\pPlease help me, I want to go back to land..."),format("Please!!"))
+    namebox ("ofRats")
+    msgbox(format("I said help me, not fight me!\nPlease get me to land!\nI dont know how to steer a boat.\nPlease don't leave me out here..."))
+    hidenamebox
+    release
+    end
 }

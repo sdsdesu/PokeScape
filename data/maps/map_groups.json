@@ -804,7 +804,8 @@
     "Lumbridge_House_3_2F",
     "Lumbridge_Church",
     "Lumbridge_Castle_Basement",
-    "Lumbridge_House_5"
+    "Lumbridge_House_5",
+    "Lumbridge_FishingStore"
   ],
   "gMapGroup_PokescapeIndoorDraynor": [
     "Draynor_House_Morgan_1F",
@@ -914,7 +915,8 @@
     "Varrock_House_7",
     "Varrock_House_8",
     "Varrock_House_9",
-    "Varrock_House_10"
+    "Varrock_House_10",
+    "Digsite_Exam_Centre"
   ],
   "gMapGroup_PokescapeIndoorBarbarianVillage": [
     "BarbarianVillage_GymHall",
@@ -935,7 +937,8 @@
     "AlKharid_House_4_1F",
     "AlKharid_House_4_2F",
     "AlKharid_GeneralStore",
-    "AlKharid_Tent"
+    "AlKharid_Tent",
+    "AlKharid_House_5"
   ],
   "gMapGroup46": [
     "Dungeoneering_1",
@@ -956,7 +959,20 @@
     "Dungeoneering_16",
     "Dungeoneering_Lobby",
     "Daemonheim_Gym",
-    "Daemonheim_Bank"
+    "Daemonheim_Bank",
+    "Dung_Gym_1",
+    "Dung_Gym_2",
+    "Dung_Gym_3",
+    "Dung_Gym_4",
+    "Dung_Gym_5",
+    "Dung_Gym_6",
+    "Dung_Gym_7",
+    "Dung_Gym_8",
+    "Dung_Gym_9",
+    "Dung_Gym_10",
+    "Dung_Gym_11",
+    "Dung_Gym_12",
+    "Dung_Gym_13"
   ],
   "gMapGroup47": [
     "Edgeville_Gym",
@@ -970,7 +986,10 @@
     "Dwarven_Mines_House_1",
     "Dwarven_Mines_House_2",
     "Dwarven_Mines_House_3",
-    "Edgeville_Route19_Brass_House"
+    "Edgeville_Route19_Brass_House",
+    "DwarvenMines_PowerStation_1",
+    "DwarvenMines_PowerStation_2",
+    "Edgeville_Guardhouse"
   ],
   "gMapGroup_PokescapeOutdoorMembers": [
     "Yanille",
@@ -1113,6 +1132,11 @@
     "Black_Knights_Fortress_1",
     "Black_Knights_Fortress_2",
     "Black_Knights_Fortress_3",
-    "Black_Knights_Fortress_4"
+    "Black_Knights_Fortress_4",
+    "HAM_Hideout_B3F",
+    "WildernessVolcano_B1F",
+    "Wilderness_Crater_B2F",
+    "Wilderness_Crater_B3F",
+    "Wilderness_Crater_B4F"
   ]
 }

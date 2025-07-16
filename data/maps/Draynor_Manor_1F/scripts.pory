@@ -127,7 +127,7 @@ script DraynorManor_HAM_GRUNT {
                 applymovement(18, Movement_DraynorManor_Chase_12)
                 
                 namebox("Ariane")
-                msgbox(format("EEEK!\nThat was him!\pQuick lets give chase!"))
+                msgbox(format("EEEK!\nThat was him!\pQuick let's give chase!"))
                 hidenamebox
                 closemessage
                 waitmovement(0)
@@ -192,7 +192,7 @@ script DraynorManor_HAM_GRUNT {
                 msgbox(format("Not ham! {PAUSE 15}H-{PAUSE 15}A-{PAUSE 15}M!\nIt stands for Humans Against Monsters!\pOur goal is to rid the world of those foul beasts!\pNow get out of my way!"))
                 hidenamebox
                 closemessage
-                //trainerbattle_no_intro(TRAINER_DRAYNORMANOR_HAM, "No way…\pTwo against one is just not fair…")
+                trainerbattle_no_intro(TRAINER_DRAYNORMANOR_HAM, "No way…\pTwo against one is just not fair…")
                 namebox("H.A.M Grunt")
                 msgbox(format("You both are really scary.\pBut I am more afraid of what my bosses will do to me if I don't deliver these goods!\pSo I will risk it all!"))
                 hidenamebox
@@ -682,7 +682,7 @@ script FOLLOWING_Ariane {
     random(9)
     switch (var(VAR_RESULT)) {
         case 0:
-            msgbox(format("This place is 2spooky4me!"))
+            msgbox(format("This place really gives me the creeps!"))
         case 1:
             msgbox(format("Where do you think the pink guy went?"))
         case 2:
@@ -766,7 +766,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_3 {
         delay(32)
         facefollower
         namebox("Ariane")
-        msgbox(format("I hear noises coming from the basement, lets go look!"))
+        msgbox(format("I hear noises coming from the basement, let's go look!"))
         closemessage
         hidenamebox
         setvar(VAR_TEMP_E, 1)
@@ -779,7 +779,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_4 {
     if (var(VAR_RESULT)) {
         facefollower
         namebox("Ariane")
-        msgbox(format("I doubt he would be outside.\pLets go look elsewhere."))
+        msgbox(format("I doubt he would be outside.\pLet's go look elsewhere."))
         closemessage
         hidenamebox
         applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_WALK_DOWN)
@@ -821,7 +821,7 @@ script TRIGGER_ARIANE_DRAYNORMANOR_1F_6 {
             release
             end
         }
-        msgbox(format("Uh…{PAUSE 32} I know he ran down there, but that basement is giving of some serious sinister vibes.\pI think I'll stay up here while you go ahead."))
+        msgbox(format("Uh…{PAUSE 32} I know he ran down there, but that basement is giving off some serious sinister vibes.\pI think I'll stay up here while you go ahead."))
         closemessage
         hidenamebox
         applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALK_RIGHT)

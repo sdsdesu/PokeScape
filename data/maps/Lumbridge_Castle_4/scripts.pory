@@ -44,7 +44,7 @@ script GYMLEADER_DUKE{
     compare(VAR_RESULT, FALSE)
 	goto_if_eq(Common_EventScript_ShowBagIsFull)
     namebox("Duke Horacio")
-    msgbox(format("That move is called Slack off, which is exactly what I love to do on my days off.\pHopefully it will help you on your journey."))
+    msgbox(format("That move is called Slack Off, which is exactly what I love to do on my days off.\pHopefully it will help you on your journey."))
     if (var(VAR_POKESCAPE_GAMEMODE_STATE) == 0) //if STORY
     {
         msgbox(format("Before you go, could you to do me a favour?\pPop over to the Wizards' Tower and have the Archmage check out this mysterious Talisman for me.\pI would go myself but I have a Castle and Gym to run."))

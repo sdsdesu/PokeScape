@@ -35,11 +35,6 @@ NPC_BLACK_ARM_2::
 	end
 
 
-ITEM_BLACK_ARM_MITH_SCIM::
-	finditem ITEM_MITHRIL_SCIMITAR
-	end
-
-
 NPC_BLACK_ARM_KATRINE_Text_0:
 	.string "Katrine$"
 

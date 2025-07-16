@@ -1,6 +1,107 @@
 mapscripts Black_Knights_Fortress_3_MapScripts {
-
+    MAP_SCRIPT_ON_LOAD {
+        call(BKF_HEAL_ZONE)
+    }
+    MAP_SCRIPT_ON_TRANSITION {
+        call(CHECK_JAILED)
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_TEMP_B, 1: BKF_WHITEOUT
+    ]
 }
+
+
+
+script BKF_HEAL_ZONE {
+    setrespawn(HEAL_LOCATION_BKF_JAIL)
+    end
+}
+
+script CHECK_JAILED {
+    removeobject(25)
+    setflag(FLAG_TEMP_1F)
+    if (flag(FLAG_BKF_JAILED) == TRUE) {
+        addobject(25)
+        clearflag(FLAG_TEMP_1F)
+        setvar(VAR_TEMP_B, 1)
+    }
+    end
+}
+
+
+script BKF_WHITEOUT
+{
+	lock
+    delay(60)
+    namebox ("Guard")
+    //randomised dialogue
+    //if sir owen is with you more randomised dialogue. (if I can get him spawning right away next to you.)
+    applymovement(25, MOVEMENT_INTERACT_UP)
+    msgbox(format("Bwhauhuhaha!\pYou will now rot in this cage until the end of your days!"))
+    waitmovement(0)
+    closemessage
+    hidenamebox
+    applymovement(25, movement_BKF_lockup_leave)
+    waitmovement(0)
+    removeobject(25)
+    setflag(FLAG_TEMP_1F)
+    //sir owen talks to you about trying to get out.
+    setvar(VAR_TEMP_B, 2)
+    clearflag(FLAG_BKF_JAILED)
+    release
+    end
+}
+
+movement movement_BKF_lockup_leave {
+    walk_right * 7
+    walk_up * 3
+    set_invisible
+    step_end
+}
+
+script BKF_GATE
+{
+    if (var(VAR_TEMP_C) == 0) {
+        lock
+        msgbox(format("You attempt to pick the lock{PAUSE 15}…{PAUSE 15}…{PAUSE 15}…\nBut the guard forgot to lock the door…"))
+        closemessage
+        playse(SE_TRUCK_DOOR)
+        msgbox(format("The door opens."))
+        closemessage
+        // set meta tiles open gate
+        setmetatile(14, 5, METATILE_IndoorTowns3_JAILDOOR_OPEN_TOP, 0)
+        setmetatile(14, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_BOTTOM, 1)
+        setmetatile(15, 5, METATILE_IndoorTowns3_BKF_FLOOR, 0)
+        setmetatile(15, 6, METATILE_IndoorTowns3_BKF_FLOOR, 0)
+        setmetatile(16, 6, METATILE_IndoorTowns3_JAILDOOR_OPEN_SIDE, 1)
+        special(DrawWholeMapView) 
+        //if sir owen is with you.
+        facefollower
+        namebox ("Sir Owen")
+        msgbox(format("They're joking right?\pMan, someone is gonna get fired.\pAnyways lets get back to our mission and try this again!"))
+        closemessage
+        hidenamebox
+        setvar(VAR_TEMP_C, 1)
+        release
+    }
+    end
+}
+
+script BKF_Banker {
+    
+	faceplayer
+    namebox ("Banker")
+    msgbox(format("The Black Knights have got me locked up so they can have quick and easy access for their banks.\pThey didn't say you couldn't use the bank though, so how many I help you?"))
+	waitmessage
+    call(BANK_OPTIONS_JAIL)
+    namebox ("Banker")
+    msgbox(format("I wonder if I'll ever get out to see my wife and children again…"))
+    closemessage
+    hidenamebox
+    release
+    end
+}
+
 
 //NPCS
 
@@ -21,7 +122,7 @@ script BKFORT_3F_NPC_2
     lock
     faceplayer
     namebox ("Black Knight")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("I can't believe I spend all day down here torturing people...\p{PAUSE 15}THIS IS THE BEST JOB EVER!"))
     closemessage
     hidenamebox
     release
@@ -69,7 +170,7 @@ script BKFORT_3F_NPC_6
     lock
     faceplayer
     namebox ("Goebie")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("The airut invaded our planet and enslaved our people.\pI came to your world for help, but the people here weren't as friendly as I'd hoped.\pWe aren't strong enough to fight back on our own..."))
     closemessage
     hidenamebox
     release
@@ -90,7 +191,7 @@ script BKFORT_3F_NPC_8
     lock
     faceplayer
     namebox ("Skeleton")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("The skeleton stares at you.\pIt can see you looking at the item behind it, but it clearly has no intention of handing it over."))
     closemessage
     hidenamebox
     release
@@ -102,7 +203,7 @@ script BKFORT_3F_NPC_9
     lock
     faceplayer
     namebox ("Worldbearer")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("Yildoi!\pAlnaasdzoh klesh yetsan."))
     closemessage
     hidenamebox
     release
@@ -113,8 +214,8 @@ script BKFORT_3F_NPC_10
 {
     lock
     faceplayer
-    namebox ("Forgotten War.")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    namebox ("Forgotten W.")
+    msgbox(format("This place is even more bleak than the dungeons back home."))
     closemessage
     hidenamebox
     release
@@ -126,7 +227,7 @@ script BKFORT_3F_NPC_11
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("It might not look like much, but this is one of the best assignments you can get in this place.\pMuch better than those suckers who have to stand outside in the freezing cold!"))
     closemessage
     hidenamebox
     release
@@ -138,7 +239,7 @@ script BKFORT_3F_NPC_12
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("Do you know what the average life span of a Falador guard is?\pThey're constantly attacked for no reason.\pThe White Knights do nothing to intervene and help!\pThat's why I deserted them to join the Black Knights.\pLook how secure this place is!"))
     closemessage
     hidenamebox
     release
@@ -150,7 +251,7 @@ script BKFORT_3F_NPC_13
     lock
     faceplayer
     namebox ("Blacksmith")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("Do you know how difficult it is to smelt enough black armour to keep up with demand?"))
     closemessage
     hidenamebox
     release
@@ -160,21 +261,51 @@ script BKFORT_3F_NPC_13
 script BKFORT_3F_NPC_14
 {
     lock
-    faceplayer
     namebox ("Black Knight")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("I am Black Knight Sergeant Tyme, your drill instructor.\pFrom now on you will speak only when spoken to, and the first and last words out of your mouths will be 'Sir'.\pDo you maggots understand that?"))
     closemessage
     hidenamebox
+    applymovement(2, MOVEMENT_FACE_RIGHT)
+    applymovement(4, MOVEMENT_FACE_RIGHT)
+    applymovement(3, MOVEMENT_FACE_LEFT)
+    applymovement(5, MOVEMENT_FACE_LEFT)
+    waitmovement(0)
+    namebox ("Guards")
+    msgbox(format("Sir, yes Sir."))
+    closemessage
+    hidenamebox
+    namebox ("Black Knight")
+    msgbox(format("I can't hear you."))
+    closemessage
+    hidenamebox 
+    applymovement(2, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+    applymovement(4, MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT)
+    applymovement(3, MOVEMENT_EXCLAMATIONMARK_JUMP_LEFT)
+    applymovement(5, MOVEMENT_EXCLAMATIONMARK_JUMP_LEFT)
+    waitmovement(0) 
+    namebox ("Guards")
+    msgbox(format("SIR, YES SIR!"))
+    closemessage
+    hidenamebox
+    applymovement(2, MOVEMENT_FACE_LEFT)
+    applymovement(4, MOVEMENT_FACE_LEFT)
+    applymovement(3, MOVEMENT_FACE_RIGHT)
+    applymovement(5, MOVEMENT_FACE_RIGHT)
+    waitmovement(0)          
     release
     end
+}
+
+movement MOVEMENT_EXCLAMATIONMARK_JUMP_RIGHT {
+    emote_exclamation_mark
+    jump_in_place_right
 }
 
 script BKFORT_3F_NPC_15
 {
     lock
-    faceplayer
     namebox ("Guard")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("Left hand... hut!\pRight hand... hut!\pDraw and parry!\pOrder... hut!\pThis is my longsword!\pThere are many like it, but this one is mine!\pMy longsword is my best friend!\pIt is my life!"))
     closemessage
     hidenamebox
     release
@@ -210,7 +341,7 @@ script BKFORT_3F_NPC_18
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("I am not sure how hitting this dummy and doing practice drills is really going to help when everybody now just fights with monsters.\pHow am I supposed to use a sword to defeat some otherworldly being?\pI just keep quiet and do what I'm told though, the instructor is scary!"))
     closemessage
     hidenamebox
     release
@@ -222,7 +353,7 @@ script BKFORT_3F_NPC_19
     lock
     faceplayer
     namebox ("Guard")
-    msgbox(format("THIS IS A WORK IN PROGRESS.\pTHE TEAM ARE CURRENTLY DEVELOPING IT AND ARE AWARE IT IS UNFINISHED.\pIT IS NOT A BUG, PLEASE DO NOT REPORT IT."))
+    msgbox(format("Uhhhh, am I halucinating or is that a freaking DEMON training over there?!"))
     closemessage
     hidenamebox
     release
@@ -238,25 +369,5 @@ script BKFORT_3F_NPC_20
     closemessage
     hidenamebox
     release
-    end
-}
-
-//ITEMS
-
-script ITEM_BKFORT_3F_ITEM1
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_3F_ITEM2
-{
-    finditem(ITEM_POUCH_BLACK)
-    end
-}
-
-script ITEM_BKFORT_3F_ITEM3
-{
-    finditem(ITEM_POUCH_BLACK)
     end
 }

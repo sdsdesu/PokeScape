@@ -1265,3 +1265,25 @@ const struct Tileset gTileset_IndoorTowns3 =
     .metatileAttributes = gMetatileAttributes_IndoorTowns3,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_DwarvenMines =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DwarvenMines,
+    .palettes = gTilesetPalettes_DwarvenMines,
+    .metatiles = gMetatiles_DwarvenMines,
+    .metatileAttributes = gMetatileAttributes_DwarvenMines,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Wilderness_Crater =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Wilderness_Crater,
+    .palettes = gTilesetPalettes_Wilderness_Crater,
+    .metatiles = gMetatiles_Wilderness_Crater,
+    .metatileAttributes = gMetatileAttributes_Wilderness_Crater,
+    .callback = NULL,
+};

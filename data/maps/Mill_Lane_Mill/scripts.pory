@@ -1,25 +1,11 @@
 mapscripts Mill_Lane_Mill_MapScripts {
 
     MAP_SCRIPT_ON_TRANSITION{
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_1)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_2)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_3)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_4)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_5)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_6)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_7)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_8)
-    clearflag(FLAG_ITEM_REPEATABLE_ITEM_9)
-    setvar(VAR_EVOLUTION_MAP_STATE, 1) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
-    
+        setvar(VAR_EVOLUTION_MAP_STATE, 1) //MAP LOCATIONS: 0-NOTHING, 1-LUMBRIDGE, 16-VARROCK, 3-FALADOR, 4-MEMBERS, 5-OCEAN, 6-WILDERNESS, 7-MORYTANIA, 8-CAVES, 9-ABYSS, 10-OFFWORLD, 11-DESERT, 15-KARAMJA
     } 
-
-    
 	MAP_SCRIPT_ON_LOAD {
         call(PURO_PURO_EVENT)
     }
-    
-    
 }
 
 
@@ -115,7 +101,7 @@ script Trainer1_MillLaneMill_Battle
 {
     trainerbattle_double(TRAINER_TRAINER1_MILLLANEMILL, format("Have you seen any Kebbits around here?"),format("I need to get a higher hunting level…"),format("I would love to have a double battle with you."))
     namebox ("Kebbie")
-    msgbox(format("Since you beat me, I'll tell you a little about what I've read about Kebbits.\pThe ones around here apparently evolve at level 15.\pIf they have higher speed than defence, then they'll evolve into Wild Kebbits.\pIf they have higher speed than defence, then they'll evolve into Spotted Kebbits.\pAnd if both of those stats are the same, they'll evolve into Polar Kebbits.\pI need to train Hunter more to learn about how they evolve from there, though."))
+    msgbox(format("If you want to know more about Kebbits, try speaking to my mentor.\pHe should be around here somewhere."))
     hidenamebox
     release
     end
@@ -123,9 +109,9 @@ script Trainer1_MillLaneMill_Battle
 
 
 
-script MillLaneMill_Item_PURPLE_SWEETS
+script MillLaneMill_ITEM_MANY_SWEETS
 {
-    finditem(ITEM_PURPLE_SWEETS)
+    finditem(ITEM_MANY_SWEETS)
     end
 }
 
@@ -135,10 +121,10 @@ script MillLaneMill_Item_PURPLE_SWEETS
 
 script MillLaneMill_Item_WHEAT1{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_1)){
+	if(!flag(FLAG_TEMP_1)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_1)
+        setflag(FLAG_TEMP_1)
 		release
 		end
 	}
@@ -152,10 +138,10 @@ script MillLaneMill_Item_WHEAT1{
 
 script MillLaneMill_Item_WHEAT2{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_2)){
+	if(!flag(FLAG_TEMP_2)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_2)
+        setflag(FLAG_TEMP_2)
 		release
 		end
 	}
@@ -169,10 +155,10 @@ script MillLaneMill_Item_WHEAT2{
 
 script MillLaneMill_Item_WHEAT3{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_3)){
+	if(!flag(FLAG_TEMP_3)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_3)
+        setflag(FLAG_TEMP_3)
 		release
 		end
 	}
@@ -186,10 +172,10 @@ script MillLaneMill_Item_WHEAT3{
 
 script MillLaneMill_Item_WHEAT4{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_4)){
+	if(!flag(FLAG_TEMP_4)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_4)
+        setflag(FLAG_TEMP_4)
 		release
 		end
 	}
@@ -203,10 +189,10 @@ script MillLaneMill_Item_WHEAT4{
 
 script MillLaneMill_Item_WHEAT5{
     msgbox(format("You search the sack…\p…"))
-	if(!flag(FLAG_ITEM_REPEATABLE_ITEM_5)){
+	if(!flag(FLAG_TEMP_5)){
 		lock
 		giveitem(ITEM_WHEAT)
-        setflag(FLAG_ITEM_REPEATABLE_ITEM_5)
+        setflag(FLAG_TEMP_5)
 		release
 		end
 	}
@@ -237,5 +223,40 @@ script PURO_PURO_EVENT_MILL_LANE_MILL {
 
 
 
+	
+script MODEST_SAMUEL_Battle
+{
+    trainerbattle_single(TRAINER_MODESTSAMUEL, format("Oh, sorry, I was looking around here for a new friend to add to my party.\pDid you want to battle?"),format("It doesn't matter that we lost.\pMy monsters did their best!"))
+    namebox ("Samuel")
+    msgbox(format("Win or lose, I'll always battle with my favourite monsters."))
+    hidenamebox
+    release
+    end
+}
 
-			
+script MILL_LANE_MILL_HUNTER_NPC {
+    lock
+    faceplayer
+    namebox("Chymp")
+    random(7)
+    switch (var(VAR_RESULT)) {
+        case 0: 
+            msgbox(format("The kebbits you can catch around here evolve at level 15.\pIf they have higher speed than defence, then they'll evolve into Wild Kebbits.\pIf they have higher speed than defence, then they'll evolve into Spotted Kebbits.\pAnd if both of those stats are the same, they'll evolve into Polar Kebbits.\p"))
+        case 1: 
+            msgbox(format("I really, really love Kebbits!\pI'm happy to share my knowledge with you if you want to keep talking."))
+        case 2: 
+            msgbox(format("Did you know that there are 15 different types of kebbits?\pThey're all NORMAL type, but sometimes when they evolve they gain a secondary typing.\pYou'll have to discover those for yourself!"))
+        case 3: 
+            msgbox(format("If you teach a Barbed Kebbit a POISON move, it starts to look very ill.\pI love Kebbits too much to do it myself."))
+        case 4: 
+            msgbox(format("Desert Devil Kebbits LOVE chocolate.\pIf you feed them something chocolatey, they'll evolve into a very unique type of Kebbit."))
+        case 5: 
+            msgbox(format("Prickly Kebbits have different evolutions depending on whether you level them up during the day or at night.\pTry it out and see which type you prefer."))
+        case 6: 
+            msgbox(format("Spotted and Wild Kebbits evolve more quickly than Polar Kebbits.\pKeep this in mind when training yours up."))
+    }
+    hidenamebox
+    closemessage
+    release
+    end
+}

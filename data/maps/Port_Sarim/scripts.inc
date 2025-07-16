@@ -721,35 +721,6 @@ NPC_PORTSARIM_GENERALSTORE_CUSTOMER_2::
 	end
 
 
-NPC_PORTSARIM_GERRANT::
-	lock
-	faceplayer
-	namebox NPC_PORTSARIM_GERRANT_Text_0
-	checkitem ITEM_BIG_NET, 1
-	compare VAR_RESULT, 0
-	goto_if_eq NPC_PORTSARIM_GERRANT_2
-	msgbox NPC_PORTSARIM_GERRANT_Text_3
-	closemessage
-	hidenamebox
-	release
-	end
-
-	release
-	end
-
-NPC_PORTSARIM_GERRANT_2:
-	msgbox NPC_PORTSARIM_GERRANT_Text_1
-	closemessage
-	hidenamebox
-	giveitem ITEM_BIG_NET
-	namebox NPC_PORTSARIM_GERRANT_Text_0
-	msgbox NPC_PORTSARIM_GERRANT_Text_2
-	closemessage
-	hidenamebox
-	release
-	end
-
-
 NPC_PORTSARIM_FISHING_CUSTOMER::
 	lock
 	faceplayer
@@ -1124,6 +1095,123 @@ movement_jump_in_place_LEFT:
 	jump_in_place_left
 	step_end
 
+NPC_FISHERMAN_1::
+	lock
+	faceplayer
+	namebox NPC_FISHERMAN_1_Text_0
+	msgbox NPC_FISHERMAN_1_Text_1
+	checkitem ITEM_SMALL_NET, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_FISHERMAN_1_2
+	msgbox NPC_FISHERMAN_1_Text_3
+NPC_FISHERMAN_1_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+NPC_FISHERMAN_1_2:
+	msgbox NPC_FISHERMAN_1_Text_2
+	goto NPC_FISHERMAN_1_1
+
+
+NPC_ROUTE12_Fisherman::
+	lock
+	faceplayer
+	namebox NPC_PORTSARIM_NPC_1_Text_0
+	msgbox NPC_ROUTE12_Fisherman_Text_0
+	checkitem ITEM_SMALL_NET, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_ROUTE12_Fisherman_2
+NPC_ROUTE12_Fisherman_1:
+	hidenamebox
+	closemessage
+	release
+	end
+
+NPC_ROUTE12_Fisherman_2:
+	msgbox NPC_ROUTE12_Fisherman_Text_1
+	goto NPC_ROUTE12_Fisherman_1
+
+
+NPC_GIVE_SMALL_NET::
+	lock
+	faceplayer
+	namebox NPC_FISHERMAN_1_Text_0
+	msgbox NPC_GIVE_SMALL_NET_Text_0
+	checkitem ITEM_SMALL_NET, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_GIVE_SMALL_NET_2
+	msgbox NPC_GIVE_SMALL_NET_Text_3
+	release
+	end
+
+	release
+	end
+
+NPC_GIVE_SMALL_NET_2:
+	msgbox NPC_GIVE_SMALL_NET_Text_1
+	hidenamebox
+	giveitem ITEM_SMALL_NET
+	namebox NPC_FISHERMAN_1_Text_0
+	msgbox NPC_GIVE_SMALL_NET_Text_2
+	release
+	end
+
+
+NPC_PORTSARIM_GERRANT::
+	lock
+	faceplayer
+	namebox NPC_PORTSARIM_GERRANT_Text_0
+	checkitem ITEM_BIG_NET, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_PORTSARIM_GERRANT_2
+	msgbox NPC_PORTSARIM_GERRANT_Text_3
+	closemessage
+	hidenamebox
+	release
+	end
+
+	release
+	end
+
+NPC_PORTSARIM_GERRANT_2:
+	msgbox NPC_PORTSARIM_GERRANT_Text_1
+	closemessage
+	hidenamebox
+	giveitem ITEM_BIG_NET
+	namebox NPC_PORTSARIM_GERRANT_Text_0
+	msgbox NPC_PORTSARIM_GERRANT_Text_2
+	closemessage
+	hidenamebox
+	release
+	end
+
+
+NPC_GIVE_DRAGON_NET::
+	lock
+	faceplayer
+	namebox NPC_GIVE_DRAGON_NET_Text_0
+	checkitem ITEM_DRAGON_NET, 1
+	compare VAR_RESULT, 0
+	goto_if_eq NPC_GIVE_DRAGON_NET_2
+	msgbox NPC_GIVE_DRAGON_NET_Text_3
+	release
+	end
+
+	release
+	end
+
+NPC_GIVE_DRAGON_NET_2:
+	msgbox NPC_GIVE_DRAGON_NET_Text_1
+	hidenamebox
+	giveitem ITEM_DRAGON_NET
+	namebox NPC_GIVE_DRAGON_NET_Text_0
+	msgbox NPC_GIVE_DRAGON_NET_Text_2
+	release
+	end
+
+
 PORTSARIM_HAM_EVENT_PART2_Text_0:
 	.string "H.A.M Leader$"
 
@@ -1404,29 +1492,6 @@ NPC_PORTSARIM_GENERALSTORE_CUSTOMER_2_Text_0:
 	.string "Mr.W allows me to buy bread to feed me\n"
 	.string "family.$"
 
-NPC_PORTSARIM_GERRANT_Text_0:
-	.string "Gerrant$"
-
-NPC_PORTSARIM_GERRANT_Text_1:
-	.string "THAT IS IT!\p"
-	.string "THAT SHINE IN YOUR EYES!\p"
-	.string "You understand the beauty of fishing\n"
-	.string "don't you?!\p"
-	.string "Here take this!$"
-
-NPC_PORTSARIM_GERRANT_Text_2:
-	.string "This fishing net will allow you to catch\n"
-	.string "those big suckers!\p"
-	.string "Don't worry I won't charge you anything\n"
-	.string "for it!\p"
-	.string "Now off with you!\p"
-	.string "Much fishing awaits in your future!$"
-
-NPC_PORTSARIM_GERRANT_Text_3:
-	.string "Being in the fish selling business has\n"
-	.string "made me gain weight over the years.\p"
-	.string "Oh did you wish to buy something?$"
-
 NPC_PORTSARIM_FISHING_CUSTOMER_Text_0:
 	.string "Psst… {PAUSE 15}Yeah, you.\p"
 	.string "I will let you in on a little secret…\p"
@@ -1559,3 +1624,109 @@ CRANDOR_EVENT_PORTSARIM_SIROWEN_Text_0:
 	.string "It seems like it will just be you three\n"
 	.string "sailing to Crandor.\p"
 	.string "I wish you all the best.$"
+
+NPC_FISHERMAN_1_Text_0:
+	.string "Hank$"
+
+NPC_FISHERMAN_1_Text_1:
+	.string "I love to fish in this pond.\p"
+	.string "It is so peaceful, with the ducks that\n"
+	.string "keep me company.\p"
+	.string "I cannot imagine anything bad to\n"
+	.string "happen here.$"
+
+NPC_FISHERMAN_1_Text_2:
+	.string "You seem like someone who would also\n"
+	.string "enjoy fishing in this pond.\p"
+	.string "But you don't have a fishing net?\p"
+	.string "You should go visit Hank in Lumbridge.\p"
+	.string "I'm sure he can supply you with one.$"
+
+NPC_FISHERMAN_1_Text_3:
+	.string "How are you finding fishing in the pond?\p"
+	.string "Have you caught anything yet?{PAUSE 15}\p"
+	.string "Did you know that a crayfish evolves\n"
+	.string "into a shrimp?\p"
+	.string "But it's so peaceful here, I've never\n"
+	.string "managed to evolve one myself.$"
+
+NPC_ROUTE12_Fisherman_Text_0:
+	.string "We once had a wooden bridge here, but\n"
+	.string "some firemakers burnt it down…\p"
+	.string "Makes the place good for fishing now\n"
+	.string "though.$"
+
+NPC_ROUTE12_Fisherman_Text_1:
+	.string "Speaking of which, if you're interested\n"
+	.string "in fishing you should go visit Hank in\l"
+	.string "Lumbridge.\p"
+	.string "He can give you with some fishing\n"
+	.string "supplies!$"
+
+NPC_GIVE_SMALL_NET_Text_0:
+	.string "G'day, welcome to my little fishing\n"
+	.string "shack.$"
+
+NPC_GIVE_SMALL_NET_Text_1:
+	.string "You seem like someone who would also\n"
+	.string "enjoy fishing.\p"
+	.string "Here take this!$"
+
+NPC_GIVE_SMALL_NET_Text_2:
+	.string "It is only a small net but I'm sure there\n"
+	.string "are plenty of things you could fish up\l"
+	.string "with it!$"
+
+NPC_GIVE_SMALL_NET_Text_3:
+	.string "Fishing is a hobby of mine, sadly though\n"
+	.string "this shack is falling apart.\p"
+	.string "I tried purchasing the other real\n"
+	.string "estate in Lumbridge but sadly I was\l"
+	.string "outbid.$"
+
+NPC_PORTSARIM_GERRANT_Text_0:
+	.string "Gerrant$"
+
+NPC_PORTSARIM_GERRANT_Text_1:
+	.string "THAT IS IT!\p"
+	.string "THAT SHINE IN YOUR EYES!\p"
+	.string "You understand the beauty of fishing\n"
+	.string "don't you?!\p"
+	.string "Here take this!$"
+
+NPC_PORTSARIM_GERRANT_Text_2:
+	.string "This fishing net will allow you to catch\n"
+	.string "those big suckers!\p"
+	.string "Don't worry I won't charge you anything\n"
+	.string "for it!\p"
+	.string "Now off with you!\p"
+	.string "Much fishing awaits in your future!$"
+
+NPC_PORTSARIM_GERRANT_Text_3:
+	.string "Being in the fish selling business has\n"
+	.string "made me gain weight over the years.\p"
+	.string "Oh did you wish to buy something?$"
+
+NPC_GIVE_DRAGON_NET_Text_0:
+	.string "Stiles$"
+
+NPC_GIVE_DRAGON_NET_Text_1:
+	.string "Ay-you!\p"
+	.string "You look like you'd be capable at\n"
+	.string "fishing up some powerful monsters, if\l"
+	.string "only your net held up ay?\p"
+	.string "Well keep this between us, but ay found\n"
+	.string "this special net that always attracts\l"
+	.string "powerful monsters.\p"
+	.string "I have no use for it so here, you take\n"
+	.string "it.$"
+
+NPC_GIVE_DRAGON_NET_Text_2:
+	.string "I wish I could use it to fish, but ay am\n"
+	.string "too weak to handle such powerful\l"
+	.string "monsters.$"
+
+NPC_GIVE_DRAGON_NET_Text_3:
+	.string "Ay-uh, howsit going.\p"
+	.string "Fished up any of em powerful monsters\n"
+	.string "lately?$"

@@ -1,0 +1,711 @@
+mapscripts HAM_Hideout_B2F_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        call(HAMHIDEOUT_B2F_STATE)
+    }
+}
+
+script HAMHIDEOUT_B2F_STATE {
+    clearflag(FLAG_TEMP_D) //SHOWS NPCS
+    setflag(FLAG_TEMP_C) //HIDES TRAINERS
+
+    setflag(FLAG_TEMP_1F)
+    setflag(FLAG_TEMP_1E)
+    setflag(FLAG_TEMP_1D)
+    removeobject(27)
+    removeobject(22)
+    removeobject(24)
+    removeobject(4)
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 230) { 
+        setvar(VAR_TEMP_0, 1)
+        clearflag(FLAG_TEMP_1E)
+        clearflag(FLAG_TEMP_1D)
+        addobject(22)
+        addobject(24)
+        addobject(4)
+    }
+    if (var(VAR_POKESCAPE_STORYMODE_PROGRESS) == 235) { 
+        setflag(FLAG_TEMP_D) //Hides NPCS
+        clearflag(FLAG_TEMP_C) //Shows TRAINERS
+    }
+    return
+}
+
+
+
+
+
+//NPCs
+
+
+
+
+
+script NPC_HAM_HIDEOUT_7
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("The dog I grew up with evolved into a green monstrosity.\pI still like it, but now it's the thing we are trying to vanquish from the world.\pAm I in the wrong for not wanting to abandon my friend?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+
+
+script NPC_HAM_HIDEOUT_9 //Not implemented
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I miss not living in a cave."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_11
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Babe and Patty are recent admins recruited by Sigmund for their hard work.\lPatty's hard work that is, I don't know what Babe did…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_12 //Not implemented
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Babe is really aloof.\pIt's really hard to tell what's going on in her head."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_13
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("I hear Patty used to be a wizard in the Wizards' Tower before she joined us.\pShe was thrown out due to rash and feisty decisions apparently."))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_16
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("These are our storage rooms.\pWe've also got another jail in the back.\pBut you know this already…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_17
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("There's so much work to do, clearing these caverns for more storage is a pain…\pWhy couldn't we have an above ground base…"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_18
+{
+	lock
+	faceplayer
+    namebox ("H.A.M Member")
+	msgbox(format("Yuck, why am I on cleaning duty.\pWanna swap jobs?"))
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+script NPC_HAM_HIDEOUT_19
+{
+	lock
+    namebox ("H.A.M Member")
+	msgbox(format("Be on high alert!\pThere are intruders in the building!"))
+    closemessage
+    hidenamebox
+    playse(SE_PIN)
+    applymovement(41, MOVEMENT_EXCLAMATIONMARK_FACEPLAYER)
+    msgbox(format("What how did they get past us!"))
+    closemessage
+    hidenamebox
+    trainerbattle_two_trainers(TRAINER_HAM_HIDEOUT_GUARD_3, msgbox(format("H.A.M Guard: No wonder you managed to sneak through!")), TRAINER_HAM_HIDEOUT_GUARD_4, msgbox(format("H.A.M Guard: Too strong!")))
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    removeobject(41)
+    removeobject(42)
+    setflag(FLAG_TEMP_E)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    closemessage
+    hidenamebox
+	release
+	end
+}
+
+//Battles
+
+script BATTLE_HAM_HIDEOUT_GRUNT_1
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_1, format("I bet you're wondering how I ended up here."),format("Urgh…"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("When I signed up to become a member, I was never told that our headquarters was in a cave.\pThe Black Knights have a whole fortress…"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_2
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_2, format("I've only been a member for a few days...\pDo you know where the toilets are?"),format("Aaaaaahhhh!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Please tell me it's not just a hole in the floor…"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_3
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_3, format("I've not had a good night's sleep in weeks!\pI'm going to take my frustrations on you!"),format("My back!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Have you seen how many of us there are compared to how many beds we have?\pThere's a rota, but most nights it's whatever space we can find on the floor."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_4
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_4, format("Where have you guys been the prisoners are left have been not been guarded and there are intruders in the base!\pWait… You guys are the intruders! Prepare for battle!"),format("I cannot believe this!"))
+    namebox ("H.A.M Grunt")
+    //msgbox(format("I can't bear to speak to a monster sympathiser like you."))
+    msgbox(format("You guys are monster sympathisers?!\pDisgusting!"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_5
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_5, format("Johanhus and Sigmund were able to build all this in a cave!\pWith a box of scraps!"),format("Gah!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Praise be to Johanhus and Sigmund.\pWhere would we be without them?"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_6 
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_6, format("I have been chosen by Johanhus for a special purpose."),format("I may have lost, but I won't fail him."))
+    namebox ("H.A.M Grunt")
+    msgbox(format("Johanhus has tasked me with searching for caches of First Age armour.\pI wonder why he wants it, we already have plenty of sets of much newer armour..."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_7
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_7, format("Do you think Sigmund's plans are extremist?"),format("I only asked a question!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("There are lots of mutterings around here that Sigmund's actions are dangerous and destructive.\pPersonally, I don't think he's done enough yet.\pIt will take a substantial amount of power to wipe out the scourge of monsters."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_8
+{ 
+    //trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("Go in peace in the name of Saradomin.\pMay his glory shine upon you like the sun."),format("May Saradomin guide your soul to light."))
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_8, format("I'm about to beat you up until you are unconscious!"),format("Awe man, I'm feeling slightly concussed…"))
+    namebox ("H.A.M Grunt")
+    //msgbox(format("As Saradomin is the 'Lord of Light', do you think that Johanhus and Sigmund deliberately build our base underground where the light cannot reach because they know he would be ashamed of us?"))
+    msgbox(format("Awe man, I'm feeling slightly concussed…"))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_9
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_9, format("How dare you side with those THINGS instead of your fellow humans!"),format("Traitor!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("I used to be a farmer, you know.\pUntil a group of hobgoblins destroyed my crops.\pRuined my livelihood!\pHonest farmers shouldn't have to deal with that, it's why monsters should be eradicated."))
+    hidenamebox
+    release
+    end
+}
+
+script BATTLE_HAM_HIDEOUT_GRUNT_10
+{ 
+    trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Who sounded the alarm!?\pWas it you?!"),format("Oh no now the only alarm I hear is the low health of my animals!"))
+    //trainerbattle_single(TRAINER_HAM_HIDEOUT_GRUNT_10, format("Monsters are evil, so that means we can kill them for fun."),format("Evil, evil creatures!"))
+    namebox ("H.A.M Grunt")
+    msgbox(format("I may have failed to stop you but the others won't stop until we bundle you up into jail!"))
+    //msgbox(format("I learned that from an old book, the 'Manual of Monsters'.\pIt had details on all different kinds of monsters and it said if they were good or evil...\nand most of them are evil!"))
+    hidenamebox
+    release
+    end
+}
+
+
+
+
+
+
+script TRIGGER_HAMHIDEOUT_BABE_PATTY {
+    lock
+    applymovement(OBJ_EVENT_ID_PLAYER, movement_HAMHIDEOUT_PLAYER_1)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, movement_HAMHIDEOUT_ZANIK_1)
+    //waitmovement(0)
+    applymovement(22, movement_HAMHIDEOUT_PATTY_1)
+    applymovement(24, movement_HAMHIDEOUT_BABE_1)
+    waitmovement(22)
+    removeobject(22)
+    playse(SE_EXIT)
+    waitmovement(24)
+    namebox ("Babe")
+    msgbox(format("Hey… You look familiar…"))
+    hidenamebox
+    closemessage
+    delay(30)
+    namebox ("Patty")
+    msgbox(format("Hurry up Babe, we need to go to Varrock!\pI swear if you make us late again…"))
+    hidenamebox
+    closemessage
+    playse(SE_PIN)
+    applymovement(24, movement_HAMHIDEOUT_BABE_2)
+    waitmovement(0)
+    namebox ("Babe")
+    msgbox(format("C-coming!"))
+    hidenamebox
+    closemessage
+    applymovement(24, movement_HAMHIDEOUT_BABE_3)
+    waitmovement(0)
+    removeobject(24)
+    playse(SE_EXIT)
+    setflag(FLAG_TEMP_1E)
+    delay(30)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_WALKLEFT)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("What was that about?"))
+    hidenamebox
+    closemessage
+    applymovement(4, movement_HAMHIDEOUT_GUARD_1)
+    waitmovement(0)
+    namebox ("H.A.M Guard")
+    msgbox(format("What are you two doing straying from your posts?!"))
+    hidenamebox
+    closemessage
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, MOVEMENT_EXCLAMATIONMARK_FACE_UP)
+    waitmovement(0)
+    delay(90)
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_UP)
+    waitmovement(0)
+    namebox ("H.A.M Guard")
+    msgbox(format("The spare jail key?\pMan you guys are useless!\pHere take it and don't lose this one otherwise Sigmund will have your heads."))
+    hidenamebox
+    closemessage
+    //setvar(VAR_DWARVEN_MINES_STATE, 5) 
+    playfanfare (MUS_OBTAIN_ITEM)
+    msgbox(format("{PLAYER} obtained the CELL KEY."))
+    waitfanfare
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACERIGHT)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("Alright {PLAYER} let's go free the prisoners!"))
+    hidenamebox
+    closemessage
+    namebox ("H.A.M Guard")
+    msgbox(format("Wait what did you say?!"))
+    hidenamebox
+    closemessage
+    applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("Uh, let's go beat up the prisoners!"))
+    hidenamebox
+    closemessage
+    namebox ("H.A.M Guard")
+    msgbox(format("Nice try…\nTake your hood off."))
+    hidenamebox
+    closemessage
+    namebox ("Zanik")
+    msgbox(format("Uh, I cannot do that…"))
+    hidenamebox
+    closemessage
+    namebox ("H.A.M Guard")
+    msgbox(format("Take it off or else!"))
+    hidenamebox
+    closemessage
+    facefollower
+    namebox ("Zanik")
+    msgbox(format("{PLAYER} what should we do, should we take our disguises off?"), MSGBOX_YESNO)
+    if (!var(VAR_RESULT))
+    { 
+        hidenamebox
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+        waitmovement(0)
+        namebox ("Zanik")
+        msgbox(format("No we will not!"))
+        hidenamebox
+        closemessage
+        namebox ("H.A.M Guard")
+        msgbox(format("Sorry but I didn't give you a choice!"))
+        hidenamebox
+        closemessage
+        //takes outfit off
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        msgbox(format("The guard removes your outfits."))
+        hidenamebox
+        closemessage
+        setvar(VAR_0x8004, OUTFIT_DEFAULT)
+        special(WearOutfit)
+        destroyfollower
+        addobject(27)
+        clearflag(FLAG_TEMP_1F)
+        loadword(0, Following_Zanik)
+        setfollower(27, 0x80)
+        
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        //
+    }
+    else {
+        namebox ("Zanik")
+        msgbox(format("Okay…"))
+        hidenamebox
+        closemessage
+        applymovement(OBJ_EVENT_ID_PLAYER, Movement_InteractFACEUP)
+        applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEUP)
+        waitmovement(0)
+        //takes off outfits.
+        
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        msgbox(format("You remove your outfits."))
+        hidenamebox
+        closemessage
+        setvar(VAR_0x8004, OUTFIT_DEFAULT)
+        special(WearOutfit)
+        destroyfollower
+        addobject(27)
+        clearflag(FLAG_TEMP_1F)
+        loadword(0, Following_Zanik)
+        setfollower(27, 0x80)
+        
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        //
+    }
+    //shocked jump
+    playse(SE_LEDGE)
+    applymovement(4, movement_HAMHIDEOUT_GUARD_3)
+    waitmovement(0)
+    namebox ("H.A.M Guard")
+    msgbox(format("AARRRGH!\pA GOBLIN!\pA DISGUSTING VILE GOBLIN!"))
+    hidenamebox
+    closemessage
+    namebox ("H.A.M Guard")
+    msgbox(format("Stand still while I eliminate you!"))
+    hidenamebox
+    closemessage
+    trainerbattle_no_intro(TRAINER_HAM_HIDEOUT_JAILER, format("I lost??\pTo a goblin and a monster sympathiser!"))
+    namebox ("H.A.M Guard")
+    msgbox(format("Urgh…\pStupid goblin…\pYou wouldn't have stood a chance if it wasn't for this human!\pThere's no way I'm letting either of you escape alive!"))
+    hidenamebox
+    closemessage
+    applymovement(4, movement_HAMHIDEOUT_GUARD_2)
+    waitmovement(0)
+    removeobject(4)
+    setflag(FLAG_TEMP_1D)
+    //Runs off to sound the alarm.
+    namebox ("Zanik")
+    msgbox(format("I'm sorry {PLAYER}…\pI should have just kept my mouth shut…"))
+    hidenamebox
+    closemessage
+    //player interacts.
+    applymovement(OBJ_EVENT_ID_PLAYER, MOVEMENT_INTERACT_RIGHT)
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACELEFT)
+    waitmovement(0)
+    namebox ("Zanik")
+    msgbox(format("You're right, no time to feel sorry.\pWe've got some people to rescue!"))
+    hidenamebox
+    closemessage
+    setvar(VAR_TEMP_0, 2)
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 235)
+    release
+    end
+}
+
+movement MOVEMENT_EXCLAMATIONMARK_FACE_UP {
+    emote_exclamation_mark
+    face_up
+    step_end
+}
+movement movement_HAMHIDEOUT_GUARD_1 {
+    walk_down * 3
+    step_end
+}
+movement movement_HAMHIDEOUT_GUARD_2 {
+    walk_fast_up * 4
+    step_end
+}
+movement movement_HAMHIDEOUT_GUARD_3 {
+    jump_in_place_down
+    step_end
+}
+movement movement_HAMHIDEOUT_PLAYER_1 {
+    lock_facing_direction
+    walk_left
+    unlock_facing_direction
+    face_right
+    step_end
+}
+movement movement_HAMHIDEOUT_ZANIK_1 {
+    walk_up
+    lock_facing_direction
+    walk_right
+    unlock_facing_direction
+    face_left
+    step_end
+}
+movement movement_HAMHIDEOUT_PATTY_1 {
+    walk_down * 4
+    step_end
+}
+movement movement_HAMHIDEOUT_BABE_1 {
+    walk_right
+    walk_down * 3
+    delay_16
+    face_left
+    step_end
+}
+movement movement_HAMHIDEOUT_BABE_2 {
+    emote_double_exclamation_mark
+    jump_in_place_down
+    step_end
+}
+movement movement_HAMHIDEOUT_BABE_3 {
+    walk_fast_down
+    step_end
+}
+
+
+//Johanhus' Room - WIP
+
+script TRIGGER_HAMHIDEOUT_JOHANHUS {
+    lock
+    applymovement (OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_ZANIK_1) //walk beside player to left
+    waitmovement(0)
+	special(SpawnCameraObject)
+	applymovement (OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_1)
+    waitmovement(0)
+    namebox ("Johanhus")
+    msgbox(format("It seems the search has come to an end then."))
+    namebox ("Sigmund")
+    msgbox(format("Yes.\lThis man held what we needed to summon it and bend it to our will.\pWith the power contained inside the Kharid-ib we can proceed to the Wilderness and finish the plan."))
+    applymovement(21, MOVEMENT_QUESTIONMARK)
+    namebox ("Johanhus")
+    msgbox(format("And you are sure this will save the world of the scourge that are monsters Sigmund?"))
+    namebox ("Sigmund")
+    msgbox(format("Johanhus my friend.\pEveryday monsters cause problems around the world.\pAnd now adventurers, cooks, kings, queens, pawns and even goblins have decided to use them as their own to attain power.\pWhat we want is to prove to them that we hold absolute power.\lAnd then they will see that the only way for this world to be free is to kill and abandon every single monster in the world.\pAnd when that happens...\lThe world will be at peace.\lJust like we have always wanted..."))
+    setobjectxy(35, 41, 34)      //spawn in Prince Ali
+	setobjectxyperm(35, 41, 34)
+    applymovement (35, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    waitmovement(0)
+    applymovement (35, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    applymovement (OBJ_EVENT_ID_PLAYER, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    applymovement (OBJ_EVENT_ID_FOLLOWER, movement_HAM_Hideout_finale_walk_up) //walk beside player to left
+    namebox ("Prince Ali")
+    msgbox(format("Stop this.\lYou won't get away with this."))
+    applymovement(36, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(37, movement_HAM_Hideout_finale_reaction_2) 
+    applymovement(38, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(39, movement_HAM_Hideout_finale_reaction_3) 
+    applymovement(40, movement_HAM_Hideout_finale_reaction_2) 
+    applymovement(41, movement_HAM_Hideout_finale_reaction_1) 
+    applymovement(42, movement_HAM_Hideout_finale_reaction_3)
+    applymovement(21, MOVEMENT_EXCLAMATIONMARK)
+    waitmovement(0)
+    namebox ("Johanhus")
+    msgbox(format("Cease your yelps prince.\lYou hold no authority here.\pWe will make a just world without monsters just like Saradomin always intended."))
+    applymovement(23, movement_HAM_Hideout_finale_reaction_1)
+    namebox ("Sigmund")
+    msgbox(format("Looks like some monsters just entered a den they should not be Johanhus."))
+    namebox ("Johanhus")
+    msgbox(format("Indeed. What shall we do?"))
+    namebox ("Sigmund")
+    msgbox(format("I will head to the wilderness as planned.\pI will station Patty and Babe in Varrock for the thing we discussed.\lAs for these guys and the prince.\lLet us show them what happens to monster sympathisers taking a wrong turn."))
+    setobjectxy(43, 40, 34)      //spawn in extra HAM member for blocking
+	setobjectxyperm(43, 40, 34)
+    applymovement(43, movement_HAM_Hideout_finale_walk_up)    
+    applymovement(39, movement_HAM_Hideout_finale_swarm_left_2)     
+    applymovement(42, movement_HAM_Hideout_finale_swarm_left_1)  
+    applymovement(37, movement_HAM_Hideout_finale_swarm_right_2) 
+    applymovement(41, movement_HAM_Hideout_finale_swarm_right_1) 
+    waitmovement(0)
+    applymovement(23, movement_HAM_Hideout_finale_Sigmund_exit)
+    waitmovement(0)
+    //Lots of Ham members swarm the player and Zanik. Sigmund leaves menacingly
+    namebox ("Zanik")
+    msgbox(format("Shoot.\p{PLAYER}!\lI will handle this.\lYou go and get them!"))
+    applymovement(40, movement_HAM_Hideout_finale_misc_1)
+    applymovement(21, movement_HAM_Hideout_finale_Johanhus_1)
+	applymovement (OBJ_EVENT_ID_CAMERA, movement_HAM_Hideout_camera_2)
+    waitmovement(0)
+    special(RemoveCameraObject)
+    namebox ("Johanhus")
+    msgbox(format("I get it.\lYou believe you are righteous.\lYou believe you are correct.\lYou believe in yourself and that what you are doing is the good thing to do.\pAnd as do I.\pAs leader of Humans Against Monsters, on behalf of the world.\lI will smite you.."))
+    trainerbattle_no_intro(TRAINER_HAM_HIDEOUT_JOHANHUS, format("NO!\lThis cannot be!"))
+    namebox ("Johanhus")
+    msgbox(format("So it seems my power is insignificant to yours.\pI guess it seems weird to use the power of monsters to fight when we ourselves use monsters?\lBut what choice do we have?\pYou and everyone else changed the rules.\lWhat is a dagger to a dragon?\pThe world is changing.\lAnd we adapted.\lBut this is not the world we wish to live in."))
+    applymovement(21, Movement_InteractFACERIGHT)     //Looks to Prince Ali
+    namebox ("Johanhus")
+    msgbox(format("I will submit just this once.\lTake this prince and leave."))
+    applymovement(21, Movement_InteractFACELEFT)      //Looks to Zanik
+    namebox ("Johanhus")
+    msgbox(format("Out of goodness of my heart, you can even let the little gremlin over there live as well.\pIt doesn't matter.\lNone of this matters.\pIf Sigmund is right, you can not stop him.\lAnd he will make a world free of the monsters that once caused us so much pain.."))
+    applymovement(OBJ_EVENT_ID_FOLLOWER, Movement_InteractFACEPLAYER)
+    //Zanik runs to the player
+    namebox ("Zanik")
+    msgbox(format("Quick while he is monologuing {PLAYER}.\lGrab the Prince and run!"))
+    subquestmenu (QUEST_MENU_COMPLETE_QUEST, QUEST_MAIN_STORY, 11)                            //TBC
+    addvar(VAR_GAMEMODE_LEVEL_CAP, 5) //Level 55 cap.                                         //TBC
+    setvar(VAR_POKESCAPE_STORYMODE_PROGRESS, 245)                                             //TBC
+    call(FOLLOWER_REMOVE)
+    //warp outside to Lumbridge Forest
+    warp(MAP_LUMBRIDGE_FOREST, 28, 5)
+    waitstate
+    releaseall
+    end
+}
+
+movement movement_HAM_Hideout_finale_ZANIK_1{
+    walk_left
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_ZANIK_2{
+    walk_left
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_walk_up{
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_PRINCE_ALI_1{
+    walk_left
+    walk_up
+    step_end
+}
+
+movement movement_HAM_Hideout_camera_1{
+    walk_up * 5
+    step_end
+}
+
+movement movement_HAM_Hideout_camera_2{
+    delay_16
+    walk_down * 4
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_1{
+    face_down
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_2{
+    face_down
+    emote_exclamation_mark
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_reaction_3{
+    face_down
+    emote_double_exclamation_mark
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_left_1{
+    walk_fast_down * 2
+    walk_fast_left
+    face_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_left_2{
+    walk_fast_down * 2
+    face_left
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_right_1{
+    walk_fast_down * 2
+    walk_fast_right
+    face_up
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_swarm_right_2{
+    walk_fast_down * 2
+    face_right
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_Sigmund_exit{
+    walk_slow_left * 2
+    walk_slow_down
+    walk_slow_left
+    walk_slow_down * 2
+    walk_slow_right
+    walk_slow_down
+    walk_slow_right * 2
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_Johanhus_1{
+    walk_right * 2
+    walk_down * 3
+    walk_left * 2
+    walk_down
+    step_end
+}
+
+movement movement_HAM_Hideout_finale_misc_1{
+    walk_slow_up * 2
+    walk_slow_left
+    face_down
+    step_end
+}

@@ -35,11 +35,6 @@ NPC_VARROCK_ZMI_3::
 	end
 
 
-ITEM_ZMI_DEATH_RUNE::
-	finditem ITEM_DEATH_RUNE
-	end
-
-
 NPC_VARROCK_ZMI_1_Text_0:
 	.string "Zamorak Mage$"
 

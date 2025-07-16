@@ -420,6 +420,26 @@ Movement_DraynorGuardTree_3:
 	face_down
 	step_end
 
+NPC_Falador_Skiller::
+	lock
+	faceplayer
+	namebox NPC_Falador_Skiller_Text_0
+	msgbox NPC_Falador_Skiller_Text_1
+	hidenamebox
+	release
+	end
+
+
+NPC_Draynor_Skiller::
+	lock
+	faceplayer
+	namebox NPC_Draynor_Skiller_Text_0
+	msgbox NPC_Draynor_Skiller_Text_1
+	hidenamebox
+	release
+	end
+
+
 NPC_Draynor_Woman_1::
 	lock
 	faceplayer
@@ -723,6 +743,21 @@ Draynor_TREE_Text_3:
 	.string "Sigh…\p"
 	.string "Oh well, I guess I should better get\n"
 	.string "back to work…$"
+
+NPC_Falador_Skiller_Text_0:
+	.string "Sk1llchawmpa$"
+
+NPC_Falador_Skiller_Text_1:
+	.string "My chinchompa is a skiller like me!\p"
+	.string "No fighting for us, just skilling!$"
+
+NPC_Draynor_Skiller_Text_0:
+	.string "Ch1nchawmpa$"
+
+NPC_Draynor_Skiller_Text_1:
+	.string "Chinchompas are really hard to train,\n"
+	.string "but if you put the effort in they are a\l"
+	.string "force to be reckoned with!$"
 
 NPC_Draynor_Woman_1_Text_0:
 	.string "Loreman42$"

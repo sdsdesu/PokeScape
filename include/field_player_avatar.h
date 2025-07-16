@@ -3,9 +3,8 @@
 
 void PlayerStep(u8 direction, u16 newKeys, u16 heldKeys);
 void ClearPlayerAvatarInfo(void);
-void SetPlayerAvatarExtraStateTransition(u16, u8);
-u16 GetPlayerAvatarGenderByGraphicsId(u16);
-bool8 TestPlayerAvatarFlags(u8);
+void SetPlayerAvatarExtraStateTransition(u16, u16);
+u16 TestPlayerAvatarFlags(u16);
 u8 GetPlayerAvatarSpriteId(void);
 void PlayerGetDestCoords(s16 *, s16 *);
 u8 GetPlayerFacingDirection(void);
@@ -34,22 +33,22 @@ bool8 TryPushBoulder(s16, s16, u8); //qol_field_moves
 u8 PlayerGetElevation(void);
 void SetPlayerAvatarTransitionFlags(u16 transitionFlags);
 void CancelPlayerForcedMovement(void);
-void InitPlayerAvatar(s16 x, s16 y, u8 direction, u8 gender);
+void InitPlayerAvatar(s16 x, s16 y, u8 direction);
 void PlayerFreeze(void);
 void StopPlayerAvatar(void);
 void SetSpinStartFacingDir(u8);
 void GetXYCoordsOneStepInFrontOfPlayer(s16 *xPtr, s16 *yPtr);
-u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
+u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u16 state, u8 gender);
 void SetPlayerAvatarFieldMove(void);
 u16 GetPlayerAvatarGraphicsIdByCurrentState(void);
-void SetPlayerAvatarStateMask(u8 flags);
-u16 GetPlayerAvatarGraphicsIdByStateId(u8 state);
+void SetPlayerAvatarStateMask(u16 flags);
+u16 GetPlayerAvatarGraphicsIdByStateId(u16 state);
 u8 GetJumpSpecialMovementAction(u32);
 bool8 PartyHasMonWithSurf(void);
 bool8 IsPlayerFacingSurfableFishableWater(void);
 bool8 IsPlayerSurfingNorth(void);
 void SetPlayerAvatarWatering(u8 direction);
-u8 GetPlayerAvatarFlags(void);
+u16 GetPlayerAvatarFlags(void);
 void UpdatePlayerAvatarTransitionState(void);
 u16 GetFRLGAvatarGraphicsIdByGender(u8);
 u16 GetRSAvatarGraphicsIdByGender(u8);
@@ -73,5 +72,10 @@ u8 GetLeftSideStairsDirection(u8 direction);
 void PlayerAvatarTransition_Surfing(struct ObjectEvent *); 
 void ForcePlayerToPerformMovementAction(void);
 bool8 IsPlayerFacingSurfableFishableLava(void);
+u16 GetPlayerAvatarGraphicsIdByOutfitStateIdAndGender(u8 outfit, u8 state, u8 gender);
+u16 GetPlayerAnimGraphicsIdByOutfitStateIdAndGender(u8 outfit, u8 state, u8 gender);
+u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender);
+void SetPlayerAvatarVsSeeker(void);
+u8 GetLinkPlayerAvatarGraphicsIdByStateIdLinkIdAndGender(u8 state, u8 linkId, u8 gender);
 
 #endif // GUARD_FIELD_PLAYER_AVATAR_H
